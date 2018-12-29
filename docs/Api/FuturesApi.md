@@ -1,4 +1,4 @@
-# GateClient\FuturesApi
+# GateApi\FuturesApi
 
 All URIs are relative to *https://fx-api.gateio.io/api/v4*
 
@@ -34,8 +34,8 @@ Cancel a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 $order_id = 'order_id_example'; // string | order id
 try {
@@ -74,8 +74,8 @@ Cancel all `open` orders matched
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 $contract = 'contract_example'; // string | futures contract
 $side = 'side_example'; // string | All bids or asks. Both included in not specfied
@@ -107,7 +107,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createOrder**
-> \GateClient\Model\FuturesOrder createOrder($futures_order)
+> \GateApi\Model\FuturesOrder createOrder($futures_order)
 
 Create a futures order
 
@@ -117,14 +117,14 @@ Create a futures order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
-$futures_order = new \GateClient\Model\FuturesOrder([
+$futures_order = new \GateApi\Model\FuturesOrder([
     "contract" => "contract_example",
     "size" => 1,
     "price" => "4000"
-]); // \GateClient\Model\FuturesOrder | 
+]); // \GateApi\Model\FuturesOrder | 
 
 try {
     $result = $apiInstance->createOrder($futures_order);
@@ -139,11 +139,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **futures_order** | [**\GateClient\Model\FuturesOrder**](../Model/FuturesOrder.md)|  | [optional]
+ **futures_order** | [**\GateApi\Model\FuturesOrder**](../Model/FuturesOrder.md)|  | [optional]
 
 ### Return type
 
-[**\GateClient\Model\FuturesOrder**](../Model/FuturesOrder.md)
+[**\GateApi\Model\FuturesOrder**](../Model/FuturesOrder.md)
 
 ### HTTP request headers
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMyTrades**
-> \GateClient\Model\MyFuturesTrade[] getMyTrades($contract, $limit, $last_id)
+> \GateApi\Model\MyFuturesTrade[] getMyTrades($contract, $limit, $last_id)
 
 List personal trading history
 
@@ -162,8 +162,8 @@ List personal trading history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 $contract = 'contract_example'; // string | futures contract. If specified, return only data related to the contract
 $limit = 100; // int | maximum number of data returned in one request
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\MyFuturesTrade[]**](../Model/MyFuturesTrade.md)
+[**\GateApi\Model\MyFuturesTrade[]**](../Model/MyFuturesTrade.md)
 
 ### HTTP request headers
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrder**
-> \GateClient\Model\FuturesOrder getOrder($order_id)
+> \GateApi\Model\FuturesOrder getOrder($order_id)
 
 Get a single order
 
@@ -207,8 +207,8 @@ Get a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 $order_id = 'order_id_example'; // string | order id
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\FuturesOrder**](../Model/FuturesOrder.md)
+[**\GateApi\Model\FuturesOrder**](../Model/FuturesOrder.md)
 
 ### HTTP request headers
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesAccounts**
-> \GateClient\Model\FuturesAccount listFuturesAccounts()
+> \GateApi\Model\FuturesAccount listFuturesAccounts()
 
 Query futures account
 
@@ -248,8 +248,8 @@ Query futures account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 try {
     $result = $apiInstance->listFuturesAccounts();
@@ -265,7 +265,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\GateClient\Model\FuturesAccount**](../Model/FuturesAccount.md)
+[**\GateApi\Model\FuturesAccount**](../Model/FuturesAccount.md)
 
 ### HTTP request headers
 
@@ -275,7 +275,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesCandlesticks**
-> \GateClient\Model\FuturesCandlestick listFuturesCandlesticks($contract, $from, $to, $limit, $interval)
+> \GateApi\Model\FuturesCandlestick listFuturesCandlesticks($contract, $from, $to, $limit, $interval)
 
 Get futures candlesticks
 
@@ -286,7 +286,7 @@ Return specified contract candlesticks. If prefix `contract` with `mark_`, the c
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new \GateClient\Api\FuturesApi();
+$apiInstance = new \GateApi\Api\FuturesApi();
 
 try {
     $result = $apiInstance->listFuturesCandlesticks($contract, $from, $to, $limit, $interval);
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\FuturesCandlestick**](../Model/FuturesCandlestick.md)
+[**\GateApi\Model\FuturesCandlestick**](../Model/FuturesCandlestick.md)
 
 ### HTTP request headers
 
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesContracts**
-> \GateClient\Model\Contract[] listFuturesContracts()
+> \GateApi\Model\Contract[] listFuturesContracts()
 
 List all futures contracts
 
@@ -328,7 +328,7 @@ List all futures contracts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi();
+$apiInstance = new GateApi\Api\FuturesApi();
 
 try {
     $result = $apiInstance->listFuturesContracts();
@@ -344,7 +344,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\GateClient\Model\Contract[]**](../Model/Contract.md)
+[**\GateApi\Model\Contract[]**](../Model/Contract.md)
 
 ### HTTP request headers
 
@@ -354,7 +354,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesFundingRateHistory**
-> \GateClient\Model\FundingRateRecord listFuturesFundingRateHistory($contract, $limit)
+> \GateApi\Model\FundingRateRecord listFuturesFundingRateHistory($contract, $limit)
 
 Funding rate history
 
@@ -363,7 +363,7 @@ Funding rate history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi();
+$apiInstance = new GateApi\Api\FuturesApi();
 $contract = 'contract_example'; // string | futures contract
 $limit = 100; // int | maximum number of data returned in one request
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\FundingRateRecord**](../Model/FundingRateRecord.md)
+[**\GateApi\Model\FundingRateRecord**](../Model/FundingRateRecord.md)
 
 ### HTTP request headers
 
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesInsuranceLedger**
-> \GateClient\Model\InsuranceRecord listFuturesInsuranceLedger($limit)
+> \GateApi\Model\InsuranceRecord listFuturesInsuranceLedger($limit)
 
 Futures insurance balance history
 
@@ -404,7 +404,7 @@ Futures insurance balance history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi();
+$apiInstance = new GateApi\Api\FuturesApi();
 $limit = 100; // int | maximum number of data returned in one request
 
 try {
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\InsuranceRecord**](../Model/InsuranceRecord.md)
+[**\GateApi\Model\InsuranceRecord**](../Model/InsuranceRecord.md)
 
 ### HTTP request headers
 
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesOrderBook**
-> \GateClient\Model\FuturesOrderBook listFuturesOrderBook($contract, $interval, $limit)
+> \GateApi\Model\FuturesOrderBook listFuturesOrderBook($contract, $interval, $limit)
 
 Futures order book
 
@@ -445,7 +445,7 @@ bids will be sorted by price from high to low, while asks sorted reversely
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi();
+$apiInstance = new GateApi\Api\FuturesApi();
 $contract = 'contract_example'; // string | futures contract
 $interval = '0'; // string | order depth. 0 means no aggregation is applied. default to 0
 $limit = 10; // int | maximum number of order depth data in asks or bids
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\FuturesOrderBook**](../Model/FuturesOrderBook.md)
+[**\GateApi\Model\FuturesOrderBook**](../Model/FuturesOrderBook.md)
 
 ### HTTP request headers
 
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesTickers**
-> \GateClient\Model\FuturesTicker[] listFuturesTickers($contract)
+> \GateApi\Model\FuturesTicker[] listFuturesTickers($contract)
 
 List futures tickers
 
@@ -488,7 +488,7 @@ List futures tickers
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi();
+$apiInstance = new GateApi\Api\FuturesApi();
 $contract = 'contract_example'; // string | futures contract. If specified, return only data related to the contract
 
 try {
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\FuturesTicker[]**](../Model/FuturesTicker.md)
+[**\GateApi\Model\FuturesTicker[]**](../Model/FuturesTicker.md)
 
 ### HTTP request headers
 
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesTrades**
-> \GateClient\Model\FuturesTrade[] listFuturesTrades($contract, $limit, $last_id)
+> \GateApi\Model\FuturesTrade[] listFuturesTrades($contract, $limit, $last_id)
 
 Futures trading history
 
@@ -527,7 +527,7 @@ Futures trading history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi();
+$apiInstance = new GateApi\Api\FuturesApi();
 $contract = 'contract_example'; // string | futures contract
 $limit = 100; // int | maximum number of data returned in one request
 $last_id = 'last_id_example'; // string | specify list staring record. Use the `id` in every last record of one list-query request to achieve consecutive list query
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\FuturesTrade[]**](../Model/FuturesTrade.md)
+[**\GateApi\Model\FuturesTrade[]**](../Model/FuturesTrade.md)
 
 ### HTTP request headers
 
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrders**
-> \GateClient\Model\FuturesOrder[] listOrders($contract, $status, $limit, $last_id)
+> \GateApi\Model\FuturesOrder[] listOrders($contract, $status, $limit, $last_id)
 
 List futures orders
 
@@ -570,8 +570,8 @@ List futures orders
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 $contract = 'contract_example'; // string | futures contract
 $status = 'status_example'; // string | order status
@@ -598,7 +598,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\FuturesOrder[]**](../Model/FuturesOrder.md)
+[**\GateApi\Model\FuturesOrder[]**](../Model/FuturesOrder.md)
 
 ### HTTP request headers
 
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPositions**
-> \GateClient\Model\Position[] listPositions()
+> \GateApi\Model\Position[] listPositions()
 
 List all positions
 
@@ -617,8 +617,8 @@ List all positions
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 try {
     $result = $apiInstance->listPositions();
@@ -634,7 +634,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\GateClient\Model\Position[]**](../Model/Position.md)
+[**\GateApi\Model\Position[]**](../Model/Position.md)
 
 ### HTTP request headers
 
@@ -644,7 +644,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePositionLeverage**
-> \GateClient\Model\Position updatePositionLeverage($contract, $leverage)
+> \GateApi\Model\Position updatePositionLeverage($contract, $leverage)
 
 Update position leverage
 
@@ -653,8 +653,8 @@ Update position leverage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 $contract = 'contract_example'; // string | futures contract
 $leverage = 'leverage_example'; // string | new leverage of position
@@ -677,7 +677,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\Position**](../Model/Position.md)
+[**\GateApi\Model\Position**](../Model/Position.md)
 
 ### HTTP request headers
 
@@ -687,7 +687,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePositionMargin**
-> \GateClient\Model\Position updatePositionMargin($contract, $change)
+> \GateApi\Model\Position updatePositionMargin($contract, $change)
 
 Update position margin
 
@@ -696,8 +696,8 @@ Update position margin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 $contract = 'contract_example'; // string | futures contract
 $change = 'change_example'; // string | margin change. Use positive number to increase margin, negative number otherwise.
@@ -720,7 +720,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\Position**](../Model/Position.md)
+[**\GateApi\Model\Position**](../Model/Position.md)
 
 ### HTTP request headers
 
@@ -730,7 +730,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePositionRiskLimit**
-> \GateClient\Model\Position updatePositionRiskLimit($contract, $risk_limit)
+> \GateApi\Model\Position updatePositionRiskLimit($contract, $risk_limit)
 
 Update poisition risk limit
 
@@ -739,8 +739,8 @@ Update poisition risk limit
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+$config = new \GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateApi\Api\FuturesApi(null, $config);
 
 $contract = 'contract_example'; // string | futures contract
 $risk_limit = 'risk_limit_example'; // string | new risk limit of position
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateClient\Model\Position**](../Model/Position.md)
+[**\GateApi\Model\Position**](../Model/Position.md)
 
 ### HTTP request headers
 

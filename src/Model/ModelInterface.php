@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  GateClient\Model
+ * @package  GateApi\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace GateClient\Model;
+namespace GateApi\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package GateClient\Model
+ * @package GateApi\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

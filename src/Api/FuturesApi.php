@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  GateClient
+ * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace GateClient\Api;
+namespace GateApi\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use GateClient\ApiException;
-use GateClient\Configuration;
-use GateClient\HeaderSelector;
-use GateClient\ObjectSerializer;
+use GateApi\ApiException;
+use GateApi\Configuration;
+use GateApi\HeaderSelector;
+use GateApi\ObjectSerializer;
 
 /**
  * FuturesApi Class Doc Comment
  *
  * @category Class
- * @package  GateClient
+ * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -94,7 +94,7 @@ class FuturesApi
      *
      * @param  string $order_id order id (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -110,7 +110,7 @@ class FuturesApi
      *
      * @param  string $order_id order id (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -335,7 +335,7 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  string $side All bids or asks. Both included in not specfied (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -352,7 +352,7 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  string $side All bids or asks. Both included in not specfied (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -562,11 +562,11 @@ class FuturesApi
      *
      * Create a futures order
      *
-     * @param  \GateClient\Model\FuturesOrder $futures_order futures_order (optional)
+     * @param  \GateApi\Model\FuturesOrder $futures_order futures_order (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FuturesOrder
+     * @return \GateApi\Model\FuturesOrder
      */
     public function createOrder($futures_order = null)
     {
@@ -579,11 +579,11 @@ class FuturesApi
      *
      * Create a futures order
      *
-     * @param  \GateClient\Model\FuturesOrder $futures_order (optional)
+     * @param  \GateApi\Model\FuturesOrder $futures_order (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FuturesOrder, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FuturesOrder, HTTP status code, HTTP response headers (array of strings)
      */
     public function createOrderWithHttpInfo($futures_order = null)
     {
@@ -620,20 +620,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\GateClient\Model\FuturesOrder' === '\SplFileObject') {
+                    if ('\GateApi\Model\FuturesOrder' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FuturesOrder', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesOrder', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FuturesOrder';
+            $returnType = '\GateApi\Model\FuturesOrder';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -652,7 +652,7 @@ class FuturesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FuturesOrder',
+                        '\GateApi\Model\FuturesOrder',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -667,7 +667,7 @@ class FuturesApi
      *
      * Create a futures order
      *
-     * @param  \GateClient\Model\FuturesOrder $futures_order (optional)
+     * @param  \GateApi\Model\FuturesOrder $futures_order (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -687,14 +687,14 @@ class FuturesApi
      *
      * Create a futures order
      *
-     * @param  \GateClient\Model\FuturesOrder $futures_order (optional)
+     * @param  \GateApi\Model\FuturesOrder $futures_order (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createOrderAsyncWithHttpInfo($futures_order = null)
     {
-        $returnType = '\GateClient\Model\FuturesOrder';
+        $returnType = '\GateApi\Model\FuturesOrder';
         $request = $this->createOrderRequest($futures_order);
 
         return $this->client
@@ -734,7 +734,7 @@ class FuturesApi
     /**
      * Create request for operation 'createOrder'
      *
-     * @param  \GateClient\Model\FuturesOrder $futures_order (optional)
+     * @param  \GateApi\Model\FuturesOrder $futures_order (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -828,9 +828,9 @@ class FuturesApi
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      * @param  string $last_id specify list staring record. Use the &#x60;id&#x60; in every last record of one list-query request to achieve consecutive list query (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\MyFuturesTrade[]
+     * @return \GateApi\Model\MyFuturesTrade[]
      */
     public function getMyTrades($contract = null, $limit = 100, $last_id = null)
     {
@@ -847,9 +847,9 @@ class FuturesApi
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      * @param  string $last_id specify list staring record. Use the &#x60;id&#x60; in every last record of one list-query request to achieve consecutive list query (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\MyFuturesTrade[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\MyFuturesTrade[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMyTradesWithHttpInfo($contract = null, $limit = 100, $last_id = null)
     {
@@ -886,20 +886,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\MyFuturesTrade[]' === '\SplFileObject') {
+                    if ('\GateApi\Model\MyFuturesTrade[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\MyFuturesTrade[]', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\MyFuturesTrade[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\MyFuturesTrade[]';
+            $returnType = '\GateApi\Model\MyFuturesTrade[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -918,7 +918,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\MyFuturesTrade[]',
+                        '\GateApi\Model\MyFuturesTrade[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -964,7 +964,7 @@ class FuturesApi
      */
     public function getMyTradesAsyncWithHttpInfo($contract = null, $limit = 100, $last_id = null)
     {
-        $returnType = '\GateClient\Model\MyFuturesTrade[]';
+        $returnType = '\GateApi\Model\MyFuturesTrade[]';
         $request = $this->getMyTradesRequest($contract, $limit, $last_id);
 
         return $this->client
@@ -1114,9 +1114,9 @@ class FuturesApi
      *
      * @param  string $order_id order id (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FuturesOrder
+     * @return \GateApi\Model\FuturesOrder
      */
     public function getOrder($order_id)
     {
@@ -1131,9 +1131,9 @@ class FuturesApi
      *
      * @param  string $order_id order id (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FuturesOrder, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FuturesOrder, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderWithHttpInfo($order_id)
     {
@@ -1170,20 +1170,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\FuturesOrder' === '\SplFileObject') {
+                    if ('\GateApi\Model\FuturesOrder' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FuturesOrder', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesOrder', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FuturesOrder';
+            $returnType = '\GateApi\Model\FuturesOrder';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1202,7 +1202,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FuturesOrder',
+                        '\GateApi\Model\FuturesOrder',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1244,7 +1244,7 @@ class FuturesApi
      */
     public function getOrderAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\GateClient\Model\FuturesOrder';
+        $returnType = '\GateApi\Model\FuturesOrder';
         $request = $this->getOrderRequest($order_id);
 
         return $this->client
@@ -1387,9 +1387,9 @@ class FuturesApi
      * Query futures account
      *
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FuturesAccount
+     * @return \GateApi\Model\FuturesAccount
      */
     public function listFuturesAccounts()
     {
@@ -1403,9 +1403,9 @@ class FuturesApi
      * Query futures account
      *
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FuturesAccount, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FuturesAccount, HTTP status code, HTTP response headers (array of strings)
      */
     public function listFuturesAccountsWithHttpInfo()
     {
@@ -1442,20 +1442,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\FuturesAccount' === '\SplFileObject') {
+                    if ('\GateApi\Model\FuturesAccount' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FuturesAccount', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesAccount', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FuturesAccount';
+            $returnType = '\GateApi\Model\FuturesAccount';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1474,7 +1474,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FuturesAccount',
+                        '\GateApi\Model\FuturesAccount',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1514,7 +1514,7 @@ class FuturesApi
      */
     public function listFuturesAccountsAsyncWithHttpInfo()
     {
-        $returnType = '\GateClient\Model\FuturesAccount';
+        $returnType = '\GateApi\Model\FuturesAccount';
         $request = $this->listFuturesAccountsRequest();
 
         return $this->client
@@ -1646,9 +1646,9 @@ class FuturesApi
      * @param  int $limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param  string $interval interval time between data points (optional, default to '5m')
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FuturesCandlestick
+     * @return \GateApi\Model\FuturesCandlestick
      */
     public function listFuturesCandlesticks($contract, $from = null, $to = null, $limit = 100, $interval = '5m')
     {
@@ -1667,9 +1667,9 @@ class FuturesApi
      * @param  int $limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param  string $interval interval time between data points (optional, default to '5m')
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FuturesCandlestick, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FuturesCandlestick, HTTP status code, HTTP response headers (array of strings)
      */
     public function listFuturesCandlesticksWithHttpInfo($contract, $from = null, $to = null, $limit = 100, $interval = '5m')
     {
@@ -1706,20 +1706,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\FuturesCandlestick' === '\SplFileObject') {
+                    if ('\GateApi\Model\FuturesCandlestick' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FuturesCandlestick', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesCandlestick', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FuturesCandlestick';
+            $returnType = '\GateApi\Model\FuturesCandlestick';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1738,7 +1738,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FuturesCandlestick',
+                        '\GateApi\Model\FuturesCandlestick',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1788,7 +1788,7 @@ class FuturesApi
      */
     public function listFuturesCandlesticksAsyncWithHttpInfo($contract, $from = null, $to = null, $limit = 100, $interval = '5m')
     {
-        $returnType = '\GateClient\Model\FuturesCandlestick';
+        $returnType = '\GateApi\Model\FuturesCandlestick';
         $request = $this->listFuturesCandlesticksRequest($contract, $from, $to, $limit, $interval);
 
         return $this->client
@@ -1949,9 +1949,9 @@ class FuturesApi
      * List all futures contracts
      *
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\Contract[]
+     * @return \GateApi\Model\Contract[]
      */
     public function listFuturesContracts()
     {
@@ -1965,9 +1965,9 @@ class FuturesApi
      * List all futures contracts
      *
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\Contract[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\Contract[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listFuturesContractsWithHttpInfo()
     {
@@ -2004,20 +2004,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\Contract[]' === '\SplFileObject') {
+                    if ('\GateApi\Model\Contract[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\Contract[]', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\Contract[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\Contract[]';
+            $returnType = '\GateApi\Model\Contract[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2036,7 +2036,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\Contract[]',
+                        '\GateApi\Model\Contract[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2076,7 +2076,7 @@ class FuturesApi
      */
     public function listFuturesContractsAsyncWithHttpInfo()
     {
-        $returnType = '\GateClient\Model\Contract[]';
+        $returnType = '\GateApi\Model\Contract[]';
         $request = $this->listFuturesContractsRequest();
 
         return $this->client
@@ -2204,9 +2204,9 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FundingRateRecord
+     * @return \GateApi\Model\FundingRateRecord
      */
     public function listFuturesFundingRateHistory($contract, $limit = 100)
     {
@@ -2222,9 +2222,9 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FundingRateRecord, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FundingRateRecord, HTTP status code, HTTP response headers (array of strings)
      */
     public function listFuturesFundingRateHistoryWithHttpInfo($contract, $limit = 100)
     {
@@ -2261,20 +2261,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\FundingRateRecord' === '\SplFileObject') {
+                    if ('\GateApi\Model\FundingRateRecord' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FundingRateRecord', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FundingRateRecord', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FundingRateRecord';
+            $returnType = '\GateApi\Model\FundingRateRecord';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2293,7 +2293,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FundingRateRecord',
+                        '\GateApi\Model\FundingRateRecord',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2337,7 +2337,7 @@ class FuturesApi
      */
     public function listFuturesFundingRateHistoryAsyncWithHttpInfo($contract, $limit = 100)
     {
-        $returnType = '\GateClient\Model\FundingRateRecord';
+        $returnType = '\GateApi\Model\FundingRateRecord';
         $request = $this->listFuturesFundingRateHistoryRequest($contract, $limit);
 
         return $this->client
@@ -2487,9 +2487,9 @@ class FuturesApi
      *
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\InsuranceRecord
+     * @return \GateApi\Model\InsuranceRecord
      */
     public function listFuturesInsuranceLedger($limit = 100)
     {
@@ -2504,9 +2504,9 @@ class FuturesApi
      *
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\InsuranceRecord, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\InsuranceRecord, HTTP status code, HTTP response headers (array of strings)
      */
     public function listFuturesInsuranceLedgerWithHttpInfo($limit = 100)
     {
@@ -2543,20 +2543,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\InsuranceRecord' === '\SplFileObject') {
+                    if ('\GateApi\Model\InsuranceRecord' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\InsuranceRecord', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\InsuranceRecord', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\InsuranceRecord';
+            $returnType = '\GateApi\Model\InsuranceRecord';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2575,7 +2575,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\InsuranceRecord',
+                        '\GateApi\Model\InsuranceRecord',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2617,7 +2617,7 @@ class FuturesApi
      */
     public function listFuturesInsuranceLedgerAsyncWithHttpInfo($limit = 100)
     {
-        $returnType = '\GateClient\Model\InsuranceRecord';
+        $returnType = '\GateApi\Model\InsuranceRecord';
         $request = $this->listFuturesInsuranceLedgerRequest($limit);
 
         return $this->client
@@ -2758,9 +2758,9 @@ class FuturesApi
      * @param  string $interval order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param  int $limit maximum number of order depth data in asks or bids (optional, default to 10)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FuturesOrderBook
+     * @return \GateApi\Model\FuturesOrderBook
      */
     public function listFuturesOrderBook($contract, $interval = '0', $limit = 10)
     {
@@ -2777,9 +2777,9 @@ class FuturesApi
      * @param  string $interval order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param  int $limit maximum number of order depth data in asks or bids (optional, default to 10)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FuturesOrderBook, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FuturesOrderBook, HTTP status code, HTTP response headers (array of strings)
      */
     public function listFuturesOrderBookWithHttpInfo($contract, $interval = '0', $limit = 10)
     {
@@ -2816,20 +2816,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\FuturesOrderBook' === '\SplFileObject') {
+                    if ('\GateApi\Model\FuturesOrderBook' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FuturesOrderBook', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesOrderBook', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FuturesOrderBook';
+            $returnType = '\GateApi\Model\FuturesOrderBook';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2848,7 +2848,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FuturesOrderBook',
+                        '\GateApi\Model\FuturesOrderBook',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2894,7 +2894,7 @@ class FuturesApi
      */
     public function listFuturesOrderBookAsyncWithHttpInfo($contract, $interval = '0', $limit = 10)
     {
-        $returnType = '\GateClient\Model\FuturesOrderBook';
+        $returnType = '\GateApi\Model\FuturesOrderBook';
         $request = $this->listFuturesOrderBookRequest($contract, $interval, $limit);
 
         return $this->client
@@ -3049,9 +3049,9 @@ class FuturesApi
      *
      * @param  string $contract futures contract. If specified, return only data related to the contract (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FuturesTicker[]
+     * @return \GateApi\Model\FuturesTicker[]
      */
     public function listFuturesTickers($contract = null)
     {
@@ -3066,9 +3066,9 @@ class FuturesApi
      *
      * @param  string $contract futures contract. If specified, return only data related to the contract (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FuturesTicker[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FuturesTicker[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listFuturesTickersWithHttpInfo($contract = null)
     {
@@ -3105,20 +3105,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\FuturesTicker[]' === '\SplFileObject') {
+                    if ('\GateApi\Model\FuturesTicker[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FuturesTicker[]', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesTicker[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FuturesTicker[]';
+            $returnType = '\GateApi\Model\FuturesTicker[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3137,7 +3137,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FuturesTicker[]',
+                        '\GateApi\Model\FuturesTicker[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3179,7 +3179,7 @@ class FuturesApi
      */
     public function listFuturesTickersAsyncWithHttpInfo($contract = null)
     {
-        $returnType = '\GateClient\Model\FuturesTicker[]';
+        $returnType = '\GateApi\Model\FuturesTicker[]';
         $request = $this->listFuturesTickersRequest($contract);
 
         return $this->client
@@ -3313,9 +3313,9 @@ class FuturesApi
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      * @param  string $last_id specify list staring record. Use the &#x60;id&#x60; in every last record of one list-query request to achieve consecutive list query (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FuturesTrade[]
+     * @return \GateApi\Model\FuturesTrade[]
      */
     public function listFuturesTrades($contract, $limit = 100, $last_id = null)
     {
@@ -3332,9 +3332,9 @@ class FuturesApi
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      * @param  string $last_id specify list staring record. Use the &#x60;id&#x60; in every last record of one list-query request to achieve consecutive list query (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FuturesTrade[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FuturesTrade[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listFuturesTradesWithHttpInfo($contract, $limit = 100, $last_id = null)
     {
@@ -3371,20 +3371,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\FuturesTrade[]' === '\SplFileObject') {
+                    if ('\GateApi\Model\FuturesTrade[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FuturesTrade[]', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesTrade[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FuturesTrade[]';
+            $returnType = '\GateApi\Model\FuturesTrade[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3403,7 +3403,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FuturesTrade[]',
+                        '\GateApi\Model\FuturesTrade[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3449,7 +3449,7 @@ class FuturesApi
      */
     public function listFuturesTradesAsyncWithHttpInfo($contract, $limit = 100, $last_id = null)
     {
-        $returnType = '\GateClient\Model\FuturesTrade[]';
+        $returnType = '\GateApi\Model\FuturesTrade[]';
         $request = $this->listFuturesTradesRequest($contract, $limit, $last_id);
 
         return $this->client
@@ -3607,9 +3607,9 @@ class FuturesApi
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      * @param  string $last_id specify list staring record. Use the &#x60;id&#x60; in every last record of one list-query request to achieve consecutive list query (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\FuturesOrder[]
+     * @return \GateApi\Model\FuturesOrder[]
      */
     public function listOrders($contract, $status, $limit = 100, $last_id = null)
     {
@@ -3627,9 +3627,9 @@ class FuturesApi
      * @param  int $limit maximum number of data returned in one request (optional, default to 100)
      * @param  string $last_id specify list staring record. Use the &#x60;id&#x60; in every last record of one list-query request to achieve consecutive list query (optional)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\FuturesOrder[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\FuturesOrder[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listOrdersWithHttpInfo($contract, $status, $limit = 100, $last_id = null)
     {
@@ -3666,20 +3666,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\FuturesOrder[]' === '\SplFileObject') {
+                    if ('\GateApi\Model\FuturesOrder[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\FuturesOrder[]', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesOrder[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\FuturesOrder[]';
+            $returnType = '\GateApi\Model\FuturesOrder[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3698,7 +3698,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\FuturesOrder[]',
+                        '\GateApi\Model\FuturesOrder[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3746,7 +3746,7 @@ class FuturesApi
      */
     public function listOrdersAsyncWithHttpInfo($contract, $status, $limit = 100, $last_id = null)
     {
-        $returnType = '\GateClient\Model\FuturesOrder[]';
+        $returnType = '\GateApi\Model\FuturesOrder[]';
         $request = $this->listOrdersRequest($contract, $status, $limit, $last_id);
 
         return $this->client
@@ -3912,9 +3912,9 @@ class FuturesApi
      * List all positions
      *
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\Position[]
+     * @return \GateApi\Model\Position[]
      */
     public function listPositions()
     {
@@ -3928,9 +3928,9 @@ class FuturesApi
      * List all positions
      *
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\Position[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listPositionsWithHttpInfo()
     {
@@ -3967,20 +3967,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\Position[]' === '\SplFileObject') {
+                    if ('\GateApi\Model\Position[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\Position[]', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\Position[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\Position[]';
+            $returnType = '\GateApi\Model\Position[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3999,7 +3999,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\Position[]',
+                        '\GateApi\Model\Position[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4039,7 +4039,7 @@ class FuturesApi
      */
     public function listPositionsAsyncWithHttpInfo()
     {
-        $returnType = '\GateClient\Model\Position[]';
+        $returnType = '\GateApi\Model\Position[]';
         $request = $this->listPositionsRequest();
 
         return $this->client
@@ -4168,9 +4168,9 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  string $leverage new leverage of position (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\Position
+     * @return \GateApi\Model\Position
      */
     public function updatePositionLeverage($contract, $leverage)
     {
@@ -4186,9 +4186,9 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  string $leverage new leverage of position (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\Position, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePositionLeverageWithHttpInfo($contract, $leverage)
     {
@@ -4225,20 +4225,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\Position' === '\SplFileObject') {
+                    if ('\GateApi\Model\Position' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\Position', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\Position', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\Position';
+            $returnType = '\GateApi\Model\Position';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4257,7 +4257,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\Position',
+                        '\GateApi\Model\Position',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4301,7 +4301,7 @@ class FuturesApi
      */
     public function updatePositionLeverageAsyncWithHttpInfo($contract, $leverage)
     {
-        $returnType = '\GateClient\Model\Position';
+        $returnType = '\GateApi\Model\Position';
         $request = $this->updatePositionLeverageRequest($contract, $leverage);
 
         return $this->client
@@ -4456,9 +4456,9 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  string $change margin change. Use positive number to increase margin, negative number otherwise. (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\Position
+     * @return \GateApi\Model\Position
      */
     public function updatePositionMargin($contract, $change)
     {
@@ -4474,9 +4474,9 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  string $change margin change. Use positive number to increase margin, negative number otherwise. (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\Position, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePositionMarginWithHttpInfo($contract, $change)
     {
@@ -4513,20 +4513,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\Position' === '\SplFileObject') {
+                    if ('\GateApi\Model\Position' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\Position', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\Position', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\Position';
+            $returnType = '\GateApi\Model\Position';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4545,7 +4545,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\Position',
+                        '\GateApi\Model\Position',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4589,7 +4589,7 @@ class FuturesApi
      */
     public function updatePositionMarginAsyncWithHttpInfo($contract, $change)
     {
-        $returnType = '\GateClient\Model\Position';
+        $returnType = '\GateApi\Model\Position';
         $request = $this->updatePositionMarginRequest($contract, $change);
 
         return $this->client
@@ -4744,9 +4744,9 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  string $risk_limit new risk limit of position (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateClient\Model\Position
+     * @return \GateApi\Model\Position
      */
     public function updatePositionRiskLimit($contract, $risk_limit)
     {
@@ -4762,9 +4762,9 @@ class FuturesApi
      * @param  string $contract futures contract (required)
      * @param  string $risk_limit new risk limit of position (required)
      *
-     * @throws \GateClient\ApiException on non-2xx response
+     * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateClient\Model\Position, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePositionRiskLimitWithHttpInfo($contract, $risk_limit)
     {
@@ -4801,20 +4801,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateClient\Model\Position' === '\SplFileObject') {
+                    if ('\GateApi\Model\Position' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateClient\Model\Position', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\Position', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateClient\Model\Position';
+            $returnType = '\GateApi\Model\Position';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4833,7 +4833,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateClient\Model\Position',
+                        '\GateApi\Model\Position',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4877,7 +4877,7 @@ class FuturesApi
      */
     public function updatePositionRiskLimitAsyncWithHttpInfo($contract, $risk_limit)
     {
-        $returnType = '\GateClient\Model\Position';
+        $returnType = '\GateApi\Model\Position';
         $request = $this->updatePositionRiskLimitRequest($contract, $risk_limit);
 
         return $this->client

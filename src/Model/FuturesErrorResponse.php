@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  GateClient
+ * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace GateClient\Model;
+namespace GateApi\Model;
 
 use \ArrayAccess;
-use \GateClient\ObjectSerializer;
+use \GateApi\ObjectSerializer;
 
 /**
  * FuturesErrorResponse Class Doc Comment
  *
  * @category Class
  * @description 非 2xx 状态码是的异常描述信息
- * @package  GateClient
+ * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

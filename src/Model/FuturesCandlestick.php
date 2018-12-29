@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  GateClient
+ * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace GateClient\Model;
+namespace GateApi\Model;
 
 use \ArrayAccess;
-use \GateClient\ObjectSerializer;
+use \GateApi\ObjectSerializer;
 
 /**
  * FuturesCandlestick Class Doc Comment
  *
  * @category Class
  * @description data point detail
- * @package  GateClient
+ * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

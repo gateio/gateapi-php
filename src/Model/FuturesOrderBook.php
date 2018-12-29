@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  GateClient
+ * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace GateClient\Model;
+namespace GateApi\Model;
 
 use \ArrayAccess;
-use \GateClient\ObjectSerializer;
+use \GateApi\ObjectSerializer;
 
 /**
  * FuturesOrderBook Class Doc Comment
  *
  * @category Class
- * @package  GateClient
+ * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,8 +57,8 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'asks' => '\GateClient\Model\FuturesOrderBookItem[]',
-        'bids' => '\GateClient\Model\FuturesOrderBookItem[]'
+        'asks' => '\GateApi\Model\FuturesOrderBookItem[]',
+        'bids' => '\GateApi\Model\FuturesOrderBookItem[]'
     ];
 
     /**
@@ -219,7 +219,7 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
     /**
      * Gets asks
      *
-     * @return \GateClient\Model\FuturesOrderBookItem[]
+     * @return \GateApi\Model\FuturesOrderBookItem[]
      */
     public function getAsks()
     {
@@ -229,7 +229,7 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets asks
      *
-     * @param \GateClient\Model\FuturesOrderBookItem[] $asks asks order depth
+     * @param \GateApi\Model\FuturesOrderBookItem[] $asks asks order depth
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
     /**
      * Gets bids
      *
-     * @return \GateClient\Model\FuturesOrderBookItem[]
+     * @return \GateApi\Model\FuturesOrderBookItem[]
      */
     public function getBids()
     {
@@ -253,7 +253,7 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets bids
      *
-     * @param \GateClient\Model\FuturesOrderBookItem[] $bids bids order depth
+     * @param \GateApi\Model\FuturesOrderBookItem[] $bids bids order depth
      *
      * @return $this
      */
