@@ -155,6 +155,21 @@ class FuturesApi
         }
     }
 
+    protected function buildSignHeaders($method, $resourcePath, $query_string = null, $payload = null) {
+        $fmt = "%s\n%s\n%s\n%s\n%s";
+        $timestamp = time();
+        $hashed_payload = hash("sha512", ($payload != null) ? $payload : "");
+        $signature_string = sprintf($fmt, $method, "/api/v4" . $resourcePath,
+                                    ($query_string != null) ? $query_string : "",
+                                    $hashed_payload, $timestamp);
+        $signature = hash_hmac("sha512", $signature_string, $this->config->getSecret());
+        return [
+            "KEY" => $this->config->getKey(),
+            "SIGN" => $signature,
+            "Timestamp" => $timestamp
+        ];
+    }
+
     /**
      * Operation cancelOrderAsync
      *
@@ -290,34 +305,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('DELETE', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -534,34 +535,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('DELETE', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -810,34 +797,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('POST', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1112,34 +1085,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1399,30 +1358,17 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
@@ -1667,34 +1613,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3952,34 +3884,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -4220,34 +4138,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -4522,34 +4426,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('POST', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -4824,34 +4714,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('POST', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -5126,34 +5002,20 @@ class FuturesApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('KEY');
-        if ($apiKey !== null) {
-            $headers['KEY'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('SIGN');
-        if ($apiKey !== null) {
-            $headers['SIGN'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Timestamp');
-        if ($apiKey !== null) {
-            $headers['Timestamp'] = $apiKey;
-        }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('POST', $resourcePath, $query, $httpBody);
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
+            $signHeaders,
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

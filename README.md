@@ -58,31 +58,20 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$order_id = 'order_id_example'; // string | order id
+$apiInstance = new GateClient\Api\FuturesApi(null, $config);
+$futuresOrder = new \GateClient\Model\FuturesOrder([
+    "contract" => "BTC_USD",
+    "size" => 100,
+    "price" => "4000"
+]);
 
 try {
-    $apiInstance->cancelOrder($order_id);
+    $futuresOrder = $apiInstance->createOrder($futuresOrder);
+    echo $futuresOrder->getId();
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->cancelOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FuturesApi->createOrder: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -129,28 +118,6 @@ Class | Method | HTTP request | Description
  - [InsuranceRecord](docs/Model/InsuranceRecord.md)
  - [MyFuturesTrade](docs/Model/MyFuturesTrade.md)
  - [Position](docs/Model/Position.md)
-
-
-## Documentation For Authorization
-
-
-## api_key
-
-- **Type**: API key
-- **API key parameter name**: KEY
-- **Location**: HTTP header
-
-## api_sign
-
-- **Type**: API key
-- **API key parameter name**: SIGN
-- **Location**: HTTP header
-
-## api_timestamp
-
-- **Type**: API key
-- **API key parameter name**: Timestamp
-- **Location**: HTTP header
 
 
 ## Author

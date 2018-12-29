@@ -112,11 +112,27 @@ class Configuration
     protected $tempFolderPath;
 
     /**
+     * API key
+     *
+     * @var string
+     */
+    protected $key = "";
+
+    /**
+     * API secret
+     *
+     * @var string
+     */
+    protected $secret = "";
+
+    /**
      * Constructor
      */
-    public function __construct()
+    public function __construct($key = "", $secret = "")
     {
         $this->tempFolderPath = sys_get_temp_dir();
+        $this->key = $key;
+        $this->secret = $secret;
     }
 
     /**
@@ -358,6 +374,38 @@ class Configuration
     public function getTempFolderPath()
     {
         return $this->tempFolderPath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getKey(): string
+    {
+        return $this->key;
+    }
+
+    /**
+     * @param string $key
+     */
+    public function setKey(string $key): void
+    {
+        $this->key = $key;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSecret(): string
+    {
+        return $this->secret;
+    }
+
+    /**
+     * @param string $secret
+     */
+    public function setSecret(string $secret): void
+    {
+        $this->secret = $secret;
     }
 
     /**

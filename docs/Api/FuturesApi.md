@@ -34,27 +34,10 @@ Cancel a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $order_id = 'order_id_example'; // string | order id
-
 try {
     $apiInstance->cancelOrder($order_id);
 } catch (Exception $e) {
@@ -73,10 +56,6 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -94,25 +73,10 @@ Cancel all `open` orders matched
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+
 $contract = 'contract_example'; // string | futures contract
 $side = 'side_example'; // string | All bids or asks. Both included in not specfied
 
@@ -135,10 +99,6 @@ Name | Type | Description  | Notes
 
 void (empty response body)
 
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -156,26 +116,15 @@ Create a futures order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$futures_order = {"$ref":"examples/mercury/FuturesOrder.json"}; // \GateClient\Model\FuturesOrder | 
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
+
+$futures_order = new \GateClient\Model\FuturesOrder([
+    "contract" => "contract_example",
+    "size" => 1,
+    "price" => "4000"
+]); // \GateClient\Model\FuturesOrder | 
 
 try {
     $result = $apiInstance->createOrder($futures_order);
@@ -196,10 +145,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\FuturesOrder**](../Model/FuturesOrder.md)
 
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -217,25 +162,9 @@ List personal trading history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $contract = 'contract_example'; // string | futures contract. If specified, return only data related to the contract
 $limit = 100; // int | maximum number of data returned in one request
 $last_id = 'last_id_example'; // string | specify list staring record. Use the `id` in every last record of one list-query request to achieve consecutive list query
@@ -261,10 +190,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\MyFuturesTrade[]**](../Model/MyFuturesTrade.md)
 
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -282,25 +207,9 @@ Get a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $order_id = 'order_id_example'; // string | order id
 
 try {
@@ -322,10 +231,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\FuturesOrder**](../Model/FuturesOrder.md)
 
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -343,25 +248,8 @@ Query futures account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
-
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
 try {
     $result = $apiInstance->listFuturesAccounts();
@@ -378,10 +266,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\GateClient\Model\FuturesAccount**](../Model/FuturesAccount.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
 
 ### HTTP request headers
 
@@ -402,16 +286,7 @@ Return specified contract candlesticks. If prefix `contract` with `mark_`, the c
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$contract = 'contract_example'; // string | futures contract
-$from = 3.4; // float | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to `to - 100 * interval` if not specified
-$to = 3.4; // float | End time of candlesticsk, formatted in Unix timestamp in seconds. Default to current time
-$limit = 100; // int | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-$interval = '5m'; // string | interval time between data points
+$apiInstance = new \GateClient\Api\FuturesApi();
 
 try {
     $result = $apiInstance->listFuturesCandlesticks($contract, $from, $to, $limit, $interval);
@@ -436,10 +311,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\FuturesCandlestick**](../Model/FuturesCandlestick.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -457,11 +328,7 @@ List all futures contracts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
+$apiInstance = new GateClient\Api\FuturesApi();
 
 try {
     $result = $apiInstance->listFuturesContracts();
@@ -478,10 +345,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\GateClient\Model\Contract[]**](../Model/Contract.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -500,11 +363,7 @@ Funding rate history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
+$apiInstance = new GateClient\Api\FuturesApi();
 $contract = 'contract_example'; // string | futures contract
 $limit = 100; // int | maximum number of data returned in one request
 
@@ -528,10 +387,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\FundingRateRecord**](../Model/FundingRateRecord.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -549,11 +404,7 @@ Futures insurance balance history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
+$apiInstance = new GateClient\Api\FuturesApi();
 $limit = 100; // int | maximum number of data returned in one request
 
 try {
@@ -575,10 +426,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\InsuranceRecord**](../Model/InsuranceRecord.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -598,11 +445,7 @@ bids will be sorted by price from high to low, while asks sorted reversely
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
+$apiInstance = new GateClient\Api\FuturesApi();
 $contract = 'contract_example'; // string | futures contract
 $interval = '0'; // string | order depth. 0 means no aggregation is applied. default to 0
 $limit = 10; // int | maximum number of order depth data in asks or bids
@@ -628,10 +471,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\FuturesOrderBook**](../Model/FuturesOrderBook.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -649,11 +488,7 @@ List futures tickers
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
+$apiInstance = new GateClient\Api\FuturesApi();
 $contract = 'contract_example'; // string | futures contract. If specified, return only data related to the contract
 
 try {
@@ -675,10 +510,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\FuturesTicker[]**](../Model/FuturesTicker.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -696,11 +527,7 @@ Futures trading history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
+$apiInstance = new GateClient\Api\FuturesApi();
 $contract = 'contract_example'; // string | futures contract
 $limit = 100; // int | maximum number of data returned in one request
 $last_id = 'last_id_example'; // string | specify list staring record. Use the `id` in every last record of one list-query request to achieve consecutive list query
@@ -726,10 +553,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\FuturesTrade[]**](../Model/FuturesTrade.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -747,25 +570,9 @@ List futures orders
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $contract = 'contract_example'; // string | futures contract
 $status = 'status_example'; // string | order status
 $limit = 100; // int | maximum number of data returned in one request
@@ -793,10 +600,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\FuturesOrder[]**](../Model/FuturesOrder.md)
 
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -814,25 +617,8 @@ List all positions
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
-
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
 try {
     $result = $apiInstance->listPositions();
@@ -849,10 +635,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\GateClient\Model\Position[]**](../Model/Position.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
 
 ### HTTP request headers
 
@@ -871,25 +653,9 @@ Update position leverage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $contract = 'contract_example'; // string | futures contract
 $leverage = 'leverage_example'; // string | new leverage of position
 
@@ -913,10 +679,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\Position**](../Model/Position.md)
 
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -934,25 +696,9 @@ Update position margin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $contract = 'contract_example'; // string | futures contract
 $change = 'change_example'; // string | margin change. Use positive number to increase margin, negative number otherwise.
 
@@ -976,10 +722,6 @@ Name | Type | Description  | Notes
 
 [**\GateClient\Model\Position**](../Model/Position.md)
 
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -997,25 +739,9 @@ Update poisition risk limit
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('KEY', 'Bearer');
-// Configure API key authorization: api_sign
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('SIGN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('SIGN', 'Bearer');
-// Configure API key authorization: api_timestamp
-$config = GateClient\Configuration::getDefaultConfiguration()->setApiKey('Timestamp', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GateClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Timestamp', 'Bearer');
+$config = new \GateClient\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new \GateClient\Api\FuturesApi(null, $config);
 
-$apiInstance = new GateClient\Api\FuturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $contract = 'contract_example'; // string | futures contract
 $risk_limit = 'risk_limit_example'; // string | new risk limit of position
 
@@ -1038,10 +764,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateClient\Model\Position**](../Model/Position.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key), [api_sign](../../README.md#api_sign), [api_timestamp](../../README.md#api_timestamp)
 
 ### HTTP request headers
 
