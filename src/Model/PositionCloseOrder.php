@@ -1,6 +1,6 @@
 <?php
 /**
- * MyFuturesTrade
+ * PositionCloseOrder
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MyFuturesTrade Class Doc Comment
+ * PositionCloseOrder Class Doc Comment
  *
  * @category Class
+ * @description Current close order if any, or &#x60;null&#x60;
  * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MyFuturesTrade implements ModelInterface, ArrayAccess
+class PositionCloseOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MyFuturesTrade';
+    protected static $openAPIModelName = 'Position_close_order';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +59,8 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'create_time' => 'float',
-        'contract' => 'string',
-        'order_id' => 'string',
-        'size' => 'int',
         'price' => 'string',
-        'role' => 'string'
+        'is_liq' => 'bool'
     ];
 
     /**
@@ -73,12 +70,8 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
-        'create_time' => null,
-        'contract' => null,
-        'order_id' => null,
-        'size' => 'int64',
         'price' => null,
-        'role' => null
+        'is_liq' => null
     ];
 
     /**
@@ -109,12 +102,8 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'create_time' => 'create_time',
-        'contract' => 'contract',
-        'order_id' => 'order_id',
-        'size' => 'size',
         'price' => 'price',
-        'role' => 'role'
+        'is_liq' => 'is_liq'
     ];
 
     /**
@@ -124,12 +113,8 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'create_time' => 'setCreateTime',
-        'contract' => 'setContract',
-        'order_id' => 'setOrderId',
-        'size' => 'setSize',
         'price' => 'setPrice',
-        'role' => 'setRole'
+        'is_liq' => 'setIsLiq'
     ];
 
     /**
@@ -139,12 +124,8 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'create_time' => 'getCreateTime',
-        'contract' => 'getContract',
-        'order_id' => 'getOrderId',
-        'size' => 'getSize',
         'price' => 'getPrice',
-        'role' => 'getRole'
+        'is_liq' => 'getIsLiq'
     ];
 
     /**
@@ -188,23 +169,8 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const ROLE_TAKER = 'taker';
-    const ROLE_MAKER = 'maker';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRoleAllowableValues()
-    {
-        return [
-            self::ROLE_TAKER,
-            self::ROLE_MAKER,
-        ];
-    }
     
 
     /**
@@ -223,12 +189,8 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
+        $this->container['is_liq'] = isset($data['is_liq']) ? $data['is_liq'] : null;
     }
 
     /**
@@ -239,14 +201,6 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'role', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -276,109 +230,13 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Trade ID
+     * @param int|null $id Close order ID
      *
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_time
-     *
-     * @return float|null
-     */
-    public function getCreateTime()
-    {
-        return $this->container['create_time'];
-    }
-
-    /**
-     * Sets create_time
-     *
-     * @param float|null $create_time Trading time
-     *
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->container['create_time'] = $create_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets contract
-     *
-     * @return string|null
-     */
-    public function getContract()
-    {
-        return $this->container['contract'];
-    }
-
-    /**
-     * Sets contract
-     *
-     * @param string|null $contract Futures contract
-     *
-     * @return $this
-     */
-    public function setContract($contract)
-    {
-        $this->container['contract'] = $contract;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_id
-     *
-     * @return string|null
-     */
-    public function getOrderId()
-    {
-        return $this->container['order_id'];
-    }
-
-    /**
-     * Sets order_id
-     *
-     * @param string|null $order_id Order ID related
-     *
-     * @return $this
-     */
-    public function setOrderId($order_id)
-    {
-        $this->container['order_id'] = $order_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets size
-     *
-     * @return int|null
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     *
-     * @param int|null $size Trading size
-     *
-     * @return $this
-     */
-    public function setSize($size)
-    {
-        $this->container['size'] = $size;
 
         return $this;
     }
@@ -396,7 +254,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Trading price
+     * @param string|null $price Close order price
      *
      * @return $this
      */
@@ -408,34 +266,25 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets role
+     * Gets is_liq
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getRole()
+    public function getIsLiq()
     {
-        return $this->container['role'];
+        return $this->container['is_liq'];
     }
 
     /**
-     * Sets role
+     * Sets is_liq
      *
-     * @param string|null $role Trade role. Available values are `taker` and `maker`
+     * @param bool|null $is_liq Is the close order from liquidation
      *
      * @return $this
      */
-    public function setRole($role)
+    public function setIsLiq($is_liq)
     {
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'role', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['role'] = $role;
+        $this->container['is_liq'] = $is_liq;
 
         return $this;
     }

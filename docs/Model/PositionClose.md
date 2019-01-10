@@ -1,13 +1,13 @@
-# FuturesTrade
+# PositionClose
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Trade ID | [optional] 
-**create_time** | **float** | Trading time | [optional] 
+**time** | **float** | Position close time | [optional] 
 **contract** | **string** | Futures contract | [optional] 
-**size** | **int** | Trading size | [optional] 
-**price** | **string** | Trading price | [optional] 
+**side** | **string** | Position side, long or short | [optional] 
+**pnl** | **string** | PNL | [optional] 
+**text** | **string** | Text of close order | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

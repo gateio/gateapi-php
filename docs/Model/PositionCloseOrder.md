@@ -1,10 +1,11 @@
-# FuturesOrderBookItem
+# PositionCloseOrder
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**p** | **string** | Price | [optional] 
-**s** | **int** | Size | [optional] 
+**id** | **int** | Close order ID | [optional] 
+**price** | **string** | Close order price | [optional] 
+**is_liq** | **bool** | Is the close order from liquidation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

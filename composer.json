@@ -1,8 +1,9 @@
 {
     "name": "gateio/GateApi",
-    "version": "1.0.0",
-    "description": "",
+    "version": "1.1.0",
+    "description": "APIv4 futures provides all sorts of futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.",
     "keywords": [
+        "gate",
         "openapitools",
         "openapi-generator",
         "php",
@@ -32,5 +33,8 @@
     },
     "autoload": {
         "psr-4": { "GateApi\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "GateApi\\" : "test/" }
     }
 }
