@@ -7,8 +7,11 @@ Method | HTTP request | Description
 [**cancelOrder**](FuturesApi.md#cancelOrder) | **DELETE** /futures/orders/{order_id} | Cancel a single order
 [**cancelOrders**](FuturesApi.md#cancelOrders) | **DELETE** /futures/orders | Cancel all &#x60;open&#x60; orders matched
 [**createOrder**](FuturesApi.md#createOrder) | **POST** /futures/orders | Create a futures order
+[**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/contracts/{contract} | Get a single contract
 [**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/my_trades | List personal trading history
 [**getOrder**](FuturesApi.md#getOrder) | **GET** /futures/orders/{order_id} | Get a single order
+[**getPosition**](FuturesApi.md#getPosition) | **GET** /futures/positions/{contract} | Get single position
+[**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/account_book | Query account book
 [**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/accounts | Query futures account
 [**listFuturesCandlesticks**](FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/candlesticks | Get futures candlesticks
 [**listFuturesContracts**](FuturesApi.md#listFuturesContracts) | **GET** /futures/contracts | List all futures contracts
@@ -159,6 +162,50 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getFuturesContract**
+> \GateApi\Model\Contract getFuturesContract($contract)
+
+Get a single contract
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new GateApi\Api\FuturesApi()
+$contract = 'BTC_USD'; // string | Futures contract
+
+try {
+    $result = $apiInstance->getFuturesContract($contract);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->getFuturesContract: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **string**| Futures contract |
+
+### Return type
+
+[**\GateApi\Model\Contract**](../Model/Contract.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getMyTrades**
 > \GateApi\Model\MyFuturesTrade[] getMyTrades($contract, $order, $limit, $last_id)
 
@@ -241,6 +288,100 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\FuturesOrder**](../Model/FuturesOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPosition**
+> \GateApi\Model\Position getPosition($contract)
+
+Get single position
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$contract = 'BTC_USD'; // string | Futures contract
+
+try {
+    $result = $apiInstance->getPosition($contract);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->getPosition: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **string**| Futures contract |
+
+### Return type
+
+[**\GateApi\Model\Position**](../Model/Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listFuturesAccountBook**
+> \GateApi\Model\FuturesAccountBook[] listFuturesAccountBook($limit, $from, $to, $type)
+
+Query account book
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$limit = 100; // int | Maximum number of record returned in one list
+$from = 1547706332; // int | Start timestamp
+$to = 1547706332; // int | End timestamp
+$type = 'type_example'; // string | Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
+
+try {
+    $result = $apiInstance->listFuturesAccountBook($limit, $from, $to, $type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->listFuturesAccountBook: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **from** | **int**| Start timestamp | [optional]
+ **to** | **int**| End timestamp | [optional]
+ **type** | **string**| Changing Type  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding | [optional]
+
+### Return type
+
+[**\GateApi\Model\FuturesAccountBook[]**](../Model/FuturesAccountBook.md)
 
 ### Authorization
 

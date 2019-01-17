@@ -1,6 +1,6 @@
 <?php
 /**
- * PositionCloseOrder
+ * FuturesAccountBook
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * PositionCloseOrder Class Doc Comment
+ * FuturesAccountBook Class Doc Comment
  *
  * @category Class
- * @description Current close order if any, or &#x60;null&#x60;
  * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PositionCloseOrder implements ModelInterface, ArrayAccess
+class FuturesAccountBook implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Position_close_order';
+    protected static $openAPIModelName = 'FuturesAccountBook';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +57,11 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'price' => 'string',
-        'is_liq' => 'bool'
+        'time' => 'float',
+        'change' => 'string',
+        'balance' => 'string',
+        'type' => 'string',
+        'text' => 'string'
     ];
 
     /**
@@ -69,9 +70,11 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'price' => null,
-        'is_liq' => null
+        'time' => null,
+        'change' => null,
+        'balance' => null,
+        'type' => null,
+        'text' => null
     ];
 
     /**
@@ -101,9 +104,11 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'price' => 'price',
-        'is_liq' => 'is_liq'
+        'time' => 'time',
+        'change' => 'change',
+        'balance' => 'balance',
+        'type' => 'type',
+        'text' => 'text'
     ];
 
     /**
@@ -112,9 +117,11 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'price' => 'setPrice',
-        'is_liq' => 'setIsLiq'
+        'time' => 'setTime',
+        'change' => 'setChange',
+        'balance' => 'setBalance',
+        'type' => 'setType',
+        'text' => 'setText'
     ];
 
     /**
@@ -123,9 +130,11 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'price' => 'getPrice',
-        'is_liq' => 'getIsLiq'
+        'time' => 'getTime',
+        'change' => 'getChange',
+        'balance' => 'getBalance',
+        'type' => 'getType',
+        'text' => 'getText'
     ];
 
     /**
@@ -169,8 +178,29 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TYPE_DNW = 'dnw';
+    const TYPE_PNL = 'pnl';
+    const TYPE_FEE = 'fee';
+    const TYPE_REFR = 'refr';
+    const TYPE_FUND = 'fund';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DNW,
+            self::TYPE_PNL,
+            self::TYPE_FEE,
+            self::TYPE_REFR,
+            self::TYPE_FUND,
+        ];
+    }
     
 
     /**
@@ -188,9 +218,11 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['is_liq'] = isset($data['is_liq']) ? $data['is_liq'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
+        $this->container['change'] = isset($data['change']) ? $data['change'] : null;
+        $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
     /**
@@ -201,6 +233,14 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -218,73 +258,130 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets time
      *
-     * @return int|null
+     * @return float|null
      */
-    public function getId()
+    public function getTime()
     {
-        return $this->container['id'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets id
+     * Sets time
      *
-     * @param int|null $id Close order ID
+     * @param float|null $time Change time
      *
      * @return $this
      */
-    public function setId($id)
+    public function setTime($time)
     {
-        $this->container['id'] = $id;
+        $this->container['time'] = $time;
 
         return $this;
     }
 
     /**
-     * Gets price
+     * Gets change
      *
      * @return string|null
      */
-    public function getPrice()
+    public function getChange()
     {
-        return $this->container['price'];
+        return $this->container['change'];
     }
 
     /**
-     * Sets price
+     * Sets change
      *
-     * @param string|null $price Close order price
+     * @param string|null $change Change amount
      *
      * @return $this
      */
-    public function setPrice($price)
+    public function setChange($change)
     {
-        $this->container['price'] = $price;
+        $this->container['change'] = $change;
 
         return $this;
     }
 
     /**
-     * Gets is_liq
+     * Gets balance
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsLiq()
+    public function getBalance()
     {
-        return $this->container['is_liq'];
+        return $this->container['balance'];
     }
 
     /**
-     * Sets is_liq
+     * Sets balance
      *
-     * @param bool|null $is_liq Is the close order from liquidation
+     * @param string|null $balance Balance after change
      *
      * @return $this
      */
-    public function setIsLiq($is_liq)
+    public function setBalance($balance)
     {
-        $this->container['is_liq'] = $is_liq;
+        $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text Comment
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
 
         return $this;
     }
