@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **text** | **string** | How order is created  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance | [optional] 
 **tkfr** | **string** | Taker fee | [optional] 
 **mkfr** | **string** | Maker fee | [optional] 
-**refu** | **string** | Reference user ID | [optional] 
+**refu** | **int** | Reference user ID | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

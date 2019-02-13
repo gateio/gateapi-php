@@ -359,7 +359,7 @@ $apiInstance = new GateApi\Api\FuturesApi(null, $config)
 $limit = 100; // int | Maximum number of record returned in one list
 $from = 1547706332; // int | Start timestamp
 $to = 1547706332; // int | End timestamp
-$type = 'type_example'; // string | Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
+$type = 'dnw'; // string | Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
 
 try {
     $result = $apiInstance->listFuturesAccountBook($limit, $from, $to, $type);
