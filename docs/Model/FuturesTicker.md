@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **change_percentage** | **string** | Change percentage. | [optional] 
 **total_size** | **string** | Contract total size | [optional] 
 **volume_24h** | **string** | Trade size in recent 24h | [optional] 
+**volume_24h_btc** | **string** | Trade volume in recent 24h in BTC | [optional] 
+**volume_24h_usd** | **string** | Trade volume in recent 24h in USD | [optional] 
 **mark_price** | **string** | Recent mark price | [optional] 
 **funding_rate** | **string** | Funding rate | [optional] 
 **index_price** | **string** | Index price | [optional] 
