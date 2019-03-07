@@ -1,16 +1,20 @@
 # GateApi\FuturesApi
 
-All URIs are relative to *https://fx-api.gateio.ws/api/v4*
+All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelOrder**](FuturesApi.md#cancelOrder) | **DELETE** /futures/orders/{order_id} | Cancel a single order
 [**cancelOrders**](FuturesApi.md#cancelOrders) | **DELETE** /futures/orders | Cancel all &#x60;open&#x60; orders matched
+[**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/price_orders/{order_id} | Cancel a single order
+[**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/price_orders | Cancel all open orders
 [**createOrder**](FuturesApi.md#createOrder) | **POST** /futures/orders | Create a futures order
+[**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/price_orders | Create a price-triggered order
 [**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/contracts/{contract} | Get a single contract
 [**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/my_trades | List personal trading history
 [**getOrder**](FuturesApi.md#getOrder) | **GET** /futures/orders/{order_id} | Get a single order
 [**getPosition**](FuturesApi.md#getPosition) | **GET** /futures/positions/{contract} | Get single position
+[**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/price_orders/{order_id} | Get a single order
 [**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/account_book | Query account book
 [**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/accounts | Query futures account
 [**listFuturesCandlesticks**](FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/candlesticks | Get futures candlesticks
@@ -23,6 +27,7 @@ Method | HTTP request | Description
 [**listOrders**](FuturesApi.md#listOrders) | **GET** /futures/orders | List futures orders
 [**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/position_close | List position close history
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions of a user
+[**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/price_orders | List all auto orders
 [**updatePositionLeverage**](FuturesApi.md#updatePositionLeverage) | **POST** /futures/positions/{contract}/leverage | Update position leverage
 [**updatePositionMargin**](FuturesApi.md#updatePositionMargin) | **POST** /futures/positions/{contract}/margin | Update position margin
 [**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/positions/{contract}/risk_limit | Update position risk limit
@@ -118,6 +123,94 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **cancelPriceTriggeredOrder**
+> \GateApi\Model\FuturesPriceTriggeredOrder cancelPriceTriggeredOrder($order_id)
+
+Cancel a single order
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$order_id = 'order_id_example'; // string | ID returned on order successfully being created
+
+try {
+    $result = $apiInstance->cancelPriceTriggeredOrder($order_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->cancelPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| ID returned on order successfully being created |
+
+### Return type
+
+[**\GateApi\Model\FuturesPriceTriggeredOrder**](../Model/FuturesPriceTriggeredOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **cancelPriceTriggeredOrderList**
+> \GateApi\Model\FuturesPriceTriggeredOrder[] cancelPriceTriggeredOrderList($contract)
+
+Cancel all open orders
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$contract = 'BTC_USD'; // string | Futures contract
+
+try {
+    $result = $apiInstance->cancelPriceTriggeredOrderList($contract);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->cancelPriceTriggeredOrderList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **string**| Futures contract |
+
+### Return type
+
+[**\GateApi\Model\FuturesPriceTriggeredOrder[]**](../Model/FuturesPriceTriggeredOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **createOrder**
 > \GateApi\Model\FuturesOrder createOrder($futures_order)
 
@@ -150,6 +243,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\FuturesOrder**](../Model/FuturesOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createPriceTriggeredOrder**
+> \GateApi\Model\TriggerOrderResponse createPriceTriggeredOrder($futures_price_triggered_order)
+
+Create a price-triggered order
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$futures_price_triggered_order = new \GateApi\Model\FuturesPriceTriggeredOrder(); // \GateApi\Model\FuturesPriceTriggeredOrder | 
+
+try {
+    $result = $apiInstance->createPriceTriggeredOrder($futures_price_triggered_order);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->createPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **futures_price_triggered_order** | [**\GateApi\Model\FuturesPriceTriggeredOrder**](../Model/FuturesPriceTriggeredOrder.md)|  |
+
+### Return type
+
+[**\GateApi\Model\TriggerOrderResponse**](../Model/TriggerOrderResponse.md)
 
 ### Authorization
 
@@ -332,6 +469,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\Position**](../Model/Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPriceTriggeredOrder**
+> \GateApi\Model\FuturesPriceTriggeredOrder getPriceTriggeredOrder($order_id)
+
+Get a single order
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$order_id = 'order_id_example'; // string | ID returned on order successfully being created
+
+try {
+    $result = $apiInstance->getPriceTriggeredOrder($order_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->getPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| ID returned on order successfully being created |
+
+### Return type
+
+[**\GateApi\Model\FuturesPriceTriggeredOrder**](../Model/FuturesPriceTriggeredOrder.md)
 
 ### Authorization
 
@@ -884,6 +1065,56 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\GateApi\Model\Position[]**](../Model/Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listPriceTriggeredOrders**
+> \GateApi\Model\FuturesPriceTriggeredOrder[] listPriceTriggeredOrders($status, $contract, $limit, $offset)
+
+List all auto orders
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$status = 'status_example'; // string | List orders based on status
+$contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$limit = 100; // int | Maximum number of record returned in one list
+$offset = 0; // int | List offset, starting from 0
+
+try {
+    $result = $apiInstance->listPriceTriggeredOrders($status, $contract, $limit, $offset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->listPriceTriggeredOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **string**| List orders based on status |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\FuturesPriceTriggeredOrder[]**](../Model/FuturesPriceTriggeredOrder.md)
 
 ### Authorization
 
