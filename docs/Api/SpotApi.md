@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **cancelOrder**
-> \GateApi\Model\Order cancelOrder()
+> \GateApi\Model\Order cancelOrder($order_id, $currency_pair)
 
 Cancel a single order
 
@@ -31,9 +31,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\SpotApi(null, $config)
+$order_id = '12345'; // string | ID returned on order successfully being created
+$currency_pair = 'BTC_USDT'; // string | Currency pair
 
 try {
-    $result = $apiInstance->cancelOrder();
+    $result = $apiInstance->cancelOrder($order_id, $currency_pair);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->cancelOrder: ', $e->getMessage(), PHP_EOL;
@@ -42,7 +44,11 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| ID returned on order successfully being created |
+ **currency_pair** | **string**| Currency pair |
 
 ### Return type
 
@@ -196,7 +202,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrder**
-> \GateApi\Model\Order getOrder()
+> \GateApi\Model\Order getOrder($order_id, $currency_pair)
 
 Get a single order
 
@@ -207,9 +213,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\SpotApi(null, $config)
+$order_id = '12345'; // string | ID returned on order successfully being created
+$currency_pair = 'BTC_USDT'; // string | Currency pair
 
 try {
-    $result = $apiInstance->getOrder();
+    $result = $apiInstance->getOrder($order_id, $currency_pair);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->getOrder: ', $e->getMessage(), PHP_EOL;
@@ -218,7 +226,11 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| ID returned on order successfully being created |
+ **currency_pair** | **string**| Currency pair |
 
 ### Return type
 
