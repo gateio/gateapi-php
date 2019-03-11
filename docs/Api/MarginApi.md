@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **cancelLoan**
-> \GateApi\Model\Loan cancelLoan($currency)
+> \GateApi\Model\Loan cancelLoan($loan_id, $currency)
 
 Cancel lending loan
 
@@ -35,10 +35,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
+$loan_id = 'loan_id_example'; // string | Loan ID
 $currency = 'BTC'; // string | Retrieved specified currency related data
 
 try {
-    $result = $apiInstance->cancelLoan($currency);
+    $result = $apiInstance->cancelLoan($loan_id, $currency);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->cancelLoan: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loan_id** | **string**| Loan ID |
  **currency** | **string**| Retrieved specified currency related data |
 
 ### Return type
@@ -112,7 +114,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLoan**
-> \GateApi\Model\Loan getLoan($side)
+> \GateApi\Model\Loan getLoan($loan_id, $side)
 
 Retrieve one single loan detail
 
@@ -123,10 +125,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
+$loan_id = 'loan_id_example'; // string | Loan ID
 $side = 'lend'; // string | Lend or borrow
 
 try {
-    $result = $apiInstance->getLoan($side);
+    $result = $apiInstance->getLoan($loan_id, $side);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->getLoan: ', $e->getMessage(), PHP_EOL;
@@ -138,6 +141,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loan_id** | **string**| Loan ID |
  **side** | **string**| Lend or borrow |
 
 ### Return type
@@ -156,7 +160,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLoanRecord**
-> \GateApi\Model\LoanRecord getLoanRecord($loan_id)
+> \GateApi\Model\LoanRecord getLoanRecord($loan_record_id, $loan_id)
 
 Get one single loan record
 
@@ -167,10 +171,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
+$loan_record_id = 'loan_record_id_example'; // string | Loan record ID
 $loan_id = 'loan_id_example'; // string | Loan ID
 
 try {
-    $result = $apiInstance->getLoanRecord($loan_id);
+    $result = $apiInstance->getLoanRecord($loan_record_id, $loan_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->getLoanRecord: ', $e->getMessage(), PHP_EOL;
@@ -182,6 +187,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loan_record_id** | **string**| Loan record ID |
  **loan_id** | **string**| Loan ID |
 
 ### Return type
@@ -338,7 +344,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listLoanRepayments**
-> \GateApi\Model\Repayment[] listLoanRepayments()
+> \GateApi\Model\Repayment[] listLoanRepayments($loan_id)
 
 List loan repayment records
 
@@ -349,9 +355,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
+$loan_id = 'loan_id_example'; // string | Loan ID
 
 try {
-    $result = $apiInstance->listLoanRepayments();
+    $result = $apiInstance->listLoanRepayments($loan_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listLoanRepayments: ', $e->getMessage(), PHP_EOL;
@@ -360,7 +367,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loan_id** | **string**| Loan ID |
 
 ### Return type
 
@@ -560,7 +570,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **repayLoan**
-> \GateApi\Model\Loan repayLoan($repay_request)
+> \GateApi\Model\Loan repayLoan($loan_id, $repay_request)
 
 Repay a loan
 
@@ -571,10 +581,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
+$loan_id = 'loan_id_example'; // string | Loan ID
 $repay_request = new \GateApi\Model\RepayRequest(); // \GateApi\Model\RepayRequest | 
 
 try {
-    $result = $apiInstance->repayLoan($repay_request);
+    $result = $apiInstance->repayLoan($loan_id, $repay_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->repayLoan: ', $e->getMessage(), PHP_EOL;
@@ -586,6 +597,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loan_id** | **string**| Loan ID |
  **repay_request** | [**\GateApi\Model\RepayRequest**](../Model/RepayRequest.md)|  |
 
 ### Return type
@@ -604,7 +616,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateLoan**
-> \GateApi\Model\Loan updateLoan($loan_patch)
+> \GateApi\Model\Loan updateLoan($loan_id, $loan_patch)
 
 Modify a loan
 
@@ -617,10 +629,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
+$loan_id = 'loan_id_example'; // string | Loan ID
 $loan_patch = new \GateApi\Model\LoanPatch(); // \GateApi\Model\LoanPatch | 
 
 try {
-    $result = $apiInstance->updateLoan($loan_patch);
+    $result = $apiInstance->updateLoan($loan_id, $loan_patch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->updateLoan: ', $e->getMessage(), PHP_EOL;
@@ -632,6 +645,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loan_id** | **string**| Loan ID |
  **loan_patch** | [**\GateApi\Model\LoanPatch**](../Model/LoanPatch.md)|  |
 
 ### Return type
@@ -650,7 +664,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateLoanRecord**
-> \GateApi\Model\LoanRecord updateLoanRecord($loan_patch)
+> \GateApi\Model\LoanRecord updateLoanRecord($loan_record_id, $loan_patch)
 
 Modify a loan record
 
@@ -663,10 +677,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
+$loan_record_id = 'loan_record_id_example'; // string | Loan record ID
 $loan_patch = new \GateApi\Model\LoanPatch(); // \GateApi\Model\LoanPatch | 
 
 try {
-    $result = $apiInstance->updateLoanRecord($loan_patch);
+    $result = $apiInstance->updateLoanRecord($loan_record_id, $loan_patch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->updateLoanRecord: ', $e->getMessage(), PHP_EOL;
@@ -678,6 +693,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loan_record_id** | **string**| Loan record ID |
  **loan_patch** | [**\GateApi\Model\LoanPatch**](../Model/LoanPatch.md)|  |
 
 ### Return type
