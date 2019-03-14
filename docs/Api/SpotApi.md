@@ -418,7 +418,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair | [optional]
+ **currency_pair** | **string**| Currency pair |
  **interval** | **string**| Price precision of order book. 0 means no aggregation is applied | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
 

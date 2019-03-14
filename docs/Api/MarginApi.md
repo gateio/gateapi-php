@@ -35,7 +35,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
-$loan_id = 'loan_id_example'; // string | Loan ID
+$loan_id = '12345'; // string | Loan ID
 $currency = 'BTC'; // string | Retrieved specified currency related data
 
 try {
@@ -125,7 +125,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
-$loan_id = 'loan_id_example'; // string | Loan ID
+$loan_id = '12345'; // string | Loan ID
 $side = 'lend'; // string | Lend or borrow
 
 try {
@@ -171,8 +171,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
-$loan_record_id = 'loan_record_id_example'; // string | Loan record ID
-$loan_id = 'loan_id_example'; // string | Loan ID
+$loan_record_id = '12345'; // string | Loan record ID
+$loan_id = '12345'; // string | Loan ID
 
 try {
     $result = $apiInstance->getLoanRecord($loan_record_id, $loan_id);
@@ -305,8 +305,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
-$loan_id = 'loan_id_example'; // string | Loan ID
-$status = 'status_example'; // string | Loan record status
+$loan_id = '12345'; // string | Loan ID
+$status = 'loaned'; // string | Loan record status
 $page = 1; // int | Page number
 $limit = 100; // int | Maximum number of record returned in one list
 
@@ -355,7 +355,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
-$loan_id = 'loan_id_example'; // string | Loan ID
+$loan_id = '12345'; // string | Loan ID
 
 try {
     $result = $apiInstance->listLoanRepayments($loan_id);
@@ -581,7 +581,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
-$loan_id = 'loan_id_example'; // string | Loan ID
+$loan_id = '12345'; // string | Loan ID
 $repay_request = new \GateApi\Model\RepayRequest(); // \GateApi\Model\RepayRequest | 
 
 try {
@@ -629,7 +629,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
-$loan_id = 'loan_id_example'; // string | Loan ID
+$loan_id = '12345'; // string | Loan ID
 $loan_patch = new \GateApi\Model\LoanPatch(); // \GateApi\Model\LoanPatch | 
 
 try {
@@ -677,7 +677,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\MarginApi(null, $config)
-$loan_record_id = 'loan_record_id_example'; // string | Loan record ID
+$loan_record_id = '12345'; // string | Loan record ID
 $loan_patch = new \GateApi\Model\LoanPatch(); // \GateApi\Model\LoanPatch | 
 
 try {
