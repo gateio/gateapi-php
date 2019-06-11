@@ -388,7 +388,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listLoans**
-> \GateApi\Model\Loan[] listLoans($status, $side, $currency, $page, $limit)
+> \GateApi\Model\Loan[] listLoans($status, $side, $currency, $currency_pair, $sort_by, $reverse_sort, $page, $limit)
 
 List all loans
 
@@ -402,11 +402,14 @@ $apiInstance = new GateApi\Api\MarginApi(null, $config)
 $status = 'open'; // string | Loan status
 $side = 'lend'; // string | Lend or borrow
 $currency = 'BTC'; // string | Retrieved specified currency related data
+$currency_pair = 'BTC_USDT'; // string | Currency pair
+$sort_by = 'rate'; // string | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
+$reverse_sort = True; // bool | Whether to sort in descending order. Default to `true`
 $page = 1; // int | Page number
 $limit = 100; // int | Maximum number of record returned in one list
 
 try {
-    $result = $apiInstance->listLoans($status, $side, $currency, $page, $limit);
+    $result = $apiInstance->listLoans($status, $side, $currency, $currency_pair, $sort_by, $reverse_sort, $page, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listLoans: ', $e->getMessage(), PHP_EOL;
@@ -421,6 +424,9 @@ Name | Type | Description  | Notes
  **status** | **string**| Loan status |
  **side** | **string**| Lend or borrow |
  **currency** | **string**| Retrieved specified currency related data | [optional]
+ **currency_pair** | **string**| Currency pair | [optional]
+ **sort_by** | **string**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional]
+ **reverse_sort** | **bool**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
 

@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **realised_pnl** | **string** | Realized PNL | [optional] 
 **history_pnl** | **string** | History realized PNL | [optional] 
 **last_close_pnl** | **string** | PNL of last position close | [optional] 
+**realised_point** | **string** | Realized POINT PNL | [optional] 
+**history_point** | **string** | History realized POINT PNL | [optional] 
 **adl_ranking** | **int** | ADL ranking, range from 1 to 5 | [optional] 
 **pending_orders** | **int** | Current open orders | [optional] 
 **close_order** | [**\GateApi\Model\PositionCloseOrder**](PositionCloseOrder.md) |  | [optional] 

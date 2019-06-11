@@ -1,6 +1,6 @@
 <?php
 /**
- * FuturesCandlestick
+ * Transfer
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * FuturesCandlestick Class Doc Comment
+ * Transfer Class Doc Comment
  *
  * @category Class
- * @description data point in every timestamp
  * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FuturesCandlestick implements ModelInterface, ArrayAccess
+class Transfer implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FuturesCandlestick';
+    protected static $openAPIModelName = 'Transfer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +57,11 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        't' => 'float',
-        'v' => 'int',
-        'c' => 'string',
-        'h' => 'string',
-        'l' => 'string',
-        'o' => 'string'
+        'currency' => 'string',
+        'from' => 'string',
+        'to' => 'string',
+        'amount' => 'string',
+        'currency_pair' => 'string'
     ];
 
     /**
@@ -72,12 +70,11 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        't' => null,
-        'v' => 'int64',
-        'c' => null,
-        'h' => null,
-        'l' => null,
-        'o' => null
+        'currency' => null,
+        'from' => null,
+        'to' => null,
+        'amount' => null,
+        'currency_pair' => null
     ];
 
     /**
@@ -107,12 +104,11 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        't' => 't',
-        'v' => 'v',
-        'c' => 'c',
-        'h' => 'h',
-        'l' => 'l',
-        'o' => 'o'
+        'currency' => 'currency',
+        'from' => 'from',
+        'to' => 'to',
+        'amount' => 'amount',
+        'currency_pair' => 'currency_pair'
     ];
 
     /**
@@ -121,12 +117,11 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        't' => 'setT',
-        'v' => 'setV',
-        'c' => 'setC',
-        'h' => 'setH',
-        'l' => 'setL',
-        'o' => 'setO'
+        'currency' => 'setCurrency',
+        'from' => 'setFrom',
+        'to' => 'setTo',
+        'amount' => 'setAmount',
+        'currency_pair' => 'setCurrencyPair'
     ];
 
     /**
@@ -135,12 +130,11 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        't' => 'getT',
-        'v' => 'getV',
-        'c' => 'getC',
-        'h' => 'getH',
-        'l' => 'getL',
-        'o' => 'getO'
+        'currency' => 'getCurrency',
+        'from' => 'getFrom',
+        'to' => 'getTo',
+        'amount' => 'getAmount',
+        'currency_pair' => 'getCurrencyPair'
     ];
 
     /**
@@ -184,8 +178,38 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const FROM_SPOT = 'spot';
+    const FROM_MARGIN = 'margin';
+    const TO_SPOT = 'spot';
+    const TO_MARGIN = 'margin';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFromAllowableValues()
+    {
+        return [
+            self::FROM_SPOT,
+            self::FROM_MARGIN,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getToAllowableValues()
+    {
+        return [
+            self::TO_SPOT,
+            self::TO_MARGIN,
+        ];
+    }
     
 
     /**
@@ -203,12 +227,11 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['t'] = isset($data['t']) ? $data['t'] : null;
-        $this->container['v'] = isset($data['v']) ? $data['v'] : null;
-        $this->container['c'] = isset($data['c']) ? $data['c'] : null;
-        $this->container['h'] = isset($data['h']) ? $data['h'] : null;
-        $this->container['l'] = isset($data['l']) ? $data['l'] : null;
-        $this->container['o'] = isset($data['o']) ? $data['o'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['from'] = isset($data['from']) ? $data['from'] : null;
+        $this->container['to'] = isset($data['to']) ? $data['to'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
     }
 
     /**
@@ -220,6 +243,37 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
+        if ($this->container['from'] === null) {
+            $invalidProperties[] = "'from' can't be null";
+        }
+        $allowedValues = $this->getFromAllowableValues();
+        if (!is_null($this->container['from']) && !in_array($this->container['from'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'from', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['to'] === null) {
+            $invalidProperties[] = "'to' can't be null";
+        }
+        $allowedValues = $this->getToAllowableValues();
+        if (!is_null($this->container['to']) && !in_array($this->container['to'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'to', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['currency_pair'] === null) {
+            $invalidProperties[] = "'currency_pair' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -236,145 +290,139 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets t
+     * Gets currency
      *
-     * @return float|null
+     * @return string
      */
-    public function getT()
+    public function getCurrency()
     {
-        return $this->container['t'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets t
+     * Sets currency
      *
-     * @param float|null $t Unix timestamp in seconds
+     * @param string $currency Transfer currency name
      *
      * @return $this
      */
-    public function setT($t)
+    public function setCurrency($currency)
     {
-        $this->container['t'] = $t;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets v
+     * Gets from
      *
-     * @return int|null
+     * @return string
      */
-    public function getV()
+    public function getFrom()
     {
-        return $this->container['v'];
+        return $this->container['from'];
     }
 
     /**
-     * Sets v
+     * Sets from
      *
-     * @param int|null $v size volume. Only returned if `contract` is not prefixed
+     * @param string $from Account transferred from. `spot` - spot account. `margin` - margin account
      *
      * @return $this
      */
-    public function setV($v)
+    public function setFrom($from)
     {
-        $this->container['v'] = $v;
+        $allowedValues = $this->getFromAllowableValues();
+        if (!in_array($from, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'from', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['from'] = $from;
 
         return $this;
     }
 
     /**
-     * Gets c
+     * Gets to
      *
-     * @return string|null
+     * @return string
      */
-    public function getC()
+    public function getTo()
     {
-        return $this->container['c'];
+        return $this->container['to'];
     }
 
     /**
-     * Sets c
+     * Sets to
      *
-     * @param string|null $c Close price
+     * @param string $to Account transferred to. `spot` - spot account. `margin` - margin account
      *
      * @return $this
      */
-    public function setC($c)
+    public function setTo($to)
     {
-        $this->container['c'] = $c;
+        $allowedValues = $this->getToAllowableValues();
+        if (!in_array($to, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'to', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['to'] = $to;
 
         return $this;
     }
 
     /**
-     * Gets h
+     * Gets amount
      *
-     * @return string|null
+     * @return string
      */
-    public function getH()
+    public function getAmount()
     {
-        return $this->container['h'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets h
+     * Sets amount
      *
-     * @param string|null $h Highest price
+     * @param string $amount Transfer amount
      *
      * @return $this
      */
-    public function setH($h)
+    public function setAmount($amount)
     {
-        $this->container['h'] = $h;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets l
+     * Gets currency_pair
      *
-     * @return string|null
+     * @return string
      */
-    public function getL()
+    public function getCurrencyPair()
     {
-        return $this->container['l'];
+        return $this->container['currency_pair'];
     }
 
     /**
-     * Sets l
+     * Sets currency_pair
      *
-     * @param string|null $l Lowest price
+     * @param string $currency_pair Required if transfer from or to margin account
      *
      * @return $this
      */
-    public function setL($l)
+    public function setCurrencyPair($currency_pair)
     {
-        $this->container['l'] = $l;
-
-        return $this;
-    }
-
-    /**
-     * Gets o
-     *
-     * @return string|null
-     */
-    public function getO()
-    {
-        return $this->container['o'];
-    }
-
-    /**
-     * Sets o
-     *
-     * @param string|null $o Open price
-     *
-     * @return $this
-     */
-    public function setO($o)
-    {
-        $this->container['o'] = $o;
+        $this->container['currency_pair'] = $currency_pair;
 
         return $this;
     }

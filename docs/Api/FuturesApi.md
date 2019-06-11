@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**listFuturesOrders**](FuturesApi.md#listFuturesOrders) | **GET** /futures/orders | List futures orders
 [**listFuturesTickers**](FuturesApi.md#listFuturesTickers) | **GET** /futures/tickers | List futures tickers
 [**listFuturesTrades**](FuturesApi.md#listFuturesTrades) | **GET** /futures/trades | Futures trading history
+[**listLiquidates**](FuturesApi.md#listLiquidates) | **GET** /futures/liquidates | List liquidation history
 [**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/position_close | List position close history
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions of a user
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/price_orders | List all auto orders
@@ -540,7 +541,7 @@ $apiInstance = new GateApi\Api\FuturesApi(null, $config)
 $limit = 100; // int | Maximum number of record returned in one list
 $from = 1547706332; // int | Start timestamp
 $to = 1547706332; // int | End timestamp
-$type = 'dnw'; // string | Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
+$type = 'dnw'; // string | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
 
 try {
     $result = $apiInstance->listFuturesAccountBook($limit, $from, $to, $type);
@@ -558,7 +559,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
  **from** | **int**| Start timestamp | [optional]
  **to** | **int**| End timestamp | [optional]
- **type** | **string**| Changing Type  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding | [optional]
+ **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional]
 
 ### Return type
 
@@ -983,6 +984,54 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listLiquidates**
+> \GateApi\Model\FuturesLiquidate[] listLiquidates($contract, $limit, $at)
+
+List liquidation history
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$limit = 100; // int | Maximum number of record returned in one list
+$at = 0; // int | Specify a liquidation timestamp
+
+try {
+    $result = $apiInstance->listLiquidates($contract, $limit, $at);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->listLiquidates: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **at** | **int**| Specify a liquidation timestamp | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\FuturesLiquidate[]**](../Model/FuturesLiquidate.md)
+
+### Authorization
+
+Authentication with API key and secret is required
 
 ### HTTP request headers
 
