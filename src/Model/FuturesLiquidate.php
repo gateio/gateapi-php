@@ -1,6 +1,6 @@
 <?php
 /**
- * PositionClose
+ * FuturesLiquidate
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * PositionClose Class Doc Comment
+ * FuturesLiquidate Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PositionClose implements ModelInterface, ArrayAccess
+class FuturesLiquidate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PositionClose implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PositionClose';
+    protected static $openAPIModelName = 'FuturesLiquidate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,18 @@ class PositionClose implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'time' => 'float',
+        'time' => 'int',
         'contract' => 'string',
-        'side' => 'string',
-        'pnl' => 'string',
-        'text' => 'string'
+        'leverage' => 'string',
+        'size' => 'int',
+        'margin' => 'string',
+        'entry_price' => 'string',
+        'liq_price' => 'string',
+        'mark_price' => 'string',
+        'order_id' => 'int',
+        'order_price' => 'string',
+        'fill_price' => 'string',
+        'left' => 'int'
     ];
 
     /**
@@ -70,11 +77,18 @@ class PositionClose implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'time' => null,
+        'time' => 'int64',
         'contract' => null,
-        'side' => null,
-        'pnl' => null,
-        'text' => null
+        'leverage' => null,
+        'size' => 'int64',
+        'margin' => null,
+        'entry_price' => null,
+        'liq_price' => null,
+        'mark_price' => null,
+        'order_id' => 'int64',
+        'order_price' => null,
+        'fill_price' => null,
+        'left' => 'int64'
     ];
 
     /**
@@ -106,9 +120,16 @@ class PositionClose implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'time' => 'time',
         'contract' => 'contract',
-        'side' => 'side',
-        'pnl' => 'pnl',
-        'text' => 'text'
+        'leverage' => 'leverage',
+        'size' => 'size',
+        'margin' => 'margin',
+        'entry_price' => 'entry_price',
+        'liq_price' => 'liq_price',
+        'mark_price' => 'mark_price',
+        'order_id' => 'order_id',
+        'order_price' => 'order_price',
+        'fill_price' => 'fill_price',
+        'left' => 'left'
     ];
 
     /**
@@ -119,9 +140,16 @@ class PositionClose implements ModelInterface, ArrayAccess
     protected static $setters = [
         'time' => 'setTime',
         'contract' => 'setContract',
-        'side' => 'setSide',
-        'pnl' => 'setPnl',
-        'text' => 'setText'
+        'leverage' => 'setLeverage',
+        'size' => 'setSize',
+        'margin' => 'setMargin',
+        'entry_price' => 'setEntryPrice',
+        'liq_price' => 'setLiqPrice',
+        'mark_price' => 'setMarkPrice',
+        'order_id' => 'setOrderId',
+        'order_price' => 'setOrderPrice',
+        'fill_price' => 'setFillPrice',
+        'left' => 'setLeft'
     ];
 
     /**
@@ -132,9 +160,16 @@ class PositionClose implements ModelInterface, ArrayAccess
     protected static $getters = [
         'time' => 'getTime',
         'contract' => 'getContract',
-        'side' => 'getSide',
-        'pnl' => 'getPnl',
-        'text' => 'getText'
+        'leverage' => 'getLeverage',
+        'size' => 'getSize',
+        'margin' => 'getMargin',
+        'entry_price' => 'getEntryPrice',
+        'liq_price' => 'getLiqPrice',
+        'mark_price' => 'getMarkPrice',
+        'order_id' => 'getOrderId',
+        'order_price' => 'getOrderPrice',
+        'fill_price' => 'getFillPrice',
+        'left' => 'getLeft'
     ];
 
     /**
@@ -178,23 +213,8 @@ class PositionClose implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const SIDE_LONG = 'long';
-    const SIDE_SHORT = 'short';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSideAllowableValues()
-    {
-        return [
-            self::SIDE_LONG,
-            self::SIDE_SHORT,
-        ];
-    }
     
 
     /**
@@ -214,9 +234,16 @@ class PositionClose implements ModelInterface, ArrayAccess
     {
         $this->container['time'] = isset($data['time']) ? $data['time'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['side'] = isset($data['side']) ? $data['side'] : null;
-        $this->container['pnl'] = isset($data['pnl']) ? $data['pnl'] : null;
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['leverage'] = isset($data['leverage']) ? $data['leverage'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['margin'] = isset($data['margin']) ? $data['margin'] : null;
+        $this->container['entry_price'] = isset($data['entry_price']) ? $data['entry_price'] : null;
+        $this->container['liq_price'] = isset($data['liq_price']) ? $data['liq_price'] : null;
+        $this->container['mark_price'] = isset($data['mark_price']) ? $data['mark_price'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['order_price'] = isset($data['order_price']) ? $data['order_price'] : null;
+        $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
+        $this->container['left'] = isset($data['left']) ? $data['left'] : null;
     }
 
     /**
@@ -227,14 +254,6 @@ class PositionClose implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getSideAllowableValues();
-        if (!is_null($this->container['side']) && !in_array($this->container['side'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'side', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -254,7 +273,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Gets time
      *
-     * @return float|null
+     * @return int|null
      */
     public function getTime()
     {
@@ -264,7 +283,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param float|null $time Position close time
+     * @param int|null $time Liquidation time
      *
      * @return $this
      */
@@ -300,82 +319,241 @@ class PositionClose implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets side
+     * Gets leverage
      *
      * @return string|null
      */
-    public function getSide()
+    public function getLeverage()
     {
-        return $this->container['side'];
+        return $this->container['leverage'];
     }
 
     /**
-     * Sets side
+     * Sets leverage
      *
-     * @param string|null $side Position side, long or short
+     * @param string|null $leverage Position leverage
      *
      * @return $this
      */
-    public function setSide($side)
+    public function setLeverage($leverage)
     {
-        $allowedValues = $this->getSideAllowableValues();
-        if (!is_null($side) && !in_array($side, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'side', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['side'] = $side;
+        $this->container['leverage'] = $leverage;
 
         return $this;
     }
 
     /**
-     * Gets pnl
+     * Gets size
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getPnl()
+    public function getSize()
     {
-        return $this->container['pnl'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets pnl
+     * Sets size
      *
-     * @param string|null $pnl PNL
+     * @param int|null $size Position size
      *
      * @return $this
      */
-    public function setPnl($pnl)
+    public function setSize($size)
     {
-        $this->container['pnl'] = $pnl;
+        $this->container['size'] = $size;
 
         return $this;
     }
 
     /**
-     * Gets text
+     * Gets margin
      *
      * @return string|null
      */
-    public function getText()
+    public function getMargin()
     {
-        return $this->container['text'];
+        return $this->container['margin'];
     }
 
     /**
-     * Sets text
+     * Sets margin
      *
-     * @param string|null $text Text of close order
+     * @param string|null $margin Position margin
      *
      * @return $this
      */
-    public function setText($text)
+    public function setMargin($margin)
     {
-        $this->container['text'] = $text;
+        $this->container['margin'] = $margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets entry_price
+     *
+     * @return string|null
+     */
+    public function getEntryPrice()
+    {
+        return $this->container['entry_price'];
+    }
+
+    /**
+     * Sets entry_price
+     *
+     * @param string|null $entry_price Average entry price
+     *
+     * @return $this
+     */
+    public function setEntryPrice($entry_price)
+    {
+        $this->container['entry_price'] = $entry_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets liq_price
+     *
+     * @return string|null
+     */
+    public function getLiqPrice()
+    {
+        return $this->container['liq_price'];
+    }
+
+    /**
+     * Sets liq_price
+     *
+     * @param string|null $liq_price Liquidation price
+     *
+     * @return $this
+     */
+    public function setLiqPrice($liq_price)
+    {
+        $this->container['liq_price'] = $liq_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets mark_price
+     *
+     * @return string|null
+     */
+    public function getMarkPrice()
+    {
+        return $this->container['mark_price'];
+    }
+
+    /**
+     * Sets mark_price
+     *
+     * @param string|null $mark_price Mark price
+     *
+     * @return $this
+     */
+    public function setMarkPrice($mark_price)
+    {
+        $this->container['mark_price'] = $mark_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     *
+     * @return int|null
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param int|null $order_id Liquidation order ID
+     *
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_price
+     *
+     * @return string|null
+     */
+    public function getOrderPrice()
+    {
+        return $this->container['order_price'];
+    }
+
+    /**
+     * Sets order_price
+     *
+     * @param string|null $order_price Liquidation order price
+     *
+     * @return $this
+     */
+    public function setOrderPrice($order_price)
+    {
+        $this->container['order_price'] = $order_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets fill_price
+     *
+     * @return string|null
+     */
+    public function getFillPrice()
+    {
+        return $this->container['fill_price'];
+    }
+
+    /**
+     * Sets fill_price
+     *
+     * @param string|null $fill_price Liquidation order average taker price
+     *
+     * @return $this
+     */
+    public function setFillPrice($fill_price)
+    {
+        $this->container['fill_price'] = $fill_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets left
+     *
+     * @return int|null
+     */
+    public function getLeft()
+    {
+        return $this->container['left'];
+    }
+
+    /**
+     * Sets left
+     *
+     * @param int|null $left Liquidation order maker size
+     *
+     * @return $this
+     */
+    public function setLeft($left)
+    {
+        $this->container['left'] = $left;
 
         return $this;
     }
