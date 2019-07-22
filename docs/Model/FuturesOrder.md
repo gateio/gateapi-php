@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **tif** | **string** | Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, post-only | [optional] [default to 'gtc']
 **left** | **int** | Size left to be traded | [optional] 
 **fill_price** | **string** | Fill price of the order | [optional] 
-**text** | **string** | How order is created  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance | [optional] 
+**text** | **string** | User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 16 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance | [optional] 
 **tkfr** | **string** | Taker fee | [optional] 
 **mkfr** | **string** | Maker fee | [optional] 
 **refu** | **int** | Reference user ID | [optional] 
