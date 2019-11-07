@@ -402,7 +402,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $apiInstance = new GateApi\Api\SpotApi()
 $currency_pair = 'BTC_USDT'; // string | Currency pair
-$interval = '0'; // string | Price precision of order book. 0 means no aggregation is applied
+$interval = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $limit = 10; // int | Maximum number of order depth data in asks or bids
 
 try {
@@ -419,7 +419,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Currency pair |
- **interval** | **string**| Price precision of order book. 0 means no aggregation is applied | [optional] [default to &#39;0&#39;]
+ **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
 
 ### Return type
