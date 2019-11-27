@@ -1145,7 +1145,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPositions**
-> \GateApi\Model\Position[] listPositions()
+> \GateApi\Model\Position[] listPositions($settle)
 
 List all positions of a user
 
@@ -1156,9 +1156,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$settle = 'btc'; // string | Settle currency
 
 try {
-    $result = $apiInstance->listPositions();
+    $result = $apiInstance->listPositions($settle);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listPositions: ', $e->getMessage(), PHP_EOL;
@@ -1167,7 +1168,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
 
 ### Return type
 
