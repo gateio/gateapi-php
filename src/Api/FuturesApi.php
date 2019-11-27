@@ -6957,14 +6957,15 @@ class FuturesApi
      *
      * List all positions of a user
      *
+     * @param  string $settle Settle currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Position[]
      */
-    public function listPositions()
+    public function listPositions($settle)
     {
-        list($response) = $this->listPositionsWithHttpInfo();
+        list($response) = $this->listPositionsWithHttpInfo($settle);
         return $response;
     }
 
@@ -6973,14 +6974,15 @@ class FuturesApi
      *
      * List all positions of a user
      *
+     * @param  string $settle Settle currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listPositionsWithHttpInfo()
+    public function listPositionsWithHttpInfo($settle)
     {
-        $request = $this->listPositionsRequest();
+        $request = $this->listPositionsRequest($settle);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7060,13 +7062,14 @@ class FuturesApi
      *
      * List all positions of a user
      *
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPositionsAsync()
+    public function listPositionsAsync($settle)
     {
-        return $this->listPositionsAsyncWithHttpInfo()
+        return $this->listPositionsAsyncWithHttpInfo($settle)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7079,14 +7082,15 @@ class FuturesApi
      *
      * List all positions of a user
      *
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPositionsAsyncWithHttpInfo()
+    public function listPositionsAsyncWithHttpInfo($settle)
     {
         $returnType = '\GateApi\Model\Position[]';
-        $request = $this->listPositionsRequest();
+        $request = $this->listPositionsRequest($settle);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7125,12 +7129,19 @@ class FuturesApi
     /**
      * Create request for operation 'listPositions'
      *
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listPositionsRequest()
+    protected function listPositionsRequest($settle)
     {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling listPositions'
+            );
+        }
 
         $resourcePath = '/futures/{settle}/positions';
         $formParams = [];
@@ -7140,6 +7151,14 @@ class FuturesApi
         $multipart = false;
 
 
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
