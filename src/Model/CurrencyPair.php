@@ -63,6 +63,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => 'string',
         'min_base_amount' => 'string',
         'min_quote_amount' => 'string',
+        'amount_precision' => 'int',
         'precision' => 'int'
     ];
 
@@ -78,6 +79,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => null,
         'min_base_amount' => null,
         'min_quote_amount' => null,
+        'amount_precision' => null,
         'precision' => null
     ];
 
@@ -114,6 +116,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => 'fee',
         'min_base_amount' => 'min_base_amount',
         'min_quote_amount' => 'min_quote_amount',
+        'amount_precision' => 'amount_precision',
         'precision' => 'precision'
     ];
 
@@ -129,6 +132,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => 'setFee',
         'min_base_amount' => 'setMinBaseAmount',
         'min_quote_amount' => 'setMinQuoteAmount',
+        'amount_precision' => 'setAmountPrecision',
         'precision' => 'setPrecision'
     ];
 
@@ -144,6 +148,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => 'getFee',
         'min_base_amount' => 'getMinBaseAmount',
         'min_quote_amount' => 'getMinQuoteAmount',
+        'amount_precision' => 'getAmountPrecision',
         'precision' => 'getPrecision'
     ];
 
@@ -213,6 +218,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
         $this->container['min_base_amount'] = isset($data['min_base_amount']) ? $data['min_base_amount'] : null;
         $this->container['min_quote_amount'] = isset($data['min_quote_amount']) ? $data['min_quote_amount'] : null;
+        $this->container['amount_precision'] = isset($data['amount_precision']) ? $data['amount_precision'] : null;
         $this->container['precision'] = isset($data['precision']) ? $data['precision'] : null;
     }
 
@@ -380,6 +386,30 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     public function setMinQuoteAmount($min_quote_amount)
     {
         $this->container['min_quote_amount'] = $min_quote_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_precision
+     *
+     * @return int|null
+     */
+    public function getAmountPrecision()
+    {
+        return $this->container['amount_precision'];
+    }
+
+    /**
+     * Sets amount_precision
+     *
+     * @param int|null $amount_precision Amount scale
+     *
+     * @return $this
+     */
+    public function setAmountPrecision($amount_precision)
+    {
+        $this->container['amount_precision'] = $amount_precision;
 
         return $this;
     }

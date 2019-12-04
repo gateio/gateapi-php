@@ -71,7 +71,9 @@ class Loan implements ModelInterface, ArrayAccess
         'left' => 'string',
         'repaid' => 'string',
         'paid_interest' => 'string',
-        'unpaid_interest' => 'string'
+        'unpaid_interest' => 'string',
+        'fee_rate' => 'string',
+        'orig_id' => 'string'
     ];
 
     /**
@@ -94,7 +96,9 @@ class Loan implements ModelInterface, ArrayAccess
         'left' => null,
         'repaid' => null,
         'paid_interest' => null,
-        'unpaid_interest' => null
+        'unpaid_interest' => null,
+        'fee_rate' => null,
+        'orig_id' => null
     ];
 
     /**
@@ -138,7 +142,9 @@ class Loan implements ModelInterface, ArrayAccess
         'left' => 'left',
         'repaid' => 'repaid',
         'paid_interest' => 'paid_interest',
-        'unpaid_interest' => 'unpaid_interest'
+        'unpaid_interest' => 'unpaid_interest',
+        'fee_rate' => 'fee_rate',
+        'orig_id' => 'orig_id'
     ];
 
     /**
@@ -161,7 +167,9 @@ class Loan implements ModelInterface, ArrayAccess
         'left' => 'setLeft',
         'repaid' => 'setRepaid',
         'paid_interest' => 'setPaidInterest',
-        'unpaid_interest' => 'setUnpaidInterest'
+        'unpaid_interest' => 'setUnpaidInterest',
+        'fee_rate' => 'setFeeRate',
+        'orig_id' => 'setOrigId'
     ];
 
     /**
@@ -184,7 +192,9 @@ class Loan implements ModelInterface, ArrayAccess
         'left' => 'getLeft',
         'repaid' => 'getRepaid',
         'paid_interest' => 'getPaidInterest',
-        'unpaid_interest' => 'getUnpaidInterest'
+        'unpaid_interest' => 'getUnpaidInterest',
+        'fee_rate' => 'getFeeRate',
+        'orig_id' => 'getOrigId'
     ];
 
     /**
@@ -296,6 +306,8 @@ class Loan implements ModelInterface, ArrayAccess
         $this->container['repaid'] = isset($data['repaid']) ? $data['repaid'] : null;
         $this->container['paid_interest'] = isset($data['paid_interest']) ? $data['paid_interest'] : null;
         $this->container['unpaid_interest'] = isset($data['unpaid_interest']) ? $data['unpaid_interest'] : null;
+        $this->container['fee_rate'] = isset($data['fee_rate']) ? $data['fee_rate'] : null;
+        $this->container['orig_id'] = isset($data['orig_id']) ? $data['orig_id'] : null;
     }
 
     /**
@@ -724,6 +736,54 @@ class Loan implements ModelInterface, ArrayAccess
     public function setUnpaidInterest($unpaid_interest)
     {
         $this->container['unpaid_interest'] = $unpaid_interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee_rate
+     *
+     * @return string|null
+     */
+    public function getFeeRate()
+    {
+        return $this->container['fee_rate'];
+    }
+
+    /**
+     * Sets fee_rate
+     *
+     * @param string|null $fee_rate Loan fee rate
+     *
+     * @return $this
+     */
+    public function setFeeRate($fee_rate)
+    {
+        $this->container['fee_rate'] = $fee_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets orig_id
+     *
+     * @return string|null
+     */
+    public function getOrigId()
+    {
+        return $this->container['orig_id'];
+    }
+
+    /**
+     * Sets orig_id
+     *
+     * @param string|null $orig_id Original loan ID if the loan is auto-renewed. Equal to `id` if not
+     *
+     * @return $this
+     */
+    public function setOrigId($orig_id)
+    {
+        $this->container['orig_id'] = $orig_id;
 
         return $this;
     }
