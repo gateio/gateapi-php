@@ -638,7 +638,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $apiInstance = new GateApi\Api\SpotApi()
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $limit = 100; // int | Maximum number of record returned in one list
-$last_id = '12345'; // string | Specify list staring point using the last record of `id` in previous list-query results
+$last_id = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
 
 try {
     $result = $apiInstance->listTrades($currency_pair, $limit, $last_id);
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Currency pair |
  **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
- **last_id** | **string**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+ **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
 
 ### Return type
 

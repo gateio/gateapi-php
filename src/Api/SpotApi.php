@@ -3768,7 +3768,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3787,7 +3787,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3877,7 +3877,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3899,7 +3899,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3948,7 +3948,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
