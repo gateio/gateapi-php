@@ -2437,7 +2437,7 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2458,7 +2458,7 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2550,7 +2550,7 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2574,7 +2574,7 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2625,7 +2625,7 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5433,7 +5433,7 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5454,7 +5454,7 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5546,7 +5546,7 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5570,7 +5570,7 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5621,7 +5621,7 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6042,15 +6042,17 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  float $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  float $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesTrade[]
      */
-    public function listFuturesTrades($settle, $contract, $limit = 100, $last_id = null)
+    public function listFuturesTrades($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
-        list($response) = $this->listFuturesTradesWithHttpInfo($settle, $contract, $limit, $last_id);
+        list($response) = $this->listFuturesTradesWithHttpInfo($settle, $contract, $limit, $last_id, $from, $to);
         return $response;
     }
 
@@ -6062,15 +6064,17 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  float $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  float $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesTrade[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesTradesWithHttpInfo($settle, $contract, $limit = 100, $last_id = null)
+    public function listFuturesTradesWithHttpInfo($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
-        $request = $this->listFuturesTradesRequest($settle, $contract, $limit, $last_id);
+        $request = $this->listFuturesTradesRequest($settle, $contract, $limit, $last_id, $from, $to);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6153,14 +6157,16 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  float $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  float $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesTradesAsync($settle, $contract, $limit = 100, $last_id = null)
+    public function listFuturesTradesAsync($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
-        return $this->listFuturesTradesAsyncWithHttpInfo($settle, $contract, $limit, $last_id)
+        return $this->listFuturesTradesAsyncWithHttpInfo($settle, $contract, $limit, $last_id, $from, $to)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6176,15 +6182,17 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  float $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  float $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesTradesAsyncWithHttpInfo($settle, $contract, $limit = 100, $last_id = null)
+    public function listFuturesTradesAsyncWithHttpInfo($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
         $returnType = '\GateApi\Model\FuturesTrade[]';
-        $request = $this->listFuturesTradesRequest($settle, $contract, $limit, $last_id);
+        $request = $this->listFuturesTradesRequest($settle, $contract, $limit, $last_id, $from, $to);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6226,12 +6234,14 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
-     * @param  string $last_id Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param  string $last_id Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  float $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  float $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesTradesRequest($settle, $contract, $limit = 100, $last_id = null)
+    protected function listFuturesTradesRequest($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -6271,6 +6281,14 @@ class FuturesApi
         // query params
         if ($last_id !== null) {
             $queryParams['last_id'] = ObjectSerializer::toQueryValue($last_id);
+        }
+        // query params
+        if ($from !== null) {
+            $queryParams['from'] = ObjectSerializer::toQueryValue($from);
+        }
+        // query params
+        if ($to !== null) {
+            $queryParams['to'] = ObjectSerializer::toQueryValue($to);
         }
 
         // path params

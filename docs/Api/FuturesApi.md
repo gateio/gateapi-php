@@ -426,7 +426,7 @@ $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
 $order = 12345; // int | Futures order ID, return related data only if specified
 $limit = 100; // int | Maximum number of record returned in one list
-$last_id = '12345'; // string | Specify list staring point using the last record of `id` in previous list-query results
+$last_id = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
 
 try {
     $result = $apiInstance->getMyTrades($settle, $contract, $order, $limit, $last_id);
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **order** | **int**| Futures order ID, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
- **last_id** | **string**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+ **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
 
 ### Return type
 
@@ -914,7 +914,7 @@ $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $status = 'open'; // string | List orders based on status
 $limit = 100; // int | Maximum number of record returned in one list
-$last_id = '12345'; // string | Specify list staring point using the last record of `id` in previous list-query results
+$last_id = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
 
 try {
     $result = $apiInstance->listFuturesOrders($settle, $contract, $status, $limit, $last_id);
@@ -933,7 +933,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract |
  **status** | **string**| List orders based on status |
  **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
- **last_id** | **string**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+ **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
 
 ### Return type
 
@@ -997,7 +997,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesTrades**
-> \GateApi\Model\FuturesTrade[] listFuturesTrades($settle, $contract, $limit, $last_id)
+> \GateApi\Model\FuturesTrade[] listFuturesTrades($settle, $contract, $limit, $last_id, $from, $to)
 
 Futures trading history
 
@@ -1011,10 +1011,12 @@ $apiInstance = new GateApi\Api\FuturesApi()
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $limit = 100; // int | Maximum number of record returned in one list
-$last_id = '12345'; // string | Specify list staring point using the last record of `id` in previous list-query results
+$last_id = '12345'; // string | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
+$from = 1546905600; // float | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.
+$to = 1546935600; // float | Specify end time in Unix seconds, default to current time
 
 try {
-    $result = $apiInstance->listFuturesTrades($settle, $contract, $limit, $last_id);
+    $result = $apiInstance->listFuturesTrades($settle, $contract, $limit, $last_id, $from, $to);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesTrades: ', $e->getMessage(), PHP_EOL;
@@ -1029,7 +1031,9 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
  **contract** | **string**| Futures contract |
  **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
- **last_id** | **string**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+ **last_id** | **string**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
+ **from** | **float**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. | [optional]
+ **to** | **float**| Specify end time in Unix seconds, default to current time | [optional]
 
 ### Return type
 
