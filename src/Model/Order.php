@@ -60,6 +60,7 @@ class Order implements ModelInterface, ArrayAccess
         'id' => 'string',
         'text' => 'string',
         'create_time' => 'string',
+        'update_time' => 'string',
         'status' => 'string',
         'currency_pair' => 'string',
         'type' => 'string',
@@ -69,7 +70,11 @@ class Order implements ModelInterface, ArrayAccess
         'price' => 'string',
         'time_in_force' => 'string',
         'left' => 'string',
-        'fill_price' => 'string'
+        'fill_price' => 'string',
+        'fee' => 'string',
+        'fee_currency' => 'string',
+        'point_fee' => 'string',
+        'gt_fee' => 'string'
     ];
 
     /**
@@ -81,6 +86,7 @@ class Order implements ModelInterface, ArrayAccess
         'id' => null,
         'text' => null,
         'create_time' => null,
+        'update_time' => null,
         'status' => null,
         'currency_pair' => null,
         'type' => null,
@@ -90,7 +96,11 @@ class Order implements ModelInterface, ArrayAccess
         'price' => null,
         'time_in_force' => null,
         'left' => null,
-        'fill_price' => null
+        'fill_price' => null,
+        'fee' => null,
+        'fee_currency' => null,
+        'point_fee' => null,
+        'gt_fee' => null
     ];
 
     /**
@@ -123,6 +133,7 @@ class Order implements ModelInterface, ArrayAccess
         'id' => 'id',
         'text' => 'text',
         'create_time' => 'create_time',
+        'update_time' => 'update_time',
         'status' => 'status',
         'currency_pair' => 'currency_pair',
         'type' => 'type',
@@ -132,7 +143,11 @@ class Order implements ModelInterface, ArrayAccess
         'price' => 'price',
         'time_in_force' => 'time_in_force',
         'left' => 'left',
-        'fill_price' => 'fill_price'
+        'fill_price' => 'fill_price',
+        'fee' => 'fee',
+        'fee_currency' => 'fee_currency',
+        'point_fee' => 'point_fee',
+        'gt_fee' => 'gt_fee'
     ];
 
     /**
@@ -144,6 +159,7 @@ class Order implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'text' => 'setText',
         'create_time' => 'setCreateTime',
+        'update_time' => 'setUpdateTime',
         'status' => 'setStatus',
         'currency_pair' => 'setCurrencyPair',
         'type' => 'setType',
@@ -153,7 +169,11 @@ class Order implements ModelInterface, ArrayAccess
         'price' => 'setPrice',
         'time_in_force' => 'setTimeInForce',
         'left' => 'setLeft',
-        'fill_price' => 'setFillPrice'
+        'fill_price' => 'setFillPrice',
+        'fee' => 'setFee',
+        'fee_currency' => 'setFeeCurrency',
+        'point_fee' => 'setPointFee',
+        'gt_fee' => 'setGtFee'
     ];
 
     /**
@@ -165,6 +185,7 @@ class Order implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'text' => 'getText',
         'create_time' => 'getCreateTime',
+        'update_time' => 'getUpdateTime',
         'status' => 'getStatus',
         'currency_pair' => 'getCurrencyPair',
         'type' => 'getType',
@@ -174,7 +195,11 @@ class Order implements ModelInterface, ArrayAccess
         'price' => 'getPrice',
         'time_in_force' => 'getTimeInForce',
         'left' => 'getLeft',
-        'fill_price' => 'getFillPrice'
+        'fill_price' => 'getFillPrice',
+        'fee' => 'getFee',
+        'fee_currency' => 'getFeeCurrency',
+        'point_fee' => 'getPointFee',
+        'gt_fee' => 'getGtFee'
     ];
 
     /**
@@ -315,6 +340,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : 'limit';
@@ -325,6 +351,10 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['time_in_force'] = isset($data['time_in_force']) ? $data['time_in_force'] : 'gtc';
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
+        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
+        $this->container['fee_currency'] = isset($data['fee_currency']) ? $data['fee_currency'] : null;
+        $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
+        $this->container['gt_fee'] = isset($data['gt_fee']) ? $data['gt_fee'] : null;
     }
 
     /**
@@ -471,6 +501,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return string|null
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param string|null $update_time Order last modification time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
 
         return $this;
     }
@@ -749,13 +803,109 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets fill_price
      *
-     * @param string|null $fill_price Fill price of the order
+     * @param string|null $fill_price Total filled in quote currency
      *
      * @return $this
      */
     public function setFillPrice($fill_price)
     {
         $this->container['fill_price'] = $fill_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee
+     *
+     * @return string|null
+     */
+    public function getFee()
+    {
+        return $this->container['fee'];
+    }
+
+    /**
+     * Sets fee
+     *
+     * @param string|null $fee Fee deducted
+     *
+     * @return $this
+     */
+    public function setFee($fee)
+    {
+        $this->container['fee'] = $fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee_currency
+     *
+     * @return string|null
+     */
+    public function getFeeCurrency()
+    {
+        return $this->container['fee_currency'];
+    }
+
+    /**
+     * Sets fee_currency
+     *
+     * @param string|null $fee_currency Fee currency unit
+     *
+     * @return $this
+     */
+    public function setFeeCurrency($fee_currency)
+    {
+        $this->container['fee_currency'] = $fee_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_fee
+     *
+     * @return string|null
+     */
+    public function getPointFee()
+    {
+        return $this->container['point_fee'];
+    }
+
+    /**
+     * Sets point_fee
+     *
+     * @param string|null $point_fee Point used to deduct fee
+     *
+     * @return $this
+     */
+    public function setPointFee($point_fee)
+    {
+        $this->container['point_fee'] = $point_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets gt_fee
+     *
+     * @return string|null
+     */
+    public function getGtFee()
+    {
+        return $this->container['gt_fee'];
+    }
+
+    /**
+     * Sets gt_fee
+     *
+     * @param string|null $gt_fee GT used to deduct fee
+     *
+     * @return $this
+     */
+    public function setGtFee($gt_fee)
+    {
+        $this->container['gt_fee'] = $gt_fee;
 
         return $this;
     }

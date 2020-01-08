@@ -61,7 +61,11 @@ class Trade implements ModelInterface, ArrayAccess
         'side' => 'string',
         'amount' => 'string',
         'price' => 'string',
-        'order_id' => 'string'
+        'order_id' => 'string',
+        'fee' => 'string',
+        'fee_currency' => 'string',
+        'point_fee' => 'string',
+        'gt_fee' => 'string'
     ];
 
     /**
@@ -75,7 +79,11 @@ class Trade implements ModelInterface, ArrayAccess
         'side' => null,
         'amount' => null,
         'price' => null,
-        'order_id' => null
+        'order_id' => null,
+        'fee' => null,
+        'fee_currency' => null,
+        'point_fee' => null,
+        'gt_fee' => null
     ];
 
     /**
@@ -110,7 +118,11 @@ class Trade implements ModelInterface, ArrayAccess
         'side' => 'side',
         'amount' => 'amount',
         'price' => 'price',
-        'order_id' => 'order_id'
+        'order_id' => 'order_id',
+        'fee' => 'fee',
+        'fee_currency' => 'fee_currency',
+        'point_fee' => 'point_fee',
+        'gt_fee' => 'gt_fee'
     ];
 
     /**
@@ -124,7 +136,11 @@ class Trade implements ModelInterface, ArrayAccess
         'side' => 'setSide',
         'amount' => 'setAmount',
         'price' => 'setPrice',
-        'order_id' => 'setOrderId'
+        'order_id' => 'setOrderId',
+        'fee' => 'setFee',
+        'fee_currency' => 'setFeeCurrency',
+        'point_fee' => 'setPointFee',
+        'gt_fee' => 'setGtFee'
     ];
 
     /**
@@ -138,7 +154,11 @@ class Trade implements ModelInterface, ArrayAccess
         'side' => 'getSide',
         'amount' => 'getAmount',
         'price' => 'getPrice',
-        'order_id' => 'getOrderId'
+        'order_id' => 'getOrderId',
+        'fee' => 'getFee',
+        'fee_currency' => 'getFeeCurrency',
+        'point_fee' => 'getPointFee',
+        'gt_fee' => 'getGtFee'
     ];
 
     /**
@@ -222,6 +242,10 @@ class Trade implements ModelInterface, ArrayAccess
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
+        $this->container['fee_currency'] = isset($data['fee_currency']) ? $data['fee_currency'] : null;
+        $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
+        $this->container['gt_fee'] = isset($data['gt_fee']) ? $data['gt_fee'] : null;
     }
 
     /**
@@ -405,6 +429,102 @@ class Trade implements ModelInterface, ArrayAccess
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee
+     *
+     * @return string|null
+     */
+    public function getFee()
+    {
+        return $this->container['fee'];
+    }
+
+    /**
+     * Sets fee
+     *
+     * @param string|null $fee Fee deducted. No value in public endpoints
+     *
+     * @return $this
+     */
+    public function setFee($fee)
+    {
+        $this->container['fee'] = $fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee_currency
+     *
+     * @return string|null
+     */
+    public function getFeeCurrency()
+    {
+        return $this->container['fee_currency'];
+    }
+
+    /**
+     * Sets fee_currency
+     *
+     * @param string|null $fee_currency Fee currency unit. No value in public endpoints
+     *
+     * @return $this
+     */
+    public function setFeeCurrency($fee_currency)
+    {
+        $this->container['fee_currency'] = $fee_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_fee
+     *
+     * @return string|null
+     */
+    public function getPointFee()
+    {
+        return $this->container['point_fee'];
+    }
+
+    /**
+     * Sets point_fee
+     *
+     * @param string|null $point_fee Point used to deduct fee
+     *
+     * @return $this
+     */
+    public function setPointFee($point_fee)
+    {
+        $this->container['point_fee'] = $point_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets gt_fee
+     *
+     * @return string|null
+     */
+    public function getGtFee()
+    {
+        return $this->container['gt_fee'];
+    }
+
+    /**
+     * Sets gt_fee
+     *
+     * @param string|null $gt_fee GT used to deduct fee
+     *
+     * @return $this
+     */
+    public function setGtFee($gt_fee)
+    {
+        $this->container['gt_fee'] = $gt_fee;
 
         return $this;
     }
