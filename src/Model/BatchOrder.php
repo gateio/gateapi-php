@@ -72,6 +72,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'amount' => 'string',
         'price' => 'string',
         'time_in_force' => 'string',
+        'auto_borrow' => 'bool',
         'left' => 'string',
         'fill_price' => 'string',
         'fee' => 'string',
@@ -101,6 +102,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'amount' => null,
         'price' => null,
         'time_in_force' => null,
+        'auto_borrow' => null,
         'left' => null,
         'fill_price' => null,
         'fee' => null,
@@ -151,6 +153,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'amount' => 'amount',
         'price' => 'price',
         'time_in_force' => 'time_in_force',
+        'auto_borrow' => 'auto_borrow',
         'left' => 'left',
         'fill_price' => 'fill_price',
         'fee' => 'fee',
@@ -180,6 +183,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'amount' => 'setAmount',
         'price' => 'setPrice',
         'time_in_force' => 'setTimeInForce',
+        'auto_borrow' => 'setAutoBorrow',
         'left' => 'setLeft',
         'fill_price' => 'setFillPrice',
         'fee' => 'setFee',
@@ -209,6 +213,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'amount' => 'getAmount',
         'price' => 'getPrice',
         'time_in_force' => 'getTimeInForce',
+        'auto_borrow' => 'getAutoBorrow',
         'left' => 'getLeft',
         'fill_price' => 'getFillPrice',
         'fee' => 'getFee',
@@ -367,6 +372,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['time_in_force'] = isset($data['time_in_force']) ? $data['time_in_force'] : 'gtc';
+        $this->container['auto_borrow'] = isset($data['auto_borrow']) ? $data['auto_borrow'] : null;
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
@@ -840,6 +846,30 @@ class BatchOrder implements ModelInterface, ArrayAccess
             );
         }
         $this->container['time_in_force'] = $time_in_force;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_borrow
+     *
+     * @return bool|null
+     */
+    public function getAutoBorrow()
+    {
+        return $this->container['auto_borrow'];
+    }
+
+    /**
+     * Sets auto_borrow
+     *
+     * @param bool|null $auto_borrow Used in margin trading(e.g. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.
+     *
+     * @return $this
+     */
+    public function setAutoBorrow($auto_borrow)
+    {
+        $this->container['auto_borrow'] = $auto_borrow;
 
         return $this;
     }
