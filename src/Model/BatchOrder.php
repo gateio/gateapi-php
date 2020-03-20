@@ -78,7 +78,10 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'fee' => 'string',
         'fee_currency' => 'string',
         'point_fee' => 'string',
-        'gt_fee' => 'string'
+        'gt_fee' => 'string',
+        'gt_discount' => 'bool',
+        'rebated_fee' => 'string',
+        'rebated_fee_currency' => 'string'
     ];
 
     /**
@@ -108,7 +111,10 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'fee' => null,
         'fee_currency' => null,
         'point_fee' => null,
-        'gt_fee' => null
+        'gt_fee' => null,
+        'gt_discount' => null,
+        'rebated_fee' => null,
+        'rebated_fee_currency' => null
     ];
 
     /**
@@ -159,7 +165,10 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'fee' => 'fee',
         'fee_currency' => 'fee_currency',
         'point_fee' => 'point_fee',
-        'gt_fee' => 'gt_fee'
+        'gt_fee' => 'gt_fee',
+        'gt_discount' => 'gt_discount',
+        'rebated_fee' => 'rebated_fee',
+        'rebated_fee_currency' => 'rebated_fee_currency'
     ];
 
     /**
@@ -189,7 +198,10 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'fee' => 'setFee',
         'fee_currency' => 'setFeeCurrency',
         'point_fee' => 'setPointFee',
-        'gt_fee' => 'setGtFee'
+        'gt_fee' => 'setGtFee',
+        'gt_discount' => 'setGtDiscount',
+        'rebated_fee' => 'setRebatedFee',
+        'rebated_fee_currency' => 'setRebatedFeeCurrency'
     ];
 
     /**
@@ -219,7 +231,10 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'fee' => 'getFee',
         'fee_currency' => 'getFeeCurrency',
         'point_fee' => 'getPointFee',
-        'gt_fee' => 'getGtFee'
+        'gt_fee' => 'getGtFee',
+        'gt_discount' => 'getGtDiscount',
+        'rebated_fee' => 'getRebatedFee',
+        'rebated_fee_currency' => 'getRebatedFeeCurrency'
     ];
 
     /**
@@ -273,6 +288,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     const SIDE_SELL = 'sell';
     const TIME_IN_FORCE_GTC = 'gtc';
     const TIME_IN_FORCE_IOC = 'ioc';
+    const TIME_IN_FORCE_POC = 'poc';
     
 
     
@@ -338,6 +354,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         return [
             self::TIME_IN_FORCE_GTC,
             self::TIME_IN_FORCE_IOC,
+            self::TIME_IN_FORCE_POC,
         ];
     }
     
@@ -379,6 +396,9 @@ class BatchOrder implements ModelInterface, ArrayAccess
         $this->container['fee_currency'] = isset($data['fee_currency']) ? $data['fee_currency'] : null;
         $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
         $this->container['gt_fee'] = isset($data['gt_fee']) ? $data['gt_fee'] : null;
+        $this->container['gt_discount'] = isset($data['gt_discount']) ? $data['gt_discount'] : null;
+        $this->container['rebated_fee'] = isset($data['rebated_fee']) ? $data['rebated_fee'] : null;
+        $this->container['rebated_fee_currency'] = isset($data['rebated_fee_currency']) ? $data['rebated_fee_currency'] : null;
     }
 
     /**
@@ -830,7 +850,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets time_in_force
      *
-     * @param string|null $time_in_force Time in force
+     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only
      *
      * @return $this
      */
@@ -1014,6 +1034,78 @@ class BatchOrder implements ModelInterface, ArrayAccess
     public function setGtFee($gt_fee)
     {
         $this->container['gt_fee'] = $gt_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets gt_discount
+     *
+     * @return bool|null
+     */
+    public function getGtDiscount()
+    {
+        return $this->container['gt_discount'];
+    }
+
+    /**
+     * Sets gt_discount
+     *
+     * @param bool|null $gt_discount Whether GT fee discount is used
+     *
+     * @return $this
+     */
+    public function setGtDiscount($gt_discount)
+    {
+        $this->container['gt_discount'] = $gt_discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets rebated_fee
+     *
+     * @return string|null
+     */
+    public function getRebatedFee()
+    {
+        return $this->container['rebated_fee'];
+    }
+
+    /**
+     * Sets rebated_fee
+     *
+     * @param string|null $rebated_fee Rebated fee
+     *
+     * @return $this
+     */
+    public function setRebatedFee($rebated_fee)
+    {
+        $this->container['rebated_fee'] = $rebated_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets rebated_fee_currency
+     *
+     * @return string|null
+     */
+    public function getRebatedFeeCurrency()
+    {
+        return $this->container['rebated_fee_currency'];
+    }
+
+    /**
+     * Sets rebated_fee_currency
+     *
+     * @param string|null $rebated_fee_currency Rebated fee currency unit
+     *
+     * @return $this
+     */
+    public function setRebatedFeeCurrency($rebated_fee_currency)
+    {
+        $this->container['rebated_fee_currency'] = $rebated_fee_currency;
 
         return $this;
     }

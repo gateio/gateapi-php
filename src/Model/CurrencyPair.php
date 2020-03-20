@@ -64,7 +64,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_base_amount' => 'string',
         'min_quote_amount' => 'string',
         'amount_precision' => 'int',
-        'precision' => 'int'
+        'precision' => 'int',
+        'trade_status' => 'string'
     ];
 
     /**
@@ -80,7 +81,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_base_amount' => null,
         'min_quote_amount' => null,
         'amount_precision' => null,
-        'precision' => null
+        'precision' => null,
+        'trade_status' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_base_amount' => 'min_base_amount',
         'min_quote_amount' => 'min_quote_amount',
         'amount_precision' => 'amount_precision',
-        'precision' => 'precision'
+        'precision' => 'precision',
+        'trade_status' => 'trade_status'
     ];
 
     /**
@@ -133,7 +136,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_base_amount' => 'setMinBaseAmount',
         'min_quote_amount' => 'setMinQuoteAmount',
         'amount_precision' => 'setAmountPrecision',
-        'precision' => 'setPrecision'
+        'precision' => 'setPrecision',
+        'trade_status' => 'setTradeStatus'
     ];
 
     /**
@@ -149,7 +153,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_base_amount' => 'getMinBaseAmount',
         'min_quote_amount' => 'getMinQuoteAmount',
         'amount_precision' => 'getAmountPrecision',
-        'precision' => 'getPrecision'
+        'precision' => 'getPrecision',
+        'trade_status' => 'getTradeStatus'
     ];
 
     /**
@@ -193,8 +198,27 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TRADE_STATUS_UNTRADABLE = 'untradable';
+    const TRADE_STATUS_BUYABLE = 'buyable';
+    const TRADE_STATUS_SELLABLE = 'sellable';
+    const TRADE_STATUS_TRADABLE = 'tradable';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTradeStatusAllowableValues()
+    {
+        return [
+            self::TRADE_STATUS_UNTRADABLE,
+            self::TRADE_STATUS_BUYABLE,
+            self::TRADE_STATUS_SELLABLE,
+            self::TRADE_STATUS_TRADABLE,
+        ];
+    }
     
 
     /**
@@ -220,6 +244,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         $this->container['min_quote_amount'] = isset($data['min_quote_amount']) ? $data['min_quote_amount'] : null;
         $this->container['amount_precision'] = isset($data['amount_precision']) ? $data['amount_precision'] : null;
         $this->container['precision'] = isset($data['precision']) ? $data['precision'] : null;
+        $this->container['trade_status'] = isset($data['trade_status']) ? $data['trade_status'] : null;
     }
 
     /**
@@ -230,6 +255,14 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTradeStatusAllowableValues();
+        if (!is_null($this->container['trade_status']) && !in_array($this->container['trade_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'trade_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -434,6 +467,39 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     public function setPrecision($precision)
     {
         $this->container['precision'] = $precision;
+
+        return $this;
+    }
+
+    /**
+     * Gets trade_status
+     *
+     * @return string|null
+     */
+    public function getTradeStatus()
+    {
+        return $this->container['trade_status'];
+    }
+
+    /**
+     * Sets trade_status
+     *
+     * @param string|null $trade_status How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold
+     *
+     * @return $this
+     */
+    public function setTradeStatus($trade_status)
+    {
+        $allowedValues = $this->getTradeStatusAllowableValues();
+        if (!is_null($trade_status) && !in_array($trade_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'trade_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['trade_status'] = $trade_status;
 
         return $this;
     }
