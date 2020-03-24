@@ -883,7 +883,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_borrow
      *
-     * @param bool|null $auto_borrow Used in margin trading(e.g. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.
+     * @param bool|null $auto_borrow Used in margin trading(i.e. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.
      *
      * @return $this
      */
