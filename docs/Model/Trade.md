@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **string** | Trade ID | [optional] 
 **create_time** | **string** | Trading time | [optional] 
 **side** | **string** | Order side | [optional] 
+**role** | **string** | Trade role | [optional] 
 **amount** | **string** | Trade amount | [optional] 
 **price** | **string** | Order price | [optional] 
 **order_id** | **string** | Related order ID. No value in public endpoints | [optional] 

@@ -59,6 +59,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => 'string',
         'create_time' => 'string',
         'side' => 'string',
+        'role' => 'string',
         'amount' => 'string',
         'price' => 'string',
         'order_id' => 'string',
@@ -77,6 +78,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => null,
         'create_time' => null,
         'side' => null,
+        'role' => null,
         'amount' => null,
         'price' => null,
         'order_id' => null,
@@ -116,6 +118,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => 'id',
         'create_time' => 'create_time',
         'side' => 'side',
+        'role' => 'role',
         'amount' => 'amount',
         'price' => 'price',
         'order_id' => 'order_id',
@@ -134,6 +137,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'create_time' => 'setCreateTime',
         'side' => 'setSide',
+        'role' => 'setRole',
         'amount' => 'setAmount',
         'price' => 'setPrice',
         'order_id' => 'setOrderId',
@@ -152,6 +156,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'create_time' => 'getCreateTime',
         'side' => 'getSide',
+        'role' => 'getRole',
         'amount' => 'getAmount',
         'price' => 'getPrice',
         'order_id' => 'getOrderId',
@@ -204,6 +209,8 @@ class Trade implements ModelInterface, ArrayAccess
 
     const SIDE_BUY = 'buy';
     const SIDE_SELL = 'sell';
+    const ROLE_TAKER = 'taker';
+    const ROLE_MAKER = 'maker';
     
 
     
@@ -217,6 +224,19 @@ class Trade implements ModelInterface, ArrayAccess
         return [
             self::SIDE_BUY,
             self::SIDE_SELL,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRoleAllowableValues()
+    {
+        return [
+            self::ROLE_TAKER,
+            self::ROLE_MAKER,
         ];
     }
     
@@ -239,6 +259,7 @@ class Trade implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['side'] = isset($data['side']) ? $data['side'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
@@ -261,6 +282,14 @@ class Trade implements ModelInterface, ArrayAccess
         if (!is_null($this->container['side']) && !in_array($this->container['side'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'side', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'role', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -357,6 +386,39 @@ class Trade implements ModelInterface, ArrayAccess
             );
         }
         $this->container['side'] = $side;
+
+        return $this;
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string|null
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string|null $role Trade role
+     *
+     * @return $this
+     */
+    public function setRole($role)
+    {
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'role', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['role'] = $role;
 
         return $this;
     }
