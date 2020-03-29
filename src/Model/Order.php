@@ -72,6 +72,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => 'bool',
         'left' => 'string',
         'fill_price' => 'string',
+        'filled_total' => 'string',
         'fee' => 'string',
         'fee_currency' => 'string',
         'point_fee' => 'string',
@@ -102,6 +103,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => null,
         'left' => null,
         'fill_price' => null,
+        'filled_total' => null,
         'fee' => null,
         'fee_currency' => null,
         'point_fee' => null,
@@ -153,6 +155,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => 'auto_borrow',
         'left' => 'left',
         'fill_price' => 'fill_price',
+        'filled_total' => 'filled_total',
         'fee' => 'fee',
         'fee_currency' => 'fee_currency',
         'point_fee' => 'point_fee',
@@ -183,6 +186,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => 'setAutoBorrow',
         'left' => 'setLeft',
         'fill_price' => 'setFillPrice',
+        'filled_total' => 'setFilledTotal',
         'fee' => 'setFee',
         'fee_currency' => 'setFeeCurrency',
         'point_fee' => 'setPointFee',
@@ -213,6 +217,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => 'getAutoBorrow',
         'left' => 'getLeft',
         'fill_price' => 'getFillPrice',
+        'filled_total' => 'getFilledTotal',
         'fee' => 'getFee',
         'fee_currency' => 'getFeeCurrency',
         'point_fee' => 'getPointFee',
@@ -374,6 +379,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['auto_borrow'] = isset($data['auto_borrow']) ? $data['auto_borrow'] : null;
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
+        $this->container['filled_total'] = isset($data['filled_total']) ? $data['filled_total'] : null;
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
         $this->container['fee_currency'] = isset($data['fee_currency']) ? $data['fee_currency'] : null;
         $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
@@ -853,13 +859,37 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets fill_price
      *
-     * @param string|null $fill_price Total filled in quote currency
+     * @param string|null $fill_price Total filled in quote currency. Deprecated in favor of `filled_total`
      *
      * @return $this
      */
     public function setFillPrice($fill_price)
     {
         $this->container['fill_price'] = $fill_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets filled_total
+     *
+     * @return string|null
+     */
+    public function getFilledTotal()
+    {
+        return $this->container['filled_total'];
+    }
+
+    /**
+     * Sets filled_total
+     *
+     * @param string|null $filled_total Total filled in quote currency
+     *
+     * @return $this
+     */
+    public function setFilledTotal($filled_total)
+    {
+        $this->container['filled_total'] = $filled_total;
 
         return $this;
     }
