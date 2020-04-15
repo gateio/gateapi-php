@@ -342,11 +342,11 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listCandlesticks**
-> string[][] listCandlesticks($currency_pair, $limit, $interval)
+> string[][] listCandlesticks($currency_pair, $limit, $from, $to, $interval)
 
 Market candlesticks
 
-Candlestick data will start from (current time - limit * interval), end at current time
+Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying `from`, `to` and `interval`
 
 ### Example
 ```php
@@ -356,11 +356,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $apiInstance = new GateApi\Api\SpotApi()
 $currency_pair = 'BTC_USDT'; // string | Currency pair
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
+$from = 1546905600; // int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
+$to = 1546935600; // int | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
 $interval = '30m'; // string | Interval time between data points
 
 try {
-    $result = $apiInstance->listCandlesticks($currency_pair, $limit, $interval);
+    $result = $apiInstance->listCandlesticks($currency_pair, $limit, $from, $to, $interval);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listCandlesticks: ', $e->getMessage(), PHP_EOL;
@@ -373,7 +375,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Currency pair |
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
+ **from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
+ **to** | **int**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
  **interval** | **string**| Interval time between data points | [optional] [default to &#39;30m&#39;]
 
 ### Return type
