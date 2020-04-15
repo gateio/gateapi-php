@@ -322,6 +322,226 @@ class WalletApi
     }
 
     /**
+     * Operation transferWithSubAccount
+     *
+     * Transfer between main and sub accounts
+     *
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer sub_account_transfer (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function transferWithSubAccount($sub_account_transfer)
+    {
+        $this->transferWithSubAccountWithHttpInfo($sub_account_transfer);
+    }
+
+    /**
+     * Operation transferWithSubAccountWithHttpInfo
+     *
+     * Transfer between main and sub accounts
+     *
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function transferWithSubAccountWithHttpInfo($sub_account_transfer)
+    {
+        $request = $this->transferWithSubAccountRequest($sub_account_transfer);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation transferWithSubAccountAsync
+     *
+     * Transfer between main and sub accounts
+     *
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function transferWithSubAccountAsync($sub_account_transfer)
+    {
+        return $this->transferWithSubAccountAsyncWithHttpInfo($sub_account_transfer)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation transferWithSubAccountAsyncWithHttpInfo
+     *
+     * Transfer between main and sub accounts
+     *
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function transferWithSubAccountAsyncWithHttpInfo($sub_account_transfer)
+    {
+        $returnType = '';
+        $request = $this->transferWithSubAccountRequest($sub_account_transfer);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'transferWithSubAccount'
+     *
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function transferWithSubAccountRequest($sub_account_transfer)
+    {
+        // verify the required parameter 'sub_account_transfer' is set
+        if ($sub_account_transfer === null || (is_array($sub_account_transfer) && count($sub_account_transfer) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sub_account_transfer when calling transferWithSubAccount'
+            );
+        }
+
+        $resourcePath = '/wallet/sub_account_transfers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($sub_account_transfer)) {
+            $_tempBody = $sub_account_transfer;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('POST', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Create http client option
      *
      * @throws \RuntimeException on file opening failure

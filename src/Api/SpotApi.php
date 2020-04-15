@@ -2047,16 +2047,18 @@ class SpotApi
      * Market candlesticks
      *
      * @param  string $currency_pair Currency pair (required)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param  string $interval Interval time between data points (optional, default to '30m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string[][]
      */
-    public function listCandlesticks($currency_pair, $limit = 100, $interval = '30m')
+    public function listCandlesticks($currency_pair, $limit = 100, $from = null, $to = null, $interval = '30m')
     {
-        list($response) = $this->listCandlesticksWithHttpInfo($currency_pair, $limit, $interval);
+        list($response) = $this->listCandlesticksWithHttpInfo($currency_pair, $limit, $from, $to, $interval);
         return $response;
     }
 
@@ -2066,16 +2068,18 @@ class SpotApi
      * Market candlesticks
      *
      * @param  string $currency_pair Currency pair (required)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param  string $interval Interval time between data points (optional, default to '30m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string[][], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listCandlesticksWithHttpInfo($currency_pair, $limit = 100, $interval = '30m')
+    public function listCandlesticksWithHttpInfo($currency_pair, $limit = 100, $from = null, $to = null, $interval = '30m')
     {
-        $request = $this->listCandlesticksRequest($currency_pair, $limit, $interval);
+        $request = $this->listCandlesticksRequest($currency_pair, $limit, $from, $to, $interval);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2156,15 +2160,17 @@ class SpotApi
      * Market candlesticks
      *
      * @param  string $currency_pair Currency pair (required)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param  string $interval Interval time between data points (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCandlesticksAsync($currency_pair, $limit = 100, $interval = '30m')
+    public function listCandlesticksAsync($currency_pair, $limit = 100, $from = null, $to = null, $interval = '30m')
     {
-        return $this->listCandlesticksAsyncWithHttpInfo($currency_pair, $limit, $interval)
+        return $this->listCandlesticksAsyncWithHttpInfo($currency_pair, $limit, $from, $to, $interval)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2178,16 +2184,18 @@ class SpotApi
      * Market candlesticks
      *
      * @param  string $currency_pair Currency pair (required)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param  string $interval Interval time between data points (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCandlesticksAsyncWithHttpInfo($currency_pair, $limit = 100, $interval = '30m')
+    public function listCandlesticksAsyncWithHttpInfo($currency_pair, $limit = 100, $from = null, $to = null, $interval = '30m')
     {
         $returnType = 'string[][]';
-        $request = $this->listCandlesticksRequest($currency_pair, $limit, $interval);
+        $request = $this->listCandlesticksRequest($currency_pair, $limit, $from, $to, $interval);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2227,13 +2235,15 @@ class SpotApi
      * Create request for operation 'listCandlesticks'
      *
      * @param  string $currency_pair Currency pair (required)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param  string $interval Interval time between data points (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listCandlesticksRequest($currency_pair, $limit = 100, $interval = '30m')
+    protected function listCandlesticksRequest($currency_pair, $limit = 100, $from = null, $to = null, $interval = '30m')
     {
         // verify the required parameter 'currency_pair' is set
         if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
@@ -2243,9 +2253,6 @@ class SpotApi
         }
         if ($limit !== null && $limit > 1000) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listCandlesticks, must be smaller than or equal to 1000.');
-        }
-        if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listCandlesticks, must be bigger than or equal to 1.');
         }
 
 
@@ -2263,6 +2270,14 @@ class SpotApi
         // query params
         if ($limit !== null) {
             $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($from !== null) {
+            $queryParams['from'] = ObjectSerializer::toQueryValue($from);
+        }
+        // query params
+        if ($to !== null) {
+            $queryParams['to'] = ObjectSerializer::toQueryValue($to);
         }
         // query params
         if ($interval !== null) {
