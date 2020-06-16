@@ -84,7 +84,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_id' => 'int',
         'trade_size' => 'int',
         'position_size' => 'int',
-        'config_change_time' => 'float'
+        'config_change_time' => 'float',
+        'in_delisting' => 'bool'
     ];
 
     /**
@@ -120,7 +121,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_id' => 'int64',
         'trade_size' => 'int64',
         'position_size' => 'int64',
-        'config_change_time' => null
+        'config_change_time' => null,
+        'in_delisting' => null
     ];
 
     /**
@@ -177,7 +179,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_id' => 'trade_id',
         'trade_size' => 'trade_size',
         'position_size' => 'position_size',
-        'config_change_time' => 'config_change_time'
+        'config_change_time' => 'config_change_time',
+        'in_delisting' => 'in_delisting'
     ];
 
     /**
@@ -213,7 +216,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_id' => 'setTradeId',
         'trade_size' => 'setTradeSize',
         'position_size' => 'setPositionSize',
-        'config_change_time' => 'setConfigChangeTime'
+        'config_change_time' => 'setConfigChangeTime',
+        'in_delisting' => 'setInDelisting'
     ];
 
     /**
@@ -249,7 +253,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_id' => 'getTradeId',
         'trade_size' => 'getTradeSize',
         'position_size' => 'getPositionSize',
-        'config_change_time' => 'getConfigChangeTime'
+        'config_change_time' => 'getConfigChangeTime',
+        'in_delisting' => 'getInDelisting'
     ];
 
     /**
@@ -370,6 +375,7 @@ class Contract implements ModelInterface, ArrayAccess
         $this->container['trade_size'] = isset($data['trade_size']) ? $data['trade_size'] : null;
         $this->container['position_size'] = isset($data['position_size']) ? $data['position_size'] : null;
         $this->container['config_change_time'] = isset($data['config_change_time']) ? $data['config_change_time'] : null;
+        $this->container['in_delisting'] = isset($data['in_delisting']) ? $data['in_delisting'] : null;
     }
 
     /**
@@ -1098,6 +1104,30 @@ class Contract implements ModelInterface, ArrayAccess
     public function setConfigChangeTime($config_change_time)
     {
         $this->container['config_change_time'] = $config_change_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets in_delisting
+     *
+     * @return bool|null
+     */
+    public function getInDelisting()
+    {
+        return $this->container['in_delisting'];
+    }
+
+    /**
+     * Sets in_delisting
+     *
+     * @param bool|null $in_delisting Contract is delisting
+     *
+     * @return $this
+     */
+    public function setInDelisting($in_delisting)
+    {
+        $this->container['in_delisting'] = $in_delisting;
 
         return $this;
     }

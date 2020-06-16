@@ -778,7 +778,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets time_in_force
      *
-     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only
+     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
      *
      * @return $this
      */

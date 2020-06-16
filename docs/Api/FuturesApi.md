@@ -411,7 +411,7 @@ Authentication with API key and secret is required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMyTrades**
-> \GateApi\Model\MyFuturesTrade[] getMyTrades($settle, $contract, $order, $limit, $last_id)
+> \GateApi\Model\MyFuturesTrade[] getMyTrades($settle, $contract, $order, $limit, $offset, $last_id, $count_total)
 
 List personal trading history
 
@@ -426,10 +426,12 @@ $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
 $order = 12345; // int | Futures order ID, return related data only if specified
 $limit = 100; // int | Maximum number of record returned in one list
+$offset = 0; // int | List offset, starting from 0
 $last_id = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
+$count_total = 0; // int | Whether to return total number matched. Default to 0(no return)
 
 try {
-    $result = $apiInstance->getMyTrades($settle, $contract, $order, $limit, $last_id);
+    $result = $apiInstance->getMyTrades($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->getMyTrades: ', $e->getMessage(), PHP_EOL;
@@ -445,7 +447,9 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **order** | **int**| Futures order ID, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
+ **count_total** | **int**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0]
 
 ### Return type
 
@@ -897,7 +901,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFuturesOrders**
-> \GateApi\Model\FuturesOrder[] listFuturesOrders($settle, $contract, $status, $limit, $last_id)
+> \GateApi\Model\FuturesOrder[] listFuturesOrders($settle, $contract, $status, $limit, $offset, $last_id, $count_total)
 
 List futures orders
 
@@ -914,10 +918,12 @@ $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $status = 'open'; // string | List orders based on status
 $limit = 100; // int | Maximum number of record returned in one list
+$offset = 0; // int | List offset, starting from 0
 $last_id = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
+$count_total = 0; // int | Whether to return total number matched. Default to 0(no return)
 
 try {
-    $result = $apiInstance->listFuturesOrders($settle, $contract, $status, $limit, $last_id);
+    $result = $apiInstance->listFuturesOrders($settle, $contract, $status, $limit, $offset, $last_id, $count_total);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesOrders: ', $e->getMessage(), PHP_EOL;
@@ -933,7 +939,9 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract |
  **status** | **string**| List orders based on status |
  **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
+ **count_total** | **int**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0]
 
 ### Return type
 
