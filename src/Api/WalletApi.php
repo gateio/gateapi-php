@@ -102,6 +102,895 @@ class WalletApi
     }
 
     /**
+     * Operation getDepositAddress
+     *
+     * Generate currency deposit address
+     *
+     * @param  string $currency Currency name (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\DepositAddress
+     */
+    public function getDepositAddress($currency)
+    {
+        list($response) = $this->getDepositAddressWithHttpInfo($currency);
+        return $response;
+    }
+
+    /**
+     * Operation getDepositAddressWithHttpInfo
+     *
+     * Generate currency deposit address
+     *
+     * @param  string $currency Currency name (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\DepositAddress, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDepositAddressWithHttpInfo($currency)
+    {
+        $request = $this->getDepositAddressRequest($currency);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\DepositAddress' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\DepositAddress', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\DepositAddress';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\DepositAddress',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDepositAddressAsync
+     *
+     * Generate currency deposit address
+     *
+     * @param  string $currency Currency name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDepositAddressAsync($currency)
+    {
+        return $this->getDepositAddressAsyncWithHttpInfo($currency)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDepositAddressAsyncWithHttpInfo
+     *
+     * Generate currency deposit address
+     *
+     * @param  string $currency Currency name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDepositAddressAsyncWithHttpInfo($currency)
+    {
+        $returnType = '\GateApi\Model\DepositAddress';
+        $request = $this->getDepositAddressRequest($currency);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDepositAddress'
+     *
+     * @param  string $currency Currency name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getDepositAddressRequest($currency)
+    {
+        // verify the required parameter 'currency' is set
+        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency when calling getDepositAddress'
+            );
+        }
+
+        $resourcePath = '/wallet/deposit_address';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            $queryParams['currency'] = ObjectSerializer::toQueryValue($currency);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listDeposits
+     *
+     * Retrieve deposit records. Time range cannot exceed 30 days
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\LedgerRecord[]
+     */
+    public function listDeposits($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        list($response) = $this->listDepositsWithHttpInfo($currency, $from, $to, $limit, $offset);
+        return $response;
+    }
+
+    /**
+     * Operation listDepositsWithHttpInfo
+     *
+     * Retrieve deposit records. Time range cannot exceed 30 days
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\LedgerRecord[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listDepositsWithHttpInfo($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        $request = $this->listDepositsRequest($currency, $from, $to, $limit, $offset);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\LedgerRecord[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\LedgerRecord[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\LedgerRecord[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\LedgerRecord[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listDepositsAsync
+     *
+     * Retrieve deposit records. Time range cannot exceed 30 days
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDepositsAsync($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        return $this->listDepositsAsyncWithHttpInfo($currency, $from, $to, $limit, $offset)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listDepositsAsyncWithHttpInfo
+     *
+     * Retrieve deposit records. Time range cannot exceed 30 days
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDepositsAsyncWithHttpInfo($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        $returnType = '\GateApi\Model\LedgerRecord[]';
+        $request = $this->listDepositsRequest($currency, $from, $to, $limit, $offset);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listDeposits'
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listDepositsRequest($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listDeposits, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listDeposits, must be bigger than or equal to 1.');
+        }
+
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling WalletApi.listDeposits, must be bigger than or equal to 0.');
+        }
+
+
+        $resourcePath = '/wallet/deposits';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            $queryParams['currency'] = ObjectSerializer::toQueryValue($currency);
+        }
+        // query params
+        if ($from !== null) {
+            $queryParams['from'] = ObjectSerializer::toQueryValue($from);
+        }
+        // query params
+        if ($to !== null) {
+            $queryParams['to'] = ObjectSerializer::toQueryValue($to);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listWithdrawals
+     *
+     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\LedgerRecord[]
+     */
+    public function listWithdrawals($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        list($response) = $this->listWithdrawalsWithHttpInfo($currency, $from, $to, $limit, $offset);
+        return $response;
+    }
+
+    /**
+     * Operation listWithdrawalsWithHttpInfo
+     *
+     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\LedgerRecord[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listWithdrawalsWithHttpInfo($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        $request = $this->listWithdrawalsRequest($currency, $from, $to, $limit, $offset);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\LedgerRecord[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\LedgerRecord[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\LedgerRecord[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\LedgerRecord[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listWithdrawalsAsync
+     *
+     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listWithdrawalsAsync($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        return $this->listWithdrawalsAsyncWithHttpInfo($currency, $from, $to, $limit, $offset)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listWithdrawalsAsyncWithHttpInfo
+     *
+     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listWithdrawalsAsyncWithHttpInfo($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        $returnType = '\GateApi\Model\LedgerRecord[]';
+        $request = $this->listWithdrawalsRequest($currency, $from, $to, $limit, $offset);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listWithdrawals'
+     *
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listWithdrawalsRequest($currency = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listWithdrawals, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listWithdrawals, must be bigger than or equal to 1.');
+        }
+
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling WalletApi.listWithdrawals, must be bigger than or equal to 0.');
+        }
+
+
+        $resourcePath = '/wallet/withdrawals';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            $queryParams['currency'] = ObjectSerializer::toQueryValue($currency);
+        }
+        // query params
+        if ($from !== null) {
+            $queryParams['from'] = ObjectSerializer::toQueryValue($from);
+        }
+        // query params
+        if ($to !== null) {
+            $queryParams['to'] = ObjectSerializer::toQueryValue($to);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation transfer
      *
      * Transfer between accounts

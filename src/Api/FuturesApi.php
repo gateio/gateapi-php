@@ -2437,15 +2437,17 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\MyFuturesTrade[]
      */
-    public function getMyTrades($settle, $contract = null, $order = null, $limit = 100, $last_id = null)
+    public function getMyTrades($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        list($response) = $this->getMyTradesWithHttpInfo($settle, $contract, $order, $limit, $last_id);
+        list($response) = $this->getMyTradesWithHttpInfo($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
         return $response;
     }
 
@@ -2458,15 +2460,17 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\MyFuturesTrade[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMyTradesWithHttpInfo($settle, $contract = null, $order = null, $limit = 100, $last_id = null)
+    public function getMyTradesWithHttpInfo($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        $request = $this->getMyTradesRequest($settle, $contract, $order, $limit, $last_id);
+        $request = $this->getMyTradesRequest($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2550,14 +2554,16 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMyTradesAsync($settle, $contract = null, $order = null, $limit = 100, $last_id = null)
+    public function getMyTradesAsync($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        return $this->getMyTradesAsyncWithHttpInfo($settle, $contract, $order, $limit, $last_id)
+        return $this->getMyTradesAsyncWithHttpInfo($settle, $contract, $order, $limit, $offset, $last_id, $count_total)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2574,15 +2580,17 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMyTradesAsyncWithHttpInfo($settle, $contract = null, $order = null, $limit = 100, $last_id = null)
+    public function getMyTradesAsyncWithHttpInfo($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
         $returnType = '\GateApi\Model\MyFuturesTrade[]';
-        $request = $this->getMyTradesRequest($settle, $contract, $order, $limit, $last_id);
+        $request = $this->getMyTradesRequest($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2625,12 +2633,14 @@ class FuturesApi
      * @param  string $contract Futures contract, return related data only if specified (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getMyTradesRequest($settle, $contract = null, $order = null, $limit = 100, $last_id = null)
+    protected function getMyTradesRequest($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -2643,6 +2653,10 @@ class FuturesApi
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.getMyTrades, must be bigger than or equal to 1.');
+        }
+
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling FuturesApi.getMyTrades, must be bigger than or equal to 0.');
         }
 
 
@@ -2666,8 +2680,16 @@ class FuturesApi
             $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
         }
         // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+        // query params
         if ($last_id !== null) {
             $queryParams['last_id'] = ObjectSerializer::toQueryValue($last_id);
+        }
+        // query params
+        if ($count_total !== null) {
+            $queryParams['count_total'] = ObjectSerializer::toQueryValue($count_total);
         }
 
         // path params
@@ -5433,15 +5455,17 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesOrder[]
      */
-    public function listFuturesOrders($settle, $contract, $status, $limit = 100, $last_id = null)
+    public function listFuturesOrders($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        list($response) = $this->listFuturesOrdersWithHttpInfo($settle, $contract, $status, $limit, $last_id);
+        list($response) = $this->listFuturesOrdersWithHttpInfo($settle, $contract, $status, $limit, $offset, $last_id, $count_total);
         return $response;
     }
 
@@ -5454,15 +5478,17 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesOrder[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesOrdersWithHttpInfo($settle, $contract, $status, $limit = 100, $last_id = null)
+    public function listFuturesOrdersWithHttpInfo($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        $request = $this->listFuturesOrdersRequest($settle, $contract, $status, $limit, $last_id);
+        $request = $this->listFuturesOrdersRequest($settle, $contract, $status, $limit, $offset, $last_id, $count_total);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5546,14 +5572,16 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesOrdersAsync($settle, $contract, $status, $limit = 100, $last_id = null)
+    public function listFuturesOrdersAsync($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        return $this->listFuturesOrdersAsyncWithHttpInfo($settle, $contract, $status, $limit, $last_id)
+        return $this->listFuturesOrdersAsyncWithHttpInfo($settle, $contract, $status, $limit, $offset, $last_id, $count_total)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5570,15 +5598,17 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesOrdersAsyncWithHttpInfo($settle, $contract, $status, $limit = 100, $last_id = null)
+    public function listFuturesOrdersAsyncWithHttpInfo($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
         $returnType = '\GateApi\Model\FuturesOrder[]';
-        $request = $this->listFuturesOrdersRequest($settle, $contract, $status, $limit, $last_id);
+        $request = $this->listFuturesOrdersRequest($settle, $contract, $status, $limit, $offset, $last_id, $count_total);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5621,12 +5651,14 @@ class FuturesApi
      * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
      * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesOrdersRequest($settle, $contract, $status, $limit = 100, $last_id = null)
+    protected function listFuturesOrdersRequest($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -5653,6 +5685,10 @@ class FuturesApi
             throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesOrders, must be bigger than or equal to 1.');
         }
 
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling FuturesApi.listFuturesOrders, must be bigger than or equal to 0.');
+        }
+
 
         $resourcePath = '/futures/{settle}/orders';
         $formParams = [];
@@ -5674,8 +5710,16 @@ class FuturesApi
             $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
         }
         // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+        // query params
         if ($last_id !== null) {
             $queryParams['last_id'] = ObjectSerializer::toQueryValue($last_id);
+        }
+        // query params
+        if ($count_total !== null) {
+            $queryParams['count_total'] = ObjectSerializer::toQueryValue($count_total);
         }
 
         // path params

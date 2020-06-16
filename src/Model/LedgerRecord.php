@@ -1,6 +1,6 @@
 <?php
 /**
- * Transfer
+ * LedgerRecord
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * Transfer Class Doc Comment
+ * LedgerRecord Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Transfer implements ModelInterface, ArrayAccess
+class LedgerRecord implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Transfer implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Transfer';
+    protected static $openAPIModelName = 'LedgerRecord';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,14 @@ class Transfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'from' => 'string',
-        'to' => 'string',
+        'id' => 'string',
+        'txid' => 'string',
+        'timestamp' => 'string',
         'amount' => 'string',
-        'currency_pair' => 'string',
-        'settle' => 'string'
+        'currency' => 'string',
+        'address' => 'string',
+        'memo' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -70,12 +72,14 @@ class Transfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'from' => null,
-        'to' => null,
+        'id' => null,
+        'txid' => null,
+        'timestamp' => null,
         'amount' => null,
-        'currency_pair' => null,
-        'settle' => null
+        'currency' => null,
+        'address' => null,
+        'memo' => null,
+        'status' => null
     ];
 
     /**
@@ -105,12 +109,14 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'from' => 'from',
-        'to' => 'to',
+        'id' => 'id',
+        'txid' => 'txid',
+        'timestamp' => 'timestamp',
         'amount' => 'amount',
-        'currency_pair' => 'currency_pair',
-        'settle' => 'settle'
+        'currency' => 'currency',
+        'address' => 'address',
+        'memo' => 'memo',
+        'status' => 'status'
     ];
 
     /**
@@ -119,12 +125,14 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'from' => 'setFrom',
-        'to' => 'setTo',
+        'id' => 'setId',
+        'txid' => 'setTxid',
+        'timestamp' => 'setTimestamp',
         'amount' => 'setAmount',
-        'currency_pair' => 'setCurrencyPair',
-        'settle' => 'setSettle'
+        'currency' => 'setCurrency',
+        'address' => 'setAddress',
+        'memo' => 'setMemo',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -133,12 +141,14 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'from' => 'getFrom',
-        'to' => 'getTo',
+        'id' => 'getId',
+        'txid' => 'getTxid',
+        'timestamp' => 'getTimestamp',
         'amount' => 'getAmount',
-        'currency_pair' => 'getCurrencyPair',
-        'settle' => 'getSettle'
+        'currency' => 'getCurrency',
+        'address' => 'getAddress',
+        'memo' => 'getMemo',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -182,12 +192,11 @@ class Transfer implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const FROM_SPOT = 'spot';
-    const FROM_MARGIN = 'margin';
-    const FROM_FUTURES = 'futures';
-    const TO_SPOT = 'spot';
-    const TO_MARGIN = 'margin';
-    const TO_FUTURES = 'futures';
+    const STATUS_DONE = 'DONE';
+    const STATUS_CANCEL = 'CANCEL';
+    const STATUS_REQUEST = 'REQUEST';
+    const STATUS_MANUAL = 'MANUAL';
+    const STATUS_BCODE = 'BCODE';
     
 
     
@@ -196,26 +205,14 @@ class Transfer implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getFromAllowableValues()
+    public function getStatusAllowableValues()
     {
         return [
-            self::FROM_SPOT,
-            self::FROM_MARGIN,
-            self::FROM_FUTURES,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getToAllowableValues()
-    {
-        return [
-            self::TO_SPOT,
-            self::TO_MARGIN,
-            self::TO_FUTURES,
+            self::STATUS_DONE,
+            self::STATUS_CANCEL,
+            self::STATUS_REQUEST,
+            self::STATUS_MANUAL,
+            self::STATUS_BCODE,
         ];
     }
     
@@ -235,12 +232,14 @@ class Transfer implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['to'] = isset($data['to']) ? $data['to'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['txid'] = isset($data['txid']) ? $data['txid'] : null;
+        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['settle'] = isset($data['settle']) ? $data['settle'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -252,34 +251,20 @@ class Transfer implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['from'] === null) {
-            $invalidProperties[] = "'from' can't be null";
-        }
-        $allowedValues = $this->getFromAllowableValues();
-        if (!is_null($this->container['from']) && !in_array($this->container['from'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'from', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['to'] === null) {
-            $invalidProperties[] = "'to' can't be null";
-        }
-        $allowedValues = $this->getToAllowableValues();
-        if (!is_null($this->container['to']) && !in_array($this->container['to'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'to', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -296,91 +281,73 @@ class Transfer implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
+     * Gets id
      *
-     * @return string
+     * @return string|null
      */
-    public function getCurrency()
+    public function getId()
     {
-        return $this->container['currency'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets currency
+     * Sets id
      *
-     * @param string $currency Transfer currency. For futures account, `currency` can be set to `POINT` or settle currency
+     * @param string|null $id Record ID
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setId($id)
     {
-        $this->container['currency'] = $currency;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets from
+     * Gets txid
      *
-     * @return string
+     * @return string|null
      */
-    public function getFrom()
+    public function getTxid()
     {
-        return $this->container['from'];
+        return $this->container['txid'];
     }
 
     /**
-     * Sets from
+     * Sets txid
      *
-     * @param string $from Account transferred from. `spot` - spot account. `margin` - margin account, `futures` - futures account
+     * @param string|null $txid Hash record of the withdrawal
      *
      * @return $this
      */
-    public function setFrom($from)
+    public function setTxid($txid)
     {
-        $allowedValues = $this->getFromAllowableValues();
-        if (!in_array($from, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'from', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['from'] = $from;
+        $this->container['txid'] = $txid;
 
         return $this;
     }
 
     /**
-     * Gets to
+     * Gets timestamp
      *
-     * @return string
+     * @return string|null
      */
-    public function getTo()
+    public function getTimestamp()
     {
-        return $this->container['to'];
+        return $this->container['timestamp'];
     }
 
     /**
-     * Sets to
+     * Sets timestamp
      *
-     * @param string $to Account transferred to. `spot` - spot account. `margin` - margin account, `futures` - futures account
+     * @param string|null $timestamp Record time
      *
      * @return $this
      */
-    public function setTo($to)
+    public function setTimestamp($timestamp)
     {
-        $allowedValues = $this->getToAllowableValues();
-        if (!in_array($to, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'to', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['to'] = $to;
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }
@@ -398,7 +365,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Transfer amount
+     * @param string $amount Trade amount
      *
      * @return $this
      */
@@ -410,49 +377,106 @@ class Transfer implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets currency_pair
+     * Gets currency
      *
-     * @return string|null
+     * @return string
      */
-    public function getCurrencyPair()
+    public function getCurrency()
     {
-        return $this->container['currency_pair'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets currency
      *
-     * @param string|null $currency_pair Margin currency pair. Required if transfer from or to margin account
+     * @param string $currency Record currency
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setCurrency($currency)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets settle
+     * Gets address
      *
      * @return string|null
      */
-    public function getSettle()
+    public function getAddress()
     {
-        return $this->container['settle'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets settle
+     * Sets address
      *
-     * @param string|null $settle Futures settle currency. Required if `currency` is `POINT`
+     * @param string|null $address Withdrawal address. Required for withdrawals
      *
      * @return $this
      */
-    public function setSettle($settle)
+    public function setAddress($address)
     {
-        $this->container['settle'] = $settle;
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets memo
+     *
+     * @return string|null
+     */
+    public function getMemo()
+    {
+        return $this->container['memo'];
+    }
+
+    /**
+     * Sets memo
+     *
+     * @param string|null $memo Extra withdrawal memo
+     *
+     * @return $this
+     */
+    public function setMemo($memo)
+    {
+        $this->container['memo'] = $memo;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
