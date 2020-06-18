@@ -72,7 +72,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\FuturesApi(null, $config)
 $settle = 'btc'; // string | Settle currency
 $order_id = '12345'; // string | ID returned on order successfully being created
