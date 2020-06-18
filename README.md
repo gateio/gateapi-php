@@ -36,11 +36,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/gateio/GateApi.git"
+      "url": "https://github.com/gateio/gateapi-php.git"
     }
   ],
   "require": {
-    "gateio/GateApi": "*@dev"
+    "gateio/gateapi": "*@dev"
   }
 }
 ```
