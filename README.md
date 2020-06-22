@@ -36,11 +36,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/gateio/GateApi.git"
+      "url": "https://github.com/gateio/gateapi-php.git"
     }
   ],
   "require": {
-    "gateio/GateApi": "*@dev"
+    "gateio/gateapi": "*@dev"
   }
 }
 ```
@@ -72,8 +72,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $order_id = '12345'; // string | ID returned on order successfully being created
 
@@ -152,8 +152,8 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**listTickers**](docs/Api/SpotApi.md#listtickers) | **GET** /spot/tickers | Retrieve ticker information
 *SpotApi* | [**listTrades**](docs/Api/SpotApi.md#listtrades) | **GET** /spot/trades | Retrieve market trades
 *WalletApi* | [**getDepositAddress**](docs/Api/WalletApi.md#getdepositaddress) | **GET** /wallet/deposit_address | Generate currency deposit address
-*WalletApi* | [**listDeposits**](docs/Api/WalletApi.md#listdeposits) | **GET** /wallet/deposits | Retrieve deposit records. Time range cannot exceed 30 days
-*WalletApi* | [**listWithdrawals**](docs/Api/WalletApi.md#listwithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records. Time range cannot exceed 30 days
+*WalletApi* | [**listDeposits**](docs/Api/WalletApi.md#listdeposits) | **GET** /wallet/deposits | Retrieve deposit records
+*WalletApi* | [**listWithdrawals**](docs/Api/WalletApi.md#listwithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
 *WalletApi* | [**transfer**](docs/Api/WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between accounts
 *WalletApi* | [**transferWithSubAccount**](docs/Api/WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 *WithdrawalApi* | [**withdraw**](docs/Api/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw

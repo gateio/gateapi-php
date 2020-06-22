@@ -33,8 +33,8 @@ Multiple currency pairs can be specified, but maximum 20 orders are allowed per 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $cancel_order = array(new \GateApi\Model\CancelOrder()); // \GateApi\Model\CancelOrder[] | 
 
 try {
@@ -77,8 +77,8 @@ Cancel a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $order_id = '12345'; // string | ID returned on order successfully being created
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 
@@ -123,8 +123,8 @@ Cancel all `open` orders in specified currency pair
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $side = 'sell'; // string | All bids or asks. Both included in not specified
 $account = 'spot'; // string | Specify account type. Default to all account types being included
@@ -173,8 +173,8 @@ Batch orders requirements:  1. custom order field `text` is required 2. At most 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $order = array(new \GateApi\Model\Order()); // \GateApi\Model\Order[] | 
 
 try {
@@ -217,8 +217,8 @@ Create an order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $order = new \GateApi\Model\Order(); // \GateApi\Model\Order | 
 
 try {
@@ -262,7 +262,7 @@ Get detail of one single order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\SpotApi()
+$apiInstance = new GateApi\Api\SpotApi();
 $currency_pair = 'ETH_BTC'; // string | Currency pair
 
 try {
@@ -305,8 +305,8 @@ Get a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $order_id = '12345'; // string | ID returned on order successfully being created
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 
@@ -354,7 +354,7 @@ Maximum of 1000 points are returned in one query. Be sure not to exceed the limi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\SpotApi()
+$apiInstance = new GateApi\Api\SpotApi();
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $limit = 100; // int | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
 $from = 1546905600; // int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
@@ -406,7 +406,7 @@ List all currency pairs supported
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\SpotApi()
+$apiInstance = new GateApi\Api\SpotApi();
 
 try {
     $result = $apiInstance->listCurrencyPairs();
@@ -445,8 +445,8 @@ List personal trading history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $limit = 100; // int | Maximum number of record returned in one list
 $page = 1; // int | Page number
@@ -498,7 +498,7 @@ Order book will be sorted by price from high to low on bids; reversed on asks
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\SpotApi()
+$apiInstance = new GateApi\Api\SpotApi();
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $interval = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $limit = 10; // int | Maximum number of order depth data in asks or bids
@@ -545,8 +545,8 @@ List orders
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $status = 'open'; // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled
 $page = 1; // int | Page number
@@ -595,8 +595,8 @@ List spot accounts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\SpotApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\SpotApi(null, $config);
 $currency = 'BTC'; // string | Retrieved specified currency related data
 
 try {
@@ -642,7 +642,7 @@ Return only related data if `currency_pair` is specified; otherwise return all o
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\SpotApi()
+$apiInstance = new GateApi\Api\SpotApi();
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 
 try {
@@ -686,7 +686,7 @@ Retrieve market trades
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\SpotApi()
+$apiInstance = new GateApi\Api\SpotApi();
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $limit = 100; // int | Maximum number of record returned in one list
 $last_id = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results

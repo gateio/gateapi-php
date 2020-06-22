@@ -17,8 +17,8 @@ Withdraw
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\WithdrawalApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\WithdrawalApi(null, $config);
 $ledger_record = new \GateApi\Model\LedgerRecord(); // \GateApi\Model\LedgerRecord | 
 
 try {
