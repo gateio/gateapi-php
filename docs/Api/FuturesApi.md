@@ -44,8 +44,8 @@ Cancel a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $order_id = '12345'; // string | ID returned on order successfully being created
 
@@ -92,8 +92,8 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $side = 'ask'; // string | All bids or asks. Both included in not specified
@@ -140,8 +140,8 @@ Cancel a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $order_id = 'order_id_example'; // string | ID returned on order successfully being created
 
@@ -186,8 +186,8 @@ Cancel all open orders
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 
@@ -234,8 +234,8 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $futures_order = new \GateApi\Model\FuturesOrder(); // \GateApi\Model\FuturesOrder | 
 
@@ -280,8 +280,8 @@ Create a price-triggered order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $futures_price_triggered_order = new \GateApi\Model\FuturesPriceTriggeredOrder(); // \GateApi\Model\FuturesPriceTriggeredOrder | 
 
@@ -327,7 +327,7 @@ Get a single contract
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi()
+$apiInstance = new GateApi\Api\FuturesApi();
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 
@@ -374,8 +374,8 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $order_id = '12345'; // string | ID returned on order successfully being created
 
@@ -420,8 +420,8 @@ List personal trading history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
 $order = 12345; // int | Futures order ID, return related data only if specified
@@ -476,8 +476,8 @@ Get single position
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 
@@ -522,8 +522,8 @@ Get a single order
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $order_id = 'order_id_example'; // string | ID returned on order successfully being created
 
@@ -568,8 +568,8 @@ Query account book
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $limit = 100; // int | Maximum number of record returned in one list
 $from = 1547706332; // int | Start timestamp
@@ -620,8 +620,8 @@ Query futures account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 
 try {
@@ -667,7 +667,7 @@ Return specified contract candlesticks. If prefix `contract` with `mark_`, the c
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi()
+$apiInstance = new GateApi\Api\FuturesApi();
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $from = 1546905600; // float | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
@@ -721,7 +721,7 @@ List all futures contracts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi()
+$apiInstance = new GateApi\Api\FuturesApi();
 $settle = 'btc'; // string | Settle currency
 
 try {
@@ -765,7 +765,7 @@ Funding rate history
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi()
+$apiInstance = new GateApi\Api\FuturesApi();
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $limit = 100; // int | Maximum number of record returned in one list
@@ -813,7 +813,7 @@ Futures insurance balance history
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi()
+$apiInstance = new GateApi\Api\FuturesApi();
 $settle = 'btc'; // string | Settle currency
 $limit = 100; // int | Maximum number of record returned in one list
 
@@ -861,7 +861,7 @@ Bids will be sorted by price from high to low, while asks sorted reversely
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi()
+$apiInstance = new GateApi\Api\FuturesApi();
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $interval = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
@@ -912,8 +912,8 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $status = 'open'; // string | List orders based on status
@@ -969,7 +969,7 @@ List futures tickers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi()
+$apiInstance = new GateApi\Api\FuturesApi();
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
 
@@ -1015,7 +1015,7 @@ Futures trading history
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi()
+$apiInstance = new GateApi\Api\FuturesApi();
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $limit = 100; // int | Maximum number of record returned in one list
@@ -1068,8 +1068,8 @@ List liquidation history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
 $limit = 100; // int | Maximum number of record returned in one list
@@ -1118,8 +1118,8 @@ List position close history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
 $limit = 100; // int | Maximum number of record returned in one list
@@ -1166,8 +1166,8 @@ List all positions of a user
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 
 try {
@@ -1210,8 +1210,8 @@ List all auto orders
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $status = 'status_example'; // string | List orders based on status
 $contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
@@ -1262,8 +1262,8 @@ Update position leverage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $leverage = '10'; // string | New position leverage
@@ -1310,8 +1310,8 @@ Update position margin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $change = '0.01'; // string | Margin change. Use positive number to increase margin, negative number otherwise.
@@ -1358,8 +1358,8 @@ Update position risk limit
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\FuturesApi(null, $config);
 $settle = 'btc'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 $risk_limit = '10'; // string | New position risk limit

@@ -5,8 +5,8 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getDepositAddress**](WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
-[**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records. Time range cannot exceed 30 days
-[**listWithdrawals**](WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records. Time range cannot exceed 30 days
+[**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records
+[**listWithdrawals**](WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
 [**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between accounts
 [**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 
@@ -21,8 +21,8 @@ Generate currency deposit address
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\WalletApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\WalletApi(null, $config);
 $currency = 'currency_example'; // string | Currency name
 
 try {
@@ -58,15 +58,17 @@ Authentication with API key and secret is required
 # **listDeposits**
 > \GateApi\Model\LedgerRecord[] listDeposits($currency, $from, $to, $limit, $offset)
 
-Retrieve deposit records. Time range cannot exceed 30 days
+Retrieve deposit records
+
+Record time range cannot exceed 30 days
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\WalletApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\WalletApi(null, $config);
 $currency = 'BTC'; // string | Filter by currency. Return all currency records if not specified
 $from = 56; // int | Time range beginning, default to 7 days before current time
 $to = 56; // int | Time range ending, default to current time
@@ -110,15 +112,17 @@ Authentication with API key and secret is required
 # **listWithdrawals**
 > \GateApi\Model\LedgerRecord[] listWithdrawals($currency, $from, $to, $limit, $offset)
 
-Retrieve withdrawal records. Time range cannot exceed 30 days
+Retrieve withdrawal records
+
+Record time range cannot exceed 30 days
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\WalletApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\WalletApi(null, $config);
 $currency = 'BTC'; // string | Filter by currency. Return all currency records if not specified
 $from = 56; // int | Time range beginning, default to 7 days before current time
 $to = 56; // int | Time range ending, default to current time
@@ -171,8 +175,8 @@ Transfer between different accounts. Currently support transfers between the fol
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\WalletApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\WalletApi(null, $config);
 $transfer = new \GateApi\Model\Transfer(); // \GateApi\Model\Transfer | 
 
 try {
@@ -214,8 +218,8 @@ Transfer between main and sub accounts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Api\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\WalletApi(null, $config)
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\WalletApi(null, $config);
 $sub_account_transfer = new \GateApi\Model\SubAccountTransfer(); // \GateApi\Model\SubAccountTransfer | 
 
 try {

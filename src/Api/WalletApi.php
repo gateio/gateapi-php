@@ -373,7 +373,7 @@ class WalletApi
     /**
      * Operation listDeposits
      *
-     * Retrieve deposit records. Time range cannot exceed 30 days
+     * Retrieve deposit records
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
@@ -394,7 +394,7 @@ class WalletApi
     /**
      * Operation listDepositsWithHttpInfo
      *
-     * Retrieve deposit records. Time range cannot exceed 30 days
+     * Retrieve deposit records
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
@@ -486,7 +486,7 @@ class WalletApi
     /**
      * Operation listDepositsAsync
      *
-     * Retrieve deposit records. Time range cannot exceed 30 days
+     * Retrieve deposit records
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
@@ -510,7 +510,7 @@ class WalletApi
     /**
      * Operation listDepositsAsyncWithHttpInfo
      *
-     * Retrieve deposit records. Time range cannot exceed 30 days
+     * Retrieve deposit records
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
@@ -683,7 +683,7 @@ class WalletApi
     /**
      * Operation listWithdrawals
      *
-     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     * Retrieve withdrawal records
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
@@ -704,7 +704,7 @@ class WalletApi
     /**
      * Operation listWithdrawalsWithHttpInfo
      *
-     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     * Retrieve withdrawal records
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
@@ -796,7 +796,7 @@ class WalletApi
     /**
      * Operation listWithdrawalsAsync
      *
-     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     * Retrieve withdrawal records
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
@@ -820,7 +820,7 @@ class WalletApi
     /**
      * Operation listWithdrawalsAsyncWithHttpInfo
      *
-     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     * Retrieve withdrawal records
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)

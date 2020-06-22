@@ -1,5 +1,5 @@
 {
-    "name": "gateio/GateApi",
+    "name": "gateio/gateapi",
     "version": "4.13.0",
     "description": "APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.",
     "keywords": [
@@ -11,12 +11,12 @@
         "rest",
         "api"
     ],
-    "homepage": "https://gate.io/",
+    "homepage": "https://www.gate.io/",
     "license": "proprietary",
     "authors": [
         {
             "name": "gateio",
-            "homepage": "https://gate.io/"
+            "homepage": "https://www.gate.io/"
         }
     ],
     "require": {
