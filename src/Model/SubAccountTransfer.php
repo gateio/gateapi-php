@@ -59,7 +59,10 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'sub_account' => 'string',
         'direction' => 'string',
-        'amount' => 'string'
+        'amount' => 'string',
+        'uid' => 'string',
+        'timest' => 'string',
+        'source' => 'string'
     ];
 
     /**
@@ -71,7 +74,10 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         'currency' => null,
         'sub_account' => null,
         'direction' => null,
-        'amount' => null
+        'amount' => null,
+        'uid' => null,
+        'timest' => null,
+        'source' => null
     ];
 
     /**
@@ -104,7 +110,10 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         'currency' => 'currency',
         'sub_account' => 'sub_account',
         'direction' => 'direction',
-        'amount' => 'amount'
+        'amount' => 'amount',
+        'uid' => 'uid',
+        'timest' => 'timest',
+        'source' => 'source'
     ];
 
     /**
@@ -116,7 +125,10 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'sub_account' => 'setSubAccount',
         'direction' => 'setDirection',
-        'amount' => 'setAmount'
+        'amount' => 'setAmount',
+        'uid' => 'setUid',
+        'timest' => 'setTimest',
+        'source' => 'setSource'
     ];
 
     /**
@@ -128,7 +140,10 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'sub_account' => 'getSubAccount',
         'direction' => 'getDirection',
-        'amount' => 'getAmount'
+        'amount' => 'getAmount',
+        'uid' => 'getUid',
+        'timest' => 'getTimest',
+        'source' => 'getSource'
     ];
 
     /**
@@ -210,6 +225,9 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         $this->container['sub_account'] = isset($data['sub_account']) ? $data['sub_account'] : null;
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['timest'] = isset($data['timest']) ? $data['timest'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
     }
 
     /**
@@ -357,6 +375,78 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets uid
+     *
+     * @return string|null
+     */
+    public function getUid()
+    {
+        return $this->container['uid'];
+    }
+
+    /**
+     * Sets uid
+     *
+     * @param string|null $uid Main account user ID
+     *
+     * @return $this
+     */
+    public function setUid($uid)
+    {
+        $this->container['uid'] = $uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets timest
+     *
+     * @return string|null
+     */
+    public function getTimest()
+    {
+        return $this->container['timest'];
+    }
+
+    /**
+     * Sets timest
+     *
+     * @param string|null $timest Transfer timestamp
+     *
+     * @return $this
+     */
+    public function setTimest($timest)
+    {
+        $this->container['timest'] = $timest;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source Where the operation is initiated from
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }
