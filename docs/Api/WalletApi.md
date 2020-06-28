@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getDepositAddress**](WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
 [**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records
+[**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Transfer records between main and sub accounts
 [**listWithdrawals**](WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
 [**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between accounts
 [**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
@@ -97,6 +98,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\LedgerRecord[]**](../Model/LedgerRecord.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listSubAccountTransfers**
+> \GateApi\Model\SubAccountTransfer[] listSubAccountTransfers($sub_uid, $from, $to, $limit, $offset)
+
+Transfer records between main and sub accounts
+
+Record time range cannot exceed 30 days  > Note: only records after 2020-04-10 can be retrieved
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\WalletApi(null, $config);
+$sub_uid = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
+$from = 56; // int | Time range beginning, default to 7 days before current time
+$to = 56; // int | Time range ending, default to current time
+$limit = 100; // int | Maximum number of record returned in one list
+$offset = 0; // int | List offset, starting from 0
+
+try {
+    $result = $apiInstance->listSubAccountTransfers($sub_uid, $from, $to, $limit, $offset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->listSubAccountTransfers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sub_uid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
+ **to** | **int**| Time range ending, default to current time | [optional]
+ **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\SubAccountTransfer[]**](../Model/SubAccountTransfer.md)
 
 ### Authorization
 

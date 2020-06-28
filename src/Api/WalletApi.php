@@ -681,6 +681,316 @@ class WalletApi
     }
 
     /**
+     * Operation listSubAccountTransfers
+     *
+     * Transfer records between main and sub accounts
+     *
+     * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SubAccountTransfer[]
+     */
+    public function listSubAccountTransfers($sub_uid = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        list($response) = $this->listSubAccountTransfersWithHttpInfo($sub_uid, $from, $to, $limit, $offset);
+        return $response;
+    }
+
+    /**
+     * Operation listSubAccountTransfersWithHttpInfo
+     *
+     * Transfer records between main and sub accounts
+     *
+     * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SubAccountTransfer[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSubAccountTransfersWithHttpInfo($sub_uid = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        $request = $this->listSubAccountTransfersRequest($sub_uid, $from, $to, $limit, $offset);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\SubAccountTransfer[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\SubAccountTransfer[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\SubAccountTransfer[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\SubAccountTransfer[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listSubAccountTransfersAsync
+     *
+     * Transfer records between main and sub accounts
+     *
+     * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSubAccountTransfersAsync($sub_uid = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        return $this->listSubAccountTransfersAsyncWithHttpInfo($sub_uid, $from, $to, $limit, $offset)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listSubAccountTransfersAsyncWithHttpInfo
+     *
+     * Transfer records between main and sub accounts
+     *
+     * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSubAccountTransfersAsyncWithHttpInfo($sub_uid = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        $returnType = '\GateApi\Model\SubAccountTransfer[]';
+        $request = $this->listSubAccountTransfersRequest($sub_uid, $from, $to, $limit, $offset);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listSubAccountTransfers'
+     *
+     * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listSubAccountTransfersRequest($sub_uid = null, $from = null, $to = null, $limit = 100, $offset = 0)
+    {
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listSubAccountTransfers, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listSubAccountTransfers, must be bigger than or equal to 1.');
+        }
+
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling WalletApi.listSubAccountTransfers, must be bigger than or equal to 0.');
+        }
+
+
+        $resourcePath = '/wallet/sub_account_transfers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($sub_uid !== null) {
+            $queryParams['sub_uid'] = ObjectSerializer::toQueryValue($sub_uid);
+        }
+        // query params
+        if ($from !== null) {
+            $queryParams['from'] = ObjectSerializer::toQueryValue($from);
+        }
+        // query params
+        if ($to !== null) {
+            $queryParams['to'] = ObjectSerializer::toQueryValue($to);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listWithdrawals
      *
      * Retrieve withdrawal records
