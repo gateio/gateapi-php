@@ -448,7 +448,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
 $apiInstance = new GateApi\Api\SpotApi(null, $config);
 $currency_pair = 'BTC_USDT'; // string | Currency pair
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum number of records returned in one list
 $page = 1; // int | Page number
 $order_id = '12345'; // string | List all trades of specified order
 
@@ -466,7 +466,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Currency pair |
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **page** | **int**| Page number | [optional] [default to 1]
  **order_id** | **string**| List all trades of specified order | [optional]
 
@@ -550,7 +550,7 @@ $apiInstance = new GateApi\Api\SpotApi(null, $config);
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $status = 'open'; // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled
 $page = 1; // int | Page number
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum number of records returned in one list
 
 try {
     $result = $apiInstance->listOrders($currency_pair, $status, $page, $limit);
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
  **currency_pair** | **string**| Currency pair |
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled |
  **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
 
@@ -688,7 +688,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $apiInstance = new GateApi\Api\SpotApi();
 $currency_pair = 'BTC_USDT'; // string | Currency pair
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum number of records returned in one list
 $last_id = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
 
 try {
@@ -705,7 +705,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Currency pair |
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
 
 ### Return type

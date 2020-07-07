@@ -378,7 +378,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -399,7 +399,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -491,7 +491,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -515,7 +515,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -566,7 +566,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -688,7 +688,7 @@ class WalletApi
      * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -709,7 +709,7 @@ class WalletApi
      * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -801,7 +801,7 @@ class WalletApi
      * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -825,7 +825,7 @@ class WalletApi
      * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -876,7 +876,7 @@ class WalletApi
      * @param  string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -998,7 +998,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1019,7 +1019,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1111,7 +1111,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -1135,7 +1135,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -1186,7 +1186,7 @@ class WalletApi
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException

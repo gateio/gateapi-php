@@ -1,6 +1,6 @@
 <?php
 /**
- * Contract
+ * DeliveryContract
  *
  * PHP version 5
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * Contract Class Doc Comment
+ * DeliveryContract Class Doc Comment
  *
  * @category Class
  * @description Futures contract details
@@ -40,7 +40,7 @@ use \GateApi\ObjectSerializer;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Contract implements ModelInterface, ArrayAccess
+class DeliveryContract implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Contract implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Contract';
+    protected static $openAPIModelName = 'DeliveryContract';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,6 +58,8 @@ class Contract implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
+        'underling' => 'string',
+        'cycle' => 'string',
         'type' => 'string',
         'quanto_multiplier' => 'string',
         'leverage_min' => 'string',
@@ -71,9 +73,13 @@ class Contract implements ModelInterface, ArrayAccess
         'taker_fee_rate' => 'string',
         'order_price_round' => 'string',
         'mark_price_round' => 'string',
-        'funding_rate' => 'string',
-        'funding_interval' => 'int',
-        'funding_next_apply' => 'float',
+        'basis_rate' => 'string',
+        'basis_value' => 'string',
+        'basis_impact_value' => 'string',
+        'settle_price' => 'string',
+        'settle_price_interval' => 'int',
+        'settle_price_duration' => 'int',
+        'expire_time' => 'int',
         'risk_limit_base' => 'string',
         'risk_limit_step' => 'string',
         'risk_limit_max' => 'string',
@@ -97,6 +103,8 @@ class Contract implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
+        'underling' => null,
+        'cycle' => null,
         'type' => null,
         'quanto_multiplier' => null,
         'leverage_min' => null,
@@ -110,9 +118,13 @@ class Contract implements ModelInterface, ArrayAccess
         'taker_fee_rate' => null,
         'order_price_round' => null,
         'mark_price_round' => null,
-        'funding_rate' => null,
-        'funding_interval' => null,
-        'funding_next_apply' => null,
+        'basis_rate' => null,
+        'basis_value' => null,
+        'basis_impact_value' => null,
+        'settle_price' => null,
+        'settle_price_interval' => null,
+        'settle_price_duration' => null,
+        'expire_time' => 'int64',
         'risk_limit_base' => null,
         'risk_limit_step' => null,
         'risk_limit_max' => null,
@@ -157,6 +169,8 @@ class Contract implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'underling' => 'underling',
+        'cycle' => 'cycle',
         'type' => 'type',
         'quanto_multiplier' => 'quanto_multiplier',
         'leverage_min' => 'leverage_min',
@@ -170,9 +184,13 @@ class Contract implements ModelInterface, ArrayAccess
         'taker_fee_rate' => 'taker_fee_rate',
         'order_price_round' => 'order_price_round',
         'mark_price_round' => 'mark_price_round',
-        'funding_rate' => 'funding_rate',
-        'funding_interval' => 'funding_interval',
-        'funding_next_apply' => 'funding_next_apply',
+        'basis_rate' => 'basis_rate',
+        'basis_value' => 'basis_value',
+        'basis_impact_value' => 'basis_impact_value',
+        'settle_price' => 'settle_price',
+        'settle_price_interval' => 'settle_price_interval',
+        'settle_price_duration' => 'settle_price_duration',
+        'expire_time' => 'expire_time',
         'risk_limit_base' => 'risk_limit_base',
         'risk_limit_step' => 'risk_limit_step',
         'risk_limit_max' => 'risk_limit_max',
@@ -196,6 +214,8 @@ class Contract implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
+        'underling' => 'setUnderling',
+        'cycle' => 'setCycle',
         'type' => 'setType',
         'quanto_multiplier' => 'setQuantoMultiplier',
         'leverage_min' => 'setLeverageMin',
@@ -209,9 +229,13 @@ class Contract implements ModelInterface, ArrayAccess
         'taker_fee_rate' => 'setTakerFeeRate',
         'order_price_round' => 'setOrderPriceRound',
         'mark_price_round' => 'setMarkPriceRound',
-        'funding_rate' => 'setFundingRate',
-        'funding_interval' => 'setFundingInterval',
-        'funding_next_apply' => 'setFundingNextApply',
+        'basis_rate' => 'setBasisRate',
+        'basis_value' => 'setBasisValue',
+        'basis_impact_value' => 'setBasisImpactValue',
+        'settle_price' => 'setSettlePrice',
+        'settle_price_interval' => 'setSettlePriceInterval',
+        'settle_price_duration' => 'setSettlePriceDuration',
+        'expire_time' => 'setExpireTime',
         'risk_limit_base' => 'setRiskLimitBase',
         'risk_limit_step' => 'setRiskLimitStep',
         'risk_limit_max' => 'setRiskLimitMax',
@@ -235,6 +259,8 @@ class Contract implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
+        'underling' => 'getUnderling',
+        'cycle' => 'getCycle',
         'type' => 'getType',
         'quanto_multiplier' => 'getQuantoMultiplier',
         'leverage_min' => 'getLeverageMin',
@@ -248,9 +274,13 @@ class Contract implements ModelInterface, ArrayAccess
         'taker_fee_rate' => 'getTakerFeeRate',
         'order_price_round' => 'getOrderPriceRound',
         'mark_price_round' => 'getMarkPriceRound',
-        'funding_rate' => 'getFundingRate',
-        'funding_interval' => 'getFundingInterval',
-        'funding_next_apply' => 'getFundingNextApply',
+        'basis_rate' => 'getBasisRate',
+        'basis_value' => 'getBasisValue',
+        'basis_impact_value' => 'getBasisImpactValue',
+        'settle_price' => 'getSettlePrice',
+        'settle_price_interval' => 'getSettlePriceInterval',
+        'settle_price_duration' => 'getSettlePriceDuration',
+        'expire_time' => 'getExpireTime',
         'risk_limit_base' => 'getRiskLimitBase',
         'risk_limit_step' => 'getRiskLimitStep',
         'risk_limit_max' => 'getRiskLimitMax',
@@ -308,12 +338,31 @@ class Contract implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CYCLE_WEEKLY = 'WEEKLY';
+    const CYCLE_BI_WEEKLY = 'BI-WEEKLY';
+    const CYCLE_QUARTERLY = 'QUARTERLY';
+    const CYCLE_BI_QUARTERLY = 'BI-QUARTERLY';
     const TYPE_INVERSE = 'inverse';
     const TYPE_DIRECT = 'direct';
     const MARK_TYPE_INTERNAL = 'internal';
     const MARK_TYPE_INDEX = 'index';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCycleAllowableValues()
+    {
+        return [
+            self::CYCLE_WEEKLY,
+            self::CYCLE_BI_WEEKLY,
+            self::CYCLE_QUARTERLY,
+            self::CYCLE_BI_QUARTERLY,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -358,6 +407,8 @@ class Contract implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['underling'] = isset($data['underling']) ? $data['underling'] : null;
+        $this->container['cycle'] = isset($data['cycle']) ? $data['cycle'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['quanto_multiplier'] = isset($data['quanto_multiplier']) ? $data['quanto_multiplier'] : null;
         $this->container['leverage_min'] = isset($data['leverage_min']) ? $data['leverage_min'] : null;
@@ -371,9 +422,13 @@ class Contract implements ModelInterface, ArrayAccess
         $this->container['taker_fee_rate'] = isset($data['taker_fee_rate']) ? $data['taker_fee_rate'] : null;
         $this->container['order_price_round'] = isset($data['order_price_round']) ? $data['order_price_round'] : null;
         $this->container['mark_price_round'] = isset($data['mark_price_round']) ? $data['mark_price_round'] : null;
-        $this->container['funding_rate'] = isset($data['funding_rate']) ? $data['funding_rate'] : null;
-        $this->container['funding_interval'] = isset($data['funding_interval']) ? $data['funding_interval'] : null;
-        $this->container['funding_next_apply'] = isset($data['funding_next_apply']) ? $data['funding_next_apply'] : null;
+        $this->container['basis_rate'] = isset($data['basis_rate']) ? $data['basis_rate'] : null;
+        $this->container['basis_value'] = isset($data['basis_value']) ? $data['basis_value'] : null;
+        $this->container['basis_impact_value'] = isset($data['basis_impact_value']) ? $data['basis_impact_value'] : null;
+        $this->container['settle_price'] = isset($data['settle_price']) ? $data['settle_price'] : null;
+        $this->container['settle_price_interval'] = isset($data['settle_price_interval']) ? $data['settle_price_interval'] : null;
+        $this->container['settle_price_duration'] = isset($data['settle_price_duration']) ? $data['settle_price_duration'] : null;
+        $this->container['expire_time'] = isset($data['expire_time']) ? $data['expire_time'] : null;
         $this->container['risk_limit_base'] = isset($data['risk_limit_base']) ? $data['risk_limit_base'] : null;
         $this->container['risk_limit_step'] = isset($data['risk_limit_step']) ? $data['risk_limit_step'] : null;
         $this->container['risk_limit_max'] = isset($data['risk_limit_max']) ? $data['risk_limit_max'] : null;
@@ -398,6 +453,14 @@ class Contract implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getCycleAllowableValues();
+        if (!is_null($this->container['cycle']) && !in_array($this->container['cycle'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'cycle', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
@@ -450,6 +513,63 @@ class Contract implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets underling
+     *
+     * @return string|null
+     */
+    public function getUnderling()
+    {
+        return $this->container['underling'];
+    }
+
+    /**
+     * Sets underling
+     *
+     * @param string|null $underling Underlying
+     *
+     * @return $this
+     */
+    public function setUnderling($underling)
+    {
+        $this->container['underling'] = $underling;
+
+        return $this;
+    }
+
+    /**
+     * Gets cycle
+     *
+     * @return string|null
+     */
+    public function getCycle()
+    {
+        return $this->container['cycle'];
+    }
+
+    /**
+     * Sets cycle
+     *
+     * @param string|null $cycle Cycle type, e.g. WEEKLY, QUARTERLY
+     *
+     * @return $this
+     */
+    public function setCycle($cycle)
+    {
+        $allowedValues = $this->getCycleAllowableValues();
+        if (!is_null($cycle) && !in_array($cycle, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'cycle', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['cycle'] = $cycle;
 
         return $this;
     }
@@ -785,73 +905,169 @@ class Contract implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets funding_rate
+     * Gets basis_rate
      *
      * @return string|null
      */
-    public function getFundingRate()
+    public function getBasisRate()
     {
-        return $this->container['funding_rate'];
+        return $this->container['basis_rate'];
     }
 
     /**
-     * Sets funding_rate
+     * Sets basis_rate
      *
-     * @param string|null $funding_rate Current funding rate
+     * @param string|null $basis_rate Fair basis rate
      *
      * @return $this
      */
-    public function setFundingRate($funding_rate)
+    public function setBasisRate($basis_rate)
     {
-        $this->container['funding_rate'] = $funding_rate;
+        $this->container['basis_rate'] = $basis_rate;
 
         return $this;
     }
 
     /**
-     * Gets funding_interval
+     * Gets basis_value
+     *
+     * @return string|null
+     */
+    public function getBasisValue()
+    {
+        return $this->container['basis_value'];
+    }
+
+    /**
+     * Sets basis_value
+     *
+     * @param string|null $basis_value Fair basis value
+     *
+     * @return $this
+     */
+    public function setBasisValue($basis_value)
+    {
+        $this->container['basis_value'] = $basis_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets basis_impact_value
+     *
+     * @return string|null
+     */
+    public function getBasisImpactValue()
+    {
+        return $this->container['basis_impact_value'];
+    }
+
+    /**
+     * Sets basis_impact_value
+     *
+     * @param string|null $basis_impact_value Funding used for calculating impact bid, ask price
+     *
+     * @return $this
+     */
+    public function setBasisImpactValue($basis_impact_value)
+    {
+        $this->container['basis_impact_value'] = $basis_impact_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_price
+     *
+     * @return string|null
+     */
+    public function getSettlePrice()
+    {
+        return $this->container['settle_price'];
+    }
+
+    /**
+     * Sets settle_price
+     *
+     * @param string|null $settle_price Settle price
+     *
+     * @return $this
+     */
+    public function setSettlePrice($settle_price)
+    {
+        $this->container['settle_price'] = $settle_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_price_interval
      *
      * @return int|null
      */
-    public function getFundingInterval()
+    public function getSettlePriceInterval()
     {
-        return $this->container['funding_interval'];
+        return $this->container['settle_price_interval'];
     }
 
     /**
-     * Sets funding_interval
+     * Sets settle_price_interval
      *
-     * @param int|null $funding_interval Funding application interval, unit in seconds
+     * @param int|null $settle_price_interval Settle price update interval
      *
      * @return $this
      */
-    public function setFundingInterval($funding_interval)
+    public function setSettlePriceInterval($settle_price_interval)
     {
-        $this->container['funding_interval'] = $funding_interval;
+        $this->container['settle_price_interval'] = $settle_price_interval;
 
         return $this;
     }
 
     /**
-     * Gets funding_next_apply
+     * Gets settle_price_duration
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getFundingNextApply()
+    public function getSettlePriceDuration()
     {
-        return $this->container['funding_next_apply'];
+        return $this->container['settle_price_duration'];
     }
 
     /**
-     * Sets funding_next_apply
+     * Sets settle_price_duration
      *
-     * @param float|null $funding_next_apply Next funding time
+     * @param int|null $settle_price_duration Settle price update duration in seconds
      *
      * @return $this
      */
-    public function setFundingNextApply($funding_next_apply)
+    public function setSettlePriceDuration($settle_price_duration)
     {
-        $this->container['funding_next_apply'] = $funding_next_apply;
+        $this->container['settle_price_duration'] = $settle_price_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets expire_time
+     *
+     * @return int|null
+     */
+    public function getExpireTime()
+    {
+        return $this->container['expire_time'];
+    }
+
+    /**
+     * Sets expire_time
+     *
+     * @param int|null $expire_time Contract expiry timestamp
+     *
+     * @return $this
+     */
+    public function setExpireTime($expire_time)
+    {
+        $this->container['expire_time'] = $expire_time;
 
         return $this;
     }

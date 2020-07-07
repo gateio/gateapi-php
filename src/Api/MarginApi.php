@@ -1773,7 +1773,7 @@ class MarginApi
      * @param  string $loan_id Loan ID (required)
      * @param  string $status Loan record status (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1793,7 +1793,7 @@ class MarginApi
      * @param  string $loan_id Loan ID (required)
      * @param  string $status Loan record status (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1884,7 +1884,7 @@ class MarginApi
      * @param  string $loan_id Loan ID (required)
      * @param  string $status Loan record status (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1907,7 +1907,7 @@ class MarginApi
      * @param  string $loan_id Loan ID (required)
      * @param  string $status Loan record status (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1957,7 +1957,7 @@ class MarginApi
      * @param  string $loan_id Loan ID (required)
      * @param  string $status Loan record status (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2357,7 +2357,7 @@ class MarginApi
      * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2381,7 +2381,7 @@ class MarginApi
      * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2476,7 +2476,7 @@ class MarginApi
      * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2503,7 +2503,7 @@ class MarginApi
      * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2557,7 +2557,7 @@ class MarginApi
      * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of record returned in one list (optional, default to 100)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
