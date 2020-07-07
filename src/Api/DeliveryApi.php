@@ -1,6 +1,6 @@
 <?php
 /**
- * FuturesApi
+ * DeliveryApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use GateApi\HeaderSelector;
 use GateApi\ObjectSerializer;
 
 /**
- * FuturesApi Class Doc Comment
+ * DeliveryApi Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FuturesApi
+class DeliveryApi
 {
     /**
      * @var ClientInterface
@@ -102,7 +102,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelFuturesOrder
+     * Operation cancelDeliveryOrder
      *
      * Cancel a single order
      *
@@ -113,14 +113,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesOrder
      */
-    public function cancelFuturesOrder($settle, $order_id)
+    public function cancelDeliveryOrder($settle, $order_id)
     {
-        list($response) = $this->cancelFuturesOrderWithHttpInfo($settle, $order_id);
+        list($response) = $this->cancelDeliveryOrderWithHttpInfo($settle, $order_id);
         return $response;
     }
 
     /**
-     * Operation cancelFuturesOrderWithHttpInfo
+     * Operation cancelDeliveryOrderWithHttpInfo
      *
      * Cancel a single order
      *
@@ -131,9 +131,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesOrder, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelFuturesOrderWithHttpInfo($settle, $order_id)
+    public function cancelDeliveryOrderWithHttpInfo($settle, $order_id)
     {
-        $request = $this->cancelFuturesOrderRequest($settle, $order_id);
+        $request = $this->cancelDeliveryOrderRequest($settle, $order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -209,7 +209,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelFuturesOrderAsync
+     * Operation cancelDeliveryOrderAsync
      *
      * Cancel a single order
      *
@@ -219,9 +219,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelFuturesOrderAsync($settle, $order_id)
+    public function cancelDeliveryOrderAsync($settle, $order_id)
     {
-        return $this->cancelFuturesOrderAsyncWithHttpInfo($settle, $order_id)
+        return $this->cancelDeliveryOrderAsyncWithHttpInfo($settle, $order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -230,7 +230,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelFuturesOrderAsyncWithHttpInfo
+     * Operation cancelDeliveryOrderAsyncWithHttpInfo
      *
      * Cancel a single order
      *
@@ -240,10 +240,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelFuturesOrderAsyncWithHttpInfo($settle, $order_id)
+    public function cancelDeliveryOrderAsyncWithHttpInfo($settle, $order_id)
     {
         $returnType = '\GateApi\Model\FuturesOrder';
-        $request = $this->cancelFuturesOrderRequest($settle, $order_id);
+        $request = $this->cancelDeliveryOrderRequest($settle, $order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -280,7 +280,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'cancelFuturesOrder'
+     * Create request for operation 'cancelDeliveryOrder'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id ID returned on order successfully being created (required)
@@ -288,22 +288,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelFuturesOrderRequest($settle, $order_id)
+    protected function cancelDeliveryOrderRequest($settle, $order_id)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling cancelFuturesOrder'
+                'Missing the required parameter $settle when calling cancelDeliveryOrder'
             );
         }
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling cancelFuturesOrder'
+                'Missing the required parameter $order_id when calling cancelDeliveryOrder'
             );
         }
 
-        $resourcePath = '/futures/{settle}/orders/{order_id}';
+        $resourcePath = '/delivery/{settle}/orders/{order_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -394,7 +394,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelFuturesOrders
+     * Operation cancelDeliveryOrders
      *
      * Cancel all `open` orders matched
      *
@@ -406,14 +406,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesOrder[]
      */
-    public function cancelFuturesOrders($settle, $contract, $side = null)
+    public function cancelDeliveryOrders($settle, $contract, $side = null)
     {
-        list($response) = $this->cancelFuturesOrdersWithHttpInfo($settle, $contract, $side);
+        list($response) = $this->cancelDeliveryOrdersWithHttpInfo($settle, $contract, $side);
         return $response;
     }
 
     /**
-     * Operation cancelFuturesOrdersWithHttpInfo
+     * Operation cancelDeliveryOrdersWithHttpInfo
      *
      * Cancel all `open` orders matched
      *
@@ -425,9 +425,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesOrder[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelFuturesOrdersWithHttpInfo($settle, $contract, $side = null)
+    public function cancelDeliveryOrdersWithHttpInfo($settle, $contract, $side = null)
     {
-        $request = $this->cancelFuturesOrdersRequest($settle, $contract, $side);
+        $request = $this->cancelDeliveryOrdersRequest($settle, $contract, $side);
 
         try {
             $options = $this->createHttpClientOption();
@@ -503,7 +503,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelFuturesOrdersAsync
+     * Operation cancelDeliveryOrdersAsync
      *
      * Cancel all `open` orders matched
      *
@@ -514,9 +514,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelFuturesOrdersAsync($settle, $contract, $side = null)
+    public function cancelDeliveryOrdersAsync($settle, $contract, $side = null)
     {
-        return $this->cancelFuturesOrdersAsyncWithHttpInfo($settle, $contract, $side)
+        return $this->cancelDeliveryOrdersAsyncWithHttpInfo($settle, $contract, $side)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -525,7 +525,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelFuturesOrdersAsyncWithHttpInfo
+     * Operation cancelDeliveryOrdersAsyncWithHttpInfo
      *
      * Cancel all `open` orders matched
      *
@@ -536,10 +536,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelFuturesOrdersAsyncWithHttpInfo($settle, $contract, $side = null)
+    public function cancelDeliveryOrdersAsyncWithHttpInfo($settle, $contract, $side = null)
     {
         $returnType = '\GateApi\Model\FuturesOrder[]';
-        $request = $this->cancelFuturesOrdersRequest($settle, $contract, $side);
+        $request = $this->cancelDeliveryOrdersRequest($settle, $contract, $side);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -576,7 +576,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'cancelFuturesOrders'
+     * Create request for operation 'cancelDeliveryOrders'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -585,22 +585,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelFuturesOrdersRequest($settle, $contract, $side = null)
+    protected function cancelDeliveryOrdersRequest($settle, $contract, $side = null)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling cancelFuturesOrders'
+                'Missing the required parameter $settle when calling cancelDeliveryOrders'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling cancelFuturesOrders'
+                'Missing the required parameter $contract when calling cancelDeliveryOrders'
             );
         }
 
-        $resourcePath = '/futures/{settle}/orders';
+        $resourcePath = '/delivery/{settle}/orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -691,7 +691,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelPriceTriggeredOrder
+     * Operation cancelPriceTriggeredDeliveryOrder
      *
      * Cancel a single order
      *
@@ -702,14 +702,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesPriceTriggeredOrder
      */
-    public function cancelPriceTriggeredOrder($settle, $order_id)
+    public function cancelPriceTriggeredDeliveryOrder($settle, $order_id)
     {
-        list($response) = $this->cancelPriceTriggeredOrderWithHttpInfo($settle, $order_id);
+        list($response) = $this->cancelPriceTriggeredDeliveryOrderWithHttpInfo($settle, $order_id);
         return $response;
     }
 
     /**
-     * Operation cancelPriceTriggeredOrderWithHttpInfo
+     * Operation cancelPriceTriggeredDeliveryOrderWithHttpInfo
      *
      * Cancel a single order
      *
@@ -720,9 +720,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesPriceTriggeredOrder, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelPriceTriggeredOrderWithHttpInfo($settle, $order_id)
+    public function cancelPriceTriggeredDeliveryOrderWithHttpInfo($settle, $order_id)
     {
-        $request = $this->cancelPriceTriggeredOrderRequest($settle, $order_id);
+        $request = $this->cancelPriceTriggeredDeliveryOrderRequest($settle, $order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -798,7 +798,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelPriceTriggeredOrderAsync
+     * Operation cancelPriceTriggeredDeliveryOrderAsync
      *
      * Cancel a single order
      *
@@ -808,9 +808,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelPriceTriggeredOrderAsync($settle, $order_id)
+    public function cancelPriceTriggeredDeliveryOrderAsync($settle, $order_id)
     {
-        return $this->cancelPriceTriggeredOrderAsyncWithHttpInfo($settle, $order_id)
+        return $this->cancelPriceTriggeredDeliveryOrderAsyncWithHttpInfo($settle, $order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -819,7 +819,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelPriceTriggeredOrderAsyncWithHttpInfo
+     * Operation cancelPriceTriggeredDeliveryOrderAsyncWithHttpInfo
      *
      * Cancel a single order
      *
@@ -829,10 +829,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelPriceTriggeredOrderAsyncWithHttpInfo($settle, $order_id)
+    public function cancelPriceTriggeredDeliveryOrderAsyncWithHttpInfo($settle, $order_id)
     {
         $returnType = '\GateApi\Model\FuturesPriceTriggeredOrder';
-        $request = $this->cancelPriceTriggeredOrderRequest($settle, $order_id);
+        $request = $this->cancelPriceTriggeredDeliveryOrderRequest($settle, $order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -869,7 +869,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'cancelPriceTriggeredOrder'
+     * Create request for operation 'cancelPriceTriggeredDeliveryOrder'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id ID returned on order successfully being created (required)
@@ -877,22 +877,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelPriceTriggeredOrderRequest($settle, $order_id)
+    protected function cancelPriceTriggeredDeliveryOrderRequest($settle, $order_id)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling cancelPriceTriggeredOrder'
+                'Missing the required parameter $settle when calling cancelPriceTriggeredDeliveryOrder'
             );
         }
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling cancelPriceTriggeredOrder'
+                'Missing the required parameter $order_id when calling cancelPriceTriggeredDeliveryOrder'
             );
         }
 
-        $resourcePath = '/futures/{settle}/price_orders/{order_id}';
+        $resourcePath = '/delivery/{settle}/price_orders/{order_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -983,7 +983,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelPriceTriggeredOrderList
+     * Operation cancelPriceTriggeredDeliveryOrderList
      *
      * Cancel all open orders
      *
@@ -994,14 +994,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesPriceTriggeredOrder[]
      */
-    public function cancelPriceTriggeredOrderList($settle, $contract)
+    public function cancelPriceTriggeredDeliveryOrderList($settle, $contract)
     {
-        list($response) = $this->cancelPriceTriggeredOrderListWithHttpInfo($settle, $contract);
+        list($response) = $this->cancelPriceTriggeredDeliveryOrderListWithHttpInfo($settle, $contract);
         return $response;
     }
 
     /**
-     * Operation cancelPriceTriggeredOrderListWithHttpInfo
+     * Operation cancelPriceTriggeredDeliveryOrderListWithHttpInfo
      *
      * Cancel all open orders
      *
@@ -1012,9 +1012,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesPriceTriggeredOrder[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelPriceTriggeredOrderListWithHttpInfo($settle, $contract)
+    public function cancelPriceTriggeredDeliveryOrderListWithHttpInfo($settle, $contract)
     {
-        $request = $this->cancelPriceTriggeredOrderListRequest($settle, $contract);
+        $request = $this->cancelPriceTriggeredDeliveryOrderListRequest($settle, $contract);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1090,7 +1090,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelPriceTriggeredOrderListAsync
+     * Operation cancelPriceTriggeredDeliveryOrderListAsync
      *
      * Cancel all open orders
      *
@@ -1100,9 +1100,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelPriceTriggeredOrderListAsync($settle, $contract)
+    public function cancelPriceTriggeredDeliveryOrderListAsync($settle, $contract)
     {
-        return $this->cancelPriceTriggeredOrderListAsyncWithHttpInfo($settle, $contract)
+        return $this->cancelPriceTriggeredDeliveryOrderListAsyncWithHttpInfo($settle, $contract)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1111,7 +1111,7 @@ class FuturesApi
     }
 
     /**
-     * Operation cancelPriceTriggeredOrderListAsyncWithHttpInfo
+     * Operation cancelPriceTriggeredDeliveryOrderListAsyncWithHttpInfo
      *
      * Cancel all open orders
      *
@@ -1121,10 +1121,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelPriceTriggeredOrderListAsyncWithHttpInfo($settle, $contract)
+    public function cancelPriceTriggeredDeliveryOrderListAsyncWithHttpInfo($settle, $contract)
     {
         $returnType = '\GateApi\Model\FuturesPriceTriggeredOrder[]';
-        $request = $this->cancelPriceTriggeredOrderListRequest($settle, $contract);
+        $request = $this->cancelPriceTriggeredDeliveryOrderListRequest($settle, $contract);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1161,7 +1161,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'cancelPriceTriggeredOrderList'
+     * Create request for operation 'cancelPriceTriggeredDeliveryOrderList'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -1169,22 +1169,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelPriceTriggeredOrderListRequest($settle, $contract)
+    protected function cancelPriceTriggeredDeliveryOrderListRequest($settle, $contract)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling cancelPriceTriggeredOrderList'
+                'Missing the required parameter $settle when calling cancelPriceTriggeredDeliveryOrderList'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling cancelPriceTriggeredOrderList'
+                'Missing the required parameter $contract when calling cancelPriceTriggeredDeliveryOrderList'
             );
         }
 
-        $resourcePath = '/futures/{settle}/price_orders';
+        $resourcePath = '/delivery/{settle}/price_orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1271,7 +1271,7 @@ class FuturesApi
     }
 
     /**
-     * Operation createFuturesOrder
+     * Operation createDeliveryOrder
      *
      * Create a futures order
      *
@@ -1282,14 +1282,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesOrder
      */
-    public function createFuturesOrder($settle, $futures_order)
+    public function createDeliveryOrder($settle, $futures_order)
     {
-        list($response) = $this->createFuturesOrderWithHttpInfo($settle, $futures_order);
+        list($response) = $this->createDeliveryOrderWithHttpInfo($settle, $futures_order);
         return $response;
     }
 
     /**
-     * Operation createFuturesOrderWithHttpInfo
+     * Operation createDeliveryOrderWithHttpInfo
      *
      * Create a futures order
      *
@@ -1300,9 +1300,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesOrder, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFuturesOrderWithHttpInfo($settle, $futures_order)
+    public function createDeliveryOrderWithHttpInfo($settle, $futures_order)
     {
-        $request = $this->createFuturesOrderRequest($settle, $futures_order);
+        $request = $this->createDeliveryOrderRequest($settle, $futures_order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1378,7 +1378,7 @@ class FuturesApi
     }
 
     /**
-     * Operation createFuturesOrderAsync
+     * Operation createDeliveryOrderAsync
      *
      * Create a futures order
      *
@@ -1388,9 +1388,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFuturesOrderAsync($settle, $futures_order)
+    public function createDeliveryOrderAsync($settle, $futures_order)
     {
-        return $this->createFuturesOrderAsyncWithHttpInfo($settle, $futures_order)
+        return $this->createDeliveryOrderAsyncWithHttpInfo($settle, $futures_order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1399,7 +1399,7 @@ class FuturesApi
     }
 
     /**
-     * Operation createFuturesOrderAsyncWithHttpInfo
+     * Operation createDeliveryOrderAsyncWithHttpInfo
      *
      * Create a futures order
      *
@@ -1409,10 +1409,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFuturesOrderAsyncWithHttpInfo($settle, $futures_order)
+    public function createDeliveryOrderAsyncWithHttpInfo($settle, $futures_order)
     {
         $returnType = '\GateApi\Model\FuturesOrder';
-        $request = $this->createFuturesOrderRequest($settle, $futures_order);
+        $request = $this->createDeliveryOrderRequest($settle, $futures_order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1449,7 +1449,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'createFuturesOrder'
+     * Create request for operation 'createDeliveryOrder'
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder $futures_order (required)
@@ -1457,22 +1457,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createFuturesOrderRequest($settle, $futures_order)
+    protected function createDeliveryOrderRequest($settle, $futures_order)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling createFuturesOrder'
+                'Missing the required parameter $settle when calling createDeliveryOrder'
             );
         }
         // verify the required parameter 'futures_order' is set
         if ($futures_order === null || (is_array($futures_order) && count($futures_order) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $futures_order when calling createFuturesOrder'
+                'Missing the required parameter $futures_order when calling createDeliveryOrder'
             );
         }
 
-        $resourcePath = '/futures/{settle}/orders';
+        $resourcePath = '/delivery/{settle}/orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1558,7 +1558,7 @@ class FuturesApi
     }
 
     /**
-     * Operation createPriceTriggeredOrder
+     * Operation createPriceTriggeredDeliveryOrder
      *
      * Create a price-triggered order
      *
@@ -1569,14 +1569,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\TriggerOrderResponse
      */
-    public function createPriceTriggeredOrder($settle, $futures_price_triggered_order)
+    public function createPriceTriggeredDeliveryOrder($settle, $futures_price_triggered_order)
     {
-        list($response) = $this->createPriceTriggeredOrderWithHttpInfo($settle, $futures_price_triggered_order);
+        list($response) = $this->createPriceTriggeredDeliveryOrderWithHttpInfo($settle, $futures_price_triggered_order);
         return $response;
     }
 
     /**
-     * Operation createPriceTriggeredOrderWithHttpInfo
+     * Operation createPriceTriggeredDeliveryOrderWithHttpInfo
      *
      * Create a price-triggered order
      *
@@ -1587,9 +1587,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\TriggerOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPriceTriggeredOrderWithHttpInfo($settle, $futures_price_triggered_order)
+    public function createPriceTriggeredDeliveryOrderWithHttpInfo($settle, $futures_price_triggered_order)
     {
-        $request = $this->createPriceTriggeredOrderRequest($settle, $futures_price_triggered_order);
+        $request = $this->createPriceTriggeredDeliveryOrderRequest($settle, $futures_price_triggered_order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1665,7 +1665,7 @@ class FuturesApi
     }
 
     /**
-     * Operation createPriceTriggeredOrderAsync
+     * Operation createPriceTriggeredDeliveryOrderAsync
      *
      * Create a price-triggered order
      *
@@ -1675,9 +1675,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPriceTriggeredOrderAsync($settle, $futures_price_triggered_order)
+    public function createPriceTriggeredDeliveryOrderAsync($settle, $futures_price_triggered_order)
     {
-        return $this->createPriceTriggeredOrderAsyncWithHttpInfo($settle, $futures_price_triggered_order)
+        return $this->createPriceTriggeredDeliveryOrderAsyncWithHttpInfo($settle, $futures_price_triggered_order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1686,7 +1686,7 @@ class FuturesApi
     }
 
     /**
-     * Operation createPriceTriggeredOrderAsyncWithHttpInfo
+     * Operation createPriceTriggeredDeliveryOrderAsyncWithHttpInfo
      *
      * Create a price-triggered order
      *
@@ -1696,10 +1696,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPriceTriggeredOrderAsyncWithHttpInfo($settle, $futures_price_triggered_order)
+    public function createPriceTriggeredDeliveryOrderAsyncWithHttpInfo($settle, $futures_price_triggered_order)
     {
         $returnType = '\GateApi\Model\TriggerOrderResponse';
-        $request = $this->createPriceTriggeredOrderRequest($settle, $futures_price_triggered_order);
+        $request = $this->createPriceTriggeredDeliveryOrderRequest($settle, $futures_price_triggered_order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1736,7 +1736,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'createPriceTriggeredOrder'
+     * Create request for operation 'createPriceTriggeredDeliveryOrder'
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
@@ -1744,22 +1744,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPriceTriggeredOrderRequest($settle, $futures_price_triggered_order)
+    protected function createPriceTriggeredDeliveryOrderRequest($settle, $futures_price_triggered_order)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling createPriceTriggeredOrder'
+                'Missing the required parameter $settle when calling createPriceTriggeredDeliveryOrder'
             );
         }
         // verify the required parameter 'futures_price_triggered_order' is set
         if ($futures_price_triggered_order === null || (is_array($futures_price_triggered_order) && count($futures_price_triggered_order) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $futures_price_triggered_order when calling createPriceTriggeredOrder'
+                'Missing the required parameter $futures_price_triggered_order when calling createPriceTriggeredDeliveryOrder'
             );
         }
 
-        $resourcePath = '/futures/{settle}/price_orders';
+        $resourcePath = '/delivery/{settle}/price_orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1845,7 +1845,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getFuturesContract
+     * Operation getDeliveryContract
      *
      * Get a single contract
      *
@@ -1854,16 +1854,16 @@ class FuturesApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\Contract
+     * @return \GateApi\Model\DeliveryContract
      */
-    public function getFuturesContract($settle, $contract)
+    public function getDeliveryContract($settle, $contract)
     {
-        list($response) = $this->getFuturesContractWithHttpInfo($settle, $contract);
+        list($response) = $this->getDeliveryContractWithHttpInfo($settle, $contract);
         return $response;
     }
 
     /**
-     * Operation getFuturesContractWithHttpInfo
+     * Operation getDeliveryContractWithHttpInfo
      *
      * Get a single contract
      *
@@ -1872,11 +1872,11 @@ class FuturesApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\Contract, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\DeliveryContract, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFuturesContractWithHttpInfo($settle, $contract)
+    public function getDeliveryContractWithHttpInfo($settle, $contract)
     {
-        $request = $this->getFuturesContractRequest($settle, $contract);
+        $request = $this->getDeliveryContractRequest($settle, $contract);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1909,20 +1909,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateApi\Model\Contract' === '\SplFileObject') {
+                    if ('\GateApi\Model\DeliveryContract' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateApi\Model\Contract', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\DeliveryContract', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateApi\Model\Contract';
+            $returnType = '\GateApi\Model\DeliveryContract';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1941,7 +1941,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateApi\Model\Contract',
+                        '\GateApi\Model\DeliveryContract',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1952,7 +1952,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getFuturesContractAsync
+     * Operation getDeliveryContractAsync
      *
      * Get a single contract
      *
@@ -1962,9 +1962,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFuturesContractAsync($settle, $contract)
+    public function getDeliveryContractAsync($settle, $contract)
     {
-        return $this->getFuturesContractAsyncWithHttpInfo($settle, $contract)
+        return $this->getDeliveryContractAsyncWithHttpInfo($settle, $contract)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1973,7 +1973,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getFuturesContractAsyncWithHttpInfo
+     * Operation getDeliveryContractAsyncWithHttpInfo
      *
      * Get a single contract
      *
@@ -1983,10 +1983,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFuturesContractAsyncWithHttpInfo($settle, $contract)
+    public function getDeliveryContractAsyncWithHttpInfo($settle, $contract)
     {
-        $returnType = '\GateApi\Model\Contract';
-        $request = $this->getFuturesContractRequest($settle, $contract);
+        $returnType = '\GateApi\Model\DeliveryContract';
+        $request = $this->getDeliveryContractRequest($settle, $contract);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2023,7 +2023,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'getFuturesContract'
+     * Create request for operation 'getDeliveryContract'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -2031,22 +2031,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFuturesContractRequest($settle, $contract)
+    protected function getDeliveryContractRequest($settle, $contract)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling getFuturesContract'
+                'Missing the required parameter $settle when calling getDeliveryContract'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling getFuturesContract'
+                'Missing the required parameter $contract when calling getDeliveryContract'
             );
         }
 
-        $resourcePath = '/futures/{settle}/contracts/{contract}';
+        $resourcePath = '/delivery/{settle}/contracts/{contract}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2137,7 +2137,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getFuturesOrder
+     * Operation getDeliveryOrder
      *
      * Get a single order
      *
@@ -2148,14 +2148,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesOrder
      */
-    public function getFuturesOrder($settle, $order_id)
+    public function getDeliveryOrder($settle, $order_id)
     {
-        list($response) = $this->getFuturesOrderWithHttpInfo($settle, $order_id);
+        list($response) = $this->getDeliveryOrderWithHttpInfo($settle, $order_id);
         return $response;
     }
 
     /**
-     * Operation getFuturesOrderWithHttpInfo
+     * Operation getDeliveryOrderWithHttpInfo
      *
      * Get a single order
      *
@@ -2166,9 +2166,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesOrder, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFuturesOrderWithHttpInfo($settle, $order_id)
+    public function getDeliveryOrderWithHttpInfo($settle, $order_id)
     {
-        $request = $this->getFuturesOrderRequest($settle, $order_id);
+        $request = $this->getDeliveryOrderRequest($settle, $order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2244,7 +2244,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getFuturesOrderAsync
+     * Operation getDeliveryOrderAsync
      *
      * Get a single order
      *
@@ -2254,9 +2254,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFuturesOrderAsync($settle, $order_id)
+    public function getDeliveryOrderAsync($settle, $order_id)
     {
-        return $this->getFuturesOrderAsyncWithHttpInfo($settle, $order_id)
+        return $this->getDeliveryOrderAsyncWithHttpInfo($settle, $order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2265,7 +2265,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getFuturesOrderAsyncWithHttpInfo
+     * Operation getDeliveryOrderAsyncWithHttpInfo
      *
      * Get a single order
      *
@@ -2275,10 +2275,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFuturesOrderAsyncWithHttpInfo($settle, $order_id)
+    public function getDeliveryOrderAsyncWithHttpInfo($settle, $order_id)
     {
         $returnType = '\GateApi\Model\FuturesOrder';
-        $request = $this->getFuturesOrderRequest($settle, $order_id);
+        $request = $this->getDeliveryOrderRequest($settle, $order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2315,7 +2315,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'getFuturesOrder'
+     * Create request for operation 'getDeliveryOrder'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id ID returned on order successfully being created (required)
@@ -2323,22 +2323,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFuturesOrderRequest($settle, $order_id)
+    protected function getDeliveryOrderRequest($settle, $order_id)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling getFuturesOrder'
+                'Missing the required parameter $settle when calling getDeliveryOrder'
             );
         }
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling getFuturesOrder'
+                'Missing the required parameter $order_id when calling getDeliveryOrder'
             );
         }
 
-        $resourcePath = '/futures/{settle}/orders/{order_id}';
+        $resourcePath = '/delivery/{settle}/orders/{order_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2429,12 +2429,304 @@ class FuturesApi
     }
 
     /**
-     * Operation getMyTrades
+     * Operation getDeliveryPosition
+     *
+     * Get single position
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Position
+     */
+    public function getDeliveryPosition($settle, $contract)
+    {
+        list($response) = $this->getDeliveryPositionWithHttpInfo($settle, $contract);
+        return $response;
+    }
+
+    /**
+     * Operation getDeliveryPositionWithHttpInfo
+     *
+     * Get single position
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDeliveryPositionWithHttpInfo($settle, $contract)
+    {
+        $request = $this->getDeliveryPositionRequest($settle, $contract);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\Position' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\Position', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\Position';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\Position',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDeliveryPositionAsync
+     *
+     * Get single position
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDeliveryPositionAsync($settle, $contract)
+    {
+        return $this->getDeliveryPositionAsyncWithHttpInfo($settle, $contract)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDeliveryPositionAsyncWithHttpInfo
+     *
+     * Get single position
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDeliveryPositionAsyncWithHttpInfo($settle, $contract)
+    {
+        $returnType = '\GateApi\Model\Position';
+        $request = $this->getDeliveryPositionRequest($settle, $contract);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDeliveryPosition'
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getDeliveryPositionRequest($settle, $contract)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling getDeliveryPosition'
+            );
+        }
+        // verify the required parameter 'contract' is set
+        if ($contract === null || (is_array($contract) && count($contract) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contract when calling getDeliveryPosition'
+            );
+        }
+
+        $resourcePath = '/delivery/{settle}/positions/{contract}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($contract !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contract' . '}',
+                ObjectSerializer::toPathValue($contract),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMyDeliveryTrades
      *
      * List personal trading history
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
@@ -2445,19 +2737,19 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\MyFuturesTrade[]
      */
-    public function getMyTrades($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    public function getMyDeliveryTrades($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        list($response) = $this->getMyTradesWithHttpInfo($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
+        list($response) = $this->getMyDeliveryTradesWithHttpInfo($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
         return $response;
     }
 
     /**
-     * Operation getMyTradesWithHttpInfo
+     * Operation getMyDeliveryTradesWithHttpInfo
      *
      * List personal trading history
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
@@ -2468,9 +2760,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\MyFuturesTrade[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMyTradesWithHttpInfo($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    public function getMyDeliveryTradesWithHttpInfo($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        $request = $this->getMyTradesRequest($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
+        $request = $this->getMyDeliveryTradesRequest($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2546,12 +2838,12 @@ class FuturesApi
     }
 
     /**
-     * Operation getMyTradesAsync
+     * Operation getMyDeliveryTradesAsync
      *
      * List personal trading history
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
@@ -2561,9 +2853,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMyTradesAsync($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    public function getMyDeliveryTradesAsync($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        return $this->getMyTradesAsyncWithHttpInfo($settle, $contract, $order, $limit, $offset, $last_id, $count_total)
+        return $this->getMyDeliveryTradesAsyncWithHttpInfo($settle, $contract, $order, $limit, $offset, $last_id, $count_total)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2572,12 +2864,12 @@ class FuturesApi
     }
 
     /**
-     * Operation getMyTradesAsyncWithHttpInfo
+     * Operation getMyDeliveryTradesAsyncWithHttpInfo
      *
      * List personal trading history
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
@@ -2587,10 +2879,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMyTradesAsyncWithHttpInfo($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    public function getMyDeliveryTradesAsyncWithHttpInfo($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
         $returnType = '\GateApi\Model\MyFuturesTrade[]';
-        $request = $this->getMyTradesRequest($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
+        $request = $this->getMyDeliveryTradesRequest($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2627,10 +2919,10 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'getMyTrades'
+     * Create request for operation 'getMyDeliveryTrades'
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      * @param  int $order Futures order ID, return related data only if specified (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
@@ -2640,27 +2932,27 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getMyTradesRequest($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    protected function getMyDeliveryTradesRequest($settle, $contract = null, $order = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling getMyTrades'
+                'Missing the required parameter $settle when calling getMyDeliveryTrades'
             );
         }
         if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.getMyTrades, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.getMyDeliveryTrades, must be smaller than or equal to 1000.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.getMyTrades, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.getMyDeliveryTrades, must be bigger than or equal to 1.');
         }
 
         if ($offset !== null && $offset < 0) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling FuturesApi.getMyTrades, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling DeliveryApi.getMyDeliveryTrades, must be bigger than or equal to 0.');
         }
 
 
-        $resourcePath = '/futures/{settle}/my_trades';
+        $resourcePath = '/delivery/{settle}/my_trades';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2767,299 +3059,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getPosition
-     *
-     * Get single position
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\Position
-     */
-    public function getPosition($settle, $contract)
-    {
-        list($response) = $this->getPositionWithHttpInfo($settle, $contract);
-        return $response;
-    }
-
-    /**
-     * Operation getPositionWithHttpInfo
-     *
-     * Get single position
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getPositionWithHttpInfo($settle, $contract)
-    {
-        $request = $this->getPositionRequest($settle, $contract);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\GateApi\Model\Position' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\GateApi\Model\Position', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\GateApi\Model\Position';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\GateApi\Model\Position',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getPositionAsync
-     *
-     * Get single position
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getPositionAsync($settle, $contract)
-    {
-        return $this->getPositionAsyncWithHttpInfo($settle, $contract)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getPositionAsyncWithHttpInfo
-     *
-     * Get single position
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getPositionAsyncWithHttpInfo($settle, $contract)
-    {
-        $returnType = '\GateApi\Model\Position';
-        $request = $this->getPositionRequest($settle, $contract);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getPosition'
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getPositionRequest($settle, $contract)
-    {
-        // verify the required parameter 'settle' is set
-        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling getPosition'
-            );
-        }
-        // verify the required parameter 'contract' is set
-        if ($contract === null || (is_array($contract) && count($contract) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling getPosition'
-            );
-        }
-
-        $resourcePath = '/futures/{settle}/positions/{contract}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($settle !== null) {
-            $resourcePath = str_replace(
-                '{' . 'settle' . '}',
-                ObjectSerializer::toPathValue($settle),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($contract !== null) {
-            $resourcePath = str_replace(
-                '{' . 'contract' . '}',
-                ObjectSerializer::toPathValue($contract),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $signHeaders,
-            $headers
-        );
-
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getPriceTriggeredOrder
+     * Operation getPriceTriggeredDeliveryOrder
      *
      * Get a single order
      *
@@ -3070,14 +3070,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesPriceTriggeredOrder
      */
-    public function getPriceTriggeredOrder($settle, $order_id)
+    public function getPriceTriggeredDeliveryOrder($settle, $order_id)
     {
-        list($response) = $this->getPriceTriggeredOrderWithHttpInfo($settle, $order_id);
+        list($response) = $this->getPriceTriggeredDeliveryOrderWithHttpInfo($settle, $order_id);
         return $response;
     }
 
     /**
-     * Operation getPriceTriggeredOrderWithHttpInfo
+     * Operation getPriceTriggeredDeliveryOrderWithHttpInfo
      *
      * Get a single order
      *
@@ -3088,9 +3088,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesPriceTriggeredOrder, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPriceTriggeredOrderWithHttpInfo($settle, $order_id)
+    public function getPriceTriggeredDeliveryOrderWithHttpInfo($settle, $order_id)
     {
-        $request = $this->getPriceTriggeredOrderRequest($settle, $order_id);
+        $request = $this->getPriceTriggeredDeliveryOrderRequest($settle, $order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3166,7 +3166,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getPriceTriggeredOrderAsync
+     * Operation getPriceTriggeredDeliveryOrderAsync
      *
      * Get a single order
      *
@@ -3176,9 +3176,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceTriggeredOrderAsync($settle, $order_id)
+    public function getPriceTriggeredDeliveryOrderAsync($settle, $order_id)
     {
-        return $this->getPriceTriggeredOrderAsyncWithHttpInfo($settle, $order_id)
+        return $this->getPriceTriggeredDeliveryOrderAsyncWithHttpInfo($settle, $order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3187,7 +3187,7 @@ class FuturesApi
     }
 
     /**
-     * Operation getPriceTriggeredOrderAsyncWithHttpInfo
+     * Operation getPriceTriggeredDeliveryOrderAsyncWithHttpInfo
      *
      * Get a single order
      *
@@ -3197,10 +3197,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceTriggeredOrderAsyncWithHttpInfo($settle, $order_id)
+    public function getPriceTriggeredDeliveryOrderAsyncWithHttpInfo($settle, $order_id)
     {
         $returnType = '\GateApi\Model\FuturesPriceTriggeredOrder';
-        $request = $this->getPriceTriggeredOrderRequest($settle, $order_id);
+        $request = $this->getPriceTriggeredDeliveryOrderRequest($settle, $order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3237,7 +3237,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'getPriceTriggeredOrder'
+     * Create request for operation 'getPriceTriggeredDeliveryOrder'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id ID returned on order successfully being created (required)
@@ -3245,22 +3245,22 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPriceTriggeredOrderRequest($settle, $order_id)
+    protected function getPriceTriggeredDeliveryOrderRequest($settle, $order_id)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling getPriceTriggeredOrder'
+                'Missing the required parameter $settle when calling getPriceTriggeredDeliveryOrder'
             );
         }
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling getPriceTriggeredOrder'
+                'Missing the required parameter $order_id when calling getPriceTriggeredDeliveryOrder'
             );
         }
 
-        $resourcePath = '/futures/{settle}/price_orders/{order_id}';
+        $resourcePath = '/delivery/{settle}/price_orders/{order_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3351,7 +3351,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesAccountBook
+     * Operation listDeliveryAccountBook
      *
      * Query account book
      *
@@ -3365,14 +3365,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesAccountBook[]
      */
-    public function listFuturesAccountBook($settle, $limit = 100, $from = null, $to = null, $type = null)
+    public function listDeliveryAccountBook($settle, $limit = 100, $from = null, $to = null, $type = null)
     {
-        list($response) = $this->listFuturesAccountBookWithHttpInfo($settle, $limit, $from, $to, $type);
+        list($response) = $this->listDeliveryAccountBookWithHttpInfo($settle, $limit, $from, $to, $type);
         return $response;
     }
 
     /**
-     * Operation listFuturesAccountBookWithHttpInfo
+     * Operation listDeliveryAccountBookWithHttpInfo
      *
      * Query account book
      *
@@ -3386,9 +3386,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesAccountBook[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesAccountBookWithHttpInfo($settle, $limit = 100, $from = null, $to = null, $type = null)
+    public function listDeliveryAccountBookWithHttpInfo($settle, $limit = 100, $from = null, $to = null, $type = null)
     {
-        $request = $this->listFuturesAccountBookRequest($settle, $limit, $from, $to, $type);
+        $request = $this->listDeliveryAccountBookRequest($settle, $limit, $from, $to, $type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3464,7 +3464,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesAccountBookAsync
+     * Operation listDeliveryAccountBookAsync
      *
      * Query account book
      *
@@ -3477,9 +3477,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesAccountBookAsync($settle, $limit = 100, $from = null, $to = null, $type = null)
+    public function listDeliveryAccountBookAsync($settle, $limit = 100, $from = null, $to = null, $type = null)
     {
-        return $this->listFuturesAccountBookAsyncWithHttpInfo($settle, $limit, $from, $to, $type)
+        return $this->listDeliveryAccountBookAsyncWithHttpInfo($settle, $limit, $from, $to, $type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3488,7 +3488,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesAccountBookAsyncWithHttpInfo
+     * Operation listDeliveryAccountBookAsyncWithHttpInfo
      *
      * Query account book
      *
@@ -3501,10 +3501,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesAccountBookAsyncWithHttpInfo($settle, $limit = 100, $from = null, $to = null, $type = null)
+    public function listDeliveryAccountBookAsyncWithHttpInfo($settle, $limit = 100, $from = null, $to = null, $type = null)
     {
         $returnType = '\GateApi\Model\FuturesAccountBook[]';
-        $request = $this->listFuturesAccountBookRequest($settle, $limit, $from, $to, $type);
+        $request = $this->listDeliveryAccountBookRequest($settle, $limit, $from, $to, $type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3541,7 +3541,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesAccountBook'
+     * Create request for operation 'listDeliveryAccountBook'
      *
      * @param  string $settle Settle currency (required)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
@@ -3552,23 +3552,23 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesAccountBookRequest($settle, $limit = 100, $from = null, $to = null, $type = null)
+    protected function listDeliveryAccountBookRequest($settle, $limit = 100, $from = null, $to = null, $type = null)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesAccountBook'
+                'Missing the required parameter $settle when calling listDeliveryAccountBook'
             );
         }
         if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesAccountBook, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryAccountBook, must be smaller than or equal to 1000.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesAccountBook, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryAccountBook, must be bigger than or equal to 1.');
         }
 
 
-        $resourcePath = '/futures/{settle}/account_book';
+        $resourcePath = '/delivery/{settle}/account_book';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3667,7 +3667,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesAccounts
+     * Operation listDeliveryAccounts
      *
      * Query futures account
      *
@@ -3677,14 +3677,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesAccount
      */
-    public function listFuturesAccounts($settle)
+    public function listDeliveryAccounts($settle)
     {
-        list($response) = $this->listFuturesAccountsWithHttpInfo($settle);
+        list($response) = $this->listDeliveryAccountsWithHttpInfo($settle);
         return $response;
     }
 
     /**
-     * Operation listFuturesAccountsWithHttpInfo
+     * Operation listDeliveryAccountsWithHttpInfo
      *
      * Query futures account
      *
@@ -3694,9 +3694,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesAccount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesAccountsWithHttpInfo($settle)
+    public function listDeliveryAccountsWithHttpInfo($settle)
     {
-        $request = $this->listFuturesAccountsRequest($settle);
+        $request = $this->listDeliveryAccountsRequest($settle);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3772,7 +3772,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesAccountsAsync
+     * Operation listDeliveryAccountsAsync
      *
      * Query futures account
      *
@@ -3781,9 +3781,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesAccountsAsync($settle)
+    public function listDeliveryAccountsAsync($settle)
     {
-        return $this->listFuturesAccountsAsyncWithHttpInfo($settle)
+        return $this->listDeliveryAccountsAsyncWithHttpInfo($settle)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3792,7 +3792,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesAccountsAsyncWithHttpInfo
+     * Operation listDeliveryAccountsAsyncWithHttpInfo
      *
      * Query futures account
      *
@@ -3801,10 +3801,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesAccountsAsyncWithHttpInfo($settle)
+    public function listDeliveryAccountsAsyncWithHttpInfo($settle)
     {
         $returnType = '\GateApi\Model\FuturesAccount';
-        $request = $this->listFuturesAccountsRequest($settle);
+        $request = $this->listDeliveryAccountsRequest($settle);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3841,23 +3841,23 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesAccounts'
+     * Create request for operation 'listDeliveryAccounts'
      *
      * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesAccountsRequest($settle)
+    protected function listDeliveryAccountsRequest($settle)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesAccounts'
+                'Missing the required parameter $settle when calling listDeliveryAccounts'
             );
         }
 
-        $resourcePath = '/futures/{settle}/accounts';
+        $resourcePath = '/delivery/{settle}/accounts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3940,7 +3940,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesCandlesticks
+     * Operation listDeliveryCandlesticks
      *
      * Get futures candlesticks
      *
@@ -3955,14 +3955,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesCandlestick[]
      */
-    public function listFuturesCandlesticks($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
+    public function listDeliveryCandlesticks($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
     {
-        list($response) = $this->listFuturesCandlesticksWithHttpInfo($settle, $contract, $from, $to, $limit, $interval);
+        list($response) = $this->listDeliveryCandlesticksWithHttpInfo($settle, $contract, $from, $to, $limit, $interval);
         return $response;
     }
 
     /**
-     * Operation listFuturesCandlesticksWithHttpInfo
+     * Operation listDeliveryCandlesticksWithHttpInfo
      *
      * Get futures candlesticks
      *
@@ -3977,9 +3977,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesCandlestick[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesCandlesticksWithHttpInfo($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
+    public function listDeliveryCandlesticksWithHttpInfo($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
     {
-        $request = $this->listFuturesCandlesticksRequest($settle, $contract, $from, $to, $limit, $interval);
+        $request = $this->listDeliveryCandlesticksRequest($settle, $contract, $from, $to, $limit, $interval);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4055,7 +4055,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesCandlesticksAsync
+     * Operation listDeliveryCandlesticksAsync
      *
      * Get futures candlesticks
      *
@@ -4069,9 +4069,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesCandlesticksAsync($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
+    public function listDeliveryCandlesticksAsync($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
     {
-        return $this->listFuturesCandlesticksAsyncWithHttpInfo($settle, $contract, $from, $to, $limit, $interval)
+        return $this->listDeliveryCandlesticksAsyncWithHttpInfo($settle, $contract, $from, $to, $limit, $interval)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4080,7 +4080,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesCandlesticksAsyncWithHttpInfo
+     * Operation listDeliveryCandlesticksAsyncWithHttpInfo
      *
      * Get futures candlesticks
      *
@@ -4094,10 +4094,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesCandlesticksAsyncWithHttpInfo($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
+    public function listDeliveryCandlesticksAsyncWithHttpInfo($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
     {
         $returnType = '\GateApi\Model\FuturesCandlestick[]';
-        $request = $this->listFuturesCandlesticksRequest($settle, $contract, $from, $to, $limit, $interval);
+        $request = $this->listDeliveryCandlesticksRequest($settle, $contract, $from, $to, $limit, $interval);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4134,7 +4134,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesCandlesticks'
+     * Create request for operation 'listDeliveryCandlesticks'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -4146,26 +4146,26 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesCandlesticksRequest($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
+    protected function listDeliveryCandlesticksRequest($settle, $contract, $from = null, $to = null, $limit = 100, $interval = '5m')
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesCandlesticks'
+                'Missing the required parameter $settle when calling listDeliveryCandlesticks'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling listFuturesCandlesticks'
+                'Missing the required parameter $contract when calling listDeliveryCandlesticks'
             );
         }
         if ($limit !== null && $limit > 2000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesCandlesticks, must be smaller than or equal to 2000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryCandlesticks, must be smaller than or equal to 2000.');
         }
 
 
-        $resourcePath = '/futures/{settle}/candlesticks';
+        $resourcePath = '/delivery/{settle}/candlesticks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4268,7 +4268,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesContracts
+     * Operation listDeliveryContracts
      *
      * List all futures contracts
      *
@@ -4276,16 +4276,16 @@ class FuturesApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\Contract[]
+     * @return \GateApi\Model\DeliveryContract[]
      */
-    public function listFuturesContracts($settle)
+    public function listDeliveryContracts($settle)
     {
-        list($response) = $this->listFuturesContractsWithHttpInfo($settle);
+        list($response) = $this->listDeliveryContractsWithHttpInfo($settle);
         return $response;
     }
 
     /**
-     * Operation listFuturesContractsWithHttpInfo
+     * Operation listDeliveryContractsWithHttpInfo
      *
      * List all futures contracts
      *
@@ -4293,11 +4293,11 @@ class FuturesApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\Contract[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\DeliveryContract[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesContractsWithHttpInfo($settle)
+    public function listDeliveryContractsWithHttpInfo($settle)
     {
-        $request = $this->listFuturesContractsRequest($settle);
+        $request = $this->listDeliveryContractsRequest($settle);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4330,20 +4330,20 @@ class FuturesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\GateApi\Model\Contract[]' === '\SplFileObject') {
+                    if ('\GateApi\Model\DeliveryContract[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\GateApi\Model\Contract[]', []),
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\DeliveryContract[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\GateApi\Model\Contract[]';
+            $returnType = '\GateApi\Model\DeliveryContract[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4362,7 +4362,7 @@ class FuturesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\GateApi\Model\Contract[]',
+                        '\GateApi\Model\DeliveryContract[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4373,7 +4373,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesContractsAsync
+     * Operation listDeliveryContractsAsync
      *
      * List all futures contracts
      *
@@ -4382,9 +4382,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesContractsAsync($settle)
+    public function listDeliveryContractsAsync($settle)
     {
-        return $this->listFuturesContractsAsyncWithHttpInfo($settle)
+        return $this->listDeliveryContractsAsyncWithHttpInfo($settle)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4393,7 +4393,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesContractsAsyncWithHttpInfo
+     * Operation listDeliveryContractsAsyncWithHttpInfo
      *
      * List all futures contracts
      *
@@ -4402,10 +4402,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesContractsAsyncWithHttpInfo($settle)
+    public function listDeliveryContractsAsyncWithHttpInfo($settle)
     {
-        $returnType = '\GateApi\Model\Contract[]';
-        $request = $this->listFuturesContractsRequest($settle);
+        $returnType = '\GateApi\Model\DeliveryContract[]';
+        $request = $this->listDeliveryContractsRequest($settle);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4442,23 +4442,23 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesContracts'
+     * Create request for operation 'listDeliveryContracts'
      *
      * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesContractsRequest($settle)
+    protected function listDeliveryContractsRequest($settle)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesContracts'
+                'Missing the required parameter $settle when calling listDeliveryContracts'
             );
         }
 
-        $resourcePath = '/futures/{settle}/contracts';
+        $resourcePath = '/delivery/{settle}/contracts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4541,311 +4541,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesFundingRateHistory
-     *
-     * Funding rate history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\FundingRateRecord[]
-     */
-    public function listFuturesFundingRateHistory($settle, $contract, $limit = 100)
-    {
-        list($response) = $this->listFuturesFundingRateHistoryWithHttpInfo($settle, $contract, $limit);
-        return $response;
-    }
-
-    /**
-     * Operation listFuturesFundingRateHistoryWithHttpInfo
-     *
-     * Funding rate history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\FundingRateRecord[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listFuturesFundingRateHistoryWithHttpInfo($settle, $contract, $limit = 100)
-    {
-        $request = $this->listFuturesFundingRateHistoryRequest($settle, $contract, $limit);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\GateApi\Model\FundingRateRecord[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\GateApi\Model\FundingRateRecord[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\GateApi\Model\FundingRateRecord[]';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\GateApi\Model\FundingRateRecord[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listFuturesFundingRateHistoryAsync
-     *
-     * Funding rate history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listFuturesFundingRateHistoryAsync($settle, $contract, $limit = 100)
-    {
-        return $this->listFuturesFundingRateHistoryAsyncWithHttpInfo($settle, $contract, $limit)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listFuturesFundingRateHistoryAsyncWithHttpInfo
-     *
-     * Funding rate history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listFuturesFundingRateHistoryAsyncWithHttpInfo($settle, $contract, $limit = 100)
-    {
-        $returnType = '\GateApi\Model\FundingRateRecord[]';
-        $request = $this->listFuturesFundingRateHistoryRequest($settle, $contract, $limit);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listFuturesFundingRateHistory'
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listFuturesFundingRateHistoryRequest($settle, $contract, $limit = 100)
-    {
-        // verify the required parameter 'settle' is set
-        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesFundingRateHistory'
-            );
-        }
-        // verify the required parameter 'contract' is set
-        if ($contract === null || (is_array($contract) && count($contract) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling listFuturesFundingRateHistory'
-            );
-        }
-        if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesFundingRateHistory, must be smaller than or equal to 1000.');
-        }
-        if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesFundingRateHistory, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/futures/{settle}/funding_rate';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($contract !== null) {
-            $queryParams['contract'] = ObjectSerializer::toQueryValue($contract);
-        }
-        // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
-
-        // path params
-        if ($settle !== null) {
-            $resourcePath = str_replace(
-                '{' . 'settle' . '}',
-                ObjectSerializer::toPathValue($settle),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $signHeaders,
-            $headers
-        );
-
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listFuturesInsuranceLedger
+     * Operation listDeliveryInsuranceLedger
      *
      * Futures insurance balance history
      *
@@ -4856,14 +4552,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\InsuranceRecord[]
      */
-    public function listFuturesInsuranceLedger($settle, $limit = 100)
+    public function listDeliveryInsuranceLedger($settle, $limit = 100)
     {
-        list($response) = $this->listFuturesInsuranceLedgerWithHttpInfo($settle, $limit);
+        list($response) = $this->listDeliveryInsuranceLedgerWithHttpInfo($settle, $limit);
         return $response;
     }
 
     /**
-     * Operation listFuturesInsuranceLedgerWithHttpInfo
+     * Operation listDeliveryInsuranceLedgerWithHttpInfo
      *
      * Futures insurance balance history
      *
@@ -4874,9 +4570,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\InsuranceRecord[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesInsuranceLedgerWithHttpInfo($settle, $limit = 100)
+    public function listDeliveryInsuranceLedgerWithHttpInfo($settle, $limit = 100)
     {
-        $request = $this->listFuturesInsuranceLedgerRequest($settle, $limit);
+        $request = $this->listDeliveryInsuranceLedgerRequest($settle, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4952,7 +4648,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesInsuranceLedgerAsync
+     * Operation listDeliveryInsuranceLedgerAsync
      *
      * Futures insurance balance history
      *
@@ -4962,9 +4658,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesInsuranceLedgerAsync($settle, $limit = 100)
+    public function listDeliveryInsuranceLedgerAsync($settle, $limit = 100)
     {
-        return $this->listFuturesInsuranceLedgerAsyncWithHttpInfo($settle, $limit)
+        return $this->listDeliveryInsuranceLedgerAsyncWithHttpInfo($settle, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4973,7 +4669,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesInsuranceLedgerAsyncWithHttpInfo
+     * Operation listDeliveryInsuranceLedgerAsyncWithHttpInfo
      *
      * Futures insurance balance history
      *
@@ -4983,10 +4679,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesInsuranceLedgerAsyncWithHttpInfo($settle, $limit = 100)
+    public function listDeliveryInsuranceLedgerAsyncWithHttpInfo($settle, $limit = 100)
     {
         $returnType = '\GateApi\Model\InsuranceRecord[]';
-        $request = $this->listFuturesInsuranceLedgerRequest($settle, $limit);
+        $request = $this->listDeliveryInsuranceLedgerRequest($settle, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5023,7 +4719,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesInsuranceLedger'
+     * Create request for operation 'listDeliveryInsuranceLedger'
      *
      * @param  string $settle Settle currency (required)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
@@ -5031,23 +4727,23 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesInsuranceLedgerRequest($settle, $limit = 100)
+    protected function listDeliveryInsuranceLedgerRequest($settle, $limit = 100)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesInsuranceLedger'
+                'Missing the required parameter $settle when calling listDeliveryInsuranceLedger'
             );
         }
         if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesInsuranceLedger, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryInsuranceLedger, must be smaller than or equal to 1000.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesInsuranceLedger, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryInsuranceLedger, must be bigger than or equal to 1.');
         }
 
 
-        $resourcePath = '/futures/{settle}/insurance';
+        $resourcePath = '/delivery/{settle}/insurance';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5134,7 +4830,314 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesOrderBook
+     * Operation listDeliveryLiquidates
+     *
+     * List liquidation history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\FuturesLiquidate[]
+     */
+    public function listDeliveryLiquidates($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        list($response) = $this->listDeliveryLiquidatesWithHttpInfo($settle, $contract, $limit, $at);
+        return $response;
+    }
+
+    /**
+     * Operation listDeliveryLiquidatesWithHttpInfo
+     *
+     * List liquidation history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\FuturesLiquidate[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listDeliveryLiquidatesWithHttpInfo($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        $request = $this->listDeliveryLiquidatesRequest($settle, $contract, $limit, $at);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\FuturesLiquidate[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesLiquidate[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\FuturesLiquidate[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\FuturesLiquidate[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listDeliveryLiquidatesAsync
+     *
+     * List liquidation history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliveryLiquidatesAsync($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        return $this->listDeliveryLiquidatesAsyncWithHttpInfo($settle, $contract, $limit, $at)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listDeliveryLiquidatesAsyncWithHttpInfo
+     *
+     * List liquidation history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliveryLiquidatesAsyncWithHttpInfo($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        $returnType = '\GateApi\Model\FuturesLiquidate[]';
+        $request = $this->listDeliveryLiquidatesRequest($settle, $contract, $limit, $at);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listDeliveryLiquidates'
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listDeliveryLiquidatesRequest($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling listDeliveryLiquidates'
+            );
+        }
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryLiquidates, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryLiquidates, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/delivery/{settle}/liquidates';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($contract !== null) {
+            $queryParams['contract'] = ObjectSerializer::toQueryValue($contract);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($at !== null) {
+            $queryParams['at'] = ObjectSerializer::toQueryValue($at);
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listDeliveryOrderBook
      *
      * Futures order book
      *
@@ -5147,14 +5150,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesOrderBook
      */
-    public function listFuturesOrderBook($settle, $contract, $interval = '0', $limit = 10)
+    public function listDeliveryOrderBook($settle, $contract, $interval = '0', $limit = 10)
     {
-        list($response) = $this->listFuturesOrderBookWithHttpInfo($settle, $contract, $interval, $limit);
+        list($response) = $this->listDeliveryOrderBookWithHttpInfo($settle, $contract, $interval, $limit);
         return $response;
     }
 
     /**
-     * Operation listFuturesOrderBookWithHttpInfo
+     * Operation listDeliveryOrderBookWithHttpInfo
      *
      * Futures order book
      *
@@ -5167,9 +5170,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesOrderBook, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesOrderBookWithHttpInfo($settle, $contract, $interval = '0', $limit = 10)
+    public function listDeliveryOrderBookWithHttpInfo($settle, $contract, $interval = '0', $limit = 10)
     {
-        $request = $this->listFuturesOrderBookRequest($settle, $contract, $interval, $limit);
+        $request = $this->listDeliveryOrderBookRequest($settle, $contract, $interval, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5245,7 +5248,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesOrderBookAsync
+     * Operation listDeliveryOrderBookAsync
      *
      * Futures order book
      *
@@ -5257,9 +5260,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesOrderBookAsync($settle, $contract, $interval = '0', $limit = 10)
+    public function listDeliveryOrderBookAsync($settle, $contract, $interval = '0', $limit = 10)
     {
-        return $this->listFuturesOrderBookAsyncWithHttpInfo($settle, $contract, $interval, $limit)
+        return $this->listDeliveryOrderBookAsyncWithHttpInfo($settle, $contract, $interval, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5268,7 +5271,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesOrderBookAsyncWithHttpInfo
+     * Operation listDeliveryOrderBookAsyncWithHttpInfo
      *
      * Futures order book
      *
@@ -5280,10 +5283,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesOrderBookAsyncWithHttpInfo($settle, $contract, $interval = '0', $limit = 10)
+    public function listDeliveryOrderBookAsyncWithHttpInfo($settle, $contract, $interval = '0', $limit = 10)
     {
         $returnType = '\GateApi\Model\FuturesOrderBook';
-        $request = $this->listFuturesOrderBookRequest($settle, $contract, $interval, $limit);
+        $request = $this->listDeliveryOrderBookRequest($settle, $contract, $interval, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5320,7 +5323,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesOrderBook'
+     * Create request for operation 'listDeliveryOrderBook'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -5330,29 +5333,29 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesOrderBookRequest($settle, $contract, $interval = '0', $limit = 10)
+    protected function listDeliveryOrderBookRequest($settle, $contract, $interval = '0', $limit = 10)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesOrderBook'
+                'Missing the required parameter $settle when calling listDeliveryOrderBook'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling listFuturesOrderBook'
+                'Missing the required parameter $contract when calling listDeliveryOrderBook'
             );
         }
         if ($limit !== null && $limit > 20) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesOrderBook, must be smaller than or equal to 20.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryOrderBook, must be smaller than or equal to 20.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesOrderBook, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryOrderBook, must be bigger than or equal to 1.');
         }
 
 
-        $resourcePath = '/futures/{settle}/order_book';
+        $resourcePath = '/delivery/{settle}/order_book';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5447,13 +5450,13 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesOrders
+     * Operation listDeliveryOrders
      *
      * List futures orders
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
+     * @param  string $contract Futures contract (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
@@ -5463,20 +5466,20 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesOrder[]
      */
-    public function listFuturesOrders($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    public function listDeliveryOrders($settle, $status, $contract = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        list($response) = $this->listFuturesOrdersWithHttpInfo($settle, $contract, $status, $limit, $offset, $last_id, $count_total);
+        list($response) = $this->listDeliveryOrdersWithHttpInfo($settle, $status, $contract, $limit, $offset, $last_id, $count_total);
         return $response;
     }
 
     /**
-     * Operation listFuturesOrdersWithHttpInfo
+     * Operation listDeliveryOrdersWithHttpInfo
      *
      * List futures orders
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
+     * @param  string $contract Futures contract (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
@@ -5486,9 +5489,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesOrder[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesOrdersWithHttpInfo($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    public function listDeliveryOrdersWithHttpInfo($settle, $status, $contract = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        $request = $this->listFuturesOrdersRequest($settle, $contract, $status, $limit, $offset, $last_id, $count_total);
+        $request = $this->listDeliveryOrdersRequest($settle, $status, $contract, $limit, $offset, $last_id, $count_total);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5564,13 +5567,13 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesOrdersAsync
+     * Operation listDeliveryOrdersAsync
      *
      * List futures orders
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
+     * @param  string $contract Futures contract (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
@@ -5579,9 +5582,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesOrdersAsync($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    public function listDeliveryOrdersAsync($settle, $status, $contract = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
-        return $this->listFuturesOrdersAsyncWithHttpInfo($settle, $contract, $status, $limit, $offset, $last_id, $count_total)
+        return $this->listDeliveryOrdersAsyncWithHttpInfo($settle, $status, $contract, $limit, $offset, $last_id, $count_total)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5590,13 +5593,13 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesOrdersAsyncWithHttpInfo
+     * Operation listDeliveryOrdersAsyncWithHttpInfo
      *
      * List futures orders
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
+     * @param  string $contract Futures contract (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
@@ -5605,10 +5608,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesOrdersAsyncWithHttpInfo($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    public function listDeliveryOrdersAsyncWithHttpInfo($settle, $status, $contract = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
         $returnType = '\GateApi\Model\FuturesOrder[]';
-        $request = $this->listFuturesOrdersRequest($settle, $contract, $status, $limit, $offset, $last_id, $count_total);
+        $request = $this->listDeliveryOrdersRequest($settle, $status, $contract, $limit, $offset, $last_id, $count_total);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5645,11 +5648,11 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesOrders'
+     * Create request for operation 'listDeliveryOrders'
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract (required)
      * @param  string $status List orders based on status (required)
+     * @param  string $contract Futures contract (optional)
      * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
@@ -5658,39 +5661,33 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesOrdersRequest($settle, $contract, $status, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
+    protected function listDeliveryOrdersRequest($settle, $status, $contract = null, $limit = 100, $offset = 0, $last_id = null, $count_total = 0)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesOrders'
-            );
-        }
-        // verify the required parameter 'contract' is set
-        if ($contract === null || (is_array($contract) && count($contract) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling listFuturesOrders'
+                'Missing the required parameter $settle when calling listDeliveryOrders'
             );
         }
         // verify the required parameter 'status' is set
         if ($status === null || (is_array($status) && count($status) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling listFuturesOrders'
+                'Missing the required parameter $status when calling listDeliveryOrders'
             );
         }
         if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesOrders, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryOrders, must be smaller than or equal to 1000.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesOrders, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryOrders, must be bigger than or equal to 1.');
         }
 
         if ($offset !== null && $offset < 0) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling FuturesApi.listFuturesOrders, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling DeliveryApi.listDeliveryOrders, must be bigger than or equal to 0.');
         }
 
 
-        $resourcePath = '/futures/{settle}/orders';
+        $resourcePath = '/delivery/{settle}/orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5797,38 +5794,916 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesTickers
+     * Operation listDeliveryPositionClose
+     *
+     * List position close history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\PositionClose[]
+     */
+    public function listDeliveryPositionClose($settle, $contract = null, $limit = 100)
+    {
+        list($response) = $this->listDeliveryPositionCloseWithHttpInfo($settle, $contract, $limit);
+        return $response;
+    }
+
+    /**
+     * Operation listDeliveryPositionCloseWithHttpInfo
+     *
+     * List position close history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\PositionClose[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listDeliveryPositionCloseWithHttpInfo($settle, $contract = null, $limit = 100)
+    {
+        $request = $this->listDeliveryPositionCloseRequest($settle, $contract, $limit);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\PositionClose[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\PositionClose[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\PositionClose[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\PositionClose[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listDeliveryPositionCloseAsync
+     *
+     * List position close history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliveryPositionCloseAsync($settle, $contract = null, $limit = 100)
+    {
+        return $this->listDeliveryPositionCloseAsyncWithHttpInfo($settle, $contract, $limit)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listDeliveryPositionCloseAsyncWithHttpInfo
+     *
+     * List position close history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliveryPositionCloseAsyncWithHttpInfo($settle, $contract = null, $limit = 100)
+    {
+        $returnType = '\GateApi\Model\PositionClose[]';
+        $request = $this->listDeliveryPositionCloseRequest($settle, $contract, $limit);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listDeliveryPositionClose'
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listDeliveryPositionCloseRequest($settle, $contract = null, $limit = 100)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling listDeliveryPositionClose'
+            );
+        }
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryPositionClose, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryPositionClose, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/delivery/{settle}/position_close';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($contract !== null) {
+            $queryParams['contract'] = ObjectSerializer::toQueryValue($contract);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listDeliveryPositions
+     *
+     * List all positions of a user
+     *
+     * @param  string $settle Settle currency (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Position[]
+     */
+    public function listDeliveryPositions($settle)
+    {
+        list($response) = $this->listDeliveryPositionsWithHttpInfo($settle);
+        return $response;
+    }
+
+    /**
+     * Operation listDeliveryPositionsWithHttpInfo
+     *
+     * List all positions of a user
+     *
+     * @param  string $settle Settle currency (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listDeliveryPositionsWithHttpInfo($settle)
+    {
+        $request = $this->listDeliveryPositionsRequest($settle);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\Position[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\Position[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\Position[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\Position[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listDeliveryPositionsAsync
+     *
+     * List all positions of a user
+     *
+     * @param  string $settle Settle currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliveryPositionsAsync($settle)
+    {
+        return $this->listDeliveryPositionsAsyncWithHttpInfo($settle)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listDeliveryPositionsAsyncWithHttpInfo
+     *
+     * List all positions of a user
+     *
+     * @param  string $settle Settle currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliveryPositionsAsyncWithHttpInfo($settle)
+    {
+        $returnType = '\GateApi\Model\Position[]';
+        $request = $this->listDeliveryPositionsRequest($settle);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listDeliveryPositions'
+     *
+     * @param  string $settle Settle currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listDeliveryPositionsRequest($settle)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling listDeliveryPositions'
+            );
+        }
+
+        $resourcePath = '/delivery/{settle}/positions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listDeliverySettlements
+     *
+     * List settlement history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\DeliverySettlement[]
+     */
+    public function listDeliverySettlements($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        list($response) = $this->listDeliverySettlementsWithHttpInfo($settle, $contract, $limit, $at);
+        return $response;
+    }
+
+    /**
+     * Operation listDeliverySettlementsWithHttpInfo
+     *
+     * List settlement history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\DeliverySettlement[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listDeliverySettlementsWithHttpInfo($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        $request = $this->listDeliverySettlementsRequest($settle, $contract, $limit, $at);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\GateApi\Model\DeliverySettlement[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\GateApi\Model\DeliverySettlement[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\GateApi\Model\DeliverySettlement[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\GateApi\Model\DeliverySettlement[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listDeliverySettlementsAsync
+     *
+     * List settlement history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliverySettlementsAsync($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        return $this->listDeliverySettlementsAsyncWithHttpInfo($settle, $contract, $limit, $at)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listDeliverySettlementsAsyncWithHttpInfo
+     *
+     * List settlement history
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliverySettlementsAsyncWithHttpInfo($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        $returnType = '\GateApi\Model\DeliverySettlement[]';
+        $request = $this->listDeliverySettlementsRequest($settle, $contract, $limit, $at);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listDeliverySettlements'
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listDeliverySettlementsRequest($settle, $contract = null, $limit = 100, $at = 0)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling listDeliverySettlements'
+            );
+        }
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliverySettlements, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliverySettlements, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/delivery/{settle}/settlements';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($contract !== null) {
+            $queryParams['contract'] = ObjectSerializer::toQueryValue($contract);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($at !== null) {
+            $queryParams['at'] = ObjectSerializer::toQueryValue($at);
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $signHeaders,
+            $headers
+        );
+
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listDeliveryTickers
      *
      * List futures tickers
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesTicker[]
      */
-    public function listFuturesTickers($settle, $contract = null)
+    public function listDeliveryTickers($settle, $contract = null)
     {
-        list($response) = $this->listFuturesTickersWithHttpInfo($settle, $contract);
+        list($response) = $this->listDeliveryTickersWithHttpInfo($settle, $contract);
         return $response;
     }
 
     /**
-     * Operation listFuturesTickersWithHttpInfo
+     * Operation listDeliveryTickersWithHttpInfo
      *
      * List futures tickers
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesTicker[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesTickersWithHttpInfo($settle, $contract = null)
+    public function listDeliveryTickersWithHttpInfo($settle, $contract = null)
     {
-        $request = $this->listFuturesTickersRequest($settle, $contract);
+        $request = $this->listDeliveryTickersRequest($settle, $contract);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5904,19 +6779,19 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesTickersAsync
+     * Operation listDeliveryTickersAsync
      *
      * List futures tickers
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesTickersAsync($settle, $contract = null)
+    public function listDeliveryTickersAsync($settle, $contract = null)
     {
-        return $this->listFuturesTickersAsyncWithHttpInfo($settle, $contract)
+        return $this->listDeliveryTickersAsyncWithHttpInfo($settle, $contract)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5925,20 +6800,20 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesTickersAsyncWithHttpInfo
+     * Operation listDeliveryTickersAsyncWithHttpInfo
      *
      * List futures tickers
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesTickersAsyncWithHttpInfo($settle, $contract = null)
+    public function listDeliveryTickersAsyncWithHttpInfo($settle, $contract = null)
     {
         $returnType = '\GateApi\Model\FuturesTicker[]';
-        $request = $this->listFuturesTickersRequest($settle, $contract);
+        $request = $this->listDeliveryTickersRequest($settle, $contract);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5975,24 +6850,24 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesTickers'
+     * Create request for operation 'listDeliveryTickers'
      *
      * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesTickersRequest($settle, $contract = null)
+    protected function listDeliveryTickersRequest($settle, $contract = null)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesTickers'
+                'Missing the required parameter $settle when calling listDeliveryTickers'
             );
         }
 
-        $resourcePath = '/futures/{settle}/tickers';
+        $resourcePath = '/delivery/{settle}/tickers';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6079,7 +6954,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesTrades
+     * Operation listDeliveryTrades
      *
      * Futures trading history
      *
@@ -6094,14 +6969,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesTrade[]
      */
-    public function listFuturesTrades($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
+    public function listDeliveryTrades($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
-        list($response) = $this->listFuturesTradesWithHttpInfo($settle, $contract, $limit, $last_id, $from, $to);
+        list($response) = $this->listDeliveryTradesWithHttpInfo($settle, $contract, $limit, $last_id, $from, $to);
         return $response;
     }
 
     /**
-     * Operation listFuturesTradesWithHttpInfo
+     * Operation listDeliveryTradesWithHttpInfo
      *
      * Futures trading history
      *
@@ -6116,9 +6991,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesTrade[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listFuturesTradesWithHttpInfo($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
+    public function listDeliveryTradesWithHttpInfo($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
-        $request = $this->listFuturesTradesRequest($settle, $contract, $limit, $last_id, $from, $to);
+        $request = $this->listDeliveryTradesRequest($settle, $contract, $limit, $last_id, $from, $to);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6194,7 +7069,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesTradesAsync
+     * Operation listDeliveryTradesAsync
      *
      * Futures trading history
      *
@@ -6208,9 +7083,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesTradesAsync($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
+    public function listDeliveryTradesAsync($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
-        return $this->listFuturesTradesAsyncWithHttpInfo($settle, $contract, $limit, $last_id, $from, $to)
+        return $this->listDeliveryTradesAsyncWithHttpInfo($settle, $contract, $limit, $last_id, $from, $to)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6219,7 +7094,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listFuturesTradesAsyncWithHttpInfo
+     * Operation listDeliveryTradesAsyncWithHttpInfo
      *
      * Futures trading history
      *
@@ -6233,10 +7108,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listFuturesTradesAsyncWithHttpInfo($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
+    public function listDeliveryTradesAsyncWithHttpInfo($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
         $returnType = '\GateApi\Model\FuturesTrade[]';
-        $request = $this->listFuturesTradesRequest($settle, $contract, $limit, $last_id, $from, $to);
+        $request = $this->listDeliveryTradesRequest($settle, $contract, $limit, $last_id, $from, $to);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6273,7 +7148,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listFuturesTrades'
+     * Create request for operation 'listDeliveryTrades'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -6285,29 +7160,29 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listFuturesTradesRequest($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
+    protected function listDeliveryTradesRequest($settle, $contract, $limit = 100, $last_id = null, $from = null, $to = null)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listFuturesTrades'
+                'Missing the required parameter $settle when calling listDeliveryTrades'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling listFuturesTrades'
+                'Missing the required parameter $contract when calling listDeliveryTrades'
             );
         }
         if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesTrades, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryTrades, must be smaller than or equal to 1000.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesTrades, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryTrades, must be bigger than or equal to 1.');
         }
 
 
-        $resourcePath = '/futures/{settle}/trades';
+        $resourcePath = '/delivery/{settle}/trades';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6410,885 +7285,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listLiquidates
-     *
-     * List liquidation history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\FuturesLiquidate[]
-     */
-    public function listLiquidates($settle, $contract = null, $limit = 100, $at = 0)
-    {
-        list($response) = $this->listLiquidatesWithHttpInfo($settle, $contract, $limit, $at);
-        return $response;
-    }
-
-    /**
-     * Operation listLiquidatesWithHttpInfo
-     *
-     * List liquidation history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\FuturesLiquidate[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listLiquidatesWithHttpInfo($settle, $contract = null, $limit = 100, $at = 0)
-    {
-        $request = $this->listLiquidatesRequest($settle, $contract, $limit, $at);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\GateApi\Model\FuturesLiquidate[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\GateApi\Model\FuturesLiquidate[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\GateApi\Model\FuturesLiquidate[]';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\GateApi\Model\FuturesLiquidate[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listLiquidatesAsync
-     *
-     * List liquidation history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listLiquidatesAsync($settle, $contract = null, $limit = 100, $at = 0)
-    {
-        return $this->listLiquidatesAsyncWithHttpInfo($settle, $contract, $limit, $at)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listLiquidatesAsyncWithHttpInfo
-     *
-     * List liquidation history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listLiquidatesAsyncWithHttpInfo($settle, $contract = null, $limit = 100, $at = 0)
-    {
-        $returnType = '\GateApi\Model\FuturesLiquidate[]';
-        $request = $this->listLiquidatesRequest($settle, $contract, $limit, $at);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listLiquidates'
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listLiquidatesRequest($settle, $contract = null, $limit = 100, $at = 0)
-    {
-        // verify the required parameter 'settle' is set
-        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listLiquidates'
-            );
-        }
-        if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listLiquidates, must be smaller than or equal to 1000.');
-        }
-        if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listLiquidates, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/futures/{settle}/liquidates';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($contract !== null) {
-            $queryParams['contract'] = ObjectSerializer::toQueryValue($contract);
-        }
-        // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
-        // query params
-        if ($at !== null) {
-            $queryParams['at'] = ObjectSerializer::toQueryValue($at);
-        }
-
-        // path params
-        if ($settle !== null) {
-            $resourcePath = str_replace(
-                '{' . 'settle' . '}',
-                ObjectSerializer::toPathValue($settle),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $signHeaders,
-            $headers
-        );
-
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listPositionClose
-     *
-     * List position close history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\PositionClose[]
-     */
-    public function listPositionClose($settle, $contract = null, $limit = 100)
-    {
-        list($response) = $this->listPositionCloseWithHttpInfo($settle, $contract, $limit);
-        return $response;
-    }
-
-    /**
-     * Operation listPositionCloseWithHttpInfo
-     *
-     * List position close history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\PositionClose[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listPositionCloseWithHttpInfo($settle, $contract = null, $limit = 100)
-    {
-        $request = $this->listPositionCloseRequest($settle, $contract, $limit);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\GateApi\Model\PositionClose[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\GateApi\Model\PositionClose[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\GateApi\Model\PositionClose[]';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\GateApi\Model\PositionClose[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listPositionCloseAsync
-     *
-     * List position close history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listPositionCloseAsync($settle, $contract = null, $limit = 100)
-    {
-        return $this->listPositionCloseAsyncWithHttpInfo($settle, $contract, $limit)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listPositionCloseAsyncWithHttpInfo
-     *
-     * List position close history
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listPositionCloseAsyncWithHttpInfo($settle, $contract = null, $limit = 100)
-    {
-        $returnType = '\GateApi\Model\PositionClose[]';
-        $request = $this->listPositionCloseRequest($settle, $contract, $limit);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listPositionClose'
-     *
-     * @param  string $settle Settle currency (required)
-     * @param  string $contract Futures contract, return related data only if specified (optional)
-     * @param  int $limit Maximum number of records returned in one list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listPositionCloseRequest($settle, $contract = null, $limit = 100)
-    {
-        // verify the required parameter 'settle' is set
-        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listPositionClose'
-            );
-        }
-        if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listPositionClose, must be smaller than or equal to 1000.');
-        }
-        if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listPositionClose, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/futures/{settle}/position_close';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($contract !== null) {
-            $queryParams['contract'] = ObjectSerializer::toQueryValue($contract);
-        }
-        // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
-        }
-
-        // path params
-        if ($settle !== null) {
-            $resourcePath = str_replace(
-                '{' . 'settle' . '}',
-                ObjectSerializer::toPathValue($settle),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $signHeaders,
-            $headers
-        );
-
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listPositions
-     *
-     * List all positions of a user
-     *
-     * @param  string $settle Settle currency (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\Position[]
-     */
-    public function listPositions($settle)
-    {
-        list($response) = $this->listPositionsWithHttpInfo($settle);
-        return $response;
-    }
-
-    /**
-     * Operation listPositionsWithHttpInfo
-     *
-     * List all positions of a user
-     *
-     * @param  string $settle Settle currency (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listPositionsWithHttpInfo($settle)
-    {
-        $request = $this->listPositionsRequest($settle);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\GateApi\Model\Position[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\GateApi\Model\Position[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\GateApi\Model\Position[]';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\GateApi\Model\Position[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listPositionsAsync
-     *
-     * List all positions of a user
-     *
-     * @param  string $settle Settle currency (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listPositionsAsync($settle)
-    {
-        return $this->listPositionsAsyncWithHttpInfo($settle)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listPositionsAsyncWithHttpInfo
-     *
-     * List all positions of a user
-     *
-     * @param  string $settle Settle currency (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listPositionsAsyncWithHttpInfo($settle)
-    {
-        $returnType = '\GateApi\Model\Position[]';
-        $request = $this->listPositionsRequest($settle);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listPositions'
-     *
-     * @param  string $settle Settle currency (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listPositionsRequest($settle)
-    {
-        // verify the required parameter 'settle' is set
-        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listPositions'
-            );
-        }
-
-        $resourcePath = '/futures/{settle}/positions';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($settle !== null) {
-            $resourcePath = str_replace(
-                '{' . 'settle' . '}',
-                ObjectSerializer::toPathValue($settle),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        $signHeaders = $this->buildSignHeaders('GET', $resourcePath, $query, $httpBody);
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $signHeaders,
-            $headers
-        );
-
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listPriceTriggeredOrders
+     * Operation listPriceTriggeredDeliveryOrders
      *
      * List all auto orders
      *
@@ -7302,14 +7299,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FuturesPriceTriggeredOrder[]
      */
-    public function listPriceTriggeredOrders($settle, $status, $contract = null, $limit = 100, $offset = 0)
+    public function listPriceTriggeredDeliveryOrders($settle, $status, $contract = null, $limit = 100, $offset = 0)
     {
-        list($response) = $this->listPriceTriggeredOrdersWithHttpInfo($settle, $status, $contract, $limit, $offset);
+        list($response) = $this->listPriceTriggeredDeliveryOrdersWithHttpInfo($settle, $status, $contract, $limit, $offset);
         return $response;
     }
 
     /**
-     * Operation listPriceTriggeredOrdersWithHttpInfo
+     * Operation listPriceTriggeredDeliveryOrdersWithHttpInfo
      *
      * List all auto orders
      *
@@ -7323,9 +7320,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FuturesPriceTriggeredOrder[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listPriceTriggeredOrdersWithHttpInfo($settle, $status, $contract = null, $limit = 100, $offset = 0)
+    public function listPriceTriggeredDeliveryOrdersWithHttpInfo($settle, $status, $contract = null, $limit = 100, $offset = 0)
     {
-        $request = $this->listPriceTriggeredOrdersRequest($settle, $status, $contract, $limit, $offset);
+        $request = $this->listPriceTriggeredDeliveryOrdersRequest($settle, $status, $contract, $limit, $offset);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7401,7 +7398,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listPriceTriggeredOrdersAsync
+     * Operation listPriceTriggeredDeliveryOrdersAsync
      *
      * List all auto orders
      *
@@ -7414,9 +7411,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPriceTriggeredOrdersAsync($settle, $status, $contract = null, $limit = 100, $offset = 0)
+    public function listPriceTriggeredDeliveryOrdersAsync($settle, $status, $contract = null, $limit = 100, $offset = 0)
     {
-        return $this->listPriceTriggeredOrdersAsyncWithHttpInfo($settle, $status, $contract, $limit, $offset)
+        return $this->listPriceTriggeredDeliveryOrdersAsyncWithHttpInfo($settle, $status, $contract, $limit, $offset)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7425,7 +7422,7 @@ class FuturesApi
     }
 
     /**
-     * Operation listPriceTriggeredOrdersAsyncWithHttpInfo
+     * Operation listPriceTriggeredDeliveryOrdersAsyncWithHttpInfo
      *
      * List all auto orders
      *
@@ -7438,10 +7435,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPriceTriggeredOrdersAsyncWithHttpInfo($settle, $status, $contract = null, $limit = 100, $offset = 0)
+    public function listPriceTriggeredDeliveryOrdersAsyncWithHttpInfo($settle, $status, $contract = null, $limit = 100, $offset = 0)
     {
         $returnType = '\GateApi\Model\FuturesPriceTriggeredOrder[]';
-        $request = $this->listPriceTriggeredOrdersRequest($settle, $status, $contract, $limit, $offset);
+        $request = $this->listPriceTriggeredDeliveryOrdersRequest($settle, $status, $contract, $limit, $offset);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7478,7 +7475,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'listPriceTriggeredOrders'
+     * Create request for operation 'listPriceTriggeredDeliveryOrders'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $status List orders based on status (required)
@@ -7489,33 +7486,33 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listPriceTriggeredOrdersRequest($settle, $status, $contract = null, $limit = 100, $offset = 0)
+    protected function listPriceTriggeredDeliveryOrdersRequest($settle, $status, $contract = null, $limit = 100, $offset = 0)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling listPriceTriggeredOrders'
+                'Missing the required parameter $settle when calling listPriceTriggeredDeliveryOrders'
             );
         }
         // verify the required parameter 'status' is set
         if ($status === null || (is_array($status) && count($status) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling listPriceTriggeredOrders'
+                'Missing the required parameter $status when calling listPriceTriggeredDeliveryOrders'
             );
         }
         if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listPriceTriggeredOrders, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listPriceTriggeredDeliveryOrders, must be smaller than or equal to 1000.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listPriceTriggeredOrders, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listPriceTriggeredDeliveryOrders, must be bigger than or equal to 1.');
         }
 
         if ($offset !== null && $offset < 0) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling FuturesApi.listPriceTriggeredOrders, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling DeliveryApi.listPriceTriggeredDeliveryOrders, must be bigger than or equal to 0.');
         }
 
 
-        $resourcePath = '/futures/{settle}/price_orders';
+        $resourcePath = '/delivery/{settle}/price_orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7614,7 +7611,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionLeverage
+     * Operation updateDeliveryPositionLeverage
      *
      * Update position leverage
      *
@@ -7626,14 +7623,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Position
      */
-    public function updatePositionLeverage($settle, $contract, $leverage)
+    public function updateDeliveryPositionLeverage($settle, $contract, $leverage)
     {
-        list($response) = $this->updatePositionLeverageWithHttpInfo($settle, $contract, $leverage);
+        list($response) = $this->updateDeliveryPositionLeverageWithHttpInfo($settle, $contract, $leverage);
         return $response;
     }
 
     /**
-     * Operation updatePositionLeverageWithHttpInfo
+     * Operation updateDeliveryPositionLeverageWithHttpInfo
      *
      * Update position leverage
      *
@@ -7645,9 +7642,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePositionLeverageWithHttpInfo($settle, $contract, $leverage)
+    public function updateDeliveryPositionLeverageWithHttpInfo($settle, $contract, $leverage)
     {
-        $request = $this->updatePositionLeverageRequest($settle, $contract, $leverage);
+        $request = $this->updateDeliveryPositionLeverageRequest($settle, $contract, $leverage);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7723,7 +7720,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionLeverageAsync
+     * Operation updateDeliveryPositionLeverageAsync
      *
      * Update position leverage
      *
@@ -7734,9 +7731,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionLeverageAsync($settle, $contract, $leverage)
+    public function updateDeliveryPositionLeverageAsync($settle, $contract, $leverage)
     {
-        return $this->updatePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
+        return $this->updateDeliveryPositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7745,7 +7742,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionLeverageAsyncWithHttpInfo
+     * Operation updateDeliveryPositionLeverageAsyncWithHttpInfo
      *
      * Update position leverage
      *
@@ -7756,10 +7753,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
+    public function updateDeliveryPositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
     {
         $returnType = '\GateApi\Model\Position';
-        $request = $this->updatePositionLeverageRequest($settle, $contract, $leverage);
+        $request = $this->updateDeliveryPositionLeverageRequest($settle, $contract, $leverage);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7796,7 +7793,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'updatePositionLeverage'
+     * Create request for operation 'updateDeliveryPositionLeverage'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -7805,28 +7802,28 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updatePositionLeverageRequest($settle, $contract, $leverage)
+    protected function updateDeliveryPositionLeverageRequest($settle, $contract, $leverage)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling updatePositionLeverage'
+                'Missing the required parameter $settle when calling updateDeliveryPositionLeverage'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling updatePositionLeverage'
+                'Missing the required parameter $contract when calling updateDeliveryPositionLeverage'
             );
         }
         // verify the required parameter 'leverage' is set
         if ($leverage === null || (is_array($leverage) && count($leverage) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $leverage when calling updatePositionLeverage'
+                'Missing the required parameter $leverage when calling updateDeliveryPositionLeverage'
             );
         }
 
-        $resourcePath = '/futures/{settle}/positions/{contract}/leverage';
+        $resourcePath = '/delivery/{settle}/positions/{contract}/leverage';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7921,7 +7918,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionMargin
+     * Operation updateDeliveryPositionMargin
      *
      * Update position margin
      *
@@ -7933,14 +7930,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Position
      */
-    public function updatePositionMargin($settle, $contract, $change)
+    public function updateDeliveryPositionMargin($settle, $contract, $change)
     {
-        list($response) = $this->updatePositionMarginWithHttpInfo($settle, $contract, $change);
+        list($response) = $this->updateDeliveryPositionMarginWithHttpInfo($settle, $contract, $change);
         return $response;
     }
 
     /**
-     * Operation updatePositionMarginWithHttpInfo
+     * Operation updateDeliveryPositionMarginWithHttpInfo
      *
      * Update position margin
      *
@@ -7952,9 +7949,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePositionMarginWithHttpInfo($settle, $contract, $change)
+    public function updateDeliveryPositionMarginWithHttpInfo($settle, $contract, $change)
     {
-        $request = $this->updatePositionMarginRequest($settle, $contract, $change);
+        $request = $this->updateDeliveryPositionMarginRequest($settle, $contract, $change);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8030,7 +8027,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionMarginAsync
+     * Operation updateDeliveryPositionMarginAsync
      *
      * Update position margin
      *
@@ -8041,9 +8038,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionMarginAsync($settle, $contract, $change)
+    public function updateDeliveryPositionMarginAsync($settle, $contract, $change)
     {
-        return $this->updatePositionMarginAsyncWithHttpInfo($settle, $contract, $change)
+        return $this->updateDeliveryPositionMarginAsyncWithHttpInfo($settle, $contract, $change)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8052,7 +8049,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionMarginAsyncWithHttpInfo
+     * Operation updateDeliveryPositionMarginAsyncWithHttpInfo
      *
      * Update position margin
      *
@@ -8063,10 +8060,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionMarginAsyncWithHttpInfo($settle, $contract, $change)
+    public function updateDeliveryPositionMarginAsyncWithHttpInfo($settle, $contract, $change)
     {
         $returnType = '\GateApi\Model\Position';
-        $request = $this->updatePositionMarginRequest($settle, $contract, $change);
+        $request = $this->updateDeliveryPositionMarginRequest($settle, $contract, $change);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8103,7 +8100,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'updatePositionMargin'
+     * Create request for operation 'updateDeliveryPositionMargin'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -8112,28 +8109,28 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updatePositionMarginRequest($settle, $contract, $change)
+    protected function updateDeliveryPositionMarginRequest($settle, $contract, $change)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling updatePositionMargin'
+                'Missing the required parameter $settle when calling updateDeliveryPositionMargin'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling updatePositionMargin'
+                'Missing the required parameter $contract when calling updateDeliveryPositionMargin'
             );
         }
         // verify the required parameter 'change' is set
         if ($change === null || (is_array($change) && count($change) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $change when calling updatePositionMargin'
+                'Missing the required parameter $change when calling updateDeliveryPositionMargin'
             );
         }
 
-        $resourcePath = '/futures/{settle}/positions/{contract}/margin';
+        $resourcePath = '/delivery/{settle}/positions/{contract}/margin';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -8228,7 +8225,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionRiskLimit
+     * Operation updateDeliveryPositionRiskLimit
      *
      * Update position risk limit
      *
@@ -8240,14 +8237,14 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Position
      */
-    public function updatePositionRiskLimit($settle, $contract, $risk_limit)
+    public function updateDeliveryPositionRiskLimit($settle, $contract, $risk_limit)
     {
-        list($response) = $this->updatePositionRiskLimitWithHttpInfo($settle, $contract, $risk_limit);
+        list($response) = $this->updateDeliveryPositionRiskLimitWithHttpInfo($settle, $contract, $risk_limit);
         return $response;
     }
 
     /**
-     * Operation updatePositionRiskLimitWithHttpInfo
+     * Operation updateDeliveryPositionRiskLimitWithHttpInfo
      *
      * Update position risk limit
      *
@@ -8259,9 +8256,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePositionRiskLimitWithHttpInfo($settle, $contract, $risk_limit)
+    public function updateDeliveryPositionRiskLimitWithHttpInfo($settle, $contract, $risk_limit)
     {
-        $request = $this->updatePositionRiskLimitRequest($settle, $contract, $risk_limit);
+        $request = $this->updateDeliveryPositionRiskLimitRequest($settle, $contract, $risk_limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8337,7 +8334,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionRiskLimitAsync
+     * Operation updateDeliveryPositionRiskLimitAsync
      *
      * Update position risk limit
      *
@@ -8348,9 +8345,9 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionRiskLimitAsync($settle, $contract, $risk_limit)
+    public function updateDeliveryPositionRiskLimitAsync($settle, $contract, $risk_limit)
     {
-        return $this->updatePositionRiskLimitAsyncWithHttpInfo($settle, $contract, $risk_limit)
+        return $this->updateDeliveryPositionRiskLimitAsyncWithHttpInfo($settle, $contract, $risk_limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8359,7 +8356,7 @@ class FuturesApi
     }
 
     /**
-     * Operation updatePositionRiskLimitAsyncWithHttpInfo
+     * Operation updateDeliveryPositionRiskLimitAsyncWithHttpInfo
      *
      * Update position risk limit
      *
@@ -8370,10 +8367,10 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionRiskLimitAsyncWithHttpInfo($settle, $contract, $risk_limit)
+    public function updateDeliveryPositionRiskLimitAsyncWithHttpInfo($settle, $contract, $risk_limit)
     {
         $returnType = '\GateApi\Model\Position';
-        $request = $this->updatePositionRiskLimitRequest($settle, $contract, $risk_limit);
+        $request = $this->updateDeliveryPositionRiskLimitRequest($settle, $contract, $risk_limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8410,7 +8407,7 @@ class FuturesApi
     }
 
     /**
-     * Create request for operation 'updatePositionRiskLimit'
+     * Create request for operation 'updateDeliveryPositionRiskLimit'
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -8419,28 +8416,28 @@ class FuturesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updatePositionRiskLimitRequest($settle, $contract, $risk_limit)
+    protected function updateDeliveryPositionRiskLimitRequest($settle, $contract, $risk_limit)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $settle when calling updatePositionRiskLimit'
+                'Missing the required parameter $settle when calling updateDeliveryPositionRiskLimit'
             );
         }
         // verify the required parameter 'contract' is set
         if ($contract === null || (is_array($contract) && count($contract) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract when calling updatePositionRiskLimit'
+                'Missing the required parameter $contract when calling updateDeliveryPositionRiskLimit'
             );
         }
         // verify the required parameter 'risk_limit' is set
         if ($risk_limit === null || (is_array($risk_limit) && count($risk_limit) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $risk_limit when calling updatePositionRiskLimit'
+                'Missing the required parameter $risk_limit when calling updateDeliveryPositionRiskLimit'
             );
         }
 
-        $resourcePath = '/futures/{settle}/positions/{contract}/risk_limit';
+        $resourcePath = '/delivery/{settle}/positions/{contract}/risk_limit';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -35,6 +35,7 @@ use \GateApi\ObjectSerializer;
  * Transfer Class Doc Comment
  *
  * @category Class
+ * @description Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account
  * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -185,9 +186,11 @@ class Transfer implements ModelInterface, ArrayAccess
     const FROM_SPOT = 'spot';
     const FROM_MARGIN = 'margin';
     const FROM_FUTURES = 'futures';
+    const FROM_DELIVERY = 'delivery';
     const TO_SPOT = 'spot';
     const TO_MARGIN = 'margin';
     const TO_FUTURES = 'futures';
+    const TO_DELIVERY = 'delivery';
     
 
     
@@ -202,6 +205,7 @@ class Transfer implements ModelInterface, ArrayAccess
             self::FROM_SPOT,
             self::FROM_MARGIN,
             self::FROM_FUTURES,
+            self::FROM_DELIVERY,
         ];
     }
     
@@ -216,6 +220,7 @@ class Transfer implements ModelInterface, ArrayAccess
             self::TO_SPOT,
             self::TO_MARGIN,
             self::TO_FUTURES,
+            self::TO_DELIVERY,
         ];
     }
     
@@ -332,7 +337,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets from
      *
-     * @param string $from Account transferred from. `spot` - spot account. `margin` - margin account, `futures` - futures account
+     * @param string $from Account transferred from
      *
      * @return $this
      */
@@ -365,7 +370,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets to
      *
-     * @param string $to Account transferred to. `spot` - spot account. `margin` - margin account, `futures` - futures account
+     * @param string $to Account transferred to
      *
      * @return $this
      */

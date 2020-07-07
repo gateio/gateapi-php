@@ -1,41 +1,41 @@
-# GateApi\FuturesApi
+# GateApi\DeliveryApi
 
 All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelFuturesOrder**](FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
-[**cancelFuturesOrders**](FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
-[**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel a single order
-[**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
-[**createFuturesOrder**](FuturesApi.md#createFuturesOrder) | **POST** /futures/{settle}/orders | Create a futures order
-[**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
-[**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Get a single contract
-[**getFuturesOrder**](FuturesApi.md#getFuturesOrder) | **GET** /futures/{settle}/orders/{order_id} | Get a single order
-[**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/{settle}/my_trades | List personal trading history
-[**getPosition**](FuturesApi.md#getPosition) | **GET** /futures/{settle}/positions/{contract} | Get single position
-[**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Get a single order
-[**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/{settle}/account_book | Query account book
-[**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/{settle}/accounts | Query futures account
-[**listFuturesCandlesticks**](FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/{settle}/candlesticks | Get futures candlesticks
-[**listFuturesContracts**](FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | List all futures contracts
-[**listFuturesFundingRateHistory**](FuturesApi.md#listFuturesFundingRateHistory) | **GET** /futures/{settle}/funding_rate | Funding rate history
-[**listFuturesInsuranceLedger**](FuturesApi.md#listFuturesInsuranceLedger) | **GET** /futures/{settle}/insurance | Futures insurance balance history
-[**listFuturesOrderBook**](FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Futures order book
-[**listFuturesOrders**](FuturesApi.md#listFuturesOrders) | **GET** /futures/{settle}/orders | List futures orders
-[**listFuturesTickers**](FuturesApi.md#listFuturesTickers) | **GET** /futures/{settle}/tickers | List futures tickers
-[**listFuturesTrades**](FuturesApi.md#listFuturesTrades) | **GET** /futures/{settle}/trades | Futures trading history
-[**listLiquidates**](FuturesApi.md#listLiquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
-[**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/{settle}/position_close | List position close history
-[**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/{settle}/positions | List all positions of a user
-[**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
-[**updatePositionLeverage**](FuturesApi.md#updatePositionLeverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage
-[**updatePositionMargin**](FuturesApi.md#updatePositionMargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin
-[**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit
+[**cancelDeliveryOrder**](DeliveryApi.md#cancelDeliveryOrder) | **DELETE** /delivery/{settle}/orders/{order_id} | Cancel a single order
+[**cancelDeliveryOrders**](DeliveryApi.md#cancelDeliveryOrders) | **DELETE** /delivery/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
+[**cancelPriceTriggeredDeliveryOrder**](DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | Cancel a single order
+[**cancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
+[**createDeliveryOrder**](DeliveryApi.md#createDeliveryOrder) | **POST** /delivery/{settle}/orders | Create a futures order
+[**createPriceTriggeredDeliveryOrder**](DeliveryApi.md#createPriceTriggeredDeliveryOrder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
+[**getDeliveryContract**](DeliveryApi.md#getDeliveryContract) | **GET** /delivery/{settle}/contracts/{contract} | Get a single contract
+[**getDeliveryOrder**](DeliveryApi.md#getDeliveryOrder) | **GET** /delivery/{settle}/orders/{order_id} | Get a single order
+[**getDeliveryPosition**](DeliveryApi.md#getDeliveryPosition) | **GET** /delivery/{settle}/positions/{contract} | Get single position
+[**getMyDeliveryTrades**](DeliveryApi.md#getMyDeliveryTrades) | **GET** /delivery/{settle}/my_trades | List personal trading history
+[**getPriceTriggeredDeliveryOrder**](DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a single order
+[**listDeliveryAccountBook**](DeliveryApi.md#listDeliveryAccountBook) | **GET** /delivery/{settle}/account_book | Query account book
+[**listDeliveryAccounts**](DeliveryApi.md#listDeliveryAccounts) | **GET** /delivery/{settle}/accounts | Query futures account
+[**listDeliveryCandlesticks**](DeliveryApi.md#listDeliveryCandlesticks) | **GET** /delivery/{settle}/candlesticks | Get futures candlesticks
+[**listDeliveryContracts**](DeliveryApi.md#listDeliveryContracts) | **GET** /delivery/{settle}/contracts | List all futures contracts
+[**listDeliveryInsuranceLedger**](DeliveryApi.md#listDeliveryInsuranceLedger) | **GET** /delivery/{settle}/insurance | Futures insurance balance history
+[**listDeliveryLiquidates**](DeliveryApi.md#listDeliveryLiquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history
+[**listDeliveryOrderBook**](DeliveryApi.md#listDeliveryOrderBook) | **GET** /delivery/{settle}/order_book | Futures order book
+[**listDeliveryOrders**](DeliveryApi.md#listDeliveryOrders) | **GET** /delivery/{settle}/orders | List futures orders
+[**listDeliveryPositionClose**](DeliveryApi.md#listDeliveryPositionClose) | **GET** /delivery/{settle}/position_close | List position close history
+[**listDeliveryPositions**](DeliveryApi.md#listDeliveryPositions) | **GET** /delivery/{settle}/positions | List all positions of a user
+[**listDeliverySettlements**](DeliveryApi.md#listDeliverySettlements) | **GET** /delivery/{settle}/settlements | List settlement history
+[**listDeliveryTickers**](DeliveryApi.md#listDeliveryTickers) | **GET** /delivery/{settle}/tickers | List futures tickers
+[**listDeliveryTrades**](DeliveryApi.md#listDeliveryTrades) | **GET** /delivery/{settle}/trades | Futures trading history
+[**listPriceTriggeredDeliveryOrders**](DeliveryApi.md#listPriceTriggeredDeliveryOrders) | **GET** /delivery/{settle}/price_orders | List all auto orders
+[**updateDeliveryPositionLeverage**](DeliveryApi.md#updateDeliveryPositionLeverage) | **POST** /delivery/{settle}/positions/{contract}/leverage | Update position leverage
+[**updateDeliveryPositionMargin**](DeliveryApi.md#updateDeliveryPositionMargin) | **POST** /delivery/{settle}/positions/{contract}/margin | Update position margin
+[**updateDeliveryPositionRiskLimit**](DeliveryApi.md#updateDeliveryPositionRiskLimit) | **POST** /delivery/{settle}/positions/{contract}/risk_limit | Update position risk limit
 
 
-# **cancelFuturesOrder**
-> \GateApi\Model\FuturesOrder cancelFuturesOrder($settle, $order_id)
+# **cancelDeliveryOrder**
+> \GateApi\Model\FuturesOrder cancelDeliveryOrder($settle, $order_id)
 
 Cancel a single order
 
@@ -45,15 +45,15 @@ Cancel a single order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $order_id = '12345'; // string | ID returned on order successfully being created
 
 try {
-    $result = $apiInstance->cancelFuturesOrder($settle, $order_id);
+    $result = $apiInstance->cancelDeliveryOrder($settle, $order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->cancelFuturesOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->cancelDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -62,7 +62,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **order_id** | **string**| ID returned on order successfully being created |
 
 ### Return type
@@ -80,8 +80,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **cancelFuturesOrders**
-> \GateApi\Model\FuturesOrder[] cancelFuturesOrders($settle, $contract, $side)
+# **cancelDeliveryOrders**
+> \GateApi\Model\FuturesOrder[] cancelDeliveryOrders($settle, $contract, $side)
 
 Cancel all `open` orders matched
 
@@ -93,16 +93,16 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $side = 'ask'; // string | All bids or asks. Both included in not specified
 
 try {
-    $result = $apiInstance->cancelFuturesOrders($settle, $contract, $side);
+    $result = $apiInstance->cancelDeliveryOrders($settle, $contract, $side);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->cancelFuturesOrders: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->cancelDeliveryOrders: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -111,7 +111,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **side** | **string**| All bids or asks. Both included in not specified | [optional]
 
@@ -130,8 +130,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **cancelPriceTriggeredOrder**
-> \GateApi\Model\FuturesPriceTriggeredOrder cancelPriceTriggeredOrder($settle, $order_id)
+# **cancelPriceTriggeredDeliveryOrder**
+> \GateApi\Model\FuturesPriceTriggeredOrder cancelPriceTriggeredDeliveryOrder($settle, $order_id)
 
 Cancel a single order
 
@@ -141,15 +141,15 @@ Cancel a single order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $order_id = 'order_id_example'; // string | ID returned on order successfully being created
 
 try {
-    $result = $apiInstance->cancelPriceTriggeredOrder($settle, $order_id);
+    $result = $apiInstance->cancelPriceTriggeredDeliveryOrder($settle, $order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->cancelPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->cancelPriceTriggeredDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -158,7 +158,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **order_id** | **string**| ID returned on order successfully being created |
 
 ### Return type
@@ -176,8 +176,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **cancelPriceTriggeredOrderList**
-> \GateApi\Model\FuturesPriceTriggeredOrder[] cancelPriceTriggeredOrderList($settle, $contract)
+# **cancelPriceTriggeredDeliveryOrderList**
+> \GateApi\Model\FuturesPriceTriggeredOrder[] cancelPriceTriggeredDeliveryOrderList($settle, $contract)
 
 Cancel all open orders
 
@@ -187,15 +187,15 @@ Cancel all open orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $contract = 'BTC_USD'; // string | Futures contract
 
 try {
-    $result = $apiInstance->cancelPriceTriggeredOrderList($settle, $contract);
+    $result = $apiInstance->cancelPriceTriggeredDeliveryOrderList($settle, $contract);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->cancelPriceTriggeredOrderList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->cancelPriceTriggeredDeliveryOrderList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -204,7 +204,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
 
 ### Return type
@@ -222,8 +222,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **createFuturesOrder**
-> \GateApi\Model\FuturesOrder createFuturesOrder($settle, $futures_order)
+# **createDeliveryOrder**
+> \GateApi\Model\FuturesOrder createDeliveryOrder($settle, $futures_order)
 
 Create a futures order
 
@@ -235,15 +235,15 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $futures_order = new \GateApi\Model\FuturesOrder(); // \GateApi\Model\FuturesOrder | 
 
 try {
-    $result = $apiInstance->createFuturesOrder($settle, $futures_order);
+    $result = $apiInstance->createDeliveryOrder($settle, $futures_order);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->createFuturesOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->createDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -252,7 +252,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **futures_order** | [**\GateApi\Model\FuturesOrder**](../Model/FuturesOrder.md)|  |
 
 ### Return type
@@ -270,8 +270,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **createPriceTriggeredOrder**
-> \GateApi\Model\TriggerOrderResponse createPriceTriggeredOrder($settle, $futures_price_triggered_order)
+# **createPriceTriggeredDeliveryOrder**
+> \GateApi\Model\TriggerOrderResponse createPriceTriggeredDeliveryOrder($settle, $futures_price_triggered_order)
 
 Create a price-triggered order
 
@@ -281,15 +281,15 @@ Create a price-triggered order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $futures_price_triggered_order = new \GateApi\Model\FuturesPriceTriggeredOrder(); // \GateApi\Model\FuturesPriceTriggeredOrder | 
 
 try {
-    $result = $apiInstance->createPriceTriggeredOrder($settle, $futures_price_triggered_order);
+    $result = $apiInstance->createPriceTriggeredDeliveryOrder($settle, $futures_price_triggered_order);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->createPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->createPriceTriggeredDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -298,7 +298,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **futures_price_triggered_order** | [**\GateApi\Model\FuturesPriceTriggeredOrder**](../Model/FuturesPriceTriggeredOrder.md)|  |
 
 ### Return type
@@ -316,8 +316,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getFuturesContract**
-> \GateApi\Model\Contract getFuturesContract($settle, $contract)
+# **getDeliveryContract**
+> \GateApi\Model\DeliveryContract getDeliveryContract($settle, $contract)
 
 Get a single contract
 
@@ -327,15 +327,15 @@ Get a single contract
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi();
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi();
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 
 try {
-    $result = $apiInstance->getFuturesContract($settle, $contract);
+    $result = $apiInstance->getDeliveryContract($settle, $contract);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->getFuturesContract: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->getDeliveryContract: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -344,12 +344,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
 
 ### Return type
 
-[**\GateApi\Model\Contract**](../Model/Contract.md)
+[**\GateApi\Model\DeliveryContract**](../Model/DeliveryContract.md)
 
 ### Authorization
 
@@ -362,8 +362,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getFuturesOrder**
-> \GateApi\Model\FuturesOrder getFuturesOrder($settle, $order_id)
+# **getDeliveryOrder**
+> \GateApi\Model\FuturesOrder getDeliveryOrder($settle, $order_id)
 
 Get a single order
 
@@ -375,15 +375,15 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $order_id = '12345'; // string | ID returned on order successfully being created
 
 try {
-    $result = $apiInstance->getFuturesOrder($settle, $order_id);
+    $result = $apiInstance->getDeliveryOrder($settle, $order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->getFuturesOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->getDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -392,7 +392,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **order_id** | **string**| ID returned on order successfully being created |
 
 ### Return type
@@ -410,8 +410,54 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getMyTrades**
-> \GateApi\Model\MyFuturesTrade[] getMyTrades($settle, $contract, $order, $limit, $offset, $last_id, $count_total)
+# **getDeliveryPosition**
+> \GateApi\Model\Position getDeliveryPosition($settle, $contract)
+
+Get single position
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
+
+try {
+    $result = $apiInstance->getDeliveryPosition($settle, $contract);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DeliveryApi->getDeliveryPosition: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract |
+
+### Return type
+
+[**\GateApi\Model\Position**](../Model/Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getMyDeliveryTrades**
+> \GateApi\Model\MyFuturesTrade[] getMyDeliveryTrades($settle, $contract, $order, $limit, $offset, $last_id, $count_total)
 
 List personal trading history
 
@@ -421,9 +467,9 @@ List personal trading history
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $order = 12345; // int | Futures order ID, return related data only if specified
 $limit = 100; // int | Maximum number of records returned in one list
 $offset = 0; // int | List offset, starting from 0
@@ -431,10 +477,10 @@ $last_id = '12345'; // string | Specify list staring point using the `id` of las
 $count_total = 0; // int | Whether to return total number matched. Default to 0(no return)
 
 try {
-    $result = $apiInstance->getMyTrades($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
+    $result = $apiInstance->getMyDeliveryTrades($settle, $contract, $order, $limit, $offset, $last_id, $count_total);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->getMyTrades: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->getMyDeliveryTrades: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -443,8 +489,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
- **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract | [optional]
  **order** | **int**| Futures order ID, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -466,54 +512,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getPosition**
-> \GateApi\Model\Position getPosition($settle, $contract)
-
-Get single position
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
-
-try {
-    $result = $apiInstance->getPosition($settle, $contract);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->getPosition: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
- **contract** | **string**| Futures contract |
-
-### Return type
-
-[**\GateApi\Model\Position**](../Model/Position.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getPriceTriggeredOrder**
-> \GateApi\Model\FuturesPriceTriggeredOrder getPriceTriggeredOrder($settle, $order_id)
+# **getPriceTriggeredDeliveryOrder**
+> \GateApi\Model\FuturesPriceTriggeredOrder getPriceTriggeredDeliveryOrder($settle, $order_id)
 
 Get a single order
 
@@ -523,15 +523,15 @@ Get a single order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $order_id = 'order_id_example'; // string | ID returned on order successfully being created
 
 try {
-    $result = $apiInstance->getPriceTriggeredOrder($settle, $order_id);
+    $result = $apiInstance->getPriceTriggeredDeliveryOrder($settle, $order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->getPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->getPriceTriggeredDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -540,7 +540,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **order_id** | **string**| ID returned on order successfully being created |
 
 ### Return type
@@ -558,8 +558,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesAccountBook**
-> \GateApi\Model\FuturesAccountBook[] listFuturesAccountBook($settle, $limit, $from, $to, $type)
+# **listDeliveryAccountBook**
+> \GateApi\Model\FuturesAccountBook[] listDeliveryAccountBook($settle, $limit, $from, $to, $type)
 
 Query account book
 
@@ -569,18 +569,18 @@ Query account book
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $limit = 100; // int | Maximum number of records returned in one list
 $from = 1547706332; // int | Start timestamp
 $to = 1547706332; // int | End timestamp
 $type = 'dnw'; // string | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
 
 try {
-    $result = $apiInstance->listFuturesAccountBook($settle, $limit, $from, $to, $type);
+    $result = $apiInstance->listDeliveryAccountBook($settle, $limit, $from, $to, $type);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesAccountBook: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryAccountBook: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -589,7 +589,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **from** | **int**| Start timestamp | [optional]
  **to** | **int**| End timestamp | [optional]
@@ -610,8 +610,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesAccounts**
-> \GateApi\Model\FuturesAccount listFuturesAccounts($settle)
+# **listDeliveryAccounts**
+> \GateApi\Model\FuturesAccount listDeliveryAccounts($settle)
 
 Query futures account
 
@@ -621,14 +621,14 @@ Query futures account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 
 try {
-    $result = $apiInstance->listFuturesAccounts($settle);
+    $result = $apiInstance->listDeliveryAccounts($settle);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesAccounts: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryAccounts: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -637,7 +637,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
 
 ### Return type
 
@@ -654,8 +654,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesCandlesticks**
-> \GateApi\Model\FuturesCandlestick[] listFuturesCandlesticks($settle, $contract, $from, $to, $limit, $interval)
+# **listDeliveryCandlesticks**
+> \GateApi\Model\FuturesCandlestick[] listDeliveryCandlesticks($settle, $contract, $from, $to, $limit, $interval)
 
 Get futures candlesticks
 
@@ -667,19 +667,19 @@ Return specified contract candlesticks. If prefix `contract` with `mark_`, the c
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi();
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi();
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $from = 1546905600; // float | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
 $to = 1546935600; // float | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
 $limit = 100; // int | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
 $interval = '5m'; // string | Interval time between data points
 
 try {
-    $result = $apiInstance->listFuturesCandlesticks($settle, $contract, $from, $to, $limit, $interval);
+    $result = $apiInstance->listDeliveryCandlesticks($settle, $contract, $from, $to, $limit, $interval);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesCandlesticks: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryCandlesticks: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -688,7 +688,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **from** | **float**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **float**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
@@ -710,8 +710,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesContracts**
-> \GateApi\Model\Contract[] listFuturesContracts($settle)
+# **listDeliveryContracts**
+> \GateApi\Model\DeliveryContract[] listDeliveryContracts($settle)
 
 List all futures contracts
 
@@ -721,14 +721,14 @@ List all futures contracts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi();
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi();
+$settle = 'usdt'; // string | Settle currency
 
 try {
-    $result = $apiInstance->listFuturesContracts($settle);
+    $result = $apiInstance->listDeliveryContracts($settle);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesContracts: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryContracts: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -737,11 +737,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
 
 ### Return type
 
-[**\GateApi\Model\Contract[]**](../Model/Contract.md)
+[**\GateApi\Model\DeliveryContract[]**](../Model/DeliveryContract.md)
 
 ### Authorization
 
@@ -754,56 +754,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesFundingRateHistory**
-> \GateApi\Model\FundingRateRecord[] listFuturesFundingRateHistory($settle, $contract, $limit)
-
-Funding rate history
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-$apiInstance = new GateApi\Api\FuturesApi();
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
-$limit = 100; // int | Maximum number of records returned in one list
-
-try {
-    $result = $apiInstance->listFuturesFundingRateHistory($settle, $contract, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesFundingRateHistory: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
- **contract** | **string**| Futures contract |
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
-
-### Return type
-
-[**\GateApi\Model\FundingRateRecord[]**](../Model/FundingRateRecord.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **listFuturesInsuranceLedger**
-> \GateApi\Model\InsuranceRecord[] listFuturesInsuranceLedger($settle, $limit)
+# **listDeliveryInsuranceLedger**
+> \GateApi\Model\InsuranceRecord[] listDeliveryInsuranceLedger($settle, $limit)
 
 Futures insurance balance history
 
@@ -813,15 +765,15 @@ Futures insurance balance history
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi();
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi();
+$settle = 'usdt'; // string | Settle currency
 $limit = 100; // int | Maximum number of records returned in one list
 
 try {
-    $result = $apiInstance->listFuturesInsuranceLedger($settle, $limit);
+    $result = $apiInstance->listDeliveryInsuranceLedger($settle, $limit);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesInsuranceLedger: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryInsuranceLedger: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -830,7 +782,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
@@ -848,8 +800,58 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesOrderBook**
-> \GateApi\Model\FuturesOrderBook listFuturesOrderBook($settle, $contract, $interval, $limit)
+# **listDeliveryLiquidates**
+> \GateApi\Model\FuturesLiquidate[] listDeliveryLiquidates($settle, $contract, $limit, $at)
+
+List liquidation history
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
+$limit = 100; // int | Maximum number of records returned in one list
+$at = 0; // int | Specify a liquidation timestamp
+
+try {
+    $result = $apiInstance->listDeliveryLiquidates($settle, $contract, $limit, $at);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DeliveryApi->listDeliveryLiquidates: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract | [optional]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **at** | **int**| Specify a liquidation timestamp | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\FuturesLiquidate[]**](../Model/FuturesLiquidate.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listDeliveryOrderBook**
+> \GateApi\Model\FuturesOrderBook listDeliveryOrderBook($settle, $contract, $interval, $limit)
 
 Futures order book
 
@@ -861,17 +863,17 @@ Bids will be sorted by price from high to low, while asks sorted reversely
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi();
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi();
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $interval = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $limit = 10; // int | Maximum number of order depth data in asks or bids
 
 try {
-    $result = $apiInstance->listFuturesOrderBook($settle, $contract, $interval, $limit);
+    $result = $apiInstance->listDeliveryOrderBook($settle, $contract, $interval, $limit);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesOrderBook: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryOrderBook: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -880,7 +882,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
@@ -900,8 +902,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesOrders**
-> \GateApi\Model\FuturesOrder[] listFuturesOrders($settle, $contract, $status, $limit, $offset, $last_id, $count_total)
+# **listDeliveryOrders**
+> \GateApi\Model\FuturesOrder[] listDeliveryOrders($settle, $status, $contract, $limit, $offset, $last_id, $count_total)
 
 List futures orders
 
@@ -913,20 +915,20 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $status = 'open'; // string | List orders based on status
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $limit = 100; // int | Maximum number of records returned in one list
 $offset = 0; // int | List offset, starting from 0
 $last_id = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
 $count_total = 0; // int | Whether to return total number matched. Default to 0(no return)
 
 try {
-    $result = $apiInstance->listFuturesOrders($settle, $contract, $status, $limit, $offset, $last_id, $count_total);
+    $result = $apiInstance->listDeliveryOrders($settle, $status, $contract, $limit, $offset, $last_id, $count_total);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesOrders: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryOrders: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -935,9 +937,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
- **contract** | **string**| Futures contract |
+ **settle** | **string**| Settle currency |
  **status** | **string**| List orders based on status |
+ **contract** | **string**| Futures contract | [optional]
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
@@ -958,8 +960,150 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesTickers**
-> \GateApi\Model\FuturesTicker[] listFuturesTickers($settle, $contract)
+# **listDeliveryPositionClose**
+> \GateApi\Model\PositionClose[] listDeliveryPositionClose($settle, $contract, $limit)
+
+List position close history
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
+$limit = 100; // int | Maximum number of records returned in one list
+
+try {
+    $result = $apiInstance->listDeliveryPositionClose($settle, $contract, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DeliveryApi->listDeliveryPositionClose: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract | [optional]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+
+### Return type
+
+[**\GateApi\Model\PositionClose[]**](../Model/PositionClose.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listDeliveryPositions**
+> \GateApi\Model\Position[] listDeliveryPositions($settle)
+
+List all positions of a user
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+
+try {
+    $result = $apiInstance->listDeliveryPositions($settle);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DeliveryApi->listDeliveryPositions: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+
+### Return type
+
+[**\GateApi\Model\Position[]**](../Model/Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listDeliverySettlements**
+> \GateApi\Model\DeliverySettlement[] listDeliverySettlements($settle, $contract, $limit, $at)
+
+List settlement history
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
+$limit = 100; // int | Maximum number of records returned in one list
+$at = 0; // int | Specify a settlement timestamp
+
+try {
+    $result = $apiInstance->listDeliverySettlements($settle, $contract, $limit, $at);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DeliveryApi->listDeliverySettlements: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract | [optional]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **at** | **int**| Specify a settlement timestamp | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\DeliverySettlement[]**](../Model/DeliverySettlement.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listDeliveryTickers**
+> \GateApi\Model\FuturesTicker[] listDeliveryTickers($settle, $contract)
 
 List futures tickers
 
@@ -969,15 +1113,15 @@ List futures tickers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi();
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$apiInstance = new GateApi\Api\DeliveryApi();
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 
 try {
-    $result = $apiInstance->listFuturesTickers($settle, $contract);
+    $result = $apiInstance->listDeliveryTickers($settle, $contract);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesTickers: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryTickers: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -986,8 +1130,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
- **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract | [optional]
 
 ### Return type
 
@@ -1004,8 +1148,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listFuturesTrades**
-> \GateApi\Model\FuturesTrade[] listFuturesTrades($settle, $contract, $limit, $last_id, $from, $to)
+# **listDeliveryTrades**
+> \GateApi\Model\FuturesTrade[] listDeliveryTrades($settle, $contract, $limit, $last_id, $from, $to)
 
 Futures trading history
 
@@ -1015,19 +1159,19 @@ Futures trading history
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new GateApi\Api\FuturesApi();
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi();
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $limit = 100; // int | Maximum number of records returned in one list
 $last_id = '12345'; // string | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
 $from = 1546905600; // float | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.
 $to = 1546935600; // float | Specify end time in Unix seconds, default to current time
 
 try {
-    $result = $apiInstance->listFuturesTrades($settle, $contract, $limit, $last_id, $from, $to);
+    $result = $apiInstance->listDeliveryTrades($settle, $contract, $limit, $last_id, $from, $to);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listFuturesTrades: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listDeliveryTrades: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1036,7 +1180,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **last_id** | **string**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
@@ -1058,150 +1202,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listLiquidates**
-> \GateApi\Model\FuturesLiquidate[] listLiquidates($settle, $contract, $limit, $at)
-
-List liquidation history
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
-$limit = 100; // int | Maximum number of records returned in one list
-$at = 0; // int | Specify a liquidation timestamp
-
-try {
-    $result = $apiInstance->listLiquidates($settle, $contract, $limit, $at);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listLiquidates: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
- **contract** | **string**| Futures contract, return related data only if specified | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
- **at** | **int**| Specify a liquidation timestamp | [optional] [default to 0]
-
-### Return type
-
-[**\GateApi\Model\FuturesLiquidate[]**](../Model/FuturesLiquidate.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **listPositionClose**
-> \GateApi\Model\PositionClose[] listPositionClose($settle, $contract, $limit)
-
-List position close history
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
-$limit = 100; // int | Maximum number of records returned in one list
-
-try {
-    $result = $apiInstance->listPositionClose($settle, $contract, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listPositionClose: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
- **contract** | **string**| Futures contract, return related data only if specified | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
-
-### Return type
-
-[**\GateApi\Model\PositionClose[]**](../Model/PositionClose.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **listPositions**
-> \GateApi\Model\Position[] listPositions($settle)
-
-List all positions of a user
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-
-try {
-    $result = $apiInstance->listPositions($settle);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listPositions: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
-
-### Return type
-
-[**\GateApi\Model\Position[]**](../Model/Position.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **listPriceTriggeredOrders**
-> \GateApi\Model\FuturesPriceTriggeredOrder[] listPriceTriggeredOrders($settle, $status, $contract, $limit, $offset)
+# **listPriceTriggeredDeliveryOrders**
+> \GateApi\Model\FuturesPriceTriggeredOrder[] listPriceTriggeredDeliveryOrders($settle, $status, $contract, $limit, $offset)
 
 List all auto orders
 
@@ -1211,18 +1213,18 @@ List all auto orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
 $status = 'status_example'; // string | List orders based on status
 $contract = 'BTC_USD'; // string | Futures contract, return related data only if specified
 $limit = 100; // int | Maximum number of records returned in one list
 $offset = 0; // int | List offset, starting from 0
 
 try {
-    $result = $apiInstance->listPriceTriggeredOrders($settle, $status, $contract, $limit, $offset);
+    $result = $apiInstance->listPriceTriggeredDeliveryOrders($settle, $status, $contract, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->listPriceTriggeredOrders: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->listPriceTriggeredDeliveryOrders: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1231,7 +1233,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **status** | **string**| List orders based on status |
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
@@ -1252,8 +1254,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **updatePositionLeverage**
-> \GateApi\Model\Position updatePositionLeverage($settle, $contract, $leverage)
+# **updateDeliveryPositionLeverage**
+> \GateApi\Model\Position updateDeliveryPositionLeverage($settle, $contract, $leverage)
 
 Update position leverage
 
@@ -1263,16 +1265,16 @@ Update position leverage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $leverage = '10'; // string | New position leverage
 
 try {
-    $result = $apiInstance->updatePositionLeverage($settle, $contract, $leverage);
+    $result = $apiInstance->updateDeliveryPositionLeverage($settle, $contract, $leverage);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->updatePositionLeverage: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->updateDeliveryPositionLeverage: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1281,7 +1283,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **leverage** | **string**| New position leverage |
 
@@ -1300,8 +1302,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **updatePositionMargin**
-> \GateApi\Model\Position updatePositionMargin($settle, $contract, $change)
+# **updateDeliveryPositionMargin**
+> \GateApi\Model\Position updateDeliveryPositionMargin($settle, $contract, $change)
 
 Update position margin
 
@@ -1311,16 +1313,16 @@ Update position margin
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $change = '0.01'; // string | Margin change. Use positive number to increase margin, negative number otherwise.
 
 try {
-    $result = $apiInstance->updatePositionMargin($settle, $contract, $change);
+    $result = $apiInstance->updateDeliveryPositionMargin($settle, $contract, $change);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->updatePositionMargin: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->updateDeliveryPositionMargin: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1329,7 +1331,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **change** | **string**| Margin change. Use positive number to increase margin, negative number otherwise. |
 
@@ -1348,8 +1350,8 @@ Authentication with API key and secret is required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **updatePositionRiskLimit**
-> \GateApi\Model\Position updatePositionRiskLimit($settle, $contract, $risk_limit)
+# **updateDeliveryPositionRiskLimit**
+> \GateApi\Model\Position updateDeliveryPositionRiskLimit($settle, $contract, $risk_limit)
 
 Update position risk limit
 
@@ -1359,16 +1361,16 @@ Update position risk limit
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\FuturesApi(null, $config);
-$settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$apiInstance = new GateApi\Api\DeliveryApi(null, $config);
+$settle = 'usdt'; // string | Settle currency
+$contract = 'BTC_USDT_WEEKLY_20200703'; // string | Futures contract
 $risk_limit = '10'; // string | New position risk limit
 
 try {
-    $result = $apiInstance->updatePositionRiskLimit($settle, $contract, $risk_limit);
+    $result = $apiInstance->updateDeliveryPositionRiskLimit($settle, $contract, $risk_limit);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FuturesApi->updatePositionRiskLimit: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveryApi->updateDeliveryPositionRiskLimit: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1377,7 +1379,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **risk_limit** | **string**| New position risk limit |
 

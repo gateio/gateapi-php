@@ -1,6 +1,6 @@
 <?php
 /**
- * FuturesInitialOrder
+ * DeliverySettlement
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * FuturesInitialOrder Class Doc Comment
+ * DeliverySettlement Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FuturesInitialOrder implements ModelInterface, ArrayAccess
+class DeliverySettlement implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FuturesInitialOrder';
+    protected static $openAPIModelName = 'DeliverySettlement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,15 +56,15 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'time' => 'int',
         'contract' => 'string',
+        'leverage' => 'string',
         'size' => 'int',
-        'price' => 'string',
-        'close' => 'bool',
-        'tif' => 'string',
-        'text' => 'string',
-        'reduce_only' => 'bool',
-        'is_reduce_only' => 'bool',
-        'is_close' => 'bool'
+        'margin' => 'string',
+        'entry_price' => 'string',
+        'settle_price' => 'string',
+        'profit' => 'string',
+        'fee' => 'string'
     ];
 
     /**
@@ -73,15 +73,15 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'time' => 'int64',
         'contract' => null,
+        'leverage' => null,
         'size' => 'int64',
-        'price' => null,
-        'close' => null,
-        'tif' => null,
-        'text' => null,
-        'reduce_only' => null,
-        'is_reduce_only' => null,
-        'is_close' => null
+        'margin' => null,
+        'entry_price' => null,
+        'settle_price' => null,
+        'profit' => null,
+        'fee' => null
     ];
 
     /**
@@ -111,15 +111,15 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'time' => 'time',
         'contract' => 'contract',
+        'leverage' => 'leverage',
         'size' => 'size',
-        'price' => 'price',
-        'close' => 'close',
-        'tif' => 'tif',
-        'text' => 'text',
-        'reduce_only' => 'reduce_only',
-        'is_reduce_only' => 'is_reduce_only',
-        'is_close' => 'is_close'
+        'margin' => 'margin',
+        'entry_price' => 'entry_price',
+        'settle_price' => 'settle_price',
+        'profit' => 'profit',
+        'fee' => 'fee'
     ];
 
     /**
@@ -128,15 +128,15 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'time' => 'setTime',
         'contract' => 'setContract',
+        'leverage' => 'setLeverage',
         'size' => 'setSize',
-        'price' => 'setPrice',
-        'close' => 'setClose',
-        'tif' => 'setTif',
-        'text' => 'setText',
-        'reduce_only' => 'setReduceOnly',
-        'is_reduce_only' => 'setIsReduceOnly',
-        'is_close' => 'setIsClose'
+        'margin' => 'setMargin',
+        'entry_price' => 'setEntryPrice',
+        'settle_price' => 'setSettlePrice',
+        'profit' => 'setProfit',
+        'fee' => 'setFee'
     ];
 
     /**
@@ -145,15 +145,15 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'time' => 'getTime',
         'contract' => 'getContract',
+        'leverage' => 'getLeverage',
         'size' => 'getSize',
-        'price' => 'getPrice',
-        'close' => 'getClose',
-        'tif' => 'getTif',
-        'text' => 'getText',
-        'reduce_only' => 'getReduceOnly',
-        'is_reduce_only' => 'getIsReduceOnly',
-        'is_close' => 'getIsClose'
+        'margin' => 'getMargin',
+        'entry_price' => 'getEntryPrice',
+        'settle_price' => 'getSettlePrice',
+        'profit' => 'getProfit',
+        'fee' => 'getFee'
     ];
 
     /**
@@ -197,23 +197,8 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TIF_GTC = 'gtc';
-    const TIF_IOC = 'ioc';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTifAllowableValues()
-    {
-        return [
-            self::TIF_GTC,
-            self::TIF_IOC,
-        ];
-    }
     
 
     /**
@@ -231,15 +216,15 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['leverage'] = isset($data['leverage']) ? $data['leverage'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['close'] = isset($data['close']) ? $data['close'] : false;
-        $this->container['tif'] = isset($data['tif']) ? $data['tif'] : 'gtc';
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
-        $this->container['reduce_only'] = isset($data['reduce_only']) ? $data['reduce_only'] : false;
-        $this->container['is_reduce_only'] = isset($data['is_reduce_only']) ? $data['is_reduce_only'] : null;
-        $this->container['is_close'] = isset($data['is_close']) ? $data['is_close'] : null;
+        $this->container['margin'] = isset($data['margin']) ? $data['margin'] : null;
+        $this->container['entry_price'] = isset($data['entry_price']) ? $data['entry_price'] : null;
+        $this->container['settle_price'] = isset($data['settle_price']) ? $data['settle_price'] : null;
+        $this->container['profit'] = isset($data['profit']) ? $data['profit'] : null;
+        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
     }
 
     /**
@@ -250,20 +235,6 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['contract'] === null) {
-            $invalidProperties[] = "'contract' can't be null";
-        }
-        if ($this->container['price'] === null) {
-            $invalidProperties[] = "'price' can't be null";
-        }
-        $allowedValues = $this->getTifAllowableValues();
-        if (!is_null($this->container['tif']) && !in_array($this->container['tif'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'tif', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -281,9 +252,33 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets time
+     *
+     * @return int|null
+     */
+    public function getTime()
+    {
+        return $this->container['time'];
+    }
+
+    /**
+     * Sets time
+     *
+     * @param int|null $time Liquidation time
+     *
+     * @return $this
+     */
+    public function setTime($time)
+    {
+        $this->container['time'] = $time;
+
+        return $this;
+    }
+
+    /**
      * Gets contract
      *
-     * @return string
+     * @return string|null
      */
     public function getContract()
     {
@@ -293,13 +288,37 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string $contract Futures contract
+     * @param string|null $contract Futures contract
      *
      * @return $this
      */
     public function setContract($contract)
     {
         $this->container['contract'] = $contract;
+
+        return $this;
+    }
+
+    /**
+     * Gets leverage
+     *
+     * @return string|null
+     */
+    public function getLeverage()
+    {
+        return $this->container['leverage'];
+    }
+
+    /**
+     * Sets leverage
+     *
+     * @param string|null $leverage Position leverage
+     *
+     * @return $this
+     */
+    public function setLeverage($leverage)
+    {
+        $this->container['leverage'] = $leverage;
 
         return $this;
     }
@@ -317,7 +336,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position
+     * @param int|null $size Position size
      *
      * @return $this
      */
@@ -329,178 +348,121 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets price
-     *
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     *
-     * @param string $price Order price. Set to 0 to use market price
-     *
-     * @return $this
-     */
-    public function setPrice($price)
-    {
-        $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets close
-     *
-     * @return bool|null
-     */
-    public function getClose()
-    {
-        return $this->container['close'];
-    }
-
-    /**
-     * Sets close
-     *
-     * @param bool|null $close Set to true if trying to close the position
-     *
-     * @return $this
-     */
-    public function setClose($close)
-    {
-        $this->container['close'] = $close;
-
-        return $this;
-    }
-
-    /**
-     * Gets tif
+     * Gets margin
      *
      * @return string|null
      */
-    public function getTif()
+    public function getMargin()
     {
-        return $this->container['tif'];
+        return $this->container['margin'];
     }
 
     /**
-     * Sets tif
+     * Sets margin
      *
-     * @param string|null $tif Time in force. If using market price, only `ioc` is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+     * @param string|null $margin Position margin
      *
      * @return $this
      */
-    public function setTif($tif)
+    public function setMargin($margin)
     {
-        $allowedValues = $this->getTifAllowableValues();
-        if (!is_null($tif) && !in_array($tif, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'tif', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tif'] = $tif;
+        $this->container['margin'] = $margin;
 
         return $this;
     }
 
     /**
-     * Gets text
+     * Gets entry_price
      *
      * @return string|null
      */
-    public function getText()
+    public function getEntryPrice()
     {
-        return $this->container['text'];
+        return $this->container['entry_price'];
     }
 
     /**
-     * Sets text
+     * Sets entry_price
      *
-     * @param string|null $text How the order is created. Possible values are: web, api and app
+     * @param string|null $entry_price Average entry price
      *
      * @return $this
      */
-    public function setText($text)
+    public function setEntryPrice($entry_price)
     {
-        $this->container['text'] = $text;
+        $this->container['entry_price'] = $entry_price;
 
         return $this;
     }
 
     /**
-     * Gets reduce_only
+     * Gets settle_price
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getReduceOnly()
+    public function getSettlePrice()
     {
-        return $this->container['reduce_only'];
+        return $this->container['settle_price'];
     }
 
     /**
-     * Sets reduce_only
+     * Sets settle_price
      *
-     * @param bool|null $reduce_only Set to true to create an reduce-only order
+     * @param string|null $settle_price Settled price
      *
      * @return $this
      */
-    public function setReduceOnly($reduce_only)
+    public function setSettlePrice($settle_price)
     {
-        $this->container['reduce_only'] = $reduce_only;
+        $this->container['settle_price'] = $settle_price;
 
         return $this;
     }
 
     /**
-     * Gets is_reduce_only
+     * Gets profit
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsReduceOnly()
+    public function getProfit()
     {
-        return $this->container['is_reduce_only'];
+        return $this->container['profit'];
     }
 
     /**
-     * Sets is_reduce_only
+     * Sets profit
      *
-     * @param bool|null $is_reduce_only Is the order reduce-only
+     * @param string|null $profit Profit
      *
      * @return $this
      */
-    public function setIsReduceOnly($is_reduce_only)
+    public function setProfit($profit)
     {
-        $this->container['is_reduce_only'] = $is_reduce_only;
+        $this->container['profit'] = $profit;
 
         return $this;
     }
 
     /**
-     * Gets is_close
+     * Gets fee
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsClose()
+    public function getFee()
     {
-        return $this->container['is_close'];
+        return $this->container['fee'];
     }
 
     /**
-     * Sets is_close
+     * Sets fee
      *
-     * @param bool|null $is_close Is the order to close position
+     * @param string|null $fee Fee deducted
      *
      * @return $this
      */
-    public function setIsClose($is_close)
+    public function setFee($fee)
     {
-        $this->container['is_close'] = $is_close;
+        $this->container['fee'] = $fee;
 
         return $this;
     }

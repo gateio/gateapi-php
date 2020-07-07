@@ -308,7 +308,7 @@ $apiInstance = new GateApi\Api\MarginApi(null, $config);
 $loan_id = '12345'; // string | Loan ID
 $status = 'loaned'; // string | Loan record status
 $page = 1; // int | Page number
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum number of records returned in one list
 
 try {
     $result = $apiInstance->listLoanRecords($loan_id, $status, $page, $limit);
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
  **loan_id** | **string**| Loan ID |
  **status** | **string**| Loan record status | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
 
@@ -406,7 +406,7 @@ $currency_pair = 'BTC_USDT'; // string | Currency pair
 $sort_by = 'rate'; // string | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
 $reverse_sort = True; // bool | Whether to sort in descending order. Default to `true`
 $page = 1; // int | Page number
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum number of records returned in one list
 
 try {
     $result = $apiInstance->listLoans($status, $side, $currency, $currency_pair, $sort_by, $reverse_sort, $page, $limit);
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
  **sort_by** | **string**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional]
  **reverse_sort** | **bool**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
 

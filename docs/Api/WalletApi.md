@@ -73,7 +73,7 @@ $apiInstance = new GateApi\Api\WalletApi(null, $config);
 $currency = 'BTC'; // string | Filter by currency. Return all currency records if not specified
 $from = 56; // int | Time range beginning, default to 7 days before current time
 $to = 56; // int | Time range ending, default to current time
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum number of records returned in one list
 $offset = 0; // int | List offset, starting from 0
 
 try {
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
  **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional]
  **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -127,7 +127,7 @@ $apiInstance = new GateApi\Api\WalletApi(null, $config);
 $sub_uid = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
 $from = 56; // int | Time range beginning, default to 7 days before current time
 $to = 56; // int | Time range ending, default to current time
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum number of records returned in one list
 $offset = 0; // int | List offset, starting from 0
 
 try {
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
  **sub_uid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
  **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -181,7 +181,7 @@ $apiInstance = new GateApi\Api\WalletApi(null, $config);
 $currency = 'BTC'; // string | Filter by currency. Return all currency records if not specified
 $from = 56; // int | Time range beginning, default to 7 days before current time
 $to = 56; // int | Time range ending, default to current time
-$limit = 100; // int | Maximum number of record returned in one list
+$limit = 100; // int | Maximum number of records returned in one list
 $offset = 0; // int | List offset, starting from 0
 
 try {
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
  **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional]
  **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
- **limit** | **int**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -223,7 +223,7 @@ Authentication with API key and secret is required
 
 Transfer between accounts
 
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures
+Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 2. spot - delivery
 
 ### Example
 ```php
