@@ -1,6 +1,6 @@
 <?php
 /**
- * LoanPatch
+ * MarginAccountBook
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * LoanPatch Class Doc Comment
+ * MarginAccountBook Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class LoanPatch implements ModelInterface, ArrayAccess
+class MarginAccountBook implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class LoanPatch implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoanPatch';
+    protected static $openAPIModelName = 'MarginAccountBook';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +54,12 @@ class LoanPatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'time' => 'string',
         'currency' => 'string',
-        'side' => 'string',
-        'auto_renew' => 'bool',
         'currency_pair' => 'string',
-        'loan_id' => 'string'
+        'change' => 'string',
+        'balance' => 'string'
     ];
 
     /**
@@ -67,11 +68,12 @@ class LoanPatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'time' => null,
         'currency' => null,
-        'side' => null,
-        'auto_renew' => null,
         'currency_pair' => null,
-        'loan_id' => null
+        'change' => null,
+        'balance' => null
     ];
 
     /**
@@ -101,11 +103,12 @@ class LoanPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'time' => 'time',
         'currency' => 'currency',
-        'side' => 'side',
-        'auto_renew' => 'auto_renew',
         'currency_pair' => 'currency_pair',
-        'loan_id' => 'loan_id'
+        'change' => 'change',
+        'balance' => 'balance'
     ];
 
     /**
@@ -114,11 +117,12 @@ class LoanPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'time' => 'setTime',
         'currency' => 'setCurrency',
-        'side' => 'setSide',
-        'auto_renew' => 'setAutoRenew',
         'currency_pair' => 'setCurrencyPair',
-        'loan_id' => 'setLoanId'
+        'change' => 'setChange',
+        'balance' => 'setBalance'
     ];
 
     /**
@@ -127,11 +131,12 @@ class LoanPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'time' => 'getTime',
         'currency' => 'getCurrency',
-        'side' => 'getSide',
-        'auto_renew' => 'getAutoRenew',
         'currency_pair' => 'getCurrencyPair',
-        'loan_id' => 'getLoanId'
+        'change' => 'getChange',
+        'balance' => 'getBalance'
     ];
 
     /**
@@ -175,23 +180,8 @@ class LoanPatch implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const SIDE_LEND = 'lend';
-    const SIDE_BORROW = 'borrow';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSideAllowableValues()
-    {
-        return [
-            self::SIDE_LEND,
-            self::SIDE_BORROW,
-        ];
-    }
     
 
     /**
@@ -209,11 +199,12 @@ class LoanPatch implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['side'] = isset($data['side']) ? $data['side'] : null;
-        $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['loan_id'] = isset($data['loan_id']) ? $data['loan_id'] : null;
+        $this->container['change'] = isset($data['change']) ? $data['change'] : null;
+        $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
     }
 
     /**
@@ -225,23 +216,6 @@ class LoanPatch implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['side'] === null) {
-            $invalidProperties[] = "'side' can't be null";
-        }
-        $allowedValues = $this->getSideAllowableValues();
-        if (!is_null($this->container['side']) && !in_array($this->container['side'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'side', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['auto_renew'] === null) {
-            $invalidProperties[] = "'auto_renew' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -258,9 +232,57 @@ class LoanPatch implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Balance change record ID
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets time
+     *
+     * @return string|null
+     */
+    public function getTime()
+    {
+        return $this->container['time'];
+    }
+
+    /**
+     * Sets time
+     *
+     * @param string|null $time Balance changed timestamp
+     *
+     * @return $this
+     */
+    public function setTime($time)
+    {
+        $this->container['time'] = $time;
+
+        return $this;
+    }
+
+    /**
      * Gets currency
      *
-     * @return string
+     * @return string|null
      */
     public function getCurrency()
     {
@@ -270,70 +292,13 @@ class LoanPatch implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Loan currency
+     * @param string|null $currency Currency changed
      *
      * @return $this
      */
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets side
-     *
-     * @return string
-     */
-    public function getSide()
-    {
-        return $this->container['side'];
-    }
-
-    /**
-     * Sets side
-     *
-     * @param string $side Loan side. Possible values are `lend` and `borrow`. For `LoanRecord` patching, only `lend` is supported
-     *
-     * @return $this
-     */
-    public function setSide($side)
-    {
-        $allowedValues = $this->getSideAllowableValues();
-        if (!in_array($side, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'side', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['side'] = $side;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_renew
-     *
-     * @return bool
-     */
-    public function getAutoRenew()
-    {
-        return $this->container['auto_renew'];
-    }
-
-    /**
-     * Sets auto_renew
-     *
-     * @param bool $auto_renew Auto renew
-     *
-     * @return $this
-     */
-    public function setAutoRenew($auto_renew)
-    {
-        $this->container['auto_renew'] = $auto_renew;
 
         return $this;
     }
@@ -351,7 +316,7 @@ class LoanPatch implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair. Required for borrowing side
+     * @param string|null $currency_pair Account currency pair
      *
      * @return $this
      */
@@ -363,25 +328,49 @@ class LoanPatch implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets loan_id
+     * Gets change
      *
      * @return string|null
      */
-    public function getLoanId()
+    public function getChange()
     {
-        return $this->container['loan_id'];
+        return $this->container['change'];
     }
 
     /**
-     * Sets loan_id
+     * Sets change
      *
-     * @param string|null $loan_id Loan ID. Required for `LoanRecord` patching
+     * @param string|null $change Amount changed. Positive value means transferring in, while negative out
      *
      * @return $this
      */
-    public function setLoanId($loan_id)
+    public function setChange($change)
     {
-        $this->container['loan_id'] = $loan_id;
+        $this->container['change'] = $change;
+
+        return $this;
+    }
+
+    /**
+     * Gets balance
+     *
+     * @return string|null
+     */
+    public function getBalance()
+    {
+        return $this->container['balance'];
+    }
+
+    /**
+     * Sets balance
+     *
+     * @param string|null $balance Balance after change
+     *
+     * @return $this
+     */
+    public function setBalance($balance)
+    {
+        $this->container['balance'] = $balance;
 
         return $this;
     }

@@ -1,6 +1,7 @@
-# FuturesCandlestick
+# # FuturesCandlestick
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **t** | **float** | Unix timestamp in seconds | [optional] 
@@ -10,6 +11,4 @@ Name | Type | Description | Notes
 **l** | **string** | Lowest price | [optional] 
 **o** | **string** | Open price | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,7 @@
-# FuturesTicker
+# # FuturesTicker
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contract** | **string** | Futures contract | [optional] 
@@ -21,6 +22,4 @@ Name | Type | Description | Notes
 **index_price** | **string** | Index price | [optional] 
 **quanto_base_rate** | **string** | Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

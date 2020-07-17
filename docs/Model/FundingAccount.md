@@ -1,6 +1,7 @@
-# FundingAccount
+# # FundingAccount
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **string** | Currency name | [optional] 
@@ -9,6 +10,4 @@ Name | Type | Description | Notes
 **lent** | **string** | Amount that is loaned but not repaid | [optional] 
 **total_lent** | **string** | Amount used for lending. total_lent &#x3D; lent + locked | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

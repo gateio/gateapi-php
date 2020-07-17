@@ -1,6 +1,7 @@
-# Trade
+# # Trade
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Trade ID | [optional] 
@@ -15,6 +16,4 @@ Name | Type | Description | Notes
 **point_fee** | **string** | Point used to deduct fee | [optional] 
 **gt_fee** | **string** | GT used to deduct fee | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

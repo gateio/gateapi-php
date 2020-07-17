@@ -1,6 +1,6 @@
 <?php
 /**
- * LoanPatch
+ * OpenOrders
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * LoanPatch Class Doc Comment
+ * OpenOrders Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class LoanPatch implements ModelInterface, ArrayAccess
+class OpenOrders implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class LoanPatch implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoanPatch';
+    protected static $openAPIModelName = 'OpenOrders';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +54,9 @@ class LoanPatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'side' => 'string',
-        'auto_renew' => 'bool',
         'currency_pair' => 'string',
-        'loan_id' => 'string'
+        'total' => 'int',
+        'orders' => '\GateApi\Model\Order[]'
     ];
 
     /**
@@ -67,11 +65,9 @@ class LoanPatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'side' => null,
-        'auto_renew' => null,
         'currency_pair' => null,
-        'loan_id' => null
+        'total' => null,
+        'orders' => null
     ];
 
     /**
@@ -101,11 +97,9 @@ class LoanPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'side' => 'side',
-        'auto_renew' => 'auto_renew',
         'currency_pair' => 'currency_pair',
-        'loan_id' => 'loan_id'
+        'total' => 'total',
+        'orders' => 'orders'
     ];
 
     /**
@@ -114,11 +108,9 @@ class LoanPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'side' => 'setSide',
-        'auto_renew' => 'setAutoRenew',
         'currency_pair' => 'setCurrencyPair',
-        'loan_id' => 'setLoanId'
+        'total' => 'setTotal',
+        'orders' => 'setOrders'
     ];
 
     /**
@@ -127,11 +119,9 @@ class LoanPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'side' => 'getSide',
-        'auto_renew' => 'getAutoRenew',
         'currency_pair' => 'getCurrencyPair',
-        'loan_id' => 'getLoanId'
+        'total' => 'getTotal',
+        'orders' => 'getOrders'
     ];
 
     /**
@@ -175,23 +165,8 @@ class LoanPatch implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const SIDE_LEND = 'lend';
-    const SIDE_BORROW = 'borrow';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSideAllowableValues()
-    {
-        return [
-            self::SIDE_LEND,
-            self::SIDE_BORROW,
-        ];
-    }
     
 
     /**
@@ -209,11 +184,9 @@ class LoanPatch implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['side'] = isset($data['side']) ? $data['side'] : null;
-        $this->container['auto_renew'] = isset($data['auto_renew']) ? $data['auto_renew'] : null;
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['loan_id'] = isset($data['loan_id']) ? $data['loan_id'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
     }
 
     /**
@@ -225,23 +198,6 @@ class LoanPatch implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['side'] === null) {
-            $invalidProperties[] = "'side' can't be null";
-        }
-        $allowedValues = $this->getSideAllowableValues();
-        if (!is_null($this->container['side']) && !in_array($this->container['side'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'side', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['auto_renew'] === null) {
-            $invalidProperties[] = "'auto_renew' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -258,87 +214,6 @@ class LoanPatch implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency Loan currency
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets side
-     *
-     * @return string
-     */
-    public function getSide()
-    {
-        return $this->container['side'];
-    }
-
-    /**
-     * Sets side
-     *
-     * @param string $side Loan side. Possible values are `lend` and `borrow`. For `LoanRecord` patching, only `lend` is supported
-     *
-     * @return $this
-     */
-    public function setSide($side)
-    {
-        $allowedValues = $this->getSideAllowableValues();
-        if (!in_array($side, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'side', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['side'] = $side;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_renew
-     *
-     * @return bool
-     */
-    public function getAutoRenew()
-    {
-        return $this->container['auto_renew'];
-    }
-
-    /**
-     * Sets auto_renew
-     *
-     * @param bool $auto_renew Auto renew
-     *
-     * @return $this
-     */
-    public function setAutoRenew($auto_renew)
-    {
-        $this->container['auto_renew'] = $auto_renew;
-
-        return $this;
-    }
-
-    /**
      * Gets currency_pair
      *
      * @return string|null
@@ -351,7 +226,7 @@ class LoanPatch implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair. Required for borrowing side
+     * @param string|null $currency_pair Currency pair
      *
      * @return $this
      */
@@ -363,25 +238,49 @@ class LoanPatch implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets loan_id
+     * Gets total
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getLoanId()
+    public function getTotal()
     {
-        return $this->container['loan_id'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets loan_id
+     * Sets total
      *
-     * @param string|null $loan_id Loan ID. Required for `LoanRecord` patching
+     * @param int|null $total Total open orders in this currency pair
      *
      * @return $this
      */
-    public function setLoanId($loan_id)
+    public function setTotal($total)
     {
-        $this->container['loan_id'] = $loan_id;
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets orders
+     *
+     * @return \GateApi\Model\Order[]|null
+     */
+    public function getOrders()
+    {
+        return $this->container['orders'];
+    }
+
+    /**
+     * Sets orders
+     *
+     * @param \GateApi\Model\Order[]|null $orders orders
+     *
+     * @return $this
+     */
+    public function setOrders($orders)
+    {
+        $this->container['orders'] = $orders;
 
         return $this;
     }

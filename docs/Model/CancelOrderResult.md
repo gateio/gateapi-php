@@ -1,6 +1,7 @@
-# CancelOrderResult
+# # CancelOrderResult
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency_pair** | **string** | Order currency pair | [optional] 
@@ -9,6 +10,4 @@ Name | Type | Description | Notes
 **label** | **string** | Error label when failed to cancel the order; emtpy if succeeded | [optional] 
 **message** | **string** | Error message when failed to cancel the order; empty if succeeded | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
