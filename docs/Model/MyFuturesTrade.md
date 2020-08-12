@@ -1,6 +1,7 @@
-# MyFuturesTrade
+# # MyFuturesTrade
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Trade ID | [optional] 
@@ -11,6 +12,4 @@ Name | Type | Description | Notes
 **price** | **string** | Trading price | [optional] 
 **role** | **string** | Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60; | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

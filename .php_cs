@@ -15,6 +15,7 @@ return PhpCsFixer\Config::create()
         'single_blank_line_at_eof' => false,
         'blank_line_after_namespace' => false,
     ])
+    ->setRiskyAllowed(true)
     ->setFinder(
         PhpCsFixer\Finder::create()
         ->exclude('test')

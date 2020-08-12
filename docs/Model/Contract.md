@@ -1,6 +1,7 @@
-# Contract
+# # Contract
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Futures contract | [optional] 
@@ -35,6 +36,4 @@ Name | Type | Description | Notes
 **config_change_time** | **float** | Configuration&#39;s last changed time | [optional] 
 **in_delisting** | **bool** | Contract is delisting | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,7 @@
-# Ticker
+# # Ticker
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency_pair** | **string** | Currency pair | [optional] 
@@ -13,6 +14,4 @@ Name | Type | Description | Notes
 **high_24h** | **string** | Highest price in 24h | [optional] 
 **low_24h** | **string** | Lowest price in 24h | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

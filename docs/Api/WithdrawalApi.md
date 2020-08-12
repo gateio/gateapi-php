@@ -7,18 +7,28 @@ Method | HTTP request | Description
 [**withdraw**](WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
 
 
-# **withdraw**
+## withdraw
+
 > \GateApi\Model\LedgerRecord withdraw($ledger_record)
 
 Withdraw
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new GateApi\Configuration("YOUR_API_KEY", "YOUR_API_SECRET");
-$apiInstance = new GateApi\Api\WithdrawalApi(null, $config);
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WithdrawalApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $ledger_record = new \GateApi\Model\LedgerRecord(); // \GateApi\Model\LedgerRecord | 
 
 try {
@@ -32,6 +42,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger_record** | [**\GateApi\Model\LedgerRecord**](../Model/LedgerRecord.md)|  |
@@ -42,12 +53,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-Authentication with API key and secret is required
+[apiv4](../../README.md#apiv4)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

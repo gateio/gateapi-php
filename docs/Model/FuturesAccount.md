@@ -1,6 +1,7 @@
-# FuturesAccount
+# # FuturesAccount
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **total** | **string** | Total assets, total &#x3D; position_margin + order_margin + available | [optional] 
@@ -11,6 +12,4 @@ Name | Type | Description | Notes
 **point** | **string** | POINT amount | [optional] 
 **currency** | **string** | Settle currency | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

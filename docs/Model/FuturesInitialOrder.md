@@ -1,6 +1,7 @@
-# FuturesInitialOrder
+# # FuturesInitialOrder
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contract** | **string** | Futures contract | 
@@ -10,9 +11,7 @@ Name | Type | Description | Notes
 **tif** | **string** | Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled | [optional] [default to 'gtc']
 **text** | **string** | How the order is created. Possible values are: web, api and app | [optional] 
 **reduce_only** | **bool** | Set to true to create an reduce-only order | [optional] [default to false]
-**is_reduce_only** | **bool** | Is the order reduce-only | [optional] 
-**is_close** | **bool** | Is the order to close position | [optional] 
+**is_reduce_only** | **bool** | Is the order reduce-only | [optional] [readonly] 
+**is_close** | **bool** | Is the order to close position | [optional] [readonly] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

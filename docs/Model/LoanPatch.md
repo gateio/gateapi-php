@@ -1,6 +1,7 @@
-# LoanPatch
+# # LoanPatch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **string** | Loan currency | 
@@ -9,6 +10,4 @@ Name | Type | Description | Notes
 **currency_pair** | **string** | Currency pair. Required for borrowing side | [optional] 
 **loan_id** | **string** | Loan ID. Required for &#x60;LoanRecord&#x60; patching | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
