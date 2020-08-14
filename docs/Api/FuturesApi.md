@@ -57,6 +57,8 @@ $settle = 'btc'; // string | Settle currency
 try {
     $result = $apiInstance->listFuturesContracts($settle);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesContracts: ', $e->getMessage(), PHP_EOL;
 }
@@ -112,6 +114,8 @@ $contract = 'BTC_USD'; // string | Futures contract
 try {
     $result = $apiInstance->getFuturesContract($settle, $contract);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->getFuturesContract: ', $e->getMessage(), PHP_EOL;
 }
@@ -172,6 +176,8 @@ $associate_array['limit'] = 10; // int | Maximum number of order depth data in a
 try {
     $result = $apiInstance->listFuturesOrderBook($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesOrderBook: ', $e->getMessage(), PHP_EOL;
 }
@@ -236,6 +242,8 @@ $associate_array['to'] = 1546935600; // int | Specify end time in Unix seconds, 
 try {
     $result = $apiInstance->listFuturesTrades($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesTrades: ', $e->getMessage(), PHP_EOL;
 }
@@ -304,6 +312,8 @@ $associate_array['interval'] = '5m'; // string | Interval time between data poin
 try {
     $result = $apiInstance->listFuturesCandlesticks($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesCandlesticks: ', $e->getMessage(), PHP_EOL;
 }
@@ -366,6 +376,8 @@ $associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return r
 try {
     $result = $apiInstance->listFuturesTickers($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesTickers: ', $e->getMessage(), PHP_EOL;
 }
@@ -425,6 +437,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listFuturesFundingRateHistory($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesFundingRateHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -484,6 +498,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listFuturesInsuranceLedger($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesInsuranceLedger: ', $e->getMessage(), PHP_EOL;
 }
@@ -545,6 +561,8 @@ $settle = 'btc'; // string | Settle currency
 try {
     $result = $apiInstance->listFuturesAccounts($settle);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesAccounts: ', $e->getMessage(), PHP_EOL;
 }
@@ -607,6 +625,8 @@ $associate_array['type'] = 'dnw'; // string | Changing Type: - dnw: Deposit & Wi
 try {
     $result = $apiInstance->listFuturesAccountBook($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesAccountBook: ', $e->getMessage(), PHP_EOL;
 }
@@ -671,6 +691,8 @@ $settle = 'btc'; // string | Settle currency
 try {
     $result = $apiInstance->listPositions($settle);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listPositions: ', $e->getMessage(), PHP_EOL;
 }
@@ -730,6 +752,8 @@ $contract = 'BTC_USD'; // string | Futures contract
 try {
     $result = $apiInstance->getPosition($settle, $contract);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->getPosition: ', $e->getMessage(), PHP_EOL;
 }
@@ -791,6 +815,8 @@ $change = '0.01'; // string | Margin change. Use positive number to increase mar
 try {
     $result = $apiInstance->updatePositionMargin($settle, $contract, $change);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->updatePositionMargin: ', $e->getMessage(), PHP_EOL;
 }
@@ -853,6 +879,8 @@ $leverage = '10'; // string | New position leverage
 try {
     $result = $apiInstance->updatePositionLeverage($settle, $contract, $leverage);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->updatePositionLeverage: ', $e->getMessage(), PHP_EOL;
 }
@@ -915,6 +943,8 @@ $risk_limit = '10'; // string | New position risk limit
 try {
     $result = $apiInstance->updatePositionRiskLimit($settle, $contract, $risk_limit);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->updatePositionRiskLimit: ', $e->getMessage(), PHP_EOL;
 }
@@ -983,6 +1013,8 @@ $associate_array['count_total'] = 0; // int | Whether to return total number mat
 try {
     $result = $apiInstance->listFuturesOrders($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listFuturesOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -1052,6 +1084,8 @@ $futures_order = new \GateApi\Model\FuturesOrder(); // \GateApi\Model\FuturesOrd
 try {
     $result = $apiInstance->createFuturesOrder($settle, $futures_order);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->createFuturesOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1115,6 +1149,8 @@ $side = 'ask'; // string | All bids or asks. Both included in not specified
 try {
     $result = $apiInstance->cancelFuturesOrders($settle, $contract, $side);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->cancelFuturesOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -1178,6 +1214,8 @@ $order_id = '12345'; // string | ID returned on order successfully being created
 try {
     $result = $apiInstance->getFuturesOrder($settle, $order_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->getFuturesOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1238,6 +1276,8 @@ $order_id = '12345'; // string | ID returned on order successfully being created
 try {
     $result = $apiInstance->cancelFuturesOrder($settle, $order_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->cancelFuturesOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1303,6 +1343,8 @@ $associate_array['count_total'] = 0; // int | Whether to return total number mat
 try {
     $result = $apiInstance->getMyTrades($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->getMyTrades: ', $e->getMessage(), PHP_EOL;
 }
@@ -1371,6 +1413,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listPositionClose($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listPositionClose: ', $e->getMessage(), PHP_EOL;
 }
@@ -1436,6 +1480,8 @@ $associate_array['at'] = 0; // int | Specify a liquidation timestamp
 try {
     $result = $apiInstance->listLiquidates($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listLiquidates: ', $e->getMessage(), PHP_EOL;
 }
@@ -1503,6 +1549,8 @@ $associate_array['offset'] = 0; // int | List offset, starting from 0
 try {
     $result = $apiInstance->listPriceTriggeredOrders($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->listPriceTriggeredOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -1568,6 +1616,8 @@ $futures_price_triggered_order = new \GateApi\Model\FuturesPriceTriggeredOrder()
 try {
     $result = $apiInstance->createPriceTriggeredOrder($settle, $futures_price_triggered_order);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->createPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1628,6 +1678,8 @@ $contract = 'BTC_USD'; // string | Futures contract
 try {
     $result = $apiInstance->cancelPriceTriggeredOrderList($settle, $contract);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->cancelPriceTriggeredOrderList: ', $e->getMessage(), PHP_EOL;
 }
@@ -1688,6 +1740,8 @@ $order_id = 'order_id_example'; // string | ID returned on order successfully be
 try {
     $result = $apiInstance->getPriceTriggeredOrder($settle, $order_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->getPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1748,6 +1802,8 @@ $order_id = 'order_id_example'; // string | ID returned on order successfully be
 try {
     $result = $apiInstance->cancelPriceTriggeredOrder($settle, $order_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling FuturesApi->cancelPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
 }

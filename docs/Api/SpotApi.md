@@ -45,6 +45,8 @@ $apiInstance = new GateApi\Api\SpotApi(
 try {
     $result = $apiInstance->listCurrencyPairs();
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listCurrencyPairs: ', $e->getMessage(), PHP_EOL;
 }
@@ -96,6 +98,8 @@ $currency_pair = 'ETH_BTC'; // string | Currency pair
 try {
     $result = $apiInstance->getCurrencyPair($currency_pair);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->getCurrencyPair: ', $e->getMessage(), PHP_EOL;
 }
@@ -152,6 +156,8 @@ $associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 try {
     $result = $apiInstance->listTickers($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listTickers: ', $e->getMessage(), PHP_EOL;
 }
@@ -212,6 +218,8 @@ $associate_array['limit'] = 10; // int | Maximum number of order depth data in a
 try {
     $result = $apiInstance->listOrderBook($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listOrderBook: ', $e->getMessage(), PHP_EOL;
 }
@@ -272,6 +280,8 @@ $associate_array['last_id'] = '12345'; // string | Specify list staring point us
 try {
     $result = $apiInstance->listTrades($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listTrades: ', $e->getMessage(), PHP_EOL;
 }
@@ -336,6 +346,8 @@ $associate_array['interval'] = '30m'; // string | Interval time between data poi
 try {
     $result = $apiInstance->listCandlesticks($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listCandlesticks: ', $e->getMessage(), PHP_EOL;
 }
@@ -400,6 +412,8 @@ $associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify a currency p
 try {
     $result = $apiInstance->getFee($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->getFee: ', $e->getMessage(), PHP_EOL;
 }
@@ -460,6 +474,8 @@ $associate_array['currency'] = 'BTC'; // string | Retrieved specified currency r
 try {
     $result = $apiInstance->listSpotAccounts($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listSpotAccounts: ', $e->getMessage(), PHP_EOL;
 }
@@ -522,6 +538,8 @@ $order = array(new \GateApi\Model\Order()); // \GateApi\Model\Order[] |
 try {
     $result = $apiInstance->createBatchOrders($order);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->createBatchOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -583,6 +601,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listAllOpenOrders($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listAllOpenOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -647,6 +667,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned. If
 try {
     $result = $apiInstance->listOrders($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -710,6 +732,8 @@ $order = new \GateApi\Model\Order(); // \GateApi\Model\Order |
 try {
     $result = $apiInstance->createOrder($order);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->createOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -770,6 +794,8 @@ $account = 'spot'; // string | Specify account type. Default to all account type
 try {
     $result = $apiInstance->cancelOrders($currency_pair, $side, $account);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->cancelOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -832,6 +858,8 @@ $cancel_order = array(new \GateApi\Model\CancelOrder()); // \GateApi\Model\Cance
 try {
     $result = $apiInstance->cancelBatchOrders($cancel_order);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->cancelBatchOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -891,6 +919,8 @@ $currency_pair = 'BTC_USDT'; // string | Currency pair
 try {
     $result = $apiInstance->getOrder($order_id, $currency_pair);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->getOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -951,6 +981,8 @@ $currency_pair = 'BTC_USDT'; // string | Currency pair
 try {
     $result = $apiInstance->cancelOrder($order_id, $currency_pair);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->cancelOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1013,6 +1045,8 @@ $associate_array['order_id'] = '12345'; // string | List all trades of specified
 try {
     $result = $apiInstance->listMyTrades($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling SpotApi->listMyTrades: ', $e->getMessage(), PHP_EOL;
 }

@@ -85,7 +85,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_size' => 'int',
         'position_size' => 'int',
         'config_change_time' => 'float',
-        'in_delisting' => 'bool'
+        'in_delisting' => 'bool',
+        'orders_limit' => 'int'
     ];
 
     /**
@@ -124,7 +125,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_size' => 'int64',
         'position_size' => 'int64',
         'config_change_time' => null,
-        'in_delisting' => null
+        'in_delisting' => null,
+        'orders_limit' => null
     ];
 
     /**
@@ -184,7 +186,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_size' => 'trade_size',
         'position_size' => 'position_size',
         'config_change_time' => 'config_change_time',
-        'in_delisting' => 'in_delisting'
+        'in_delisting' => 'in_delisting',
+        'orders_limit' => 'orders_limit'
     ];
 
     /**
@@ -223,7 +226,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_size' => 'setTradeSize',
         'position_size' => 'setPositionSize',
         'config_change_time' => 'setConfigChangeTime',
-        'in_delisting' => 'setInDelisting'
+        'in_delisting' => 'setInDelisting',
+        'orders_limit' => 'setOrdersLimit'
     ];
 
     /**
@@ -262,7 +266,8 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_size' => 'getTradeSize',
         'position_size' => 'getPositionSize',
         'config_change_time' => 'getConfigChangeTime',
-        'in_delisting' => 'getInDelisting'
+        'in_delisting' => 'getInDelisting',
+        'orders_limit' => 'getOrdersLimit'
     ];
 
     /**
@@ -386,6 +391,7 @@ class Contract implements ModelInterface, ArrayAccess
         $this->container['position_size'] = isset($data['position_size']) ? $data['position_size'] : null;
         $this->container['config_change_time'] = isset($data['config_change_time']) ? $data['config_change_time'] : null;
         $this->container['in_delisting'] = isset($data['in_delisting']) ? $data['in_delisting'] : null;
+        $this->container['orders_limit'] = isset($data['orders_limit']) ? $data['orders_limit'] : null;
     }
 
     /**
@@ -1186,6 +1192,30 @@ class Contract implements ModelInterface, ArrayAccess
     public function setInDelisting($in_delisting)
     {
         $this->container['in_delisting'] = $in_delisting;
+
+        return $this;
+    }
+
+    /**
+     * Gets orders_limit
+     *
+     * @return int|null
+     */
+    public function getOrdersLimit()
+    {
+        return $this->container['orders_limit'];
+    }
+
+    /**
+     * Sets orders_limit
+     *
+     * @param int|null $orders_limit Maximum number of open orders
+     *
+     * @return $this
+     */
+    public function setOrdersLimit($orders_limit)
+    {
+        $this->container['orders_limit'] = $orders_limit;
 
         return $this;
     }

@@ -39,6 +39,8 @@ $currency = 'currency_example'; // string | Currency name
 try {
     $result = $apiInstance->getDepositAddress($currency);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling WalletApi->getDepositAddress: ', $e->getMessage(), PHP_EOL;
 }
@@ -103,6 +105,8 @@ $associate_array['offset'] = 0; // int | List offset, starting from 0
 try {
     $result = $apiInstance->listWithdrawals($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling WalletApi->listWithdrawals: ', $e->getMessage(), PHP_EOL;
 }
@@ -173,6 +177,8 @@ $associate_array['offset'] = 0; // int | List offset, starting from 0
 try {
     $result = $apiInstance->listDeposits($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling WalletApi->listDeposits: ', $e->getMessage(), PHP_EOL;
 }
@@ -238,6 +244,8 @@ $transfer = new \GateApi\Model\Transfer(); // \GateApi\Model\Transfer |
 
 try {
     $apiInstance->transfer($transfer);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling WalletApi->transfer: ', $e->getMessage(), PHP_EOL;
 }
@@ -302,6 +310,8 @@ $associate_array['offset'] = 0; // int | List offset, starting from 0
 try {
     $result = $apiInstance->listSubAccountTransfers($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling WalletApi->listSubAccountTransfers: ', $e->getMessage(), PHP_EOL;
 }
@@ -365,6 +375,8 @@ $sub_account_transfer = new \GateApi\Model\SubAccountTransfer(); // \GateApi\Mod
 
 try {
     $apiInstance->transferWithSubAccount($sub_account_transfer);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling WalletApi->transferWithSubAccount: ', $e->getMessage(), PHP_EOL;
 }
