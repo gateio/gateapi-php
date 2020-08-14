@@ -387,6 +387,9 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         if ($this->container['contract'] === null) {
             $invalidProperties[] = "'contract' can't be null";
         }
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
         $allowedValues = $this->getTifAllowableValues();
         if (!is_null($this->container['tif']) && !in_array($this->container['tif'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -599,7 +602,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Gets size
      *
-     * @return int|null
+     * @return int
      */
     public function getSize()
     {
@@ -609,7 +612,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Order size. Specify positive number to make a bid, and negative number to ask
+     * @param int $size Order size. Specify positive number to make a bid, and negative number to ask
      *
      * @return $this
      */

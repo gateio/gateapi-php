@@ -34,6 +34,8 @@ $ledger_record = new \GateApi\Model\LedgerRecord(); // \GateApi\Model\LedgerReco
 try {
     $result = $apiInstance->withdraw($ledger_record);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling WithdrawalApi->withdraw: ', $e->getMessage(), PHP_EOL;
 }

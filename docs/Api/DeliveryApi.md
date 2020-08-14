@@ -57,6 +57,8 @@ $settle = 'usdt'; // string | Settle currency
 try {
     $result = $apiInstance->listDeliveryContracts($settle);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryContracts: ', $e->getMessage(), PHP_EOL;
 }
@@ -112,6 +114,8 @@ $contract = 'BTC_USDT_20200814'; // string | Futures contract
 try {
     $result = $apiInstance->getDeliveryContract($settle, $contract);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->getDeliveryContract: ', $e->getMessage(), PHP_EOL;
 }
@@ -172,6 +176,8 @@ $associate_array['limit'] = 10; // int | Maximum number of order depth data in a
 try {
     $result = $apiInstance->listDeliveryOrderBook($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryOrderBook: ', $e->getMessage(), PHP_EOL;
 }
@@ -236,6 +242,8 @@ $associate_array['to'] = 1546935600; // float | Specify end time in Unix seconds
 try {
     $result = $apiInstance->listDeliveryTrades($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryTrades: ', $e->getMessage(), PHP_EOL;
 }
@@ -304,6 +312,8 @@ $associate_array['interval'] = '5m'; // string | Interval time between data poin
 try {
     $result = $apiInstance->listDeliveryCandlesticks($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryCandlesticks: ', $e->getMessage(), PHP_EOL;
 }
@@ -366,6 +376,8 @@ $associate_array['contract'] = 'BTC_USDT_20200814'; // string | Futures contract
 try {
     $result = $apiInstance->listDeliveryTickers($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryTickers: ', $e->getMessage(), PHP_EOL;
 }
@@ -424,6 +436,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listDeliveryInsuranceLedger($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryInsuranceLedger: ', $e->getMessage(), PHP_EOL;
 }
@@ -485,6 +499,8 @@ $settle = 'usdt'; // string | Settle currency
 try {
     $result = $apiInstance->listDeliveryAccounts($settle);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryAccounts: ', $e->getMessage(), PHP_EOL;
 }
@@ -547,6 +563,8 @@ $associate_array['type'] = 'dnw'; // string | Changing Type: - dnw: Deposit & Wi
 try {
     $result = $apiInstance->listDeliveryAccountBook($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryAccountBook: ', $e->getMessage(), PHP_EOL;
 }
@@ -611,6 +629,8 @@ $settle = 'usdt'; // string | Settle currency
 try {
     $result = $apiInstance->listDeliveryPositions($settle);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryPositions: ', $e->getMessage(), PHP_EOL;
 }
@@ -670,6 +690,8 @@ $contract = 'BTC_USDT_20200814'; // string | Futures contract
 try {
     $result = $apiInstance->getDeliveryPosition($settle, $contract);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->getDeliveryPosition: ', $e->getMessage(), PHP_EOL;
 }
@@ -731,6 +753,8 @@ $change = '0.01'; // string | Margin change. Use positive number to increase mar
 try {
     $result = $apiInstance->updateDeliveryPositionMargin($settle, $contract, $change);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->updateDeliveryPositionMargin: ', $e->getMessage(), PHP_EOL;
 }
@@ -793,6 +817,8 @@ $leverage = '10'; // string | New position leverage
 try {
     $result = $apiInstance->updateDeliveryPositionLeverage($settle, $contract, $leverage);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->updateDeliveryPositionLeverage: ', $e->getMessage(), PHP_EOL;
 }
@@ -855,6 +881,8 @@ $risk_limit = '10'; // string | New position risk limit
 try {
     $result = $apiInstance->updateDeliveryPositionRiskLimit($settle, $contract, $risk_limit);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->updateDeliveryPositionRiskLimit: ', $e->getMessage(), PHP_EOL;
 }
@@ -923,6 +951,8 @@ $associate_array['count_total'] = 0; // int | Whether to return total number mat
 try {
     $result = $apiInstance->listDeliveryOrders($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -992,6 +1022,8 @@ $futures_order = new \GateApi\Model\FuturesOrder(); // \GateApi\Model\FuturesOrd
 try {
     $result = $apiInstance->createDeliveryOrder($settle, $futures_order);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->createDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1055,6 +1087,8 @@ $side = 'ask'; // string | All bids or asks. Both included in not specified
 try {
     $result = $apiInstance->cancelDeliveryOrders($settle, $contract, $side);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->cancelDeliveryOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -1118,6 +1152,8 @@ $order_id = '12345'; // string | ID returned on order successfully being created
 try {
     $result = $apiInstance->getDeliveryOrder($settle, $order_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->getDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1178,6 +1214,8 @@ $order_id = '12345'; // string | ID returned on order successfully being created
 try {
     $result = $apiInstance->cancelDeliveryOrder($settle, $order_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->cancelDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1243,6 +1281,8 @@ $associate_array['count_total'] = 0; // int | Whether to return total number mat
 try {
     $result = $apiInstance->getMyDeliveryTrades($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->getMyDeliveryTrades: ', $e->getMessage(), PHP_EOL;
 }
@@ -1311,6 +1351,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listDeliveryPositionClose($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryPositionClose: ', $e->getMessage(), PHP_EOL;
 }
@@ -1376,6 +1418,8 @@ $associate_array['at'] = 0; // int | Specify a liquidation timestamp
 try {
     $result = $apiInstance->listDeliveryLiquidates($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliveryLiquidates: ', $e->getMessage(), PHP_EOL;
 }
@@ -1442,6 +1486,8 @@ $associate_array['at'] = 0; // int | Specify a settlement timestamp
 try {
     $result = $apiInstance->listDeliverySettlements($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listDeliverySettlements: ', $e->getMessage(), PHP_EOL;
 }
@@ -1509,6 +1555,8 @@ $associate_array['offset'] = 0; // int | List offset, starting from 0
 try {
     $result = $apiInstance->listPriceTriggeredDeliveryOrders($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->listPriceTriggeredDeliveryOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -1574,6 +1622,8 @@ $futures_price_triggered_order = new \GateApi\Model\FuturesPriceTriggeredOrder()
 try {
     $result = $apiInstance->createPriceTriggeredDeliveryOrder($settle, $futures_price_triggered_order);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->createPriceTriggeredDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1634,6 +1684,8 @@ $contract = 'BTC_USD'; // string | Futures contract
 try {
     $result = $apiInstance->cancelPriceTriggeredDeliveryOrderList($settle, $contract);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->cancelPriceTriggeredDeliveryOrderList: ', $e->getMessage(), PHP_EOL;
 }
@@ -1694,6 +1746,8 @@ $order_id = 'order_id_example'; // string | ID returned on order successfully be
 try {
     $result = $apiInstance->getPriceTriggeredDeliveryOrder($settle, $order_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->getPriceTriggeredDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1754,6 +1808,8 @@ $order_id = 'order_id_example'; // string | ID returned on order successfully be
 try {
     $result = $apiInstance->cancelPriceTriggeredDeliveryOrder($settle, $order_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryApi->cancelPriceTriggeredDeliveryOrder: ', $e->getMessage(), PHP_EOL;
 }

@@ -44,6 +44,8 @@ $apiInstance = new GateApi\Api\MarginApi(
 try {
     $result = $apiInstance->listMarginCurrencyPairs();
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listMarginCurrencyPairs: ', $e->getMessage(), PHP_EOL;
 }
@@ -95,6 +97,8 @@ $currency = 'BTC'; // string | Retrieved specified currency related data
 try {
     $result = $apiInstance->listFundingBook($currency);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listFundingBook: ', $e->getMessage(), PHP_EOL;
 }
@@ -153,6 +157,8 @@ $associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 try {
     $result = $apiInstance->listMarginAccounts($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listMarginAccounts: ', $e->getMessage(), PHP_EOL;
 }
@@ -220,6 +226,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listMarginAccountBook($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listMarginAccountBook: ', $e->getMessage(), PHP_EOL;
 }
@@ -285,6 +293,8 @@ $associate_array['currency'] = 'BTC'; // string | Retrieved specified currency r
 try {
     $result = $apiInstance->listFundingAccounts($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listFundingAccounts: ', $e->getMessage(), PHP_EOL;
 }
@@ -352,6 +362,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listLoans($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listLoans: ', $e->getMessage(), PHP_EOL;
 }
@@ -419,6 +431,8 @@ $loan = new \GateApi\Model\Loan(); // \GateApi\Model\Loan |
 try {
     $result = $apiInstance->createLoan($loan);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->createLoan: ', $e->getMessage(), PHP_EOL;
 }
@@ -478,6 +492,8 @@ $ids = '123,234,345'; // string | Lending loan ID list separated by `,`. Maximum
 try {
     $result = $apiInstance->mergeLoans($currency, $ids);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->mergeLoans: ', $e->getMessage(), PHP_EOL;
 }
@@ -538,6 +554,8 @@ $side = 'lend'; // string | Lend or borrow
 try {
     $result = $apiInstance->getLoan($loan_id, $side);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->getLoan: ', $e->getMessage(), PHP_EOL;
 }
@@ -600,6 +618,8 @@ $currency = 'BTC'; // string | Retrieved specified currency related data
 try {
     $result = $apiInstance->cancelLoan($loan_id, $currency);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->cancelLoan: ', $e->getMessage(), PHP_EOL;
 }
@@ -662,6 +682,8 @@ $loan_patch = new \GateApi\Model\LoanPatch(); // \GateApi\Model\LoanPatch |
 try {
     $result = $apiInstance->updateLoan($loan_id, $loan_patch);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->updateLoan: ', $e->getMessage(), PHP_EOL;
 }
@@ -721,6 +743,8 @@ $loan_id = '12345'; // string | Loan ID
 try {
     $result = $apiInstance->listLoanRepayments($loan_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listLoanRepayments: ', $e->getMessage(), PHP_EOL;
 }
@@ -780,6 +804,8 @@ $repay_request = new \GateApi\Model\RepayRequest(); // \GateApi\Model\RepayReque
 try {
     $result = $apiInstance->repayLoan($loan_id, $repay_request);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->repayLoan: ', $e->getMessage(), PHP_EOL;
 }
@@ -842,6 +868,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records returned in 
 try {
     $result = $apiInstance->listLoanRecords($associate_array);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->listLoanRecords: ', $e->getMessage(), PHP_EOL;
 }
@@ -906,6 +934,8 @@ $loan_id = '12345'; // string | Loan ID
 try {
     $result = $apiInstance->getLoanRecord($loan_record_id, $loan_id);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->getLoanRecord: ', $e->getMessage(), PHP_EOL;
 }
@@ -968,6 +998,8 @@ $loan_patch = new \GateApi\Model\LoanPatch(); // \GateApi\Model\LoanPatch |
 try {
     $result = $apiInstance->updateLoanRecord($loan_record_id, $loan_patch);
     print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling MarginApi->updateLoanRecord: ', $e->getMessage(), PHP_EOL;
 }
