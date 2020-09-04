@@ -60,7 +60,8 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_discount' => 'bool',
         'gt_taker_fee' => 'string',
         'gt_maker_fee' => 'string',
-        'loan_fee' => 'string'
+        'loan_fee' => 'string',
+        'point_type' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_discount' => null,
         'gt_taker_fee' => null,
         'gt_maker_fee' => null,
-        'loan_fee' => null
+        'loan_fee' => null,
+        'point_type' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_discount' => 'gt_discount',
         'gt_taker_fee' => 'gt_taker_fee',
         'gt_maker_fee' => 'gt_maker_fee',
-        'loan_fee' => 'loan_fee'
+        'loan_fee' => 'loan_fee',
+        'point_type' => 'point_type'
     ];
 
     /**
@@ -126,7 +129,8 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_discount' => 'setGtDiscount',
         'gt_taker_fee' => 'setGtTakerFee',
         'gt_maker_fee' => 'setGtMakerFee',
-        'loan_fee' => 'setLoanFee'
+        'loan_fee' => 'setLoanFee',
+        'point_type' => 'setPointType'
     ];
 
     /**
@@ -141,7 +145,8 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_discount' => 'getGtDiscount',
         'gt_taker_fee' => 'getGtTakerFee',
         'gt_maker_fee' => 'getGtMakerFee',
-        'loan_fee' => 'getLoanFee'
+        'loan_fee' => 'getLoanFee',
+        'point_type' => 'getPointType'
     ];
 
     /**
@@ -211,6 +216,7 @@ class TradeFee implements ModelInterface, ArrayAccess
         $this->container['gt_taker_fee'] = isset($data['gt_taker_fee']) ? $data['gt_taker_fee'] : null;
         $this->container['gt_maker_fee'] = isset($data['gt_maker_fee']) ? $data['gt_maker_fee'] : null;
         $this->container['loan_fee'] = isset($data['loan_fee']) ? $data['loan_fee'] : null;
+        $this->container['point_type'] = isset($data['point_type']) ? $data['point_type'] : null;
     }
 
     /**
@@ -401,6 +407,30 @@ class TradeFee implements ModelInterface, ArrayAccess
     public function setLoanFee($loan_fee)
     {
         $this->container['loan_fee'] = $loan_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_type
+     *
+     * @return string|null
+     */
+    public function getPointType()
+    {
+        return $this->container['point_type'];
+    }
+
+    /**
+     * Sets point_type
+     *
+     * @param string|null $point_type Point type. 0 - Initial version. 1 - new version since 202009
+     *
+     * @return $this
+     */
+    public function setPointType($point_type)
+    {
+        $this->container['point_type'] = $point_type;
 
         return $this;
     }
