@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **gt_taker_fee** | **string** | Taker fee rate if using GT deduction. It will be 0 if GT deduction is disabled | [optional] 
 **gt_maker_fee** | **string** | Maker fee rate if using GT deduction. It will be 0 if GT deduction is disabled | [optional] 
 **loan_fee** | **string** | Loan fee rate of margin lending | [optional] 
+**point_type** | **string** | Point type. 0 - Initial version. 1 - new version since 202009 | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
