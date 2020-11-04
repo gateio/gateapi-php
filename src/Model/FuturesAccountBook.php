@@ -54,7 +54,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'time' => 'float',
+        'time' => 'double',
         'change' => 'string',
         'balance' => 'string',
         'type' => 'string',
@@ -67,7 +67,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'time' => null,
+        'time' => 'double',
         'change' => null,
         'balance' => null,
         'type' => null,
@@ -263,7 +263,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Gets time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getTime()
     {
@@ -273,7 +273,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param float|null $time Change time
+     * @param double|null $time Change time
      *
      * @return $this
      */

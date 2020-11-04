@@ -90,7 +90,7 @@ class DeliveryContract implements ModelInterface, ArrayAccess
         'trade_id' => 'int',
         'trade_size' => 'int',
         'position_size' => 'int',
-        'config_change_time' => 'float',
+        'config_change_time' => 'double',
         'in_delisting' => 'bool',
         'orders_limit' => 'int'
     ];
@@ -136,7 +136,7 @@ class DeliveryContract implements ModelInterface, ArrayAccess
         'trade_id' => 'int64',
         'trade_size' => 'int64',
         'position_size' => 'int64',
-        'config_change_time' => null,
+        'config_change_time' => 'double',
         'in_delisting' => null,
         'orders_limit' => null
     ];
@@ -1367,7 +1367,7 @@ class DeliveryContract implements ModelInterface, ArrayAccess
     /**
      * Gets config_change_time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getConfigChangeTime()
     {
@@ -1377,7 +1377,7 @@ class DeliveryContract implements ModelInterface, ArrayAccess
     /**
      * Sets config_change_time
      *
-     * @param float|null $config_change_time Configuration's last changed time
+     * @param double|null $config_change_time Configuration's last changed time
      *
      * @return $this
      */

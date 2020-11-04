@@ -54,6 +54,7 @@ class OrderBook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'int',
         'asks' => 'string[][]',
         'bids' => 'string[][]'
     ];
@@ -64,6 +65,7 @@ class OrderBook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => 'int64',
         'asks' => null,
         'bids' => null
     ];
@@ -95,6 +97,7 @@ class OrderBook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'asks' => 'asks',
         'bids' => 'bids'
     ];
@@ -105,6 +108,7 @@ class OrderBook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'asks' => 'setAsks',
         'bids' => 'setBids'
     ];
@@ -115,6 +119,7 @@ class OrderBook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'asks' => 'getAsks',
         'bids' => 'getBids'
     ];
@@ -179,6 +184,7 @@ class OrderBook implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['asks'] = isset($data['asks']) ? $data['asks'] : null;
         $this->container['bids'] = isset($data['bids']) ? $data['bids'] : null;
     }
@@ -212,6 +218,30 @@ class OrderBook implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return int|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int|null $id Order book ID, which is updated whenever the order book is changed. Valid only when `with_id` is set to `true`
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets asks

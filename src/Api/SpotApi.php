@@ -819,6 +819,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id       Return order book ID (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -840,6 +841,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id       Return order book ID (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -898,6 +900,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id       Return order book ID (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -922,6 +925,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id       Return order book ID (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -973,6 +977,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id       Return order book ID (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -983,6 +988,7 @@ class SpotApi
         $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
         $interval = array_key_exists('interval', $associative_array) ? $associative_array['interval'] : '0';
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 10;
+        $with_id = array_key_exists('with_id', $associative_array) ? $associative_array['with_id'] : false;
 
         // verify the required parameter 'currency_pair' is set
         if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
@@ -1038,6 +1044,18 @@ class SpotApi
             }
             else {
                 $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($with_id !== null) {
+            if('form' === 'form' && is_array($with_id)) {
+                foreach($with_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['with_id'] = $with_id;
             }
         }
 

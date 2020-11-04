@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **trade_id** | **int** | Current trade ID | [optional] 
 **trade_size** | **int** | Historical accumulation trade size | [optional] 
 **position_size** | **int** | Current total long position size | [optional] 
-**config_change_time** | **float** | Configuration&#39;s last changed time | [optional] 
+**config_change_time** | **double** | Configuration&#39;s last changed time | [optional] 
 **in_delisting** | **bool** | Contract is delisting | [optional] 
 **orders_limit** | **int** | Maximum number of open orders | [optional] 
 

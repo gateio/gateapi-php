@@ -193,7 +193,7 @@ No authorization required
 
 ## listOrderBook
 
-> \GateApi\Model\OrderBook listOrderBook($currency_pair, $interval, $limit)
+> \GateApi\Model\OrderBook listOrderBook($currency_pair, $interval, $limit, $with_id)
 
 Retrieve order book
 
@@ -214,6 +214,7 @@ $apiInstance = new GateApi\Api\SpotApi(
 $associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 $associate_array['interval'] = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $associate_array['limit'] = 10; // int | Maximum number of order depth data in asks or bids
+$associate_array['with_id'] = false; // bool | Return order book ID
 
 try {
     $result = $apiInstance->listOrderBook($associate_array);
@@ -236,6 +237,7 @@ Name | Type | Description  | Notes
  **currency_pair** | **string**| Currency pair |
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **with_id** | **bool**| Return order book ID | [optional] [default to false]
 
 ### Return type
 

@@ -54,7 +54,7 @@ class PositionClose implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'time' => 'float',
+        'time' => 'double',
         'contract' => 'string',
         'side' => 'string',
         'pnl' => 'string',
@@ -67,7 +67,7 @@ class PositionClose implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'time' => null,
+        'time' => 'double',
         'contract' => null,
         'side' => null,
         'pnl' => null,
@@ -251,7 +251,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Gets time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getTime()
     {
@@ -261,7 +261,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param float|null $time Position close time
+     * @param double|null $time Position close time
      *
      * @return $this
      */

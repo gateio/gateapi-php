@@ -55,7 +55,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        't' => 'float',
+        't' => 'double',
         'v' => 'int',
         'c' => 'string',
         'h' => 'string',
@@ -69,7 +69,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        't' => null,
+        't' => 'double',
         'v' => 'int64',
         'c' => null,
         'h' => null,
@@ -235,7 +235,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     /**
      * Gets t
      *
-     * @return float|null
+     * @return double|null
      */
     public function getT()
     {
@@ -245,7 +245,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets t
      *
-     * @param float|null $t Unix timestamp in seconds
+     * @param double|null $t Unix timestamp in seconds
      *
      * @return $this
      */

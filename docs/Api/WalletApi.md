@@ -98,8 +98,8 @@ $apiInstance = new GateApi\Api\WalletApi(
     $config
 );
 $associate_array['currency'] = 'BTC'; // string | Filter by currency. Return all currency records if not specified
-$associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
-$associate_array['to'] = 56; // int | Time range ending, default to current time
+$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time
+$associate_array['to'] = 1602123600; // int | Time range ending, default to current time
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 
@@ -170,8 +170,8 @@ $apiInstance = new GateApi\Api\WalletApi(
     $config
 );
 $associate_array['currency'] = 'BTC'; // string | Filter by currency. Return all currency records if not specified
-$associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
-$associate_array['to'] = 56; // int | Time range ending, default to current time
+$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time
+$associate_array['to'] = 1602123600; // int | Time range ending, default to current time
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 
@@ -303,8 +303,8 @@ $apiInstance = new GateApi\Api\WalletApi(
     $config
 );
 $associate_array['sub_uid'] = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
-$associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
-$associate_array['to'] = 56; // int | Time range ending, default to current time
+$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time
+$associate_array['to'] = 1602123600; // int | Time range ending, default to current time
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 

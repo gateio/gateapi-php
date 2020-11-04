@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**time** | **float** | Position close time | [optional] [readonly] 
+**time** | **double** | Position close time | [optional] [readonly] 
 **contract** | **string** | Futures contract | [optional] [readonly] 
 **side** | **string** | Position side, long or short | [optional] [readonly] 
 **pnl** | **string** | PNL | [optional] [readonly] 

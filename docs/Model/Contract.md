@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **mark_price_round** | **string** | Minimum mark price increment | [optional] 
 **funding_rate** | **string** | Current funding rate | [optional] 
 **funding_interval** | **int** | Funding application interval, unit in seconds | [optional] 
-**funding_next_apply** | **float** | Next funding time | [optional] 
+**funding_next_apply** | **double** | Next funding time | [optional] 
 **risk_limit_base** | **string** | Risk limit base | [optional] 
 **risk_limit_step** | **string** | Step of adjusting risk limit | [optional] 
 **risk_limit_max** | **string** | Maximum risk limit the contract allowed | [optional] 
@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **trade_id** | **int** | Current trade ID | [optional] 
 **trade_size** | **int** | Historical accumulation trade size | [optional] 
 **position_size** | **int** | Current total long position size | [optional] 
-**config_change_time** | **float** | Configuration&#39;s last changed time | [optional] 
+**config_change_time** | **double** | Configuration&#39;s last changed time | [optional] 
 **in_delisting** | **bool** | Contract is delisting | [optional] 
 **orders_limit** | **int** | Maximum number of open orders | [optional] 
 

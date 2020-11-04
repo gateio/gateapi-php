@@ -71,7 +71,7 @@ class Contract implements ModelInterface, ArrayAccess
         'mark_price_round' => 'string',
         'funding_rate' => 'string',
         'funding_interval' => 'int',
-        'funding_next_apply' => 'float',
+        'funding_next_apply' => 'double',
         'risk_limit_base' => 'string',
         'risk_limit_step' => 'string',
         'risk_limit_max' => 'string',
@@ -84,7 +84,7 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_id' => 'int',
         'trade_size' => 'int',
         'position_size' => 'int',
-        'config_change_time' => 'float',
+        'config_change_time' => 'double',
         'in_delisting' => 'bool',
         'orders_limit' => 'int'
     ];
@@ -111,7 +111,7 @@ class Contract implements ModelInterface, ArrayAccess
         'mark_price_round' => null,
         'funding_rate' => null,
         'funding_interval' => null,
-        'funding_next_apply' => null,
+        'funding_next_apply' => 'double',
         'risk_limit_base' => null,
         'risk_limit_step' => null,
         'risk_limit_max' => null,
@@ -124,7 +124,7 @@ class Contract implements ModelInterface, ArrayAccess
         'trade_id' => 'int64',
         'trade_size' => 'int64',
         'position_size' => 'int64',
-        'config_change_time' => null,
+        'config_change_time' => 'double',
         'in_delisting' => null,
         'orders_limit' => null
     ];
@@ -839,7 +839,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Gets funding_next_apply
      *
-     * @return float|null
+     * @return double|null
      */
     public function getFundingNextApply()
     {
@@ -849,7 +849,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets funding_next_apply
      *
-     * @param float|null $funding_next_apply Next funding time
+     * @param double|null $funding_next_apply Next funding time
      *
      * @return $this
      */
@@ -1151,7 +1151,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Gets config_change_time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getConfigChangeTime()
     {
@@ -1161,7 +1161,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets config_change_time
      *
-     * @param float|null $config_change_time Configuration's last changed time
+     * @param double|null $config_change_time Configuration's last changed time
      *
      * @return $this
      */

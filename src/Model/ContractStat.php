@@ -1,6 +1,6 @@
 <?php
 /**
- * FuturesTrade
+ * ContractStat
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * FuturesTrade Class Doc Comment
+ * ContractStat Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class FuturesTrade implements ModelInterface, ArrayAccess
+class ContractStat implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FuturesTrade';
+    protected static $openAPIModelName = 'ContractStat';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +54,11 @@ class FuturesTrade implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'create_time' => 'double',
-        'contract' => 'string',
-        'size' => 'int',
-        'price' => 'string'
+        'time' => 'int',
+        'lsr_taker' => 'float',
+        'lsr_account' => 'float',
+        'liq_size' => 'int',
+        'open_interest' => 'int'
     ];
 
     /**
@@ -67,11 +67,11 @@ class FuturesTrade implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'create_time' => 'double',
-        'contract' => null,
-        'size' => 'int64',
-        'price' => null
+        'time' => 'int64',
+        'lsr_taker' => null,
+        'lsr_account' => null,
+        'liq_size' => 'int64',
+        'open_interest' => 'int64'
     ];
 
     /**
@@ -101,11 +101,11 @@ class FuturesTrade implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'create_time' => 'create_time',
-        'contract' => 'contract',
-        'size' => 'size',
-        'price' => 'price'
+        'time' => 'time',
+        'lsr_taker' => 'lsr_taker',
+        'lsr_account' => 'lsr_account',
+        'liq_size' => 'liq_size',
+        'open_interest' => 'open_interest'
     ];
 
     /**
@@ -114,11 +114,11 @@ class FuturesTrade implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'create_time' => 'setCreateTime',
-        'contract' => 'setContract',
-        'size' => 'setSize',
-        'price' => 'setPrice'
+        'time' => 'setTime',
+        'lsr_taker' => 'setLsrTaker',
+        'lsr_account' => 'setLsrAccount',
+        'liq_size' => 'setLiqSize',
+        'open_interest' => 'setOpenInterest'
     ];
 
     /**
@@ -127,11 +127,11 @@ class FuturesTrade implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'create_time' => 'getCreateTime',
-        'contract' => 'getContract',
-        'size' => 'getSize',
-        'price' => 'getPrice'
+        'time' => 'getTime',
+        'lsr_taker' => 'getLsrTaker',
+        'lsr_account' => 'getLsrAccount',
+        'liq_size' => 'getLiqSize',
+        'open_interest' => 'getOpenInterest'
     ];
 
     /**
@@ -194,11 +194,11 @@ class FuturesTrade implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
+        $this->container['lsr_taker'] = isset($data['lsr_taker']) ? $data['lsr_taker'] : null;
+        $this->container['lsr_account'] = isset($data['lsr_account']) ? $data['lsr_account'] : null;
+        $this->container['liq_size'] = isset($data['liq_size']) ? $data['liq_size'] : null;
+        $this->container['open_interest'] = isset($data['open_interest']) ? $data['open_interest'] : null;
     }
 
     /**
@@ -226,121 +226,121 @@ class FuturesTrade implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets time
      *
      * @return int|null
      */
-    public function getId()
+    public function getTime()
     {
-        return $this->container['id'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets id
+     * Sets time
      *
-     * @param int|null $id Trade ID
+     * @param int|null $time Stat timestamp
      *
      * @return $this
      */
-    public function setId($id)
+    public function setTime($time)
     {
-        $this->container['id'] = $id;
+        $this->container['time'] = $time;
 
         return $this;
     }
 
     /**
-     * Gets create_time
+     * Gets lsr_taker
      *
-     * @return double|null
+     * @return float|null
      */
-    public function getCreateTime()
+    public function getLsrTaker()
     {
-        return $this->container['create_time'];
+        return $this->container['lsr_taker'];
     }
 
     /**
-     * Sets create_time
+     * Sets lsr_taker
      *
-     * @param double|null $create_time Trading time
+     * @param float|null $lsr_taker Long/short account number ratio
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setLsrTaker($lsr_taker)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['lsr_taker'] = $lsr_taker;
 
         return $this;
     }
 
     /**
-     * Gets contract
+     * Gets lsr_account
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getContract()
+    public function getLsrAccount()
     {
-        return $this->container['contract'];
+        return $this->container['lsr_account'];
     }
 
     /**
-     * Sets contract
+     * Sets lsr_account
      *
-     * @param string|null $contract Futures contract
+     * @param float|null $lsr_account Long/short taker size ratio
      *
      * @return $this
      */
-    public function setContract($contract)
+    public function setLsrAccount($lsr_account)
     {
-        $this->container['contract'] = $contract;
+        $this->container['lsr_account'] = $lsr_account;
 
         return $this;
     }
 
     /**
-     * Gets size
+     * Gets liq_size
      *
      * @return int|null
      */
-    public function getSize()
+    public function getLiqSize()
     {
-        return $this->container['size'];
+        return $this->container['liq_size'];
     }
 
     /**
-     * Sets size
+     * Sets liq_size
      *
-     * @param int|null $size Trading size
+     * @param int|null $liq_size Liquidation size
      *
      * @return $this
      */
-    public function setSize($size)
+    public function setLiqSize($liq_size)
     {
-        $this->container['size'] = $size;
+        $this->container['liq_size'] = $liq_size;
 
         return $this;
     }
 
     /**
-     * Gets price
+     * Gets open_interest
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getPrice()
+    public function getOpenInterest()
     {
-        return $this->container['price'];
+        return $this->container['open_interest'];
     }
 
     /**
-     * Sets price
+     * Sets open_interest
      *
-     * @param string|null $price Trading price
+     * @param int|null $open_interest Open interest
      *
      * @return $this
      */
-    public function setPrice($price)
+    public function setOpenInterest($open_interest)
     {
-        $this->container['price'] = $price;
+        $this->container['open_interest'] = $open_interest;
 
         return $this;
     }

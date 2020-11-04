@@ -57,8 +57,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'user' => 'int',
-        'create_time' => 'float',
-        'finish_time' => 'float',
+        'create_time' => 'double',
+        'finish_time' => 'double',
         'finish_as' => 'string',
         'status' => 'string',
         'contract' => 'string',
@@ -87,8 +87,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => 'int64',
         'user' => null,
-        'create_time' => null,
-        'finish_time' => null,
+        'create_time' => 'double',
+        'finish_time' => 'double',
         'finish_as' => null,
         'status' => null,
         'contract' => null,
@@ -464,7 +464,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Gets create_time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getCreateTime()
     {
@@ -474,7 +474,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param float|null $create_time Order creation time
+     * @param double|null $create_time Order creation time
      *
      * @return $this
      */
@@ -488,7 +488,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Gets finish_time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getFinishTime()
     {
@@ -498,7 +498,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_time
      *
-     * @param float|null $finish_time Order finished time. Not returned if order is open
+     * @param double|null $finish_time Order finished time. Not returned if order is open
      *
      * @return $this
      */

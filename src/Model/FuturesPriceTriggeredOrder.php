@@ -59,8 +59,8 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'trigger' => '\GateApi\Model\FuturesPriceTrigger',
         'id' => 'int',
         'user' => 'int',
-        'create_time' => 'float',
-        'finish_time' => 'float',
+        'create_time' => 'double',
+        'finish_time' => 'double',
         'trade_id' => 'int',
         'status' => 'string',
         'finish_as' => 'string',
@@ -77,8 +77,8 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'trigger' => null,
         'id' => 'int64',
         'user' => null,
-        'create_time' => null,
-        'finish_time' => null,
+        'create_time' => 'double',
+        'finish_time' => 'double',
         'trade_id' => 'int64',
         'status' => null,
         'finish_as' => null,
@@ -411,7 +411,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Gets create_time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getCreateTime()
     {
@@ -421,7 +421,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param float|null $create_time Creation time
+     * @param double|null $create_time Creation time
      *
      * @return $this
      */
@@ -435,7 +435,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Gets finish_time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getFinishTime()
     {
@@ -445,7 +445,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_time
      *
-     * @param float|null $finish_time Finished time
+     * @param double|null $finish_time Finished time
      *
      * @return $this
      */

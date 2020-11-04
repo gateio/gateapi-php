@@ -935,8 +935,8 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param float  $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param float  $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -959,8 +959,8 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param float  $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param float  $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1020,8 +1020,8 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param float  $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param float  $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1047,8 +1047,8 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param float  $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param float  $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1101,8 +1101,8 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param float  $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param float  $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1286,8 +1286,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param float  $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param float  $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
@@ -1310,8 +1310,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param float  $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param float  $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
@@ -1371,8 +1371,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param float  $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param float  $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
@@ -1398,8 +1398,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param float  $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param float  $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
@@ -1452,8 +1452,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param float  $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param float  $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *

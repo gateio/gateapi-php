@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**t** | **float** | Unix timestamp in seconds | [optional] 
+**t** | **double** | Unix timestamp in seconds | [optional] 
 **v** | **int** | size volume. Only returned if &#x60;contract&#x60; is not prefixed | [optional] 
 **c** | **string** | Close price | [optional] 
 **h** | **string** | Highest price | [optional] 

@@ -236,8 +236,8 @@ $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT_20200814'; // string | Futures contract
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['last_id'] = '12345'; // string | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
-$associate_array['from'] = 1546905600; // float | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.
-$associate_array['to'] = 1546935600; // float | Specify end time in Unix seconds, default to current time
+$associate_array['from'] = 1546905600; // int | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.
+$associate_array['to'] = 1546935600; // int | Specify end time in Unix seconds, default to current time
 
 try {
     $result = $apiInstance->listDeliveryTrades($associate_array);
@@ -261,8 +261,8 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract |
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **last_id** | **string**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
- **from** | **float**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. | [optional]
- **to** | **float**| Specify end time in Unix seconds, default to current time | [optional]
+ **from** | **int**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. | [optional]
+ **to** | **int**| Specify end time in Unix seconds, default to current time | [optional]
 
 ### Return type
 
@@ -304,8 +304,8 @@ $apiInstance = new GateApi\Api\DeliveryApi(
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT_20200814'; // string | Futures contract
-$associate_array['from'] = 1546905600; // float | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
-$associate_array['to'] = 1546935600; // float | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
+$associate_array['from'] = 1546905600; // int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
+$associate_array['to'] = 1546935600; // int | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
 $associate_array['limit'] = 100; // int | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
 $associate_array['interval'] = '5m'; // string | Interval time between data points
 
@@ -329,8 +329,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
- **from** | **float**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
- **to** | **float**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
+ **from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
+ **to** | **int**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
  **limit** | **int**| Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **interval** | **string**| Interval time between data points | [optional] [default to &#39;5m&#39;]
 

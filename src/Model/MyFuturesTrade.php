@@ -55,7 +55,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'create_time' => 'float',
+        'create_time' => 'double',
         'contract' => 'string',
         'order_id' => 'string',
         'size' => 'int',
@@ -70,7 +70,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
-        'create_time' => null,
+        'create_time' => 'double',
         'contract' => null,
         'order_id' => null,
         'size' => 'int64',
@@ -287,7 +287,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Gets create_time
      *
-     * @return float|null
+     * @return double|null
      */
     public function getCreateTime()
     {
@@ -297,7 +297,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param float|null $create_time Trading time
+     * @param double|null $create_time Trading time
      *
      * @return $this
      */
