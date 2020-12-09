@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **available** | **string** | Available balance to transfer out or trade | [optional] 
 **point** | **string** | POINT amount | [optional] 
 **currency** | **string** | Settle currency | [optional] 
+**in_dual_mode** | **bool** | Whether dual mode is enabled | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

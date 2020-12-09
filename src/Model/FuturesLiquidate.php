@@ -328,7 +328,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage Position leverage
+     * @param string|null $leverage Position leverage. Not returned in public endpoints.
      *
      * @return $this
      */
@@ -376,7 +376,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets margin
      *
-     * @param string|null $margin Position margin
+     * @param string|null $margin Position margin. Not returned in public endpoints.
      *
      * @return $this
      */
@@ -400,7 +400,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets entry_price
      *
-     * @param string|null $entry_price Average entry price
+     * @param string|null $entry_price Average entry price. Not returned in public endpoints.
      *
      * @return $this
      */
@@ -424,7 +424,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets liq_price
      *
-     * @param string|null $liq_price Liquidation price
+     * @param string|null $liq_price Liquidation price. Not returned in public endpoints.
      *
      * @return $this
      */
@@ -448,7 +448,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price
      *
-     * @param string|null $mark_price Mark price
+     * @param string|null $mark_price Mark price. Not returned in public endpoints.
      *
      * @return $this
      */
@@ -472,7 +472,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Liquidation order ID
+     * @param int|null $order_id Liquidation order ID. Not returned in public endpoints.
      *
      * @return $this
      */

@@ -57,7 +57,8 @@ class ContractStat implements ModelInterface, ArrayAccess
         'time' => 'int',
         'lsr_taker' => 'float',
         'lsr_account' => 'float',
-        'liq_size' => 'int',
+        'long_liq_size' => 'int',
+        'short_liq_size' => 'int',
         'open_interest' => 'int'
     ];
 
@@ -70,7 +71,8 @@ class ContractStat implements ModelInterface, ArrayAccess
         'time' => 'int64',
         'lsr_taker' => null,
         'lsr_account' => null,
-        'liq_size' => 'int64',
+        'long_liq_size' => 'int64',
+        'short_liq_size' => 'int64',
         'open_interest' => 'int64'
     ];
 
@@ -104,7 +106,8 @@ class ContractStat implements ModelInterface, ArrayAccess
         'time' => 'time',
         'lsr_taker' => 'lsr_taker',
         'lsr_account' => 'lsr_account',
-        'liq_size' => 'liq_size',
+        'long_liq_size' => 'long_liq_size',
+        'short_liq_size' => 'short_liq_size',
         'open_interest' => 'open_interest'
     ];
 
@@ -117,7 +120,8 @@ class ContractStat implements ModelInterface, ArrayAccess
         'time' => 'setTime',
         'lsr_taker' => 'setLsrTaker',
         'lsr_account' => 'setLsrAccount',
-        'liq_size' => 'setLiqSize',
+        'long_liq_size' => 'setLongLiqSize',
+        'short_liq_size' => 'setShortLiqSize',
         'open_interest' => 'setOpenInterest'
     ];
 
@@ -130,7 +134,8 @@ class ContractStat implements ModelInterface, ArrayAccess
         'time' => 'getTime',
         'lsr_taker' => 'getLsrTaker',
         'lsr_account' => 'getLsrAccount',
-        'liq_size' => 'getLiqSize',
+        'long_liq_size' => 'getLongLiqSize',
+        'short_liq_size' => 'getShortLiqSize',
         'open_interest' => 'getOpenInterest'
     ];
 
@@ -197,7 +202,8 @@ class ContractStat implements ModelInterface, ArrayAccess
         $this->container['time'] = isset($data['time']) ? $data['time'] : null;
         $this->container['lsr_taker'] = isset($data['lsr_taker']) ? $data['lsr_taker'] : null;
         $this->container['lsr_account'] = isset($data['lsr_account']) ? $data['lsr_account'] : null;
-        $this->container['liq_size'] = isset($data['liq_size']) ? $data['liq_size'] : null;
+        $this->container['long_liq_size'] = isset($data['long_liq_size']) ? $data['long_liq_size'] : null;
+        $this->container['short_liq_size'] = isset($data['short_liq_size']) ? $data['short_liq_size'] : null;
         $this->container['open_interest'] = isset($data['open_interest']) ? $data['open_interest'] : null;
     }
 
@@ -298,25 +304,49 @@ class ContractStat implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets liq_size
+     * Gets long_liq_size
      *
      * @return int|null
      */
-    public function getLiqSize()
+    public function getLongLiqSize()
     {
-        return $this->container['liq_size'];
+        return $this->container['long_liq_size'];
     }
 
     /**
-     * Sets liq_size
+     * Sets long_liq_size
      *
-     * @param int|null $liq_size Liquidation size
+     * @param int|null $long_liq_size Long liquidation size
      *
      * @return $this
      */
-    public function setLiqSize($liq_size)
+    public function setLongLiqSize($long_liq_size)
     {
-        $this->container['liq_size'] = $liq_size;
+        $this->container['long_liq_size'] = $long_liq_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets short_liq_size
+     *
+     * @return int|null
+     */
+    public function getShortLiqSize()
+    {
+        return $this->container['short_liq_size'];
+    }
+
+    /**
+     * Sets short_liq_size
+     *
+     * @param int|null $short_liq_size Short liquidation size
+     *
+     * @return $this
+     */
+    public function setShortLiqSize($short_liq_size)
+    {
+        $this->container['short_liq_size'] = $short_liq_size;
 
         return $this;
     }

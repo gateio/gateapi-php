@@ -2478,6 +2478,7 @@ class FuturesApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
+     * @param int    $from     Start timestamp (optional)
      * @param string $interval interval (optional, default to '5m')
      * @param int    $limit    limit (optional, default to 30)
      *
@@ -2500,6 +2501,7 @@ class FuturesApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
+     * @param int    $from     Start timestamp (optional)
      * @param string $interval (optional, default to '5m')
      * @param int    $limit    (optional, default to 30)
      *
@@ -2559,6 +2561,7 @@ class FuturesApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
+     * @param int    $from     Start timestamp (optional)
      * @param string $interval (optional, default to '5m')
      * @param int    $limit    (optional, default to 30)
      *
@@ -2584,6 +2587,7 @@ class FuturesApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
+     * @param int    $from     Start timestamp (optional)
      * @param string $interval (optional, default to '5m')
      * @param int    $limit    (optional, default to 30)
      *
@@ -2636,6 +2640,7 @@ class FuturesApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
+     * @param int    $from     Start timestamp (optional)
      * @param string $interval (optional, default to '5m')
      * @param int    $limit    (optional, default to 30)
      *
@@ -2647,6 +2652,7 @@ class FuturesApi
         // unbox the parameters from the associative array
         $settle = array_key_exists('settle', $associative_array) ? $associative_array['settle'] : 'btc';
         $contract = array_key_exists('contract', $associative_array) ? $associative_array['contract'] : null;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
         $interval = array_key_exists('interval', $associative_array) ? $associative_array['interval'] : '5m';
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 30;
 
@@ -2690,6 +2696,18 @@ class FuturesApi
         }
 
         // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
         if ($interval !== null) {
             if('form' === 'form' && is_array($interval)) {
                 foreach($interval as $key => $value) {
@@ -2698,6 +2716,335 @@ class FuturesApi
             }
             else {
                 $queryParams['interval'] = $interval;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listLiquidatedOrders
+     *
+     * Retrieve liquidation history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract, return related data only if specified (optional)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
+     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\FuturesLiquidate[]
+     */
+    public function listLiquidatedOrders($associative_array)
+    {
+        list($response) = $this->listLiquidatedOrdersWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listLiquidatedOrdersWithHttpInfo
+     *
+     * Retrieve liquidation history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract, return related data only if specified (optional)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
+     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\FuturesLiquidate[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listLiquidatedOrdersWithHttpInfo($associative_array)
+    {
+        $request = $this->listLiquidatedOrdersRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\FuturesLiquidate[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listLiquidatedOrdersAsync
+     *
+     * Retrieve liquidation history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract, return related data only if specified (optional)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
+     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listLiquidatedOrdersAsync($associative_array)
+    {
+        return $this->listLiquidatedOrdersAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listLiquidatedOrdersAsyncWithHttpInfo
+     *
+     * Retrieve liquidation history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract, return related data only if specified (optional)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
+     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listLiquidatedOrdersAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\FuturesLiquidate[]';
+        $request = $this->listLiquidatedOrdersRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listLiquidatedOrders'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract, return related data only if specified (optional)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
+     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listLiquidatedOrdersRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $settle = array_key_exists('settle', $associative_array) ? $associative_array['settle'] : 'btc';
+        $contract = array_key_exists('contract', $associative_array) ? $associative_array['contract'] : null;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling listLiquidatedOrders'
+            );
+        }
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listLiquidatedOrders, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listLiquidatedOrders, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/futures/{settle}/liq_orders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($contract !== null) {
+            if('form' === 'form' && is_array($contract)) {
+                foreach($contract as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['contract'] = $contract;
+            }
+        }
+
+        // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
+        if ($to !== null) {
+            if('form' === 'form' && is_array($to)) {
+                foreach($to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['to'] = $to;
             }
         }
 
@@ -4604,6 +4951,1378 @@ class FuturesApi
         }
 
         $resourcePath = '/futures/{settle}/positions/{contract}/risk_limit';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($risk_limit !== null) {
+            if('form' === 'form' && is_array($risk_limit)) {
+                foreach($risk_limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['risk_limit'] = $risk_limit;
+            }
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // path params
+        if ($contract !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contract' . '}',
+                ObjectSerializer::toPathValue($contract),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setDualMode
+     *
+     * Enable or disable dual mode
+     *
+     * @param string $settle    Settle currency (required)
+     * @param bool   $dual_mode Whether to enable dual mode (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\FuturesAccount
+     */
+    public function setDualMode($settle, $dual_mode)
+    {
+        list($response) = $this->setDualModeWithHttpInfo($settle, $dual_mode);
+        return $response;
+    }
+
+    /**
+     * Operation setDualModeWithHttpInfo
+     *
+     * Enable or disable dual mode
+     *
+     * @param string $settle    Settle currency (required)
+     * @param bool   $dual_mode Whether to enable dual mode (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\FuturesAccount, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setDualModeWithHttpInfo($settle, $dual_mode)
+    {
+        $request = $this->setDualModeRequest($settle, $dual_mode);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\FuturesAccount';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation setDualModeAsync
+     *
+     * Enable or disable dual mode
+     *
+     * @param string $settle    Settle currency (required)
+     * @param bool   $dual_mode Whether to enable dual mode (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setDualModeAsync($settle, $dual_mode)
+    {
+        return $this->setDualModeAsyncWithHttpInfo($settle, $dual_mode)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setDualModeAsyncWithHttpInfo
+     *
+     * Enable or disable dual mode
+     *
+     * @param string $settle    Settle currency (required)
+     * @param bool   $dual_mode Whether to enable dual mode (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setDualModeAsyncWithHttpInfo($settle, $dual_mode)
+    {
+        $returnType = '\GateApi\Model\FuturesAccount';
+        $request = $this->setDualModeRequest($settle, $dual_mode);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setDualMode'
+     *
+     * @param string $settle    Settle currency (required)
+     * @param bool   $dual_mode Whether to enable dual mode (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function setDualModeRequest($settle, $dual_mode)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling setDualMode'
+            );
+        }
+        // verify the required parameter 'dual_mode' is set
+        if ($dual_mode === null || (is_array($dual_mode) && count($dual_mode) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dual_mode when calling setDualMode'
+            );
+        }
+
+        $resourcePath = '/futures/{settle}/dual_mode';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($dual_mode !== null) {
+            if('form' === 'form' && is_array($dual_mode)) {
+                foreach($dual_mode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['dual_mode'] = $dual_mode;
+            }
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDualModePosition
+     *
+     * Retrieve position detail in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Position[]
+     */
+    public function getDualModePosition($settle, $contract)
+    {
+        list($response) = $this->getDualModePositionWithHttpInfo($settle, $contract);
+        return $response;
+    }
+
+    /**
+     * Operation getDualModePositionWithHttpInfo
+     *
+     * Retrieve position detail in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDualModePositionWithHttpInfo($settle, $contract)
+    {
+        $request = $this->getDualModePositionRequest($settle, $contract);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\Position[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getDualModePositionAsync
+     *
+     * Retrieve position detail in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDualModePositionAsync($settle, $contract)
+    {
+        return $this->getDualModePositionAsyncWithHttpInfo($settle, $contract)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDualModePositionAsyncWithHttpInfo
+     *
+     * Retrieve position detail in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDualModePositionAsyncWithHttpInfo($settle, $contract)
+    {
+        $returnType = '\GateApi\Model\Position[]';
+        $request = $this->getDualModePositionRequest($settle, $contract);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDualModePosition'
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getDualModePositionRequest($settle, $contract)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling getDualModePosition'
+            );
+        }
+        // verify the required parameter 'contract' is set
+        if ($contract === null || (is_array($contract) && count($contract) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contract when calling getDualModePosition'
+            );
+        }
+
+        $resourcePath = '/futures/{settle}/dual_comp/positions/{contract}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // path params
+        if ($contract !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contract' . '}',
+                ObjectSerializer::toPathValue($contract),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateDualModePositionMargin
+     *
+     * Update position margin in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Position[]
+     */
+    public function updateDualModePositionMargin($settle, $contract, $change)
+    {
+        list($response) = $this->updateDualModePositionMarginWithHttpInfo($settle, $contract, $change);
+        return $response;
+    }
+
+    /**
+     * Operation updateDualModePositionMarginWithHttpInfo
+     *
+     * Update position margin in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateDualModePositionMarginWithHttpInfo($settle, $contract, $change)
+    {
+        $request = $this->updateDualModePositionMarginRequest($settle, $contract, $change);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\Position[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation updateDualModePositionMarginAsync
+     *
+     * Update position margin in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDualModePositionMarginAsync($settle, $contract, $change)
+    {
+        return $this->updateDualModePositionMarginAsyncWithHttpInfo($settle, $contract, $change)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateDualModePositionMarginAsyncWithHttpInfo
+     *
+     * Update position margin in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDualModePositionMarginAsyncWithHttpInfo($settle, $contract, $change)
+    {
+        $returnType = '\GateApi\Model\Position[]';
+        $request = $this->updateDualModePositionMarginRequest($settle, $contract, $change);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateDualModePositionMargin'
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateDualModePositionMarginRequest($settle, $contract, $change)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling updateDualModePositionMargin'
+            );
+        }
+        // verify the required parameter 'contract' is set
+        if ($contract === null || (is_array($contract) && count($contract) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contract when calling updateDualModePositionMargin'
+            );
+        }
+        // verify the required parameter 'change' is set
+        if ($change === null || (is_array($change) && count($change) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $change when calling updateDualModePositionMargin'
+            );
+        }
+
+        $resourcePath = '/futures/{settle}/dual_comp/positions/{contract}/margin';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($change !== null) {
+            if('form' === 'form' && is_array($change)) {
+                foreach($change as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['change'] = $change;
+            }
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // path params
+        if ($contract !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contract' . '}',
+                ObjectSerializer::toPathValue($contract),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateDualModePositionLeverage
+     *
+     * Update position leverage in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $leverage New position leverage (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Position[]
+     */
+    public function updateDualModePositionLeverage($settle, $contract, $leverage)
+    {
+        list($response) = $this->updateDualModePositionLeverageWithHttpInfo($settle, $contract, $leverage);
+        return $response;
+    }
+
+    /**
+     * Operation updateDualModePositionLeverageWithHttpInfo
+     *
+     * Update position leverage in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $leverage New position leverage (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateDualModePositionLeverageWithHttpInfo($settle, $contract, $leverage)
+    {
+        $request = $this->updateDualModePositionLeverageRequest($settle, $contract, $leverage);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\Position[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation updateDualModePositionLeverageAsync
+     *
+     * Update position leverage in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $leverage New position leverage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDualModePositionLeverageAsync($settle, $contract, $leverage)
+    {
+        return $this->updateDualModePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateDualModePositionLeverageAsyncWithHttpInfo
+     *
+     * Update position leverage in dual mode
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $leverage New position leverage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDualModePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
+    {
+        $returnType = '\GateApi\Model\Position[]';
+        $request = $this->updateDualModePositionLeverageRequest($settle, $contract, $leverage);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateDualModePositionLeverage'
+     *
+     * @param string $settle   Settle currency (required)
+     * @param string $contract Futures contract (required)
+     * @param string $leverage New position leverage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateDualModePositionLeverageRequest($settle, $contract, $leverage)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling updateDualModePositionLeverage'
+            );
+        }
+        // verify the required parameter 'contract' is set
+        if ($contract === null || (is_array($contract) && count($contract) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contract when calling updateDualModePositionLeverage'
+            );
+        }
+        // verify the required parameter 'leverage' is set
+        if ($leverage === null || (is_array($leverage) && count($leverage) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $leverage when calling updateDualModePositionLeverage'
+            );
+        }
+
+        $resourcePath = '/futures/{settle}/dual_comp/positions/{contract}/leverage';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($leverage !== null) {
+            if('form' === 'form' && is_array($leverage)) {
+                foreach($leverage as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['leverage'] = $leverage;
+            }
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // path params
+        if ($contract !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contract' . '}',
+                ObjectSerializer::toPathValue($contract),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateDualModePositionRiskLimit
+     *
+     * Update position risk limit in dual mode
+     *
+     * @param string $settle     Settle currency (required)
+     * @param string $contract   Futures contract (required)
+     * @param string $risk_limit New position risk limit (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Position[]
+     */
+    public function updateDualModePositionRiskLimit($settle, $contract, $risk_limit)
+    {
+        list($response) = $this->updateDualModePositionRiskLimitWithHttpInfo($settle, $contract, $risk_limit);
+        return $response;
+    }
+
+    /**
+     * Operation updateDualModePositionRiskLimitWithHttpInfo
+     *
+     * Update position risk limit in dual mode
+     *
+     * @param string $settle     Settle currency (required)
+     * @param string $contract   Futures contract (required)
+     * @param string $risk_limit New position risk limit (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateDualModePositionRiskLimitWithHttpInfo($settle, $contract, $risk_limit)
+    {
+        $request = $this->updateDualModePositionRiskLimitRequest($settle, $contract, $risk_limit);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\Position[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation updateDualModePositionRiskLimitAsync
+     *
+     * Update position risk limit in dual mode
+     *
+     * @param string $settle     Settle currency (required)
+     * @param string $contract   Futures contract (required)
+     * @param string $risk_limit New position risk limit (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDualModePositionRiskLimitAsync($settle, $contract, $risk_limit)
+    {
+        return $this->updateDualModePositionRiskLimitAsyncWithHttpInfo($settle, $contract, $risk_limit)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateDualModePositionRiskLimitAsyncWithHttpInfo
+     *
+     * Update position risk limit in dual mode
+     *
+     * @param string $settle     Settle currency (required)
+     * @param string $contract   Futures contract (required)
+     * @param string $risk_limit New position risk limit (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateDualModePositionRiskLimitAsyncWithHttpInfo($settle, $contract, $risk_limit)
+    {
+        $returnType = '\GateApi\Model\Position[]';
+        $request = $this->updateDualModePositionRiskLimitRequest($settle, $contract, $risk_limit);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateDualModePositionRiskLimit'
+     *
+     * @param string $settle     Settle currency (required)
+     * @param string $contract   Futures contract (required)
+     * @param string $risk_limit New position risk limit (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateDualModePositionRiskLimitRequest($settle, $contract, $risk_limit)
+    {
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling updateDualModePositionRiskLimit'
+            );
+        }
+        // verify the required parameter 'contract' is set
+        if ($contract === null || (is_array($contract) && count($contract) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contract when calling updateDualModePositionRiskLimit'
+            );
+        }
+        // verify the required parameter 'risk_limit' is set
+        if ($risk_limit === null || (is_array($risk_limit) && count($risk_limit) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $risk_limit when calling updateDualModePositionRiskLimit'
+            );
+        }
+
+        $resourcePath = '/futures/{settle}/dual_comp/positions/{contract}/risk_limit';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

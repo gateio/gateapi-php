@@ -75,7 +75,8 @@ class Position implements ModelInterface, ArrayAccess
         'history_point' => 'string',
         'adl_ranking' => 'int',
         'pending_orders' => 'int',
-        'close_order' => '\GateApi\Model\PositionCloseOrder'
+        'close_order' => '\GateApi\Model\PositionCloseOrder',
+        'dual_mode' => 'string'
     ];
 
     /**
@@ -104,7 +105,8 @@ class Position implements ModelInterface, ArrayAccess
         'history_point' => null,
         'adl_ranking' => null,
         'pending_orders' => null,
-        'close_order' => null
+        'close_order' => null,
+        'dual_mode' => null
     ];
 
     /**
@@ -154,7 +156,8 @@ class Position implements ModelInterface, ArrayAccess
         'history_point' => 'history_point',
         'adl_ranking' => 'adl_ranking',
         'pending_orders' => 'pending_orders',
-        'close_order' => 'close_order'
+        'close_order' => 'close_order',
+        'dual_mode' => 'dual_mode'
     ];
 
     /**
@@ -183,7 +186,8 @@ class Position implements ModelInterface, ArrayAccess
         'history_point' => 'setHistoryPoint',
         'adl_ranking' => 'setAdlRanking',
         'pending_orders' => 'setPendingOrders',
-        'close_order' => 'setCloseOrder'
+        'close_order' => 'setCloseOrder',
+        'dual_mode' => 'setDualMode'
     ];
 
     /**
@@ -212,7 +216,8 @@ class Position implements ModelInterface, ArrayAccess
         'history_point' => 'getHistoryPoint',
         'adl_ranking' => 'getAdlRanking',
         'pending_orders' => 'getPendingOrders',
-        'close_order' => 'getCloseOrder'
+        'close_order' => 'getCloseOrder',
+        'dual_mode' => 'getDualMode'
     ];
 
     /**
@@ -256,8 +261,25 @@ class Position implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const DUAL_MODE_SINGLE = 'single';
+    const DUAL_MODE_DUAL_LONG = 'dual_long';
+    const DUAL_MODE_DUAL_SHORT = 'dual_short';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDualModeAllowableValues()
+    {
+        return [
+            self::DUAL_MODE_SINGLE,
+            self::DUAL_MODE_DUAL_LONG,
+            self::DUAL_MODE_DUAL_SHORT,
+        ];
+    }
     
 
     /**
@@ -296,6 +318,7 @@ class Position implements ModelInterface, ArrayAccess
         $this->container['adl_ranking'] = isset($data['adl_ranking']) ? $data['adl_ranking'] : null;
         $this->container['pending_orders'] = isset($data['pending_orders']) ? $data['pending_orders'] : null;
         $this->container['close_order'] = isset($data['close_order']) ? $data['close_order'] : null;
+        $this->container['dual_mode'] = isset($data['dual_mode']) ? $data['dual_mode'] : null;
     }
 
     /**
@@ -306,6 +329,14 @@ class Position implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getDualModeAllowableValues();
+        if (!is_null($this->container['dual_mode']) && !in_array($this->container['dual_mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'dual_mode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -822,6 +853,39 @@ class Position implements ModelInterface, ArrayAccess
     public function setCloseOrder($close_order)
     {
         $this->container['close_order'] = $close_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets dual_mode
+     *
+     * @return string|null
+     */
+    public function getDualMode()
+    {
+        return $this->container['dual_mode'];
+    }
+
+    /**
+     * Sets dual_mode
+     *
+     * @param string|null $dual_mode Position mode, including:  - `single`: dual mode is not enabled- `dual_long`: long position in dual mode- `dual_short`: short position in dual mode
+     *
+     * @return $this
+     */
+    public function setDualMode($dual_mode)
+    {
+        $allowedValues = $this->getDualModeAllowableValues();
+        if (!is_null($dual_mode) && !in_array($dual_mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'dual_mode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['dual_mode'] = $dual_mode;
 
         return $this;
     }

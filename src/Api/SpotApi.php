@@ -1133,6 +1133,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1154,6 +1155,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1212,6 +1214,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1236,6 +1239,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1287,6 +1291,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1297,6 +1302,7 @@ class SpotApi
         $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
         $last_id = array_key_exists('last_id', $associative_array) ? $associative_array['last_id'] : null;
+        $reverse = array_key_exists('reverse', $associative_array) ? $associative_array['reverse'] : false;
 
         // verify the required parameter 'currency_pair' is set
         if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
@@ -1352,6 +1358,18 @@ class SpotApi
             }
             else {
                 $queryParams['last_id'] = $last_id;
+            }
+        }
+
+        // query params
+        if ($reverse !== null) {
+            if('form' === 'form' && is_array($reverse)) {
+                foreach($reverse as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['reverse'] = $reverse;
             }
         }
 

@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**listFuturesFundingRateHistory**](FuturesApi.md#listFuturesFundingRateHistory) | **GET** /futures/{settle}/funding_rate | Funding rate history
 [**listFuturesInsuranceLedger**](FuturesApi.md#listFuturesInsuranceLedger) | **GET** /futures/{settle}/insurance | Futures insurance balance history
 [**listContractStats**](FuturesApi.md#listContractStats) | **GET** /futures/{settle}/contract_stats | Futures stats
+[**listLiquidatedOrders**](FuturesApi.md#listLiquidatedOrders) | **GET** /futures/{settle}/liq_orders | Retrieve liquidation history
 [**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/{settle}/accounts | Query futures account
 [**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/{settle}/account_book | Query account book
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/{settle}/positions | List all positions of a user
@@ -20,6 +21,11 @@ Method | HTTP request | Description
 [**updatePositionMargin**](FuturesApi.md#updatePositionMargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin
 [**updatePositionLeverage**](FuturesApi.md#updatePositionLeverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage
 [**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit
+[**setDualMode**](FuturesApi.md#setDualMode) | **POST** /futures/{settle}/dual_mode | Enable or disable dual mode
+[**getDualModePosition**](FuturesApi.md#getDualModePosition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Retrieve position detail in dual mode
+[**updateDualModePositionMargin**](FuturesApi.md#updateDualModePositionMargin) | **POST** /futures/{settle}/dual_comp/positions/{contract}/margin | Update position margin in dual mode
+[**updateDualModePositionLeverage**](FuturesApi.md#updateDualModePositionLeverage) | **POST** /futures/{settle}/dual_comp/positions/{contract}/leverage | Update position leverage in dual mode
+[**updateDualModePositionRiskLimit**](FuturesApi.md#updateDualModePositionRiskLimit) | **POST** /futures/{settle}/dual_comp/positions/{contract}/risk_limit | Update position risk limit in dual mode
 [**listFuturesOrders**](FuturesApi.md#listFuturesOrders) | **GET** /futures/{settle}/orders | List futures orders
 [**createFuturesOrder**](FuturesApi.md#createFuturesOrder) | **POST** /futures/{settle}/orders | Create a futures order
 [**cancelFuturesOrders**](FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
@@ -537,7 +543,7 @@ No authorization required
 
 ## listContractStats
 
-> \GateApi\Model\ContractStat[] listContractStats($settle, $contract, $interval, $limit)
+> \GateApi\Model\ContractStat[] listContractStats($settle, $contract, $from, $interval, $limit)
 
 Futures stats
 
@@ -555,6 +561,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USD'; // string | Futures contract
+$associate_array['from'] = 1604561000; // int | Start timestamp
 $associate_array['interval'] = '5m'; // string | 
 $associate_array['limit'] = 30; // int | 
 
@@ -578,12 +585,81 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
  **contract** | **string**| Futures contract |
+ **from** | **int**| Start timestamp | [optional]
  **interval** | **string**|  | [optional] [default to &#39;5m&#39;]
  **limit** | **int**|  | [optional] [default to 30]
 
 ### Return type
 
 [**\GateApi\Model\ContractStat[]**](../Model/ContractStat.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listLiquidatedOrders
+
+> \GateApi\Model\FuturesLiquidate[] listLiquidatedOrders($settle, $contract, $from, $to, $limit)
+
+Retrieve liquidation history
+
+Interval between `from` and `to` cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$associate_array['settle'] = 'btc'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$associate_array['from'] = 1547706332; // int | Start timestamp
+$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+
+try {
+    $result = $apiInstance->listLiquidatedOrders($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->listLiquidatedOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **from** | **int**| Start timestamp | [optional]
+ **to** | **int**| End timestamp | [optional]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+
+### Return type
+
+[**\GateApi\Model\FuturesLiquidate[]**](../Model/FuturesLiquidate.md)
 
 ### Authorization
 
@@ -1028,6 +1104,324 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\Position**](../Model/Position.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## setDualMode
+
+> \GateApi\Model\FuturesAccount setDualMode($settle, $dual_mode)
+
+Enable or disable dual mode
+
+Before setting dual mode, make sure all positions are closed and no orders are open
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$settle = 'btc'; // string | Settle currency
+$dual_mode = true; // bool | Whether to enable dual mode
+
+try {
+    $result = $apiInstance->setDualMode($settle, $dual_mode);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->setDualMode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **dual_mode** | **bool**| Whether to enable dual mode |
+
+### Return type
+
+[**\GateApi\Model\FuturesAccount**](../Model/FuturesAccount.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getDualModePosition
+
+> \GateApi\Model\Position[] getDualModePosition($settle, $contract)
+
+Retrieve position detail in dual mode
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$settle = 'btc'; // string | Settle currency
+$contract = 'BTC_USD'; // string | Futures contract
+
+try {
+    $result = $apiInstance->getDualModePosition($settle, $contract);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->getDualModePosition: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **contract** | **string**| Futures contract |
+
+### Return type
+
+[**\GateApi\Model\Position[]**](../Model/Position.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## updateDualModePositionMargin
+
+> \GateApi\Model\Position[] updateDualModePositionMargin($settle, $contract, $change)
+
+Update position margin in dual mode
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$settle = 'btc'; // string | Settle currency
+$contract = 'BTC_USD'; // string | Futures contract
+$change = '0.01'; // string | Margin change. Use positive number to increase margin, negative number otherwise.
+
+try {
+    $result = $apiInstance->updateDualModePositionMargin($settle, $contract, $change);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->updateDualModePositionMargin: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **contract** | **string**| Futures contract |
+ **change** | **string**| Margin change. Use positive number to increase margin, negative number otherwise. |
+
+### Return type
+
+[**\GateApi\Model\Position[]**](../Model/Position.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## updateDualModePositionLeverage
+
+> \GateApi\Model\Position[] updateDualModePositionLeverage($settle, $contract, $leverage)
+
+Update position leverage in dual mode
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$settle = 'btc'; // string | Settle currency
+$contract = 'BTC_USD'; // string | Futures contract
+$leverage = '10'; // string | New position leverage
+
+try {
+    $result = $apiInstance->updateDualModePositionLeverage($settle, $contract, $leverage);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->updateDualModePositionLeverage: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **contract** | **string**| Futures contract |
+ **leverage** | **string**| New position leverage |
+
+### Return type
+
+[**\GateApi\Model\Position[]**](../Model/Position.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## updateDualModePositionRiskLimit
+
+> \GateApi\Model\Position[] updateDualModePositionRiskLimit($settle, $contract, $risk_limit)
+
+Update position risk limit in dual mode
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$settle = 'btc'; // string | Settle currency
+$contract = 'BTC_USD'; // string | Futures contract
+$risk_limit = '10'; // string | New position risk limit
+
+try {
+    $result = $apiInstance->updateDualModePositionRiskLimit($settle, $contract, $risk_limit);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->updateDualModePositionRiskLimit: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
+ **contract** | **string**| Futures contract |
+ **risk_limit** | **string**| New position risk limit |
+
+### Return type
+
+[**\GateApi\Model\Position[]**](../Model/Position.md)
 
 ### Authorization
 

@@ -60,7 +60,8 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'order_margin' => 'string',
         'available' => 'string',
         'point' => 'string',
-        'currency' => 'string'
+        'currency' => 'string',
+        'in_dual_mode' => 'bool'
     ];
 
     /**
@@ -75,7 +76,8 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'order_margin' => null,
         'available' => null,
         'point' => null,
-        'currency' => null
+        'currency' => null,
+        'in_dual_mode' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'order_margin' => 'order_margin',
         'available' => 'available',
         'point' => 'point',
-        'currency' => 'currency'
+        'currency' => 'currency',
+        'in_dual_mode' => 'in_dual_mode'
     ];
 
     /**
@@ -126,7 +129,8 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'order_margin' => 'setOrderMargin',
         'available' => 'setAvailable',
         'point' => 'setPoint',
-        'currency' => 'setCurrency'
+        'currency' => 'setCurrency',
+        'in_dual_mode' => 'setInDualMode'
     ];
 
     /**
@@ -141,7 +145,8 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'order_margin' => 'getOrderMargin',
         'available' => 'getAvailable',
         'point' => 'getPoint',
-        'currency' => 'getCurrency'
+        'currency' => 'getCurrency',
+        'in_dual_mode' => 'getInDualMode'
     ];
 
     /**
@@ -211,6 +216,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         $this->container['available'] = isset($data['available']) ? $data['available'] : null;
         $this->container['point'] = isset($data['point']) ? $data['point'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['in_dual_mode'] = isset($data['in_dual_mode']) ? $data['in_dual_mode'] : null;
     }
 
     /**
@@ -401,6 +407,30 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets in_dual_mode
+     *
+     * @return bool|null
+     */
+    public function getInDualMode()
+    {
+        return $this->container['in_dual_mode'];
+    }
+
+    /**
+     * Sets in_dual_mode
+     *
+     * @param bool|null $in_dual_mode Whether dual mode is enabled
+     *
+     * @return $this
+     */
+    public function setInDualMode($in_dual_mode)
+    {
+        $this->container['in_dual_mode'] = $in_dual_mode;
 
         return $this;
     }
