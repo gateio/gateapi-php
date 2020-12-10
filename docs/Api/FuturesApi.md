@@ -176,7 +176,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client()
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['interval'] = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $associate_array['limit'] = 10; // int | Maximum number of order depth data in asks or bids
 
@@ -240,7 +240,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client()
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['last_id'] = '12345'; // string | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
 $associate_array['from'] = 1546905600; // int | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.
@@ -310,7 +310,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client()
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['from'] = 1546905600; // int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
 $associate_array['to'] = 1546935600; // int | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
 $associate_array['limit'] = 100; // int | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
@@ -378,7 +378,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client()
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 
 try {
     $result = $apiInstance->listFuturesTickers($associate_array);
@@ -438,7 +438,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client()
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 
 try {
@@ -560,7 +560,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client()
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['from'] = 1604561000; // int | Start timestamp
 $associate_array['interval'] = '5m'; // string | 
 $associate_array['limit'] = 30; // int | 
@@ -628,7 +628,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client()
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['from'] = 1547706332; // int | Start timestamp
 $associate_array['to'] = 1547706332; // int | End timestamp
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
@@ -1462,7 +1462,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['status'] = 'open'; // string | List orders based on status
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
@@ -1602,7 +1602,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$contract = 'BTC_USDT'; // string | Futures contract
 $side = 'ask'; // string | All bids or asks. Both included in not specified
 
 try {
@@ -1792,7 +1792,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['order'] = 12345; // int | Futures order ID, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
@@ -1866,7 +1866,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 
 try {
@@ -1932,7 +1932,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['at'] = 0; // int | Specify a liquidation timestamp
 
@@ -2001,7 +2001,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $associate_array['settle'] = 'btc'; // string | Settle currency
 $associate_array['status'] = 'status_example'; // string | List orders based on status
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 
@@ -2132,7 +2132,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $settle = 'btc'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$contract = 'BTC_USDT'; // string | Futures contract
 
 try {
     $result = $apiInstance->cancelPriceTriggeredOrderList($settle, $contract);

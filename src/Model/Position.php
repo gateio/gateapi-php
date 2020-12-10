@@ -76,7 +76,7 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => 'int',
         'pending_orders' => 'int',
         'close_order' => '\GateApi\Model\PositionCloseOrder',
-        'dual_mode' => 'string'
+        'mode' => 'string'
     ];
 
     /**
@@ -106,7 +106,7 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => null,
         'pending_orders' => null,
         'close_order' => null,
-        'dual_mode' => null
+        'mode' => null
     ];
 
     /**
@@ -157,7 +157,7 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => 'adl_ranking',
         'pending_orders' => 'pending_orders',
         'close_order' => 'close_order',
-        'dual_mode' => 'dual_mode'
+        'mode' => 'mode'
     ];
 
     /**
@@ -187,7 +187,7 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => 'setAdlRanking',
         'pending_orders' => 'setPendingOrders',
         'close_order' => 'setCloseOrder',
-        'dual_mode' => 'setDualMode'
+        'mode' => 'setMode'
     ];
 
     /**
@@ -217,7 +217,7 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => 'getAdlRanking',
         'pending_orders' => 'getPendingOrders',
         'close_order' => 'getCloseOrder',
-        'dual_mode' => 'getDualMode'
+        'mode' => 'getMode'
     ];
 
     /**
@@ -261,9 +261,9 @@ class Position implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const DUAL_MODE_SINGLE = 'single';
-    const DUAL_MODE_DUAL_LONG = 'dual_long';
-    const DUAL_MODE_DUAL_SHORT = 'dual_short';
+    const MODE_SINGLE = 'single';
+    const MODE_DUAL_LONG = 'dual_long';
+    const MODE_DUAL_SHORT = 'dual_short';
     
 
     
@@ -272,12 +272,12 @@ class Position implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getDualModeAllowableValues()
+    public function getModeAllowableValues()
     {
         return [
-            self::DUAL_MODE_SINGLE,
-            self::DUAL_MODE_DUAL_LONG,
-            self::DUAL_MODE_DUAL_SHORT,
+            self::MODE_SINGLE,
+            self::MODE_DUAL_LONG,
+            self::MODE_DUAL_SHORT,
         ];
     }
     
@@ -318,7 +318,7 @@ class Position implements ModelInterface, ArrayAccess
         $this->container['adl_ranking'] = isset($data['adl_ranking']) ? $data['adl_ranking'] : null;
         $this->container['pending_orders'] = isset($data['pending_orders']) ? $data['pending_orders'] : null;
         $this->container['close_order'] = isset($data['close_order']) ? $data['close_order'] : null;
-        $this->container['dual_mode'] = isset($data['dual_mode']) ? $data['dual_mode'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
     }
 
     /**
@@ -330,10 +330,10 @@ class Position implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getDualModeAllowableValues();
-        if (!is_null($this->container['dual_mode']) && !in_array($this->container['dual_mode'], $allowedValues, true)) {
+        $allowedValues = $this->getModeAllowableValues();
+        if (!is_null($this->container['mode']) && !in_array($this->container['mode'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'dual_mode', must be one of '%s'",
+                "invalid value for 'mode', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -858,34 +858,34 @@ class Position implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets dual_mode
+     * Gets mode
      *
      * @return string|null
      */
-    public function getDualMode()
+    public function getMode()
     {
-        return $this->container['dual_mode'];
+        return $this->container['mode'];
     }
 
     /**
-     * Sets dual_mode
+     * Sets mode
      *
-     * @param string|null $dual_mode Position mode, including:  - `single`: dual mode is not enabled- `dual_long`: long position in dual mode- `dual_short`: short position in dual mode
+     * @param string|null $mode Position mode, including:  - `single`: dual mode is not enabled- `dual_long`: long position in dual mode- `dual_short`: short position in dual mode
      *
      * @return $this
      */
-    public function setDualMode($dual_mode)
+    public function setMode($mode)
     {
-        $allowedValues = $this->getDualModeAllowableValues();
-        if (!is_null($dual_mode) && !in_array($dual_mode, $allowedValues, true)) {
+        $allowedValues = $this->getModeAllowableValues();
+        if (!is_null($mode) && !in_array($mode, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'dual_mode', must be one of '%s'",
+                    "Invalid value for 'mode', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['dual_mode'] = $dual_mode;
+        $this->container['mode'] = $mode;
 
         return $this;
     }

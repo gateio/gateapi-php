@@ -1548,7 +1548,7 @@ $apiInstance = new GateApi\Api\DeliveryApi(
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['status'] = 'status_example'; // string | List orders based on status
-$associate_array['contract'] = 'BTC_USD'; // string | Futures contract, return related data only if specified
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 
@@ -1679,7 +1679,7 @@ $apiInstance = new GateApi\Api\DeliveryApi(
     $config
 );
 $settle = 'usdt'; // string | Settle currency
-$contract = 'BTC_USD'; // string | Futures contract
+$contract = 'BTC_USDT'; // string | Futures contract
 
 try {
     $result = $apiInstance->cancelPriceTriggeredDeliveryOrderList($settle, $contract);
