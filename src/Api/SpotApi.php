@@ -996,8 +996,8 @@ class SpotApi
                 'Missing the required parameter $currency_pair when calling listOrderBook'
             );
         }
-        if ($limit !== null && $limit > 30) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listOrderBook, must be smaller than or equal to 30.');
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listOrderBook, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listOrderBook, must be bigger than or equal to 1.');
