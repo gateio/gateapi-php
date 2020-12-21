@@ -58,8 +58,15 @@ class ContractStat implements ModelInterface, ArrayAccess
         'lsr_taker' => 'float',
         'lsr_account' => 'float',
         'long_liq_size' => 'int',
+        'long_liq_amount' => 'float',
+        'long_liq_usd' => 'float',
         'short_liq_size' => 'int',
-        'open_interest' => 'int'
+        'short_liq_amount' => 'float',
+        'short_liq_usd' => 'float',
+        'open_interest' => 'int',
+        'open_interest_usd' => 'float',
+        'top_lsr_account' => 'string',
+        'top_lsr_size' => 'string'
     ];
 
     /**
@@ -72,8 +79,15 @@ class ContractStat implements ModelInterface, ArrayAccess
         'lsr_taker' => null,
         'lsr_account' => null,
         'long_liq_size' => 'int64',
+        'long_liq_amount' => 'float64',
+        'long_liq_usd' => 'float64',
         'short_liq_size' => 'int64',
-        'open_interest' => 'int64'
+        'short_liq_amount' => 'float64',
+        'short_liq_usd' => 'float64',
+        'open_interest' => 'int64',
+        'open_interest_usd' => 'float64',
+        'top_lsr_account' => null,
+        'top_lsr_size' => null
     ];
 
     /**
@@ -107,8 +121,15 @@ class ContractStat implements ModelInterface, ArrayAccess
         'lsr_taker' => 'lsr_taker',
         'lsr_account' => 'lsr_account',
         'long_liq_size' => 'long_liq_size',
+        'long_liq_amount' => 'long_liq_amount',
+        'long_liq_usd' => 'long_liq_usd',
         'short_liq_size' => 'short_liq_size',
-        'open_interest' => 'open_interest'
+        'short_liq_amount' => 'short_liq_amount',
+        'short_liq_usd' => 'short_liq_usd',
+        'open_interest' => 'open_interest',
+        'open_interest_usd' => 'open_interest_usd',
+        'top_lsr_account' => 'top_lsr_account',
+        'top_lsr_size' => 'top_lsr_size'
     ];
 
     /**
@@ -121,8 +142,15 @@ class ContractStat implements ModelInterface, ArrayAccess
         'lsr_taker' => 'setLsrTaker',
         'lsr_account' => 'setLsrAccount',
         'long_liq_size' => 'setLongLiqSize',
+        'long_liq_amount' => 'setLongLiqAmount',
+        'long_liq_usd' => 'setLongLiqUsd',
         'short_liq_size' => 'setShortLiqSize',
-        'open_interest' => 'setOpenInterest'
+        'short_liq_amount' => 'setShortLiqAmount',
+        'short_liq_usd' => 'setShortLiqUsd',
+        'open_interest' => 'setOpenInterest',
+        'open_interest_usd' => 'setOpenInterestUsd',
+        'top_lsr_account' => 'setTopLsrAccount',
+        'top_lsr_size' => 'setTopLsrSize'
     ];
 
     /**
@@ -135,8 +163,15 @@ class ContractStat implements ModelInterface, ArrayAccess
         'lsr_taker' => 'getLsrTaker',
         'lsr_account' => 'getLsrAccount',
         'long_liq_size' => 'getLongLiqSize',
+        'long_liq_amount' => 'getLongLiqAmount',
+        'long_liq_usd' => 'getLongLiqUsd',
         'short_liq_size' => 'getShortLiqSize',
-        'open_interest' => 'getOpenInterest'
+        'short_liq_amount' => 'getShortLiqAmount',
+        'short_liq_usd' => 'getShortLiqUsd',
+        'open_interest' => 'getOpenInterest',
+        'open_interest_usd' => 'getOpenInterestUsd',
+        'top_lsr_account' => 'getTopLsrAccount',
+        'top_lsr_size' => 'getTopLsrSize'
     ];
 
     /**
@@ -203,8 +238,15 @@ class ContractStat implements ModelInterface, ArrayAccess
         $this->container['lsr_taker'] = isset($data['lsr_taker']) ? $data['lsr_taker'] : null;
         $this->container['lsr_account'] = isset($data['lsr_account']) ? $data['lsr_account'] : null;
         $this->container['long_liq_size'] = isset($data['long_liq_size']) ? $data['long_liq_size'] : null;
+        $this->container['long_liq_amount'] = isset($data['long_liq_amount']) ? $data['long_liq_amount'] : null;
+        $this->container['long_liq_usd'] = isset($data['long_liq_usd']) ? $data['long_liq_usd'] : null;
         $this->container['short_liq_size'] = isset($data['short_liq_size']) ? $data['short_liq_size'] : null;
+        $this->container['short_liq_amount'] = isset($data['short_liq_amount']) ? $data['short_liq_amount'] : null;
+        $this->container['short_liq_usd'] = isset($data['short_liq_usd']) ? $data['short_liq_usd'] : null;
         $this->container['open_interest'] = isset($data['open_interest']) ? $data['open_interest'] : null;
+        $this->container['open_interest_usd'] = isset($data['open_interest_usd']) ? $data['open_interest_usd'] : null;
+        $this->container['top_lsr_account'] = isset($data['top_lsr_account']) ? $data['top_lsr_account'] : null;
+        $this->container['top_lsr_size'] = isset($data['top_lsr_size']) ? $data['top_lsr_size'] : null;
     }
 
     /**
@@ -328,6 +370,54 @@ class ContractStat implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets long_liq_amount
+     *
+     * @return float|null
+     */
+    public function getLongLiqAmount()
+    {
+        return $this->container['long_liq_amount'];
+    }
+
+    /**
+     * Sets long_liq_amount
+     *
+     * @param float|null $long_liq_amount Long liquidation amount(base currency)
+     *
+     * @return $this
+     */
+    public function setLongLiqAmount($long_liq_amount)
+    {
+        $this->container['long_liq_amount'] = $long_liq_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets long_liq_usd
+     *
+     * @return float|null
+     */
+    public function getLongLiqUsd()
+    {
+        return $this->container['long_liq_usd'];
+    }
+
+    /**
+     * Sets long_liq_usd
+     *
+     * @param float|null $long_liq_usd Long liquidation volume(quote currency)
+     *
+     * @return $this
+     */
+    public function setLongLiqUsd($long_liq_usd)
+    {
+        $this->container['long_liq_usd'] = $long_liq_usd;
+
+        return $this;
+    }
+
+    /**
      * Gets short_liq_size
      *
      * @return int|null
@@ -352,6 +442,54 @@ class ContractStat implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets short_liq_amount
+     *
+     * @return float|null
+     */
+    public function getShortLiqAmount()
+    {
+        return $this->container['short_liq_amount'];
+    }
+
+    /**
+     * Sets short_liq_amount
+     *
+     * @param float|null $short_liq_amount Short liquidation amount(base currency)
+     *
+     * @return $this
+     */
+    public function setShortLiqAmount($short_liq_amount)
+    {
+        $this->container['short_liq_amount'] = $short_liq_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets short_liq_usd
+     *
+     * @return float|null
+     */
+    public function getShortLiqUsd()
+    {
+        return $this->container['short_liq_usd'];
+    }
+
+    /**
+     * Sets short_liq_usd
+     *
+     * @param float|null $short_liq_usd Short liquidation volume(quote currency)
+     *
+     * @return $this
+     */
+    public function setShortLiqUsd($short_liq_usd)
+    {
+        $this->container['short_liq_usd'] = $short_liq_usd;
+
+        return $this;
+    }
+
+    /**
      * Gets open_interest
      *
      * @return int|null
@@ -364,13 +502,85 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets open_interest
      *
-     * @param int|null $open_interest Open interest
+     * @param int|null $open_interest Open interest size
      *
      * @return $this
      */
     public function setOpenInterest($open_interest)
     {
         $this->container['open_interest'] = $open_interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_interest_usd
+     *
+     * @return float|null
+     */
+    public function getOpenInterestUsd()
+    {
+        return $this->container['open_interest_usd'];
+    }
+
+    /**
+     * Sets open_interest_usd
+     *
+     * @param float|null $open_interest_usd Open interest volume(quote currency)
+     *
+     * @return $this
+     */
+    public function setOpenInterestUsd($open_interest_usd)
+    {
+        $this->container['open_interest_usd'] = $open_interest_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets top_lsr_account
+     *
+     * @return string|null
+     */
+    public function getTopLsrAccount()
+    {
+        return $this->container['top_lsr_account'];
+    }
+
+    /**
+     * Sets top_lsr_account
+     *
+     * @param string|null $top_lsr_account Top trader long/short account ratio
+     *
+     * @return $this
+     */
+    public function setTopLsrAccount($top_lsr_account)
+    {
+        $this->container['top_lsr_account'] = $top_lsr_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets top_lsr_size
+     *
+     * @return string|null
+     */
+    public function getTopLsrSize()
+    {
+        return $this->container['top_lsr_size'];
+    }
+
+    /**
+     * Sets top_lsr_size
+     *
+     * @param string|null $top_lsr_size Top trader long/short position ratio
+     *
+     * @return $this
+     */
+    public function setTopLsrSize($top_lsr_size)
+    {
+        $this->container['top_lsr_size'] = $top_lsr_size;
 
         return $this;
     }
