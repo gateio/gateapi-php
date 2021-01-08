@@ -65,8 +65,8 @@ class ContractStat implements ModelInterface, ArrayAccess
         'short_liq_usd' => 'float',
         'open_interest' => 'int',
         'open_interest_usd' => 'float',
-        'top_lsr_account' => 'string',
-        'top_lsr_size' => 'string'
+        'top_lsr_account' => 'float',
+        'top_lsr_size' => 'float'
     ];
 
     /**
@@ -86,8 +86,8 @@ class ContractStat implements ModelInterface, ArrayAccess
         'short_liq_usd' => 'float64',
         'open_interest' => 'int64',
         'open_interest_usd' => 'float64',
-        'top_lsr_account' => null,
-        'top_lsr_size' => null
+        'top_lsr_account' => 'float64',
+        'top_lsr_size' => 'float64'
     ];
 
     /**
@@ -540,7 +540,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets top_lsr_account
      *
-     * @return string|null
+     * @return float|null
      */
     public function getTopLsrAccount()
     {
@@ -550,7 +550,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets top_lsr_account
      *
-     * @param string|null $top_lsr_account Top trader long/short account ratio
+     * @param float|null $top_lsr_account Top trader long/short account ratio
      *
      * @return $this
      */
@@ -564,7 +564,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets top_lsr_size
      *
-     * @return string|null
+     * @return float|null
      */
     public function getTopLsrSize()
     {
@@ -574,7 +574,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets top_lsr_size
      *
-     * @param string|null $top_lsr_size Top trader long/short position ratio
+     * @param float|null $top_lsr_size Top trader long/short position ratio
      *
      * @return $this
      */

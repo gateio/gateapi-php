@@ -67,6 +67,7 @@ class Order implements ModelInterface, ArrayAccess
         'amount' => 'string',
         'price' => 'string',
         'time_in_force' => 'string',
+        'iceberg' => 'string',
         'auto_borrow' => 'bool',
         'left' => 'string',
         'fill_price' => 'string',
@@ -98,6 +99,7 @@ class Order implements ModelInterface, ArrayAccess
         'amount' => null,
         'price' => null,
         'time_in_force' => null,
+        'iceberg' => null,
         'auto_borrow' => null,
         'left' => null,
         'fill_price' => null,
@@ -150,6 +152,7 @@ class Order implements ModelInterface, ArrayAccess
         'amount' => 'amount',
         'price' => 'price',
         'time_in_force' => 'time_in_force',
+        'iceberg' => 'iceberg',
         'auto_borrow' => 'auto_borrow',
         'left' => 'left',
         'fill_price' => 'fill_price',
@@ -181,6 +184,7 @@ class Order implements ModelInterface, ArrayAccess
         'amount' => 'setAmount',
         'price' => 'setPrice',
         'time_in_force' => 'setTimeInForce',
+        'iceberg' => 'setIceberg',
         'auto_borrow' => 'setAutoBorrow',
         'left' => 'setLeft',
         'fill_price' => 'setFillPrice',
@@ -212,6 +216,7 @@ class Order implements ModelInterface, ArrayAccess
         'amount' => 'getAmount',
         'price' => 'getPrice',
         'time_in_force' => 'getTimeInForce',
+        'iceberg' => 'getIceberg',
         'auto_borrow' => 'getAutoBorrow',
         'left' => 'getLeft',
         'fill_price' => 'getFillPrice',
@@ -374,6 +379,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['time_in_force'] = isset($data['time_in_force']) ? $data['time_in_force'] : 'gtc';
+        $this->container['iceberg'] = isset($data['iceberg']) ? $data['iceberg'] : null;
         $this->container['auto_borrow'] = isset($data['auto_borrow']) ? $data['auto_borrow'] : null;
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
@@ -792,6 +798,30 @@ class Order implements ModelInterface, ArrayAccess
             );
         }
         $this->container['time_in_force'] = $time_in_force;
+
+        return $this;
+    }
+
+    /**
+     * Gets iceberg
+     *
+     * @return string|null
+     */
+    public function getIceberg()
+    {
+        return $this->container['iceberg'];
+    }
+
+    /**
+     * Sets iceberg
+     *
+     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders
+     *
+     * @return $this
+     */
+    public function setIceberg($iceberg)
+    {
+        $this->container['iceberg'] = $iceberg;
 
         return $this;
     }
