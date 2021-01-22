@@ -13,9 +13,5 @@ Name | Type | Description | Notes
 **amount_precision** | **int** | Amount scale | [optional] 
 **precision** | **int** | Price scale | [optional] 
 **trade_status** | **string** | How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold | [optional] 
-**etf_net_value** | **string** | ETF net value | [optional] 
-**etf_pre_net_value** | **string** | ETF previous net value at re-balancing time | [optional] 
-**etf_pre_timestamp** | **int** | ETF previous re-balancing time | [optional] 
-**etf_leverage** | **string** | ETF current leverage | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

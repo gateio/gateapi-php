@@ -63,11 +63,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => 'string',
         'amount_precision' => 'int',
         'precision' => 'int',
-        'trade_status' => 'string',
-        'etf_net_value' => 'string',
-        'etf_pre_net_value' => 'string',
-        'etf_pre_timestamp' => 'int',
-        'etf_leverage' => 'string'
+        'trade_status' => 'string'
     ];
 
     /**
@@ -84,11 +80,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => null,
         'amount_precision' => null,
         'precision' => null,
-        'trade_status' => null,
-        'etf_net_value' => null,
-        'etf_pre_net_value' => null,
-        'etf_pre_timestamp' => 'int64',
-        'etf_leverage' => null
+        'trade_status' => null
     ];
 
     /**
@@ -126,11 +118,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => 'min_quote_amount',
         'amount_precision' => 'amount_precision',
         'precision' => 'precision',
-        'trade_status' => 'trade_status',
-        'etf_net_value' => 'etf_net_value',
-        'etf_pre_net_value' => 'etf_pre_net_value',
-        'etf_pre_timestamp' => 'etf_pre_timestamp',
-        'etf_leverage' => 'etf_leverage'
+        'trade_status' => 'trade_status'
     ];
 
     /**
@@ -147,11 +135,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => 'setMinQuoteAmount',
         'amount_precision' => 'setAmountPrecision',
         'precision' => 'setPrecision',
-        'trade_status' => 'setTradeStatus',
-        'etf_net_value' => 'setEtfNetValue',
-        'etf_pre_net_value' => 'setEtfPreNetValue',
-        'etf_pre_timestamp' => 'setEtfPreTimestamp',
-        'etf_leverage' => 'setEtfLeverage'
+        'trade_status' => 'setTradeStatus'
     ];
 
     /**
@@ -168,11 +152,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => 'getMinQuoteAmount',
         'amount_precision' => 'getAmountPrecision',
         'precision' => 'getPrecision',
-        'trade_status' => 'getTradeStatus',
-        'etf_net_value' => 'getEtfNetValue',
-        'etf_pre_net_value' => 'getEtfPreNetValue',
-        'etf_pre_timestamp' => 'getEtfPreTimestamp',
-        'etf_leverage' => 'getEtfLeverage'
+        'trade_status' => 'getTradeStatus'
     ];
 
     /**
@@ -263,10 +243,6 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         $this->container['amount_precision'] = isset($data['amount_precision']) ? $data['amount_precision'] : null;
         $this->container['precision'] = isset($data['precision']) ? $data['precision'] : null;
         $this->container['trade_status'] = isset($data['trade_status']) ? $data['trade_status'] : null;
-        $this->container['etf_net_value'] = isset($data['etf_net_value']) ? $data['etf_net_value'] : null;
-        $this->container['etf_pre_net_value'] = isset($data['etf_pre_net_value']) ? $data['etf_pre_net_value'] : null;
-        $this->container['etf_pre_timestamp'] = isset($data['etf_pre_timestamp']) ? $data['etf_pre_timestamp'] : null;
-        $this->container['etf_leverage'] = isset($data['etf_leverage']) ? $data['etf_leverage'] : null;
     }
 
     /**
@@ -522,102 +498,6 @@ class CurrencyPair implements ModelInterface, ArrayAccess
             );
         }
         $this->container['trade_status'] = $trade_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets etf_net_value
-     *
-     * @return string|null
-     */
-    public function getEtfNetValue()
-    {
-        return $this->container['etf_net_value'];
-    }
-
-    /**
-     * Sets etf_net_value
-     *
-     * @param string|null $etf_net_value ETF net value
-     *
-     * @return $this
-     */
-    public function setEtfNetValue($etf_net_value)
-    {
-        $this->container['etf_net_value'] = $etf_net_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets etf_pre_net_value
-     *
-     * @return string|null
-     */
-    public function getEtfPreNetValue()
-    {
-        return $this->container['etf_pre_net_value'];
-    }
-
-    /**
-     * Sets etf_pre_net_value
-     *
-     * @param string|null $etf_pre_net_value ETF previous net value at re-balancing time
-     *
-     * @return $this
-     */
-    public function setEtfPreNetValue($etf_pre_net_value)
-    {
-        $this->container['etf_pre_net_value'] = $etf_pre_net_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets etf_pre_timestamp
-     *
-     * @return int|null
-     */
-    public function getEtfPreTimestamp()
-    {
-        return $this->container['etf_pre_timestamp'];
-    }
-
-    /**
-     * Sets etf_pre_timestamp
-     *
-     * @param int|null $etf_pre_timestamp ETF previous re-balancing time
-     *
-     * @return $this
-     */
-    public function setEtfPreTimestamp($etf_pre_timestamp)
-    {
-        $this->container['etf_pre_timestamp'] = $etf_pre_timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets etf_leverage
-     *
-     * @return string|null
-     */
-    public function getEtfLeverage()
-    {
-        return $this->container['etf_leverage'];
-    }
-
-    /**
-     * Sets etf_leverage
-     *
-     * @param string|null $etf_leverage ETF current leverage
-     *
-     * @return $this
-     */
-    public function setEtfLeverage($etf_leverage)
-    {
-        $this->container['etf_leverage'] = $etf_leverage;
 
         return $this;
     }

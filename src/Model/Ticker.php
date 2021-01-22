@@ -62,7 +62,11 @@ class Ticker implements ModelInterface, ArrayAccess
         'base_volume' => 'string',
         'quote_volume' => 'string',
         'high_24h' => 'string',
-        'low_24h' => 'string'
+        'low_24h' => 'string',
+        'etf_net_value' => 'string',
+        'etf_pre_net_value' => 'string',
+        'etf_pre_timestamp' => 'int',
+        'etf_leverage' => 'string'
     ];
 
     /**
@@ -79,7 +83,11 @@ class Ticker implements ModelInterface, ArrayAccess
         'base_volume' => null,
         'quote_volume' => null,
         'high_24h' => null,
-        'low_24h' => null
+        'low_24h' => null,
+        'etf_net_value' => null,
+        'etf_pre_net_value' => null,
+        'etf_pre_timestamp' => 'int64',
+        'etf_leverage' => null
     ];
 
     /**
@@ -117,7 +125,11 @@ class Ticker implements ModelInterface, ArrayAccess
         'base_volume' => 'base_volume',
         'quote_volume' => 'quote_volume',
         'high_24h' => 'high_24h',
-        'low_24h' => 'low_24h'
+        'low_24h' => 'low_24h',
+        'etf_net_value' => 'etf_net_value',
+        'etf_pre_net_value' => 'etf_pre_net_value',
+        'etf_pre_timestamp' => 'etf_pre_timestamp',
+        'etf_leverage' => 'etf_leverage'
     ];
 
     /**
@@ -134,7 +146,11 @@ class Ticker implements ModelInterface, ArrayAccess
         'base_volume' => 'setBaseVolume',
         'quote_volume' => 'setQuoteVolume',
         'high_24h' => 'setHigh24h',
-        'low_24h' => 'setLow24h'
+        'low_24h' => 'setLow24h',
+        'etf_net_value' => 'setEtfNetValue',
+        'etf_pre_net_value' => 'setEtfPreNetValue',
+        'etf_pre_timestamp' => 'setEtfPreTimestamp',
+        'etf_leverage' => 'setEtfLeverage'
     ];
 
     /**
@@ -151,7 +167,11 @@ class Ticker implements ModelInterface, ArrayAccess
         'base_volume' => 'getBaseVolume',
         'quote_volume' => 'getQuoteVolume',
         'high_24h' => 'getHigh24h',
-        'low_24h' => 'getLow24h'
+        'low_24h' => 'getLow24h',
+        'etf_net_value' => 'getEtfNetValue',
+        'etf_pre_net_value' => 'getEtfPreNetValue',
+        'etf_pre_timestamp' => 'getEtfPreTimestamp',
+        'etf_leverage' => 'getEtfLeverage'
     ];
 
     /**
@@ -223,6 +243,10 @@ class Ticker implements ModelInterface, ArrayAccess
         $this->container['quote_volume'] = isset($data['quote_volume']) ? $data['quote_volume'] : null;
         $this->container['high_24h'] = isset($data['high_24h']) ? $data['high_24h'] : null;
         $this->container['low_24h'] = isset($data['low_24h']) ? $data['low_24h'] : null;
+        $this->container['etf_net_value'] = isset($data['etf_net_value']) ? $data['etf_net_value'] : null;
+        $this->container['etf_pre_net_value'] = isset($data['etf_pre_net_value']) ? $data['etf_pre_net_value'] : null;
+        $this->container['etf_pre_timestamp'] = isset($data['etf_pre_timestamp']) ? $data['etf_pre_timestamp'] : null;
+        $this->container['etf_leverage'] = isset($data['etf_leverage']) ? $data['etf_leverage'] : null;
     }
 
     /**
@@ -461,6 +485,102 @@ class Ticker implements ModelInterface, ArrayAccess
     public function setLow24h($low_24h)
     {
         $this->container['low_24h'] = $low_24h;
+
+        return $this;
+    }
+
+    /**
+     * Gets etf_net_value
+     *
+     * @return string|null
+     */
+    public function getEtfNetValue()
+    {
+        return $this->container['etf_net_value'];
+    }
+
+    /**
+     * Sets etf_net_value
+     *
+     * @param string|null $etf_net_value ETF net value
+     *
+     * @return $this
+     */
+    public function setEtfNetValue($etf_net_value)
+    {
+        $this->container['etf_net_value'] = $etf_net_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets etf_pre_net_value
+     *
+     * @return string|null
+     */
+    public function getEtfPreNetValue()
+    {
+        return $this->container['etf_pre_net_value'];
+    }
+
+    /**
+     * Sets etf_pre_net_value
+     *
+     * @param string|null $etf_pre_net_value ETF previous net value at re-balancing time
+     *
+     * @return $this
+     */
+    public function setEtfPreNetValue($etf_pre_net_value)
+    {
+        $this->container['etf_pre_net_value'] = $etf_pre_net_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets etf_pre_timestamp
+     *
+     * @return int|null
+     */
+    public function getEtfPreTimestamp()
+    {
+        return $this->container['etf_pre_timestamp'];
+    }
+
+    /**
+     * Sets etf_pre_timestamp
+     *
+     * @param int|null $etf_pre_timestamp ETF previous re-balancing time
+     *
+     * @return $this
+     */
+    public function setEtfPreTimestamp($etf_pre_timestamp)
+    {
+        $this->container['etf_pre_timestamp'] = $etf_pre_timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets etf_leverage
+     *
+     * @return string|null
+     */
+    public function getEtfLeverage()
+    {
+        return $this->container['etf_leverage'];
+    }
+
+    /**
+     * Sets etf_leverage
+     *
+     * @param string|null $etf_leverage ETF current leverage
+     *
+     * @return $this
+     */
+    public function setEtfLeverage($etf_leverage)
+    {
+        $this->container['etf_leverage'] = $etf_leverage;
 
         return $this;
     }
