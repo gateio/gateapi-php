@@ -56,6 +56,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'create_time' => 'double',
+        'create_time_ms' => 'double',
         'contract' => 'string',
         'size' => 'int',
         'price' => 'string'
@@ -69,6 +70,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => 'int64',
         'create_time' => 'double',
+        'create_time_ms' => 'double',
         'contract' => null,
         'size' => 'int64',
         'price' => null
@@ -103,6 +105,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'create_time' => 'create_time',
+        'create_time_ms' => 'create_time_ms',
         'contract' => 'contract',
         'size' => 'size',
         'price' => 'price'
@@ -116,6 +119,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'create_time' => 'setCreateTime',
+        'create_time_ms' => 'setCreateTimeMs',
         'contract' => 'setContract',
         'size' => 'setSize',
         'price' => 'setPrice'
@@ -129,6 +133,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'create_time' => 'getCreateTime',
+        'create_time_ms' => 'getCreateTimeMs',
         'contract' => 'getContract',
         'size' => 'getSize',
         'price' => 'getPrice'
@@ -196,6 +201,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['create_time_ms'] = isset($data['create_time_ms']) ? $data['create_time_ms'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
@@ -269,6 +275,30 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     public function setCreateTime($create_time)
     {
         $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_time_ms
+     *
+     * @return double|null
+     */
+    public function getCreateTimeMs()
+    {
+        return $this->container['create_time_ms'];
+    }
+
+    /**
+     * Sets create_time_ms
+     *
+     * @param double|null $create_time_ms Trading time, with milliseconds set to 3 decimal places.
+     *
+     * @return $this
+     */
+    public function setCreateTimeMs($create_time_ms)
+    {
+        $this->container['create_time_ms'] = $create_time_ms;
 
         return $this;
     }

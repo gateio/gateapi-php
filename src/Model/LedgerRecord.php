@@ -61,7 +61,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'address' => 'string',
         'memo' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'chain' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => null,
         'address' => null,
         'memo' => null,
-        'status' => null
+        'status' => null,
+        'chain' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => 'currency',
         'address' => 'address',
         'memo' => 'memo',
-        'status' => 'status'
+        'status' => 'status',
+        'chain' => 'chain'
     ];
 
     /**
@@ -130,7 +133,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'address' => 'setAddress',
         'memo' => 'setMemo',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'chain' => 'setChain'
     ];
 
     /**
@@ -146,7 +150,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'address' => 'getAddress',
         'memo' => 'getMemo',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'chain' => 'getChain'
     ];
 
     /**
@@ -238,6 +243,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
     }
 
     /**
@@ -339,7 +345,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets timestamp
      *
-     * @param string|null $timestamp Record time
+     * @param string|null $timestamp Operation time
      *
      * @return $this
      */
@@ -363,7 +369,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Trade amount
+     * @param string $amount Currency amount
      *
      * @return $this
      */
@@ -387,7 +393,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Record currency
+     * @param string $currency Currency name
      *
      * @return $this
      */
@@ -475,6 +481,30 @@ class LedgerRecord implements ModelInterface, ArrayAccess
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets chain
+     *
+     * @return string|null
+     */
+    public function getChain()
+    {
+        return $this->container['chain'];
+    }
+
+    /**
+     * Sets chain
+     *
+     * @param string|null $chain Name of the chain used in withdrawals
+     *
+     * @return $this
+     */
+    public function setChain($chain)
+    {
+        $this->container['chain'] = $chain;
 
         return $this;
     }

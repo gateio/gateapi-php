@@ -157,7 +157,7 @@ No authorization required
 
 ## listFuturesOrderBook
 
-> \GateApi\Model\FuturesOrderBook listFuturesOrderBook($settle, $contract, $interval, $limit)
+> \GateApi\Model\FuturesOrderBook listFuturesOrderBook($settle, $contract, $interval, $limit, $with_id)
 
 Futures order book
 
@@ -179,6 +179,7 @@ $associate_array['settle'] = 'btc'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['interval'] = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $associate_array['limit'] = 10; // int | Maximum number of order depth data in asks or bids
+$associate_array['with_id'] = false; // bool | Whether order book update ID would be returned. This ID increments by 1 on every order book update
 
 try {
     $result = $apiInstance->listFuturesOrderBook($associate_array);
@@ -202,6 +203,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract |
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **with_id** | **bool**| Whether order book update ID would be returned. This ID increments by 1 on every order book update | [optional] [default to false]
 
 ### Return type
 
@@ -1845,7 +1847,7 @@ Name | Type | Description  | Notes
 
 ## listPositionClose
 
-> \GateApi\Model\PositionClose[] listPositionClose($settle, $contract, $limit)
+> \GateApi\Model\PositionClose[] listPositionClose($settle, $contract, $limit, $offset)
 
 List position close history
 
@@ -1868,6 +1870,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $associate_array['settle'] = 'btc'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->listPositionClose($associate_array);
@@ -1890,6 +1893,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | [default to &#39;btc&#39;]
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 

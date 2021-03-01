@@ -150,7 +150,7 @@ No authorization required
 
 ## listDeliveryOrderBook
 
-> \GateApi\Model\FuturesOrderBook listDeliveryOrderBook($settle, $contract, $interval, $limit)
+> \GateApi\Model\FuturesOrderBook listDeliveryOrderBook($settle, $contract, $interval, $limit, $with_id)
 
 Futures order book
 
@@ -172,6 +172,7 @@ $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT_20200814'; // string | Futures contract
 $associate_array['interval'] = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $associate_array['limit'] = 10; // int | Maximum number of order depth data in asks or bids
+$associate_array['with_id'] = false; // bool | Whether order book update ID would be returned. This ID increments by 1 on every order book update
 
 try {
     $result = $apiInstance->listDeliveryOrderBook($associate_array);
@@ -195,6 +196,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract |
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **with_id** | **bool**| Whether order book update ID would be returned. This ID increments by 1 on every order book update | [optional] [default to false]
 
 ### Return type
 

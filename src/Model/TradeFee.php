@@ -61,7 +61,9 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_taker_fee' => 'string',
         'gt_maker_fee' => 'string',
         'loan_fee' => 'string',
-        'point_type' => 'string'
+        'point_type' => 'string',
+        'futures_taker_fee' => 'string',
+        'futures_maker_fee' => 'string'
     ];
 
     /**
@@ -77,7 +79,9 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_taker_fee' => null,
         'gt_maker_fee' => null,
         'loan_fee' => null,
-        'point_type' => null
+        'point_type' => null,
+        'futures_taker_fee' => null,
+        'futures_maker_fee' => null
     ];
 
     /**
@@ -114,7 +118,9 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_taker_fee' => 'gt_taker_fee',
         'gt_maker_fee' => 'gt_maker_fee',
         'loan_fee' => 'loan_fee',
-        'point_type' => 'point_type'
+        'point_type' => 'point_type',
+        'futures_taker_fee' => 'futures_taker_fee',
+        'futures_maker_fee' => 'futures_maker_fee'
     ];
 
     /**
@@ -130,7 +136,9 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_taker_fee' => 'setGtTakerFee',
         'gt_maker_fee' => 'setGtMakerFee',
         'loan_fee' => 'setLoanFee',
-        'point_type' => 'setPointType'
+        'point_type' => 'setPointType',
+        'futures_taker_fee' => 'setFuturesTakerFee',
+        'futures_maker_fee' => 'setFuturesMakerFee'
     ];
 
     /**
@@ -146,7 +154,9 @@ class TradeFee implements ModelInterface, ArrayAccess
         'gt_taker_fee' => 'getGtTakerFee',
         'gt_maker_fee' => 'getGtMakerFee',
         'loan_fee' => 'getLoanFee',
-        'point_type' => 'getPointType'
+        'point_type' => 'getPointType',
+        'futures_taker_fee' => 'getFuturesTakerFee',
+        'futures_maker_fee' => 'getFuturesMakerFee'
     ];
 
     /**
@@ -217,6 +227,8 @@ class TradeFee implements ModelInterface, ArrayAccess
         $this->container['gt_maker_fee'] = isset($data['gt_maker_fee']) ? $data['gt_maker_fee'] : null;
         $this->container['loan_fee'] = isset($data['loan_fee']) ? $data['loan_fee'] : null;
         $this->container['point_type'] = isset($data['point_type']) ? $data['point_type'] : null;
+        $this->container['futures_taker_fee'] = isset($data['futures_taker_fee']) ? $data['futures_taker_fee'] : null;
+        $this->container['futures_maker_fee'] = isset($data['futures_maker_fee']) ? $data['futures_maker_fee'] : null;
     }
 
     /**
@@ -431,6 +443,54 @@ class TradeFee implements ModelInterface, ArrayAccess
     public function setPointType($point_type)
     {
         $this->container['point_type'] = $point_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets futures_taker_fee
+     *
+     * @return string|null
+     */
+    public function getFuturesTakerFee()
+    {
+        return $this->container['futures_taker_fee'];
+    }
+
+    /**
+     * Sets futures_taker_fee
+     *
+     * @param string|null $futures_taker_fee Futures trading taker fee
+     *
+     * @return $this
+     */
+    public function setFuturesTakerFee($futures_taker_fee)
+    {
+        $this->container['futures_taker_fee'] = $futures_taker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets futures_maker_fee
+     *
+     * @return string|null
+     */
+    public function getFuturesMakerFee()
+    {
+        return $this->container['futures_maker_fee'];
+    }
+
+    /**
+     * Sets futures_maker_fee
+     *
+     * @param string|null $futures_maker_fee Future trading maker fee
+     *
+     * @return $this
+     */
+    public function setFuturesMakerFee($futures_maker_fee)
+    {
+        $this->container['futures_maker_fee'] = $futures_maker_fee;
 
         return $this;
     }

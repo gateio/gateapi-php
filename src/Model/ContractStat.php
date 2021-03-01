@@ -58,15 +58,15 @@ class ContractStat implements ModelInterface, ArrayAccess
         'lsr_taker' => 'float',
         'lsr_account' => 'float',
         'long_liq_size' => 'int',
-        'long_liq_amount' => 'float',
-        'long_liq_usd' => 'float',
+        'long_liq_amount' => 'double',
+        'long_liq_usd' => 'double',
         'short_liq_size' => 'int',
-        'short_liq_amount' => 'float',
-        'short_liq_usd' => 'float',
+        'short_liq_amount' => 'double',
+        'short_liq_usd' => 'double',
         'open_interest' => 'int',
-        'open_interest_usd' => 'float',
-        'top_lsr_account' => 'float',
-        'top_lsr_size' => 'float'
+        'open_interest_usd' => 'double',
+        'top_lsr_account' => 'double',
+        'top_lsr_size' => 'double'
     ];
 
     /**
@@ -79,15 +79,15 @@ class ContractStat implements ModelInterface, ArrayAccess
         'lsr_taker' => null,
         'lsr_account' => null,
         'long_liq_size' => 'int64',
-        'long_liq_amount' => 'float64',
-        'long_liq_usd' => 'float64',
+        'long_liq_amount' => 'double',
+        'long_liq_usd' => 'double',
         'short_liq_size' => 'int64',
-        'short_liq_amount' => 'float64',
-        'short_liq_usd' => 'float64',
+        'short_liq_amount' => 'double',
+        'short_liq_usd' => 'double',
         'open_interest' => 'int64',
-        'open_interest_usd' => 'float64',
-        'top_lsr_account' => 'float64',
-        'top_lsr_size' => 'float64'
+        'open_interest_usd' => 'double',
+        'top_lsr_account' => 'double',
+        'top_lsr_size' => 'double'
     ];
 
     /**
@@ -372,7 +372,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets long_liq_amount
      *
-     * @return float|null
+     * @return double|null
      */
     public function getLongLiqAmount()
     {
@@ -382,7 +382,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets long_liq_amount
      *
-     * @param float|null $long_liq_amount Long liquidation amount(base currency)
+     * @param double|null $long_liq_amount Long liquidation amount(base currency)
      *
      * @return $this
      */
@@ -396,7 +396,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets long_liq_usd
      *
-     * @return float|null
+     * @return double|null
      */
     public function getLongLiqUsd()
     {
@@ -406,7 +406,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets long_liq_usd
      *
-     * @param float|null $long_liq_usd Long liquidation volume(quote currency)
+     * @param double|null $long_liq_usd Long liquidation volume(quote currency)
      *
      * @return $this
      */
@@ -444,7 +444,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets short_liq_amount
      *
-     * @return float|null
+     * @return double|null
      */
     public function getShortLiqAmount()
     {
@@ -454,7 +454,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets short_liq_amount
      *
-     * @param float|null $short_liq_amount Short liquidation amount(base currency)
+     * @param double|null $short_liq_amount Short liquidation amount(base currency)
      *
      * @return $this
      */
@@ -468,7 +468,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets short_liq_usd
      *
-     * @return float|null
+     * @return double|null
      */
     public function getShortLiqUsd()
     {
@@ -478,7 +478,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets short_liq_usd
      *
-     * @param float|null $short_liq_usd Short liquidation volume(quote currency)
+     * @param double|null $short_liq_usd Short liquidation volume(quote currency)
      *
      * @return $this
      */
@@ -516,7 +516,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets open_interest_usd
      *
-     * @return float|null
+     * @return double|null
      */
     public function getOpenInterestUsd()
     {
@@ -526,7 +526,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets open_interest_usd
      *
-     * @param float|null $open_interest_usd Open interest volume(quote currency)
+     * @param double|null $open_interest_usd Open interest volume(quote currency)
      *
      * @return $this
      */
@@ -540,7 +540,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets top_lsr_account
      *
-     * @return float|null
+     * @return double|null
      */
     public function getTopLsrAccount()
     {
@@ -550,7 +550,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets top_lsr_account
      *
-     * @param float|null $top_lsr_account Top trader long/short account ratio
+     * @param double|null $top_lsr_account Top trader long/short account ratio
      *
      * @return $this
      */
@@ -564,7 +564,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Gets top_lsr_size
      *
-     * @return float|null
+     * @return double|null
      */
     public function getTopLsrSize()
     {
@@ -574,7 +574,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets top_lsr_size
      *
-     * @param float|null $top_lsr_size Top trader long/short position ratio
+     * @param double|null $top_lsr_size Top trader long/short position ratio
      *
      * @return $this
      */

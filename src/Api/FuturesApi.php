@@ -618,6 +618,7 @@ class FuturesApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -640,6 +641,7 @@ class FuturesApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -699,6 +701,7 @@ class FuturesApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -724,6 +727,7 @@ class FuturesApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -776,6 +780,7 @@ class FuturesApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -787,6 +792,7 @@ class FuturesApi
         $contract = array_key_exists('contract', $associative_array) ? $associative_array['contract'] : null;
         $interval = array_key_exists('interval', $associative_array) ? $associative_array['interval'] : '0';
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 10;
+        $with_id = array_key_exists('with_id', $associative_array) ? $associative_array['with_id'] : false;
 
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -800,8 +806,8 @@ class FuturesApi
                 'Missing the required parameter $contract when calling listFuturesOrderBook'
             );
         }
-        if ($limit !== null && $limit > 20) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesOrderBook, must be smaller than or equal to 20.');
+        if ($limit !== null && $limit > 50) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesOrderBook, must be smaller than or equal to 50.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listFuturesOrderBook, must be bigger than or equal to 1.');
@@ -848,6 +854,18 @@ class FuturesApi
             }
             else {
                 $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($with_id !== null) {
+            if('form' === 'form' && is_array($with_id)) {
+                foreach($with_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['with_id'] = $with_id;
             }
         }
 
@@ -8246,6 +8264,7 @@ class FuturesApi
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8267,6 +8286,7 @@ class FuturesApi
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8325,6 +8345,7 @@ class FuturesApi
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8349,6 +8370,7 @@ class FuturesApi
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8400,6 +8422,7 @@ class FuturesApi
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8410,6 +8433,7 @@ class FuturesApi
         $settle = array_key_exists('settle', $associative_array) ? $associative_array['settle'] : 'btc';
         $contract = array_key_exists('contract', $associative_array) ? $associative_array['contract'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $offset = array_key_exists('offset', $associative_array) ? $associative_array['offset'] : 0;
 
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -8422,6 +8446,10 @@ class FuturesApi
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling FuturesApi.listPositionClose, must be bigger than or equal to 1.');
+        }
+
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling FuturesApi.listPositionClose, must be bigger than or equal to 0.');
         }
 
 
@@ -8453,6 +8481,18 @@ class FuturesApi
             }
             else {
                 $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($offset !== null) {
+            if('form' === 'form' && is_array($offset)) {
+                foreach($offset as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['offset'] = $offset;
             }
         }
 

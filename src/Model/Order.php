@@ -815,7 +815,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets iceberg
      *
-     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders
+     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the amount totally
      *
      * @return $this
      */
