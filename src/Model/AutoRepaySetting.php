@@ -1,6 +1,6 @@
 <?php
 /**
- * CancelOrder
+ * AutoRepaySetting
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CancelOrder Class Doc Comment
+ * AutoRepaySetting Class Doc Comment
  *
- * @category    Class
- * @description Info of order to be cancelled
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
-class CancelOrder implements ModelInterface, ArrayAccess
+class AutoRepaySetting implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CancelOrder';
+    protected static $openAPIModelName = 'AutoRepaySetting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +54,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency_pair' => 'string',
-        'id' => 'string'
+        'status' => 'string'
     ];
 
     /**
@@ -65,8 +63,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency_pair' => null,
-        'id' => null
+        'status' => null
     ];
 
     /**
@@ -96,8 +93,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_pair' => 'currency_pair',
-        'id' => 'id'
+        'status' => 'status'
     ];
 
     /**
@@ -106,8 +102,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency_pair' => 'setCurrencyPair',
-        'id' => 'setId'
+        'status' => 'setStatus'
     ];
 
     /**
@@ -116,8 +111,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency_pair' => 'getCurrencyPair',
-        'id' => 'getId'
+        'status' => 'getStatus'
     ];
 
     /**
@@ -161,8 +155,23 @@ class CancelOrder implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_TRUE = 'true';
+    const STATUS_FALSE = 'false';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_TRUE,
+            self::STATUS_FALSE,
+        ];
+    }
     
 
     /**
@@ -180,8 +189,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -193,12 +201,14 @@ class CancelOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency_pair'] === null) {
-            $invalidProperties[] = "'currency_pair' can't be null";
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -215,49 +225,34 @@ class CancelOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency_pair
+     * Gets status
      *
-     * @return string
+     * @return string|null
      */
-    public function getCurrencyPair()
+    public function getStatus()
     {
-        return $this->container['currency_pair'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets status
      *
-     * @param string $currency_pair Order currency pair
+     * @param string|null $status Auto repayment status. `on` - enabled, `off` - disabled
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setStatus($status)
     {
-        $this->container['currency_pair'] = $currency_pair;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Order ID
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

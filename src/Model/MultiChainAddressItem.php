@@ -1,6 +1,6 @@
 <?php
 /**
- * CancelOrder
+ * MultiChainAddressItem
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CancelOrder Class Doc Comment
+ * MultiChainAddressItem Class Doc Comment
  *
- * @category    Class
- * @description Info of order to be cancelled
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
-class CancelOrder implements ModelInterface, ArrayAccess
+class MultiChainAddressItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CancelOrder';
+    protected static $openAPIModelName = 'MultiChainAddressItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +54,11 @@ class CancelOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency_pair' => 'string',
-        'id' => 'string'
+        'chain' => 'string',
+        'address' => 'string',
+        'payment_id' => 'string',
+        'payment_name' => 'string',
+        'obtain_failed' => 'int'
     ];
 
     /**
@@ -65,8 +67,11 @@ class CancelOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency_pair' => null,
-        'id' => null
+        'chain' => null,
+        'address' => null,
+        'payment_id' => null,
+        'payment_name' => null,
+        'obtain_failed' => null
     ];
 
     /**
@@ -96,8 +101,11 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_pair' => 'currency_pair',
-        'id' => 'id'
+        'chain' => 'chain',
+        'address' => 'address',
+        'payment_id' => 'payment_id',
+        'payment_name' => 'payment_name',
+        'obtain_failed' => 'obtain_failed'
     ];
 
     /**
@@ -106,8 +114,11 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency_pair' => 'setCurrencyPair',
-        'id' => 'setId'
+        'chain' => 'setChain',
+        'address' => 'setAddress',
+        'payment_id' => 'setPaymentId',
+        'payment_name' => 'setPaymentName',
+        'obtain_failed' => 'setObtainFailed'
     ];
 
     /**
@@ -116,8 +127,11 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency_pair' => 'getCurrencyPair',
-        'id' => 'getId'
+        'chain' => 'getChain',
+        'address' => 'getAddress',
+        'payment_id' => 'getPaymentId',
+        'payment_name' => 'getPaymentName',
+        'obtain_failed' => 'getObtainFailed'
     ];
 
     /**
@@ -180,8 +194,11 @@ class CancelOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
+        $this->container['payment_name'] = isset($data['payment_name']) ? $data['payment_name'] : null;
+        $this->container['obtain_failed'] = isset($data['obtain_failed']) ? $data['obtain_failed'] : null;
     }
 
     /**
@@ -193,12 +210,6 @@ class CancelOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency_pair'] === null) {
-            $invalidProperties[] = "'currency_pair' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -215,49 +226,121 @@ class CancelOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency_pair
+     * Gets chain
      *
-     * @return string
+     * @return string|null
      */
-    public function getCurrencyPair()
+    public function getChain()
     {
-        return $this->container['currency_pair'];
+        return $this->container['chain'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets chain
      *
-     * @param string $currency_pair Order currency pair
+     * @param string|null $chain Name of the chain
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setChain($chain)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['chain'] = $chain;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets address
      *
-     * @return string
+     * @return string|null
      */
-    public function getId()
+    public function getAddress()
     {
-        return $this->container['id'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets id
+     * Sets address
      *
-     * @param string $id Order ID
+     * @param string|null $address Deposit address
      *
      * @return $this
      */
-    public function setId($id)
+    public function setAddress($address)
     {
-        $this->container['id'] = $id;
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_id
+     *
+     * @return string|null
+     */
+    public function getPaymentId()
+    {
+        return $this->container['payment_id'];
+    }
+
+    /**
+     * Sets payment_id
+     *
+     * @param string|null $payment_id Notes that some currencies required(e.g., Tag, Memo) when depositing
+     *
+     * @return $this
+     */
+    public function setPaymentId($payment_id)
+    {
+        $this->container['payment_id'] = $payment_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_name
+     *
+     * @return string|null
+     */
+    public function getPaymentName()
+    {
+        return $this->container['payment_name'];
+    }
+
+    /**
+     * Sets payment_name
+     *
+     * @param string|null $payment_name Note type, `Tag` or `Memo`
+     *
+     * @return $this
+     */
+    public function setPaymentName($payment_name)
+    {
+        $this->container['payment_name'] = $payment_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets obtain_failed
+     *
+     * @return int|null
+     */
+    public function getObtainFailed()
+    {
+        return $this->container['obtain_failed'];
+    }
+
+    /**
+     * Sets obtain_failed
+     *
+     * @param int|null $obtain_failed Whether address is obtained. 0 means success. 1 is failure, which needs retries
+     *
+     * @return $this
+     */
+    public function setObtainFailed($obtain_failed)
+    {
+        $this->container['obtain_failed'] = $obtain_failed;
 
         return $this;
     }

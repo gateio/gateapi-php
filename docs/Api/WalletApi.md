@@ -37,7 +37,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'currency_example'; // string | Currency name
+$currency = 'USDT'; // string | Currency name
 
 try {
     $result = $apiInstance->getDepositAddress($currency);
@@ -357,6 +357,8 @@ Name | Type | Description  | Notes
 > transferWithSubAccount($sub_account_transfer)
 
 Transfer between main and sub accounts
+
+Support transferring with sub user's spot or futures account. Note that only main user's spot account is used no matter which sub user's account is operated.
 
 ### Example
 
