@@ -1,6 +1,6 @@
 <?php
 /**
- * CancelOrder
+ * SpotPriceTrigger
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CancelOrder Class Doc Comment
+ * SpotPriceTrigger Class Doc Comment
  *
- * @category    Class
- * @description Info of order to be cancelled
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
-class CancelOrder implements ModelInterface, ArrayAccess
+class SpotPriceTrigger implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CancelOrder';
+    protected static $openAPIModelName = 'SpotPriceTrigger';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +54,9 @@ class CancelOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency_pair' => 'string',
-        'id' => 'string'
+        'price' => 'string',
+        'rule' => 'string',
+        'expiration' => 'int'
     ];
 
     /**
@@ -65,8 +65,9 @@ class CancelOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency_pair' => null,
-        'id' => null
+        'price' => null,
+        'rule' => null,
+        'expiration' => null
     ];
 
     /**
@@ -96,8 +97,9 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_pair' => 'currency_pair',
-        'id' => 'id'
+        'price' => 'price',
+        'rule' => 'rule',
+        'expiration' => 'expiration'
     ];
 
     /**
@@ -106,8 +108,9 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency_pair' => 'setCurrencyPair',
-        'id' => 'setId'
+        'price' => 'setPrice',
+        'rule' => 'setRule',
+        'expiration' => 'setExpiration'
     ];
 
     /**
@@ -116,8 +119,9 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency_pair' => 'getCurrencyPair',
-        'id' => 'getId'
+        'price' => 'getPrice',
+        'rule' => 'getRule',
+        'expiration' => 'getExpiration'
     ];
 
     /**
@@ -161,8 +165,23 @@ class CancelOrder implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const RULE_GREATER_THAN_OR_EQUAL_TO = '>=';
+    const RULE_LESS_THAN_OR_EQUAL_TO = '<=';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRuleAllowableValues()
+    {
+        return [
+            self::RULE_GREATER_THAN_OR_EQUAL_TO,
+            self::RULE_LESS_THAN_OR_EQUAL_TO,
+        ];
+    }
     
 
     /**
@@ -180,8 +199,9 @@ class CancelOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['rule'] = isset($data['rule']) ? $data['rule'] : null;
+        $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
     }
 
     /**
@@ -193,11 +213,22 @@ class CancelOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency_pair'] === null) {
-            $invalidProperties[] = "'currency_pair' can't be null";
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['rule'] === null) {
+            $invalidProperties[] = "'rule' can't be null";
+        }
+        $allowedValues = $this->getRuleAllowableValues();
+        if (!is_null($this->container['rule']) && !in_array($this->container['rule'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'rule', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['expiration'] === null) {
+            $invalidProperties[] = "'expiration' can't be null";
         }
         return $invalidProperties;
     }
@@ -215,49 +246,82 @@ class CancelOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency_pair
+     * Gets price
      *
      * @return string
      */
-    public function getCurrencyPair()
+    public function getPrice()
     {
-        return $this->container['currency_pair'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets price
      *
-     * @param string $currency_pair Order currency pair
+     * @param string $price Trigger price
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setPrice($price)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['price'] = $price;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets rule
      *
      * @return string
      */
-    public function getId()
+    public function getRule()
     {
-        return $this->container['id'];
+        return $this->container['rule'];
     }
 
     /**
-     * Sets id
+     * Sets rule
      *
-     * @param string $id Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation
+     * @param string $rule Price trigger condition  - >=: triggered when market price larger than or equal to `price` field - <=: triggered when market price less than or equal to `price` field
      *
      * @return $this
      */
-    public function setId($id)
+    public function setRule($rule)
     {
-        $this->container['id'] = $id;
+        $allowedValues = $this->getRuleAllowableValues();
+        if (!in_array($rule, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'rule', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['rule'] = $rule;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration
+     *
+     * @return int
+     */
+    public function getExpiration()
+    {
+        return $this->container['expiration'];
+    }
+
+    /**
+     * Sets expiration
+     *
+     * @param int $expiration How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out
+     *
+     * @return $this
+     */
+    public function setExpiration($expiration)
+    {
+        $this->container['expiration'] = $expiration;
 
         return $this;
     }

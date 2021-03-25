@@ -7368,7 +7368,7 @@ class FuturesApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7386,7 +7386,7 @@ class FuturesApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7441,7 +7441,7 @@ class FuturesApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7462,7 +7462,7 @@ class FuturesApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7510,7 +7510,7 @@ class FuturesApi
      * Create request for operation 'getFuturesOrder'
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7628,7 +7628,7 @@ class FuturesApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7646,7 +7646,7 @@ class FuturesApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7701,7 +7701,7 @@ class FuturesApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7722,7 +7722,7 @@ class FuturesApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7770,7 +7770,7 @@ class FuturesApi
      * Create request for operation 'cancelFuturesOrder'
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

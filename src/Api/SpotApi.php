@@ -4305,7 +4305,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -4323,7 +4323,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -4378,7 +4378,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
@@ -4399,7 +4399,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
@@ -4447,7 +4447,7 @@ class SpotApi
     /**
      * Create request for operation 'getOrder'
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
@@ -4568,7 +4568,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -4586,7 +4586,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -4641,7 +4641,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
@@ -4662,7 +4662,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
@@ -4710,7 +4710,7 @@ class SpotApi
     /**
      * Create request for operation 'cancelOrder'
      *
-     * @param string $order_id      ID returned on order successfully being created (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
@@ -5141,6 +5141,1313 @@ class SpotApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listSpotPriceTriggeredOrders
+     *
+     * Retrieve running auto order list
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $status  List orders based on status (required)
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SpotPriceTriggeredOrder[]
+     */
+    public function listSpotPriceTriggeredOrders($associative_array)
+    {
+        list($response) = $this->listSpotPriceTriggeredOrdersWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listSpotPriceTriggeredOrdersWithHttpInfo
+     *
+     * Retrieve running auto order list
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $status  List orders based on status (required)
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SpotPriceTriggeredOrder[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSpotPriceTriggeredOrdersWithHttpInfo($associative_array)
+    {
+        $request = $this->listSpotPriceTriggeredOrdersRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SpotPriceTriggeredOrder[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listSpotPriceTriggeredOrdersAsync
+     *
+     * Retrieve running auto order list
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $status  List orders based on status (required)
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSpotPriceTriggeredOrdersAsync($associative_array)
+    {
+        return $this->listSpotPriceTriggeredOrdersAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listSpotPriceTriggeredOrdersAsyncWithHttpInfo
+     *
+     * Retrieve running auto order list
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $status  List orders based on status (required)
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSpotPriceTriggeredOrdersAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\SpotPriceTriggeredOrder[]';
+        $request = $this->listSpotPriceTriggeredOrdersRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listSpotPriceTriggeredOrders'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $status  List orders based on status (required)
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listSpotPriceTriggeredOrdersRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $status = array_key_exists('status', $associative_array) ? $associative_array['status'] : null;
+        $market = array_key_exists('market', $associative_array) ? $associative_array['market'] : null;
+        $account = array_key_exists('account', $associative_array) ? $associative_array['account'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $offset = array_key_exists('offset', $associative_array) ? $associative_array['offset'] : 0;
+
+        // verify the required parameter 'status' is set
+        if ($status === null || (is_array($status) && count($status) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $status when calling listSpotPriceTriggeredOrders'
+            );
+        }
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listSpotPriceTriggeredOrders, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listSpotPriceTriggeredOrders, must be bigger than or equal to 1.');
+        }
+
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling SpotApi.listSpotPriceTriggeredOrders, must be bigger than or equal to 0.');
+        }
+
+
+        $resourcePath = '/spot/price_orders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($status !== null) {
+            if('form' === 'form' && is_array($status)) {
+                foreach($status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['status'] = $status;
+            }
+        }
+
+        // query params
+        if ($market !== null) {
+            if('form' === 'form' && is_array($market)) {
+                foreach($market as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['market'] = $market;
+            }
+        }
+
+        // query params
+        if ($account !== null) {
+            if('form' === 'form' && is_array($account)) {
+                foreach($account as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['account'] = $account;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($offset !== null) {
+            if('form' === 'form' && is_array($offset)) {
+                foreach($offset as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['offset'] = $offset;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createSpotPriceTriggeredOrder
+     *
+     * Create a price-triggered order
+     *
+     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order spot_price_triggered_order (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\TriggerOrderResponse
+     */
+    public function createSpotPriceTriggeredOrder($spot_price_triggered_order)
+    {
+        list($response) = $this->createSpotPriceTriggeredOrderWithHttpInfo($spot_price_triggered_order);
+        return $response;
+    }
+
+    /**
+     * Operation createSpotPriceTriggeredOrderWithHttpInfo
+     *
+     * Create a price-triggered order
+     *
+     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\TriggerOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createSpotPriceTriggeredOrderWithHttpInfo($spot_price_triggered_order)
+    {
+        $request = $this->createSpotPriceTriggeredOrderRequest($spot_price_triggered_order);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\TriggerOrderResponse';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation createSpotPriceTriggeredOrderAsync
+     *
+     * Create a price-triggered order
+     *
+     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createSpotPriceTriggeredOrderAsync($spot_price_triggered_order)
+    {
+        return $this->createSpotPriceTriggeredOrderAsyncWithHttpInfo($spot_price_triggered_order)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createSpotPriceTriggeredOrderAsyncWithHttpInfo
+     *
+     * Create a price-triggered order
+     *
+     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createSpotPriceTriggeredOrderAsyncWithHttpInfo($spot_price_triggered_order)
+    {
+        $returnType = '\GateApi\Model\TriggerOrderResponse';
+        $request = $this->createSpotPriceTriggeredOrderRequest($spot_price_triggered_order);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createSpotPriceTriggeredOrder'
+     *
+     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createSpotPriceTriggeredOrderRequest($spot_price_triggered_order)
+    {
+        // verify the required parameter 'spot_price_triggered_order' is set
+        if ($spot_price_triggered_order === null || (is_array($spot_price_triggered_order) && count($spot_price_triggered_order) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $spot_price_triggered_order when calling createSpotPriceTriggeredOrder'
+            );
+        }
+
+        $resourcePath = '/spot/price_orders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+        if (isset($spot_price_triggered_order)) {
+            $_tempBody = $spot_price_triggered_order;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cancelSpotPriceTriggeredOrderList
+     *
+     * Cancel all open orders
+     *
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SpotPriceTriggeredOrder[]
+     */
+    public function cancelSpotPriceTriggeredOrderList($market = null, $account = null)
+    {
+        list($response) = $this->cancelSpotPriceTriggeredOrderListWithHttpInfo($market, $account);
+        return $response;
+    }
+
+    /**
+     * Operation cancelSpotPriceTriggeredOrderListWithHttpInfo
+     *
+     * Cancel all open orders
+     *
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SpotPriceTriggeredOrder[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cancelSpotPriceTriggeredOrderListWithHttpInfo($market = null, $account = null)
+    {
+        $request = $this->cancelSpotPriceTriggeredOrderListRequest($market, $account);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SpotPriceTriggeredOrder[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation cancelSpotPriceTriggeredOrderListAsync
+     *
+     * Cancel all open orders
+     *
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cancelSpotPriceTriggeredOrderListAsync($market = null, $account = null)
+    {
+        return $this->cancelSpotPriceTriggeredOrderListAsyncWithHttpInfo($market, $account)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cancelSpotPriceTriggeredOrderListAsyncWithHttpInfo
+     *
+     * Cancel all open orders
+     *
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cancelSpotPriceTriggeredOrderListAsyncWithHttpInfo($market = null, $account = null)
+    {
+        $returnType = '\GateApi\Model\SpotPriceTriggeredOrder[]';
+        $request = $this->cancelSpotPriceTriggeredOrderListRequest($market, $account);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cancelSpotPriceTriggeredOrderList'
+     *
+     * @param string $market  交易市场 (optional)
+     * @param string $account Trading account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function cancelSpotPriceTriggeredOrderListRequest($market = null, $account = null)
+    {
+
+        $resourcePath = '/spot/price_orders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($market !== null) {
+            if('form' === 'form' && is_array($market)) {
+                foreach($market as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['market'] = $market;
+            }
+        }
+
+        // query params
+        if ($account !== null) {
+            if('form' === 'form' && is_array($account)) {
+                foreach($account as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['account'] = $account;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('DELETE', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSpotPriceTriggeredOrder
+     *
+     * Get a single order
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SpotPriceTriggeredOrder
+     */
+    public function getSpotPriceTriggeredOrder($order_id)
+    {
+        list($response) = $this->getSpotPriceTriggeredOrderWithHttpInfo($order_id);
+        return $response;
+    }
+
+    /**
+     * Operation getSpotPriceTriggeredOrderWithHttpInfo
+     *
+     * Get a single order
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SpotPriceTriggeredOrder, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSpotPriceTriggeredOrderWithHttpInfo($order_id)
+    {
+        $request = $this->getSpotPriceTriggeredOrderRequest($order_id);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SpotPriceTriggeredOrder';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getSpotPriceTriggeredOrderAsync
+     *
+     * Get a single order
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSpotPriceTriggeredOrderAsync($order_id)
+    {
+        return $this->getSpotPriceTriggeredOrderAsyncWithHttpInfo($order_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSpotPriceTriggeredOrderAsyncWithHttpInfo
+     *
+     * Get a single order
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSpotPriceTriggeredOrderAsyncWithHttpInfo($order_id)
+    {
+        $returnType = '\GateApi\Model\SpotPriceTriggeredOrder';
+        $request = $this->getSpotPriceTriggeredOrderRequest($order_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSpotPriceTriggeredOrder'
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getSpotPriceTriggeredOrderRequest($order_id)
+    {
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling getSpotPriceTriggeredOrder'
+            );
+        }
+
+        $resourcePath = '/spot/price_orders/{order_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cancelSpotPriceTriggeredOrder
+     *
+     * Cancel a single order
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SpotPriceTriggeredOrder
+     */
+    public function cancelSpotPriceTriggeredOrder($order_id)
+    {
+        list($response) = $this->cancelSpotPriceTriggeredOrderWithHttpInfo($order_id);
+        return $response;
+    }
+
+    /**
+     * Operation cancelSpotPriceTriggeredOrderWithHttpInfo
+     *
+     * Cancel a single order
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SpotPriceTriggeredOrder, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cancelSpotPriceTriggeredOrderWithHttpInfo($order_id)
+    {
+        $request = $this->cancelSpotPriceTriggeredOrderRequest($order_id);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SpotPriceTriggeredOrder';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation cancelSpotPriceTriggeredOrderAsync
+     *
+     * Cancel a single order
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cancelSpotPriceTriggeredOrderAsync($order_id)
+    {
+        return $this->cancelSpotPriceTriggeredOrderAsyncWithHttpInfo($order_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cancelSpotPriceTriggeredOrderAsyncWithHttpInfo
+     *
+     * Cancel a single order
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cancelSpotPriceTriggeredOrderAsyncWithHttpInfo($order_id)
+    {
+        $returnType = '\GateApi\Model\SpotPriceTriggeredOrder';
+        $request = $this->cancelSpotPriceTriggeredOrderRequest($order_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cancelSpotPriceTriggeredOrder'
+     *
+     * @param string $order_id ID returned on order successfully being created (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function cancelSpotPriceTriggeredOrderRequest($order_id)
+    {
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling cancelSpotPriceTriggeredOrder'
+            );
+        }
+
+        $resourcePath = '/spot/price_orders/{order_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('DELETE', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

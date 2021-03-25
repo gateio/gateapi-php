@@ -63,7 +63,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => 'string',
         'amount_precision' => 'int',
         'precision' => 'int',
-        'trade_status' => 'string'
+        'trade_status' => 'string',
+        'sell_start' => 'int',
+        'buy_start' => 'int'
     ];
 
     /**
@@ -80,7 +82,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => null,
         'amount_precision' => null,
         'precision' => null,
-        'trade_status' => null
+        'trade_status' => null,
+        'sell_start' => 'int64',
+        'buy_start' => 'int64'
     ];
 
     /**
@@ -118,7 +122,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => 'min_quote_amount',
         'amount_precision' => 'amount_precision',
         'precision' => 'precision',
-        'trade_status' => 'trade_status'
+        'trade_status' => 'trade_status',
+        'sell_start' => 'sell_start',
+        'buy_start' => 'buy_start'
     ];
 
     /**
@@ -135,7 +141,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => 'setMinQuoteAmount',
         'amount_precision' => 'setAmountPrecision',
         'precision' => 'setPrecision',
-        'trade_status' => 'setTradeStatus'
+        'trade_status' => 'setTradeStatus',
+        'sell_start' => 'setSellStart',
+        'buy_start' => 'setBuyStart'
     ];
 
     /**
@@ -152,7 +160,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'min_quote_amount' => 'getMinQuoteAmount',
         'amount_precision' => 'getAmountPrecision',
         'precision' => 'getPrecision',
-        'trade_status' => 'getTradeStatus'
+        'trade_status' => 'getTradeStatus',
+        'sell_start' => 'getSellStart',
+        'buy_start' => 'getBuyStart'
     ];
 
     /**
@@ -243,6 +253,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         $this->container['amount_precision'] = isset($data['amount_precision']) ? $data['amount_precision'] : null;
         $this->container['precision'] = isset($data['precision']) ? $data['precision'] : null;
         $this->container['trade_status'] = isset($data['trade_status']) ? $data['trade_status'] : null;
+        $this->container['sell_start'] = isset($data['sell_start']) ? $data['sell_start'] : null;
+        $this->container['buy_start'] = isset($data['buy_start']) ? $data['buy_start'] : null;
     }
 
     /**
@@ -498,6 +510,54 @@ class CurrencyPair implements ModelInterface, ArrayAccess
             );
         }
         $this->container['trade_status'] = $trade_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets sell_start
+     *
+     * @return int|null
+     */
+    public function getSellStart()
+    {
+        return $this->container['sell_start'];
+    }
+
+    /**
+     * Sets sell_start
+     *
+     * @param int|null $sell_start 允许卖出时间，秒级 Unix 时间戳
+     *
+     * @return $this
+     */
+    public function setSellStart($sell_start)
+    {
+        $this->container['sell_start'] = $sell_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets buy_start
+     *
+     * @return int|null
+     */
+    public function getBuyStart()
+    {
+        return $this->container['buy_start'];
+    }
+
+    /**
+     * Sets buy_start
+     *
+     * @param int|null $buy_start 允许买入时间，秒级 Unix 时间戳
+     *
+     * @return $this
+     */
+    public function setBuyStart($buy_start)
+    {
+        $this->container['buy_start'] = $buy_start;
 
         return $this;
     }

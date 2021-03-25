@@ -23,6 +23,11 @@ Method | HTTP request | Description
 [**getOrder**](SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
 [**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 [**listMyTrades**](SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
+[**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
+[**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
+[**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
+[**getSpotPriceTriggeredOrder**](SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a single order
+[**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel a single order
 
 
 ## listCurrencies
@@ -1029,7 +1034,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = '12345'; // string | ID returned on order successfully being created
+$order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 
 try {
@@ -1048,7 +1053,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **string**| ID returned on order successfully being created |
+ **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currency_pair** | **string**| Currency pair |
 
 ### Return type
@@ -1091,7 +1096,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = '12345'; // string | ID returned on order successfully being created
+$order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 
 try {
@@ -1110,7 +1115,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **string**| ID returned on order successfully being created |
+ **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currency_pair** | **string**| Currency pair |
 
 ### Return type
@@ -1184,6 +1189,318 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\Trade[]**](../Model/Trade.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listSpotPriceTriggeredOrders
+
+> \GateApi\Model\SpotPriceTriggeredOrder[] listSpotPriceTriggeredOrders($status, $market, $account, $limit, $offset)
+
+Retrieve running auto order list
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['status'] = 'status_example'; // string | List orders based on status
+$associate_array['market'] = 'BTC_USDT'; // string | 交易市场
+$associate_array['account'] = 'account_example'; // string | Trading account
+$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+
+try {
+    $result = $apiInstance->listSpotPriceTriggeredOrders($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->listSpotPriceTriggeredOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **string**| List orders based on status |
+ **market** | **string**| 交易市场 | [optional]
+ **account** | **string**| Trading account | [optional]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\SpotPriceTriggeredOrder[]**](../Model/SpotPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createSpotPriceTriggeredOrder
+
+> \GateApi\Model\TriggerOrderResponse createSpotPriceTriggeredOrder($spot_price_triggered_order)
+
+Create a price-triggered order
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$spot_price_triggered_order = new \GateApi\Model\SpotPriceTriggeredOrder(); // \GateApi\Model\SpotPriceTriggeredOrder | 
+
+try {
+    $result = $apiInstance->createSpotPriceTriggeredOrder($spot_price_triggered_order);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->createSpotPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **spot_price_triggered_order** | [**\GateApi\Model\SpotPriceTriggeredOrder**](../Model/SpotPriceTriggeredOrder.md)|  |
+
+### Return type
+
+[**\GateApi\Model\TriggerOrderResponse**](../Model/TriggerOrderResponse.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## cancelSpotPriceTriggeredOrderList
+
+> \GateApi\Model\SpotPriceTriggeredOrder[] cancelSpotPriceTriggeredOrderList($market, $account)
+
+Cancel all open orders
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$market = 'BTC_USDT'; // string | 交易市场
+$account = 'account_example'; // string | Trading account
+
+try {
+    $result = $apiInstance->cancelSpotPriceTriggeredOrderList($market, $account);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->cancelSpotPriceTriggeredOrderList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **market** | **string**| 交易市场 | [optional]
+ **account** | **string**| Trading account | [optional]
+
+### Return type
+
+[**\GateApi\Model\SpotPriceTriggeredOrder[]**](../Model/SpotPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getSpotPriceTriggeredOrder
+
+> \GateApi\Model\SpotPriceTriggeredOrder getSpotPriceTriggeredOrder($order_id)
+
+Get a single order
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$order_id = 'order_id_example'; // string | ID returned on order successfully being created
+
+try {
+    $result = $apiInstance->getSpotPriceTriggeredOrder($order_id);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->getSpotPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| ID returned on order successfully being created |
+
+### Return type
+
+[**\GateApi\Model\SpotPriceTriggeredOrder**](../Model/SpotPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## cancelSpotPriceTriggeredOrder
+
+> \GateApi\Model\SpotPriceTriggeredOrder cancelSpotPriceTriggeredOrder($order_id)
+
+Cancel a single order
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$order_id = 'order_id_example'; // string | ID returned on order successfully being created
+
+try {
+    $result = $apiInstance->cancelSpotPriceTriggeredOrder($order_id);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->cancelSpotPriceTriggeredOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| ID returned on order successfully being created |
+
+### Return type
+
+[**\GateApi\Model\SpotPriceTriggeredOrder**](../Model/SpotPriceTriggeredOrder.md)
 
 ### Authorization
 

@@ -1670,7 +1670,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $settle = 'usdt'; // string | Settle currency
-$order_id = '12345'; // string | ID returned on order successfully being created
+$order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
 
 try {
     $result = $apiInstance->getFuturesOrder($settle, $order_id);
@@ -1689,7 +1689,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **order_id** | **string**| ID returned on order successfully being created |
+ **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
 
 ### Return type
 
@@ -1732,7 +1732,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $settle = 'usdt'; // string | Settle currency
-$order_id = '12345'; // string | ID returned on order successfully being created
+$order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
 
 try {
     $result = $apiInstance->cancelFuturesOrder($settle, $order_id);
@@ -1751,7 +1751,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **order_id** | **string**| ID returned on order successfully being created |
+ **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
 
 ### Return type
 
