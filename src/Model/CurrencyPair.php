@@ -527,7 +527,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets sell_start
      *
-     * @param int|null $sell_start 允许卖出时间，秒级 Unix 时间戳
+     * @param int|null $sell_start Sell start unix timestamp in seconds
      *
      * @return $this
      */
@@ -551,7 +551,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets buy_start
      *
-     * @param int|null $buy_start 允许买入时间，秒级 Unix 时间戳
+     * @param int|null $buy_start Buy start unix timestamp in seconds
      *
      * @return $this
      */

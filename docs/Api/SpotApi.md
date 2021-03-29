@@ -1227,7 +1227,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $associate_array['status'] = 'status_example'; // string | List orders based on status
-$associate_array['market'] = 'BTC_USDT'; // string | 交易市场
+$associate_array['market'] = 'BTC_USDT'; // string | Currency pair
 $associate_array['account'] = 'account_example'; // string | Trading account
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
@@ -1251,7 +1251,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| List orders based on status |
- **market** | **string**| 交易市场 | [optional]
+ **market** | **string**| Currency pair | [optional]
  **account** | **string**| Trading account | [optional]
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -1356,7 +1356,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$market = 'BTC_USDT'; // string | 交易市场
+$market = 'BTC_USDT'; // string | Currency pair
 $account = 'account_example'; // string | Trading account
 
 try {
@@ -1375,7 +1375,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **market** | **string**| 交易市场 | [optional]
+ **market** | **string**| Currency pair | [optional]
  **account** | **string**| Trading account | [optional]
 
 ### Return type

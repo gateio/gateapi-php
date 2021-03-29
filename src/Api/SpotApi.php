@@ -5155,7 +5155,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status  List orders based on status (required)
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
@@ -5178,7 +5178,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status  List orders based on status (required)
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
@@ -5238,7 +5238,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status  List orders based on status (required)
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
@@ -5264,7 +5264,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status  List orders based on status (required)
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
@@ -5317,7 +5317,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status  List orders based on status (required)
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
@@ -5725,7 +5725,7 @@ class SpotApi
      *
      * Cancel all open orders
      *
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5743,7 +5743,7 @@ class SpotApi
      *
      * Cancel all open orders
      *
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5798,7 +5798,7 @@ class SpotApi
      *
      * Cancel all open orders
      *
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      *
      * @throws \InvalidArgumentException
@@ -5819,7 +5819,7 @@ class SpotApi
      *
      * Cancel all open orders
      *
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      *
      * @throws \InvalidArgumentException
@@ -5867,7 +5867,7 @@ class SpotApi
     /**
      * Create request for operation 'cancelSpotPriceTriggeredOrderList'
      *
-     * @param string $market  交易市场 (optional)
+     * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
      *
      * @throws \InvalidArgumentException

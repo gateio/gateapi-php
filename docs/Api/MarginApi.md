@@ -1169,7 +1169,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$status = 'true'; // string | New auto repayment status. `on` - enabled, `off` - disabled
+$status = 'on'; // string | New auto repayment status. `on` - enabled, `off` - disabled
 
 try {
     $result = $apiInstance->setAutoRepay($status);

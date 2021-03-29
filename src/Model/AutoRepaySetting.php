@@ -155,8 +155,8 @@ class AutoRepaySetting implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_TRUE = 'true';
-    const STATUS_FALSE = 'false';
+    const STATUS_ON = 'on';
+    const STATUS_OFF = 'off';
     
 
     
@@ -168,8 +168,8 @@ class AutoRepaySetting implements ModelInterface, ArrayAccess
     public function getStatusAllowableValues()
     {
         return [
-            self::STATUS_TRUE,
-            self::STATUS_FALSE,
+            self::STATUS_ON,
+            self::STATUS_OFF,
         ];
     }
     
