@@ -995,7 +995,7 @@ Name | Type | Description  | Notes
 
 ## updatePositionLeverage
 
-> \GateApi\Model\Position updatePositionLeverage($settle, $contract, $leverage)
+> \GateApi\Model\Position updatePositionLeverage($settle, $contract, $leverage, $cross_leverage_limit)
 
 Update position leverage
 
@@ -1018,9 +1018,10 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $settle = 'usdt'; // string | Settle currency
 $contract = 'BTC_USDT'; // string | Futures contract
 $leverage = '10'; // string | New position leverage
+$cross_leverage_limit = '10'; // string | Cross margin leverage(valid only when `leverage` is 0)
 
 try {
-    $result = $apiInstance->updatePositionLeverage($settle, $contract, $leverage);
+    $result = $apiInstance->updatePositionLeverage($settle, $contract, $leverage, $cross_leverage_limit);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1038,6 +1039,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **leverage** | **string**| New position leverage |
+ **cross_leverage_limit** | **string**| Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) | [optional]
 
 ### Return type
 
@@ -1249,7 +1251,7 @@ Name | Type | Description  | Notes
 
 ## updateDualModePositionMargin
 
-> \GateApi\Model\Position[] updateDualModePositionMargin($settle, $contract, $change)
+> \GateApi\Model\Position[] updateDualModePositionMargin($settle, $contract, $change, $dual_side)
 
 Update position margin in dual mode
 
@@ -1272,9 +1274,10 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $settle = 'usdt'; // string | Settle currency
 $contract = 'BTC_USDT'; // string | Futures contract
 $change = '0.01'; // string | Margin change. Use positive number to increase margin, negative number otherwise.
+$dual_side = 'dual_long'; // string | Long or short position
 
 try {
-    $result = $apiInstance->updateDualModePositionMargin($settle, $contract, $change);
+    $result = $apiInstance->updateDualModePositionMargin($settle, $contract, $change, $dual_side);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1292,6 +1295,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **change** | **string**| Margin change. Use positive number to increase margin, negative number otherwise. |
+ **dual_side** | **string**| Long or short position |
 
 ### Return type
 

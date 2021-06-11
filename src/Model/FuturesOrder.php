@@ -267,6 +267,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     const FINISH_AS_IOC = 'ioc';
     const FINISH_AS_AUTO_DELEVERAGED = 'auto_deleveraged';
     const FINISH_AS_REDUCE_ONLY = 'reduce_only';
+    const FINISH_AS_POSITION_CLOSED = 'position_closed';
+    const FINISH_AS_REDUCE_OUT = 'reduce_out';
     const STATUS_OPEN = 'open';
     const STATUS_FINISHED = 'finished';
     const TIF_GTC = 'gtc';
@@ -289,6 +291,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
             self::FINISH_AS_IOC,
             self::FINISH_AS_AUTO_DELEVERAGED,
             self::FINISH_AS_REDUCE_ONLY,
+            self::FINISH_AS_POSITION_CLOSED,
+            self::FINISH_AS_REDUCE_OUT,
         ];
     }
     
@@ -522,7 +526,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_as
      *
-     * @param string|null $finish_as How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set
+     * @param string|null $finish_as How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set- position_closed: cancelled because of position close
      *
      * @return $this
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * CancelOrder
+ * CrossMarginBalance
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CancelOrder Class Doc Comment
+ * CrossMarginBalance Class Doc Comment
  *
- * @category    Class
- * @description Info of order to be cancelled
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
-class CancelOrder implements ModelInterface, ArrayAccess
+class CrossMarginBalance implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CancelOrder';
+    protected static $openAPIModelName = 'CrossMarginBalance';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,9 +54,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency_pair' => 'string',
-        'id' => 'string',
-        'account' => 'string'
+        'available' => 'string',
+        'freeze' => 'string',
+        'borrowed' => 'string',
+        'interest' => 'string'
     ];
 
     /**
@@ -66,9 +66,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency_pair' => null,
-        'id' => null,
-        'account' => null
+        'available' => null,
+        'freeze' => null,
+        'borrowed' => null,
+        'interest' => null
     ];
 
     /**
@@ -98,9 +99,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_pair' => 'currency_pair',
-        'id' => 'id',
-        'account' => 'account'
+        'available' => 'available',
+        'freeze' => 'freeze',
+        'borrowed' => 'borrowed',
+        'interest' => 'interest'
     ];
 
     /**
@@ -109,9 +111,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency_pair' => 'setCurrencyPair',
-        'id' => 'setId',
-        'account' => 'setAccount'
+        'available' => 'setAvailable',
+        'freeze' => 'setFreeze',
+        'borrowed' => 'setBorrowed',
+        'interest' => 'setInterest'
     ];
 
     /**
@@ -120,9 +123,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency_pair' => 'getCurrencyPair',
-        'id' => 'getId',
-        'account' => 'getAccount'
+        'available' => 'getAvailable',
+        'freeze' => 'getFreeze',
+        'borrowed' => 'getBorrowed',
+        'interest' => 'getInterest'
     ];
 
     /**
@@ -185,9 +189,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
+        $this->container['freeze'] = isset($data['freeze']) ? $data['freeze'] : null;
+        $this->container['borrowed'] = isset($data['borrowed']) ? $data['borrowed'] : null;
+        $this->container['interest'] = isset($data['interest']) ? $data['interest'] : null;
     }
 
     /**
@@ -199,12 +204,6 @@ class CancelOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency_pair'] === null) {
-            $invalidProperties[] = "'currency_pair' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,73 +220,97 @@ class CancelOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency_pair
-     *
-     * @return string
-     */
-    public function getCurrencyPair()
-    {
-        return $this->container['currency_pair'];
-    }
-
-    /**
-     * Sets currency_pair
-     *
-     * @param string $currency_pair Order currency pair
-     *
-     * @return $this
-     */
-    public function setCurrencyPair($currency_pair)
-    {
-        $this->container['currency_pair'] = $currency_pair;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets account
+     * Gets available
      *
      * @return string|null
      */
-    public function getAccount()
+    public function getAvailable()
     {
-        return $this->container['account'];
+        return $this->container['available'];
     }
 
     /**
-     * Sets account
+     * Sets available
      *
-     * @param string|null $account If cancelled order is cross margin order, this field must be set and can only be `cross_margin`
+     * @param string|null $available Available amount
      *
      * @return $this
      */
-    public function setAccount($account)
+    public function setAvailable($available)
     {
-        $this->container['account'] = $account;
+        $this->container['available'] = $available;
+
+        return $this;
+    }
+
+    /**
+     * Gets freeze
+     *
+     * @return string|null
+     */
+    public function getFreeze()
+    {
+        return $this->container['freeze'];
+    }
+
+    /**
+     * Sets freeze
+     *
+     * @param string|null $freeze Locked amount
+     *
+     * @return $this
+     */
+    public function setFreeze($freeze)
+    {
+        $this->container['freeze'] = $freeze;
+
+        return $this;
+    }
+
+    /**
+     * Gets borrowed
+     *
+     * @return string|null
+     */
+    public function getBorrowed()
+    {
+        return $this->container['borrowed'];
+    }
+
+    /**
+     * Sets borrowed
+     *
+     * @param string|null $borrowed Borrowed amount
+     *
+     * @return $this
+     */
+    public function setBorrowed($borrowed)
+    {
+        $this->container['borrowed'] = $borrowed;
+
+        return $this;
+    }
+
+    /**
+     * Gets interest
+     *
+     * @return string|null
+     */
+    public function getInterest()
+    {
+        return $this->container['interest'];
+    }
+
+    /**
+     * Sets interest
+     *
+     * @param string|null $interest Interests unpaid
+     *
+     * @return $this
+     */
+    public function setInterest($interest)
+    {
+        $this->container['interest'] = $interest;
 
         return $this;
     }

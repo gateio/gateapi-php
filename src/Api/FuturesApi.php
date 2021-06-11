@@ -4511,17 +4511,18 @@ class FuturesApi
      *
      * Update position leverage
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Position
      */
-    public function updatePositionLeverage($settle, $contract, $leverage)
+    public function updatePositionLeverage($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
-        list($response) = $this->updatePositionLeverageWithHttpInfo($settle, $contract, $leverage);
+        list($response) = $this->updatePositionLeverageWithHttpInfo($settle, $contract, $leverage, $cross_leverage_limit);
         return $response;
     }
 
@@ -4530,17 +4531,18 @@ class FuturesApi
      *
      * Update position leverage
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePositionLeverageWithHttpInfo($settle, $contract, $leverage)
+    public function updatePositionLeverageWithHttpInfo($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
-        $request = $this->updatePositionLeverageRequest($settle, $contract, $leverage);
+        $request = $this->updatePositionLeverageRequest($settle, $contract, $leverage, $cross_leverage_limit);
 
         $options = $this->createHttpClientOption();
         try {
@@ -4586,16 +4588,17 @@ class FuturesApi
      *
      * Update position leverage
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionLeverageAsync($settle, $contract, $leverage)
+    public function updatePositionLeverageAsync($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
-        return $this->updatePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
+        return $this->updatePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage, $cross_leverage_limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4608,17 +4611,18 @@ class FuturesApi
      *
      * Update position leverage
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
+    public function updatePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
         $returnType = '\GateApi\Model\Position';
-        $request = $this->updatePositionLeverageRequest($settle, $contract, $leverage);
+        $request = $this->updatePositionLeverageRequest($settle, $contract, $leverage, $cross_leverage_limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4657,14 +4661,15 @@ class FuturesApi
     /**
      * Create request for operation 'updatePositionLeverage'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updatePositionLeverageRequest($settle, $contract, $leverage)
+    protected function updatePositionLeverageRequest($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -4701,6 +4706,18 @@ class FuturesApi
             }
             else {
                 $queryParams['leverage'] = $leverage;
+            }
+        }
+
+        // query params
+        if ($cross_leverage_limit !== null) {
+            if('form' === 'form' && is_array($cross_leverage_limit)) {
+                foreach($cross_leverage_limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['cross_leverage_limit'] = $cross_leverage_limit;
             }
         }
 
@@ -5600,17 +5617,18 @@ class FuturesApi
      *
      * Update position margin in dual mode
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $settle    Settle currency (required)
+     * @param string $contract  Futures contract (required)
+     * @param string $change    Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $dual_side Long or short position (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Position[]
      */
-    public function updateDualModePositionMargin($settle, $contract, $change)
+    public function updateDualModePositionMargin($settle, $contract, $change, $dual_side)
     {
-        list($response) = $this->updateDualModePositionMarginWithHttpInfo($settle, $contract, $change);
+        list($response) = $this->updateDualModePositionMarginWithHttpInfo($settle, $contract, $change, $dual_side);
         return $response;
     }
 
@@ -5619,17 +5637,18 @@ class FuturesApi
      *
      * Update position margin in dual mode
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $settle    Settle currency (required)
+     * @param string $contract  Futures contract (required)
+     * @param string $change    Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $dual_side Long or short position (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDualModePositionMarginWithHttpInfo($settle, $contract, $change)
+    public function updateDualModePositionMarginWithHttpInfo($settle, $contract, $change, $dual_side)
     {
-        $request = $this->updateDualModePositionMarginRequest($settle, $contract, $change);
+        $request = $this->updateDualModePositionMarginRequest($settle, $contract, $change, $dual_side);
 
         $options = $this->createHttpClientOption();
         try {
@@ -5675,16 +5694,17 @@ class FuturesApi
      *
      * Update position margin in dual mode
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $settle    Settle currency (required)
+     * @param string $contract  Futures contract (required)
+     * @param string $change    Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $dual_side Long or short position (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDualModePositionMarginAsync($settle, $contract, $change)
+    public function updateDualModePositionMarginAsync($settle, $contract, $change, $dual_side)
     {
-        return $this->updateDualModePositionMarginAsyncWithHttpInfo($settle, $contract, $change)
+        return $this->updateDualModePositionMarginAsyncWithHttpInfo($settle, $contract, $change, $dual_side)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5697,17 +5717,18 @@ class FuturesApi
      *
      * Update position margin in dual mode
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $settle    Settle currency (required)
+     * @param string $contract  Futures contract (required)
+     * @param string $change    Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $dual_side Long or short position (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDualModePositionMarginAsyncWithHttpInfo($settle, $contract, $change)
+    public function updateDualModePositionMarginAsyncWithHttpInfo($settle, $contract, $change, $dual_side)
     {
         $returnType = '\GateApi\Model\Position[]';
-        $request = $this->updateDualModePositionMarginRequest($settle, $contract, $change);
+        $request = $this->updateDualModePositionMarginRequest($settle, $contract, $change, $dual_side);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5746,14 +5767,15 @@ class FuturesApi
     /**
      * Create request for operation 'updateDualModePositionMargin'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $settle    Settle currency (required)
+     * @param string $contract  Futures contract (required)
+     * @param string $change    Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param string $dual_side Long or short position (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateDualModePositionMarginRequest($settle, $contract, $change)
+    protected function updateDualModePositionMarginRequest($settle, $contract, $change, $dual_side)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -5773,6 +5795,12 @@ class FuturesApi
                 'Missing the required parameter $change when calling updateDualModePositionMargin'
             );
         }
+        // verify the required parameter 'dual_side' is set
+        if ($dual_side === null || (is_array($dual_side) && count($dual_side) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dual_side when calling updateDualModePositionMargin'
+            );
+        }
 
         $resourcePath = '/futures/{settle}/dual_comp/positions/{contract}/margin';
         $formParams = [];
@@ -5790,6 +5818,18 @@ class FuturesApi
             }
             else {
                 $queryParams['change'] = $change;
+            }
+        }
+
+        // query params
+        if ($dual_side !== null) {
+            if('form' === 'form' && is_array($dual_side)) {
+                foreach($dual_side as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['dual_side'] = $dual_side;
             }
         }
 

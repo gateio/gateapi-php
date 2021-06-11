@@ -1,6 +1,6 @@
 <?php
 /**
- * MarginAccountCurrency
+ * CrossMarginCurrency
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MarginAccountCurrency Class Doc Comment
+ * CrossMarginCurrency Class Doc Comment
  *
- * @category    Class
- * @description Account currency detail
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
-class MarginAccountCurrency implements ModelInterface, ArrayAccess
+class CrossMarginCurrency implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MarginAccountCurrency';
+    protected static $openAPIModelName = 'CrossMarginCurrency';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,11 +54,14 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'available' => 'string',
-        'locked' => 'string',
-        'borrowed' => 'string',
-        'interest' => 'string'
+        'name' => 'string',
+        'rate' => 'string',
+        'prec' => 'string',
+        'discount' => 'string',
+        'min_borrow_amount' => 'string',
+        'user_max_borrow_amount' => 'string',
+        'total_max_borrow_amount' => 'string',
+        'price' => 'string'
     ];
 
     /**
@@ -68,11 +70,14 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'available' => null,
-        'locked' => null,
-        'borrowed' => null,
-        'interest' => null
+        'name' => null,
+        'rate' => null,
+        'prec' => null,
+        'discount' => null,
+        'min_borrow_amount' => null,
+        'user_max_borrow_amount' => null,
+        'total_max_borrow_amount' => null,
+        'price' => null
     ];
 
     /**
@@ -102,11 +107,14 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'available' => 'available',
-        'locked' => 'locked',
-        'borrowed' => 'borrowed',
-        'interest' => 'interest'
+        'name' => 'name',
+        'rate' => 'rate',
+        'prec' => 'prec',
+        'discount' => 'discount',
+        'min_borrow_amount' => 'min_borrow_amount',
+        'user_max_borrow_amount' => 'user_max_borrow_amount',
+        'total_max_borrow_amount' => 'total_max_borrow_amount',
+        'price' => 'price'
     ];
 
     /**
@@ -115,11 +123,14 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'available' => 'setAvailable',
-        'locked' => 'setLocked',
-        'borrowed' => 'setBorrowed',
-        'interest' => 'setInterest'
+        'name' => 'setName',
+        'rate' => 'setRate',
+        'prec' => 'setPrec',
+        'discount' => 'setDiscount',
+        'min_borrow_amount' => 'setMinBorrowAmount',
+        'user_max_borrow_amount' => 'setUserMaxBorrowAmount',
+        'total_max_borrow_amount' => 'setTotalMaxBorrowAmount',
+        'price' => 'setPrice'
     ];
 
     /**
@@ -128,11 +139,14 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'available' => 'getAvailable',
-        'locked' => 'getLocked',
-        'borrowed' => 'getBorrowed',
-        'interest' => 'getInterest'
+        'name' => 'getName',
+        'rate' => 'getRate',
+        'prec' => 'getPrec',
+        'discount' => 'getDiscount',
+        'min_borrow_amount' => 'getMinBorrowAmount',
+        'user_max_borrow_amount' => 'getUserMaxBorrowAmount',
+        'total_max_borrow_amount' => 'getTotalMaxBorrowAmount',
+        'price' => 'getPrice'
     ];
 
     /**
@@ -195,11 +209,14 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
-        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
-        $this->container['borrowed'] = isset($data['borrowed']) ? $data['borrowed'] : null;
-        $this->container['interest'] = isset($data['interest']) ? $data['interest'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
+        $this->container['prec'] = isset($data['prec']) ? $data['prec'] : null;
+        $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
+        $this->container['min_borrow_amount'] = isset($data['min_borrow_amount']) ? $data['min_borrow_amount'] : null;
+        $this->container['user_max_borrow_amount'] = isset($data['user_max_borrow_amount']) ? $data['user_max_borrow_amount'] : null;
+        $this->container['total_max_borrow_amount'] = isset($data['total_max_borrow_amount']) ? $data['total_max_borrow_amount'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
     }
 
     /**
@@ -227,121 +244,193 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
+     * Gets name
      *
      * @return string|null
      */
-    public function getCurrency()
+    public function getName()
     {
-        return $this->container['currency'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets currency
+     * Sets name
      *
-     * @param string|null $currency Currency name
+     * @param string|null $name Currency name
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setName($name)
     {
-        $this->container['currency'] = $currency;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets available
+     * Gets rate
      *
      * @return string|null
      */
-    public function getAvailable()
+    public function getRate()
     {
-        return $this->container['available'];
+        return $this->container['rate'];
     }
 
     /**
-     * Sets available
+     * Sets rate
      *
-     * @param string|null $available Amount suitable for margin trading.
+     * @param string|null $rate Loan rate
      *
      * @return $this
      */
-    public function setAvailable($available)
+    public function setRate($rate)
     {
-        $this->container['available'] = $available;
+        $this->container['rate'] = $rate;
 
         return $this;
     }
 
     /**
-     * Gets locked
+     * Gets prec
      *
      * @return string|null
      */
-    public function getLocked()
+    public function getPrec()
     {
-        return $this->container['locked'];
+        return $this->container['prec'];
     }
 
     /**
-     * Sets locked
+     * Sets prec
      *
-     * @param string|null $locked Locked amount, used in margin trading
+     * @param string|null $prec Currency precision
      *
      * @return $this
      */
-    public function setLocked($locked)
+    public function setPrec($prec)
     {
-        $this->container['locked'] = $locked;
+        $this->container['prec'] = $prec;
 
         return $this;
     }
 
     /**
-     * Gets borrowed
+     * Gets discount
      *
      * @return string|null
      */
-    public function getBorrowed()
+    public function getDiscount()
     {
-        return $this->container['borrowed'];
+        return $this->container['discount'];
     }
 
     /**
-     * Sets borrowed
+     * Sets discount
      *
-     * @param string|null $borrowed Borrowed amount
+     * @param string|null $discount Currency value discount, which is used in total value calculation
      *
      * @return $this
      */
-    public function setBorrowed($borrowed)
+    public function setDiscount($discount)
     {
-        $this->container['borrowed'] = $borrowed;
+        $this->container['discount'] = $discount;
 
         return $this;
     }
 
     /**
-     * Gets interest
+     * Gets min_borrow_amount
      *
      * @return string|null
      */
-    public function getInterest()
+    public function getMinBorrowAmount()
     {
-        return $this->container['interest'];
+        return $this->container['min_borrow_amount'];
     }
 
     /**
-     * Sets interest
+     * Sets min_borrow_amount
      *
-     * @param string|null $interest Interests unpaid
+     * @param string|null $min_borrow_amount Minimum currency borrow amount. Unit is currency itself
      *
      * @return $this
      */
-    public function setInterest($interest)
+    public function setMinBorrowAmount($min_borrow_amount)
     {
-        $this->container['interest'] = $interest;
+        $this->container['min_borrow_amount'] = $min_borrow_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_max_borrow_amount
+     *
+     * @return string|null
+     */
+    public function getUserMaxBorrowAmount()
+    {
+        return $this->container['user_max_borrow_amount'];
+    }
+
+    /**
+     * Sets user_max_borrow_amount
+     *
+     * @param string|null $user_max_borrow_amount Maximum borrow value allowed per user, in USDT
+     *
+     * @return $this
+     */
+    public function setUserMaxBorrowAmount($user_max_borrow_amount)
+    {
+        $this->container['user_max_borrow_amount'] = $user_max_borrow_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_max_borrow_amount
+     *
+     * @return string|null
+     */
+    public function getTotalMaxBorrowAmount()
+    {
+        return $this->container['total_max_borrow_amount'];
+    }
+
+    /**
+     * Sets total_max_borrow_amount
+     *
+     * @param string|null $total_max_borrow_amount Maximum borrow value allowed for this currency, in USDT
+     *
+     * @return $this
+     */
+    public function setTotalMaxBorrowAmount($total_max_borrow_amount)
+    {
+        $this->container['total_max_borrow_amount'] = $total_max_borrow_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return string|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param string|null $price Price change between this currency and USDT
+     *
+     * @return $this
+     */
+    public function setPrice($price)
+    {
+        $this->container['price'] = $price;
 
         return $this;
     }

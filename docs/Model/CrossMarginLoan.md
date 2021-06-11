@@ -1,0 +1,18 @@
+# # CrossMarginLoan
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **string** | Borrow loan ID | [optional] [readonly] 
+**create_time** | **int** | Creation timestamp, in milliseconds | [optional] [readonly] 
+**update_time** | **int** | Update timestamp, in milliseconds | [optional] [readonly] 
+**currency** | **string** | Currency name | 
+**amount** | **string** | Borrowed amount | 
+**text** | **string** | User defined custom ID | [optional] 
+**status** | **int** | Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete | [optional] [readonly] 
+**repaid** | **string** | Repaid amount | [optional] [readonly] 
+**repaid_interest** | **string** | Repaid interest | [optional] [readonly] 
+**unpaid_interest** | **string** | Interest not repaid | [optional] [readonly] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * Transfer
+ * CrossMarginLoan
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * Transfer Class Doc Comment
+ * CrossMarginLoan Class Doc Comment
  *
- * @category    Class
- * @description Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account - &#x60;cross_margin&#x60;: cross margin account
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
-class Transfer implements ModelInterface, ArrayAccess
+class CrossMarginLoan implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class Transfer implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Transfer';
+    protected static $openAPIModelName = 'CrossMarginLoan';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,12 +54,16 @@ class Transfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'create_time' => 'int',
+        'update_time' => 'int',
         'currency' => 'string',
-        'from' => 'string',
-        'to' => 'string',
         'amount' => 'string',
-        'currency_pair' => 'string',
-        'settle' => 'string'
+        'text' => 'string',
+        'status' => 'int',
+        'repaid' => 'string',
+        'repaid_interest' => 'string',
+        'unpaid_interest' => 'string'
     ];
 
     /**
@@ -69,12 +72,16 @@ class Transfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'create_time' => 'int64',
+        'update_time' => 'int64',
         'currency' => null,
-        'from' => null,
-        'to' => null,
         'amount' => null,
-        'currency_pair' => null,
-        'settle' => null
+        'text' => null,
+        'status' => null,
+        'repaid' => null,
+        'repaid_interest' => null,
+        'unpaid_interest' => null
     ];
 
     /**
@@ -104,12 +111,16 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'create_time' => 'create_time',
+        'update_time' => 'update_time',
         'currency' => 'currency',
-        'from' => 'from',
-        'to' => 'to',
         'amount' => 'amount',
-        'currency_pair' => 'currency_pair',
-        'settle' => 'settle'
+        'text' => 'text',
+        'status' => 'status',
+        'repaid' => 'repaid',
+        'repaid_interest' => 'repaid_interest',
+        'unpaid_interest' => 'unpaid_interest'
     ];
 
     /**
@@ -118,12 +129,16 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'create_time' => 'setCreateTime',
+        'update_time' => 'setUpdateTime',
         'currency' => 'setCurrency',
-        'from' => 'setFrom',
-        'to' => 'setTo',
         'amount' => 'setAmount',
-        'currency_pair' => 'setCurrencyPair',
-        'settle' => 'setSettle'
+        'text' => 'setText',
+        'status' => 'setStatus',
+        'repaid' => 'setRepaid',
+        'repaid_interest' => 'setRepaidInterest',
+        'unpaid_interest' => 'setUnpaidInterest'
     ];
 
     /**
@@ -132,12 +147,16 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'create_time' => 'getCreateTime',
+        'update_time' => 'getUpdateTime',
         'currency' => 'getCurrency',
-        'from' => 'getFrom',
-        'to' => 'getTo',
         'amount' => 'getAmount',
-        'currency_pair' => 'getCurrencyPair',
-        'settle' => 'getSettle'
+        'text' => 'getText',
+        'status' => 'getStatus',
+        'repaid' => 'getRepaid',
+        'repaid_interest' => 'getRepaidInterest',
+        'unpaid_interest' => 'getUnpaidInterest'
     ];
 
     /**
@@ -181,16 +200,9 @@ class Transfer implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const FROM_SPOT = 'spot';
-    const FROM_MARGIN = 'margin';
-    const FROM_FUTURES = 'futures';
-    const FROM_DELIVERY = 'delivery';
-    const FROM_CROSS_MARGIN = 'cross_margin';
-    const TO_SPOT = 'spot';
-    const TO_MARGIN = 'margin';
-    const TO_FUTURES = 'futures';
-    const TO_DELIVERY = 'delivery';
-    const TO_CROSS_MARGIN = 'cross_margin';
+    const STATUS_1 = 1;
+    const STATUS_2 = 2;
+    const STATUS_3 = 3;
     
 
     
@@ -199,30 +211,12 @@ class Transfer implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getFromAllowableValues()
+    public function getStatusAllowableValues()
     {
         return [
-            self::FROM_SPOT,
-            self::FROM_MARGIN,
-            self::FROM_FUTURES,
-            self::FROM_DELIVERY,
-            self::FROM_CROSS_MARGIN,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getToAllowableValues()
-    {
-        return [
-            self::TO_SPOT,
-            self::TO_MARGIN,
-            self::TO_FUTURES,
-            self::TO_DELIVERY,
-            self::TO_CROSS_MARGIN,
+            self::STATUS_1,
+            self::STATUS_2,
+            self::STATUS_3,
         ];
     }
     
@@ -242,12 +236,16 @@ class Transfer implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['to'] = isset($data['to']) ? $data['to'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['settle'] = isset($data['settle']) ? $data['settle'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['repaid'] = isset($data['repaid']) ? $data['repaid'] : null;
+        $this->container['repaid_interest'] = isset($data['repaid_interest']) ? $data['repaid_interest'] : null;
+        $this->container['unpaid_interest'] = isset($data['unpaid_interest']) ? $data['unpaid_interest'] : null;
     }
 
     /**
@@ -262,31 +260,17 @@ class Transfer implements ModelInterface, ArrayAccess
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
-        if ($this->container['from'] === null) {
-            $invalidProperties[] = "'from' can't be null";
-        }
-        $allowedValues = $this->getFromAllowableValues();
-        if (!is_null($this->container['from']) && !in_array($this->container['from'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'from', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['to'] === null) {
-            $invalidProperties[] = "'to' can't be null";
-        }
-        $allowedValues = $this->getToAllowableValues();
-        if (!is_null($this->container['to']) && !in_array($this->container['to'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'to', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -303,6 +287,78 @@ class Transfer implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Borrow loan ID
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_time
+     *
+     * @return int|null
+     */
+    public function getCreateTime()
+    {
+        return $this->container['create_time'];
+    }
+
+    /**
+     * Sets create_time
+     *
+     * @param int|null $create_time Creation timestamp, in milliseconds
+     *
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return int|null
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param int|null $update_time Update timestamp, in milliseconds
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
      * Gets currency
      *
      * @return string
@@ -315,79 +371,13 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Transfer currency. For futures account, `currency` can be set to `POINT` or settle currency
+     * @param string $currency Currency name
      *
      * @return $this
      */
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets from
-     *
-     * @return string
-     */
-    public function getFrom()
-    {
-        return $this->container['from'];
-    }
-
-    /**
-     * Sets from
-     *
-     * @param string $from Account transferred from
-     *
-     * @return $this
-     */
-    public function setFrom($from)
-    {
-        $allowedValues = $this->getFromAllowableValues();
-        if (!in_array($from, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'from', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['from'] = $from;
-
-        return $this;
-    }
-
-    /**
-     * Gets to
-     *
-     * @return string
-     */
-    public function getTo()
-    {
-        return $this->container['to'];
-    }
-
-    /**
-     * Sets to
-     *
-     * @param string $to Account transferred to
-     *
-     * @return $this
-     */
-    public function setTo($to)
-    {
-        $allowedValues = $this->getToAllowableValues();
-        if (!in_array($to, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'to', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['to'] = $to;
 
         return $this;
     }
@@ -405,7 +395,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Transfer amount
+     * @param string $amount Borrowed amount
      *
      * @return $this
      */
@@ -417,49 +407,130 @@ class Transfer implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets currency_pair
+     * Gets text
      *
      * @return string|null
      */
-    public function getCurrencyPair()
+    public function getText()
     {
-        return $this->container['currency_pair'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets text
      *
-     * @param string|null $currency_pair Margin currency pair. Required if transfer from or to margin account
+     * @param string|null $text User defined custom ID
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setText($text)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets settle
+     * Gets status
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getSettle()
+    public function getStatus()
     {
-        return $this->container['settle'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets settle
+     * Sets status
      *
-     * @param string|null $settle Futures settle currency. Required if `currency` is `POINT`
+     * @param int|null $status Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
      *
      * @return $this
      */
-    public function setSettle($settle)
+    public function setStatus($status)
     {
-        $this->container['settle'] = $settle;
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets repaid
+     *
+     * @return string|null
+     */
+    public function getRepaid()
+    {
+        return $this->container['repaid'];
+    }
+
+    /**
+     * Sets repaid
+     *
+     * @param string|null $repaid Repaid amount
+     *
+     * @return $this
+     */
+    public function setRepaid($repaid)
+    {
+        $this->container['repaid'] = $repaid;
+
+        return $this;
+    }
+
+    /**
+     * Gets repaid_interest
+     *
+     * @return string|null
+     */
+    public function getRepaidInterest()
+    {
+        return $this->container['repaid_interest'];
+    }
+
+    /**
+     * Sets repaid_interest
+     *
+     * @param string|null $repaid_interest Repaid interest
+     *
+     * @return $this
+     */
+    public function setRepaidInterest($repaid_interest)
+    {
+        $this->container['repaid_interest'] = $repaid_interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets unpaid_interest
+     *
+     * @return string|null
+     */
+    public function getUnpaidInterest()
+    {
+        return $this->container['unpaid_interest'];
+    }
+
+    /**
+     * Sets unpaid_interest
+     *
+     * @param string|null $unpaid_interest Interest not repaid
+     *
+     * @return $this
+     */
+    public function setUnpaidInterest($unpaid_interest)
+    {
+        $this->container['unpaid_interest'] = $unpaid_interest;
 
         return $this;
     }

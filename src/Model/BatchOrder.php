@@ -62,6 +62,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'id' => 'string',
         'create_time' => 'string',
         'update_time' => 'string',
+        'create_time_ms' => 'int',
+        'update_time_ms' => 'int',
         'status' => 'string',
         'currency_pair' => 'string',
         'type' => 'string',
@@ -72,6 +74,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'time_in_force' => 'string',
         'iceberg' => 'string',
         'auto_borrow' => 'bool',
+        'auto_repay' => 'bool',
         'left' => 'string',
         'fill_price' => 'string',
         'filled_total' => 'string',
@@ -97,6 +100,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'id' => null,
         'create_time' => null,
         'update_time' => null,
+        'create_time_ms' => 'int64',
+        'update_time_ms' => 'int64',
         'status' => null,
         'currency_pair' => null,
         'type' => null,
@@ -107,6 +112,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'time_in_force' => null,
         'iceberg' => null,
         'auto_borrow' => null,
+        'auto_repay' => null,
         'left' => null,
         'fill_price' => null,
         'filled_total' => null,
@@ -153,6 +159,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'id' => 'id',
         'create_time' => 'create_time',
         'update_time' => 'update_time',
+        'create_time_ms' => 'create_time_ms',
+        'update_time_ms' => 'update_time_ms',
         'status' => 'status',
         'currency_pair' => 'currency_pair',
         'type' => 'type',
@@ -163,6 +171,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'time_in_force' => 'time_in_force',
         'iceberg' => 'iceberg',
         'auto_borrow' => 'auto_borrow',
+        'auto_repay' => 'auto_repay',
         'left' => 'left',
         'fill_price' => 'fill_price',
         'filled_total' => 'filled_total',
@@ -188,6 +197,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'create_time' => 'setCreateTime',
         'update_time' => 'setUpdateTime',
+        'create_time_ms' => 'setCreateTimeMs',
+        'update_time_ms' => 'setUpdateTimeMs',
         'status' => 'setStatus',
         'currency_pair' => 'setCurrencyPair',
         'type' => 'setType',
@@ -198,6 +209,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'time_in_force' => 'setTimeInForce',
         'iceberg' => 'setIceberg',
         'auto_borrow' => 'setAutoBorrow',
+        'auto_repay' => 'setAutoRepay',
         'left' => 'setLeft',
         'fill_price' => 'setFillPrice',
         'filled_total' => 'setFilledTotal',
@@ -223,6 +235,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'create_time' => 'getCreateTime',
         'update_time' => 'getUpdateTime',
+        'create_time_ms' => 'getCreateTimeMs',
+        'update_time_ms' => 'getUpdateTimeMs',
         'status' => 'getStatus',
         'currency_pair' => 'getCurrencyPair',
         'type' => 'getType',
@@ -233,6 +247,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'time_in_force' => 'getTimeInForce',
         'iceberg' => 'getIceberg',
         'auto_borrow' => 'getAutoBorrow',
+        'auto_repay' => 'getAutoRepay',
         'left' => 'getLeft',
         'fill_price' => 'getFillPrice',
         'filled_total' => 'getFilledTotal',
@@ -292,6 +307,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     const TYPE_LIMIT = 'limit';
     const ACCOUNT_SPOT = 'spot';
     const ACCOUNT_MARGIN = 'margin';
+    const ACCOUNT_CROSS_MARGIN = 'cross_margin';
     const SIDE_BUY = 'buy';
     const SIDE_SELL = 'sell';
     const TIME_IN_FORCE_GTC = 'gtc';
@@ -336,6 +352,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         return [
             self::ACCOUNT_SPOT,
             self::ACCOUNT_MARGIN,
+            self::ACCOUNT_CROSS_MARGIN,
         ];
     }
     
@@ -389,6 +406,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['create_time_ms'] = isset($data['create_time_ms']) ? $data['create_time_ms'] : null;
+        $this->container['update_time_ms'] = isset($data['update_time_ms']) ? $data['update_time_ms'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : 'limit';
@@ -399,6 +418,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
         $this->container['time_in_force'] = isset($data['time_in_force']) ? $data['time_in_force'] : 'gtc';
         $this->container['iceberg'] = isset($data['iceberg']) ? $data['iceberg'] : null;
         $this->container['auto_borrow'] = isset($data['auto_borrow']) ? $data['auto_borrow'] : null;
+        $this->container['auto_repay'] = isset($data['auto_repay']) ? $data['auto_repay'] : null;
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
         $this->container['filled_total'] = isset($data['filled_total']) ? $data['filled_total'] : null;
@@ -644,6 +664,54 @@ class BatchOrder implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets create_time_ms
+     *
+     * @return int|null
+     */
+    public function getCreateTimeMs()
+    {
+        return $this->container['create_time_ms'];
+    }
+
+    /**
+     * Sets create_time_ms
+     *
+     * @param int|null $create_time_ms Order creation time in milliseconds
+     *
+     * @return $this
+     */
+    public function setCreateTimeMs($create_time_ms)
+    {
+        $this->container['create_time_ms'] = $create_time_ms;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time_ms
+     *
+     * @return int|null
+     */
+    public function getUpdateTimeMs()
+    {
+        return $this->container['update_time_ms'];
+    }
+
+    /**
+     * Sets update_time_ms
+     *
+     * @param int|null $update_time_ms Order last modification time in milliseconds
+     *
+     * @return $this
+     */
+    public function setUpdateTimeMs($update_time_ms)
+    {
+        $this->container['update_time_ms'] = $update_time_ms;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string|null
@@ -746,7 +814,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Account type. spot - use spot account; margin - use margin account
+     * @param string|null $account Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
      *
      * @return $this
      */
@@ -917,13 +985,37 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_borrow
      *
-     * @param bool|null $auto_borrow Used in margin trading(i.e. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.
+     * @param bool|null $auto_borrow Used in margin or cross margin trading to allow automatic loan of insufficient amount if balance is not enough.
      *
      * @return $this
      */
     public function setAutoBorrow($auto_borrow)
     {
         $this->container['auto_borrow'] = $auto_borrow;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_repay
+     *
+     * @return bool|null
+     */
+    public function getAutoRepay()
+    {
+        return $this->container['auto_repay'];
+    }
+
+    /**
+     * Sets auto_repay
+     *
+     * @param bool|null $auto_repay Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. `auto_borrow` and `auto_repay` cannot be both set to true in one order.
+     *
+     * @return $this
+     */
+    public function setAutoRepay($auto_repay)
+    {
+        $this->container['auto_repay'] = $auto_repay;
 
         return $this;
     }

@@ -59,7 +59,8 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
         'id' => 'string',
         'succeeded' => 'bool',
         'label' => 'string',
-        'message' => 'string'
+        'message' => 'string',
+        'account' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
         'id' => null,
         'succeeded' => null,
         'label' => null,
-        'message' => null
+        'message' => null,
+        'account' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
         'id' => 'id',
         'succeeded' => 'succeeded',
         'label' => 'label',
-        'message' => 'message'
+        'message' => 'message',
+        'account' => 'account'
     ];
 
     /**
@@ -119,7 +122,8 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'succeeded' => 'setSucceeded',
         'label' => 'setLabel',
-        'message' => 'setMessage'
+        'message' => 'setMessage',
+        'account' => 'setAccount'
     ];
 
     /**
@@ -132,7 +136,8 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'succeeded' => 'getSucceeded',
         'label' => 'getLabel',
-        'message' => 'getMessage'
+        'message' => 'getMessage',
+        'account' => 'getAccount'
     ];
 
     /**
@@ -200,6 +205,7 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
         $this->container['succeeded'] = isset($data['succeeded']) ? $data['succeeded'] : null;
         $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
     }
 
     /**
@@ -342,6 +348,30 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return string|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param string|null $account Empty by default. If cancelled order is cross margin order, this field is set to `cross_margin`
+     *
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
 
         return $this;
     }

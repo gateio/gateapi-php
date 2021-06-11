@@ -76,7 +76,8 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => 'int',
         'pending_orders' => 'int',
         'close_order' => '\GateApi\Model\PositionCloseOrder',
-        'mode' => 'string'
+        'mode' => 'string',
+        'cross_leverage_limit' => 'string'
     ];
 
     /**
@@ -106,7 +107,8 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => null,
         'pending_orders' => null,
         'close_order' => null,
-        'mode' => null
+        'mode' => null,
+        'cross_leverage_limit' => null
     ];
 
     /**
@@ -157,7 +159,8 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => 'adl_ranking',
         'pending_orders' => 'pending_orders',
         'close_order' => 'close_order',
-        'mode' => 'mode'
+        'mode' => 'mode',
+        'cross_leverage_limit' => 'cross_leverage_limit'
     ];
 
     /**
@@ -187,7 +190,8 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => 'setAdlRanking',
         'pending_orders' => 'setPendingOrders',
         'close_order' => 'setCloseOrder',
-        'mode' => 'setMode'
+        'mode' => 'setMode',
+        'cross_leverage_limit' => 'setCrossLeverageLimit'
     ];
 
     /**
@@ -217,7 +221,8 @@ class Position implements ModelInterface, ArrayAccess
         'adl_ranking' => 'getAdlRanking',
         'pending_orders' => 'getPendingOrders',
         'close_order' => 'getCloseOrder',
-        'mode' => 'getMode'
+        'mode' => 'getMode',
+        'cross_leverage_limit' => 'getCrossLeverageLimit'
     ];
 
     /**
@@ -319,6 +324,7 @@ class Position implements ModelInterface, ArrayAccess
         $this->container['pending_orders'] = isset($data['pending_orders']) ? $data['pending_orders'] : null;
         $this->container['close_order'] = isset($data['close_order']) ? $data['close_order'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['cross_leverage_limit'] = isset($data['cross_leverage_limit']) ? $data['cross_leverage_limit'] : null;
     }
 
     /**
@@ -886,6 +892,30 @@ class Position implements ModelInterface, ArrayAccess
             );
         }
         $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_leverage_limit
+     *
+     * @return string|null
+     */
+    public function getCrossLeverageLimit()
+    {
+        return $this->container['cross_leverage_limit'];
+    }
+
+    /**
+     * Sets cross_leverage_limit
+     *
+     * @param string|null $cross_leverage_limit Cross margin leverage(valid only when `leverage` is 0)
+     *
+     * @return $this
+     */
+    public function setCrossLeverageLimit($cross_leverage_limit)
+    {
+        $this->container['cross_leverage_limit'] = $cross_leverage_limit;
 
         return $this;
     }

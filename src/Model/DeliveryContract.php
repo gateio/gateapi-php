@@ -624,7 +624,7 @@ class DeliveryContract implements ModelInterface, ArrayAccess
     /**
      * Sets quanto_multiplier
      *
-     * @param string|null $quanto_multiplier Multiplier used in converting from invoicing to settlement currency in quanto futures
+     * @param string|null $quanto_multiplier Multiplier used in converting from invoicing to settlement currency
      *
      * @return $this
      */

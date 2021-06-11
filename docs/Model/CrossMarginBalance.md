@@ -1,12 +1,11 @@
-# # MarginAccountCurrency
+# # CrossMarginBalance
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **string** | Currency name | [optional] 
-**available** | **string** | Amount suitable for margin trading. | [optional] 
-**locked** | **string** | Locked amount, used in margin trading | [optional] 
+**available** | **string** | Available amount | [optional] 
+**freeze** | **string** | Locked amount | [optional] 
 **borrowed** | **string** | Borrowed amount | [optional] 
 **interest** | **string** | Interests unpaid | [optional] 
 
