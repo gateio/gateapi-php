@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderBook
+ * CrossMarginAccountBook
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * OrderBook Class Doc Comment
+ * CrossMarginAccountBook Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class OrderBook implements ModelInterface, ArrayAccess
+class CrossMarginAccountBook implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class OrderBook implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrderBook';
+    protected static $openAPIModelName = 'CrossMarginAccountBook';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +54,12 @@ class OrderBook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'current' => 'int',
-        'update' => 'int',
-        'asks' => 'string[][]',
-        'bids' => 'string[][]'
+        'id' => 'string',
+        'time' => 'int',
+        'currency' => 'string',
+        'change' => 'string',
+        'balance' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -67,11 +68,12 @@ class OrderBook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'current' => 'int64',
-        'update' => 'int64',
-        'asks' => null,
-        'bids' => null
+        'id' => null,
+        'time' => 'int64',
+        'currency' => null,
+        'change' => null,
+        'balance' => null,
+        'type' => null
     ];
 
     /**
@@ -102,10 +104,11 @@ class OrderBook implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'current' => 'current',
-        'update' => 'update',
-        'asks' => 'asks',
-        'bids' => 'bids'
+        'time' => 'time',
+        'currency' => 'currency',
+        'change' => 'change',
+        'balance' => 'balance',
+        'type' => 'type'
     ];
 
     /**
@@ -115,10 +118,11 @@ class OrderBook implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'current' => 'setCurrent',
-        'update' => 'setUpdate',
-        'asks' => 'setAsks',
-        'bids' => 'setBids'
+        'time' => 'setTime',
+        'currency' => 'setCurrency',
+        'change' => 'setChange',
+        'balance' => 'setBalance',
+        'type' => 'setType'
     ];
 
     /**
@@ -128,10 +132,11 @@ class OrderBook implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'current' => 'getCurrent',
-        'update' => 'getUpdate',
-        'asks' => 'getAsks',
-        'bids' => 'getBids'
+        'time' => 'getTime',
+        'currency' => 'getCurrency',
+        'change' => 'getChange',
+        'balance' => 'getBalance',
+        'type' => 'getType'
     ];
 
     /**
@@ -175,8 +180,37 @@ class OrderBook implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TYPE_IN = 'in';
+    const TYPE_OUT = 'out';
+    const TYPE_REPAY = 'repay';
+    const TYPE_BORROW = 'borrow';
+    const TYPE_NEW_ORDER = 'new_order';
+    const TYPE_ORDER_FILL = 'order_fill';
+    const TYPE_REFERRAL_FEE = 'referral_fee';
+    const TYPE_ORDER_FEE = 'order_fee';
+    const TYPE_UNKNOWN = 'unknown';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_IN,
+            self::TYPE_OUT,
+            self::TYPE_REPAY,
+            self::TYPE_BORROW,
+            self::TYPE_NEW_ORDER,
+            self::TYPE_ORDER_FILL,
+            self::TYPE_REFERRAL_FEE,
+            self::TYPE_ORDER_FEE,
+            self::TYPE_UNKNOWN,
+        ];
+    }
     
 
     /**
@@ -195,10 +229,11 @@ class OrderBook implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['current'] = isset($data['current']) ? $data['current'] : null;
-        $this->container['update'] = isset($data['update']) ? $data['update'] : null;
-        $this->container['asks'] = isset($data['asks']) ? $data['asks'] : null;
-        $this->container['bids'] = isset($data['bids']) ? $data['bids'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['change'] = isset($data['change']) ? $data['change'] : null;
+        $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -210,12 +245,14 @@ class OrderBook implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['asks'] === null) {
-            $invalidProperties[] = "'asks' can't be null";
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['bids'] === null) {
-            $invalidProperties[] = "'bids' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -234,7 +271,7 @@ class OrderBook implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return int|null
+     * @return string|null
      */
     public function getId()
     {
@@ -244,7 +281,7 @@ class OrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Order book ID, which is updated whenever the order book is changed. Valid only when `with_id` is set to `true`
+     * @param string|null $id Balance change record ID
      *
      * @return $this
      */
@@ -256,97 +293,130 @@ class OrderBook implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets current
+     * Gets time
      *
      * @return int|null
      */
-    public function getCurrent()
+    public function getTime()
     {
-        return $this->container['current'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets current
+     * Sets time
      *
-     * @param int|null $current Response data generation timestamp in milliseconds
+     * @param int|null $time Account changed timestamp in milliseconds
      *
      * @return $this
      */
-    public function setCurrent($current)
+    public function setTime($time)
     {
-        $this->container['current'] = $current;
+        $this->container['time'] = $time;
 
         return $this;
     }
 
     /**
-     * Gets update
+     * Gets currency
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getUpdate()
+    public function getCurrency()
     {
-        return $this->container['update'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets update
+     * Sets currency
      *
-     * @param int|null $update Order book changed timestamp in milliseconds
+     * @param string|null $currency Currency changed
      *
      * @return $this
      */
-    public function setUpdate($update)
+    public function setCurrency($currency)
     {
-        $this->container['update'] = $update;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets asks
+     * Gets change
      *
-     * @return string[][]
+     * @return string|null
      */
-    public function getAsks()
+    public function getChange()
     {
-        return $this->container['asks'];
+        return $this->container['change'];
     }
 
     /**
-     * Sets asks
+     * Sets change
      *
-     * @param string[][] $asks Asks order depth
+     * @param string|null $change Amount changed. Positive value means transferring in, while negative out
      *
      * @return $this
      */
-    public function setAsks($asks)
+    public function setChange($change)
     {
-        $this->container['asks'] = $asks;
+        $this->container['change'] = $change;
 
         return $this;
     }
 
     /**
-     * Gets bids
+     * Gets balance
      *
-     * @return string[][]
+     * @return string|null
      */
-    public function getBids()
+    public function getBalance()
     {
-        return $this->container['bids'];
+        return $this->container['balance'];
     }
 
     /**
-     * Sets bids
+     * Sets balance
      *
-     * @param string[][] $bids Bids order depth
+     * @param string|null $balance Balance after change
      *
      * @return $this
      */
-    public function setBids($bids)
+    public function setBalance($balance)
     {
-        $this->container['bids'] = $bids;
+        $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

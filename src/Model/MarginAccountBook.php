@@ -56,6 +56,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'time' => 'string',
+        'time_ms' => 'int',
         'currency' => 'string',
         'currency_pair' => 'string',
         'change' => 'string',
@@ -70,6 +71,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'time' => null,
+        'time_ms' => 'int64',
         'currency' => null,
         'currency_pair' => null,
         'change' => null,
@@ -105,6 +107,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'time' => 'time',
+        'time_ms' => 'time_ms',
         'currency' => 'currency',
         'currency_pair' => 'currency_pair',
         'change' => 'change',
@@ -119,6 +122,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'time' => 'setTime',
+        'time_ms' => 'setTimeMs',
         'currency' => 'setCurrency',
         'currency_pair' => 'setCurrencyPair',
         'change' => 'setChange',
@@ -133,6 +137,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'time' => 'getTime',
+        'time_ms' => 'getTimeMs',
         'currency' => 'getCurrency',
         'currency_pair' => 'getCurrencyPair',
         'change' => 'getChange',
@@ -201,6 +206,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['time'] = isset($data['time']) ? $data['time'] : null;
+        $this->container['time_ms'] = isset($data['time_ms']) ? $data['time_ms'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['change'] = isset($data['change']) ? $data['change'] : null;
@@ -275,6 +281,30 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     public function setTime($time)
     {
         $this->container['time'] = $time;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_ms
+     *
+     * @return int|null
+     */
+    public function getTimeMs()
+    {
+        return $this->container['time_ms'];
+    }
+
+    /**
+     * Sets time_ms
+     *
+     * @param int|null $time_ms Account changed timestamp in milliseconds
+     *
+     * @return $this
+     */
+    public function setTimeMs($time_ms)
+    {
+        $this->container['time_ms'] = $time_ms;
 
         return $this;
     }

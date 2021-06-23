@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**listCrossMarginCurrencies**](MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 [**getCrossMarginCurrency**](MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 [**getCrossMarginAccount**](MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
+[**listCrossMarginAccountBook**](MarginApi.md#listCrossMarginAccountBook) | **GET** /margin/cross/account_book | Retrieve cross margin account change history
 [**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history
 [**createCrossMarginLoan**](MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
 [**getCrossMarginLoan**](MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
@@ -265,7 +266,7 @@ Name | Type | Description  | Notes
 
 List margin account balance change history
 
-Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+Only transferals from and to margin account are provided for now. Time range allows 30 days at most
 
 ### Example
 
@@ -1364,6 +1365,80 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\GateApi\Model\CrossMarginAccount**](../Model/CrossMarginAccount.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listCrossMarginAccountBook
+
+> \GateApi\Model\CrossMarginAccountBook[] listCrossMarginAccountBook($currency, $from, $to, $page, $limit, $type)
+
+Retrieve cross margin account change history
+
+Record time range cannot exceed 30 days
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\MarginApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['currency'] = 'currency_example'; // string | Filter by currency
+$associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
+$associate_array['to'] = 56; // int | Time range ending, default to current time
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['type'] = 'borrow'; // string | Filter by account change type. All types are returned if not specified.
+
+try {
+    $result = $apiInstance->listCrossMarginAccountBook($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling MarginApi->listCrossMarginAccountBook: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Filter by currency | [optional]
+ **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
+ **to** | **int**| Time range ending, default to current time | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **type** | **string**| Filter by account change type. All types are returned if not specified. | [optional]
+
+### Return type
+
+[**\GateApi\Model\CrossMarginAccountBook[]**](../Model/CrossMarginAccountBook.md)
 
 ### Authorization
 

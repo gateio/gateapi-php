@@ -55,6 +55,8 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
+        'current' => 'double',
+        'update' => 'double',
         'asks' => '\GateApi\Model\FuturesOrderBookItem[]',
         'bids' => '\GateApi\Model\FuturesOrderBookItem[]'
     ];
@@ -66,6 +68,8 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
+        'current' => 'double',
+        'update' => 'double',
         'asks' => null,
         'bids' => null
     ];
@@ -98,6 +102,8 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'current' => 'current',
+        'update' => 'update',
         'asks' => 'asks',
         'bids' => 'bids'
     ];
@@ -109,6 +115,8 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'current' => 'setCurrent',
+        'update' => 'setUpdate',
         'asks' => 'setAsks',
         'bids' => 'setBids'
     ];
@@ -120,6 +128,8 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'current' => 'getCurrent',
+        'update' => 'getUpdate',
         'asks' => 'getAsks',
         'bids' => 'getBids'
     ];
@@ -185,6 +195,8 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['current'] = isset($data['current']) ? $data['current'] : null;
+        $this->container['update'] = isset($data['update']) ? $data['update'] : null;
         $this->container['asks'] = isset($data['asks']) ? $data['asks'] : null;
         $this->container['bids'] = isset($data['bids']) ? $data['bids'] : null;
     }
@@ -239,6 +251,54 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets current
+     *
+     * @return double|null
+     */
+    public function getCurrent()
+    {
+        return $this->container['current'];
+    }
+
+    /**
+     * Sets current
+     *
+     * @param double|null $current Response data generation timestamp
+     *
+     * @return $this
+     */
+    public function setCurrent($current)
+    {
+        $this->container['current'] = $current;
+
+        return $this;
+    }
+
+    /**
+     * Gets update
+     *
+     * @return double|null
+     */
+    public function getUpdate()
+    {
+        return $this->container['update'];
+    }
+
+    /**
+     * Sets update
+     *
+     * @param double|null $update Order book changed timestamp
+     *
+     * @return $this
+     */
+    public function setUpdate($update)
+    {
+        $this->container['update'] = $update;
 
         return $this;
     }
