@@ -784,7 +784,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
 $associate_array['status'] = 'open'; // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records returned. If `status` is `open`, maximum of `limit` is 100
@@ -808,7 +808,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair |
+ **currency_pair** | **string**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled |
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
@@ -1178,10 +1178,10 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['page'] = 1; // int | Page number
-$associate_array['order_id'] = '12345'; // string | List all trades of specified order
+$associate_array['order_id'] = '12345'; // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present
 $associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
 
 try {
@@ -1202,10 +1202,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair |
+ **currency_pair** | **string**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **page** | **int**| Page number | [optional] [default to 1]
- **order_id** | **string**| List all trades of specified order | [optional]
+ **order_id** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
  **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
 
 ### Return type

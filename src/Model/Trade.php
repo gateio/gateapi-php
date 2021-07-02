@@ -57,6 +57,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => 'string',
         'create_time' => 'string',
         'create_time_ms' => 'string',
+        'currency_pair' => 'string',
         'side' => 'string',
         'role' => 'string',
         'amount' => 'string',
@@ -77,6 +78,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => null,
         'create_time' => null,
         'create_time_ms' => null,
+        'currency_pair' => null,
         'side' => null,
         'role' => null,
         'amount' => null,
@@ -118,6 +120,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => 'id',
         'create_time' => 'create_time',
         'create_time_ms' => 'create_time_ms',
+        'currency_pair' => 'currency_pair',
         'side' => 'side',
         'role' => 'role',
         'amount' => 'amount',
@@ -138,6 +141,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'create_time' => 'setCreateTime',
         'create_time_ms' => 'setCreateTimeMs',
+        'currency_pair' => 'setCurrencyPair',
         'side' => 'setSide',
         'role' => 'setRole',
         'amount' => 'setAmount',
@@ -158,6 +162,7 @@ class Trade implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'create_time' => 'getCreateTime',
         'create_time_ms' => 'getCreateTimeMs',
+        'currency_pair' => 'getCurrencyPair',
         'side' => 'getSide',
         'role' => 'getRole',
         'amount' => 'getAmount',
@@ -262,6 +267,7 @@ class Trade implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['create_time_ms'] = isset($data['create_time_ms']) ? $data['create_time_ms'] : null;
+        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['side'] = isset($data['side']) ? $data['side'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
@@ -381,6 +387,30 @@ class Trade implements ModelInterface, ArrayAccess
     public function setCreateTimeMs($create_time_ms)
     {
         $this->container['create_time_ms'] = $create_time_ms;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_pair
+     *
+     * @return string|null
+     */
+    public function getCurrencyPair()
+    {
+        return $this->container['currency_pair'];
+    }
+
+    /**
+     * Sets currency_pair
+     *
+     * @param string|null $currency_pair Currency pair
+     *
+     * @return $this
+     */
+    public function setCurrencyPair($currency_pair)
+    {
+        $this->container['currency_pair'] = $currency_pair;
 
         return $this;
     }

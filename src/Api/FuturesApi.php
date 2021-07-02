@@ -8305,6 +8305,8 @@ class FuturesApi
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8327,6 +8329,8 @@ class FuturesApi
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8386,6 +8390,8 @@ class FuturesApi
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8411,6 +8417,8 @@ class FuturesApi
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8463,6 +8471,8 @@ class FuturesApi
      * @param string $contract Futures contract, return related data only if specified (optional)
      * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param int    $from     Start timestamp (optional)
+     * @param int    $to       End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8474,6 +8484,8 @@ class FuturesApi
         $contract = array_key_exists('contract', $associative_array) ? $associative_array['contract'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
         $offset = array_key_exists('offset', $associative_array) ? $associative_array['offset'] : 0;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
 
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -8533,6 +8545,30 @@ class FuturesApi
             }
             else {
                 $queryParams['offset'] = $offset;
+            }
+        }
+
+        // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
+        if ($to !== null) {
+            if('form' === 'form' && is_array($to)) {
+                foreach($to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['to'] = $to;
             }
         }
 

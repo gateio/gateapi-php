@@ -3253,7 +3253,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
@@ -3276,7 +3276,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
@@ -3336,7 +3336,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
@@ -3362,7 +3362,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
@@ -3415,7 +3415,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
@@ -4903,10 +4903,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      List all trades of specified order (optional)
+     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -4926,10 +4926,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      List all trades of specified order (optional)
+     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -4986,10 +4986,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      List all trades of specified order (optional)
+     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
      *
      * @throws \InvalidArgumentException
@@ -5012,10 +5012,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      List all trades of specified order (optional)
+     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
      *
      * @throws \InvalidArgumentException
@@ -5065,10 +5065,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      List all trades of specified order (optional)
+     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
      *
      * @throws \InvalidArgumentException

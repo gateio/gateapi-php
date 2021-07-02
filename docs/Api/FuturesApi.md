@@ -1851,7 +1851,7 @@ Name | Type | Description  | Notes
 
 ## listPositionClose
 
-> \GateApi\Model\PositionClose[] listPositionClose($settle, $contract, $limit, $offset)
+> \GateApi\Model\PositionClose[] listPositionClose($settle, $contract, $limit, $offset, $from, $to)
 
 List position close history
 
@@ -1875,6 +1875,8 @@ $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
+$associate_array['from'] = 1547706332; // int | Start timestamp
+$associate_array['to'] = 1547706332; // int | End timestamp
 
 try {
     $result = $apiInstance->listPositionClose($associate_array);
@@ -1898,6 +1900,8 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **int**| Start timestamp | [optional]
+ **to** | **int**| End timestamp | [optional]
 
 ### Return type
 
