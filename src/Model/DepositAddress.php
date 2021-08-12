@@ -56,7 +56,7 @@ class DepositAddress implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'currency' => 'string',
         'address' => 'string',
-        'multichain_address' => '\GateApi\Model\MultiChainAddressItem[]'
+        'multichain_addresses' => '\GateApi\Model\MultiChainAddressItem[]'
     ];
 
     /**
@@ -67,7 +67,7 @@ class DepositAddress implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'currency' => null,
         'address' => null,
-        'multichain_address' => null
+        'multichain_addresses' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class DepositAddress implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'currency' => 'currency',
         'address' => 'address',
-        'multichain_address' => 'multichain_address'
+        'multichain_addresses' => 'multichain_addresses'
     ];
 
     /**
@@ -110,7 +110,7 @@ class DepositAddress implements ModelInterface, ArrayAccess
     protected static $setters = [
         'currency' => 'setCurrency',
         'address' => 'setAddress',
-        'multichain_address' => 'setMultichainAddress'
+        'multichain_addresses' => 'setMultichainAddresses'
     ];
 
     /**
@@ -121,7 +121,7 @@ class DepositAddress implements ModelInterface, ArrayAccess
     protected static $getters = [
         'currency' => 'getCurrency',
         'address' => 'getAddress',
-        'multichain_address' => 'getMultichainAddress'
+        'multichain_addresses' => 'getMultichainAddresses'
     ];
 
     /**
@@ -186,7 +186,7 @@ class DepositAddress implements ModelInterface, ArrayAccess
     {
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['multichain_address'] = isset($data['multichain_address']) ? $data['multichain_address'] : null;
+        $this->container['multichain_addresses'] = isset($data['multichain_addresses']) ? $data['multichain_addresses'] : null;
     }
 
     /**
@@ -268,25 +268,25 @@ class DepositAddress implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets multichain_address
+     * Gets multichain_addresses
      *
      * @return \GateApi\Model\MultiChainAddressItem[]|null
      */
-    public function getMultichainAddress()
+    public function getMultichainAddresses()
     {
-        return $this->container['multichain_address'];
+        return $this->container['multichain_addresses'];
     }
 
     /**
-     * Sets multichain_address
+     * Sets multichain_addresses
      *
-     * @param \GateApi\Model\MultiChainAddressItem[]|null $multichain_address multichain_address
+     * @param \GateApi\Model\MultiChainAddressItem[]|null $multichain_addresses multichain_addresses
      *
      * @return $this
      */
-    public function setMultichainAddress($multichain_address)
+    public function setMultichainAddresses($multichain_addresses)
     {
-        $this->container['multichain_address'] = $multichain_address;
+        $this->container['multichain_addresses'] = $multichain_addresses;
 
         return $this;
     }
