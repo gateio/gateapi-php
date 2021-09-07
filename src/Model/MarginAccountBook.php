@@ -298,7 +298,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets time_ms
      *
-     * @param int|null $time_ms Account changed timestamp in milliseconds
+     * @param int|null $time_ms The timestamp of the change (in milliseconds)
      *
      * @return $this
      */

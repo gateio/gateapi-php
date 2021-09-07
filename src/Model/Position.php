@@ -804,7 +804,7 @@ class Position implements ModelInterface, ArrayAccess
     /**
      * Sets adl_ranking
      *
-     * @param int|null $adl_ranking ADL ranking, range from 1 to 5
+     * @param int|null $adl_ranking ADL ranking, ranging from 1 to 5
      *
      * @return $this
      */

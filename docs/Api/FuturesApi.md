@@ -179,7 +179,7 @@ $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['interval'] = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $associate_array['limit'] = 10; // int | Maximum number of order depth data in asks or bids
-$associate_array['with_id'] = false; // bool | Whether order book update ID would be returned. This ID increments by 1 on every order book update
+$associate_array['with_id'] = false; // bool | Whether the order book update ID will be returned. This ID increases by 1 on every order book update
 
 try {
     $result = $apiInstance->listFuturesOrderBook($associate_array);
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract |
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
- **with_id** | **bool**| Whether order book update ID would be returned. This ID increments by 1 on every order book update | [optional] [default to false]
+ **with_id** | **bool**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
 
 ### Return type
 
@@ -243,8 +243,8 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
-$associate_array['last_id'] = '12345'; // string | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['last_id'] = '12345'; // string | Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use `from` and `to` instead to limit time range
 $associate_array['from'] = 1546905600; // int | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.
 $associate_array['to'] = 1546935600; // int | Specify end time in Unix seconds, default to current time
 
@@ -268,8 +268,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
- **last_id** | **string**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **last_id** | **string**| Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
  **from** | **int**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. | [optional]
  **to** | **int**| Specify end time in Unix seconds, default to current time | [optional]
 
@@ -315,7 +315,7 @@ $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['from'] = 1546905600; // int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
 $associate_array['to'] = 1546935600; // int | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
-$associate_array['limit'] = 100; // int | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
+$associate_array['limit'] = 100; // int | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
 $associate_array['interval'] = '5m'; // string | Interval time between data points
 
 try {
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract |
  **from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **int**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
- **limit** | **int**| Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
+ **limit** | **int**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **interval** | **string**| Interval time between data points | [optional] [default to &#39;5m&#39;]
 
 ### Return type
@@ -441,7 +441,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
 try {
     $result = $apiInstance->listFuturesFundingRateHistory($associate_array);
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -502,7 +502,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client()
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
 try {
     $result = $apiInstance->listFuturesInsuranceLedger($associate_array);
@@ -523,7 +523,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -633,7 +633,7 @@ $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['from'] = 1547706332; // int | Start timestamp
 $associate_array['to'] = 1547706332; // int | End timestamp
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
 try {
     $result = $apiInstance->listLiquidatedOrders($associate_array);
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **from** | **int**| Start timestamp | [optional]
  **to** | **int**| End timestamp | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -760,7 +760,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['from'] = 1547706332; // int | Start timestamp
 $associate_array['to'] = 1547706332; // int | End timestamp
 $associate_array['type'] = 'dnw'; // string | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
@@ -784,7 +784,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **from** | **int**| Start timestamp | [optional]
  **to** | **int**| End timestamp | [optional]
  **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional]
@@ -1449,7 +1449,7 @@ Name | Type | Description  | Notes
 
 List futures orders
 
-Zero-fill order cannot be retrieved 60 seconds after cancellation
+Zero-fill order cannot be retrieved for 60 seconds after cancellation
 
 ### Example
 
@@ -1469,8 +1469,8 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
-$associate_array['status'] = 'open'; // string | List orders based on status
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['status'] = 'open'; // string | Only list the orders with this status
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['last_id'] = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
 $associate_array['count_total'] = 0; // int | Whether to return total number matched. Default to 0(no return)
@@ -1495,8 +1495,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
- **status** | **string**| List orders based on status |
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **status** | **string**| Only list the orders with this status |
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
  **count_total** | **int**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0]
@@ -1525,7 +1525,7 @@ Name | Type | Description  | Notes
 
 Create a futures order
 
-Zero-fill order cannot be retrieved 60 seconds after cancellation
+Zero-fill order cannot be retrieved for 60 seconds after cancellation
 
 ### Example
 
@@ -1589,7 +1589,7 @@ Name | Type | Description  | Notes
 
 Cancel all `open` orders matched
 
-Zero-fill order cannot be retrieved 60 seconds after cancellation
+Zero-fill order cannot be retrieved for 60 seconds after cancellation
 
 ### Example
 
@@ -1609,7 +1609,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $contract = 'BTC_USDT'; // string | Futures contract
-$side = 'ask'; // string | All bids or asks. Both included in not specified
+$side = 'ask'; // string | All bids or asks. Both included if not specified
 
 try {
     $result = $apiInstance->cancelFuturesOrders($settle, $contract, $side);
@@ -1629,7 +1629,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
- **side** | **string**| All bids or asks. Both included in not specified | [optional]
+ **side** | **string**| All bids or asks. Both included if not specified | [optional]
 
 ### Return type
 
@@ -1655,7 +1655,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Zero-fill order cannot be retrieved 60 seconds after cancellation
+Zero-fill order cannot be retrieved for 60 seconds after cancellation
 
 ### Example
 
@@ -1800,7 +1800,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['order'] = 12345; // int | Futures order ID, return related data only if specified
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['last_id'] = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
 $associate_array['count_total'] = 0; // int | Whether to return total number matched. Default to 0(no return)
@@ -1826,7 +1826,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **order** | **int**| Futures order ID, return related data only if specified | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
  **count_total** | **int**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0]
@@ -1873,7 +1873,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp
 $associate_array['to'] = 1547706332; // int | End timestamp
@@ -1898,7 +1898,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp | [optional]
  **to** | **int**| End timestamp | [optional]
@@ -1945,7 +1945,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['at'] = 0; // int | Specify a liquidation timestamp
 
 try {
@@ -1968,7 +1968,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **at** | **int**| Specify a liquidation timestamp | [optional] [default to 0]
 
 ### Return type
@@ -2012,9 +2012,9 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
-$associate_array['status'] = 'status_example'; // string | List orders based on status
+$associate_array['status'] = 'status_example'; // string | Only list the orders with this status
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
@@ -2036,9 +2036,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **status** | **string**| List orders based on status |
+ **status** | **string**| Only list the orders with this status |
  **contract** | **string**| Futures contract, return related data only if specified | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -2206,7 +2206,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $settle = 'usdt'; // string | Settle currency
-$order_id = 'order_id_example'; // string | ID returned on order successfully being created
+$order_id = 'order_id_example'; // string | Retrieve the data of the order with the specified ID
 
 try {
     $result = $apiInstance->getPriceTriggeredOrder($settle, $order_id);
@@ -2225,7 +2225,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **order_id** | **string**| ID returned on order successfully being created |
+ **order_id** | **string**| Retrieve the data of the order with the specified ID |
 
 ### Return type
 
@@ -2268,7 +2268,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $settle = 'usdt'; // string | Settle currency
-$order_id = 'order_id_example'; // string | ID returned on order successfully being created
+$order_id = 'order_id_example'; // string | Retrieve the data of the order with the specified ID
 
 try {
     $result = $apiInstance->cancelPriceTriggeredOrder($settle, $order_id);
@@ -2287,7 +2287,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **order_id** | **string**| ID returned on order successfully being created |
+ **order_id** | **string**| Retrieve the data of the order with the specified ID |
 
 ### Return type
 

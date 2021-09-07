@@ -1,6 +1,6 @@
 <?php
 /**
- * MultiChainAddressItem
+ * AccountBalance
  *
  * PHP version 7
  *
@@ -30,14 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MultiChainAddressItem Class Doc Comment
+ * AccountBalance Class Doc Comment
  *
- * @category Class
- * @package  GateApi
- * @author   GateIO
- * @link     https://www.gate.io
+ * @category    Class
+ * @description Total balances calculated with specified currency unit
+ * @package     GateApi
+ * @author      GateIO
+ * @link        https://www.gate.io
  */
-class MultiChainAddressItem implements ModelInterface, ArrayAccess
+class AccountBalance implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MultiChainAddressItem';
+    protected static $openAPIModelName = 'AccountBalance';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +55,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'chain' => 'string',
-        'address' => 'string',
-        'payment_id' => 'string',
-        'payment_name' => 'string',
-        'obtain_failed' => 'int'
+        'amount' => 'string',
+        'currency' => 'string'
     ];
 
     /**
@@ -67,11 +65,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'chain' => null,
-        'address' => null,
-        'payment_id' => null,
-        'payment_name' => null,
-        'obtain_failed' => null
+        'amount' => null,
+        'currency' => null
     ];
 
     /**
@@ -101,11 +96,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'chain' => 'chain',
-        'address' => 'address',
-        'payment_id' => 'payment_id',
-        'payment_name' => 'payment_name',
-        'obtain_failed' => 'obtain_failed'
+        'amount' => 'amount',
+        'currency' => 'currency'
     ];
 
     /**
@@ -114,11 +106,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'chain' => 'setChain',
-        'address' => 'setAddress',
-        'payment_id' => 'setPaymentId',
-        'payment_name' => 'setPaymentName',
-        'obtain_failed' => 'setObtainFailed'
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -127,11 +116,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'chain' => 'getChain',
-        'address' => 'getAddress',
-        'payment_id' => 'getPaymentId',
-        'payment_name' => 'getPaymentName',
-        'obtain_failed' => 'getObtainFailed'
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -175,8 +161,27 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CURRENCY_BTC = 'BTC';
+    const CURRENCY_CNY = 'CNY';
+    const CURRENCY_USD = 'USD';
+    const CURRENCY_USDT = 'USDT';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCurrencyAllowableValues()
+    {
+        return [
+            self::CURRENCY_BTC,
+            self::CURRENCY_CNY,
+            self::CURRENCY_USD,
+            self::CURRENCY_USDT,
+        ];
+    }
     
 
     /**
@@ -194,11 +199,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
-        $this->container['payment_name'] = isset($data['payment_name']) ? $data['payment_name'] : null;
-        $this->container['obtain_failed'] = isset($data['obtain_failed']) ? $data['obtain_failed'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     }
 
     /**
@@ -209,6 +211,14 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getCurrencyAllowableValues();
+        if (!is_null($this->container['currency']) && !in_array($this->container['currency'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'currency', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -226,121 +236,58 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets chain
+     * Gets amount
      *
      * @return string|null
      */
-    public function getChain()
+    public function getAmount()
     {
-        return $this->container['chain'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets chain
+     * Sets amount
      *
-     * @param string|null $chain Name of the chain
+     * @param string|null $amount Account total balance amount
      *
      * @return $this
      */
-    public function setChain($chain)
+    public function setAmount($amount)
     {
-        $this->container['chain'] = $chain;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets address
+     * Gets currency
      *
      * @return string|null
      */
-    public function getAddress()
+    public function getCurrency()
     {
-        return $this->container['address'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets address
+     * Sets currency
      *
-     * @param string|null $address Deposit address
+     * @param string|null $currency Currency
      *
      * @return $this
      */
-    public function setAddress($address)
+    public function setCurrency($currency)
     {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_id
-     *
-     * @return string|null
-     */
-    public function getPaymentId()
-    {
-        return $this->container['payment_id'];
-    }
-
-    /**
-     * Sets payment_id
-     *
-     * @param string|null $payment_id Notes that some currencies required(e.g., Tag, Memo) when depositing
-     *
-     * @return $this
-     */
-    public function setPaymentId($payment_id)
-    {
-        $this->container['payment_id'] = $payment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_name
-     *
-     * @return string|null
-     */
-    public function getPaymentName()
-    {
-        return $this->container['payment_name'];
-    }
-
-    /**
-     * Sets payment_name
-     *
-     * @param string|null $payment_name Note type, `Tag` or `Memo`
-     *
-     * @return $this
-     */
-    public function setPaymentName($payment_name)
-    {
-        $this->container['payment_name'] = $payment_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets obtain_failed
-     *
-     * @return int|null
-     */
-    public function getObtainFailed()
-    {
-        return $this->container['obtain_failed'];
-    }
-
-    /**
-     * Sets obtain_failed
-     *
-     * @param int|null $obtain_failed The obtain failed status- 0: address successfully obtained- 1: failed to obtain address
-     *
-     * @return $this
-     */
-    public function setObtainFailed($obtain_failed)
-    {
-        $this->container['obtain_failed'] = $obtain_failed;
+        $allowedValues = $this->getCurrencyAllowableValues();
+        if (!is_null($currency) && !in_array($currency, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'currency', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

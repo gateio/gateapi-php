@@ -618,7 +618,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
+     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -641,7 +641,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
+     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -701,7 +701,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
+     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -727,7 +727,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
+     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -780,7 +780,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
+     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -951,8 +951,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
      * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
      * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
@@ -975,8 +975,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
      * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
      * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
@@ -1036,8 +1036,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
      * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
      * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
@@ -1063,8 +1063,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
      * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
      * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
@@ -1117,8 +1117,8 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $last_id  Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
      * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
      * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
      *
@@ -1306,7 +1306,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1330,7 +1330,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1391,7 +1391,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
@@ -1418,7 +1418,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
@@ -1472,7 +1472,7 @@ class DeliveryApi
      * @param string $contract Futures contract (required)
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
@@ -1921,7 +1921,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1941,7 +1941,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1998,7 +1998,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2021,7 +2021,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2071,7 +2071,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2436,7 +2436,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from   Start timestamp (optional)
      * @param int    $to     End timestamp (optional)
      * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
@@ -2459,7 +2459,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from   Start timestamp (optional)
      * @param int    $to     End timestamp (optional)
      * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
@@ -2519,7 +2519,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from   Start timestamp (optional)
      * @param int    $to     End timestamp (optional)
      * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
@@ -2545,7 +2545,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from   Start timestamp (optional)
      * @param int    $to     End timestamp (optional)
      * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
@@ -2598,7 +2598,7 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from   Start timestamp (optional)
      * @param int    $to     End timestamp (optional)
      * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
@@ -4117,9 +4117,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle      Settle currency (required)
-     * @param string $status      List orders based on status (required)
+     * @param string $status      Only list the orders with this status (required)
      * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -4142,9 +4142,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle      Settle currency (required)
-     * @param string $status      List orders based on status (required)
+     * @param string $status      Only list the orders with this status (required)
      * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -4204,9 +4204,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle      Settle currency (required)
-     * @param string $status      List orders based on status (required)
+     * @param string $status      Only list the orders with this status (required)
      * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -4232,9 +4232,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle      Settle currency (required)
-     * @param string $status      List orders based on status (required)
+     * @param string $status      Only list the orders with this status (required)
      * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -4287,9 +4287,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle      Settle currency (required)
-     * @param string $status      List orders based on status (required)
+     * @param string $status      Only list the orders with this status (required)
      * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -4748,7 +4748,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included in not specified (optional)
+     * @param string $side     All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4767,7 +4767,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included in not specified (optional)
+     * @param string $side     All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4823,7 +4823,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included in not specified (optional)
+     * @param string $side     All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4845,7 +4845,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included in not specified (optional)
+     * @param string $side     All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4894,7 +4894,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included in not specified (optional)
+     * @param string $side     All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5027,7 +5027,7 @@ class DeliveryApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5045,7 +5045,7 @@ class DeliveryApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5100,7 +5100,7 @@ class DeliveryApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5121,7 +5121,7 @@ class DeliveryApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5169,7 +5169,7 @@ class DeliveryApi
      * Create request for operation 'getDeliveryOrder'
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5287,7 +5287,7 @@ class DeliveryApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5305,7 +5305,7 @@ class DeliveryApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5360,7 +5360,7 @@ class DeliveryApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5381,7 +5381,7 @@ class DeliveryApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5429,7 +5429,7 @@ class DeliveryApi
      * Create request for operation 'cancelDeliveryOrder'
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5551,7 +5551,7 @@ class DeliveryApi
      * @param string $settle      Settle currency (required)
      * @param string $contract    Futures contract (optional)
      * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -5576,7 +5576,7 @@ class DeliveryApi
      * @param string $settle      Settle currency (required)
      * @param string $contract    Futures contract (optional)
      * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -5638,7 +5638,7 @@ class DeliveryApi
      * @param string $settle      Settle currency (required)
      * @param string $contract    Futures contract (optional)
      * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -5666,7 +5666,7 @@ class DeliveryApi
      * @param string $settle      Settle currency (required)
      * @param string $contract    Futures contract (optional)
      * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -5721,7 +5721,7 @@ class DeliveryApi
      * @param string $settle      Settle currency (required)
      * @param string $contract    Futures contract (optional)
      * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset      List offset, starting from 0 (optional, default to 0)
      * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
@@ -5922,7 +5922,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5943,7 +5943,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6001,7 +6001,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6025,7 +6025,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6076,7 +6076,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6218,7 +6218,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -6240,7 +6240,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -6299,7 +6299,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -6324,7 +6324,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -6376,7 +6376,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -6532,7 +6532,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -6554,7 +6554,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -6613,7 +6613,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -6638,7 +6638,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -6690,7 +6690,7 @@ class DeliveryApi
      *
      * @param string $settle   Settle currency (required)
      * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $at       Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -6845,9 +6845,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle   Settle currency (required)
-     * @param string $status   List orders based on status (required)
+     * @param string $status   Only list the orders with this status (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -6868,9 +6868,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle   Settle currency (required)
-     * @param string $status   List orders based on status (required)
+     * @param string $status   Only list the orders with this status (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -6928,9 +6928,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle   Settle currency (required)
-     * @param string $status   List orders based on status (required)
+     * @param string $status   Only list the orders with this status (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -6954,9 +6954,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle   Settle currency (required)
-     * @param string $status   List orders based on status (required)
+     * @param string $status   Only list the orders with this status (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -7007,9 +7007,9 @@ class DeliveryApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $settle   Settle currency (required)
-     * @param string $status   List orders based on status (required)
+     * @param string $status   Only list the orders with this status (required)
      * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -7702,7 +7702,7 @@ class DeliveryApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7720,7 +7720,7 @@ class DeliveryApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7775,7 +7775,7 @@ class DeliveryApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7796,7 +7796,7 @@ class DeliveryApi
      * Get a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7844,7 +7844,7 @@ class DeliveryApi
      * Create request for operation 'getPriceTriggeredDeliveryOrder'
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7962,7 +7962,7 @@ class DeliveryApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7980,7 +7980,7 @@ class DeliveryApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8035,7 +8035,7 @@ class DeliveryApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8056,7 +8056,7 @@ class DeliveryApi
      * Cancel a single order
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8104,7 +8104,7 @@ class DeliveryApi
      * Create request for operation 'cancelPriceTriggeredDeliveryOrder'
      *
      * @param string $settle   Settle currency (required)
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

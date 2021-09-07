@@ -340,7 +340,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets gt_discount
      *
-     * @param bool|null $gt_discount Is GT deduction is enabled
+     * @param bool|null $gt_discount If GT deduction is enabled
      *
      * @return $this
      */

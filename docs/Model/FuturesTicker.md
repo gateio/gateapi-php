@@ -20,6 +20,6 @@ Name | Type | Description | Notes
 **funding_rate** | **string** | Funding rate | [optional] 
 **funding_rate_indicative** | **string** | Indicative Funding rate in next period | [optional] 
 **index_price** | **string** | Index price | [optional] 
-**quanto_base_rate** | **string** | Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types | [optional] 
+**quanto_base_rate** | **string** | Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

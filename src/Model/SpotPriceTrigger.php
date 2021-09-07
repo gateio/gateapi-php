@@ -315,7 +315,7 @@ class SpotPriceTrigger implements ModelInterface, ArrayAccess
     /**
      * Sets expiration
      *
-     * @param int $expiration How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out
+     * @param int $expiration How long (in seconds) to wait for the condition to be triggered before cancelling the order.
      *
      * @return $this
      */

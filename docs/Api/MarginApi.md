@@ -18,12 +18,13 @@ Method | HTTP request | Description
 [**updateLoan**](MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan
 [**listLoanRepayments**](MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records
 [**repayLoan**](MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan
-[**listLoanRecords**](MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of specified loan
+[**listLoanRecords**](MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of a specific loan
 [**getLoanRecord**](MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
 [**updateLoanRecord**](MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 [**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
-[**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Max transferable amount for specified margin currency
+[**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
+[**getMarginBorrowable**](MarginApi.md#getMarginBorrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency
 [**listCrossMarginCurrencies**](MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 [**getCrossMarginCurrency**](MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 [**getCrossMarginAccount**](MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -33,7 +34,8 @@ Method | HTTP request | Description
 [**getCrossMarginLoan**](MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
 [**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
 [**repayCrossMarginLoan**](MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Repay cross margin loan
-[**getCrossMarginTransferable**](MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Max transferable amount for specified cross margin currency
+[**getCrossMarginTransferable**](MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
+[**getCrossMarginBorrowable**](MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
 
 
 ## listMarginCurrencyPairs
@@ -162,7 +164,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$currency = 'BTC'; // string | Retrieved specified currency related data
+$currency = 'BTC'; // string | Retrieve data of the specified currency
 
 try {
     $result = $apiInstance->listFundingBook($currency);
@@ -180,7 +182,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data |
+ **currency** | **string**| Retrieve data of the specified currency |
 
 ### Return type
 
@@ -291,7 +293,7 @@ $associate_array['currency_pair'] = 'currency_pair_example'; // string | List re
 $associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
 $associate_array['to'] = 56; // int | Time range ending, default to current time
 $associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
 try {
     $result = $apiInstance->listMarginAccountBook($associate_array);
@@ -316,7 +318,7 @@ Name | Type | Description  | Notes
  **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -358,7 +360,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieved specified currency related data
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
 
 try {
     $result = $apiInstance->listFundingAccounts($associate_array);
@@ -378,7 +380,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data | [optional]
+ **currency** | **string**| Retrieve data of the specified currency | [optional]
 
 ### Return type
 
@@ -422,12 +424,12 @@ $apiInstance = new GateApi\Api\MarginApi(
 );
 $associate_array['status'] = 'open'; // string | Loan status
 $associate_array['side'] = 'lend'; // string | Lend or borrow
-$associate_array['currency'] = 'BTC'; // string | Retrieved specified currency related data
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
 $associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 $associate_array['sort_by'] = 'rate'; // string | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
 $associate_array['reverse_sort'] = false; // bool | Whether to sort in descending order. Default to `true`
 $associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
 try {
     $result = $apiInstance->listLoans($associate_array);
@@ -449,12 +451,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Loan status |
  **side** | **string**| Lend or borrow |
- **currency** | **string**| Retrieved specified currency related data | [optional]
+ **currency** | **string**| Retrieve data of the specified currency | [optional]
  **currency_pair** | **string**| Currency pair | [optional]
  **sort_by** | **string**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional]
  **reverse_sort** | **bool**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -556,8 +558,8 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'BTC'; // string | Retrieved specified currency related data
-$ids = '123,234,345'; // string | Lending loan ID list separated by `,`. Maximum of 20 IDs are allowed in one request
+$currency = 'BTC'; // string | Retrieve data of the specified currency
+$ids = '123,234,345'; // string | A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request
 
 try {
     $result = $apiInstance->mergeLoans($currency, $ids);
@@ -575,8 +577,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data |
- **ids** | **string**| Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request |
+ **currency** | **string**| Retrieve data of the specified currency |
+ **ids** | **string**| A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request |
 
 ### Return type
 
@@ -664,7 +666,7 @@ Name | Type | Description  | Notes
 
 Cancel lending loan
 
-Only lending loans can be cancelled
+Only lent loans can be cancelled
 
 ### Example
 
@@ -683,7 +685,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     $config
 );
 $loan_id = '12345'; // string | Loan ID
-$currency = 'BTC'; // string | Retrieved specified currency related data
+$currency = 'BTC'; // string | Retrieve data of the specified currency
 
 try {
     $result = $apiInstance->cancelLoan($loan_id, $currency);
@@ -702,7 +704,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loan_id** | **string**| Loan ID |
- **currency** | **string**| Retrieved specified currency related data |
+ **currency** | **string**| Retrieve data of the specified currency |
 
 ### Return type
 
@@ -912,7 +914,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\LoanRecord[] listLoanRecords($loan_id, $status, $page, $limit)
 
-List repayment records of specified loan
+List repayment records of a specific loan
 
 ### Example
 
@@ -933,7 +935,7 @@ $apiInstance = new GateApi\Api\MarginApi(
 $associate_array['loan_id'] = '12345'; // string | Loan ID
 $associate_array['status'] = 'loaned'; // string | Loan record status
 $associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
 try {
     $result = $apiInstance->listLoanRecords($associate_array);
@@ -956,7 +958,7 @@ Name | Type | Description  | Notes
  **loan_id** | **string**| Loan ID |
  **status** | **string**| Loan record status | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -1222,7 +1224,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MarginTransferable getMarginTransferable($currency, $currency_pair)
 
-Max transferable amount for specified margin currency
+Get the max transferable amount for a specific margin currency
 
 ### Example
 
@@ -1240,7 +1242,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieved specified currency related data
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
 $associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 
 try {
@@ -1261,12 +1263,76 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data |
+ **currency** | **string**| Retrieve data of the specified currency |
  **currency_pair** | **string**| Currency pair | [optional]
 
 ### Return type
 
 [**\GateApi\Model\MarginTransferable**](../Model/MarginTransferable.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getMarginBorrowable
+
+> \GateApi\Model\MarginBorrowable getMarginBorrowable($currency, $currency_pair)
+
+Get the max borrowable amount for a specific margin currency
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\MarginApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
+
+try {
+    $result = $apiInstance->getMarginBorrowable($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling MarginApi->getMarginBorrowable: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieve data of the specified currency |
+ **currency_pair** | **string**| Currency pair | [optional]
+
+### Return type
+
+[**\GateApi\Model\MarginBorrowable**](../Model/MarginBorrowable.md)
 
 ### Authorization
 
@@ -1474,8 +1540,8 @@ $associate_array['currency'] = 'currency_example'; // string | Filter by currenc
 $associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
 $associate_array['to'] = 56; // int | Time range ending, default to current time
 $associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
-$associate_array['type'] = 'borrow'; // string | Filter by account change type. All types are returned if not specified.
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['type'] = 'borrow'; // string | Only retrieve changes of the specified type. All types will be returned if not specified.
 
 try {
     $result = $apiInstance->listCrossMarginAccountBook($associate_array);
@@ -1499,8 +1565,8 @@ Name | Type | Description  | Notes
  **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
- **type** | **string**| Filter by account change type. All types are returned if not specified. | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
 
 ### Return type
 
@@ -1546,7 +1612,7 @@ $apiInstance = new GateApi\Api\MarginApi(
 );
 $associate_array['status'] = 56; // int | Filter by status. Supported values are 2 and 3.
 $associate_array['currency'] = 'currency_example'; // string | Filter by currency
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['reverse'] = true; // bool | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
 
@@ -1570,7 +1636,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **int**| Filter by status. Supported values are 2 and 3. |
  **currency** | **string**| Filter by currency | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **bool**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
@@ -1740,7 +1806,7 @@ $apiInstance = new GateApi\Api\MarginApi(
 );
 $associate_array['currency'] = 'BTC'; // string | 
 $associate_array['loan_id'] = '12345'; // string | 
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['reverse'] = true; // bool | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
 
@@ -1764,7 +1830,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**|  | [optional]
  **loan_id** | **string**|  | [optional]
- **limit** | **int**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **bool**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
@@ -1850,7 +1916,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CrossMarginTransferable getCrossMarginTransferable($currency)
 
-Max transferable amount for specified cross margin currency
+Get the max transferable amount for a specific cross margin currency
 
 ### Example
 
@@ -1868,7 +1934,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'BTC'; // string | Retrieved specified currency related data
+$currency = 'BTC'; // string | Retrieve data of the specified currency
 
 try {
     $result = $apiInstance->getCrossMarginTransferable($currency);
@@ -1886,11 +1952,71 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data |
+ **currency** | **string**| Retrieve data of the specified currency |
 
 ### Return type
 
 [**\GateApi\Model\CrossMarginTransferable**](../Model/CrossMarginTransferable.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getCrossMarginBorrowable
+
+> \GateApi\Model\CrossMarginBorrowable getCrossMarginBorrowable($currency)
+
+Get the max borrowable amount for a specific cross margin currency
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\MarginApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$currency = 'BTC'; // string | Retrieve data of the specified currency
+
+try {
+    $result = $apiInstance->getCrossMarginBorrowable($currency);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling MarginApi->getCrossMarginBorrowable: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieve data of the specified currency |
+
+### Return type
+
+[**\GateApi\Model\CrossMarginBorrowable**](../Model/CrossMarginBorrowable.md)
 
 ### Authorization
 

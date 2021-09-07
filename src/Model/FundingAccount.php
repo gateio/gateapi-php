@@ -310,7 +310,7 @@ class FundingAccount implements ModelInterface, ArrayAccess
     /**
      * Sets lent
      *
-     * @param string|null $lent Amount that is loaned but not repaid
+     * @param string|null $lent Outstanding loan amount yet to be repaid
      *
      * @return $this
      */

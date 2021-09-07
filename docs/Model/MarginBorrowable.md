@@ -1,12 +1,11 @@
-# # CrossMarginBalance
+# # MarginBorrowable
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**available** | **string** | Available amount | [optional] 
-**freeze** | **string** | Locked amount | [optional] 
-**borrowed** | **string** | Borrowed amount | [optional] 
-**interest** | **string** | Unpaid interests | [optional] 
+**currency** | **string** | Currency detail | [optional] 
+**currency_pair** | **string** | Currency pair | [optional] 
+**amount** | **string** | Max borrowable amount | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

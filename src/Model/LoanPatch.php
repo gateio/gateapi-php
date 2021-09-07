@@ -351,7 +351,7 @@ class LoanPatch implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair. Required for borrowing side
+     * @param string|null $currency_pair Currency pair. Required if borrowing
      *
      * @return $this
      */

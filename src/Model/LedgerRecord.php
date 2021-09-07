@@ -441,7 +441,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets memo
      *
-     * @param string|null $memo Extra withdrawal memo
+     * @param string|null $memo Additional remarks with regards to the withdrawal
      *
      * @return $this
      */
@@ -465,7 +465,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation
+     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation
      *
      * @return $this
      */

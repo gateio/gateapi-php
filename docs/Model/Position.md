@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **last_close_pnl** | **string** | PNL of last position close | [optional] [readonly] 
 **realised_point** | **string** | Realized POINT PNL | [optional] [readonly] 
 **history_point** | **string** | History realized POINT PNL | [optional] [readonly] 
-**adl_ranking** | **int** | ADL ranking, range from 1 to 5 | [optional] [readonly] 
+**adl_ranking** | **int** | ADL ranking, ranging from 1 to 5 | [optional] [readonly] 
 **pending_orders** | **int** | Current open orders | [optional] [readonly] 
 **close_order** | [**\GateApi\Model\PositionCloseOrder**](PositionCloseOrder.md) |  | [optional] 
 **mode** | **string** | Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode | [optional] 

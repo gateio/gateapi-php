@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency_pair** | **string** | Currency pair | [optional] 
+**locked** | **bool** | Whether account is locked | [optional] 
+**risk** | **string** | Current risk rate of margin account | [optional] 
 **base** | [**\GateApi\Model\MarginAccountCurrency**](MarginAccountCurrency.md) |  | [optional] 
 **quote** | [**\GateApi\Model\MarginAccountCurrency**](MarginAccountCurrency.md) |  | [optional] 
 

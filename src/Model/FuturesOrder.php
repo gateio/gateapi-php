@@ -478,7 +478,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param double|null $create_time Order creation time
+     * @param double|null $create_time Creation time of order
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_as
      *
-     * @param string|null $finish_as How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set- position_closed: cancelled because of position close
+     * @param string|null $finish_as How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set- position_closed: cancelled because of position close
      *
      * @return $this
      */
@@ -640,7 +640,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets iceberg
      *
-     * @param int|null $iceberg Display size for iceberg order. 0 for non-iceberg. Note that you would pay the taker fee for the hidden size
+     * @param int|null $iceberg Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size
      *
      * @return $this
      */

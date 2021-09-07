@@ -268,7 +268,7 @@ class OrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets current
      *
-     * @param int|null $current Response data generation timestamp in milliseconds
+     * @param int|null $current The timestamp of the response data being generated (in milliseconds)
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class OrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets update
      *
-     * @param int|null $update Order book changed timestamp in milliseconds
+     * @param int|null $update The timestamp of when the orderbook last changed (in milliseconds)
      *
      * @return $this
      */

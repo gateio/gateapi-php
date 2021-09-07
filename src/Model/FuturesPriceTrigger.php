@@ -309,7 +309,7 @@ class FuturesPriceTrigger implements ModelInterface, ArrayAccess
     /**
      * Sets strategy_type
      *
-     * @param int|null $strategy_type How the order will be triggered   - `0`: by price, which means order will be triggered on price condition satisfied  - `1`: by price gap, which means order will be triggered on gap of recent two prices of specified `price_type` satisfied.  Only `0` is supported currently
+     * @param int|null $strategy_type How the order will be triggered   - `0`: by price, which means the order will be triggered if price condition is satisfied  - `1`: by price gap, which means the order will be triggered if gap of recent two prices of specified `price_type` are satisfied.  Only `0` is supported currently
      *
      * @return $this
      */
@@ -432,7 +432,7 @@ class FuturesPriceTrigger implements ModelInterface, ArrayAccess
     /**
      * Sets expiration
      *
-     * @param int|null $expiration How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out
+     * @param int|null $expiration How long (in seconds) to wait for the condition to be triggered before cancelling the order.
      *
      * @return $this
      */

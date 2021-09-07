@@ -305,7 +305,7 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param int|null $time Account changed timestamp in milliseconds
+     * @param int|null $time The timestamp of the change (in milliseconds)
      *
      * @return $this
      */

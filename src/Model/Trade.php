@@ -614,7 +614,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets point_fee
      *
-     * @param string|null $point_fee Point used to deduct fee
+     * @param string|null $point_fee Points used to deduct fee
      *
      * @return $this
      */

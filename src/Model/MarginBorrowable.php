@@ -1,6 +1,6 @@
 <?php
 /**
- * MultiChainAddressItem
+ * MarginBorrowable
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MultiChainAddressItem Class Doc Comment
+ * MarginBorrowable Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class MultiChainAddressItem implements ModelInterface, ArrayAccess
+class MarginBorrowable implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MultiChainAddressItem';
+    protected static $openAPIModelName = 'MarginBorrowable';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +54,9 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'chain' => 'string',
-        'address' => 'string',
-        'payment_id' => 'string',
-        'payment_name' => 'string',
-        'obtain_failed' => 'int'
+        'currency' => 'string',
+        'currency_pair' => 'string',
+        'amount' => 'string'
     ];
 
     /**
@@ -67,11 +65,9 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'chain' => null,
-        'address' => null,
-        'payment_id' => null,
-        'payment_name' => null,
-        'obtain_failed' => null
+        'currency' => null,
+        'currency_pair' => null,
+        'amount' => null
     ];
 
     /**
@@ -101,11 +97,9 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'chain' => 'chain',
-        'address' => 'address',
-        'payment_id' => 'payment_id',
-        'payment_name' => 'payment_name',
-        'obtain_failed' => 'obtain_failed'
+        'currency' => 'currency',
+        'currency_pair' => 'currency_pair',
+        'amount' => 'amount'
     ];
 
     /**
@@ -114,11 +108,9 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'chain' => 'setChain',
-        'address' => 'setAddress',
-        'payment_id' => 'setPaymentId',
-        'payment_name' => 'setPaymentName',
-        'obtain_failed' => 'setObtainFailed'
+        'currency' => 'setCurrency',
+        'currency_pair' => 'setCurrencyPair',
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -127,11 +119,9 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'chain' => 'getChain',
-        'address' => 'getAddress',
-        'payment_id' => 'getPaymentId',
-        'payment_name' => 'getPaymentName',
-        'obtain_failed' => 'getObtainFailed'
+        'currency' => 'getCurrency',
+        'currency_pair' => 'getCurrencyPair',
+        'amount' => 'getAmount'
     ];
 
     /**
@@ -194,11 +184,9 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
-        $this->container['payment_name'] = isset($data['payment_name']) ? $data['payment_name'] : null;
-        $this->container['obtain_failed'] = isset($data['obtain_failed']) ? $data['obtain_failed'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
     }
 
     /**
@@ -226,121 +214,73 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets chain
+     * Gets currency
      *
      * @return string|null
      */
-    public function getChain()
+    public function getCurrency()
     {
-        return $this->container['chain'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets chain
+     * Sets currency
      *
-     * @param string|null $chain Name of the chain
+     * @param string|null $currency Currency detail
      *
      * @return $this
      */
-    public function setChain($chain)
+    public function setCurrency($currency)
     {
-        $this->container['chain'] = $chain;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets address
+     * Gets currency_pair
      *
      * @return string|null
      */
-    public function getAddress()
+    public function getCurrencyPair()
     {
-        return $this->container['address'];
+        return $this->container['currency_pair'];
     }
 
     /**
-     * Sets address
+     * Sets currency_pair
      *
-     * @param string|null $address Deposit address
+     * @param string|null $currency_pair Currency pair
      *
      * @return $this
      */
-    public function setAddress($address)
+    public function setCurrencyPair($currency_pair)
     {
-        $this->container['address'] = $address;
+        $this->container['currency_pair'] = $currency_pair;
 
         return $this;
     }
 
     /**
-     * Gets payment_id
+     * Gets amount
      *
      * @return string|null
      */
-    public function getPaymentId()
+    public function getAmount()
     {
-        return $this->container['payment_id'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets payment_id
+     * Sets amount
      *
-     * @param string|null $payment_id Notes that some currencies required(e.g., Tag, Memo) when depositing
+     * @param string|null $amount Max borrowable amount
      *
      * @return $this
      */
-    public function setPaymentId($payment_id)
+    public function setAmount($amount)
     {
-        $this->container['payment_id'] = $payment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_name
-     *
-     * @return string|null
-     */
-    public function getPaymentName()
-    {
-        return $this->container['payment_name'];
-    }
-
-    /**
-     * Sets payment_name
-     *
-     * @param string|null $payment_name Note type, `Tag` or `Memo`
-     *
-     * @return $this
-     */
-    public function setPaymentName($payment_name)
-    {
-        $this->container['payment_name'] = $payment_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets obtain_failed
-     *
-     * @return int|null
-     */
-    public function getObtainFailed()
-    {
-        return $this->container['obtain_failed'];
-    }
-
-    /**
-     * Sets obtain_failed
-     *
-     * @param int|null $obtain_failed The obtain failed status- 0: address successfully obtained- 1: failed to obtain address
-     *
-     * @return $this
-     */
-    public function setObtainFailed($obtain_failed)
-    {
-        $this->container['obtain_failed'] = $obtain_failed;
+        $this->container['amount'] = $amount;
 
         return $this;
     }

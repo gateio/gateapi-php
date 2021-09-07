@@ -637,7 +637,7 @@ class LoanRecord implements ModelInterface, ArrayAccess
     /**
      * Sets unpaid_interest
      *
-     * @param string|null $unpaid_interest Interest not repaid
+     * @param string|null $unpaid_interest Outstanding interest yet to be paid
      *
      * @return $this
      */

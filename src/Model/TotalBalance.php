@@ -1,6 +1,6 @@
 <?php
 /**
- * MultiChainAddressItem
+ * TotalBalance
  *
  * PHP version 7
  *
@@ -30,14 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MultiChainAddressItem Class Doc Comment
+ * TotalBalance Class Doc Comment
  *
- * @category Class
- * @package  GateApi
- * @author   GateIO
- * @link     https://www.gate.io
+ * @category    Class
+ * @description 用户总资产信息
+ * @package     GateApi
+ * @author      GateIO
+ * @link        https://www.gate.io
  */
-class MultiChainAddressItem implements ModelInterface, ArrayAccess
+class TotalBalance implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MultiChainAddressItem';
+    protected static $openAPIModelName = 'TotalBalance';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +55,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'chain' => 'string',
-        'address' => 'string',
-        'payment_id' => 'string',
-        'payment_name' => 'string',
-        'obtain_failed' => 'int'
+        'total' => '\GateApi\Model\AccountBalance',
+        'details' => 'map[string,\GateApi\Model\AccountBalance]'
     ];
 
     /**
@@ -67,11 +65,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'chain' => null,
-        'address' => null,
-        'payment_id' => null,
-        'payment_name' => null,
-        'obtain_failed' => null
+        'total' => null,
+        'details' => null
     ];
 
     /**
@@ -101,11 +96,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'chain' => 'chain',
-        'address' => 'address',
-        'payment_id' => 'payment_id',
-        'payment_name' => 'payment_name',
-        'obtain_failed' => 'obtain_failed'
+        'total' => 'total',
+        'details' => 'details'
     ];
 
     /**
@@ -114,11 +106,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'chain' => 'setChain',
-        'address' => 'setAddress',
-        'payment_id' => 'setPaymentId',
-        'payment_name' => 'setPaymentName',
-        'obtain_failed' => 'setObtainFailed'
+        'total' => 'setTotal',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -127,11 +116,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'chain' => 'getChain',
-        'address' => 'getAddress',
-        'payment_id' => 'getPaymentId',
-        'payment_name' => 'getPaymentName',
-        'obtain_failed' => 'getObtainFailed'
+        'total' => 'getTotal',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -194,11 +180,8 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
-        $this->container['payment_name'] = isset($data['payment_name']) ? $data['payment_name'] : null;
-        $this->container['obtain_failed'] = isset($data['obtain_failed']) ? $data['obtain_failed'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
     }
 
     /**
@@ -226,121 +209,49 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets chain
+     * Gets total
      *
-     * @return string|null
+     * @return \GateApi\Model\AccountBalance|null
      */
-    public function getChain()
+    public function getTotal()
     {
-        return $this->container['chain'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets chain
+     * Sets total
      *
-     * @param string|null $chain Name of the chain
+     * @param \GateApi\Model\AccountBalance|null $total total
      *
      * @return $this
      */
-    public function setChain($chain)
+    public function setTotal($total)
     {
-        $this->container['chain'] = $chain;
+        $this->container['total'] = $total;
 
         return $this;
     }
 
     /**
-     * Gets address
+     * Gets details
      *
-     * @return string|null
+     * @return map[string,\GateApi\Model\AccountBalance]|null
      */
-    public function getAddress()
+    public function getDetails()
     {
-        return $this->container['address'];
+        return $this->container['details'];
     }
 
     /**
-     * Sets address
+     * Sets details
      *
-     * @param string|null $address Deposit address
+     * @param map[string,\GateApi\Model\AccountBalance]|null $details Total balances in different accounts  - cross_margin: cross margin account - spot: spot account - finance: finance account - margin: margin account - quant: quant account - futures: futures account - delivery: delivery account - warrant: warrant account - cbbc: cbbc account
      *
      * @return $this
      */
-    public function setAddress($address)
+    public function setDetails($details)
     {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_id
-     *
-     * @return string|null
-     */
-    public function getPaymentId()
-    {
-        return $this->container['payment_id'];
-    }
-
-    /**
-     * Sets payment_id
-     *
-     * @param string|null $payment_id Notes that some currencies required(e.g., Tag, Memo) when depositing
-     *
-     * @return $this
-     */
-    public function setPaymentId($payment_id)
-    {
-        $this->container['payment_id'] = $payment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_name
-     *
-     * @return string|null
-     */
-    public function getPaymentName()
-    {
-        return $this->container['payment_name'];
-    }
-
-    /**
-     * Sets payment_name
-     *
-     * @param string|null $payment_name Note type, `Tag` or `Memo`
-     *
-     * @return $this
-     */
-    public function setPaymentName($payment_name)
-    {
-        $this->container['payment_name'] = $payment_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets obtain_failed
-     *
-     * @return int|null
-     */
-    public function getObtainFailed()
-    {
-        return $this->container['obtain_failed'];
-    }
-
-    /**
-     * Sets obtain_failed
-     *
-     * @param int|null $obtain_failed The obtain failed status- 0: address successfully obtained- 1: failed to obtain address
-     *
-     * @return $this
-     */
-    public function setObtainFailed($obtain_failed)
-    {
-        $this->container['obtain_failed'] = $obtain_failed;
+        $this->container['details'] = $details;
 
         return $this;
     }

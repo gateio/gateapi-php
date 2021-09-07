@@ -304,7 +304,7 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
     /**
      * Sets interest
      *
-     * @param string|null $interest Interests unpaid
+     * @param string|null $interest Unpaid interests
      *
      * @return $this
      */

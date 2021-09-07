@@ -532,7 +532,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets succeeded
      *
-     * @param bool|null $succeeded Whether order succeeds
+     * @param bool|null $succeeded Whether the batch of orders succeeded
      *
      * @return $this
      */
@@ -556,7 +556,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets label
      *
-     * @param string|null $label Error label, empty string if order succeeds
+     * @param string|null $label Error label, if any, otherwise an empty string
      *
      * @return $this
      */
@@ -580,7 +580,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string|null $message Detailed error message, empty string if order succeeds
+     * @param string|null $message Detailed error message, if any, otherwise an empty string
      *
      * @return $this
      */
@@ -628,7 +628,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param string|null $create_time Order creation time
+     * @param string|null $create_time Creation time of order
      *
      * @return $this
      */
@@ -652,7 +652,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets update_time
      *
-     * @param string|null $update_time Order last modification time
+     * @param string|null $update_time Last modification time of order
      *
      * @return $this
      */
@@ -676,7 +676,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets create_time_ms
      *
-     * @param int|null $create_time_ms Order creation time in milliseconds
+     * @param int|null $create_time_ms Creation time of order (in milliseconds)
      *
      * @return $this
      */
@@ -700,7 +700,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets update_time_ms
      *
-     * @param int|null $update_time_ms Order last modification time in milliseconds
+     * @param int|null $update_time_ms Last modification time of order (in milliseconds)
      *
      * @return $this
      */
@@ -961,7 +961,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets iceberg
      *
-     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the amount totally
+     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely
      *
      * @return $this
      */
@@ -1153,7 +1153,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets point_fee
      *
-     * @param string|null $point_fee Point used to deduct fee
+     * @param string|null $point_fee Points used to deduct fee
      *
      * @return $this
      */

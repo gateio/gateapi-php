@@ -12,14 +12,15 @@ Name | Type | Description | Notes
 **currency** | **string** | Loan currency | 
 **rate** | **string** | Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set | [optional] 
 **amount** | **string** | Loan amount | 
-**days** | **int** | Loan days | 
-**auto_renew** | **bool** | Auto renew the loan on expiration | [optional] [default to false]
-**currency_pair** | **string** | Currency pair. Required for borrowing side | [optional] 
-**left** | **string** | Amount not lending out | [optional] [readonly] 
+**days** | **int** | Loan days. Only 10 is supported for now | [optional] 
+**auto_renew** | **bool** | Whether to auto renew the loan upon expiration | [optional] [default to false]
+**currency_pair** | **string** | Currency pair. Required if borrowing | [optional] 
+**left** | **string** | Amount not lent out yet | [optional] [readonly] 
 **repaid** | **string** | Repaid amount | [optional] [readonly] 
 **paid_interest** | **string** | Repaid interest | [optional] [readonly] 
-**unpaid_interest** | **string** | Interest not repaid | [optional] [readonly] 
+**unpaid_interest** | **string** | Outstanding interest yet to be paid | [optional] [readonly] 
 **fee_rate** | **string** | Loan fee rate | [optional] 
-**orig_id** | **string** | Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not | [optional] 
+**orig_id** | **string** | Original loan ID of the loan if auto-renewed, otherwise equals to id | [optional] 
+**text** | **string** | User defined custom ID | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **status** | **int** | Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete | [optional] [readonly] 
 **repaid** | **string** | Repaid amount | [optional] [readonly] 
 **repaid_interest** | **string** | Repaid interest | [optional] [readonly] 
-**unpaid_interest** | **string** | Interest not repaid | [optional] [readonly] 
+**unpaid_interest** | **string** | Outstanding interest yet to be paid | [optional] [readonly] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MarginAccountCurrency Class Doc Comment
  *
  * @category    Class
- * @description Account currency detail
+ * @description Account currency details
  * @package     GateApi
  * @author      GateIO
  * @link        https://www.gate.io
@@ -335,7 +335,7 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets interest
      *
-     * @param string|null $interest Interests unpaid
+     * @param string|null $interest Unpaid interests
      *
      * @return $this
      */

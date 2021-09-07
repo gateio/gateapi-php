@@ -116,7 +116,7 @@ class SpotApi
     /**
      * Operation listCurrencies
      *
-     * List all currencies' detail
+     * List all currencies' details
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -131,7 +131,7 @@ class SpotApi
     /**
      * Operation listCurrenciesWithHttpInfo
      *
-     * List all currencies' detail
+     * List all currencies' details
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -183,7 +183,7 @@ class SpotApi
     /**
      * Operation listCurrenciesAsync
      *
-     * List all currencies' detail
+     * List all currencies' details
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -201,7 +201,7 @@ class SpotApi
     /**
      * Operation listCurrenciesAsyncWithHttpInfo
      *
-     * List all currencies' detail
+     * List all currencies' details
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -328,7 +328,7 @@ class SpotApi
     /**
      * Operation getCurrency
      *
-     * Get detail of one particular currency
+     * Get details of a specific currency
      *
      * @param string $currency Currency name (required)
      *
@@ -345,7 +345,7 @@ class SpotApi
     /**
      * Operation getCurrencyWithHttpInfo
      *
-     * Get detail of one particular currency
+     * Get details of a specific currency
      *
      * @param string $currency Currency name (required)
      *
@@ -399,7 +399,7 @@ class SpotApi
     /**
      * Operation getCurrencyAsync
      *
-     * Get detail of one particular currency
+     * Get details of a specific currency
      *
      * @param string $currency Currency name (required)
      *
@@ -419,7 +419,7 @@ class SpotApi
     /**
      * Operation getCurrencyAsyncWithHttpInfo
      *
-     * Get detail of one particular currency
+     * Get details of a specific currency
      *
      * @param string $currency Currency name (required)
      *
@@ -777,7 +777,7 @@ class SpotApi
     /**
      * Operation getCurrencyPair
      *
-     * Get detail of one single order
+     * Get details of a specifc order
      *
      * @param string $currency_pair Currency pair (required)
      *
@@ -794,7 +794,7 @@ class SpotApi
     /**
      * Operation getCurrencyPairWithHttpInfo
      *
-     * Get detail of one single order
+     * Get details of a specifc order
      *
      * @param string $currency_pair Currency pair (required)
      *
@@ -848,7 +848,7 @@ class SpotApi
     /**
      * Operation getCurrencyPairAsync
      *
-     * Get detail of one single order
+     * Get details of a specifc order
      *
      * @param string $currency_pair Currency pair (required)
      *
@@ -868,7 +868,7 @@ class SpotApi
     /**
      * Operation getCurrencyPairAsyncWithHttpInfo
      *
-     * Get detail of one single order
+     * Get details of a specifc order
      *
      * @param string $currency_pair Currency pair (required)
      *
@@ -1445,9 +1445,6 @@ class SpotApi
                 'Missing the required parameter $currency_pair when calling listOrderBook'
             );
         }
-        if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listOrderBook, must be smaller than or equal to 100.');
-        }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listOrderBook, must be bigger than or equal to 1.');
         }
@@ -1580,9 +1577,9 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1602,9 +1599,9 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1661,9 +1658,9 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1686,9 +1683,9 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1738,9 +1735,9 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1894,7 +1891,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param string $interval      Interval time between data points (optional, default to '30m')
@@ -1917,7 +1914,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param string $interval      Interval time between data points (optional, default to '30m')
@@ -1977,7 +1974,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param string $interval      Interval time between data points (optional, default to '30m')
@@ -2003,7 +2000,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param string $interval      Interval time between data points (optional, default to '30m')
@@ -2056,7 +2053,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param string $interval      Interval time between data points (optional, default to '30m')
@@ -2472,7 +2469,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2491,7 +2488,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2547,7 +2544,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2569,7 +2566,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2618,7 +2615,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3256,8 +3253,11 @@ class SpotApi
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3279,8 +3279,11 @@ class SpotApi
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3339,8 +3342,11 @@ class SpotApi
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3365,8 +3371,11 @@ class SpotApi
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3418,8 +3427,11 @@ class SpotApi
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3432,6 +3444,9 @@ class SpotApi
         $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
         $account = array_key_exists('account', $associative_array) ? $associative_array['account'] : null;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
+        $side = array_key_exists('side', $associative_array) ? $associative_array['side'] : null;
 
         // verify the required parameter 'currency_pair' is set
         if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
@@ -3521,6 +3536,42 @@ class SpotApi
             }
             else {
                 $queryParams['account'] = $account;
+            }
+        }
+
+        // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
+        if ($to !== null) {
+            if('form' === 'form' && is_array($to)) {
+                foreach($to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['to'] = $to;
+            }
+        }
+
+        // query params
+        if ($side !== null) {
+            if('form' === 'form' && is_array($side)) {
+                foreach($side as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['side'] = $side;
             }
         }
 
@@ -3831,7 +3882,7 @@ class SpotApi
      * Cancel all `open` orders in specified currency pair
      *
      * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included in not specified (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      * @param string $account       Specify account type. Default to all account types being included (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -3850,7 +3901,7 @@ class SpotApi
      * Cancel all `open` orders in specified currency pair
      *
      * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included in not specified (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      * @param string $account       Specify account type. Default to all account types being included (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -3906,7 +3957,7 @@ class SpotApi
      * Cancel all `open` orders in specified currency pair
      *
      * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included in not specified (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      * @param string $account       Specify account type. Default to all account types being included (optional)
      *
      * @throws \InvalidArgumentException
@@ -3928,7 +3979,7 @@ class SpotApi
      * Cancel all `open` orders in specified currency pair
      *
      * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included in not specified (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      * @param string $account       Specify account type. Default to all account types being included (optional)
      *
      * @throws \InvalidArgumentException
@@ -3977,7 +4028,7 @@ class SpotApi
      * Create request for operation 'cancelOrders'
      *
      * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included in not specified (optional)
+     * @param string $side          All bids or asks. Both included if not specified (optional)
      * @param string $account       Specify account type. Default to all account types being included (optional)
      *
      * @throws \InvalidArgumentException
@@ -4904,10 +4955,12 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4927,10 +4980,12 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4987,10 +5042,12 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5013,10 +5070,12 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5066,10 +5125,12 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)
+     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $to            Time range ending, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5082,6 +5143,8 @@ class SpotApi
         $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
         $order_id = array_key_exists('order_id', $associative_array) ? $associative_array['order_id'] : null;
         $account = array_key_exists('account', $associative_array) ? $associative_array['account'] : null;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
 
         // verify the required parameter 'currency_pair' is set
         if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
@@ -5168,6 +5231,30 @@ class SpotApi
             }
         }
 
+        // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
+        if ($to !== null) {
+            if('form' === 'form' && is_array($to)) {
+                foreach($to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['to'] = $to;
+            }
+        }
+
         // body params
         $_tempBody = null;
 
@@ -5242,10 +5329,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  List orders based on status (required)
+     * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5265,10 +5352,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  List orders based on status (required)
+     * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5325,10 +5412,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  List orders based on status (required)
+     * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -5351,10 +5438,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  List orders based on status (required)
+     * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -5404,10 +5491,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  List orders based on status (required)
+     * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
      * @param string $account Trading account (optional)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
@@ -6067,7 +6154,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6084,7 +6171,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6138,7 +6225,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6158,7 +6245,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6205,7 +6292,7 @@ class SpotApi
     /**
      * Create request for operation 'getSpotPriceTriggeredOrder'
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6307,7 +6394,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6324,7 +6411,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6378,7 +6465,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6398,7 +6485,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6445,7 +6532,7 @@ class SpotApi
     /**
      * Create request for operation 'cancelSpotPriceTriggeredOrder'
      *
-     * @param string $order_id ID returned on order successfully being created (required)
+     * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -339,7 +339,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets from
      *
-     * @param string $from Account transferred from
+     * @param string $from Account to transfer from
      *
      * @return $this
      */
@@ -372,7 +372,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets to
      *
-     * @param string $to Account transferred to
+     * @param string $to Account to transfer to
      *
      * @return $this
      */

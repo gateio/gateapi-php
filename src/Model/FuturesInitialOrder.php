@@ -444,7 +444,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets reduce_only
      *
-     * @param bool|null $reduce_only Set to true to create an reduce-only order
+     * @param bool|null $reduce_only Set to true to create a reduce-only order
      *
      * @return $this
      */

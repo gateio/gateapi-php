@@ -559,7 +559,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string|null $reason Extra messages of how order is finished
+     * @param string|null $reason Additional remarks on how the order was finished
      *
      * @return $this
      */

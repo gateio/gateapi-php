@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Balance change record ID | [optional] 
 **time** | **string** | Balance changed timestamp | [optional] 
-**time_ms** | **int** | Account changed timestamp in milliseconds | [optional] 
+**time_ms** | **int** | The timestamp of the change (in milliseconds) | [optional] 
 **currency** | **string** | Currency changed | [optional] 
 **currency_pair** | **string** | Account currency pair | [optional] 
 **change** | **string** | Amount changed. Positive value means transferring in, while negative out | [optional] 

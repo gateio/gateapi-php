@@ -56,6 +56,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'currency_pair' => 'string',
+        'locked' => 'bool',
+        'risk' => 'string',
         'base' => '\GateApi\Model\MarginAccountCurrency',
         'quote' => '\GateApi\Model\MarginAccountCurrency'
     ];
@@ -67,6 +69,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'currency_pair' => null,
+        'locked' => null,
+        'risk' => null,
         'base' => null,
         'quote' => null
     ];
@@ -99,6 +103,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'currency_pair' => 'currency_pair',
+        'locked' => 'locked',
+        'risk' => 'risk',
         'base' => 'base',
         'quote' => 'quote'
     ];
@@ -110,6 +116,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'currency_pair' => 'setCurrencyPair',
+        'locked' => 'setLocked',
+        'risk' => 'setRisk',
         'base' => 'setBase',
         'quote' => 'setQuote'
     ];
@@ -121,6 +129,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'currency_pair' => 'getCurrencyPair',
+        'locked' => 'getLocked',
+        'risk' => 'getRisk',
         'base' => 'getBase',
         'quote' => 'getQuote'
     ];
@@ -186,6 +196,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
+        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
+        $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
         $this->container['base'] = isset($data['base']) ? $data['base'] : null;
         $this->container['quote'] = isset($data['quote']) ? $data['quote'] : null;
     }
@@ -234,6 +246,54 @@ class MarginAccount implements ModelInterface, ArrayAccess
     public function setCurrencyPair($currency_pair)
     {
         $this->container['currency_pair'] = $currency_pair;
+
+        return $this;
+    }
+
+    /**
+     * Gets locked
+     *
+     * @return bool|null
+     */
+    public function getLocked()
+    {
+        return $this->container['locked'];
+    }
+
+    /**
+     * Sets locked
+     *
+     * @param bool|null $locked Whether account is locked
+     *
+     * @return $this
+     */
+    public function setLocked($locked)
+    {
+        $this->container['locked'] = $locked;
+
+        return $this;
+    }
+
+    /**
+     * Gets risk
+     *
+     * @return string|null
+     */
+    public function getRisk()
+    {
+        return $this->container['risk'];
+    }
+
+    /**
+     * Sets risk
+     *
+     * @param string|null $risk Current risk rate of margin account
+     *
+     * @return $this
+     */
+    public function setRisk($risk)
+    {
+        $this->container['risk'] = $risk;
 
         return $this;
     }

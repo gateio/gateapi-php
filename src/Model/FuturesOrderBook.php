@@ -244,7 +244,7 @@ class FuturesOrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Order Book ID. Increase by 1 on every order book change. Set `with_id=true` to include this field in response
+     * @param int|null $id Order Book ID. Increases by 1 on every order book change. Set `with_id=true` to include this field in response
      *
      * @return $this
      */

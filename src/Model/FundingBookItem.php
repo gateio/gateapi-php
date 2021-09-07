@@ -274,7 +274,7 @@ class FundingBookItem implements ModelInterface, ArrayAccess
     /**
      * Sets days
      *
-     * @param int|null $days How long the loan should be repaid
+     * @param int|null $days The number of days till the loan repayment's dateline
      *
      * @return $this
      */

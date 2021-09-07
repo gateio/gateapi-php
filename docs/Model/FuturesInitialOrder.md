@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **close** | **bool** | Set to true if trying to close the position | [optional] [default to false]
 **tif** | **string** | Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled | [optional] [default to 'gtc']
 **text** | **string** | How the order is created. Possible values are: web, api and app | [optional] 
-**reduce_only** | **bool** | Set to true to create an reduce-only order | [optional] [default to false]
+**reduce_only** | **bool** | Set to true to create a reduce-only order | [optional] [default to false]
 **is_reduce_only** | **bool** | Is the order reduce-only | [optional] [readonly] 
 **is_close** | **bool** | Is the order to close position | [optional] [readonly] 
 

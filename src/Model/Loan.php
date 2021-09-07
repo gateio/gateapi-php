@@ -71,7 +71,8 @@ class Loan implements ModelInterface, ArrayAccess
         'paid_interest' => 'string',
         'unpaid_interest' => 'string',
         'fee_rate' => 'string',
-        'orig_id' => 'string'
+        'orig_id' => 'string',
+        'text' => 'string'
     ];
 
     /**
@@ -96,7 +97,8 @@ class Loan implements ModelInterface, ArrayAccess
         'paid_interest' => null,
         'unpaid_interest' => null,
         'fee_rate' => null,
-        'orig_id' => null
+        'orig_id' => null,
+        'text' => null
     ];
 
     /**
@@ -142,7 +144,8 @@ class Loan implements ModelInterface, ArrayAccess
         'paid_interest' => 'paid_interest',
         'unpaid_interest' => 'unpaid_interest',
         'fee_rate' => 'fee_rate',
-        'orig_id' => 'orig_id'
+        'orig_id' => 'orig_id',
+        'text' => 'text'
     ];
 
     /**
@@ -167,7 +170,8 @@ class Loan implements ModelInterface, ArrayAccess
         'paid_interest' => 'setPaidInterest',
         'unpaid_interest' => 'setUnpaidInterest',
         'fee_rate' => 'setFeeRate',
-        'orig_id' => 'setOrigId'
+        'orig_id' => 'setOrigId',
+        'text' => 'setText'
     ];
 
     /**
@@ -192,7 +196,8 @@ class Loan implements ModelInterface, ArrayAccess
         'paid_interest' => 'getPaidInterest',
         'unpaid_interest' => 'getUnpaidInterest',
         'fee_rate' => 'getFeeRate',
-        'orig_id' => 'getOrigId'
+        'orig_id' => 'getOrigId',
+        'text' => 'getText'
     ];
 
     /**
@@ -306,6 +311,7 @@ class Loan implements ModelInterface, ArrayAccess
         $this->container['unpaid_interest'] = isset($data['unpaid_interest']) ? $data['unpaid_interest'] : null;
         $this->container['fee_rate'] = isset($data['fee_rate']) ? $data['fee_rate'] : null;
         $this->container['orig_id'] = isset($data['orig_id']) ? $data['orig_id'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
     /**
@@ -341,9 +347,6 @@ class Loan implements ModelInterface, ArrayAccess
         }
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['days'] === null) {
-            $invalidProperties[] = "'days' can't be null";
         }
         return $invalidProperties;
     }
@@ -573,7 +576,7 @@ class Loan implements ModelInterface, ArrayAccess
     /**
      * Gets days
      *
-     * @return int
+     * @return int|null
      */
     public function getDays()
     {
@@ -583,7 +586,7 @@ class Loan implements ModelInterface, ArrayAccess
     /**
      * Sets days
      *
-     * @param int $days Loan days
+     * @param int|null $days Loan days. Only 10 is supported for now
      *
      * @return $this
      */
@@ -607,7 +610,7 @@ class Loan implements ModelInterface, ArrayAccess
     /**
      * Sets auto_renew
      *
-     * @param bool|null $auto_renew Auto renew the loan on expiration
+     * @param bool|null $auto_renew Whether to auto renew the loan upon expiration
      *
      * @return $this
      */
@@ -631,7 +634,7 @@ class Loan implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair. Required for borrowing side
+     * @param string|null $currency_pair Currency pair. Required if borrowing
      *
      * @return $this
      */
@@ -655,7 +658,7 @@ class Loan implements ModelInterface, ArrayAccess
     /**
      * Sets left
      *
-     * @param string|null $left Amount not lending out
+     * @param string|null $left Amount not lent out yet
      *
      * @return $this
      */
@@ -727,7 +730,7 @@ class Loan implements ModelInterface, ArrayAccess
     /**
      * Sets unpaid_interest
      *
-     * @param string|null $unpaid_interest Interest not repaid
+     * @param string|null $unpaid_interest Outstanding interest yet to be paid
      *
      * @return $this
      */
@@ -775,13 +778,37 @@ class Loan implements ModelInterface, ArrayAccess
     /**
      * Sets orig_id
      *
-     * @param string|null $orig_id Original loan ID if the loan is auto-renewed. Equal to `id` if not
+     * @param string|null $orig_id Original loan ID of the loan if auto-renewed, otherwise equals to id
      *
      * @return $this
      */
     public function setOrigId($orig_id)
     {
         $this->container['orig_id'] = $orig_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text User defined custom ID
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
 
         return $this;
     }

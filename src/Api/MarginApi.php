@@ -567,7 +567,7 @@ class MarginApi
      *
      * Order book of lending loans
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -584,7 +584,7 @@ class MarginApi
      *
      * Order book of lending loans
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -638,7 +638,7 @@ class MarginApi
      *
      * Order book of lending loans
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -658,7 +658,7 @@ class MarginApi
      *
      * Order book of lending loans
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -705,7 +705,7 @@ class MarginApi
     /**
      * Create request for operation 'listFundingBook'
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1064,7 +1064,7 @@ class MarginApi
      * @param int    $from          Time range beginning, default to 7 days before current time (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1088,7 +1088,7 @@ class MarginApi
      * @param int    $from          Time range beginning, default to 7 days before current time (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1149,7 +1149,7 @@ class MarginApi
      * @param int    $from          Time range beginning, default to 7 days before current time (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1176,7 +1176,7 @@ class MarginApi
      * @param int    $from          Time range beginning, default to 7 days before current time (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1230,7 +1230,7 @@ class MarginApi
      * @param int    $from          Time range beginning, default to 7 days before current time (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1410,7 +1410,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1429,7 +1429,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1485,7 +1485,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1507,7 +1507,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1556,7 +1556,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieved specified currency related data (optional)
+     * @param string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1662,12 +1662,12 @@ class MarginApi
      *
      * @param string $status        Loan status (required)
      * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieved specified currency related data (optional)
+     * @param string $currency      Retrieve data of the specified currency (optional)
      * @param string $currency_pair Currency pair (optional)
      * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1688,12 +1688,12 @@ class MarginApi
      *
      * @param string $status        Loan status (required)
      * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieved specified currency related data (optional)
+     * @param string $currency      Retrieve data of the specified currency (optional)
      * @param string $currency_pair Currency pair (optional)
      * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1751,12 +1751,12 @@ class MarginApi
      *
      * @param string $status        Loan status (required)
      * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieved specified currency related data (optional)
+     * @param string $currency      Retrieve data of the specified currency (optional)
      * @param string $currency_pair Currency pair (optional)
      * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1780,12 +1780,12 @@ class MarginApi
      *
      * @param string $status        Loan status (required)
      * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieved specified currency related data (optional)
+     * @param string $currency      Retrieve data of the specified currency (optional)
      * @param string $currency_pair Currency pair (optional)
      * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1836,12 +1836,12 @@ class MarginApi
      *
      * @param string $status        Loan status (required)
      * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieved specified currency related data (optional)
+     * @param string $currency      Retrieve data of the specified currency (optional)
      * @param string $currency_pair Currency pair (optional)
      * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2291,8 +2291,8 @@ class MarginApi
      *
      * Merge multiple lending loans
      *
-     * @param string $currency Retrieved specified currency related data (required)
-     * @param string $ids      Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param string $currency Retrieve data of the specified currency (required)
+     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2309,8 +2309,8 @@ class MarginApi
      *
      * Merge multiple lending loans
      *
-     * @param string $currency Retrieved specified currency related data (required)
-     * @param string $ids      Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param string $currency Retrieve data of the specified currency (required)
+     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2364,8 +2364,8 @@ class MarginApi
      *
      * Merge multiple lending loans
      *
-     * @param string $currency Retrieved specified currency related data (required)
-     * @param string $ids      Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param string $currency Retrieve data of the specified currency (required)
+     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2385,8 +2385,8 @@ class MarginApi
      *
      * Merge multiple lending loans
      *
-     * @param string $currency Retrieved specified currency related data (required)
-     * @param string $ids      Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param string $currency Retrieve data of the specified currency (required)
+     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2433,8 +2433,8 @@ class MarginApi
     /**
      * Create request for operation 'mergeLoans'
      *
-     * @param string $currency Retrieved specified currency related data (required)
-     * @param string $ids      Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param string $currency Retrieve data of the specified currency (required)
+     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2821,7 +2821,7 @@ class MarginApi
      * Cancel lending loan
      *
      * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2839,7 +2839,7 @@ class MarginApi
      * Cancel lending loan
      *
      * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2894,7 +2894,7 @@ class MarginApi
      * Cancel lending loan
      *
      * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2915,7 +2915,7 @@ class MarginApi
      * Cancel lending loan
      *
      * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2963,7 +2963,7 @@ class MarginApi
      * Create request for operation 'cancelLoan'
      *
      * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3829,14 +3829,14 @@ class MarginApi
     /**
      * Operation listLoanRecords
      *
-     * List repayment records of specified loan
+     * List repayment records of a specific loan
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $loan_id Loan ID (required)
      * @param string $status  Loan record status (optional)
      * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3851,14 +3851,14 @@ class MarginApi
     /**
      * Operation listLoanRecordsWithHttpInfo
      *
-     * List repayment records of specified loan
+     * List repayment records of a specific loan
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $loan_id Loan ID (required)
      * @param string $status  Loan record status (optional)
      * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3910,14 +3910,14 @@ class MarginApi
     /**
      * Operation listLoanRecordsAsync
      *
-     * List repayment records of specified loan
+     * List repayment records of a specific loan
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $loan_id Loan ID (required)
      * @param string $status  Loan record status (optional)
      * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3935,14 +3935,14 @@ class MarginApi
     /**
      * Operation listLoanRecordsAsyncWithHttpInfo
      *
-     * List repayment records of specified loan
+     * List repayment records of a specific loan
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $loan_id Loan ID (required)
      * @param string $status  Loan record status (optional)
      * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3994,7 +3994,7 @@ class MarginApi
      * @param string $loan_id Loan ID (required)
      * @param string $status  Loan record status (optional)
      * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5125,11 +5125,11 @@ class MarginApi
     /**
      * Operation getMarginTransferable
      *
-     * Max transferable amount for specified margin currency
+     * Get the max transferable amount for a specific margin currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieved specified currency related data (required)
+     * @param string $currency      Retrieve data of the specified currency (required)
      * @param string $currency_pair Currency pair (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5145,11 +5145,11 @@ class MarginApi
     /**
      * Operation getMarginTransferableWithHttpInfo
      *
-     * Max transferable amount for specified margin currency
+     * Get the max transferable amount for a specific margin currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieved specified currency related data (required)
+     * @param string $currency      Retrieve data of the specified currency (required)
      * @param string $currency_pair Currency pair (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5202,11 +5202,11 @@ class MarginApi
     /**
      * Operation getMarginTransferableAsync
      *
-     * Max transferable amount for specified margin currency
+     * Get the max transferable amount for a specific margin currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieved specified currency related data (required)
+     * @param string $currency      Retrieve data of the specified currency (required)
      * @param string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
@@ -5225,11 +5225,11 @@ class MarginApi
     /**
      * Operation getMarginTransferableAsyncWithHttpInfo
      *
-     * Max transferable amount for specified margin currency
+     * Get the max transferable amount for a specific margin currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieved specified currency related data (required)
+     * @param string $currency      Retrieve data of the specified currency (required)
      * @param string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
@@ -5279,7 +5279,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieved specified currency related data (required)
+     * @param string $currency      Retrieve data of the specified currency (required)
      * @param string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
@@ -5299,6 +5299,280 @@ class MarginApi
         }
 
         $resourcePath = '/margin/transferable';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($currency_pair !== null) {
+            if('form' === 'form' && is_array($currency_pair)) {
+                foreach($currency_pair as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarginBorrowable
+     *
+     * Get the max borrowable amount for a specific margin currency
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency      Retrieve data of the specified currency (required)
+     * @param string $currency_pair Currency pair (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\MarginBorrowable
+     */
+    public function getMarginBorrowable($associative_array)
+    {
+        list($response) = $this->getMarginBorrowableWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation getMarginBorrowableWithHttpInfo
+     *
+     * Get the max borrowable amount for a specific margin currency
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency      Retrieve data of the specified currency (required)
+     * @param string $currency_pair Currency pair (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\MarginBorrowable, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarginBorrowableWithHttpInfo($associative_array)
+    {
+        $request = $this->getMarginBorrowableRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\MarginBorrowable';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getMarginBorrowableAsync
+     *
+     * Get the max borrowable amount for a specific margin currency
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency      Retrieve data of the specified currency (required)
+     * @param string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarginBorrowableAsync($associative_array)
+    {
+        return $this->getMarginBorrowableAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarginBorrowableAsyncWithHttpInfo
+     *
+     * Get the max borrowable amount for a specific margin currency
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency      Retrieve data of the specified currency (required)
+     * @param string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarginBorrowableAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\MarginBorrowable';
+        $request = $this->getMarginBorrowableRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarginBorrowable'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency      Retrieve data of the specified currency (required)
+     * @param string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMarginBorrowableRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
+
+        // verify the required parameter 'currency' is set
+        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency when calling getMarginBorrowable'
+            );
+        }
+
+        $resourcePath = '/margin/borrowable';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6071,8 +6345,8 @@ class MarginApi
      * @param int    $from     Time range beginning, default to 7 days before current time (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $type     Filter by account change type. All types are returned if not specified. (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6095,8 +6369,8 @@ class MarginApi
      * @param int    $from     Time range beginning, default to 7 days before current time (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $type     Filter by account change type. All types are returned if not specified. (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6156,8 +6430,8 @@ class MarginApi
      * @param int    $from     Time range beginning, default to 7 days before current time (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $type     Filter by account change type. All types are returned if not specified. (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6183,8 +6457,8 @@ class MarginApi
      * @param int    $from     Time range beginning, default to 7 days before current time (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $type     Filter by account change type. All types are returned if not specified. (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6237,8 +6511,8 @@ class MarginApi
      * @param int    $from     Time range beginning, default to 7 days before current time (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
-     * @param string $type     Filter by account change type. All types are returned if not specified. (optional)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6420,7 +6694,7 @@ class MarginApi
      *
      * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
      * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -6443,7 +6717,7 @@ class MarginApi
      *
      * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
      * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -6503,7 +6777,7 @@ class MarginApi
      *
      * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
      * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -6529,7 +6803,7 @@ class MarginApi
      *
      * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
      * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -6582,7 +6856,7 @@ class MarginApi
      *
      * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
      * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -7233,7 +7507,7 @@ class MarginApi
      *
      * @param string $currency currency (optional)
      * @param string $loan_id  loan_id (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -7256,7 +7530,7 @@ class MarginApi
      *
      * @param string $currency (optional)
      * @param string $loan_id  (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -7316,7 +7590,7 @@ class MarginApi
      *
      * @param string $currency (optional)
      * @param string $loan_id  (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -7342,7 +7616,7 @@ class MarginApi
      *
      * @param string $currency (optional)
      * @param string $loan_id  (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -7395,7 +7669,7 @@ class MarginApi
      *
      * @param string $currency (optional)
      * @param string $loan_id  (optional)
-     * @param int    $limit    Maximum number of records returned in one list (optional, default to 100)
+     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
      * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
@@ -7794,9 +8068,9 @@ class MarginApi
     /**
      * Operation getCrossMarginTransferable
      *
-     * Max transferable amount for specified cross margin currency
+     * Get the max transferable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7811,9 +8085,9 @@ class MarginApi
     /**
      * Operation getCrossMarginTransferableWithHttpInfo
      *
-     * Max transferable amount for specified cross margin currency
+     * Get the max transferable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7865,9 +8139,9 @@ class MarginApi
     /**
      * Operation getCrossMarginTransferableAsync
      *
-     * Max transferable amount for specified cross margin currency
+     * Get the max transferable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7885,9 +8159,9 @@ class MarginApi
     /**
      * Operation getCrossMarginTransferableAsyncWithHttpInfo
      *
-     * Max transferable amount for specified cross margin currency
+     * Get the max transferable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7934,7 +8208,7 @@ class MarginApi
     /**
      * Create request for operation 'getCrossMarginTransferable'
      *
-     * @param string $currency Retrieved specified currency related data (required)
+     * @param string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7949,6 +8223,249 @@ class MarginApi
         }
 
         $resourcePath = '/margin/cross/transferable';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCrossMarginBorrowable
+     *
+     * Get the max borrowable amount for a specific cross margin currency
+     *
+     * @param string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\CrossMarginBorrowable
+     */
+    public function getCrossMarginBorrowable($currency)
+    {
+        list($response) = $this->getCrossMarginBorrowableWithHttpInfo($currency);
+        return $response;
+    }
+
+    /**
+     * Operation getCrossMarginBorrowableWithHttpInfo
+     *
+     * Get the max borrowable amount for a specific cross margin currency
+     *
+     * @param string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\CrossMarginBorrowable, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCrossMarginBorrowableWithHttpInfo($currency)
+    {
+        $request = $this->getCrossMarginBorrowableRequest($currency);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\CrossMarginBorrowable';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getCrossMarginBorrowableAsync
+     *
+     * Get the max borrowable amount for a specific cross margin currency
+     *
+     * @param string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCrossMarginBorrowableAsync($currency)
+    {
+        return $this->getCrossMarginBorrowableAsyncWithHttpInfo($currency)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCrossMarginBorrowableAsyncWithHttpInfo
+     *
+     * Get the max borrowable amount for a specific cross margin currency
+     *
+     * @param string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCrossMarginBorrowableAsyncWithHttpInfo($currency)
+    {
+        $returnType = '\GateApi\Model\CrossMarginBorrowable';
+        $request = $this->getCrossMarginBorrowableRequest($currency);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCrossMarginBorrowable'
+     *
+     * @param string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCrossMarginBorrowableRequest($currency)
+    {
+        // verify the required parameter 'currency' is set
+        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency when calling getCrossMarginBorrowable'
+            );
+        }
+
+        $resourcePath = '/margin/cross/borrowable';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

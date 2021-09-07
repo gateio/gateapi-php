@@ -1329,7 +1329,7 @@ class DeliveryContract implements ModelInterface, ArrayAccess
     /**
      * Sets trade_size
      *
-     * @param int|null $trade_size Historical accumulation trade size
+     * @param int|null $trade_size Historical accumulated trade size
      *
      * @return $this
      */
@@ -1377,7 +1377,7 @@ class DeliveryContract implements ModelInterface, ArrayAccess
     /**
      * Sets config_change_time
      *
-     * @param double|null $config_change_time Configuration's last changed time
+     * @param double|null $config_change_time Last changed time of configuration
      *
      * @return $this
      */
