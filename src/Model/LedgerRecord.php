@@ -200,6 +200,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     const STATUS_REQUEST = 'REQUEST';
     const STATUS_MANUAL = 'MANUAL';
     const STATUS_BCODE = 'BCODE';
+    const STATUS_EXTPEND = 'EXTPEND';
+    const STATUS_FAIL = 'FAIL';
     
 
     
@@ -216,6 +218,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
             self::STATUS_REQUEST,
             self::STATUS_MANUAL,
             self::STATUS_BCODE,
+            self::STATUS_EXTPEND,
+            self::STATUS_FAIL,
         ];
     }
     
@@ -465,7 +469,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation
+     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail
      *
      * @return $this
      */

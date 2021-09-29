@@ -76,7 +76,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         'text' => 'string',
         'tkfr' => 'string',
         'mkfr' => 'string',
-        'refu' => 'int'
+        'refu' => 'int',
+        'auto_size' => 'string'
     ];
 
     /**
@@ -106,7 +107,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         'text' => null,
         'tkfr' => null,
         'mkfr' => null,
-        'refu' => null
+        'refu' => null,
+        'auto_size' => null
     ];
 
     /**
@@ -157,7 +159,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         'text' => 'text',
         'tkfr' => 'tkfr',
         'mkfr' => 'mkfr',
-        'refu' => 'refu'
+        'refu' => 'refu',
+        'auto_size' => 'auto_size'
     ];
 
     /**
@@ -187,7 +190,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         'text' => 'setText',
         'tkfr' => 'setTkfr',
         'mkfr' => 'setMkfr',
-        'refu' => 'setRefu'
+        'refu' => 'setRefu',
+        'auto_size' => 'setAutoSize'
     ];
 
     /**
@@ -217,7 +221,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         'text' => 'getText',
         'tkfr' => 'getTkfr',
         'mkfr' => 'getMkfr',
-        'refu' => 'getRefu'
+        'refu' => 'getRefu',
+        'auto_size' => 'getAutoSize'
     ];
 
     /**
@@ -274,6 +279,8 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     const TIF_GTC = 'gtc';
     const TIF_IOC = 'ioc';
     const TIF_POC = 'poc';
+    const AUTO_SIZE_LONG = 'close_long';
+    const AUTO_SIZE_SHORT = 'close_short';
     
 
     
@@ -323,6 +330,19 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAutoSizeAllowableValues()
+    {
+        return [
+            self::AUTO_SIZE_LONG,
+            self::AUTO_SIZE_SHORT,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -361,6 +381,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         $this->container['tkfr'] = isset($data['tkfr']) ? $data['tkfr'] : null;
         $this->container['mkfr'] = isset($data['mkfr']) ? $data['mkfr'] : null;
         $this->container['refu'] = isset($data['refu']) ? $data['refu'] : null;
+        $this->container['auto_size'] = isset($data['auto_size']) ? $data['auto_size'] : null;
     }
 
     /**
@@ -398,6 +419,14 @@ class FuturesOrder implements ModelInterface, ArrayAccess
         if (!is_null($this->container['tif']) && !in_array($this->container['tif'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'tif', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getAutoSizeAllowableValues();
+        if (!is_null($this->container['auto_size']) && !in_array($this->container['auto_size'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'auto_size', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -968,6 +997,39 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     public function setRefu($refu)
     {
         $this->container['refu'] = $refu;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_size
+     *
+     * @return string|null
+     */
+    public function getAutoSize()
+    {
+        return $this->container['auto_size'];
+    }
+
+    /**
+     * Sets auto_size
+     *
+     * @param string|null $auto_size Set side to close dual-mode position. `close_long` closes the long side; while `close_short` the short one. Note `size` also needs to be set to 0
+     *
+     * @return $this
+     */
+    public function setAutoSize($auto_size)
+    {
+        $allowedValues = $this->getAutoSizeAllowableValues();
+        if (!is_null($auto_size) && !in_array($auto_size, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'auto_size', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['auto_size'] = $auto_size;
 
         return $this;
     }
