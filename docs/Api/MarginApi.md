@@ -290,8 +290,8 @@ $apiInstance = new GateApi\Api\MarginApi(
 );
 $associate_array['currency'] = 'currency_example'; // string | List records related to specified currency only. If specified, `currency_pair` is also required.
 $associate_array['currency_pair'] = 'currency_pair_example'; // string | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided
-$associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
-$associate_array['to'] = 56; // int | Time range ending, default to current time
+$associate_array['from'] = 1627706330; // int | Start timestamp of the query
+$associate_array['to'] = 1635329650; // int | Time range ending, default to current time
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. | [optional]
  **currency_pair** | **string**| List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
+ **from** | **int**| Start timestamp of the query | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -1537,8 +1537,8 @@ $apiInstance = new GateApi\Api\MarginApi(
     $config
 );
 $associate_array['currency'] = 'currency_example'; // string | Filter by currency
-$associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
-$associate_array['to'] = 56; // int | Time range ending, default to current time
+$associate_array['from'] = 1627706330; // int | Start timestamp of the query
+$associate_array['to'] = 1635329650; // int | Time range ending, default to current time
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['type'] = 'borrow'; // string | Only retrieve changes of the specified type. All types will be returned if not specified.
@@ -1562,7 +1562,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| Filter by currency | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
+ **from** | **int**| Start timestamp of the query | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]

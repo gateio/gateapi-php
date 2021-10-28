@@ -1061,7 +1061,7 @@ class MarginApi
      *
      * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
      * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
@@ -1085,7 +1085,7 @@ class MarginApi
      *
      * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
      * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
@@ -1146,7 +1146,7 @@ class MarginApi
      *
      * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
      * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
@@ -1173,7 +1173,7 @@ class MarginApi
      *
      * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
      * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
@@ -1227,7 +1227,7 @@ class MarginApi
      *
      * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
      * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
@@ -6342,7 +6342,7 @@ class MarginApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency Filter by currency (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from     Start timestamp of the query (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
@@ -6366,7 +6366,7 @@ class MarginApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency Filter by currency (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from     Start timestamp of the query (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
@@ -6427,7 +6427,7 @@ class MarginApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency Filter by currency (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from     Start timestamp of the query (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
@@ -6454,7 +6454,7 @@ class MarginApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency Filter by currency (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from     Start timestamp of the query (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
@@ -6508,7 +6508,7 @@ class MarginApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency Filter by currency (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
+     * @param int    $from     Start timestamp of the query (optional)
      * @param int    $to       Time range ending, default to current time (optional)
      * @param int    $page     Page number (optional, default to 1)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)

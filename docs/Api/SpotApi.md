@@ -374,9 +374,11 @@ No authorization required
 
 ## listTrades
 
-> \GateApi\Model\Trade[] listTrades($currency_pair, $limit, $last_id, $reverse)
+> \GateApi\Model\Trade[] listTrades($currency_pair, $limit, $last_id, $reverse, $from, $to, $page)
 
 Retrieve market trades
+
+You can use `from` and `to` to query by time range, or use `last_id` by scrolling page. The default behavior is by time range.  Scrolling query using `last_id` is not recommended any more. If `last_id` is specified, time range query parameters will be ignored.
 
 ### Example
 
@@ -394,6 +396,9 @@ $associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['last_id'] = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
 $associate_array['reverse'] = false; // bool | Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified.
+$associate_array['from'] = 1627706330; // int | Start timestamp of the query
+$associate_array['to'] = 1635329650; // int | Time range ending, default to current time
+$associate_array['page'] = 1; // int | Page number
 
 try {
     $result = $apiInstance->listTrades($associate_array);
@@ -417,6 +422,9 @@ Name | Type | Description  | Notes
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
  **reverse** | **bool**| Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
+ **from** | **int**| Start timestamp of the query | [optional]
+ **to** | **int**| Time range ending, default to current time | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -789,8 +797,8 @@ $associate_array['status'] = 'open'; // string | List orders based on status  `o
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100
 $associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
-$associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
-$associate_array['to'] = 56; // int | Time range ending, default to current time
+$associate_array['from'] = 1627706330; // int | Start timestamp of the query
+$associate_array['to'] = 1635329650; // int | Time range ending, default to current time
 $associate_array['side'] = 'sell'; // string | All bids or asks. Both included if not specified
 
 try {
@@ -816,7 +824,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
  **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
+ **from** | **int**| Start timestamp of the query | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **side** | **string**| All bids or asks. Both included if not specified | [optional]
 
@@ -1189,8 +1197,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records to be return
 $associate_array['page'] = 1; // int | Page number
 $associate_array['order_id'] = '12345'; // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present
 $associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
-$associate_array['from'] = 56; // int | Time range beginning, default to 7 days before current time
-$associate_array['to'] = 56; // int | Time range ending, default to current time
+$associate_array['from'] = 1627706330; // int | Start timestamp of the query
+$associate_array['to'] = 1635329650; // int | Time range ending, default to current time
 
 try {
     $result = $apiInstance->listMyTrades($associate_array);
@@ -1215,7 +1223,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional] [default to 1]
  **order_id** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
  **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
+ **from** | **int**| Start timestamp of the query | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
 
 ### Return type
