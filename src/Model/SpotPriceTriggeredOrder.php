@@ -60,8 +60,8 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'id' => 'int',
         'user' => 'int',
         'market' => 'string',
-        'ctime' => 'double',
-        'ftime' => 'double',
+        'ctime' => 'int',
+        'ftime' => 'int',
         'fired_order_id' => 'int',
         'status' => 'string',
         'reason' => 'string'
@@ -78,8 +78,8 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'id' => 'int64',
         'user' => null,
         'market' => null,
-        'ctime' => 'double',
-        'ftime' => 'double',
+        'ctime' => 'int64',
+        'ftime' => 'int64',
         'fired_order_id' => 'int64',
         'status' => null,
         'reason' => null
@@ -388,7 +388,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Gets ctime
      *
-     * @return double|null
+     * @return int|null
      */
     public function getCtime()
     {
@@ -398,7 +398,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets ctime
      *
-     * @param double|null $ctime Creation time
+     * @param int|null $ctime Creation time
      *
      * @return $this
      */
@@ -412,7 +412,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Gets ftime
      *
-     * @return double|null
+     * @return int|null
      */
     public function getFtime()
     {
@@ -422,7 +422,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets ftime
      *
-     * @param double|null $ftime Finished time
+     * @param int|null $ftime Finished time
      *
      * @return $this
      */

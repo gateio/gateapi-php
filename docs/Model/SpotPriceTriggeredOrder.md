@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **id** | **int** | Auto order ID | [optional] [readonly] 
 **user** | **int** | User ID | [optional] [readonly] 
 **market** | **string** | Currency pair | 
-**ctime** | **double** | Creation time | [optional] [readonly] 
-**ftime** | **double** | Finished time | [optional] [readonly] 
+**ctime** | **int** | Creation time | [optional] [readonly] 
+**ftime** | **int** | Finished time | [optional] [readonly] 
 **fired_order_id** | **int** | ID of the newly created order on condition triggered | [optional] [readonly] 
 **status** | **string** | Status  - open: open - cancelled: being manually cancelled - finish: successfully executed - failed: failed to execute - expired - expired | [optional] [readonly] 
 **reason** | **string** | Additional remarks on how the order was finished | [optional] [readonly] 

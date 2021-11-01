@@ -248,8 +248,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         $this->container['side'] = isset($data['side']) ? $data['side'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
-        $this->container['time_in_force'] = isset($data['time_in_force']) ? $data['time_in_force'] : null;
+        $this->container['account'] = isset($data['account']) ? $data['account'] : 'normal';
+        $this->container['time_in_force'] = isset($data['time_in_force']) ? $data['time_in_force'] : 'gtc';
     }
 
     /**
