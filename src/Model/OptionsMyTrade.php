@@ -1,6 +1,6 @@
 <?php
 /**
- * LedgerRecord
+ * OptionsMyTrade
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * LedgerRecord Class Doc Comment
+ * OptionsMyTrade Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class LedgerRecord implements ModelInterface, ArrayAccess
+class OptionsMyTrade implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LedgerRecord';
+    protected static $openAPIModelName = 'OptionsMyTrade';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,15 +54,14 @@ class LedgerRecord implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'txid' => 'string',
-        'timestamp' => 'string',
-        'amount' => 'string',
-        'currency' => 'string',
-        'address' => 'string',
-        'memo' => 'string',
-        'status' => 'string',
-        'chain' => 'string'
+        'id' => 'int',
+        'create_time' => 'double',
+        'contract' => 'string',
+        'order_id' => 'int',
+        'size' => 'int',
+        'price' => 'string',
+        'underlying_price' => 'string',
+        'role' => 'string'
     ];
 
     /**
@@ -71,15 +70,14 @@ class LedgerRecord implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'txid' => null,
-        'timestamp' => null,
-        'amount' => null,
-        'currency' => null,
-        'address' => null,
-        'memo' => null,
-        'status' => null,
-        'chain' => null
+        'id' => 'int64',
+        'create_time' => 'double',
+        'contract' => null,
+        'order_id' => null,
+        'size' => 'int64',
+        'price' => null,
+        'underlying_price' => null,
+        'role' => null
     ];
 
     /**
@@ -110,14 +108,13 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'txid' => 'txid',
-        'timestamp' => 'timestamp',
-        'amount' => 'amount',
-        'currency' => 'currency',
-        'address' => 'address',
-        'memo' => 'memo',
-        'status' => 'status',
-        'chain' => 'chain'
+        'create_time' => 'create_time',
+        'contract' => 'contract',
+        'order_id' => 'order_id',
+        'size' => 'size',
+        'price' => 'price',
+        'underlying_price' => 'underlying_price',
+        'role' => 'role'
     ];
 
     /**
@@ -127,14 +124,13 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'txid' => 'setTxid',
-        'timestamp' => 'setTimestamp',
-        'amount' => 'setAmount',
-        'currency' => 'setCurrency',
-        'address' => 'setAddress',
-        'memo' => 'setMemo',
-        'status' => 'setStatus',
-        'chain' => 'setChain'
+        'create_time' => 'setCreateTime',
+        'contract' => 'setContract',
+        'order_id' => 'setOrderId',
+        'size' => 'setSize',
+        'price' => 'setPrice',
+        'underlying_price' => 'setUnderlyingPrice',
+        'role' => 'setRole'
     ];
 
     /**
@@ -144,14 +140,13 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'txid' => 'getTxid',
-        'timestamp' => 'getTimestamp',
-        'amount' => 'getAmount',
-        'currency' => 'getCurrency',
-        'address' => 'getAddress',
-        'memo' => 'getMemo',
-        'status' => 'getStatus',
-        'chain' => 'getChain'
+        'create_time' => 'getCreateTime',
+        'contract' => 'getContract',
+        'order_id' => 'getOrderId',
+        'size' => 'getSize',
+        'price' => 'getPrice',
+        'underlying_price' => 'getUnderlyingPrice',
+        'role' => 'getRole'
     ];
 
     /**
@@ -195,17 +190,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_DONE = 'DONE';
-    const STATUS_CANCEL = 'CANCEL';
-    const STATUS_REQUEST = 'REQUEST';
-    const STATUS_MANUAL = 'MANUAL';
-    const STATUS_BCODE = 'BCODE';
-    const STATUS_EXTPEND = 'EXTPEND';
-    const STATUS_FAIL = 'FAIL';
-    const STATUS_INVALID = 'INVALID';
-    const STATUS_VERIFY = 'VERIFY';
-    const STATUS_PROCES = 'PROCES';
-    const STATUS_PEND = 'PEND';
+    const ROLE_TAKER = 'taker';
+    const ROLE_MAKER = 'maker';
     
 
     
@@ -214,20 +200,11 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getStatusAllowableValues()
+    public function getRoleAllowableValues()
     {
         return [
-            self::STATUS_DONE,
-            self::STATUS_CANCEL,
-            self::STATUS_REQUEST,
-            self::STATUS_MANUAL,
-            self::STATUS_BCODE,
-            self::STATUS_EXTPEND,
-            self::STATUS_FAIL,
-            self::STATUS_INVALID,
-            self::STATUS_VERIFY,
-            self::STATUS_PROCES,
-            self::STATUS_PEND,
+            self::ROLE_TAKER,
+            self::ROLE_MAKER,
         ];
     }
     
@@ -248,14 +225,13 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['txid'] = isset($data['txid']) ? $data['txid'] : null;
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['underlying_price'] = isset($data['underlying_price']) ? $data['underlying_price'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
     }
 
     /**
@@ -267,16 +243,10 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
+                "invalid value for 'role', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -299,7 +269,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string|null
+     * @return int|null
      */
     public function getId()
     {
@@ -309,7 +279,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Record ID
+     * @param int|null $id Trade ID
      *
      * @return $this
      */
@@ -321,202 +291,178 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets txid
+     * Gets create_time
+     *
+     * @return double|null
+     */
+    public function getCreateTime()
+    {
+        return $this->container['create_time'];
+    }
+
+    /**
+     * Sets create_time
+     *
+     * @param double|null $create_time Trading time
+     *
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets contract
      *
      * @return string|null
      */
-    public function getTxid()
+    public function getContract()
     {
-        return $this->container['txid'];
+        return $this->container['contract'];
     }
 
     /**
-     * Sets txid
+     * Sets contract
      *
-     * @param string|null $txid Hash record of the withdrawal
+     * @param string|null $contract Futures contract
      *
      * @return $this
      */
-    public function setTxid($txid)
+    public function setContract($contract)
     {
-        $this->container['txid'] = $txid;
+        $this->container['contract'] = $contract;
 
         return $this;
     }
 
     /**
-     * Gets timestamp
+     * Gets order_id
+     *
+     * @return int|null
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param int|null $order_id Order ID related
+     *
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets size
+     *
+     * @return int|null
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param int|null $size Trading size
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+        $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
      *
      * @return string|null
      */
-    public function getTimestamp()
+    public function getPrice()
     {
-        return $this->container['timestamp'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets timestamp
+     * Sets price
      *
-     * @param string|null $timestamp Operation time
+     * @param string|null $price Trading price
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setPrice($price)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['price'] = $price;
 
         return $this;
     }
 
     /**
-     * Gets amount
-     *
-     * @return string
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param string $amount Currency amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency Currency name
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
+     * Gets underlying_price
      *
      * @return string|null
      */
-    public function getAddress()
+    public function getUnderlyingPrice()
     {
-        return $this->container['address'];
+        return $this->container['underlying_price'];
     }
 
     /**
-     * Sets address
+     * Sets underlying_price
      *
-     * @param string|null $address Withdrawal address. Required for withdrawals
+     * @param string|null $underlying_price Underlying price
      *
      * @return $this
      */
-    public function setAddress($address)
+    public function setUnderlyingPrice($underlying_price)
     {
-        $this->container['address'] = $address;
+        $this->container['underlying_price'] = $underlying_price;
 
         return $this;
     }
 
     /**
-     * Gets memo
+     * Gets role
      *
      * @return string|null
      */
-    public function getMemo()
+    public function getRole()
     {
-        return $this->container['memo'];
+        return $this->container['role'];
     }
 
     /**
-     * Sets memo
+     * Sets role
      *
-     * @param string|null $memo Additional remarks with regards to the withdrawal
+     * @param string|null $role Trade role. Available values are `taker` and `maker`
      *
      * @return $this
      */
-    public function setMemo($memo)
+    public function setRole($role)
     {
-        $this->container['memo'] = $memo;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
+                    "Invalid value for 'role', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets chain
-     *
-     * @return string|null
-     */
-    public function getChain()
-    {
-        return $this->container['chain'];
-    }
-
-    /**
-     * Sets chain
-     *
-     * @param string|null $chain Name of the chain used in withdrawals
-     *
-     * @return $this
-     */
-    public function setChain($chain)
-    {
-        $this->container['chain'] = $chain;
+        $this->container['role'] = $role;
 
         return $this;
     }

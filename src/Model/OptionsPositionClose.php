@@ -1,6 +1,6 @@
 <?php
 /**
- * Transfer
+ * OptionsPositionClose
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * Transfer Class Doc Comment
+ * OptionsPositionClose Class Doc Comment
  *
- * @category    Class
- * @description Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account - &#x60;cross_margin&#x60;: cross margin account - &#x60;options&#x60;: options account
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
-class Transfer implements ModelInterface, ArrayAccess
+class OptionsPositionClose implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class Transfer implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Transfer';
+    protected static $openAPIModelName = 'OptionsPositionClose';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,12 +54,12 @@ class Transfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'from' => 'string',
-        'to' => 'string',
-        'amount' => 'string',
-        'currency_pair' => 'string',
-        'settle' => 'string'
+        'time' => 'double',
+        'contract' => 'string',
+        'side' => 'string',
+        'pnl' => 'string',
+        'text' => 'string',
+        'settle_size' => 'string'
     ];
 
     /**
@@ -69,12 +68,12 @@ class Transfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'from' => null,
-        'to' => null,
-        'amount' => null,
-        'currency_pair' => null,
-        'settle' => null
+        'time' => 'double',
+        'contract' => null,
+        'side' => null,
+        'pnl' => null,
+        'text' => null,
+        'settle_size' => null
     ];
 
     /**
@@ -104,12 +103,12 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'from' => 'from',
-        'to' => 'to',
-        'amount' => 'amount',
-        'currency_pair' => 'currency_pair',
-        'settle' => 'settle'
+        'time' => 'time',
+        'contract' => 'contract',
+        'side' => 'side',
+        'pnl' => 'pnl',
+        'text' => 'text',
+        'settle_size' => 'settle_size'
     ];
 
     /**
@@ -118,12 +117,12 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'from' => 'setFrom',
-        'to' => 'setTo',
-        'amount' => 'setAmount',
-        'currency_pair' => 'setCurrencyPair',
-        'settle' => 'setSettle'
+        'time' => 'setTime',
+        'contract' => 'setContract',
+        'side' => 'setSide',
+        'pnl' => 'setPnl',
+        'text' => 'setText',
+        'settle_size' => 'setSettleSize'
     ];
 
     /**
@@ -132,12 +131,12 @@ class Transfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'from' => 'getFrom',
-        'to' => 'getTo',
-        'amount' => 'getAmount',
-        'currency_pair' => 'getCurrencyPair',
-        'settle' => 'getSettle'
+        'time' => 'getTime',
+        'contract' => 'getContract',
+        'side' => 'getSide',
+        'pnl' => 'getPnl',
+        'text' => 'getText',
+        'settle_size' => 'getSettleSize'
     ];
 
     /**
@@ -181,18 +180,8 @@ class Transfer implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const FROM_SPOT = 'spot';
-    const FROM_MARGIN = 'margin';
-    const FROM_FUTURES = 'futures';
-    const FROM_DELIVERY = 'delivery';
-    const FROM_CROSS_MARGIN = 'cross_margin';
-    const FROM_OPTIONS = 'options';
-    const TO_SPOT = 'spot';
-    const TO_MARGIN = 'margin';
-    const TO_FUTURES = 'futures';
-    const TO_DELIVERY = 'delivery';
-    const TO_CROSS_MARGIN = 'cross_margin';
-    const TO_OPTIONS = 'options';
+    const SIDE_LONG = 'long';
+    const SIDE_SHORT = 'short';
     
 
     
@@ -201,32 +190,11 @@ class Transfer implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getFromAllowableValues()
+    public function getSideAllowableValues()
     {
         return [
-            self::FROM_SPOT,
-            self::FROM_MARGIN,
-            self::FROM_FUTURES,
-            self::FROM_DELIVERY,
-            self::FROM_CROSS_MARGIN,
-            self::FROM_OPTIONS,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getToAllowableValues()
-    {
-        return [
-            self::TO_SPOT,
-            self::TO_MARGIN,
-            self::TO_FUTURES,
-            self::TO_DELIVERY,
-            self::TO_CROSS_MARGIN,
-            self::TO_OPTIONS,
+            self::SIDE_LONG,
+            self::SIDE_SHORT,
         ];
     }
     
@@ -246,12 +214,12 @@ class Transfer implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['from'] = isset($data['from']) ? $data['from'] : null;
-        $this->container['to'] = isset($data['to']) ? $data['to'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['settle'] = isset($data['settle']) ? $data['settle'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['side'] = isset($data['side']) ? $data['side'] : null;
+        $this->container['pnl'] = isset($data['pnl']) ? $data['pnl'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['settle_size'] = isset($data['settle_size']) ? $data['settle_size'] : null;
     }
 
     /**
@@ -263,34 +231,14 @@ class Transfer implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['from'] === null) {
-            $invalidProperties[] = "'from' can't be null";
-        }
-        $allowedValues = $this->getFromAllowableValues();
-        if (!is_null($this->container['from']) && !in_array($this->container['from'], $allowedValues, true)) {
+        $allowedValues = $this->getSideAllowableValues();
+        if (!is_null($this->container['side']) && !in_array($this->container['side'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'from', must be one of '%s'",
+                "invalid value for 'side', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['to'] === null) {
-            $invalidProperties[] = "'to' can't be null";
-        }
-        $allowedValues = $this->getToAllowableValues();
-        if (!is_null($this->container['to']) && !in_array($this->container['to'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'to', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,163 +255,154 @@ class Transfer implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
+     * Gets time
      *
-     * @return string
+     * @return double|null
      */
-    public function getCurrency()
+    public function getTime()
     {
-        return $this->container['currency'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets currency
+     * Sets time
      *
-     * @param string $currency Transfer currency. For futures account, `currency` can be set to `POINT` or settle currency
+     * @param double|null $time Position close time
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setTime($time)
     {
-        $this->container['currency'] = $currency;
+        $this->container['time'] = $time;
 
         return $this;
     }
 
     /**
-     * Gets from
+     * Gets contract
      *
-     * @return string
+     * @return string|null
      */
-    public function getFrom()
+    public function getContract()
     {
-        return $this->container['from'];
+        return $this->container['contract'];
     }
 
     /**
-     * Sets from
+     * Sets contract
      *
-     * @param string $from Account to transfer from
+     * @param string|null $contract Futures contract
      *
      * @return $this
      */
-    public function setFrom($from)
+    public function setContract($contract)
     {
-        $allowedValues = $this->getFromAllowableValues();
-        if (!in_array($from, $allowedValues, true)) {
+        $this->container['contract'] = $contract;
+
+        return $this;
+    }
+
+    /**
+     * Gets side
+     *
+     * @return string|null
+     */
+    public function getSide()
+    {
+        return $this->container['side'];
+    }
+
+    /**
+     * Sets side
+     *
+     * @param string|null $side Position side, long or short
+     *
+     * @return $this
+     */
+    public function setSide($side)
+    {
+        $allowedValues = $this->getSideAllowableValues();
+        if (!is_null($side) && !in_array($side, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'from', must be one of '%s'",
+                    "Invalid value for 'side', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['from'] = $from;
+        $this->container['side'] = $side;
 
         return $this;
     }
 
     /**
-     * Gets to
-     *
-     * @return string
-     */
-    public function getTo()
-    {
-        return $this->container['to'];
-    }
-
-    /**
-     * Sets to
-     *
-     * @param string $to Account to transfer to
-     *
-     * @return $this
-     */
-    public function setTo($to)
-    {
-        $allowedValues = $this->getToAllowableValues();
-        if (!in_array($to, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'to', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['to'] = $to;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return string
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param string $amount Transfer amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency_pair
+     * Gets pnl
      *
      * @return string|null
      */
-    public function getCurrencyPair()
+    public function getPnl()
     {
-        return $this->container['currency_pair'];
+        return $this->container['pnl'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets pnl
      *
-     * @param string|null $currency_pair Margin currency pair. Required if transfer from or to margin account
+     * @param string|null $pnl PNL
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setPnl($pnl)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['pnl'] = $pnl;
 
         return $this;
     }
 
     /**
-     * Gets settle
+     * Gets text
      *
      * @return string|null
      */
-    public function getSettle()
+    public function getText()
     {
-        return $this->container['settle'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets settle
+     * Sets text
      *
-     * @param string|null $settle Futures settle currency. Required if `currency` is `POINT`
+     * @param string|null $text Text of close order
      *
      * @return $this
      */
-    public function setSettle($settle)
+    public function setText($text)
     {
-        $this->container['settle'] = $settle;
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_size
+     *
+     * @return string|null
+     */
+    public function getSettleSize()
+    {
+        return $this->container['settle_size'];
+    }
+
+    /**
+     * Sets settle_size
+     *
+     * @param string|null $settle_size settlement size
+     *
+     * @return $this
+     */
+    public function setSettleSize($settle_size)
+    {
+        $this->container['settle_size'] = $settle_size;
 
         return $this;
     }

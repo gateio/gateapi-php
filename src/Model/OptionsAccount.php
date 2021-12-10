@@ -1,6 +1,6 @@
 <?php
 /**
- * LedgerRecord
+ * OptionsAccount
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * LedgerRecord Class Doc Comment
+ * OptionsAccount Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class LedgerRecord implements ModelInterface, ArrayAccess
+class OptionsAccount implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LedgerRecord';
+    protected static $openAPIModelName = 'OptionsAccount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,15 +54,16 @@ class LedgerRecord implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'txid' => 'string',
-        'timestamp' => 'string',
-        'amount' => 'string',
-        'currency' => 'string',
-        'address' => 'string',
-        'memo' => 'string',
-        'status' => 'string',
-        'chain' => 'string'
+        'user' => 'int',
+        'total' => 'string',
+        'short_enabled' => 'bool',
+        'unrealised_pnl' => 'string',
+        'init_margin' => 'string',
+        'maint_margin' => 'string',
+        'order_margin' => 'string',
+        'available' => 'string',
+        'point' => 'string',
+        'currency' => 'string'
     ];
 
     /**
@@ -71,15 +72,16 @@ class LedgerRecord implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'txid' => null,
-        'timestamp' => null,
-        'amount' => null,
-        'currency' => null,
-        'address' => null,
-        'memo' => null,
-        'status' => null,
-        'chain' => null
+        'user' => null,
+        'total' => null,
+        'short_enabled' => null,
+        'unrealised_pnl' => null,
+        'init_margin' => null,
+        'maint_margin' => null,
+        'order_margin' => null,
+        'available' => null,
+        'point' => null,
+        'currency' => null
     ];
 
     /**
@@ -109,15 +111,16 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'txid' => 'txid',
-        'timestamp' => 'timestamp',
-        'amount' => 'amount',
-        'currency' => 'currency',
-        'address' => 'address',
-        'memo' => 'memo',
-        'status' => 'status',
-        'chain' => 'chain'
+        'user' => 'user',
+        'total' => 'total',
+        'short_enabled' => 'short_enabled',
+        'unrealised_pnl' => 'unrealised_pnl',
+        'init_margin' => 'init_margin',
+        'maint_margin' => 'maint_margin',
+        'order_margin' => 'order_margin',
+        'available' => 'available',
+        'point' => 'point',
+        'currency' => 'currency'
     ];
 
     /**
@@ -126,15 +129,16 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'txid' => 'setTxid',
-        'timestamp' => 'setTimestamp',
-        'amount' => 'setAmount',
-        'currency' => 'setCurrency',
-        'address' => 'setAddress',
-        'memo' => 'setMemo',
-        'status' => 'setStatus',
-        'chain' => 'setChain'
+        'user' => 'setUser',
+        'total' => 'setTotal',
+        'short_enabled' => 'setShortEnabled',
+        'unrealised_pnl' => 'setUnrealisedPnl',
+        'init_margin' => 'setInitMargin',
+        'maint_margin' => 'setMaintMargin',
+        'order_margin' => 'setOrderMargin',
+        'available' => 'setAvailable',
+        'point' => 'setPoint',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -143,15 +147,16 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'txid' => 'getTxid',
-        'timestamp' => 'getTimestamp',
-        'amount' => 'getAmount',
-        'currency' => 'getCurrency',
-        'address' => 'getAddress',
-        'memo' => 'getMemo',
-        'status' => 'getStatus',
-        'chain' => 'getChain'
+        'user' => 'getUser',
+        'total' => 'getTotal',
+        'short_enabled' => 'getShortEnabled',
+        'unrealised_pnl' => 'getUnrealisedPnl',
+        'init_margin' => 'getInitMargin',
+        'maint_margin' => 'getMaintMargin',
+        'order_margin' => 'getOrderMargin',
+        'available' => 'getAvailable',
+        'point' => 'getPoint',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -195,41 +200,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_DONE = 'DONE';
-    const STATUS_CANCEL = 'CANCEL';
-    const STATUS_REQUEST = 'REQUEST';
-    const STATUS_MANUAL = 'MANUAL';
-    const STATUS_BCODE = 'BCODE';
-    const STATUS_EXTPEND = 'EXTPEND';
-    const STATUS_FAIL = 'FAIL';
-    const STATUS_INVALID = 'INVALID';
-    const STATUS_VERIFY = 'VERIFY';
-    const STATUS_PROCES = 'PROCES';
-    const STATUS_PEND = 'PEND';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_DONE,
-            self::STATUS_CANCEL,
-            self::STATUS_REQUEST,
-            self::STATUS_MANUAL,
-            self::STATUS_BCODE,
-            self::STATUS_EXTPEND,
-            self::STATUS_FAIL,
-            self::STATUS_INVALID,
-            self::STATUS_VERIFY,
-            self::STATUS_PROCES,
-            self::STATUS_PEND,
-        ];
-    }
     
 
     /**
@@ -247,15 +219,16 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['txid'] = isset($data['txid']) ? $data['txid'] : null;
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['short_enabled'] = isset($data['short_enabled']) ? $data['short_enabled'] : null;
+        $this->container['unrealised_pnl'] = isset($data['unrealised_pnl']) ? $data['unrealised_pnl'] : null;
+        $this->container['init_margin'] = isset($data['init_margin']) ? $data['init_margin'] : null;
+        $this->container['maint_margin'] = isset($data['maint_margin']) ? $data['maint_margin'] : null;
+        $this->container['order_margin'] = isset($data['order_margin']) ? $data['order_margin'] : null;
+        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
+        $this->container['point'] = isset($data['point']) ? $data['point'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
     }
 
     /**
@@ -266,20 +239,6 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -297,97 +256,217 @@ class LedgerRecord implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets user
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getId()
+    public function getUser()
     {
-        return $this->container['id'];
+        return $this->container['user'];
     }
 
     /**
-     * Sets id
+     * Sets user
      *
-     * @param string|null $id Record ID
+     * @param int|null $user User ID
      *
      * @return $this
      */
-    public function setId($id)
+    public function setUser($user)
     {
-        $this->container['id'] = $id;
+        $this->container['user'] = $user;
 
         return $this;
     }
 
     /**
-     * Gets txid
+     * Gets total
      *
      * @return string|null
      */
-    public function getTxid()
+    public function getTotal()
     {
-        return $this->container['txid'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets txid
+     * Sets total
      *
-     * @param string|null $txid Hash record of the withdrawal
+     * @param string|null $total Total account balance
      *
      * @return $this
      */
-    public function setTxid($txid)
+    public function setTotal($total)
     {
-        $this->container['txid'] = $txid;
+        $this->container['total'] = $total;
 
         return $this;
     }
 
     /**
-     * Gets timestamp
+     * Gets short_enabled
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getTimestamp()
+    public function getShortEnabled()
     {
-        return $this->container['timestamp'];
+        return $this->container['short_enabled'];
     }
 
     /**
-     * Sets timestamp
+     * Sets short_enabled
      *
-     * @param string|null $timestamp Operation time
+     * @param bool|null $short_enabled If the account is allowed to short
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setShortEnabled($short_enabled)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['short_enabled'] = $short_enabled;
 
         return $this;
     }
 
     /**
-     * Gets amount
+     * Gets unrealised_pnl
      *
-     * @return string
+     * @return string|null
      */
-    public function getAmount()
+    public function getUnrealisedPnl()
     {
-        return $this->container['amount'];
+        return $this->container['unrealised_pnl'];
     }
 
     /**
-     * Sets amount
+     * Sets unrealised_pnl
      *
-     * @param string $amount Currency amount
+     * @param string|null $unrealised_pnl Unrealized PNL
      *
      * @return $this
      */
-    public function setAmount($amount)
+    public function setUnrealisedPnl($unrealised_pnl)
     {
-        $this->container['amount'] = $amount;
+        $this->container['unrealised_pnl'] = $unrealised_pnl;
+
+        return $this;
+    }
+
+    /**
+     * Gets init_margin
+     *
+     * @return string|null
+     */
+    public function getInitMargin()
+    {
+        return $this->container['init_margin'];
+    }
+
+    /**
+     * Sets init_margin
+     *
+     * @param string|null $init_margin Initial position margin
+     *
+     * @return $this
+     */
+    public function setInitMargin($init_margin)
+    {
+        $this->container['init_margin'] = $init_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets maint_margin
+     *
+     * @return string|null
+     */
+    public function getMaintMargin()
+    {
+        return $this->container['maint_margin'];
+    }
+
+    /**
+     * Sets maint_margin
+     *
+     * @param string|null $maint_margin Position maintenance margin
+     *
+     * @return $this
+     */
+    public function setMaintMargin($maint_margin)
+    {
+        $this->container['maint_margin'] = $maint_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_margin
+     *
+     * @return string|null
+     */
+    public function getOrderMargin()
+    {
+        return $this->container['order_margin'];
+    }
+
+    /**
+     * Sets order_margin
+     *
+     * @param string|null $order_margin Order margin of unfinished orders
+     *
+     * @return $this
+     */
+    public function setOrderMargin($order_margin)
+    {
+        $this->container['order_margin'] = $order_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets available
+     *
+     * @return string|null
+     */
+    public function getAvailable()
+    {
+        return $this->container['available'];
+    }
+
+    /**
+     * Sets available
+     *
+     * @param string|null $available Available balance to transfer out or trade
+     *
+     * @return $this
+     */
+    public function setAvailable($available)
+    {
+        $this->container['available'] = $available;
+
+        return $this;
+    }
+
+    /**
+     * Gets point
+     *
+     * @return string|null
+     */
+    public function getPoint()
+    {
+        return $this->container['point'];
+    }
+
+    /**
+     * Sets point
+     *
+     * @param string|null $point POINT amount
+     *
+     * @return $this
+     */
+    public function setPoint($point)
+    {
+        $this->container['point'] = $point;
 
         return $this;
     }
@@ -395,7 +474,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Gets currency
      *
-     * @return string
+     * @return string|null
      */
     public function getCurrency()
     {
@@ -405,118 +484,13 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency name
+     * @param string|null $currency Settle currency
      *
      * @return $this
      */
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return string|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param string|null $address Withdrawal address. Required for withdrawals
-     *
-     * @return $this
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets memo
-     *
-     * @return string|null
-     */
-    public function getMemo()
-    {
-        return $this->container['memo'];
-    }
-
-    /**
-     * Sets memo
-     *
-     * @param string|null $memo Additional remarks with regards to the withdrawal
-     *
-     * @return $this
-     */
-    public function setMemo($memo)
-    {
-        $this->container['memo'] = $memo;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets chain
-     *
-     * @return string|null
-     */
-    public function getChain()
-    {
-        return $this->container['chain'];
-    }
-
-    /**
-     * Sets chain
-     *
-     * @param string|null $chain Name of the chain used in withdrawals
-     *
-     * @return $this
-     */
-    public function setChain($chain)
-    {
-        $this->container['chain'] = $chain;
 
         return $this;
     }
