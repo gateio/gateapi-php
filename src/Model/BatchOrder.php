@@ -313,6 +313,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     const TIME_IN_FORCE_GTC = 'gtc';
     const TIME_IN_FORCE_IOC = 'ioc';
     const TIME_IN_FORCE_POC = 'poc';
+    const TIME_IN_FORCE_FOK = 'fok';
     
 
     
@@ -380,6 +381,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
             self::TIME_IN_FORCE_GTC,
             self::TIME_IN_FORCE_IOC,
             self::TIME_IN_FORCE_POC,
+            self::TIME_IN_FORCE_FOK,
         ];
     }
     
@@ -928,7 +930,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets time_in_force
      *
-     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
+     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
      *
      * @return $this
      */
