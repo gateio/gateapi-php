@@ -62,7 +62,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => 'string',
         'memo' => 'string',
         'status' => 'string',
-        'chain' => 'string'
+        'chain' => 'string',
+        'fee' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => null,
         'memo' => null,
         'status' => null,
-        'chain' => null
+        'chain' => null,
+        'fee' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => 'address',
         'memo' => 'memo',
         'status' => 'status',
-        'chain' => 'chain'
+        'chain' => 'chain',
+        'fee' => 'fee'
     ];
 
     /**
@@ -134,7 +137,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => 'setAddress',
         'memo' => 'setMemo',
         'status' => 'setStatus',
-        'chain' => 'setChain'
+        'chain' => 'setChain',
+        'fee' => 'setFee'
     ];
 
     /**
@@ -151,7 +155,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => 'getAddress',
         'memo' => 'getMemo',
         'status' => 'getStatus',
-        'chain' => 'getChain'
+        'chain' => 'getChain',
+        'fee' => 'getFee'
     ];
 
     /**
@@ -256,6 +261,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
+        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
     }
 
     /**
@@ -517,6 +523,30 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     public function setChain($chain)
     {
         $this->container['chain'] = $chain;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee
+     *
+     * @return string|null
+     */
+    public function getFee()
+    {
+        return $this->container['fee'];
+    }
+
+    /**
+     * Sets fee
+     *
+     * @param string|null $fee Fee
+     *
+     * @return $this
+     */
+    public function setFee($fee)
+    {
+        $this->container['fee'] = $fee;
 
         return $this;
     }

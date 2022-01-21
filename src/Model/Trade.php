@@ -461,7 +461,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets role
      *
-     * @param string|null $role Trade role
+     * @param string|null $role Trade role. No value in public endpoints
      *
      * @return $this
      */
@@ -614,7 +614,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets point_fee
      *
-     * @param string|null $point_fee Points used to deduct fee
+     * @param string|null $point_fee Points used to deduct fee. No value in public endpoints
      *
      * @return $this
      */
@@ -638,7 +638,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets gt_fee
      *
-     * @param string|null $gt_fee GT used to deduct fee
+     * @param string|null $gt_fee GT used to deduct fee. No value in public endpoints
      *
      * @return $this
      */

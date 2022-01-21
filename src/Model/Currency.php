@@ -59,7 +59,8 @@ class Currency implements ModelInterface, ArrayAccess
         'withdraw_disabled' => 'bool',
         'withdraw_delayed' => 'bool',
         'deposit_disabled' => 'bool',
-        'trade_disabled' => 'bool'
+        'trade_disabled' => 'bool',
+        'fixed_rate' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class Currency implements ModelInterface, ArrayAccess
         'withdraw_disabled' => null,
         'withdraw_delayed' => null,
         'deposit_disabled' => null,
-        'trade_disabled' => null
+        'trade_disabled' => null,
+        'fixed_rate' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class Currency implements ModelInterface, ArrayAccess
         'withdraw_disabled' => 'withdraw_disabled',
         'withdraw_delayed' => 'withdraw_delayed',
         'deposit_disabled' => 'deposit_disabled',
-        'trade_disabled' => 'trade_disabled'
+        'trade_disabled' => 'trade_disabled',
+        'fixed_rate' => 'fixed_rate'
     ];
 
     /**
@@ -122,7 +125,8 @@ class Currency implements ModelInterface, ArrayAccess
         'withdraw_disabled' => 'setWithdrawDisabled',
         'withdraw_delayed' => 'setWithdrawDelayed',
         'deposit_disabled' => 'setDepositDisabled',
-        'trade_disabled' => 'setTradeDisabled'
+        'trade_disabled' => 'setTradeDisabled',
+        'fixed_rate' => 'setFixedRate'
     ];
 
     /**
@@ -136,7 +140,8 @@ class Currency implements ModelInterface, ArrayAccess
         'withdraw_disabled' => 'getWithdrawDisabled',
         'withdraw_delayed' => 'getWithdrawDelayed',
         'deposit_disabled' => 'getDepositDisabled',
-        'trade_disabled' => 'getTradeDisabled'
+        'trade_disabled' => 'getTradeDisabled',
+        'fixed_rate' => 'getFixedRate'
     ];
 
     /**
@@ -205,6 +210,7 @@ class Currency implements ModelInterface, ArrayAccess
         $this->container['withdraw_delayed'] = isset($data['withdraw_delayed']) ? $data['withdraw_delayed'] : null;
         $this->container['deposit_disabled'] = isset($data['deposit_disabled']) ? $data['deposit_disabled'] : null;
         $this->container['trade_disabled'] = isset($data['trade_disabled']) ? $data['trade_disabled'] : null;
+        $this->container['fixed_rate'] = isset($data['fixed_rate']) ? $data['fixed_rate'] : null;
     }
 
     /**
@@ -371,6 +377,30 @@ class Currency implements ModelInterface, ArrayAccess
     public function setTradeDisabled($trade_disabled)
     {
         $this->container['trade_disabled'] = $trade_disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets fixed_rate
+     *
+     * @return string|null
+     */
+    public function getFixedRate()
+    {
+        return $this->container['fixed_rate'];
+    }
+
+    /**
+     * Sets fixed_rate
+     *
+     * @param string|null $fixed_rate Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies
+     *
+     * @return $this
+     */
+    public function setFixedRate($fixed_rate)
+    {
+        $this->container['fixed_rate'] = $fixed_rate;
 
         return $this;
     }
