@@ -1307,7 +1307,7 @@ class FuturesApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1331,7 +1331,7 @@ class FuturesApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1392,7 +1392,7 @@ class FuturesApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1419,7 +1419,7 @@ class FuturesApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1473,7 +1473,7 @@ class FuturesApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5923,17 +5923,18 @@ class FuturesApi
      *
      * Update position leverage in dual mode
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Position[]
      */
-    public function updateDualModePositionLeverage($settle, $contract, $leverage)
+    public function updateDualModePositionLeverage($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
-        list($response) = $this->updateDualModePositionLeverageWithHttpInfo($settle, $contract, $leverage);
+        list($response) = $this->updateDualModePositionLeverageWithHttpInfo($settle, $contract, $leverage, $cross_leverage_limit);
         return $response;
     }
 
@@ -5942,17 +5943,18 @@ class FuturesApi
      *
      * Update position leverage in dual mode
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Position[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDualModePositionLeverageWithHttpInfo($settle, $contract, $leverage)
+    public function updateDualModePositionLeverageWithHttpInfo($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
-        $request = $this->updateDualModePositionLeverageRequest($settle, $contract, $leverage);
+        $request = $this->updateDualModePositionLeverageRequest($settle, $contract, $leverage, $cross_leverage_limit);
 
         $options = $this->createHttpClientOption();
         try {
@@ -5998,16 +6000,17 @@ class FuturesApi
      *
      * Update position leverage in dual mode
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDualModePositionLeverageAsync($settle, $contract, $leverage)
+    public function updateDualModePositionLeverageAsync($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
-        return $this->updateDualModePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
+        return $this->updateDualModePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage, $cross_leverage_limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6020,17 +6023,18 @@ class FuturesApi
      *
      * Update position leverage in dual mode
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDualModePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage)
+    public function updateDualModePositionLeverageAsyncWithHttpInfo($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
         $returnType = '\GateApi\Model\Position[]';
-        $request = $this->updateDualModePositionLeverageRequest($settle, $contract, $leverage);
+        $request = $this->updateDualModePositionLeverageRequest($settle, $contract, $leverage, $cross_leverage_limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6069,14 +6073,15 @@ class FuturesApi
     /**
      * Create request for operation 'updateDualModePositionLeverage'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param string $settle               Settle currency (required)
+     * @param string $contract             Futures contract (required)
+     * @param string $leverage             New position leverage (required)
+     * @param string $cross_leverage_limit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateDualModePositionLeverageRequest($settle, $contract, $leverage)
+    protected function updateDualModePositionLeverageRequest($settle, $contract, $leverage, $cross_leverage_limit = null)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -6113,6 +6118,18 @@ class FuturesApi
             }
             else {
                 $queryParams['leverage'] = $leverage;
+            }
+        }
+
+        // query params
+        if ($cross_leverage_limit !== null) {
+            if('form' === 'form' && is_array($cross_leverage_limit)) {
+                foreach($cross_leverage_limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['cross_leverage_limit'] = $cross_leverage_limit;
             }
         }
 

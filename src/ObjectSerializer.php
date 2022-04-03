@@ -39,8 +39,8 @@ use GateApi\Model\ModelInterface;
 class ObjectSerializer
 {
     /**
- * @var string 
-*/
+     * @var string 
+     */
     private static $dateTimeFormat = \DateTime::ATOM;
 
     /**
@@ -214,7 +214,7 @@ class ObjectSerializer
      *
      * @param array  $collection                 collection to serialize to a string
      * @param string $style                      the format use for serialization (csv,
-     * ssv, tsv, pipes, multi)
+     *                                           ssv, tsv, pipes, multi)
      * @param bool   $allowCollectionFormatMulti allow collection format to be a multidimensional array
      *
      * @return string

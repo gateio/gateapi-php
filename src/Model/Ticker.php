@@ -42,17 +42,17 @@ class Ticker implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'Ticker';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'currency_pair' => 'string',
         'last' => 'string',
@@ -70,10 +70,10 @@ class Ticker implements ModelInterface, ArrayAccess
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'currency_pair' => null,
         'last' => null,
@@ -334,7 +334,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets lowest_ask
      *
-     * @param string|null $lowest_ask Lowest ask
+     * @param string|null $lowest_ask Recent lowest ask
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets highest_bid
      *
-     * @param string|null $highest_bid Highest bid
+     * @param string|null $highest_bid Recent highest bid
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets change_percentage
      *
-     * @param string|null $change_percentage Change percentage.
+     * @param string|null $change_percentage Change percentage in the last 24h
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets base_volume
      *
-     * @param string|null $base_volume Base currency trade volume
+     * @param string|null $base_volume Base currency trade volume in the last 24h
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets quote_volume
      *
-     * @param string|null $quote_volume Quote currency trade volume
+     * @param string|null $quote_volume Quote currency trade volume in the last 24h
      *
      * @return $this
      */
@@ -591,7 +591,7 @@ class Ticker implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -603,9 +603,10 @@ class Ticker implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -616,7 +617,7 @@ class Ticker implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -632,7 +633,7 @@ class Ticker implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

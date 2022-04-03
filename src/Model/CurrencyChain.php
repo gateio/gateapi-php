@@ -42,34 +42,38 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'CurrencyChain';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'chain' => 'string',
         'name_cn' => 'string',
         'name_en' => 'string',
-        'is_disabled' => 'int'
+        'is_disabled' => 'int',
+        'is_deposit_disabled' => 'int',
+        'is_withdraw_disabled' => 'int'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'chain' => null,
         'name_cn' => null,
         'name_en' => null,
-        'is_disabled' => null
+        'is_disabled' => null,
+        'is_deposit_disabled' => null,
+        'is_withdraw_disabled' => null
     ];
 
     /**
@@ -102,7 +106,9 @@ class CurrencyChain implements ModelInterface, ArrayAccess
         'chain' => 'chain',
         'name_cn' => 'name_cn',
         'name_en' => 'name_en',
-        'is_disabled' => 'is_disabled'
+        'is_disabled' => 'is_disabled',
+        'is_deposit_disabled' => 'is_deposit_disabled',
+        'is_withdraw_disabled' => 'is_withdraw_disabled'
     ];
 
     /**
@@ -114,7 +120,9 @@ class CurrencyChain implements ModelInterface, ArrayAccess
         'chain' => 'setChain',
         'name_cn' => 'setNameCn',
         'name_en' => 'setNameEn',
-        'is_disabled' => 'setIsDisabled'
+        'is_disabled' => 'setIsDisabled',
+        'is_deposit_disabled' => 'setIsDepositDisabled',
+        'is_withdraw_disabled' => 'setIsWithdrawDisabled'
     ];
 
     /**
@@ -126,7 +134,9 @@ class CurrencyChain implements ModelInterface, ArrayAccess
         'chain' => 'getChain',
         'name_cn' => 'getNameCn',
         'name_en' => 'getNameEn',
-        'is_disabled' => 'getIsDisabled'
+        'is_disabled' => 'getIsDisabled',
+        'is_deposit_disabled' => 'getIsDepositDisabled',
+        'is_withdraw_disabled' => 'getIsWithdrawDisabled'
     ];
 
     /**
@@ -193,6 +203,8 @@ class CurrencyChain implements ModelInterface, ArrayAccess
         $this->container['name_cn'] = isset($data['name_cn']) ? $data['name_cn'] : null;
         $this->container['name_en'] = isset($data['name_en']) ? $data['name_en'] : null;
         $this->container['is_disabled'] = isset($data['is_disabled']) ? $data['is_disabled'] : null;
+        $this->container['is_deposit_disabled'] = isset($data['is_deposit_disabled']) ? $data['is_deposit_disabled'] : null;
+        $this->container['is_withdraw_disabled'] = isset($data['is_withdraw_disabled']) ? $data['is_withdraw_disabled'] : null;
     }
 
     /**
@@ -314,6 +326,54 @@ class CurrencyChain implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets is_deposit_disabled
+     *
+     * @return int|null
+     */
+    public function getIsDepositDisabled()
+    {
+        return $this->container['is_deposit_disabled'];
+    }
+
+    /**
+     * Sets is_deposit_disabled
+     *
+     * @param int|null $is_deposit_disabled Is deposit disabled. 0 means not
+     *
+     * @return $this
+     */
+    public function setIsDepositDisabled($is_deposit_disabled)
+    {
+        $this->container['is_deposit_disabled'] = $is_deposit_disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_withdraw_disabled
+     *
+     * @return int|null
+     */
+    public function getIsWithdrawDisabled()
+    {
+        return $this->container['is_withdraw_disabled'];
+    }
+
+    /**
+     * Sets is_withdraw_disabled
+     *
+     * @param int|null $is_withdraw_disabled Is withdrawal disabled. 0 means not
+     *
+     * @return $this
+     */
+    public function setIsWithdrawDisabled($is_withdraw_disabled)
+    {
+        $this->container['is_withdraw_disabled'] = $is_withdraw_disabled;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -321,7 +381,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -333,9 +393,10 @@ class CurrencyChain implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -346,7 +407,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -362,7 +423,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
