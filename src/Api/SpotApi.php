@@ -1579,7 +1579,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
@@ -1604,7 +1604,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
@@ -1666,7 +1666,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
@@ -1694,7 +1694,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
@@ -1749,7 +1749,7 @@ class SpotApi
      * @param string $currency_pair Currency pair (required)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
      * @param int    $to            Time range ending, default to current time (optional)
      * @param int    $page          Page number (optional, default to 1)
@@ -1952,7 +1952,7 @@ class SpotApi
      * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points (optional, default to '30m')
+     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1975,7 +1975,7 @@ class SpotApi
      * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points (optional, default to '30m')
+     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2035,7 +2035,7 @@ class SpotApi
      * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points (optional, default to '30m')
+     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2061,7 +2061,7 @@ class SpotApi
      * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points (optional, default to '30m')
+     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2114,7 +2114,7 @@ class SpotApi
      * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
      * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points (optional, default to '30m')
+     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
