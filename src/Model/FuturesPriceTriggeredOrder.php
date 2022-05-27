@@ -64,7 +64,9 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'trade_id' => 'int',
         'status' => 'string',
         'finish_as' => 'string',
-        'reason' => 'string'
+        'reason' => 'string',
+        'order_type' => 'string',
+        'me_order_id' => 'string'
     ];
 
     /**
@@ -82,7 +84,9 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'trade_id' => 'int64',
         'status' => null,
         'finish_as' => null,
-        'reason' => null
+        'reason' => null,
+        'order_type' => null,
+        'me_order_id' => null
     ];
 
     /**
@@ -121,7 +125,9 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'trade_id' => 'trade_id',
         'status' => 'status',
         'finish_as' => 'finish_as',
-        'reason' => 'reason'
+        'reason' => 'reason',
+        'order_type' => 'order_type',
+        'me_order_id' => 'me_order_id'
     ];
 
     /**
@@ -139,7 +145,9 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'trade_id' => 'setTradeId',
         'status' => 'setStatus',
         'finish_as' => 'setFinishAs',
-        'reason' => 'setReason'
+        'reason' => 'setReason',
+        'order_type' => 'setOrderType',
+        'me_order_id' => 'setMeOrderId'
     ];
 
     /**
@@ -157,7 +165,9 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'trade_id' => 'getTradeId',
         'status' => 'getStatus',
         'finish_as' => 'getFinishAs',
-        'reason' => 'getReason'
+        'reason' => 'getReason',
+        'order_type' => 'getOrderType',
+        'me_order_id' => 'getMeOrderId'
     ];
 
     /**
@@ -203,6 +213,8 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
 
     const STATUS_OPEN = 'open';
     const STATUS_FINISHED = 'finished';
+    const STATUS_INACTIVE = 'inactive';
+    const STATUS_INVALID = 'invalid';
     const FINISH_AS_CANCELLED = 'cancelled';
     const FINISH_AS_SUCCEEDED = 'succeeded';
     const FINISH_AS_FAILED = 'failed';
@@ -220,6 +232,8 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         return [
             self::STATUS_OPEN,
             self::STATUS_FINISHED,
+            self::STATUS_INACTIVE,
+            self::STATUS_INVALID,
         ];
     }
     
@@ -264,6 +278,8 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['finish_as'] = isset($data['finish_as']) ? $data['finish_as'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['order_type'] = isset($data['order_type']) ? $data['order_type'] : null;
+        $this->container['me_order_id'] = isset($data['me_order_id']) ? $data['me_order_id'] : null;
     }
 
     /**
@@ -493,7 +509,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Order status.
+     * @param string|null $status Auto order status  - `open`: order is active - `finished`: order is finished - `inactive`: order is not active, only for close-long-order or close-short-order - `invalid`: order is invalid, only for close-long-order or close-short-order
      *
      * @return $this
      */
@@ -566,6 +582,54 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     public function setReason($reason)
     {
         $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_type
+     *
+     * @return string|null
+     */
+    public function getOrderType()
+    {
+        return $this->container['order_type'];
+    }
+
+    /**
+     * Sets order_type
+     *
+     * @param string|null $order_type Take-profit/stop-loss types, which include:  - `close-long-order`: order take-profit/stop-loss, close long position - `close-short-order`: order take-profit/stop-loss, close short position - `close-long-position`: position take-profit/stop-loss, close long position - `close-short-position`: position take-profit/stop-loss, close short position - `plan-close-long-position`: position planned take-profit/stop-loss, close long position - `plan-close-short-position`: position planned take-profit/stop-loss, close short position  The order take-profit/stop-loss can not be passed by request. These two types are read only.
+     *
+     * @return $this
+     */
+    public function setOrderType($order_type)
+    {
+        $this->container['order_type'] = $order_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets me_order_id
+     *
+     * @return string|null
+     */
+    public function getMeOrderId()
+    {
+        return $this->container['me_order_id'];
+    }
+
+    /**
+     * Sets me_order_id
+     *
+     * @param string|null $me_order_id Corresponding order ID of order take-profit/stop-loss.
+     *
+     * @return $this
+     */
+    public function setMeOrderId($me_order_id)
+    {
+        $this->container['me_order_id'] = $me_order_id;
 
         return $this;
     }

@@ -68,9 +68,9 @@ class FuturesPriceTrigger implements ModelInterface, ArrayAccess
      */
     protected static $openAPIFormats = [
         'strategy_type' => null,
-        'price_type' => null,
+        'price_type' => 'int32',
         'price' => null,
-        'rule' => null,
+        'rule' => 'int32',
         'expiration' => null
     ];
 

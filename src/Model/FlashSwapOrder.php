@@ -1,6 +1,6 @@
 <?php
 /**
- * CrossMarginLoan
+ * FlashSwapOrder
  *
  * PHP version 7
  *
@@ -30,14 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CrossMarginLoan Class Doc Comment
+ * FlashSwapOrder Class Doc Comment
  *
- * @category Class
- * @package  GateApi
- * @author   GateIO
- * @link     https://www.gate.io
+ * @category    Class
+ * @description Flash swap order
+ * @package     GateApi
+ * @author      GateIO
+ * @link        https://www.gate.io
  */
-class CrossMarginLoan implements ModelInterface, ArrayAccess
+class FlashSwapOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CrossMarginLoan';
+    protected static $openAPIModelName = 'FlashSwapOrder';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,16 +55,15 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
+        'id' => 'int',
         'create_time' => 'int',
-        'update_time' => 'int',
-        'currency' => 'string',
-        'amount' => 'string',
-        'text' => 'string',
-        'status' => 'int',
-        'repaid' => 'string',
-        'repaid_interest' => 'string',
-        'unpaid_interest' => 'string'
+        'user_id' => 'int',
+        'sell_currency' => 'string',
+        'sell_amount' => 'string',
+        'buy_currency' => 'string',
+        'buy_amount' => 'string',
+        'price' => 'string',
+        'status' => 'int'
     ];
 
     /**
@@ -72,16 +72,15 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'create_time' => 'int64',
-        'update_time' => 'int64',
-        'currency' => null,
-        'amount' => null,
-        'text' => null,
-        'status' => 'int32',
-        'repaid' => null,
-        'repaid_interest' => null,
-        'unpaid_interest' => null
+        'user_id' => 'int64',
+        'sell_currency' => null,
+        'sell_amount' => null,
+        'buy_currency' => null,
+        'buy_amount' => null,
+        'price' => null,
+        'status' => null
     ];
 
     /**
@@ -113,14 +112,13 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'create_time' => 'create_time',
-        'update_time' => 'update_time',
-        'currency' => 'currency',
-        'amount' => 'amount',
-        'text' => 'text',
-        'status' => 'status',
-        'repaid' => 'repaid',
-        'repaid_interest' => 'repaid_interest',
-        'unpaid_interest' => 'unpaid_interest'
+        'user_id' => 'user_id',
+        'sell_currency' => 'sell_currency',
+        'sell_amount' => 'sell_amount',
+        'buy_currency' => 'buy_currency',
+        'buy_amount' => 'buy_amount',
+        'price' => 'price',
+        'status' => 'status'
     ];
 
     /**
@@ -131,14 +129,13 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'create_time' => 'setCreateTime',
-        'update_time' => 'setUpdateTime',
-        'currency' => 'setCurrency',
-        'amount' => 'setAmount',
-        'text' => 'setText',
-        'status' => 'setStatus',
-        'repaid' => 'setRepaid',
-        'repaid_interest' => 'setRepaidInterest',
-        'unpaid_interest' => 'setUnpaidInterest'
+        'user_id' => 'setUserId',
+        'sell_currency' => 'setSellCurrency',
+        'sell_amount' => 'setSellAmount',
+        'buy_currency' => 'setBuyCurrency',
+        'buy_amount' => 'setBuyAmount',
+        'price' => 'setPrice',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -149,14 +146,13 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'create_time' => 'getCreateTime',
-        'update_time' => 'getUpdateTime',
-        'currency' => 'getCurrency',
-        'amount' => 'getAmount',
-        'text' => 'getText',
-        'status' => 'getStatus',
-        'repaid' => 'getRepaid',
-        'repaid_interest' => 'getRepaidInterest',
-        'unpaid_interest' => 'getUnpaidInterest'
+        'user_id' => 'getUserId',
+        'sell_currency' => 'getSellCurrency',
+        'sell_amount' => 'getSellAmount',
+        'buy_currency' => 'getBuyCurrency',
+        'buy_amount' => 'getBuyAmount',
+        'price' => 'getPrice',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -200,25 +196,8 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_1 = 1;
-    const STATUS_2 = 2;
-    const STATUS_3 = 3;
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_1,
-            self::STATUS_2,
-            self::STATUS_3,
-        ];
-    }
     
 
     /**
@@ -238,14 +217,13 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
-        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['sell_currency'] = isset($data['sell_currency']) ? $data['sell_currency'] : null;
+        $this->container['sell_amount'] = isset($data['sell_amount']) ? $data['sell_amount'] : null;
+        $this->container['buy_currency'] = isset($data['buy_currency']) ? $data['buy_currency'] : null;
+        $this->container['buy_amount'] = isset($data['buy_amount']) ? $data['buy_amount'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['repaid'] = isset($data['repaid']) ? $data['repaid'] : null;
-        $this->container['repaid_interest'] = isset($data['repaid_interest']) ? $data['repaid_interest'] : null;
-        $this->container['unpaid_interest'] = isset($data['unpaid_interest']) ? $data['unpaid_interest'] : null;
     }
 
     /**
@@ -256,20 +234,6 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -289,7 +253,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string|null
+     * @return int|null
      */
     public function getId()
     {
@@ -299,7 +263,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Borrow loan ID
+     * @param int|null $id Flash swap order ID
      *
      * @return $this
      */
@@ -323,7 +287,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Creation timestamp, in milliseconds
+     * @param int|null $create_time Creation time of order (in milliseconds)
      *
      * @return $this
      */
@@ -335,97 +299,145 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets update_time
+     * Gets user_id
      *
      * @return int|null
      */
-    public function getUpdateTime()
+    public function getUserId()
     {
-        return $this->container['update_time'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets update_time
+     * Sets user_id
      *
-     * @param int|null $update_time Update timestamp, in milliseconds
+     * @param int|null $user_id User ID
      *
      * @return $this
      */
-    public function setUpdateTime($update_time)
+    public function setUserId($user_id)
     {
-        $this->container['update_time'] = $update_time;
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
 
     /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency Currency name
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return string
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param string $amount Borrowed amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets text
+     * Gets sell_currency
      *
      * @return string|null
      */
-    public function getText()
+    public function getSellCurrency()
     {
-        return $this->container['text'];
+        return $this->container['sell_currency'];
     }
 
     /**
-     * Sets text
+     * Sets sell_currency
      *
-     * @param string|null $text User defined custom ID
+     * @param string|null $sell_currency Currency to sell
      *
      * @return $this
      */
-    public function setText($text)
+    public function setSellCurrency($sell_currency)
     {
-        $this->container['text'] = $text;
+        $this->container['sell_currency'] = $sell_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets sell_amount
+     *
+     * @return string|null
+     */
+    public function getSellAmount()
+    {
+        return $this->container['sell_amount'];
+    }
+
+    /**
+     * Sets sell_amount
+     *
+     * @param string|null $sell_amount Amount to sell
+     *
+     * @return $this
+     */
+    public function setSellAmount($sell_amount)
+    {
+        $this->container['sell_amount'] = $sell_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets buy_currency
+     *
+     * @return string|null
+     */
+    public function getBuyCurrency()
+    {
+        return $this->container['buy_currency'];
+    }
+
+    /**
+     * Sets buy_currency
+     *
+     * @param string|null $buy_currency Currency to buy
+     *
+     * @return $this
+     */
+    public function setBuyCurrency($buy_currency)
+    {
+        $this->container['buy_currency'] = $buy_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets buy_amount
+     *
+     * @return string|null
+     */
+    public function getBuyAmount()
+    {
+        return $this->container['buy_amount'];
+    }
+
+    /**
+     * Sets buy_amount
+     *
+     * @param string|null $buy_amount Amount to buy
+     *
+     * @return $this
+     */
+    public function setBuyAmount($buy_amount)
+    {
+        $this->container['buy_amount'] = $buy_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return string|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param string|null $price Price
+     *
+     * @return $this
+     */
+    public function setPrice($price)
+    {
+        $this->container['price'] = $price;
 
         return $this;
     }
@@ -443,94 +455,13 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int|null $status Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
+     * @param int|null $status Flash swap order status  `1` - success `2` - failure
      *
      * @return $this
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets repaid
-     *
-     * @return string|null
-     */
-    public function getRepaid()
-    {
-        return $this->container['repaid'];
-    }
-
-    /**
-     * Sets repaid
-     *
-     * @param string|null $repaid Repaid amount
-     *
-     * @return $this
-     */
-    public function setRepaid($repaid)
-    {
-        $this->container['repaid'] = $repaid;
-
-        return $this;
-    }
-
-    /**
-     * Gets repaid_interest
-     *
-     * @return string|null
-     */
-    public function getRepaidInterest()
-    {
-        return $this->container['repaid_interest'];
-    }
-
-    /**
-     * Sets repaid_interest
-     *
-     * @param string|null $repaid_interest Repaid interest
-     *
-     * @return $this
-     */
-    public function setRepaidInterest($repaid_interest)
-    {
-        $this->container['repaid_interest'] = $repaid_interest;
-
-        return $this;
-    }
-
-    /**
-     * Gets unpaid_interest
-     *
-     * @return string|null
-     */
-    public function getUnpaidInterest()
-    {
-        return $this->container['unpaid_interest'];
-    }
-
-    /**
-     * Sets unpaid_interest
-     *
-     * @param string|null $unpaid_interest Outstanding interest yet to be paid
-     *
-     * @return $this
-     */
-    public function setUnpaidInterest($unpaid_interest)
-    {
-        $this->container['unpaid_interest'] = $unpaid_interest;
 
         return $this;
     }

@@ -211,6 +211,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     const STATUS_VERIFY = 'VERIFY';
     const STATUS_PROCES = 'PROCES';
     const STATUS_PEND = 'PEND';
+    const STATUS_DMOVE = 'DMOVE';
+    const STATUS_SPLITPEND = 'SPLITPEND';
     
 
     
@@ -233,6 +235,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
             self::STATUS_VERIFY,
             self::STATUS_PROCES,
             self::STATUS_PEND,
+            self::STATUS_DMOVE,
+            self::STATUS_SPLITPEND,
         ];
     }
     
@@ -483,7 +487,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
+     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
      *
      * @return $this
      */
