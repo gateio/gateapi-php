@@ -1388,7 +1388,7 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $associate_array['status'] = 'status_example'; // string | Only list the orders with this status
 $associate_array['market'] = 'BTC_USDT'; // string | Currency pair
-$associate_array['account'] = 'account_example'; // string | Trading account
+$associate_array['account'] = 'account_example'; // string | Trading account type.  Portfolio margin account must set to `cross_margin`
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 
@@ -1412,7 +1412,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Only list the orders with this status |
  **market** | **string**| Currency pair | [optional]
- **account** | **string**| Trading account | [optional]
+ **account** | **string**| Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
@@ -1517,7 +1517,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $market = 'BTC_USDT'; // string | Currency pair
-$account = 'account_example'; // string | Trading account
+$account = 'account_example'; // string | Trading account type.  Portfolio margin account must set to `cross_margin`
 
 try {
     $result = $apiInstance->cancelSpotPriceTriggeredOrderList($market, $account);
@@ -1536,7 +1536,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **market** | **string**| Currency pair | [optional]
- **account** | **string**| Trading account | [optional]
+ **account** | **string**| Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; | [optional]
 
 ### Return type
 

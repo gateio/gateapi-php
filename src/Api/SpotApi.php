@@ -5858,7 +5858,7 @@ class SpotApi
      *
      * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
@@ -5881,7 +5881,7 @@ class SpotApi
      *
      * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
@@ -5941,7 +5941,7 @@ class SpotApi
      *
      * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
@@ -5967,7 +5967,7 @@ class SpotApi
      *
      * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
@@ -6020,7 +6020,7 @@ class SpotApi
      *
      * @param string $status  Only list the orders with this status (required)
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset  List offset, starting from 0 (optional, default to 0)
      *
@@ -6428,7 +6428,7 @@ class SpotApi
      * Cancel all open orders
      *
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6446,7 +6446,7 @@ class SpotApi
      * Cancel all open orders
      *
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6501,7 +6501,7 @@ class SpotApi
      * Cancel all open orders
      *
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6522,7 +6522,7 @@ class SpotApi
      * Cancel all open orders
      *
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6570,7 +6570,7 @@ class SpotApi
      * Create request for operation 'cancelSpotPriceTriggeredOrderList'
      *
      * @param string $market  Currency pair (optional)
-     * @param string $account Trading account (optional)
+     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

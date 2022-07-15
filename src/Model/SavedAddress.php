@@ -1,6 +1,6 @@
 <?php
 /**
- * MarginCurrencyPair
+ * SavedAddress
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MarginCurrencyPair Class Doc Comment
+ * SavedAddress Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class MarginCurrencyPair implements ModelInterface, ArrayAccess
+class SavedAddress implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'MarginCurrencyPair';
+    protected static $openAPIModelName = 'SavedAddress';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,14 +54,12 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'base' => 'string',
-        'quote' => 'string',
-        'leverage' => 'int',
-        'min_base_amount' => 'string',
-        'min_quote_amount' => 'string',
-        'max_quote_amount' => 'string',
-        'status' => 'int'
+        'currency' => 'string',
+        'chain' => 'string',
+        'address' => 'string',
+        'name' => 'string',
+        'tag' => 'string',
+        'verified' => 'string'
     ];
 
     /**
@@ -70,14 +68,12 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'id' => null,
-        'base' => null,
-        'quote' => null,
-        'leverage' => null,
-        'min_base_amount' => null,
-        'min_quote_amount' => null,
-        'max_quote_amount' => null,
-        'status' => 'int32'
+        'currency' => null,
+        'chain' => null,
+        'address' => null,
+        'name' => null,
+        'tag' => null,
+        'verified' => null
     ];
 
     /**
@@ -107,14 +103,12 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'base' => 'base',
-        'quote' => 'quote',
-        'leverage' => 'leverage',
-        'min_base_amount' => 'min_base_amount',
-        'min_quote_amount' => 'min_quote_amount',
-        'max_quote_amount' => 'max_quote_amount',
-        'status' => 'status'
+        'currency' => 'currency',
+        'chain' => 'chain',
+        'address' => 'address',
+        'name' => 'name',
+        'tag' => 'tag',
+        'verified' => 'verified'
     ];
 
     /**
@@ -123,14 +117,12 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'base' => 'setBase',
-        'quote' => 'setQuote',
-        'leverage' => 'setLeverage',
-        'min_base_amount' => 'setMinBaseAmount',
-        'min_quote_amount' => 'setMinQuoteAmount',
-        'max_quote_amount' => 'setMaxQuoteAmount',
-        'status' => 'setStatus'
+        'currency' => 'setCurrency',
+        'chain' => 'setChain',
+        'address' => 'setAddress',
+        'name' => 'setName',
+        'tag' => 'setTag',
+        'verified' => 'setVerified'
     ];
 
     /**
@@ -139,14 +131,12 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'base' => 'getBase',
-        'quote' => 'getQuote',
-        'leverage' => 'getLeverage',
-        'min_base_amount' => 'getMinBaseAmount',
-        'min_quote_amount' => 'getMinQuoteAmount',
-        'max_quote_amount' => 'getMaxQuoteAmount',
-        'status' => 'getStatus'
+        'currency' => 'getCurrency',
+        'chain' => 'getChain',
+        'address' => 'getAddress',
+        'name' => 'getName',
+        'tag' => 'getTag',
+        'verified' => 'getVerified'
     ];
 
     /**
@@ -209,14 +199,12 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['base'] = isset($data['base']) ? $data['base'] : null;
-        $this->container['quote'] = isset($data['quote']) ? $data['quote'] : null;
-        $this->container['leverage'] = isset($data['leverage']) ? $data['leverage'] : null;
-        $this->container['min_base_amount'] = isset($data['min_base_amount']) ? $data['min_base_amount'] : null;
-        $this->container['min_quote_amount'] = isset($data['min_quote_amount']) ? $data['min_quote_amount'] : null;
-        $this->container['max_quote_amount'] = isset($data['max_quote_amount']) ? $data['max_quote_amount'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['verified'] = isset($data['verified']) ? $data['verified'] : null;
     }
 
     /**
@@ -244,193 +232,145 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets currency
      *
      * @return string|null
      */
-    public function getId()
+    public function getCurrency()
     {
-        return $this->container['id'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets id
+     * Sets currency
      *
-     * @param string|null $id Currency pair
+     * @param string|null $currency Currency
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCurrency($currency)
     {
-        $this->container['id'] = $id;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets base
+     * Gets chain
      *
      * @return string|null
      */
-    public function getBase()
+    public function getChain()
     {
-        return $this->container['base'];
+        return $this->container['chain'];
     }
 
     /**
-     * Sets base
+     * Sets chain
      *
-     * @param string|null $base Base currency
+     * @param string|null $chain Chain name
      *
      * @return $this
      */
-    public function setBase($base)
+    public function setChain($chain)
     {
-        $this->container['base'] = $base;
+        $this->container['chain'] = $chain;
 
         return $this;
     }
 
     /**
-     * Gets quote
+     * Gets address
      *
      * @return string|null
      */
-    public function getQuote()
+    public function getAddress()
     {
-        return $this->container['quote'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets quote
+     * Sets address
      *
-     * @param string|null $quote Quote currency
+     * @param string|null $address Address
      *
      * @return $this
      */
-    public function setQuote($quote)
+    public function setAddress($address)
     {
-        $this->container['quote'] = $quote;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets leverage
-     *
-     * @return int|null
-     */
-    public function getLeverage()
-    {
-        return $this->container['leverage'];
-    }
-
-    /**
-     * Sets leverage
-     *
-     * @param int|null $leverage Leverage
-     *
-     * @return $this
-     */
-    public function setLeverage($leverage)
-    {
-        $this->container['leverage'] = $leverage;
-
-        return $this;
-    }
-
-    /**
-     * Gets min_base_amount
+     * Gets name
      *
      * @return string|null
      */
-    public function getMinBaseAmount()
+    public function getName()
     {
-        return $this->container['min_base_amount'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets min_base_amount
+     * Sets name
      *
-     * @param string|null $min_base_amount Minimum base currency to loan, `null` means no limit
+     * @param string|null $name Name
      *
      * @return $this
      */
-    public function setMinBaseAmount($min_base_amount)
+    public function setName($name)
     {
-        $this->container['min_base_amount'] = $min_base_amount;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets min_quote_amount
+     * Gets tag
      *
      * @return string|null
      */
-    public function getMinQuoteAmount()
+    public function getTag()
     {
-        return $this->container['min_quote_amount'];
+        return $this->container['tag'];
     }
 
     /**
-     * Sets min_quote_amount
+     * Sets tag
      *
-     * @param string|null $min_quote_amount Minimum quote currency to loan, `null` means no limit
+     * @param string|null $tag Tag
      *
      * @return $this
      */
-    public function setMinQuoteAmount($min_quote_amount)
+    public function setTag($tag)
     {
-        $this->container['min_quote_amount'] = $min_quote_amount;
+        $this->container['tag'] = $tag;
 
         return $this;
     }
 
     /**
-     * Gets max_quote_amount
+     * Gets verified
      *
      * @return string|null
      */
-    public function getMaxQuoteAmount()
+    public function getVerified()
     {
-        return $this->container['max_quote_amount'];
+        return $this->container['verified'];
     }
 
     /**
-     * Sets max_quote_amount
+     * Sets verified
      *
-     * @param string|null $max_quote_amount Maximum borrowable amount for quote currency. Base currency limit is calculated by quote maximum and market price. `null` means no limit
+     * @param string|null $verified Whether to pass the verification 0-unverified, 1-verified
      *
      * @return $this
      */
-    public function setMaxQuoteAmount($max_quote_amount)
+    public function setVerified($verified)
     {
-        $this->container['max_quote_amount'] = $max_quote_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return int|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int|null $status Currency pair status   - `0`: disabled  - `1`: enabled
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['verified'] = $verified;
 
         return $this;
     }

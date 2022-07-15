@@ -1271,11 +1271,12 @@ class WalletApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \GateApi\Model\TransactionID
      */
     public function transfer($transfer)
     {
-        $this->transferWithHttpInfo($transfer);
+        list($response) = $this->transferWithHttpInfo($transfer);
+        return $response;
     }
 
     /**
@@ -1287,7 +1288,7 @@ class WalletApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\TransactionID, HTTP status code, HTTP response headers (array of strings)
      */
     public function transferWithHttpInfo($transfer)
     {
@@ -1317,7 +1318,19 @@ class WalletApi
             );
         }
 
-        return [null, $statusCode, $response->getHeaders()];
+        $returnType = '\GateApi\Model\TransactionID';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /**
@@ -1352,14 +1365,25 @@ class WalletApi
      */
     public function transferAsyncWithHttpInfo($transfer)
     {
-        $returnType = '';
+        $returnType = '\GateApi\Model\TransactionID';
         $request = $this->transferRequest($transfer);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1410,11 +1434,11 @@ class WalletApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -2963,6 +2987,548 @@ class WalletApi
             }
             else {
                 $queryParams['settle'] = $settle;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listSubAccountCrossMarginBalances
+     *
+     * Query subaccount's cross_margin account info
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SubAccountCrossMarginBalance[]
+     */
+    public function listSubAccountCrossMarginBalances($associative_array)
+    {
+        list($response) = $this->listSubAccountCrossMarginBalancesWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listSubAccountCrossMarginBalancesWithHttpInfo
+     *
+     * Query subaccount's cross_margin account info
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SubAccountCrossMarginBalance[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSubAccountCrossMarginBalancesWithHttpInfo($associative_array)
+    {
+        $request = $this->listSubAccountCrossMarginBalancesRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SubAccountCrossMarginBalance[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listSubAccountCrossMarginBalancesAsync
+     *
+     * Query subaccount's cross_margin account info
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSubAccountCrossMarginBalancesAsync($associative_array)
+    {
+        return $this->listSubAccountCrossMarginBalancesAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listSubAccountCrossMarginBalancesAsyncWithHttpInfo
+     *
+     * Query subaccount's cross_margin account info
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSubAccountCrossMarginBalancesAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\SubAccountCrossMarginBalance[]';
+        $request = $this->listSubAccountCrossMarginBalancesRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listSubAccountCrossMarginBalances'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listSubAccountCrossMarginBalancesRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $sub_uid = array_key_exists('sub_uid', $associative_array) ? $associative_array['sub_uid'] : null;
+
+
+        $resourcePath = '/wallet/sub_account_cross_margin_balances';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($sub_uid !== null) {
+            if('form' === 'form' && is_array($sub_uid)) {
+                foreach($sub_uid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sub_uid'] = $sub_uid;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listSavedAddress
+     *
+     * Query saved address
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency Currency (required)
+     * @param string $chain    Chain name (optional, default to '')
+     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SavedAddress[]
+     */
+    public function listSavedAddress($associative_array)
+    {
+        list($response) = $this->listSavedAddressWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listSavedAddressWithHttpInfo
+     *
+     * Query saved address
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency Currency (required)
+     * @param string $chain    Chain name (optional, default to '')
+     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SavedAddress[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSavedAddressWithHttpInfo($associative_array)
+    {
+        $request = $this->listSavedAddressRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SavedAddress[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listSavedAddressAsync
+     *
+     * Query saved address
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency Currency (required)
+     * @param string $chain    Chain name (optional, default to '')
+     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSavedAddressAsync($associative_array)
+    {
+        return $this->listSavedAddressAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listSavedAddressAsyncWithHttpInfo
+     *
+     * Query saved address
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency Currency (required)
+     * @param string $chain    Chain name (optional, default to '')
+     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSavedAddressAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\SavedAddress[]';
+        $request = $this->listSavedAddressRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listSavedAddress'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param string $currency Currency (required)
+     * @param string $chain    Chain name (optional, default to '')
+     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listSavedAddressRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $chain = array_key_exists('chain', $associative_array) ? $associative_array['chain'] : '';
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : '50';
+
+        // verify the required parameter 'currency' is set
+        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency when calling listSavedAddress'
+            );
+        }
+
+        $resourcePath = '/wallet/saved_address';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($chain !== null) {
+            if('form' === 'form' && is_array($chain)) {
+                foreach($chain as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['chain'] = $chain;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
             }
         }
 

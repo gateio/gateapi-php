@@ -15,6 +15,8 @@ Method | HTTP request | Description
 [**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
 [**listSubAccountFuturesBalances**](WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
+[**listSubAccountCrossMarginBalances**](WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info
+[**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
 [**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 [**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 
@@ -281,7 +283,7 @@ Name | Type | Description  | Notes
 
 ## transfer
 
-> transfer($transfer)
+> \GateApi\Model\TransactionID transfer($transfer)
 
 Transfer between trading accounts
 
@@ -306,7 +308,8 @@ $apiInstance = new GateApi\Api\WalletApi(
 $transfer = new \GateApi\Model\Transfer(); // \GateApi\Model\Transfer | 
 
 try {
-    $apiInstance->transfer($transfer);
+    $result = $apiInstance->transfer($transfer);
+    print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
@@ -324,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\GateApi\Model\TransactionID**](../Model/TransactionID.md)
 
 ### Authorization
 
@@ -333,7 +336,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -708,6 +711,134 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\SubAccountFuturesBalance[]**](../Model/SubAccountFuturesBalance.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listSubAccountCrossMarginBalances
+
+> \GateApi\Model\SubAccountCrossMarginBalance[] listSubAccountCrossMarginBalances($sub_uid)
+
+Query subaccount's cross_margin account info
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WalletApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['sub_uid'] = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
+
+try {
+    $result = $apiInstance->listSubAccountCrossMarginBalances($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->listSubAccountCrossMarginBalances: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sub_uid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+
+### Return type
+
+[**\GateApi\Model\SubAccountCrossMarginBalance[]**](../Model/SubAccountCrossMarginBalance.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listSavedAddress
+
+> \GateApi\Model\SavedAddress[] listSavedAddress($currency, $chain, $limit)
+
+Query saved address
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WalletApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['currency'] = 'USDT'; // string | Currency
+$associate_array['chain'] = ''; // string | Chain name
+$associate_array['limit'] = '50'; // string | Maximum number returned, 100 at most
+
+try {
+    $result = $apiInstance->listSavedAddress($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->listSavedAddress: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency |
+ **chain** | **string**| Chain name | [optional] [default to &#39;&#39;]
+ **limit** | **string**| Maximum number returned, 100 at most | [optional] [default to &#39;50&#39;]
+
+### Return type
+
+[**\GateApi\Model\SavedAddress[]**](../Model/SavedAddress.md)
 
 ### Authorization
 

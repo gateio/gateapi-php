@@ -184,6 +184,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     const SIDE_SELL = 'sell';
     const ACCOUNT_NORMAL = 'normal';
     const ACCOUNT_MARGIN = 'margin';
+    const ACCOUNT_CROSS_MARGIN = 'cross_margin';
     const TIME_IN_FORCE_GTC = 'gtc';
     const TIME_IN_FORCE_IOC = 'ioc';
     
@@ -212,6 +213,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         return [
             self::ACCOUNT_NORMAL,
             self::ACCOUNT_MARGIN,
+            self::ACCOUNT_CROSS_MARGIN,
         ];
     }
     
@@ -430,7 +432,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string $account Trading type  - normal: spot trading - margin: margin trading
+     * @param string $account Trading account type.  Portfolio margin account must set to `cross_margin`  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading
      *
      * @return $this
      */

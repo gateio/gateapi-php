@@ -1,6 +1,6 @@
 <?php
 /**
- * MarginCurrencyPair
+ * SubAccountCrossMarginBalance
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MarginCurrencyPair Class Doc Comment
+ * SubAccountCrossMarginBalance Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class MarginCurrencyPair implements ModelInterface, ArrayAccess
+class SubAccountCrossMarginBalance implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'MarginCurrencyPair';
+    protected static $openAPIModelName = 'SubAccountCrossMarginBalance';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,14 +54,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'base' => 'string',
-        'quote' => 'string',
-        'leverage' => 'int',
-        'min_base_amount' => 'string',
-        'min_quote_amount' => 'string',
-        'max_quote_amount' => 'string',
-        'status' => 'int'
+        'uid' => 'string',
+        'available' => '\GateApi\Model\SubCrossMarginAccount'
     ];
 
     /**
@@ -70,14 +64,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'id' => null,
-        'base' => null,
-        'quote' => null,
-        'leverage' => null,
-        'min_base_amount' => null,
-        'min_quote_amount' => null,
-        'max_quote_amount' => null,
-        'status' => 'int32'
+        'uid' => null,
+        'available' => null
     ];
 
     /**
@@ -107,14 +95,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'base' => 'base',
-        'quote' => 'quote',
-        'leverage' => 'leverage',
-        'min_base_amount' => 'min_base_amount',
-        'min_quote_amount' => 'min_quote_amount',
-        'max_quote_amount' => 'max_quote_amount',
-        'status' => 'status'
+        'uid' => 'uid',
+        'available' => 'available'
     ];
 
     /**
@@ -123,14 +105,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'base' => 'setBase',
-        'quote' => 'setQuote',
-        'leverage' => 'setLeverage',
-        'min_base_amount' => 'setMinBaseAmount',
-        'min_quote_amount' => 'setMinQuoteAmount',
-        'max_quote_amount' => 'setMaxQuoteAmount',
-        'status' => 'setStatus'
+        'uid' => 'setUid',
+        'available' => 'setAvailable'
     ];
 
     /**
@@ -139,14 +115,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'base' => 'getBase',
-        'quote' => 'getQuote',
-        'leverage' => 'getLeverage',
-        'min_base_amount' => 'getMinBaseAmount',
-        'min_quote_amount' => 'getMinQuoteAmount',
-        'max_quote_amount' => 'getMaxQuoteAmount',
-        'status' => 'getStatus'
+        'uid' => 'getUid',
+        'available' => 'getAvailable'
     ];
 
     /**
@@ -209,14 +179,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['base'] = isset($data['base']) ? $data['base'] : null;
-        $this->container['quote'] = isset($data['quote']) ? $data['quote'] : null;
-        $this->container['leverage'] = isset($data['leverage']) ? $data['leverage'] : null;
-        $this->container['min_base_amount'] = isset($data['min_base_amount']) ? $data['min_base_amount'] : null;
-        $this->container['min_quote_amount'] = isset($data['min_quote_amount']) ? $data['min_quote_amount'] : null;
-        $this->container['max_quote_amount'] = isset($data['max_quote_amount']) ? $data['max_quote_amount'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
     }
 
     /**
@@ -244,193 +208,49 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets uid
      *
      * @return string|null
      */
-    public function getId()
+    public function getUid()
     {
-        return $this->container['id'];
+        return $this->container['uid'];
     }
 
     /**
-     * Sets id
+     * Sets uid
      *
-     * @param string|null $id Currency pair
+     * @param string|null $uid User ID
      *
      * @return $this
      */
-    public function setId($id)
+    public function setUid($uid)
     {
-        $this->container['id'] = $id;
+        $this->container['uid'] = $uid;
 
         return $this;
     }
 
     /**
-     * Gets base
+     * Gets available
      *
-     * @return string|null
+     * @return \GateApi\Model\SubCrossMarginAccount|null
      */
-    public function getBase()
+    public function getAvailable()
     {
-        return $this->container['base'];
+        return $this->container['available'];
     }
 
     /**
-     * Sets base
+     * Sets available
      *
-     * @param string|null $base Base currency
+     * @param \GateApi\Model\SubCrossMarginAccount|null $available 账户余额信息
      *
      * @return $this
      */
-    public function setBase($base)
+    public function setAvailable($available)
     {
-        $this->container['base'] = $base;
-
-        return $this;
-    }
-
-    /**
-     * Gets quote
-     *
-     * @return string|null
-     */
-    public function getQuote()
-    {
-        return $this->container['quote'];
-    }
-
-    /**
-     * Sets quote
-     *
-     * @param string|null $quote Quote currency
-     *
-     * @return $this
-     */
-    public function setQuote($quote)
-    {
-        $this->container['quote'] = $quote;
-
-        return $this;
-    }
-
-    /**
-     * Gets leverage
-     *
-     * @return int|null
-     */
-    public function getLeverage()
-    {
-        return $this->container['leverage'];
-    }
-
-    /**
-     * Sets leverage
-     *
-     * @param int|null $leverage Leverage
-     *
-     * @return $this
-     */
-    public function setLeverage($leverage)
-    {
-        $this->container['leverage'] = $leverage;
-
-        return $this;
-    }
-
-    /**
-     * Gets min_base_amount
-     *
-     * @return string|null
-     */
-    public function getMinBaseAmount()
-    {
-        return $this->container['min_base_amount'];
-    }
-
-    /**
-     * Sets min_base_amount
-     *
-     * @param string|null $min_base_amount Minimum base currency to loan, `null` means no limit
-     *
-     * @return $this
-     */
-    public function setMinBaseAmount($min_base_amount)
-    {
-        $this->container['min_base_amount'] = $min_base_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets min_quote_amount
-     *
-     * @return string|null
-     */
-    public function getMinQuoteAmount()
-    {
-        return $this->container['min_quote_amount'];
-    }
-
-    /**
-     * Sets min_quote_amount
-     *
-     * @param string|null $min_quote_amount Minimum quote currency to loan, `null` means no limit
-     *
-     * @return $this
-     */
-    public function setMinQuoteAmount($min_quote_amount)
-    {
-        $this->container['min_quote_amount'] = $min_quote_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_quote_amount
-     *
-     * @return string|null
-     */
-    public function getMaxQuoteAmount()
-    {
-        return $this->container['max_quote_amount'];
-    }
-
-    /**
-     * Sets max_quote_amount
-     *
-     * @param string|null $max_quote_amount Maximum borrowable amount for quote currency. Base currency limit is calculated by quote maximum and market price. `null` means no limit
-     *
-     * @return $this
-     */
-    public function setMaxQuoteAmount($max_quote_amount)
-    {
-        $this->container['max_quote_amount'] = $max_quote_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return int|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int|null $status Currency pair status   - `0`: disabled  - `1`: enabled
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['available'] = $available;
 
         return $this;
     }
