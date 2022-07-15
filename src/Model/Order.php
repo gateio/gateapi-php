@@ -738,7 +738,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
+     * @param string|null $account Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to `cross-margin`
      *
      * @return $this
      */

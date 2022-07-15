@@ -1,6 +1,6 @@
 <?php
 /**
- * MyFuturesTrade
+ * OptionsMySettlements
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MyFuturesTrade Class Doc Comment
+ * OptionsMySettlements Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class MyFuturesTrade implements ModelInterface, ArrayAccess
+class OptionsMySettlements implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'MyFuturesTrade';
+    protected static $openAPIModelName = 'OptionsMySettlements';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,16 +54,15 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'create_time' => 'double',
+        'time' => 'double',
+        'underlying' => 'string',
         'contract' => 'string',
-        'order_id' => 'string',
+        'strike_price' => 'string',
+        'settle_price' => 'string',
         'size' => 'int',
-        'price' => 'string',
-        'role' => 'string',
-        'text' => 'string',
+        'settle_profit' => 'string',
         'fee' => 'string',
-        'point_fee' => 'string'
+        'realised_pnl' => 'string'
     ];
 
     /**
@@ -72,16 +71,15 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'create_time' => 'double',
+        'time' => 'double',
+        'underlying' => null,
         'contract' => null,
-        'order_id' => null,
+        'strike_price' => null,
+        'settle_price' => null,
         'size' => 'int64',
-        'price' => null,
-        'role' => null,
-        'text' => null,
+        'settle_profit' => null,
         'fee' => null,
-        'point_fee' => null
+        'realised_pnl' => null
     ];
 
     /**
@@ -111,16 +109,15 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'create_time' => 'create_time',
+        'time' => 'time',
+        'underlying' => 'underlying',
         'contract' => 'contract',
-        'order_id' => 'order_id',
+        'strike_price' => 'strike_price',
+        'settle_price' => 'settle_price',
         'size' => 'size',
-        'price' => 'price',
-        'role' => 'role',
-        'text' => 'text',
+        'settle_profit' => 'settle_profit',
         'fee' => 'fee',
-        'point_fee' => 'point_fee'
+        'realised_pnl' => 'realised_pnl'
     ];
 
     /**
@@ -129,16 +126,15 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'create_time' => 'setCreateTime',
+        'time' => 'setTime',
+        'underlying' => 'setUnderlying',
         'contract' => 'setContract',
-        'order_id' => 'setOrderId',
+        'strike_price' => 'setStrikePrice',
+        'settle_price' => 'setSettlePrice',
         'size' => 'setSize',
-        'price' => 'setPrice',
-        'role' => 'setRole',
-        'text' => 'setText',
+        'settle_profit' => 'setSettleProfit',
         'fee' => 'setFee',
-        'point_fee' => 'setPointFee'
+        'realised_pnl' => 'setRealisedPnl'
     ];
 
     /**
@@ -147,16 +143,15 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'create_time' => 'getCreateTime',
+        'time' => 'getTime',
+        'underlying' => 'getUnderlying',
         'contract' => 'getContract',
-        'order_id' => 'getOrderId',
+        'strike_price' => 'getStrikePrice',
+        'settle_price' => 'getSettlePrice',
         'size' => 'getSize',
-        'price' => 'getPrice',
-        'role' => 'getRole',
-        'text' => 'getText',
+        'settle_profit' => 'getSettleProfit',
         'fee' => 'getFee',
-        'point_fee' => 'getPointFee'
+        'realised_pnl' => 'getRealisedPnl'
     ];
 
     /**
@@ -200,23 +195,8 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const ROLE_TAKER = 'taker';
-    const ROLE_MAKER = 'maker';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRoleAllowableValues()
-    {
-        return [
-            self::ROLE_TAKER,
-            self::ROLE_MAKER,
-        ];
-    }
     
 
     /**
@@ -234,16 +214,15 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
+        $this->container['underlying'] = isset($data['underlying']) ? $data['underlying'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['strike_price'] = isset($data['strike_price']) ? $data['strike_price'] : null;
+        $this->container['settle_price'] = isset($data['settle_price']) ? $data['settle_price'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['settle_profit'] = isset($data['settle_profit']) ? $data['settle_profit'] : null;
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
-        $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
+        $this->container['realised_pnl'] = isset($data['realised_pnl']) ? $data['realised_pnl'] : null;
     }
 
     /**
@@ -254,14 +233,6 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'role', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -279,49 +250,49 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets time
      *
-     * @return int|null
+     * @return double|null
      */
-    public function getId()
+    public function getTime()
     {
-        return $this->container['id'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets id
+     * Sets time
      *
-     * @param int|null $id Trade ID
+     * @param double|null $time Settlement time
      *
      * @return $this
      */
-    public function setId($id)
+    public function setTime($time)
     {
-        $this->container['id'] = $id;
+        $this->container['time'] = $time;
 
         return $this;
     }
 
     /**
-     * Gets create_time
+     * Gets underlying
      *
-     * @return double|null
+     * @return string|null
      */
-    public function getCreateTime()
+    public function getUnderlying()
     {
-        return $this->container['create_time'];
+        return $this->container['underlying'];
     }
 
     /**
-     * Sets create_time
+     * Sets underlying
      *
-     * @param double|null $create_time Trading time
+     * @param string|null $underlying Underlying
      *
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setUnderlying($underlying)
     {
-        $this->container['create_time'] = $create_time;
+        $this->container['underlying'] = $underlying;
 
         return $this;
     }
@@ -351,25 +322,49 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets order_id
+     * Gets strike_price
      *
      * @return string|null
      */
-    public function getOrderId()
+    public function getStrikePrice()
     {
-        return $this->container['order_id'];
+        return $this->container['strike_price'];
     }
 
     /**
-     * Sets order_id
+     * Sets strike_price
      *
-     * @param string|null $order_id Order ID related
+     * @param string|null $strike_price Strike price
      *
      * @return $this
      */
-    public function setOrderId($order_id)
+    public function setStrikePrice($strike_price)
     {
-        $this->container['order_id'] = $order_id;
+        $this->container['strike_price'] = $strike_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets settle_price
+     *
+     * @return string|null
+     */
+    public function getSettlePrice()
+    {
+        return $this->container['settle_price'];
+    }
+
+    /**
+     * Sets settle_price
+     *
+     * @param string|null $settle_price settlement price
+     *
+     * @return $this
+     */
+    public function setSettlePrice($settle_price)
+    {
+        $this->container['settle_price'] = $settle_price;
 
         return $this;
     }
@@ -387,7 +382,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Trading size
+     * @param int|null $size Size
      *
      * @return $this
      */
@@ -399,82 +394,25 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets price
+     * Gets settle_profit
      *
      * @return string|null
      */
-    public function getPrice()
+    public function getSettleProfit()
     {
-        return $this->container['price'];
+        return $this->container['settle_profit'];
     }
 
     /**
-     * Sets price
+     * Sets settle_profit
      *
-     * @param string|null $price Trading price
+     * @param string|null $settle_profit Settlement profit
      *
      * @return $this
      */
-    public function setPrice($price)
+    public function setSettleProfit($settle_profit)
     {
-        $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets role
-     *
-     * @return string|null
-     */
-    public function getRole()
-    {
-        return $this->container['role'];
-    }
-
-    /**
-     * Sets role
-     *
-     * @param string|null $role Trade role. Available values are `taker` and `maker`
-     *
-     * @return $this
-     */
-    public function setRole($role)
-    {
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'role', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['role'] = $role;
-
-        return $this;
-    }
-
-    /**
-     * Gets text
-     *
-     * @return string|null
-     */
-    public function getText()
-    {
-        return $this->container['text'];
-    }
-
-    /**
-     * Sets text
-     *
-     * @param string|null $text User defined information
-     *
-     * @return $this
-     */
-    public function setText($text)
-    {
-        $this->container['text'] = $text;
+        $this->container['settle_profit'] = $settle_profit;
 
         return $this;
     }
@@ -492,7 +430,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee Fee deducted
+     * @param string|null $fee Fee
      *
      * @return $this
      */
@@ -504,25 +442,25 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets point_fee
+     * Gets realised_pnl
      *
      * @return string|null
      */
-    public function getPointFee()
+    public function getRealisedPnl()
     {
-        return $this->container['point_fee'];
+        return $this->container['realised_pnl'];
     }
 
     /**
-     * Sets point_fee
+     * Sets realised_pnl
      *
-     * @param string|null $point_fee Points used to deduct fee
+     * @param string|null $realised_pnl The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc.
      *
      * @return $this
      */
-    public function setPointFee($point_fee)
+    public function setRealisedPnl($realised_pnl)
     {
-        $this->container['point_fee'] = $point_fee;
+        $this->container['realised_pnl'] = $realised_pnl;
 
         return $this;
     }

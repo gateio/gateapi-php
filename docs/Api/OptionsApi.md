@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getOptionsContract**](OptionsApi.md#getOptionsContract) | **GET** /options/contracts/{contract} | Query specified contract detail
 [**listOptionsSettlements**](OptionsApi.md#listOptionsSettlements) | **GET** /options/settlements | List settlement history
 [**getOptionsSettlement**](OptionsApi.md#getOptionsSettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement
+[**listMyOptionsSettlements**](OptionsApi.md#listMyOptionsSettlements) | **GET** /options/my_settlements | List my options settlements
 [**listOptionsOrderBook**](OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Futures order book
 [**listOptionsTickers**](OptionsApi.md#listOptionsTickers) | **GET** /options/tickers | List tickers of options contracts
 [**listOptionsUnderlyingTickers**](OptionsApi.md#listOptionsUnderlyingTickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker
@@ -368,6 +369,78 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listMyOptionsSettlements
+
+> \GateApi\Model\OptionsMySettlements[] listMyOptionsSettlements($underlying, $contract, $limit, $offset, $from, $to)
+
+List my options settlements
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\OptionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying
+$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Contract name
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+$associate_array['from'] = 1547706332; // int | Start timestamp
+$associate_array['to'] = 1547706332; // int | End timestamp
+
+try {
+    $result = $apiInstance->listMyOptionsSettlements($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling OptionsApi->listMyOptionsSettlements: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **underlying** | **string**| Underlying |
+ **contract** | **string**| Contract name | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **int**| Start timestamp | [optional]
+ **to** | **int**| End timestamp | [optional]
+
+### Return type
+
+[**\GateApi\Model\OptionsMySettlements[]**](../Model/OptionsMySettlements.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
 
 ### HTTP request headers
 

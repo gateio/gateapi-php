@@ -59,6 +59,8 @@ class Ticker implements ModelInterface, ArrayAccess
         'lowest_ask' => 'string',
         'highest_bid' => 'string',
         'change_percentage' => 'string',
+        'change_utc0' => 'string',
+        'change_utc8' => 'string',
         'base_volume' => 'string',
         'quote_volume' => 'string',
         'high_24h' => 'string',
@@ -80,6 +82,8 @@ class Ticker implements ModelInterface, ArrayAccess
         'lowest_ask' => null,
         'highest_bid' => null,
         'change_percentage' => null,
+        'change_utc0' => null,
+        'change_utc8' => null,
         'base_volume' => null,
         'quote_volume' => null,
         'high_24h' => null,
@@ -122,6 +126,8 @@ class Ticker implements ModelInterface, ArrayAccess
         'lowest_ask' => 'lowest_ask',
         'highest_bid' => 'highest_bid',
         'change_percentage' => 'change_percentage',
+        'change_utc0' => 'change_utc0',
+        'change_utc8' => 'change_utc8',
         'base_volume' => 'base_volume',
         'quote_volume' => 'quote_volume',
         'high_24h' => 'high_24h',
@@ -143,6 +149,8 @@ class Ticker implements ModelInterface, ArrayAccess
         'lowest_ask' => 'setLowestAsk',
         'highest_bid' => 'setHighestBid',
         'change_percentage' => 'setChangePercentage',
+        'change_utc0' => 'setChangeUtc0',
+        'change_utc8' => 'setChangeUtc8',
         'base_volume' => 'setBaseVolume',
         'quote_volume' => 'setQuoteVolume',
         'high_24h' => 'setHigh24h',
@@ -164,6 +172,8 @@ class Ticker implements ModelInterface, ArrayAccess
         'lowest_ask' => 'getLowestAsk',
         'highest_bid' => 'getHighestBid',
         'change_percentage' => 'getChangePercentage',
+        'change_utc0' => 'getChangeUtc0',
+        'change_utc8' => 'getChangeUtc8',
         'base_volume' => 'getBaseVolume',
         'quote_volume' => 'getQuoteVolume',
         'high_24h' => 'getHigh24h',
@@ -239,6 +249,8 @@ class Ticker implements ModelInterface, ArrayAccess
         $this->container['lowest_ask'] = isset($data['lowest_ask']) ? $data['lowest_ask'] : null;
         $this->container['highest_bid'] = isset($data['highest_bid']) ? $data['highest_bid'] : null;
         $this->container['change_percentage'] = isset($data['change_percentage']) ? $data['change_percentage'] : null;
+        $this->container['change_utc0'] = isset($data['change_utc0']) ? $data['change_utc0'] : null;
+        $this->container['change_utc8'] = isset($data['change_utc8']) ? $data['change_utc8'] : null;
         $this->container['base_volume'] = isset($data['base_volume']) ? $data['base_volume'] : null;
         $this->container['quote_volume'] = isset($data['quote_volume']) ? $data['quote_volume'] : null;
         $this->container['high_24h'] = isset($data['high_24h']) ? $data['high_24h'] : null;
@@ -389,6 +401,54 @@ class Ticker implements ModelInterface, ArrayAccess
     public function setChangePercentage($change_percentage)
     {
         $this->container['change_percentage'] = $change_percentage;
+
+        return $this;
+    }
+
+    /**
+     * Gets change_utc0
+     *
+     * @return string|null
+     */
+    public function getChangeUtc0()
+    {
+        return $this->container['change_utc0'];
+    }
+
+    /**
+     * Sets change_utc0
+     *
+     * @param string|null $change_utc0 utc0 timezone, the percentage change in the last 24 hours
+     *
+     * @return $this
+     */
+    public function setChangeUtc0($change_utc0)
+    {
+        $this->container['change_utc0'] = $change_utc0;
+
+        return $this;
+    }
+
+    /**
+     * Gets change_utc8
+     *
+     * @return string|null
+     */
+    public function getChangeUtc8()
+    {
+        return $this->container['change_utc8'];
+    }
+
+    /**
+     * Sets change_utc8
+     *
+     * @param string|null $change_utc8 utc8 timezone, the percentage change in the last 24 hours
+     *
+     * @return $this
+     */
+    public function setChangeUtc8($change_utc8)
+    {
+        $this->container['change_utc8'] = $change_utc8;
 
         return $this;
     }

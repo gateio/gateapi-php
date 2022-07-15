@@ -7959,7 +7959,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrder
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7977,7 +7977,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderWithHttpInfo
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -8032,7 +8032,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderAsync
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -8053,7 +8053,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderAsyncWithHttpInfo
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)

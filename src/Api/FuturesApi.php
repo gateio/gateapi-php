@@ -10632,7 +10632,7 @@ class FuturesApi
     /**
      * Operation cancelPriceTriggeredOrder
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -10650,7 +10650,7 @@ class FuturesApi
     /**
      * Operation cancelPriceTriggeredOrderWithHttpInfo
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -10705,7 +10705,7 @@ class FuturesApi
     /**
      * Operation cancelPriceTriggeredOrderAsync
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -10726,7 +10726,7 @@ class FuturesApi
     /**
      * Operation cancelPriceTriggeredOrderAsyncWithHttpInfo
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)

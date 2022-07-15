@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**listSpotAccounts**](SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot accounts
 [**createBatchOrders**](SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders
 [**listAllOpenOrders**](SpotApi.md#listAllOpenOrders) | **GET** /spot/open_orders | List all open orders
+[**createCrossLiquidateOrder**](SpotApi.md#createCrossLiquidateOrder) | **POST** /spot/cross_liquidate_orders | close position when cross-currency is disabled
 [**listOrders**](SpotApi.md#listOrders) | **GET** /spot/orders | List orders
 [**createOrder**](SpotApi.md#createOrder) | **POST** /spot/orders | Create an order
 [**cancelOrders**](SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
@@ -23,11 +24,12 @@ Method | HTTP request | Description
 [**getOrder**](SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
 [**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 [**listMyTrades**](SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
+[**getSystemTime**](SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time
 [**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
 [**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
 [**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
 [**getSpotPriceTriggeredOrder**](SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a single order
-[**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel a single order
+[**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | cancel a price-triggered order
 
 
 ## listCurrencies
@@ -250,7 +252,7 @@ No authorization required
 
 ## listTickers
 
-> \GateApi\Model\Ticker[] listTickers($currency_pair)
+> \GateApi\Model\Ticker[] listTickers($currency_pair, $timezone)
 
 Retrieve ticker information
 
@@ -269,6 +271,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client()
 );
 $associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
+$associate_array['timezone'] = 'utc0'; // string | Timezone
 
 try {
     $result = $apiInstance->listTickers($associate_array);
@@ -289,6 +292,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Currency pair | [optional]
+ **timezone** | **string**| Timezone | [optional]
 
 ### Return type
 
@@ -728,7 +732,7 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one page in each currency pair
-$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 
 try {
     $result = $apiInstance->listAllOpenOrders($associate_array);
@@ -750,7 +754,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records returned in one page in each currency pair | [optional] [default to 100]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -763,6 +767,68 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createCrossLiquidateOrder
+
+> \GateApi\Model\Order createCrossLiquidateOrder($liquidate_order)
+
+close position when cross-currency is disabled
+
+Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity = (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$liquidate_order = new \GateApi\Model\LiquidateOrder(); // \GateApi\Model\LiquidateOrder | 
+
+try {
+    $result = $apiInstance->createCrossLiquidateOrder($liquidate_order);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->createCrossLiquidateOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **liquidate_order** | [**\GateApi\Model\LiquidateOrder**](../Model/LiquidateOrder.md)|  |
+
+### Return type
+
+[**\GateApi\Model\Order**](../Model/Order.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -798,7 +864,7 @@ $associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results wit
 $associate_array['status'] = 'open'; // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100
-$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 $associate_array['from'] = 1627706330; // int | Start timestamp of the query
 $associate_array['to'] = 1635329650; // int | Time range ending, default to current time
 $associate_array['side'] = 'sell'; // string | All bids or asks. Both included if not specified
@@ -825,7 +891,7 @@ Name | Type | Description  | Notes
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled |
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
  **from** | **int**| Start timestamp of the query | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **side** | **string**| All bids or asks. Both included if not specified | [optional]
@@ -936,7 +1002,7 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $side = 'sell'; // string | All bids or asks. Both included if not specified
-$account = 'spot'; // string | Specify account type. Default to all account types being included
+$account = 'spot'; // string | Specify account type  - classic account：Default to all account types being included   - portfolio margin account：`cross_margin` only
 
 try {
     $result = $apiInstance->cancelOrders($currency_pair, $side, $account);
@@ -956,7 +1022,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Currency pair |
  **side** | **string**| All bids or asks. Both included if not specified | [optional]
- **account** | **string**| Specify account type. Default to all account types being included | [optional]
+ **account** | **string**| Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -1044,7 +1110,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Spot and margin orders are queried by default. If cross margin orders are needed, `account` must be set to `cross_margin`
+Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
 
 ### Example
 
@@ -1064,7 +1130,7 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
 $currency_pair = 'BTC_USDT'; // string | Currency pair
-$account = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+$account = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 
 try {
     $result = $apiInstance->getOrder($order_id, $currency_pair, $account);
@@ -1084,7 +1150,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currency_pair** | **string**| Currency pair |
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -1110,7 +1176,7 @@ Name | Type | Description  | Notes
 
 Cancel a single order
 
-Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, `account` must be set to `cross_margin`
+Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
 
 ### Example
 
@@ -1130,7 +1196,7 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
 $currency_pair = 'BTC_USDT'; // string | Currency pair
-$account = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+$account = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 
 try {
     $result = $apiInstance->cancelOrder($order_id, $currency_pair, $account);
@@ -1150,7 +1216,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currency_pair** | **string**| Currency pair |
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -1198,7 +1264,7 @@ $associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results wit
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['page'] = 1; // int | Page number
 $associate_array['order_id'] = '12345'; // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present
-$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 $associate_array['from'] = 1627706330; // int | Start timestamp of the query
 $associate_array['to'] = 1635329650; // int | Time range ending, default to current time
 
@@ -1224,7 +1290,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **page** | **int**| Page number | [optional] [default to 1]
  **order_id** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
  **from** | **int**| Start timestamp of the query | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
 
@@ -1235,6 +1301,58 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getSystemTime
+
+> \GateApi\Model\SystemTime getSystemTime()
+
+Get server current time
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->getSystemTime();
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->getSystemTime: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\GateApi\Model\SystemTime**](../Model/SystemTime.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -1502,7 +1620,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SpotPriceTriggeredOrder cancelSpotPriceTriggeredOrder($order_id)
 
-Cancel a single order
+cancel a price-triggered order
 
 ### Example
 

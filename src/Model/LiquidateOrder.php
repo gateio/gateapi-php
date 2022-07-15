@@ -1,6 +1,6 @@
 <?php
 /**
- * CancelOrder
+ * LiquidateOrder
  *
  * PHP version 7
  *
@@ -30,15 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CancelOrder Class Doc Comment
+ * LiquidateOrder Class Doc Comment
  *
  * @category    Class
- * @description Info of order to be cancelled
+ * @description Liquidate Order detail
  * @package     GateApi
  * @author      GateIO
  * @link        https://www.gate.io
  */
-class CancelOrder implements ModelInterface, ArrayAccess
+class LiquidateOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CancelOrder';
+    protected static $openAPIModelName = 'LiquidateOrder';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -55,9 +55,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
+        'text' => 'string',
         'currency_pair' => 'string',
-        'id' => 'string',
-        'account' => 'string'
+        'amount' => 'string',
+        'price' => 'string'
     ];
 
     /**
@@ -66,9 +67,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
+        'text' => null,
         'currency_pair' => null,
-        'id' => null,
-        'account' => null
+        'amount' => null,
+        'price' => null
     ];
 
     /**
@@ -98,9 +100,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'text' => 'text',
         'currency_pair' => 'currency_pair',
-        'id' => 'id',
-        'account' => 'account'
+        'amount' => 'amount',
+        'price' => 'price'
     ];
 
     /**
@@ -109,9 +112,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'text' => 'setText',
         'currency_pair' => 'setCurrencyPair',
-        'id' => 'setId',
-        'account' => 'setAccount'
+        'amount' => 'setAmount',
+        'price' => 'setPrice'
     ];
 
     /**
@@ -120,9 +124,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'text' => 'getText',
         'currency_pair' => 'getCurrencyPair',
-        'id' => 'getId',
-        'account' => 'getAccount'
+        'amount' => 'getAmount',
+        'price' => 'getPrice'
     ];
 
     /**
@@ -185,9 +190,10 @@ class CancelOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
     }
 
     /**
@@ -202,8 +208,11 @@ class CancelOrder implements ModelInterface, ArrayAccess
         if ($this->container['currency_pair'] === null) {
             $invalidProperties[] = "'currency_pair' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
         }
         return $invalidProperties;
     }
@@ -221,6 +230,30 @@ class CancelOrder implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
      * Gets currency_pair
      *
      * @return string
@@ -233,7 +266,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string $currency_pair Order currency pair
+     * @param string $currency_pair Currency pair
      *
      * @return $this
      */
@@ -245,49 +278,49 @@ class CancelOrder implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets id
+     * Gets amount
      *
      * @return string
      */
-    public function getId()
+    public function getAmount()
     {
-        return $this->container['id'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets id
+     * Sets amount
      *
-     * @param string $id Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation
+     * @param string $amount Trade amount
      *
      * @return $this
      */
-    public function setId($id)
+    public function setAmount($amount)
     {
-        $this->container['id'] = $id;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets account
+     * Gets price
      *
-     * @return string|null
+     * @return string
      */
-    public function getAccount()
+    public function getPrice()
     {
-        return $this->container['account'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets account
+     * Sets price
      *
-     * @param string|null $account If cancelled order is cross margin order or is portfolio margin account's API key, this field must be set and can only be `cross_margin`If cancelled order is cross margin order, this field must be set and can only be `cross_margin`
+     * @param string $price Order price
      *
      * @return $this
      */
-    public function setAccount($account)
+    public function setPrice($price)
     {
-        $this->container['account'] = $account;
+        $this->container['price'] = $price;
 
         return $this;
     }

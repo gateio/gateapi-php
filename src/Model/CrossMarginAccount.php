@@ -60,7 +60,13 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total' => 'string',
         'borrowed' => 'string',
         'interest' => 'string',
-        'risk' => 'string'
+        'risk' => 'string',
+        'total_initial_margin' => 'string',
+        'total_margin_balance' => 'string',
+        'total_maintenance_margin' => 'string',
+        'total_initial_margin_rate' => 'string',
+        'total_maintenance_margin_rate' => 'string',
+        'total_available_margin' => 'string'
     ];
 
     /**
@@ -75,7 +81,13 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total' => null,
         'borrowed' => null,
         'interest' => null,
-        'risk' => null
+        'risk' => null,
+        'total_initial_margin' => null,
+        'total_margin_balance' => null,
+        'total_maintenance_margin' => null,
+        'total_initial_margin_rate' => null,
+        'total_maintenance_margin_rate' => null,
+        'total_available_margin' => null
     ];
 
     /**
@@ -111,7 +123,13 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total' => 'total',
         'borrowed' => 'borrowed',
         'interest' => 'interest',
-        'risk' => 'risk'
+        'risk' => 'risk',
+        'total_initial_margin' => 'total_initial_margin',
+        'total_margin_balance' => 'total_margin_balance',
+        'total_maintenance_margin' => 'total_maintenance_margin',
+        'total_initial_margin_rate' => 'total_initial_margin_rate',
+        'total_maintenance_margin_rate' => 'total_maintenance_margin_rate',
+        'total_available_margin' => 'total_available_margin'
     ];
 
     /**
@@ -126,7 +144,13 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total' => 'setTotal',
         'borrowed' => 'setBorrowed',
         'interest' => 'setInterest',
-        'risk' => 'setRisk'
+        'risk' => 'setRisk',
+        'total_initial_margin' => 'setTotalInitialMargin',
+        'total_margin_balance' => 'setTotalMarginBalance',
+        'total_maintenance_margin' => 'setTotalMaintenanceMargin',
+        'total_initial_margin_rate' => 'setTotalInitialMarginRate',
+        'total_maintenance_margin_rate' => 'setTotalMaintenanceMarginRate',
+        'total_available_margin' => 'setTotalAvailableMargin'
     ];
 
     /**
@@ -141,7 +165,13 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total' => 'getTotal',
         'borrowed' => 'getBorrowed',
         'interest' => 'getInterest',
-        'risk' => 'getRisk'
+        'risk' => 'getRisk',
+        'total_initial_margin' => 'getTotalInitialMargin',
+        'total_margin_balance' => 'getTotalMarginBalance',
+        'total_maintenance_margin' => 'getTotalMaintenanceMargin',
+        'total_initial_margin_rate' => 'getTotalInitialMarginRate',
+        'total_maintenance_margin_rate' => 'getTotalMaintenanceMarginRate',
+        'total_available_margin' => 'getTotalAvailableMargin'
     ];
 
     /**
@@ -211,6 +241,12 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         $this->container['borrowed'] = isset($data['borrowed']) ? $data['borrowed'] : null;
         $this->container['interest'] = isset($data['interest']) ? $data['interest'] : null;
         $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
+        $this->container['total_initial_margin'] = isset($data['total_initial_margin']) ? $data['total_initial_margin'] : null;
+        $this->container['total_margin_balance'] = isset($data['total_margin_balance']) ? $data['total_margin_balance'] : null;
+        $this->container['total_maintenance_margin'] = isset($data['total_maintenance_margin']) ? $data['total_maintenance_margin'] : null;
+        $this->container['total_initial_margin_rate'] = isset($data['total_initial_margin_rate']) ? $data['total_initial_margin_rate'] : null;
+        $this->container['total_maintenance_margin_rate'] = isset($data['total_maintenance_margin_rate']) ? $data['total_maintenance_margin_rate'] : null;
+        $this->container['total_available_margin'] = isset($data['total_available_margin']) ? $data['total_available_margin'] : null;
     }
 
     /**
@@ -401,6 +437,150 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
     public function setRisk($risk)
     {
         $this->container['risk'] = $risk;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_initial_margin
+     *
+     * @return string|null
+     */
+    public function getTotalInitialMargin()
+    {
+        return $this->container['total_initial_margin'];
+    }
+
+    /**
+     * Sets total_initial_margin
+     *
+     * @param string|null $total_initial_margin Total initial margin
+     *
+     * @return $this
+     */
+    public function setTotalInitialMargin($total_initial_margin)
+    {
+        $this->container['total_initial_margin'] = $total_initial_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_margin_balance
+     *
+     * @return string|null
+     */
+    public function getTotalMarginBalance()
+    {
+        return $this->container['total_margin_balance'];
+    }
+
+    /**
+     * Sets total_margin_balance
+     *
+     * @param string|null $total_margin_balance Total margin balance
+     *
+     * @return $this
+     */
+    public function setTotalMarginBalance($total_margin_balance)
+    {
+        $this->container['total_margin_balance'] = $total_margin_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_maintenance_margin
+     *
+     * @return string|null
+     */
+    public function getTotalMaintenanceMargin()
+    {
+        return $this->container['total_maintenance_margin'];
+    }
+
+    /**
+     * Sets total_maintenance_margin
+     *
+     * @param string|null $total_maintenance_margin Total maintenance margin
+     *
+     * @return $this
+     */
+    public function setTotalMaintenanceMargin($total_maintenance_margin)
+    {
+        $this->container['total_maintenance_margin'] = $total_maintenance_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_initial_margin_rate
+     *
+     * @return string|null
+     */
+    public function getTotalInitialMarginRate()
+    {
+        return $this->container['total_initial_margin_rate'];
+    }
+
+    /**
+     * Sets total_initial_margin_rate
+     *
+     * @param string|null $total_initial_margin_rate Total initial margin rate
+     *
+     * @return $this
+     */
+    public function setTotalInitialMarginRate($total_initial_margin_rate)
+    {
+        $this->container['total_initial_margin_rate'] = $total_initial_margin_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_maintenance_margin_rate
+     *
+     * @return string|null
+     */
+    public function getTotalMaintenanceMarginRate()
+    {
+        return $this->container['total_maintenance_margin_rate'];
+    }
+
+    /**
+     * Sets total_maintenance_margin_rate
+     *
+     * @param string|null $total_maintenance_margin_rate Total maintenance margin rate
+     *
+     * @return $this
+     */
+    public function setTotalMaintenanceMarginRate($total_maintenance_margin_rate)
+    {
+        $this->container['total_maintenance_margin_rate'] = $total_maintenance_margin_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_available_margin
+     *
+     * @return string|null
+     */
+    public function getTotalAvailableMargin()
+    {
+        return $this->container['total_available_margin'];
+    }
+
+    /**
+     * Sets total_available_margin
+     *
+     * @param string|null $total_available_margin Total available margin
+     *
+     * @return $this
+     */
+    public function setTotalAvailableMargin($total_available_margin)
+    {
+        $this->container['total_available_margin'] = $total_available_margin;
 
         return $this;
     }

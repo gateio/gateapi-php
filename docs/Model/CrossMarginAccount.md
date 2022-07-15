@@ -11,5 +11,11 @@ Name | Type | Description | Notes
 **borrowed** | **string** | Total borrowed value in USDT, i.e., the sum of all currencies&#39; &#x60;borrowed*price*discount&#x60; | [optional] 
 **interest** | **string** | Total unpaid interests in USDT, i.e., the sum of all currencies&#39; &#x60;interest*price*discount&#x60; | [optional] 
 **risk** | **string** | Risk rate. When it belows 110%, liquidation will be triggered. Calculation formula: &#x60;total / (borrowed+interest)&#x60; | [optional] 
+**total_initial_margin** | **string** | Total initial margin | [optional] 
+**total_margin_balance** | **string** | Total margin balance | [optional] 
+**total_maintenance_margin** | **string** | Total maintenance margin | [optional] 
+**total_initial_margin_rate** | **string** | Total initial margin rate | [optional] 
+**total_maintenance_margin_rate** | **string** | Total maintenance margin rate | [optional] 
+**total_available_margin** | **string** | Total available margin | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

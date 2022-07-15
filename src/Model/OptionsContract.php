@@ -383,7 +383,7 @@ class OptionsContract implements ModelInterface, ArrayAccess
     /**
      * Sets tag
      *
-     * @param string|null $tag 标记
+     * @param string|null $tag tag
      *
      * @return $this
      */

@@ -11,5 +11,8 @@ Name | Type | Description | Notes
 **size** | **int** | Trading size | [optional] 
 **price** | **string** | Trading price | [optional] 
 **role** | **string** | Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60; | [optional] 
+**text** | **string** | User defined information | [optional] 
+**fee** | **string** | Fee deducted | [optional] 
+**point_fee** | **string** | Points used to deduct fee | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

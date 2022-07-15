@@ -194,6 +194,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     const DIRECTION_FROM = 'from';
     const SUB_ACCOUNT_TYPE_SPOT = 'spot';
     const SUB_ACCOUNT_TYPE_FUTURES = 'futures';
+    const SUB_ACCOUNT_TYPE_CROSS_MARGIN = 'cross_margin';
     
 
     
@@ -220,6 +221,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         return [
             self::SUB_ACCOUNT_TYPE_SPOT,
             self::SUB_ACCOUNT_TYPE_FUTURES,
+            self::SUB_ACCOUNT_TYPE_CROSS_MARGIN,
         ];
     }
     
@@ -491,7 +493,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets sub_account_type
      *
-     * @param string|null $sub_account_type Target sub user's account. `spot` - spot account, `futures` - perpetual contract account
+     * @param string|null $sub_account_type Target sub user's account. `spot` - spot account, `futures` - perpetual contract account, `cross_margin` - cross margin account
      *
      * @return $this
      */

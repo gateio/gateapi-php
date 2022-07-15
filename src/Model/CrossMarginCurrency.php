@@ -61,7 +61,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => 'string',
         'user_max_borrow_amount' => 'string',
         'total_max_borrow_amount' => 'string',
-        'price' => 'string'
+        'price' => 'string',
+        'status' => 'int'
     ];
 
     /**
@@ -77,7 +78,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => null,
         'user_max_borrow_amount' => null,
         'total_max_borrow_amount' => null,
-        'price' => null
+        'price' => null,
+        'status' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => 'min_borrow_amount',
         'user_max_borrow_amount' => 'user_max_borrow_amount',
         'total_max_borrow_amount' => 'total_max_borrow_amount',
-        'price' => 'price'
+        'price' => 'price',
+        'status' => 'status'
     ];
 
     /**
@@ -130,7 +133,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => 'setMinBorrowAmount',
         'user_max_borrow_amount' => 'setUserMaxBorrowAmount',
         'total_max_borrow_amount' => 'setTotalMaxBorrowAmount',
-        'price' => 'setPrice'
+        'price' => 'setPrice',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -146,7 +150,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => 'getMinBorrowAmount',
         'user_max_borrow_amount' => 'getUserMaxBorrowAmount',
         'total_max_borrow_amount' => 'getTotalMaxBorrowAmount',
-        'price' => 'getPrice'
+        'price' => 'getPrice',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -217,6 +222,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         $this->container['user_max_borrow_amount'] = isset($data['user_max_borrow_amount']) ? $data['user_max_borrow_amount'] : null;
         $this->container['total_max_borrow_amount'] = isset($data['total_max_borrow_amount']) ? $data['total_max_borrow_amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -431,6 +437,30 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int|null $status status  - `0` : disable  - `1` : enable
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

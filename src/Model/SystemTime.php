@@ -1,6 +1,6 @@
 <?php
 /**
- * CancelOrder
+ * SystemTime
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CancelOrder Class Doc Comment
+ * SystemTime Class Doc Comment
  *
- * @category    Class
- * @description Info of order to be cancelled
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
-class CancelOrder implements ModelInterface, ArrayAccess
+class SystemTime implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CancelOrder';
+    protected static $openAPIModelName = 'SystemTime';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -55,9 +54,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'currency_pair' => 'string',
-        'id' => 'string',
-        'account' => 'string'
+        'server_time' => 'int'
     ];
 
     /**
@@ -66,9 +63,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'currency_pair' => null,
-        'id' => null,
-        'account' => null
+        'server_time' => 'int64'
     ];
 
     /**
@@ -98,9 +93,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_pair' => 'currency_pair',
-        'id' => 'id',
-        'account' => 'account'
+        'server_time' => 'server_time'
     ];
 
     /**
@@ -109,9 +102,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency_pair' => 'setCurrencyPair',
-        'id' => 'setId',
-        'account' => 'setAccount'
+        'server_time' => 'setServerTime'
     ];
 
     /**
@@ -120,9 +111,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency_pair' => 'getCurrencyPair',
-        'id' => 'getId',
-        'account' => 'getAccount'
+        'server_time' => 'getServerTime'
     ];
 
     /**
@@ -185,9 +174,7 @@ class CancelOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['server_time'] = isset($data['server_time']) ? $data['server_time'] : null;
     }
 
     /**
@@ -199,12 +186,6 @@ class CancelOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency_pair'] === null) {
-            $invalidProperties[] = "'currency_pair' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,73 +202,25 @@ class CancelOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency_pair
+     * Gets server_time
      *
-     * @return string
+     * @return int|null
      */
-    public function getCurrencyPair()
+    public function getServerTime()
     {
-        return $this->container['currency_pair'];
+        return $this->container['server_time'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets server_time
      *
-     * @param string $currency_pair Order currency pair
+     * @param int|null $server_time Server current time(ms)
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setServerTime($server_time)
     {
-        $this->container['currency_pair'] = $currency_pair;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets account
-     *
-     * @return string|null
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param string|null $account If cancelled order is cross margin order or is portfolio margin account's API key, this field must be set and can only be `cross_margin`If cancelled order is cross margin order, this field must be set and can only be `cross_margin`
-     *
-     * @return $this
-     */
-    public function setAccount($account)
-    {
-        $this->container['account'] = $account;
+        $this->container['server_time'] = $server_time;
 
         return $this;
     }

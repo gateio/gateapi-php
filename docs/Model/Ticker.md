@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **lowest_ask** | **string** | Recent lowest ask | [optional] 
 **highest_bid** | **string** | Recent highest bid | [optional] 
 **change_percentage** | **string** | Change percentage in the last 24h | [optional] 
+**change_utc0** | **string** | utc0 timezone, the percentage change in the last 24 hours | [optional] 
+**change_utc8** | **string** | utc8 timezone, the percentage change in the last 24 hours | [optional] 
 **base_volume** | **string** | Base currency trade volume in the last 24h | [optional] 
 **quote_volume** | **string** | Quote currency trade volume in the last 24h | [optional] 
 **high_24h** | **string** | Highest price in 24h | [optional] 

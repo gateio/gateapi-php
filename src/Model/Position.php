@@ -67,6 +67,8 @@ class Position implements ModelInterface, ArrayAccess
         'entry_price' => 'string',
         'liq_price' => 'string',
         'mark_price' => 'string',
+        'initial_margin' => 'string',
+        'maintenance_margin' => 'string',
         'unrealised_pnl' => 'string',
         'realised_pnl' => 'string',
         'history_pnl' => 'string',
@@ -98,6 +100,8 @@ class Position implements ModelInterface, ArrayAccess
         'entry_price' => null,
         'liq_price' => null,
         'mark_price' => null,
+        'initial_margin' => null,
+        'maintenance_margin' => null,
         'unrealised_pnl' => null,
         'realised_pnl' => null,
         'history_pnl' => null,
@@ -150,6 +154,8 @@ class Position implements ModelInterface, ArrayAccess
         'entry_price' => 'entry_price',
         'liq_price' => 'liq_price',
         'mark_price' => 'mark_price',
+        'initial_margin' => 'initial_margin',
+        'maintenance_margin' => 'maintenance_margin',
         'unrealised_pnl' => 'unrealised_pnl',
         'realised_pnl' => 'realised_pnl',
         'history_pnl' => 'history_pnl',
@@ -181,6 +187,8 @@ class Position implements ModelInterface, ArrayAccess
         'entry_price' => 'setEntryPrice',
         'liq_price' => 'setLiqPrice',
         'mark_price' => 'setMarkPrice',
+        'initial_margin' => 'setInitialMargin',
+        'maintenance_margin' => 'setMaintenanceMargin',
         'unrealised_pnl' => 'setUnrealisedPnl',
         'realised_pnl' => 'setRealisedPnl',
         'history_pnl' => 'setHistoryPnl',
@@ -212,6 +220,8 @@ class Position implements ModelInterface, ArrayAccess
         'entry_price' => 'getEntryPrice',
         'liq_price' => 'getLiqPrice',
         'mark_price' => 'getMarkPrice',
+        'initial_margin' => 'getInitialMargin',
+        'maintenance_margin' => 'getMaintenanceMargin',
         'unrealised_pnl' => 'getUnrealisedPnl',
         'realised_pnl' => 'getRealisedPnl',
         'history_pnl' => 'getHistoryPnl',
@@ -314,6 +324,8 @@ class Position implements ModelInterface, ArrayAccess
         $this->container['entry_price'] = isset($data['entry_price']) ? $data['entry_price'] : null;
         $this->container['liq_price'] = isset($data['liq_price']) ? $data['liq_price'] : null;
         $this->container['mark_price'] = isset($data['mark_price']) ? $data['mark_price'] : null;
+        $this->container['initial_margin'] = isset($data['initial_margin']) ? $data['initial_margin'] : null;
+        $this->container['maintenance_margin'] = isset($data['maintenance_margin']) ? $data['maintenance_margin'] : null;
         $this->container['unrealised_pnl'] = isset($data['unrealised_pnl']) ? $data['unrealised_pnl'] : null;
         $this->container['realised_pnl'] = isset($data['realised_pnl']) ? $data['realised_pnl'] : null;
         $this->container['history_pnl'] = isset($data['history_pnl']) ? $data['history_pnl'] : null;
@@ -643,6 +655,54 @@ class Position implements ModelInterface, ArrayAccess
     public function setMarkPrice($mark_price)
     {
         $this->container['mark_price'] = $mark_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets initial_margin
+     *
+     * @return string|null
+     */
+    public function getInitialMargin()
+    {
+        return $this->container['initial_margin'];
+    }
+
+    /**
+     * Sets initial_margin
+     *
+     * @param string|null $initial_margin The initial margin occupied by the position, applicable to the portfolio margin account
+     *
+     * @return $this
+     */
+    public function setInitialMargin($initial_margin)
+    {
+        $this->container['initial_margin'] = $initial_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance_margin
+     *
+     * @return string|null
+     */
+    public function getMaintenanceMargin()
+    {
+        return $this->container['maintenance_margin'];
+    }
+
+    /**
+     * Sets maintenance_margin
+     *
+     * @param string|null $maintenance_margin Maintenance margin required for the position, applicable to portfolio margin account
+     *
+     * @return $this
+     */
+    public function setMaintenanceMargin($maintenance_margin)
+    {
+        $this->container['maintenance_margin'] = $maintenance_margin;
 
         return $this;
     }
