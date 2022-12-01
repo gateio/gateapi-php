@@ -244,7 +244,7 @@ class OptionsUnderlying implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Spot index price
+     * @param string|null $index_price Spot index price (quote currency)
      *
      * @return $this
      */

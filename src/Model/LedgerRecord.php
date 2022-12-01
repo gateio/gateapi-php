@@ -291,6 +291,9 @@ class LedgerRecord implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['chain'] === null) {
+            $invalidProperties[] = "'chain' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -510,7 +513,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Gets chain
      *
-     * @return string|null
+     * @return string
      */
     public function getChain()
     {
@@ -520,7 +523,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets chain
      *
-     * @param string|null $chain Name of the chain used in withdrawals
+     * @param string $chain Name of the chain used in withdrawals
      *
      * @return $this
      */

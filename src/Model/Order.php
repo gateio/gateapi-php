@@ -79,6 +79,8 @@ class Order implements ModelInterface, ArrayAccess
         'fee_currency' => 'string',
         'point_fee' => 'string',
         'gt_fee' => 'string',
+        'gt_maker_fee' => 'string',
+        'gt_taker_fee' => 'string',
         'gt_discount' => 'bool',
         'rebated_fee' => 'string',
         'rebated_fee_currency' => 'string'
@@ -114,6 +116,8 @@ class Order implements ModelInterface, ArrayAccess
         'fee_currency' => null,
         'point_fee' => null,
         'gt_fee' => null,
+        'gt_maker_fee' => null,
+        'gt_taker_fee' => null,
         'gt_discount' => null,
         'rebated_fee' => null,
         'rebated_fee_currency' => null
@@ -170,6 +174,8 @@ class Order implements ModelInterface, ArrayAccess
         'fee_currency' => 'fee_currency',
         'point_fee' => 'point_fee',
         'gt_fee' => 'gt_fee',
+        'gt_maker_fee' => 'gt_maker_fee',
+        'gt_taker_fee' => 'gt_taker_fee',
         'gt_discount' => 'gt_discount',
         'rebated_fee' => 'rebated_fee',
         'rebated_fee_currency' => 'rebated_fee_currency'
@@ -205,6 +211,8 @@ class Order implements ModelInterface, ArrayAccess
         'fee_currency' => 'setFeeCurrency',
         'point_fee' => 'setPointFee',
         'gt_fee' => 'setGtFee',
+        'gt_maker_fee' => 'setGtMakerFee',
+        'gt_taker_fee' => 'setGtTakerFee',
         'gt_discount' => 'setGtDiscount',
         'rebated_fee' => 'setRebatedFee',
         'rebated_fee_currency' => 'setRebatedFeeCurrency'
@@ -240,6 +248,8 @@ class Order implements ModelInterface, ArrayAccess
         'fee_currency' => 'getFeeCurrency',
         'point_fee' => 'getPointFee',
         'gt_fee' => 'getGtFee',
+        'gt_maker_fee' => 'getGtMakerFee',
+        'gt_taker_fee' => 'getGtTakerFee',
         'gt_discount' => 'getGtDiscount',
         'rebated_fee' => 'getRebatedFee',
         'rebated_fee_currency' => 'getRebatedFeeCurrency'
@@ -290,6 +300,7 @@ class Order implements ModelInterface, ArrayAccess
     const STATUS_CLOSED = 'closed';
     const STATUS_CANCELLED = 'cancelled';
     const TYPE_LIMIT = 'limit';
+    const TYPE_MARKET = 'market';
     const ACCOUNT_SPOT = 'spot';
     const ACCOUNT_MARGIN = 'margin';
     const ACCOUNT_CROSS_MARGIN = 'cross_margin';
@@ -325,6 +336,7 @@ class Order implements ModelInterface, ArrayAccess
     {
         return [
             self::TYPE_LIMIT,
+            self::TYPE_MARKET,
         ];
     }
     
@@ -410,6 +422,8 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['fee_currency'] = isset($data['fee_currency']) ? $data['fee_currency'] : null;
         $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
         $this->container['gt_fee'] = isset($data['gt_fee']) ? $data['gt_fee'] : null;
+        $this->container['gt_maker_fee'] = isset($data['gt_maker_fee']) ? $data['gt_maker_fee'] : null;
+        $this->container['gt_taker_fee'] = isset($data['gt_taker_fee']) ? $data['gt_taker_fee'] : null;
         $this->container['gt_discount'] = isset($data['gt_discount']) ? $data['gt_discount'] : null;
         $this->container['rebated_fee'] = isset($data['rebated_fee']) ? $data['rebated_fee'] : null;
         $this->container['rebated_fee_currency'] = isset($data['rebated_fee_currency']) ? $data['rebated_fee_currency'] : null;
@@ -464,9 +478,6 @@ class Order implements ModelInterface, ArrayAccess
 
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['price'] === null) {
-            $invalidProperties[] = "'price' can't be null";
         }
         $allowedValues = $this->getTimeInForceAllowableValues();
         if (!is_null($this->container['time_in_force']) && !in_array($this->container['time_in_force'], $allowedValues, true)) {
@@ -705,7 +716,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Order type. limit - limit order
+     * @param string|null $type Order Type   - limit : Limit Order - market : Market Order
      *
      * @return $this
      */
@@ -804,7 +815,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Trade amount
+     * @param string $amount When `type` is limit, it refers to base currency.  For instance, `BTC_USDT` means `BTC`  When `type` is `market`, it refers to different currency according to `side`  - `side` : `buy` means quote currency, `BTC_USDT` means `USDT` - `side` : `sell` means base currency，`BTC_USDT` means `BTC`
      *
      * @return $this
      */
@@ -818,7 +829,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets price
      *
-     * @return string
+     * @return string|null
      */
     public function getPrice()
     {
@@ -828,7 +839,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string $price Order price
+     * @param string|null $price Price can't be empty when `type`= `limit`
      *
      * @return $this
      */
@@ -852,7 +863,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets time_in_force
      *
-     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
+     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only `ioc` and `fok` are supported when `type`=`market`
      *
      * @return $this
      */
@@ -1108,6 +1119,54 @@ class Order implements ModelInterface, ArrayAccess
     public function setGtFee($gt_fee)
     {
         $this->container['gt_fee'] = $gt_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets gt_maker_fee
+     *
+     * @return string|null
+     */
+    public function getGtMakerFee()
+    {
+        return $this->container['gt_maker_fee'];
+    }
+
+    /**
+     * Sets gt_maker_fee
+     *
+     * @param string|null $gt_maker_fee GT used to deduct maker fee
+     *
+     * @return $this
+     */
+    public function setGtMakerFee($gt_maker_fee)
+    {
+        $this->container['gt_maker_fee'] = $gt_maker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets gt_taker_fee
+     *
+     * @return string|null
+     */
+    public function getGtTakerFee()
+    {
+        return $this->container['gt_taker_fee'];
+    }
+
+    /**
+     * Sets gt_taker_fee
+     *
+     * @param string|null $gt_taker_fee GT used to deduct taker fee
+     *
+     * @return $this
+     */
+    public function setGtTakerFee($gt_taker_fee)
+    {
+        $this->container['gt_taker_fee'] = $gt_taker_fee;
 
         return $this;
     }

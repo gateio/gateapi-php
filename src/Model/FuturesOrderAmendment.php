@@ -244,7 +244,7 @@ class FuturesOrderAmendment implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price New order price. New price cannot take any orders
+     * @param string|null $price New order price.
      *
      * @return $this
      */

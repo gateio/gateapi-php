@@ -275,7 +275,7 @@ class OptionsUnderlyingTicker implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Index price
+     * @param string|null $index_price Index price (quote currency)
      *
      * @return $this
      */

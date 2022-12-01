@@ -310,7 +310,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Options contract name
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets strike_price
      *
-     * @param string|null $strike_price Strike price
+     * @param string|null $strike_price Strike price (quote currency)
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets settle_price
      *
-     * @param string|null $settle_price settlement price
+     * @param string|null $settle_price Settlement price (quote currency)
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets settle_profit
      *
-     * @param string|null $settle_profit Settlement profit
+     * @param string|null $settle_profit Settlement profit (quote currency)
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee Fee
+     * @param string|null $fee Fee (quote currency)
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets realised_pnl
      *
-     * @param string|null $realised_pnl The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc.
+     * @param string|null $realised_pnl The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc. (quote currency)
      *
      * @return $this
      */

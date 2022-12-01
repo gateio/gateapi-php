@@ -341,7 +341,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets last_price
      *
-     * @param string|null $last_price Last trading price
+     * @param string|null $last_price Last trading price (quote currency)
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price
      *
-     * @param string|null $mark_price Current mark price
+     * @param string|null $mark_price Current mark price (quote currency)
      *
      * @return $this
      */
@@ -389,7 +389,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Current index price
+     * @param string|null $index_price Current index price (quote currency)
      *
      * @return $this
      */

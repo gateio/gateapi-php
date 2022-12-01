@@ -76,7 +76,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'text' => 'string',
         'tkfr' => 'string',
         'mkfr' => 'string',
-        'refu' => 'int'
+        'refu' => 'int',
+        'refr' => 'string'
     ];
 
     /**
@@ -106,7 +107,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'text' => null,
         'tkfr' => null,
         'mkfr' => null,
-        'refu' => null
+        'refu' => null,
+        'refr' => null
     ];
 
     /**
@@ -157,7 +159,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'text' => 'text',
         'tkfr' => 'tkfr',
         'mkfr' => 'mkfr',
-        'refu' => 'refu'
+        'refu' => 'refu',
+        'refr' => 'refr'
     ];
 
     /**
@@ -187,7 +190,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'text' => 'setText',
         'tkfr' => 'setTkfr',
         'mkfr' => 'setMkfr',
-        'refu' => 'setRefu'
+        'refu' => 'setRefu',
+        'refr' => 'setRefr'
     ];
 
     /**
@@ -217,7 +221,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'text' => 'getText',
         'tkfr' => 'getTkfr',
         'mkfr' => 'getMkfr',
-        'refu' => 'getRefu'
+        'refu' => 'getRefu',
+        'refr' => 'getRefr'
     ];
 
     /**
@@ -361,6 +366,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         $this->container['tkfr'] = isset($data['tkfr']) ? $data['tkfr'] : null;
         $this->container['mkfr'] = isset($data['mkfr']) ? $data['mkfr'] : null;
         $this->container['refu'] = isset($data['refu']) ? $data['refu'] : null;
+        $this->container['refr'] = isset($data['refr']) ? $data['refr'] : null;
     }
 
     /**
@@ -664,7 +670,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Order price. 0 for market order with `tif` set as `ioc`
+     * @param string|null $price Order price. 0 for market order with `tif` set as `ioc` (USDT)
      *
      * @return $this
      */
@@ -808,7 +814,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets tif
      *
-     * @param string|null $tif Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+     * @param string|null $tif Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
      *
      * @return $this
      */
@@ -968,6 +974,30 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     public function setRefu($refu)
     {
         $this->container['refu'] = $refu;
+
+        return $this;
+    }
+
+    /**
+     * Gets refr
+     *
+     * @return string|null
+     */
+    public function getRefr()
+    {
+        return $this->container['refr'];
+    }
+
+    /**
+     * Sets refr
+     *
+     * @param string|null $refr Referrer rebate
+     *
+     * @return $this
+     */
+    public function setRefr($refr)
+    {
+        $this->container['refr'] = $refr;
 
         return $this;
     }

@@ -291,7 +291,7 @@ class OptionsPositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Options contract name
      *
      * @return $this
      */

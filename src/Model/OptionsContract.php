@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * OptionsContract Class Doc Comment
  *
  * @category    Class
- * @description Futures contract details
+ * @description Options contract detail
  * @package     GateApi
  * @author      GateIO
  * @link        https://www.gate.io
@@ -359,7 +359,7 @@ class OptionsContract implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Futures contract
+     * @param string|null $name Options contract name
      *
      * @return $this
      */
@@ -527,7 +527,7 @@ class OptionsContract implements ModelInterface, ArrayAccess
     /**
      * Sets underlying_price
      *
-     * @param string|null $underlying_price Underlying price
+     * @param string|null $underlying_price Underlying price (quote currency)
      *
      * @return $this
      */
@@ -575,7 +575,7 @@ class OptionsContract implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price
      *
-     * @param string|null $mark_price Current mark price
+     * @param string|null $mark_price Current mark price (quote currency)
      *
      * @return $this
      */
@@ -599,7 +599,7 @@ class OptionsContract implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Current index price
+     * @param string|null $index_price Current index price (quote currency)
      *
      * @return $this
      */

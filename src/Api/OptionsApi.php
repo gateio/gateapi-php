@@ -330,7 +330,7 @@ class OptionsApi
      *
      * List all expiration times
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -347,7 +347,7 @@ class OptionsApi
      *
      * List all expiration times
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -401,7 +401,7 @@ class OptionsApi
      *
      * List all expiration times
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -421,7 +421,7 @@ class OptionsApi
      *
      * List all expiration times
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -468,7 +468,7 @@ class OptionsApi
     /**
      * Create request for operation 'listOptionsExpirations'
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -572,7 +572,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -592,7 +592,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -649,7 +649,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \InvalidArgumentException
@@ -672,7 +672,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \InvalidArgumentException
@@ -722,7 +722,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \InvalidArgumentException
@@ -1080,7 +1080,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1103,7 +1103,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1163,7 +1163,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1189,7 +1189,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1242,7 +1242,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1415,7 +1415,7 @@ class OptionsApi
      * Get specified contract's settlement
      *
      * @param string $contract   contract (required)
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $at         at (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1434,7 +1434,7 @@ class OptionsApi
      * Get specified contract's settlement
      *
      * @param string $contract   (required)
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $at         (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1490,7 +1490,7 @@ class OptionsApi
      * Get specified contract's settlement
      *
      * @param string $contract   (required)
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $at         (required)
      *
      * @throws \InvalidArgumentException
@@ -1512,7 +1512,7 @@ class OptionsApi
      * Get specified contract's settlement
      *
      * @param string $contract   (required)
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $at         (required)
      *
      * @throws \InvalidArgumentException
@@ -1561,7 +1561,7 @@ class OptionsApi
      * Create request for operation 'getOptionsSettlement'
      *
      * @param string $contract   (required)
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $at         (required)
      *
      * @throws \InvalidArgumentException
@@ -1699,8 +1699,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1723,8 +1723,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1784,8 +1784,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1811,8 +1811,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -1865,8 +1865,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -2052,11 +2052,11 @@ class OptionsApi
     /**
      * Operation listOptionsOrderBook
      *
-     * Futures order book
+     * Options order book
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
      * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
@@ -2074,11 +2074,11 @@ class OptionsApi
     /**
      * Operation listOptionsOrderBookWithHttpInfo
      *
-     * Futures order book
+     * Options order book
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
      * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
@@ -2133,11 +2133,11 @@ class OptionsApi
     /**
      * Operation listOptionsOrderBookAsync
      *
-     * Futures order book
+     * Options order book
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
      * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
@@ -2158,11 +2158,11 @@ class OptionsApi
     /**
      * Operation listOptionsOrderBookAsyncWithHttpInfo
      *
-     * Futures order book
+     * Options order book
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
      * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
@@ -2214,7 +2214,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
      * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
      * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
@@ -2368,7 +2368,7 @@ class OptionsApi
      *
      * List tickers of options contracts
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2385,7 +2385,7 @@ class OptionsApi
      *
      * List tickers of options contracts
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2439,7 +2439,7 @@ class OptionsApi
      *
      * List tickers of options contracts
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2459,7 +2459,7 @@ class OptionsApi
      *
      * List tickers of options contracts
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2506,7 +2506,7 @@ class OptionsApi
     /**
      * Create request for operation 'listOptionsTickers'
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2843,11 +2843,11 @@ class OptionsApi
     /**
      * Operation listOptionsCandlesticks
      *
-     * Get futures candlesticks
+     * Get options candlesticks
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from     Start timestamp (optional)
      * @param int    $to       End timestamp (optional)
@@ -2855,7 +2855,7 @@ class OptionsApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\FuturesCandlestick[]
+     * @return \GateApi\Model\OptionsCandlestick[]
      */
     public function listOptionsCandlesticks($associative_array)
     {
@@ -2866,11 +2866,11 @@ class OptionsApi
     /**
      * Operation listOptionsCandlesticksWithHttpInfo
      *
-     * Get futures candlesticks
+     * Get options candlesticks
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from     Start timestamp (optional)
      * @param int    $to       End timestamp (optional)
@@ -2878,7 +2878,7 @@ class OptionsApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\FuturesCandlestick[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\OptionsCandlestick[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listOptionsCandlesticksWithHttpInfo($associative_array)
     {
@@ -2908,7 +2908,7 @@ class OptionsApi
             );
         }
 
-        $returnType = '\GateApi\Model\FuturesCandlestick[]';
+        $returnType = '\GateApi\Model\OptionsCandlestick[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -2926,11 +2926,11 @@ class OptionsApi
     /**
      * Operation listOptionsCandlesticksAsync
      *
-     * Get futures candlesticks
+     * Get options candlesticks
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from     Start timestamp (optional)
      * @param int    $to       End timestamp (optional)
@@ -2952,11 +2952,11 @@ class OptionsApi
     /**
      * Operation listOptionsCandlesticksAsyncWithHttpInfo
      *
-     * Get futures candlesticks
+     * Get options candlesticks
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from     Start timestamp (optional)
      * @param int    $to       End timestamp (optional)
@@ -2967,7 +2967,7 @@ class OptionsApi
      */
     public function listOptionsCandlesticksAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\FuturesCandlestick[]';
+        $returnType = '\GateApi\Model\OptionsCandlestick[]';
         $request = $this->listOptionsCandlesticksRequest($associative_array);
 
         return $this->client
@@ -3009,7 +3009,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Futures contract (required)
+     * @param string $contract Options contract name (required)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from     Start timestamp (optional)
      * @param int    $to       End timestamp (optional)
@@ -3179,7 +3179,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from       Start timestamp (optional)
      * @param int    $to         End timestamp (optional)
@@ -3202,7 +3202,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from       Start timestamp (optional)
      * @param int    $to         End timestamp (optional)
@@ -3262,7 +3262,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from       Start timestamp (optional)
      * @param int    $to         End timestamp (optional)
@@ -3288,7 +3288,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from       Start timestamp (optional)
      * @param int    $to         End timestamp (optional)
@@ -3341,7 +3341,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $from       Start timestamp (optional)
      * @param int    $to         End timestamp (optional)
@@ -3511,7 +3511,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Contract name (optional)
+     * @param string $contract Options contract name (optional)
      * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
@@ -3535,7 +3535,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Contract name (optional)
+     * @param string $contract Options contract name (optional)
      * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
@@ -3596,7 +3596,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Contract name (optional)
+     * @param string $contract Options contract name (optional)
      * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
@@ -3623,7 +3623,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Contract name (optional)
+     * @param string $contract Options contract name (optional)
      * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
@@ -3677,7 +3677,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Contract name (optional)
+     * @param string $contract Options contract name (optional)
      * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
      * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset   List offset, starting from 0 (optional, default to 0)
@@ -4897,8 +4897,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4917,8 +4917,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4974,8 +4974,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4997,8 +4997,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5047,8 +5047,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5167,12 +5167,12 @@ class OptionsApi
     /**
      * Operation listOptionsOrders
      *
-     * List futures orders
+     * List options orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
@@ -5192,12 +5192,12 @@ class OptionsApi
     /**
      * Operation listOptionsOrdersWithHttpInfo
      *
-     * List futures orders
+     * List options orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
@@ -5254,12 +5254,12 @@ class OptionsApi
     /**
      * Operation listOptionsOrdersAsync
      *
-     * List futures orders
+     * List options orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
@@ -5282,12 +5282,12 @@ class OptionsApi
     /**
      * Operation listOptionsOrdersAsyncWithHttpInfo
      *
-     * List futures orders
+     * List options orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
@@ -5342,7 +5342,7 @@ class OptionsApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
@@ -5778,7 +5778,7 @@ class OptionsApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param string $side       All bids or asks. Both included if not specified (optional)
      *
@@ -5797,7 +5797,7 @@ class OptionsApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param string $side       All bids or asks. Both included if not specified (optional)
      *
@@ -5853,7 +5853,7 @@ class OptionsApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param string $side       All bids or asks. Both included if not specified (optional)
      *
@@ -5875,7 +5875,7 @@ class OptionsApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param string $side       All bids or asks. Both included if not specified (optional)
      *
@@ -5924,7 +5924,7 @@ class OptionsApi
     /**
      * Create request for operation 'cancelOptionsOrders'
      *
-     * @param string $contract   Contract name (optional)
+     * @param string $contract   Options contract name (optional)
      * @param string $underlying Underlying (optional)
      * @param string $side       All bids or asks. Both included if not specified (optional)
      *
@@ -6531,8 +6531,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -6555,8 +6555,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -6616,8 +6616,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -6643,8 +6643,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)
@@ -6697,8 +6697,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (required)
-     * @param string $contract   Contract name (optional)
+     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param string $contract   Options contract name (optional)
      * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $offset     List offset, starting from 0 (optional, default to 0)
      * @param int    $from       Start timestamp (optional)

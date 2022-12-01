@@ -1595,7 +1595,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
@@ -1620,7 +1620,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
@@ -1682,7 +1682,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
@@ -1710,7 +1710,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
@@ -1765,7 +1765,7 @@ class SpotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
      * @param int    $from          Start timestamp of the query (optional)
@@ -4707,7 +4707,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -4726,7 +4726,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -4782,7 +4782,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -4804,7 +4804,7 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -4853,7 +4853,7 @@ class SpotApi
     /**
      * Create request for operation 'getOrder'
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -4987,7 +4987,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -5006,7 +5006,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -5062,7 +5062,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -5084,7 +5084,7 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -5133,7 +5133,7 @@ class SpotApi
     /**
      * Create request for operation 'cancelOrder'
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param string $currency_pair Currency pair (required)
      * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
@@ -5269,7 +5269,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param string $currency_pair Retrieve results with specified currency pair (optional)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
@@ -5294,7 +5294,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param string $currency_pair Retrieve results with specified currency pair (optional)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
@@ -5356,7 +5356,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param string $currency_pair Retrieve results with specified currency pair (optional)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
@@ -5384,7 +5384,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param string $currency_pair Retrieve results with specified currency pair (optional)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
@@ -5439,7 +5439,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param string $currency_pair Retrieve results with specified currency pair (optional)
      * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
      * @param int    $page          Page number (optional, default to 1)
      * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
@@ -5461,12 +5461,6 @@ class SpotApi
         $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
         $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
 
-        // verify the required parameter 'currency_pair' is set
-        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $currency_pair when calling listMyTrades'
-            );
-        }
         if ($limit !== null && $limit > 1000) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listMyTrades, must be smaller than or equal to 1000.');
         }
@@ -5843,6 +5837,240 @@ class SpotApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation countdownCancelAllSpot
+     *
+     * Countdown cancel orders
+     *
+     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task countdown_cancel_all_spot_task (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\TriggerTime
+     */
+    public function countdownCancelAllSpot($countdown_cancel_all_spot_task)
+    {
+        list($response) = $this->countdownCancelAllSpotWithHttpInfo($countdown_cancel_all_spot_task);
+        return $response;
+    }
+
+    /**
+     * Operation countdownCancelAllSpotWithHttpInfo
+     *
+     * Countdown cancel orders
+     *
+     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\TriggerTime, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function countdownCancelAllSpotWithHttpInfo($countdown_cancel_all_spot_task)
+    {
+        $request = $this->countdownCancelAllSpotRequest($countdown_cancel_all_spot_task);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\TriggerTime';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation countdownCancelAllSpotAsync
+     *
+     * Countdown cancel orders
+     *
+     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function countdownCancelAllSpotAsync($countdown_cancel_all_spot_task)
+    {
+        return $this->countdownCancelAllSpotAsyncWithHttpInfo($countdown_cancel_all_spot_task)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation countdownCancelAllSpotAsyncWithHttpInfo
+     *
+     * Countdown cancel orders
+     *
+     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function countdownCancelAllSpotAsyncWithHttpInfo($countdown_cancel_all_spot_task)
+    {
+        $returnType = '\GateApi\Model\TriggerTime';
+        $request = $this->countdownCancelAllSpotRequest($countdown_cancel_all_spot_task);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'countdownCancelAllSpot'
+     *
+     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function countdownCancelAllSpotRequest($countdown_cancel_all_spot_task)
+    {
+        // verify the required parameter 'countdown_cancel_all_spot_task' is set
+        if ($countdown_cancel_all_spot_task === null || (is_array($countdown_cancel_all_spot_task) && count($countdown_cancel_all_spot_task) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $countdown_cancel_all_spot_task when calling countdownCancelAllSpot'
+            );
+        }
+
+        $resourcePath = '/spot/countdown_cancel_all';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+        if (isset($countdown_cancel_all_spot_task)) {
+            $_tempBody = $countdown_cancel_all_spot_task;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -6679,7 +6907,7 @@ class SpotApi
     /**
      * Operation getSpotPriceTriggeredOrder
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
@@ -6696,7 +6924,7 @@ class SpotApi
     /**
      * Operation getSpotPriceTriggeredOrderWithHttpInfo
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
@@ -6750,7 +6978,7 @@ class SpotApi
     /**
      * Operation getSpotPriceTriggeredOrderAsync
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *
@@ -6770,7 +6998,7 @@ class SpotApi
     /**
      * Operation getSpotPriceTriggeredOrderAsyncWithHttpInfo
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
      *

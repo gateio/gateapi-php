@@ -7699,7 +7699,7 @@ class DeliveryApi
     /**
      * Operation getPriceTriggeredDeliveryOrder
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7717,7 +7717,7 @@ class DeliveryApi
     /**
      * Operation getPriceTriggeredDeliveryOrderWithHttpInfo
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7772,7 +7772,7 @@ class DeliveryApi
     /**
      * Operation getPriceTriggeredDeliveryOrderAsync
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7793,7 +7793,7 @@ class DeliveryApi
     /**
      * Operation getPriceTriggeredDeliveryOrderAsyncWithHttpInfo
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)

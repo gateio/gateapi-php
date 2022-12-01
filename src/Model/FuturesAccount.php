@@ -286,7 +286,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param string|null $total total = position_margin + order_margin + available
+     * @param string|null $total total is the balance after the user's accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total = SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund)
      *
      * @return $this
      */

@@ -1503,7 +1503,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param int    $from    Time range beginning, default to 7 days before current time (optional)
      * @param int    $to      Time range ending, default to current time (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
@@ -1526,7 +1526,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param int    $from    Time range beginning, default to 7 days before current time (optional)
      * @param int    $to      Time range ending, default to current time (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
@@ -1586,7 +1586,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param int    $from    Time range beginning, default to 7 days before current time (optional)
      * @param int    $to      Time range ending, default to current time (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
@@ -1612,7 +1612,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param int    $from    Time range beginning, default to 7 days before current time (optional)
      * @param int    $to      Time range ending, default to current time (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
@@ -1665,7 +1665,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param int    $from    Time range beginning, default to 7 days before current time (optional)
      * @param int    $to      Time range ending, default to current time (optional)
      * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
@@ -2040,6 +2040,216 @@ class WalletApi
     }
 
     /**
+     * Operation subAccountToSubAccount
+     *
+     * Sub-account transfers to sub-account
+     *
+     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account sub_account_to_sub_account (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function subAccountToSubAccount($sub_account_to_sub_account)
+    {
+        $this->subAccountToSubAccountWithHttpInfo($sub_account_to_sub_account);
+    }
+
+    /**
+     * Operation subAccountToSubAccountWithHttpInfo
+     *
+     * Sub-account transfers to sub-account
+     *
+     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function subAccountToSubAccountWithHttpInfo($sub_account_to_sub_account)
+    {
+        $request = $this->subAccountToSubAccountRequest($sub_account_to_sub_account);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        return [null, $statusCode, $response->getHeaders()];
+    }
+
+    /**
+     * Operation subAccountToSubAccountAsync
+     *
+     * Sub-account transfers to sub-account
+     *
+     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function subAccountToSubAccountAsync($sub_account_to_sub_account)
+    {
+        return $this->subAccountToSubAccountAsyncWithHttpInfo($sub_account_to_sub_account)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation subAccountToSubAccountAsyncWithHttpInfo
+     *
+     * Sub-account transfers to sub-account
+     *
+     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function subAccountToSubAccountAsyncWithHttpInfo($sub_account_to_sub_account)
+    {
+        $returnType = '';
+        $request = $this->subAccountToSubAccountRequest($sub_account_to_sub_account);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'subAccountToSubAccount'
+     *
+     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function subAccountToSubAccountRequest($sub_account_to_sub_account)
+    {
+        // verify the required parameter 'sub_account_to_sub_account' is set
+        if ($sub_account_to_sub_account === null || (is_array($sub_account_to_sub_account) && count($sub_account_to_sub_account) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sub_account_to_sub_account when calling subAccountToSubAccount'
+            );
+        }
+
+        $resourcePath = '/wallet/sub_account_to_sub_account';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+        if (isset($sub_account_to_sub_account)) {
+            $_tempBody = $sub_account_to_sub_account;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listWithdrawStatus
      *
      * Retrieve withdrawal status
@@ -2296,7 +2506,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2315,7 +2525,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2371,7 +2581,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2393,7 +2603,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2442,7 +2652,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2546,7 +2756,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2565,7 +2775,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2621,7 +2831,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2643,7 +2853,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2692,7 +2902,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2796,7 +3006,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param string $settle  Query only balances of specified settle currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2816,7 +3026,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param string $settle  Query only balances of specified settle currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2873,7 +3083,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param string $settle  Query only balances of specified settle currency (optional)
      *
      * @throws \InvalidArgumentException
@@ -2896,7 +3106,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param string $settle  Query only balances of specified settle currency (optional)
      *
      * @throws \InvalidArgumentException
@@ -2946,7 +3156,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      * @param string $settle  Query only balances of specified settle currency (optional)
      *
      * @throws \InvalidArgumentException
@@ -3064,7 +3274,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3083,7 +3293,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3139,7 +3349,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3161,7 +3371,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3210,7 +3420,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3607,6 +3817,7 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3626,6 +3837,7 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3682,6 +3894,7 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3704,6 +3917,7 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3753,6 +3967,7 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3761,6 +3976,7 @@ class WalletApi
     {
         // unbox the parameters from the associative array
         $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
+        $settle = array_key_exists('settle', $associative_array) ? $associative_array['settle'] : null;
 
 
         $resourcePath = '/wallet/fee';
@@ -3779,6 +3995,18 @@ class WalletApi
             }
             else {
                 $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // query params
+        if ($settle !== null) {
+            if('form' === 'form' && is_array($settle)) {
+                foreach($settle as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['settle'] = $settle;
             }
         }
 

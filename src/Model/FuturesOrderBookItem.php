@@ -220,7 +220,7 @@ class FuturesOrderBookItem implements ModelInterface, ArrayAccess
     /**
      * Sets p
      *
-     * @param string|null $p Price
+     * @param string|null $p Price (quote currency)
      *
      * @return $this
      */

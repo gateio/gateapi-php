@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * OptionsPosition Class Doc Comment
  *
  * @category    Class
- * @description Futures position details
+ * @description Options position information
  * @package     GateApi
  * @author      GateIO
  * @link        https://www.gate.io
@@ -63,7 +63,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
         'realised_pnl' => 'string',
         'unrealised_pnl' => 'string',
         'pending_orders' => 'int',
-        'close_order' => '\GateApi\Model\PositionCloseOrder'
+        'close_order' => '\GateApi\Model\OptionsPositionCloseOrder'
     ];
 
     /**
@@ -287,7 +287,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Options contract name
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Position size
+     * @param int|null $size Position size (contract size)
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets entry_price
      *
-     * @param string|null $entry_price Entry price
+     * @param string|null $entry_price Entry size (quote currency)
      *
      * @return $this
      */
@@ -359,7 +359,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price
      *
-     * @param string|null $mark_price Current mark price
+     * @param string|null $mark_price Current mark price (quote currency)
      *
      * @return $this
      */
@@ -445,7 +445,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Gets close_order
      *
-     * @return \GateApi\Model\PositionCloseOrder|null
+     * @return \GateApi\Model\OptionsPositionCloseOrder|null
      */
     public function getCloseOrder()
     {
@@ -455,7 +455,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets close_order
      *
-     * @param \GateApi\Model\PositionCloseOrder|null $close_order close_order
+     * @param \GateApi\Model\OptionsPositionCloseOrder|null $close_order close_order
      *
      * @return $this
      */

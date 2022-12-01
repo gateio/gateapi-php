@@ -364,7 +364,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Trading price
+     * @param string|null $price Trading price (quote currency)
      *
      * @return $this
      */

@@ -327,7 +327,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Options contract name
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Trading price
+     * @param string|null $price Trading price (quote currency)
      *
      * @return $this
      */
@@ -423,7 +423,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets underlying_price
      *
-     * @param string|null $underlying_price Underlying price
+     * @param string|null $underlying_price Underlying price (quote currency)
      *
      * @return $this
      */

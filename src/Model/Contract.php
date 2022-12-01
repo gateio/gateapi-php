@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * Contract Class Doc Comment
  *
  * @category    Class
- * @description Contract detail.  USD value per contract:  - USDT settled contracts： &#x60;quanto_multiplier x token price&#x60; - BTC settled contracts：&#x60;quanto_multiplier x BTC price x token price&#x60;
+ * @description Futures contract details
  * @package     GateApi
  * @author      GateIO
  * @link        https://www.gate.io

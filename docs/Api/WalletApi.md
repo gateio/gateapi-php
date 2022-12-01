@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
 [**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
 [**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
+[**subAccountToSubAccount**](WalletApi.md#subAccountToSubAccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account
 [**listWithdrawStatus**](WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
@@ -367,7 +368,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
+$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
 $associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time
 $associate_array['to'] = 1602123600; // int | Time range ending, default to current time
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
@@ -391,7 +392,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
  **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -457,6 +458,65 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sub_account_transfer** | [**\GateApi\Model\SubAccountTransfer**](../Model/SubAccountTransfer.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## subAccountToSubAccount
+
+> subAccountToSubAccount($sub_account_to_sub_account)
+
+Sub-account transfers to sub-account
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WalletApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$sub_account_to_sub_account = new \GateApi\Model\SubAccountToSubAccount(); // \GateApi\Model\SubAccountToSubAccount | 
+
+try {
+    $apiInstance->subAccountToSubAccount($sub_account_to_sub_account);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->subAccountToSubAccount: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sub_account_to_sub_account** | [**\GateApi\Model\SubAccountToSubAccount**](../Model/SubAccountToSubAccount.md)|  |
 
 ### Return type
 
@@ -560,7 +620,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
+$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
 
 try {
     $result = $apiInstance->listSubAccountBalances($associate_array);
@@ -580,7 +640,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
 
 ### Return type
 
@@ -622,7 +682,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
+$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
 
 try {
     $result = $apiInstance->listSubAccountMarginBalances($associate_array);
@@ -642,7 +702,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
 
 ### Return type
 
@@ -684,7 +744,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
+$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
 $associate_array['settle'] = 'usdt'; // string | Query only balances of specified settle currency
 
 try {
@@ -705,7 +765,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
  **settle** | **string**| Query only balances of specified settle currency | [optional]
 
 ### Return type
@@ -748,7 +808,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | Sub account user ID. Return records related to all sub accounts if not specified
+$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
 
 try {
     $result = $apiInstance->listSubAccountCrossMarginBalances($associate_array);
@@ -768,7 +828,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
 
 ### Return type
 
@@ -856,7 +916,7 @@ Name | Type | Description  | Notes
 
 ## getTradeFee
 
-> \GateApi\Model\TradeFee getTradeFee($currency_pair)
+> \GateApi\Model\TradeFee getTradeFee($currency_pair, $settle)
 
 Retrieve personal trading fee
 
@@ -877,6 +937,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     $config
 );
 $associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs
+$associate_array['settle'] = 'BTC'; // string | Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same.
 
 try {
     $result = $apiInstance->getTradeFee($associate_array);
@@ -897,6 +958,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs | [optional]
+ **settle** | **string**| Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. | [optional]
 
 ### Return type
 

@@ -279,6 +279,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     const TIF_GTC = 'gtc';
     const TIF_IOC = 'ioc';
     const TIF_POC = 'poc';
+    const TIF_FOK = 'fok';
     const AUTO_SIZE_LONG = 'close_long';
     const AUTO_SIZE_SHORT = 'close_short';
     
@@ -327,6 +328,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
             self::TIF_GTC,
             self::TIF_IOC,
             self::TIF_POC,
+            self::TIF_FOK,
         ];
     }
     
@@ -837,7 +839,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets tif
      *
-     * @param string|null $tif Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+     * @param string|null $tif Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
      *
      * @return $this
      */

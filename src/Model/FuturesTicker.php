@@ -70,7 +70,9 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate' => 'string',
         'funding_rate_indicative' => 'string',
         'index_price' => 'string',
-        'quanto_base_rate' => 'string'
+        'quanto_base_rate' => 'string',
+        'basis_rate' => 'string',
+        'basis_value' => 'string'
     ];
 
     /**
@@ -95,7 +97,9 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate' => null,
         'funding_rate_indicative' => null,
         'index_price' => null,
-        'quanto_base_rate' => null
+        'quanto_base_rate' => null,
+        'basis_rate' => null,
+        'basis_value' => null
     ];
 
     /**
@@ -141,7 +145,9 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate' => 'funding_rate',
         'funding_rate_indicative' => 'funding_rate_indicative',
         'index_price' => 'index_price',
-        'quanto_base_rate' => 'quanto_base_rate'
+        'quanto_base_rate' => 'quanto_base_rate',
+        'basis_rate' => 'basis_rate',
+        'basis_value' => 'basis_value'
     ];
 
     /**
@@ -166,7 +172,9 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate' => 'setFundingRate',
         'funding_rate_indicative' => 'setFundingRateIndicative',
         'index_price' => 'setIndexPrice',
-        'quanto_base_rate' => 'setQuantoBaseRate'
+        'quanto_base_rate' => 'setQuantoBaseRate',
+        'basis_rate' => 'setBasisRate',
+        'basis_value' => 'setBasisValue'
     ];
 
     /**
@@ -191,7 +199,9 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate' => 'getFundingRate',
         'funding_rate_indicative' => 'getFundingRateIndicative',
         'index_price' => 'getIndexPrice',
-        'quanto_base_rate' => 'getQuantoBaseRate'
+        'quanto_base_rate' => 'getQuantoBaseRate',
+        'basis_rate' => 'getBasisRate',
+        'basis_value' => 'getBasisValue'
     ];
 
     /**
@@ -271,6 +281,8 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         $this->container['funding_rate_indicative'] = isset($data['funding_rate_indicative']) ? $data['funding_rate_indicative'] : null;
         $this->container['index_price'] = isset($data['index_price']) ? $data['index_price'] : null;
         $this->container['quanto_base_rate'] = isset($data['quanto_base_rate']) ? $data['quanto_base_rate'] : null;
+        $this->container['basis_rate'] = isset($data['basis_rate']) ? $data['basis_rate'] : null;
+        $this->container['basis_value'] = isset($data['basis_value']) ? $data['basis_value'] : null;
     }
 
     /**
@@ -701,6 +713,54 @@ class FuturesTicker implements ModelInterface, ArrayAccess
     public function setQuantoBaseRate($quanto_base_rate)
     {
         $this->container['quanto_base_rate'] = $quanto_base_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets basis_rate
+     *
+     * @return string|null
+     */
+    public function getBasisRate()
+    {
+        return $this->container['basis_rate'];
+    }
+
+    /**
+     * Sets basis_rate
+     *
+     * @param string|null $basis_rate Basis rate
+     *
+     * @return $this
+     */
+    public function setBasisRate($basis_rate)
+    {
+        $this->container['basis_rate'] = $basis_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets basis_value
+     *
+     * @return string|null
+     */
+    public function getBasisValue()
+    {
+        return $this->container['basis_value'];
+    }
+
+    /**
+     * Sets basis_value
+     *
+     * @param string|null $basis_value Basis value
+     *
+     * @return $this
+     */
+    public function setBasisValue($basis_value)
+    {
+        $this->container['basis_value'] = $basis_value;
 
         return $this;
     }

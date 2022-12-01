@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **create_time_ms** | **double** | Trading time, with milliseconds set to 3 decimal places. | [optional] 
 **contract** | **string** | Futures contract | [optional] 
 **size** | **int** | Trading size | [optional] 
-**price** | **string** | Trading price | [optional] 
+**price** | **string** | Trading price (quote currency) | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

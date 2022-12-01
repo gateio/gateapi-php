@@ -262,7 +262,7 @@ class OptionsAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets change
      *
-     * @param string|null $change Amount changed
+     * @param string|null $change Amount changed (USDT)
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class OptionsAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets balance
      *
-     * @param string|null $balance Account total balance after change
+     * @param string|null $balance Account total balance after change (USDT)
      *
      * @return $this
      */
