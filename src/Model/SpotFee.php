@@ -1,6 +1,6 @@
 <?php
 /**
- * CrossMarginCurrency
+ * SpotFee
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CrossMarginCurrency Class Doc Comment
+ * SpotFee Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class CrossMarginCurrency implements ModelInterface, ArrayAccess
+class SpotFee implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CrossMarginCurrency';
+    protected static $openAPIModelName = 'SpotFee';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,15 +54,15 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'rate' => 'string',
-        'prec' => 'string',
-        'discount' => 'string',
-        'min_borrow_amount' => 'string',
-        'user_max_borrow_amount' => 'string',
-        'total_max_borrow_amount' => 'string',
-        'price' => 'string',
-        'status' => 'int'
+        'user_id' => 'int',
+        'taker_fee' => 'string',
+        'maker_fee' => 'string',
+        'gt_discount' => 'bool',
+        'gt_taker_fee' => 'string',
+        'gt_maker_fee' => 'string',
+        'loan_fee' => 'string',
+        'point_type' => 'string',
+        'currency_pair' => 'string'
     ];
 
     /**
@@ -71,15 +71,15 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'name' => null,
-        'rate' => null,
-        'prec' => null,
-        'discount' => null,
-        'min_borrow_amount' => null,
-        'user_max_borrow_amount' => null,
-        'total_max_borrow_amount' => null,
-        'price' => null,
-        'status' => null
+        'user_id' => 'int64',
+        'taker_fee' => null,
+        'maker_fee' => null,
+        'gt_discount' => null,
+        'gt_taker_fee' => null,
+        'gt_maker_fee' => null,
+        'loan_fee' => null,
+        'point_type' => null,
+        'currency_pair' => null
     ];
 
     /**
@@ -109,15 +109,15 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'rate' => 'rate',
-        'prec' => 'prec',
-        'discount' => 'discount',
-        'min_borrow_amount' => 'min_borrow_amount',
-        'user_max_borrow_amount' => 'user_max_borrow_amount',
-        'total_max_borrow_amount' => 'total_max_borrow_amount',
-        'price' => 'price',
-        'status' => 'status'
+        'user_id' => 'user_id',
+        'taker_fee' => 'taker_fee',
+        'maker_fee' => 'maker_fee',
+        'gt_discount' => 'gt_discount',
+        'gt_taker_fee' => 'gt_taker_fee',
+        'gt_maker_fee' => 'gt_maker_fee',
+        'loan_fee' => 'loan_fee',
+        'point_type' => 'point_type',
+        'currency_pair' => 'currency_pair'
     ];
 
     /**
@@ -126,15 +126,15 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'rate' => 'setRate',
-        'prec' => 'setPrec',
-        'discount' => 'setDiscount',
-        'min_borrow_amount' => 'setMinBorrowAmount',
-        'user_max_borrow_amount' => 'setUserMaxBorrowAmount',
-        'total_max_borrow_amount' => 'setTotalMaxBorrowAmount',
-        'price' => 'setPrice',
-        'status' => 'setStatus'
+        'user_id' => 'setUserId',
+        'taker_fee' => 'setTakerFee',
+        'maker_fee' => 'setMakerFee',
+        'gt_discount' => 'setGtDiscount',
+        'gt_taker_fee' => 'setGtTakerFee',
+        'gt_maker_fee' => 'setGtMakerFee',
+        'loan_fee' => 'setLoanFee',
+        'point_type' => 'setPointType',
+        'currency_pair' => 'setCurrencyPair'
     ];
 
     /**
@@ -143,15 +143,15 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'rate' => 'getRate',
-        'prec' => 'getPrec',
-        'discount' => 'getDiscount',
-        'min_borrow_amount' => 'getMinBorrowAmount',
-        'user_max_borrow_amount' => 'getUserMaxBorrowAmount',
-        'total_max_borrow_amount' => 'getTotalMaxBorrowAmount',
-        'price' => 'getPrice',
-        'status' => 'getStatus'
+        'user_id' => 'getUserId',
+        'taker_fee' => 'getTakerFee',
+        'maker_fee' => 'getMakerFee',
+        'gt_discount' => 'getGtDiscount',
+        'gt_taker_fee' => 'getGtTakerFee',
+        'gt_maker_fee' => 'getGtMakerFee',
+        'loan_fee' => 'getLoanFee',
+        'point_type' => 'getPointType',
+        'currency_pair' => 'getCurrencyPair'
     ];
 
     /**
@@ -214,15 +214,15 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
-        $this->container['prec'] = isset($data['prec']) ? $data['prec'] : null;
-        $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
-        $this->container['min_borrow_amount'] = isset($data['min_borrow_amount']) ? $data['min_borrow_amount'] : null;
-        $this->container['user_max_borrow_amount'] = isset($data['user_max_borrow_amount']) ? $data['user_max_borrow_amount'] : null;
-        $this->container['total_max_borrow_amount'] = isset($data['total_max_borrow_amount']) ? $data['total_max_borrow_amount'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['taker_fee'] = isset($data['taker_fee']) ? $data['taker_fee'] : null;
+        $this->container['maker_fee'] = isset($data['maker_fee']) ? $data['maker_fee'] : null;
+        $this->container['gt_discount'] = isset($data['gt_discount']) ? $data['gt_discount'] : null;
+        $this->container['gt_taker_fee'] = isset($data['gt_taker_fee']) ? $data['gt_taker_fee'] : null;
+        $this->container['gt_maker_fee'] = isset($data['gt_maker_fee']) ? $data['gt_maker_fee'] : null;
+        $this->container['loan_fee'] = isset($data['loan_fee']) ? $data['loan_fee'] : null;
+        $this->container['point_type'] = isset($data['point_type']) ? $data['point_type'] : null;
+        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
     }
 
     /**
@@ -250,217 +250,217 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Currency name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rate
-     *
-     * @return string|null
-     */
-    public function getRate()
-    {
-        return $this->container['rate'];
-    }
-
-    /**
-     * Sets rate
-     *
-     * @param string|null $rate Minimum lending rate (hourly rate)
-     *
-     * @return $this
-     */
-    public function setRate($rate)
-    {
-        $this->container['rate'] = $rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets prec
-     *
-     * @return string|null
-     */
-    public function getPrec()
-    {
-        return $this->container['prec'];
-    }
-
-    /**
-     * Sets prec
-     *
-     * @param string|null $prec Currency precision
-     *
-     * @return $this
-     */
-    public function setPrec($prec)
-    {
-        $this->container['prec'] = $prec;
-
-        return $this;
-    }
-
-    /**
-     * Gets discount
-     *
-     * @return string|null
-     */
-    public function getDiscount()
-    {
-        return $this->container['discount'];
-    }
-
-    /**
-     * Sets discount
-     *
-     * @param string|null $discount Currency value discount, which is used in total value calculation
-     *
-     * @return $this
-     */
-    public function setDiscount($discount)
-    {
-        $this->container['discount'] = $discount;
-
-        return $this;
-    }
-
-    /**
-     * Gets min_borrow_amount
-     *
-     * @return string|null
-     */
-    public function getMinBorrowAmount()
-    {
-        return $this->container['min_borrow_amount'];
-    }
-
-    /**
-     * Sets min_borrow_amount
-     *
-     * @param string|null $min_borrow_amount Minimum currency borrow amount. Unit is currency itself
-     *
-     * @return $this
-     */
-    public function setMinBorrowAmount($min_borrow_amount)
-    {
-        $this->container['min_borrow_amount'] = $min_borrow_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_max_borrow_amount
-     *
-     * @return string|null
-     */
-    public function getUserMaxBorrowAmount()
-    {
-        return $this->container['user_max_borrow_amount'];
-    }
-
-    /**
-     * Sets user_max_borrow_amount
-     *
-     * @param string|null $user_max_borrow_amount Maximum borrow value allowed per user, in USDT
-     *
-     * @return $this
-     */
-    public function setUserMaxBorrowAmount($user_max_borrow_amount)
-    {
-        $this->container['user_max_borrow_amount'] = $user_max_borrow_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_max_borrow_amount
-     *
-     * @return string|null
-     */
-    public function getTotalMaxBorrowAmount()
-    {
-        return $this->container['total_max_borrow_amount'];
-    }
-
-    /**
-     * Sets total_max_borrow_amount
-     *
-     * @param string|null $total_max_borrow_amount Maximum borrow value allowed for this currency, in USDT
-     *
-     * @return $this
-     */
-    public function setTotalMaxBorrowAmount($total_max_borrow_amount)
-    {
-        $this->container['total_max_borrow_amount'] = $total_max_borrow_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets price
-     *
-     * @return string|null
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     *
-     * @param string|null $price Price change between this currency and USDT
-     *
-     * @return $this
-     */
-    public function setPrice($price)
-    {
-        $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
+     * Gets user_id
      *
      * @return int|null
      */
-    public function getStatus()
+    public function getUserId()
     {
-        return $this->container['status'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets status
+     * Sets user_id
      *
-     * @param int|null $status status  - `0` : disable  - `1` : enable
+     * @param int|null $user_id User ID
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setUserId($user_id)
     {
-        $this->container['status'] = $status;
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets taker_fee
+     *
+     * @return string|null
+     */
+    public function getTakerFee()
+    {
+        return $this->container['taker_fee'];
+    }
+
+    /**
+     * Sets taker_fee
+     *
+     * @param string|null $taker_fee taker fee rate
+     *
+     * @return $this
+     */
+    public function setTakerFee($taker_fee)
+    {
+        $this->container['taker_fee'] = $taker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets maker_fee
+     *
+     * @return string|null
+     */
+    public function getMakerFee()
+    {
+        return $this->container['maker_fee'];
+    }
+
+    /**
+     * Sets maker_fee
+     *
+     * @param string|null $maker_fee maker fee rate
+     *
+     * @return $this
+     */
+    public function setMakerFee($maker_fee)
+    {
+        $this->container['maker_fee'] = $maker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets gt_discount
+     *
+     * @return bool|null
+     */
+    public function getGtDiscount()
+    {
+        return $this->container['gt_discount'];
+    }
+
+    /**
+     * Sets gt_discount
+     *
+     * @param bool|null $gt_discount If GT deduction is enabled
+     *
+     * @return $this
+     */
+    public function setGtDiscount($gt_discount)
+    {
+        $this->container['gt_discount'] = $gt_discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets gt_taker_fee
+     *
+     * @return string|null
+     */
+    public function getGtTakerFee()
+    {
+        return $this->container['gt_taker_fee'];
+    }
+
+    /**
+     * Sets gt_taker_fee
+     *
+     * @param string|null $gt_taker_fee Taker fee rate if using GT deduction. It will be 0 if GT deduction is disabled
+     *
+     * @return $this
+     */
+    public function setGtTakerFee($gt_taker_fee)
+    {
+        $this->container['gt_taker_fee'] = $gt_taker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets gt_maker_fee
+     *
+     * @return string|null
+     */
+    public function getGtMakerFee()
+    {
+        return $this->container['gt_maker_fee'];
+    }
+
+    /**
+     * Sets gt_maker_fee
+     *
+     * @param string|null $gt_maker_fee Maker fee rate if using GT deduction. It will be 0 if GT deduction is disabled
+     *
+     * @return $this
+     */
+    public function setGtMakerFee($gt_maker_fee)
+    {
+        $this->container['gt_maker_fee'] = $gt_maker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets loan_fee
+     *
+     * @return string|null
+     */
+    public function getLoanFee()
+    {
+        return $this->container['loan_fee'];
+    }
+
+    /**
+     * Sets loan_fee
+     *
+     * @param string|null $loan_fee Loan fee rate of margin lending
+     *
+     * @return $this
+     */
+    public function setLoanFee($loan_fee)
+    {
+        $this->container['loan_fee'] = $loan_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_type
+     *
+     * @return string|null
+     */
+    public function getPointType()
+    {
+        return $this->container['point_type'];
+    }
+
+    /**
+     * Sets point_type
+     *
+     * @param string|null $point_type Point type. 0 - Initial version. 1 - new version since 202009
+     *
+     * @return $this
+     */
+    public function setPointType($point_type)
+    {
+        $this->container['point_type'] = $point_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_pair
+     *
+     * @return string|null
+     */
+    public function getCurrencyPair()
+    {
+        return $this->container['currency_pair'];
+    }
+
+    /**
+     * Sets currency_pair
+     *
+     * @param string|null $currency_pair Currency pair
+     *
+     * @return $this
+     */
+    public function setCurrencyPair($currency_pair)
+    {
+        $this->container['currency_pair'] = $currency_pair;
 
         return $this;
     }

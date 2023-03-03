@@ -36,8 +36,10 @@ Method | HTTP request | Description
 [**amendFuturesOrder**](FuturesApi.md#amendFuturesOrder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
 [**cancelFuturesOrder**](FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
 [**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/{settle}/my_trades | List personal trading history
+[**getMyTradesWithTimeRange**](FuturesApi.md#getMyTradesWithTimeRange) | **GET** /futures/{settle}/my_trades_timerange | List personal trading history by time range
 [**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/{settle}/position_close | List position close history
 [**listLiquidates**](FuturesApi.md#listLiquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
+[**listAutoDeleverages**](FuturesApi.md#listAutoDeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 [**countdownCancelAllFutures**](FuturesApi.md#countdownCancelAllFutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
@@ -2110,6 +2112,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getMyTradesWithTimeRange
+
+> \GateApi\Model\MyFuturesTrade[] getMyTradesWithTimeRange($settle, $contract, $from, $to, $limit, $offset)
+
+List personal trading history by time range
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
+$associate_array['from'] = 1547706332; // int | Start timestamp
+$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+
+try {
+    $result = $apiInstance->getMyTradesWithTimeRange($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->getMyTradesWithTimeRange: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **from** | **int**| Start timestamp | [optional]
+ **to** | **int**| End timestamp | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\MyFuturesTrade[]**](../Model/MyFuturesTrade.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## listPositionClose
 
 > \GateApi\Model\PositionClose[] listPositionClose($settle, $contract, $limit, $offset, $from, $to)
@@ -2235,6 +2309,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\FuturesLiquidate[]**](../Model/FuturesLiquidate.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listAutoDeleverages
+
+> \GateApi\Model\FuturesAutoDeleverage[] listAutoDeleverages($settle, $contract, $limit, $at)
+
+List Auto-Deleveraging History
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['at'] = 0; // int | Specify an auto-deleveraging timestamp
+
+try {
+    $result = $apiInstance->listAutoDeleverages($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->listAutoDeleverages: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **at** | **int**| Specify an auto-deleveraging timestamp | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\FuturesAutoDeleverage[]**](../Model/FuturesAutoDeleverage.md)
 
 ### Authorization
 

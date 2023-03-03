@@ -1,6 +1,6 @@
 <?php
 /**
- * FundingBookItem
+ * OrderPatch
  *
  * PHP version 7
  *
@@ -30,14 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * FundingBookItem Class Doc Comment
+ * OrderPatch Class Doc Comment
  *
- * @category Class
- * @package  GateApi
- * @author   GateIO
- * @link     https://www.gate.io
+ * @category    Class
+ * @description Spot order details
+ * @package     GateApi
+ * @author      GateIO
+ * @link        https://www.gate.io
  */
-class FundingBookItem implements ModelInterface, ArrayAccess
+class OrderPatch implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'FundingBookItem';
+    protected static $openAPIModelName = 'OrderPatch';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,9 +55,8 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'rate' => 'string',
         'amount' => 'string',
-        'days' => 'int'
+        'price' => 'string'
     ];
 
     /**
@@ -65,9 +65,8 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'rate' => null,
         'amount' => null,
-        'days' => null
+        'price' => null
     ];
 
     /**
@@ -97,9 +96,8 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rate' => 'rate',
         'amount' => 'amount',
-        'days' => 'days'
+        'price' => 'price'
     ];
 
     /**
@@ -108,9 +106,8 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rate' => 'setRate',
         'amount' => 'setAmount',
-        'days' => 'setDays'
+        'price' => 'setPrice'
     ];
 
     /**
@@ -119,9 +116,8 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rate' => 'getRate',
         'amount' => 'getAmount',
-        'days' => 'getDays'
+        'price' => 'getPrice'
     ];
 
     /**
@@ -184,9 +180,8 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['days'] = isset($data['days']) ? $data['days'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
     }
 
     /**
@@ -214,30 +209,6 @@ class FundingBookItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rate
-     *
-     * @return string|null
-     */
-    public function getRate()
-    {
-        return $this->container['rate'];
-    }
-
-    /**
-     * Sets rate
-     *
-     * @param string|null $rate Loan rate (daily rate)
-     *
-     * @return $this
-     */
-    public function setRate($rate)
-    {
-        $this->container['rate'] = $rate;
-
-        return $this;
-    }
-
-    /**
      * Gets amount
      *
      * @return string|null
@@ -250,7 +221,7 @@ class FundingBookItem implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Borrowable amount
+     * @param string|null $amount New order amount. `amount` and `price` must specify one of them
      *
      * @return $this
      */
@@ -262,25 +233,25 @@ class FundingBookItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets days
+     * Gets price
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getDays()
+    public function getPrice()
     {
-        return $this->container['days'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets days
+     * Sets price
      *
-     * @param int|null $days The number of days till the loan repayment's dateline
+     * @param string|null $price New order price. `amount` and `Price` must specify one of them\"
      *
      * @return $this
      */
-    public function setDays($days)
+    public function setPrice($price)
     {
-        $this->container['days'] = $days;
+        $this->container['price'] = $price;
 
         return $this;
     }

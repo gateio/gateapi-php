@@ -184,6 +184,7 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
     const TYPE_OUT = 'out';
     const TYPE_REPAY = 'repay';
     const TYPE_BORROW = 'borrow';
+    const TYPE_INTEREST = 'interest';
     const TYPE_NEW_ORDER = 'new_order';
     const TYPE_ORDER_FILL = 'order_fill';
     const TYPE_REFERRAL_FEE = 'referral_fee';
@@ -204,6 +205,7 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
             self::TYPE_OUT,
             self::TYPE_REPAY,
             self::TYPE_BORROW,
+            self::TYPE_INTEREST,
             self::TYPE_NEW_ORDER,
             self::TYPE_ORDER_FILL,
             self::TYPE_REFERRAL_FEE,
@@ -401,7 +403,7 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+     * @param string|null $type Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
      *
      * @return $this
      */

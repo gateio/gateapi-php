@@ -2047,16 +2047,15 @@ class SubAccountApi
      *
      * Lock the sub-account
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    body (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function lockSubAccount($user_id, $body)
+    public function lockSubAccount($user_id)
     {
-        $this->lockSubAccountWithHttpInfo($user_id, $body);
+        $this->lockSubAccountWithHttpInfo($user_id);
     }
 
     /**
@@ -2064,16 +2063,15 @@ class SubAccountApi
      *
      * Lock the sub-account
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function lockSubAccountWithHttpInfo($user_id, $body)
+    public function lockSubAccountWithHttpInfo($user_id)
     {
-        $request = $this->lockSubAccountRequest($user_id, $body);
+        $request = $this->lockSubAccountRequest($user_id);
 
         $options = $this->createHttpClientOption();
         try {
@@ -2107,15 +2105,14 @@ class SubAccountApi
      *
      * Lock the sub-account
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function lockSubAccountAsync($user_id, $body)
+    public function lockSubAccountAsync($user_id)
     {
-        return $this->lockSubAccountAsyncWithHttpInfo($user_id, $body)
+        return $this->lockSubAccountAsyncWithHttpInfo($user_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2128,16 +2125,15 @@ class SubAccountApi
      *
      * Lock the sub-account
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function lockSubAccountAsyncWithHttpInfo($user_id, $body)
+    public function lockSubAccountAsyncWithHttpInfo($user_id)
     {
         $returnType = '';
-        $request = $this->lockSubAccountRequest($user_id, $body);
+        $request = $this->lockSubAccountRequest($user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2165,24 +2161,17 @@ class SubAccountApi
     /**
      * Create request for operation 'lockSubAccount'
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function lockSubAccountRequest($user_id, $body)
+    protected function lockSubAccountRequest($user_id)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $user_id when calling lockSubAccount'
-            );
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling lockSubAccount'
             );
         }
 
@@ -2204,9 +2193,6 @@ class SubAccountApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2215,7 +2201,7 @@ class SubAccountApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                ['application/json']
+                []
             );
         }
 
@@ -2277,16 +2263,15 @@ class SubAccountApi
      *
      * Unlock the sub-account
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    body (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function unlockSubAccount($user_id, $body)
+    public function unlockSubAccount($user_id)
     {
-        $this->unlockSubAccountWithHttpInfo($user_id, $body);
+        $this->unlockSubAccountWithHttpInfo($user_id);
     }
 
     /**
@@ -2294,16 +2279,15 @@ class SubAccountApi
      *
      * Unlock the sub-account
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unlockSubAccountWithHttpInfo($user_id, $body)
+    public function unlockSubAccountWithHttpInfo($user_id)
     {
-        $request = $this->unlockSubAccountRequest($user_id, $body);
+        $request = $this->unlockSubAccountRequest($user_id);
 
         $options = $this->createHttpClientOption();
         try {
@@ -2337,15 +2321,14 @@ class SubAccountApi
      *
      * Unlock the sub-account
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unlockSubAccountAsync($user_id, $body)
+    public function unlockSubAccountAsync($user_id)
     {
-        return $this->unlockSubAccountAsyncWithHttpInfo($user_id, $body)
+        return $this->unlockSubAccountAsyncWithHttpInfo($user_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2358,16 +2341,15 @@ class SubAccountApi
      *
      * Unlock the sub-account
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unlockSubAccountAsyncWithHttpInfo($user_id, $body)
+    public function unlockSubAccountAsyncWithHttpInfo($user_id)
     {
         $returnType = '';
-        $request = $this->unlockSubAccountRequest($user_id, $body);
+        $request = $this->unlockSubAccountRequest($user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2395,24 +2377,17 @@ class SubAccountApi
     /**
      * Create request for operation 'unlockSubAccount'
      *
-     * @param int    $user_id The user id of the sub-account (required)
-     * @param object $body    (required)
+     * @param int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function unlockSubAccountRequest($user_id, $body)
+    protected function unlockSubAccountRequest($user_id)
     {
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $user_id when calling unlockSubAccount'
-            );
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling unlockSubAccount'
             );
         }
 
@@ -2434,9 +2409,6 @@ class SubAccountApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2445,7 +2417,7 @@ class SubAccountApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                ['application/json']
+                []
             );
         }
 

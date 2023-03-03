@@ -86,7 +86,9 @@ class Contract implements ModelInterface, ArrayAccess
         'position_size' => 'int',
         'config_change_time' => 'double',
         'in_delisting' => 'bool',
-        'orders_limit' => 'int'
+        'orders_limit' => 'int',
+        'enable_bonus' => 'bool',
+        'enable_credit' => 'bool'
     ];
 
     /**
@@ -126,7 +128,9 @@ class Contract implements ModelInterface, ArrayAccess
         'position_size' => 'int64',
         'config_change_time' => 'double',
         'in_delisting' => null,
-        'orders_limit' => null
+        'orders_limit' => null,
+        'enable_bonus' => null,
+        'enable_credit' => null
     ];
 
     /**
@@ -187,7 +191,9 @@ class Contract implements ModelInterface, ArrayAccess
         'position_size' => 'position_size',
         'config_change_time' => 'config_change_time',
         'in_delisting' => 'in_delisting',
-        'orders_limit' => 'orders_limit'
+        'orders_limit' => 'orders_limit',
+        'enable_bonus' => 'enable_bonus',
+        'enable_credit' => 'enable_credit'
     ];
 
     /**
@@ -227,7 +233,9 @@ class Contract implements ModelInterface, ArrayAccess
         'position_size' => 'setPositionSize',
         'config_change_time' => 'setConfigChangeTime',
         'in_delisting' => 'setInDelisting',
-        'orders_limit' => 'setOrdersLimit'
+        'orders_limit' => 'setOrdersLimit',
+        'enable_bonus' => 'setEnableBonus',
+        'enable_credit' => 'setEnableCredit'
     ];
 
     /**
@@ -267,7 +275,9 @@ class Contract implements ModelInterface, ArrayAccess
         'position_size' => 'getPositionSize',
         'config_change_time' => 'getConfigChangeTime',
         'in_delisting' => 'getInDelisting',
-        'orders_limit' => 'getOrdersLimit'
+        'orders_limit' => 'getOrdersLimit',
+        'enable_bonus' => 'getEnableBonus',
+        'enable_credit' => 'getEnableCredit'
     ];
 
     /**
@@ -392,6 +402,8 @@ class Contract implements ModelInterface, ArrayAccess
         $this->container['config_change_time'] = isset($data['config_change_time']) ? $data['config_change_time'] : null;
         $this->container['in_delisting'] = isset($data['in_delisting']) ? $data['in_delisting'] : null;
         $this->container['orders_limit'] = isset($data['orders_limit']) ? $data['orders_limit'] : null;
+        $this->container['enable_bonus'] = isset($data['enable_bonus']) ? $data['enable_bonus'] : null;
+        $this->container['enable_credit'] = isset($data['enable_credit']) ? $data['enable_credit'] : null;
     }
 
     /**
@@ -1216,6 +1228,54 @@ class Contract implements ModelInterface, ArrayAccess
     public function setOrdersLimit($orders_limit)
     {
         $this->container['orders_limit'] = $orders_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_bonus
+     *
+     * @return bool|null
+     */
+    public function getEnableBonus()
+    {
+        return $this->container['enable_bonus'];
+    }
+
+    /**
+     * Sets enable_bonus
+     *
+     * @param bool|null $enable_bonus Whether bouns is enabled
+     *
+     * @return $this
+     */
+    public function setEnableBonus($enable_bonus)
+    {
+        $this->container['enable_bonus'] = $enable_bonus;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_credit
+     *
+     * @return bool|null
+     */
+    public function getEnableCredit()
+    {
+        return $this->container['enable_credit'];
+    }
+
+    /**
+     * Sets enable_credit
+     *
+     * @param bool|null $enable_credit Whether portfolio margin account is enabled
+     *
+     * @return $this
+     */
+    public function setEnableCredit($enable_credit)
+    {
+        $this->container['enable_credit'] = $enable_credit;
 
         return $this;
     }

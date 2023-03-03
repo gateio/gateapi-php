@@ -56,6 +56,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'txid' => 'string',
+        'withdraw_order_id' => 'string',
         'timestamp' => 'string',
         'amount' => 'string',
         'currency' => 'string',
@@ -74,6 +75,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'txid' => null,
+        'withdraw_order_id' => null,
         'timestamp' => null,
         'amount' => null,
         'currency' => null,
@@ -113,6 +115,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'txid' => 'txid',
+        'withdraw_order_id' => 'withdraw_order_id',
         'timestamp' => 'timestamp',
         'amount' => 'amount',
         'currency' => 'currency',
@@ -131,6 +134,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'txid' => 'setTxid',
+        'withdraw_order_id' => 'setWithdrawOrderId',
         'timestamp' => 'setTimestamp',
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
@@ -149,6 +153,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'txid' => 'getTxid',
+        'withdraw_order_id' => 'getWithdrawOrderId',
         'timestamp' => 'getTimestamp',
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
@@ -258,6 +263,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['txid'] = isset($data['txid']) ? $data['txid'] : null;
+        $this->container['withdraw_order_id'] = isset($data['withdraw_order_id']) ? $data['withdraw_order_id'] : null;
         $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
@@ -353,6 +359,30 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     public function setTxid($txid)
     {
         $this->container['txid'] = $txid;
+
+        return $this;
+    }
+
+    /**
+     * Gets withdraw_order_id
+     *
+     * @return string|null
+     */
+    public function getWithdrawOrderId()
+    {
+        return $this->container['withdraw_order_id'];
+    }
+
+    /**
+     * Sets withdraw_order_id
+     *
+     * @param string|null $withdraw_order_id Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)
+     *
+     * @return $this
+     */
+    public function setWithdrawOrderId($withdraw_order_id)
+    {
+        $this->container['withdraw_order_id'] = $withdraw_order_id;
 
         return $this;
     }

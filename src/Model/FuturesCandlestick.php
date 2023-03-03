@@ -60,7 +60,8 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         'c' => 'string',
         'h' => 'string',
         'l' => 'string',
-        'o' => 'string'
+        'o' => 'string',
+        'sum' => 'string'
     ];
 
     /**
@@ -74,7 +75,8 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         'c' => null,
         'h' => null,
         'l' => null,
-        'o' => null
+        'o' => null,
+        'sum' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         'c' => 'c',
         'h' => 'h',
         'l' => 'l',
-        'o' => 'o'
+        'o' => 'o',
+        'sum' => 'sum'
     ];
 
     /**
@@ -123,7 +126,8 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         'c' => 'setC',
         'h' => 'setH',
         'l' => 'setL',
-        'o' => 'setO'
+        'o' => 'setO',
+        'sum' => 'setSum'
     ];
 
     /**
@@ -137,7 +141,8 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         'c' => 'getC',
         'h' => 'getH',
         'l' => 'getL',
-        'o' => 'getO'
+        'o' => 'getO',
+        'sum' => 'getSum'
     ];
 
     /**
@@ -206,6 +211,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         $this->container['h'] = isset($data['h']) ? $data['h'] : null;
         $this->container['l'] = isset($data['l']) ? $data['l'] : null;
         $this->container['o'] = isset($data['o']) ? $data['o'] : null;
+        $this->container['sum'] = isset($data['sum']) ? $data['sum'] : null;
     }
 
     /**
@@ -372,6 +378,30 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     public function setO($o)
     {
         $this->container['o'] = $o;
+
+        return $this;
+    }
+
+    /**
+     * Gets sum
+     *
+     * @return string|null
+     */
+    public function getSum()
+    {
+        return $this->container['sum'];
+    }
+
+    /**
+     * Sets sum
+     *
+     * @param string|null $sum Trading volume (unit: Quote currency)
+     *
+     * @return $this
+     */
+    public function setSum($sum)
+    {
+        $this->container['sum'] = $sum;
 
         return $this;
     }

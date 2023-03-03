@@ -1,6 +1,6 @@
 <?php
 /**
- * CrossMarginCurrency
+ * FuturesAutoDeleverage
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * CrossMarginCurrency Class Doc Comment
+ * FuturesAutoDeleverage Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class CrossMarginCurrency implements ModelInterface, ArrayAccess
+class FuturesAutoDeleverage implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CrossMarginCurrency';
+    protected static $openAPIModelName = 'FuturesAutoDeleverage';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,15 +54,16 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'rate' => 'string',
-        'prec' => 'string',
-        'discount' => 'string',
-        'min_borrow_amount' => 'string',
-        'user_max_borrow_amount' => 'string',
-        'total_max_borrow_amount' => 'string',
-        'price' => 'string',
-        'status' => 'int'
+        'time' => 'int',
+        'user' => 'int',
+        'order_id' => 'int',
+        'contract' => 'string',
+        'leverage' => 'string',
+        'cross_leverage_limit' => 'string',
+        'entry_price' => 'string',
+        'fill_price' => 'string',
+        'trade_size' => 'int',
+        'position_size' => 'int'
     ];
 
     /**
@@ -71,15 +72,16 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'name' => null,
-        'rate' => null,
-        'prec' => null,
-        'discount' => null,
-        'min_borrow_amount' => null,
-        'user_max_borrow_amount' => null,
-        'total_max_borrow_amount' => null,
-        'price' => null,
-        'status' => null
+        'time' => 'int64',
+        'user' => 'int64',
+        'order_id' => 'int64',
+        'contract' => null,
+        'leverage' => null,
+        'cross_leverage_limit' => null,
+        'entry_price' => null,
+        'fill_price' => null,
+        'trade_size' => 'int64',
+        'position_size' => 'int64'
     ];
 
     /**
@@ -109,15 +111,16 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'rate' => 'rate',
-        'prec' => 'prec',
-        'discount' => 'discount',
-        'min_borrow_amount' => 'min_borrow_amount',
-        'user_max_borrow_amount' => 'user_max_borrow_amount',
-        'total_max_borrow_amount' => 'total_max_borrow_amount',
-        'price' => 'price',
-        'status' => 'status'
+        'time' => 'time',
+        'user' => 'user',
+        'order_id' => 'order_id',
+        'contract' => 'contract',
+        'leverage' => 'leverage',
+        'cross_leverage_limit' => 'cross_leverage_limit',
+        'entry_price' => 'entry_price',
+        'fill_price' => 'fill_price',
+        'trade_size' => 'trade_size',
+        'position_size' => 'position_size'
     ];
 
     /**
@@ -126,15 +129,16 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'rate' => 'setRate',
-        'prec' => 'setPrec',
-        'discount' => 'setDiscount',
-        'min_borrow_amount' => 'setMinBorrowAmount',
-        'user_max_borrow_amount' => 'setUserMaxBorrowAmount',
-        'total_max_borrow_amount' => 'setTotalMaxBorrowAmount',
-        'price' => 'setPrice',
-        'status' => 'setStatus'
+        'time' => 'setTime',
+        'user' => 'setUser',
+        'order_id' => 'setOrderId',
+        'contract' => 'setContract',
+        'leverage' => 'setLeverage',
+        'cross_leverage_limit' => 'setCrossLeverageLimit',
+        'entry_price' => 'setEntryPrice',
+        'fill_price' => 'setFillPrice',
+        'trade_size' => 'setTradeSize',
+        'position_size' => 'setPositionSize'
     ];
 
     /**
@@ -143,15 +147,16 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'rate' => 'getRate',
-        'prec' => 'getPrec',
-        'discount' => 'getDiscount',
-        'min_borrow_amount' => 'getMinBorrowAmount',
-        'user_max_borrow_amount' => 'getUserMaxBorrowAmount',
-        'total_max_borrow_amount' => 'getTotalMaxBorrowAmount',
-        'price' => 'getPrice',
-        'status' => 'getStatus'
+        'time' => 'getTime',
+        'user' => 'getUser',
+        'order_id' => 'getOrderId',
+        'contract' => 'getContract',
+        'leverage' => 'getLeverage',
+        'cross_leverage_limit' => 'getCrossLeverageLimit',
+        'entry_price' => 'getEntryPrice',
+        'fill_price' => 'getFillPrice',
+        'trade_size' => 'getTradeSize',
+        'position_size' => 'getPositionSize'
     ];
 
     /**
@@ -214,15 +219,16 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
-        $this->container['prec'] = isset($data['prec']) ? $data['prec'] : null;
-        $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
-        $this->container['min_borrow_amount'] = isset($data['min_borrow_amount']) ? $data['min_borrow_amount'] : null;
-        $this->container['user_max_borrow_amount'] = isset($data['user_max_borrow_amount']) ? $data['user_max_borrow_amount'] : null;
-        $this->container['total_max_borrow_amount'] = isset($data['total_max_borrow_amount']) ? $data['total_max_borrow_amount'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
+        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['leverage'] = isset($data['leverage']) ? $data['leverage'] : null;
+        $this->container['cross_leverage_limit'] = isset($data['cross_leverage_limit']) ? $data['cross_leverage_limit'] : null;
+        $this->container['entry_price'] = isset($data['entry_price']) ? $data['entry_price'] : null;
+        $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
+        $this->container['trade_size'] = isset($data['trade_size']) ? $data['trade_size'] : null;
+        $this->container['position_size'] = isset($data['position_size']) ? $data['position_size'] : null;
     }
 
     /**
@@ -250,217 +256,241 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Currency name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rate
-     *
-     * @return string|null
-     */
-    public function getRate()
-    {
-        return $this->container['rate'];
-    }
-
-    /**
-     * Sets rate
-     *
-     * @param string|null $rate Minimum lending rate (hourly rate)
-     *
-     * @return $this
-     */
-    public function setRate($rate)
-    {
-        $this->container['rate'] = $rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets prec
-     *
-     * @return string|null
-     */
-    public function getPrec()
-    {
-        return $this->container['prec'];
-    }
-
-    /**
-     * Sets prec
-     *
-     * @param string|null $prec Currency precision
-     *
-     * @return $this
-     */
-    public function setPrec($prec)
-    {
-        $this->container['prec'] = $prec;
-
-        return $this;
-    }
-
-    /**
-     * Gets discount
-     *
-     * @return string|null
-     */
-    public function getDiscount()
-    {
-        return $this->container['discount'];
-    }
-
-    /**
-     * Sets discount
-     *
-     * @param string|null $discount Currency value discount, which is used in total value calculation
-     *
-     * @return $this
-     */
-    public function setDiscount($discount)
-    {
-        $this->container['discount'] = $discount;
-
-        return $this;
-    }
-
-    /**
-     * Gets min_borrow_amount
-     *
-     * @return string|null
-     */
-    public function getMinBorrowAmount()
-    {
-        return $this->container['min_borrow_amount'];
-    }
-
-    /**
-     * Sets min_borrow_amount
-     *
-     * @param string|null $min_borrow_amount Minimum currency borrow amount. Unit is currency itself
-     *
-     * @return $this
-     */
-    public function setMinBorrowAmount($min_borrow_amount)
-    {
-        $this->container['min_borrow_amount'] = $min_borrow_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_max_borrow_amount
-     *
-     * @return string|null
-     */
-    public function getUserMaxBorrowAmount()
-    {
-        return $this->container['user_max_borrow_amount'];
-    }
-
-    /**
-     * Sets user_max_borrow_amount
-     *
-     * @param string|null $user_max_borrow_amount Maximum borrow value allowed per user, in USDT
-     *
-     * @return $this
-     */
-    public function setUserMaxBorrowAmount($user_max_borrow_amount)
-    {
-        $this->container['user_max_borrow_amount'] = $user_max_borrow_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_max_borrow_amount
-     *
-     * @return string|null
-     */
-    public function getTotalMaxBorrowAmount()
-    {
-        return $this->container['total_max_borrow_amount'];
-    }
-
-    /**
-     * Sets total_max_borrow_amount
-     *
-     * @param string|null $total_max_borrow_amount Maximum borrow value allowed for this currency, in USDT
-     *
-     * @return $this
-     */
-    public function setTotalMaxBorrowAmount($total_max_borrow_amount)
-    {
-        $this->container['total_max_borrow_amount'] = $total_max_borrow_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets price
-     *
-     * @return string|null
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     *
-     * @param string|null $price Price change between this currency and USDT
-     *
-     * @return $this
-     */
-    public function setPrice($price)
-    {
-        $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
+     * Gets time
      *
      * @return int|null
      */
-    public function getStatus()
+    public function getTime()
     {
-        return $this->container['status'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets status
+     * Sets time
      *
-     * @param int|null $status status  - `0` : disable  - `1` : enable
+     * @param int|null $time Automatic deleveraging time
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setTime($time)
     {
-        $this->container['status'] = $status;
+        $this->container['time'] = $time;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return int|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param int|null $user User ID
+     *
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        $this->container['user'] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     *
+     * @return int|null
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param int|null $order_id Order ID. Order IDs before 2023-02-20 are null
+     *
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets contract
+     *
+     * @return string|null
+     */
+    public function getContract()
+    {
+        return $this->container['contract'];
+    }
+
+    /**
+     * Sets contract
+     *
+     * @param string|null $contract Futures contract
+     *
+     * @return $this
+     */
+    public function setContract($contract)
+    {
+        $this->container['contract'] = $contract;
+
+        return $this;
+    }
+
+    /**
+     * Gets leverage
+     *
+     * @return string|null
+     */
+    public function getLeverage()
+    {
+        return $this->container['leverage'];
+    }
+
+    /**
+     * Sets leverage
+     *
+     * @param string|null $leverage Position leverage
+     *
+     * @return $this
+     */
+    public function setLeverage($leverage)
+    {
+        $this->container['leverage'] = $leverage;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_leverage_limit
+     *
+     * @return string|null
+     */
+    public function getCrossLeverageLimit()
+    {
+        return $this->container['cross_leverage_limit'];
+    }
+
+    /**
+     * Sets cross_leverage_limit
+     *
+     * @param string|null $cross_leverage_limit Cross margin leverage(valid only when `leverage` is 0)
+     *
+     * @return $this
+     */
+    public function setCrossLeverageLimit($cross_leverage_limit)
+    {
+        $this->container['cross_leverage_limit'] = $cross_leverage_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets entry_price
+     *
+     * @return string|null
+     */
+    public function getEntryPrice()
+    {
+        return $this->container['entry_price'];
+    }
+
+    /**
+     * Sets entry_price
+     *
+     * @param string|null $entry_price Average entry price
+     *
+     * @return $this
+     */
+    public function setEntryPrice($entry_price)
+    {
+        $this->container['entry_price'] = $entry_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets fill_price
+     *
+     * @return string|null
+     */
+    public function getFillPrice()
+    {
+        return $this->container['fill_price'];
+    }
+
+    /**
+     * Sets fill_price
+     *
+     * @param string|null $fill_price Average fill price
+     *
+     * @return $this
+     */
+    public function setFillPrice($fill_price)
+    {
+        $this->container['fill_price'] = $fill_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets trade_size
+     *
+     * @return int|null
+     */
+    public function getTradeSize()
+    {
+        return $this->container['trade_size'];
+    }
+
+    /**
+     * Sets trade_size
+     *
+     * @param int|null $trade_size Trading size
+     *
+     * @return $this
+     */
+    public function setTradeSize($trade_size)
+    {
+        $this->container['trade_size'] = $trade_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets position_size
+     *
+     * @return int|null
+     */
+    public function getPositionSize()
+    {
+        return $this->container['position_size'];
+    }
+
+    /**
+     * Sets position_size
+     *
+     * @param int|null $position_size Positions after auto-deleveraging
+     *
+     * @return $this
+     */
+    public function setPositionSize($position_size)
+    {
+        $this->container['position_size'] = $position_size;
 
         return $this;
     }

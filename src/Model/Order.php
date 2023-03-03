@@ -75,6 +75,7 @@ class Order implements ModelInterface, ArrayAccess
         'left' => 'string',
         'fill_price' => 'string',
         'filled_total' => 'string',
+        'avg_deal_price' => 'string',
         'fee' => 'string',
         'fee_currency' => 'string',
         'point_fee' => 'string',
@@ -112,6 +113,7 @@ class Order implements ModelInterface, ArrayAccess
         'left' => null,
         'fill_price' => null,
         'filled_total' => null,
+        'avg_deal_price' => null,
         'fee' => null,
         'fee_currency' => null,
         'point_fee' => null,
@@ -170,6 +172,7 @@ class Order implements ModelInterface, ArrayAccess
         'left' => 'left',
         'fill_price' => 'fill_price',
         'filled_total' => 'filled_total',
+        'avg_deal_price' => 'avg_deal_price',
         'fee' => 'fee',
         'fee_currency' => 'fee_currency',
         'point_fee' => 'point_fee',
@@ -207,6 +210,7 @@ class Order implements ModelInterface, ArrayAccess
         'left' => 'setLeft',
         'fill_price' => 'setFillPrice',
         'filled_total' => 'setFilledTotal',
+        'avg_deal_price' => 'setAvgDealPrice',
         'fee' => 'setFee',
         'fee_currency' => 'setFeeCurrency',
         'point_fee' => 'setPointFee',
@@ -244,6 +248,7 @@ class Order implements ModelInterface, ArrayAccess
         'left' => 'getLeft',
         'fill_price' => 'getFillPrice',
         'filled_total' => 'getFilledTotal',
+        'avg_deal_price' => 'getAvgDealPrice',
         'fee' => 'getFee',
         'fee_currency' => 'getFeeCurrency',
         'point_fee' => 'getPointFee',
@@ -418,6 +423,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
         $this->container['filled_total'] = isset($data['filled_total']) ? $data['filled_total'] : null;
+        $this->container['avg_deal_price'] = isset($data['avg_deal_price']) ? $data['avg_deal_price'] : null;
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
         $this->container['fee_currency'] = isset($data['fee_currency']) ? $data['fee_currency'] : null;
         $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
@@ -539,7 +545,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)
+     * @param string|null $text User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4
      *
      * @return $this
      */
@@ -716,7 +722,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Order Type   - limit : Limit Order - market : Market Order
+     * @param string|null $type Order Type    - limit : Limit Order - market : Market Order
      *
      * @return $this
      */
@@ -896,7 +902,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets iceberg
      *
-     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely
+     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
      *
      * @return $this
      */
@@ -1023,6 +1029,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setFilledTotal($filled_total)
     {
         $this->container['filled_total'] = $filled_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_deal_price
+     *
+     * @return string|null
+     */
+    public function getAvgDealPrice()
+    {
+        return $this->container['avg_deal_price'];
+    }
+
+    /**
+     * Sets avg_deal_price
+     *
+     * @param string|null $avg_deal_price Average fill price
+     *
+     * @return $this
+     */
+    public function setAvgDealPrice($avg_deal_price)
+    {
+        $this->container['avg_deal_price'] = $avg_deal_price;
 
         return $this;
     }

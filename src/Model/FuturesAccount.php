@@ -382,7 +382,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param string|null $available The available balance for transferring or trading
+     * @param string|null $available The available balance for transferring or trading(including bonus.  Bonus can't be be withdrawn. The transfer amount needs to deduct the bonus)
      *
      * @return $this
      */

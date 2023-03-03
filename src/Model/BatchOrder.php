@@ -305,6 +305,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     const STATUS_CLOSED = 'closed';
     const STATUS_CANCELLED = 'cancelled';
     const TYPE_LIMIT = 'limit';
+    const TYPE_MARKET = 'market';
     const ACCOUNT_SPOT = 'spot';
     const ACCOUNT_MARGIN = 'margin';
     const ACCOUNT_CROSS_MARGIN = 'cross_margin';
@@ -340,6 +341,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     {
         return [
             self::TYPE_LIMIT,
+            self::TYPE_MARKET,
         ];
     }
     
@@ -783,7 +785,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Order type. limit - limit order
+     * @param string|null $type Order Type    - limit : Limit Order - market : Market Order
      *
      * @return $this
      */
@@ -963,7 +965,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets iceberg
      *
-     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely
+     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
      *
      * @return $this
      */

@@ -538,7 +538,7 @@ class Loan implements ModelInterface, ArrayAccess
     /**
      * Sets rate
      *
-     * @param string|null $rate Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set
+     * @param string|null $rate Loan rate. Only rates in [0.0001, 0.01] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set
      *
      * @return $this
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * FundingBookItem
+ * AgencyCommission
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * FundingBookItem Class Doc Comment
+ * AgencyCommission Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class FundingBookItem implements ModelInterface, ArrayAccess
+class AgencyCommission implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'FundingBookItem';
+    protected static $openAPIModelName = 'AgencyCommission';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,9 +54,12 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'rate' => 'string',
-        'amount' => 'string',
-        'days' => 'int'
+        'commission_time' => 'int',
+        'user_id' => 'int',
+        'group_name' => 'string',
+        'commission_amount' => 'string',
+        'commission_asset' => 'string',
+        'source' => 'string'
     ];
 
     /**
@@ -65,9 +68,12 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'rate' => null,
-        'amount' => null,
-        'days' => null
+        'commission_time' => 'int64',
+        'user_id' => 'int64',
+        'group_name' => null,
+        'commission_amount' => null,
+        'commission_asset' => null,
+        'source' => null
     ];
 
     /**
@@ -97,9 +103,12 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rate' => 'rate',
-        'amount' => 'amount',
-        'days' => 'days'
+        'commission_time' => 'commission_time',
+        'user_id' => 'user_id',
+        'group_name' => 'group_name',
+        'commission_amount' => 'commission_amount',
+        'commission_asset' => 'commission_asset',
+        'source' => 'source'
     ];
 
     /**
@@ -108,9 +117,12 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rate' => 'setRate',
-        'amount' => 'setAmount',
-        'days' => 'setDays'
+        'commission_time' => 'setCommissionTime',
+        'user_id' => 'setUserId',
+        'group_name' => 'setGroupName',
+        'commission_amount' => 'setCommissionAmount',
+        'commission_asset' => 'setCommissionAsset',
+        'source' => 'setSource'
     ];
 
     /**
@@ -119,9 +131,12 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rate' => 'getRate',
-        'amount' => 'getAmount',
-        'days' => 'getDays'
+        'commission_time' => 'getCommissionTime',
+        'user_id' => 'getUserId',
+        'group_name' => 'getGroupName',
+        'commission_amount' => 'getCommissionAmount',
+        'commission_asset' => 'getCommissionAsset',
+        'source' => 'getSource'
     ];
 
     /**
@@ -184,9 +199,12 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['days'] = isset($data['days']) ? $data['days'] : null;
+        $this->container['commission_time'] = isset($data['commission_time']) ? $data['commission_time'] : null;
+        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['group_name'] = isset($data['group_name']) ? $data['group_name'] : null;
+        $this->container['commission_amount'] = isset($data['commission_amount']) ? $data['commission_amount'] : null;
+        $this->container['commission_asset'] = isset($data['commission_asset']) ? $data['commission_asset'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
     }
 
     /**
@@ -214,73 +232,145 @@ class FundingBookItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rate
-     *
-     * @return string|null
-     */
-    public function getRate()
-    {
-        return $this->container['rate'];
-    }
-
-    /**
-     * Sets rate
-     *
-     * @param string|null $rate Loan rate (daily rate)
-     *
-     * @return $this
-     */
-    public function setRate($rate)
-    {
-        $this->container['rate'] = $rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return string|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param string|null $amount Borrowable amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets days
+     * Gets commission_time
      *
      * @return int|null
      */
-    public function getDays()
+    public function getCommissionTime()
     {
-        return $this->container['days'];
+        return $this->container['commission_time'];
     }
 
     /**
-     * Sets days
+     * Sets commission_time
      *
-     * @param int|null $days The number of days till the loan repayment's dateline
+     * @param int|null $commission_time Commission Time. (unix timestamp)
      *
      * @return $this
      */
-    public function setDays($days)
+    public function setCommissionTime($commission_time)
     {
-        $this->container['days'] = $days;
+        $this->container['commission_time'] = $commission_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return int|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param int|null $user_id User ID
+     *
+     * @return $this
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_name
+     *
+     * @return string|null
+     */
+    public function getGroupName()
+    {
+        return $this->container['group_name'];
+    }
+
+    /**
+     * Sets group_name
+     *
+     * @param string|null $group_name Group name
+     *
+     * @return $this
+     */
+    public function setGroupName($group_name)
+    {
+        $this->container['group_name'] = $group_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets commission_amount
+     *
+     * @return string|null
+     */
+    public function getCommissionAmount()
+    {
+        return $this->container['commission_amount'];
+    }
+
+    /**
+     * Sets commission_amount
+     *
+     * @param string|null $commission_amount Commission Amount
+     *
+     * @return $this
+     */
+    public function setCommissionAmount($commission_amount)
+    {
+        $this->container['commission_amount'] = $commission_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets commission_asset
+     *
+     * @return string|null
+     */
+    public function getCommissionAsset()
+    {
+        return $this->container['commission_asset'];
+    }
+
+    /**
+     * Sets commission_asset
+     *
+     * @param string|null $commission_asset Commission Asset
+     *
+     * @return $this
+     */
+    public function setCommissionAsset($commission_asset)
+    {
+        $this->container['commission_asset'] = $commission_asset;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

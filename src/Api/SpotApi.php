@@ -777,7 +777,7 @@ class SpotApi
     /**
      * Operation getCurrencyPair
      *
-     * Get details of a specifc order
+     * Get details of a specifc currency pair
      *
      * @param string $currency_pair Currency pair (required)
      *
@@ -794,7 +794,7 @@ class SpotApi
     /**
      * Operation getCurrencyPairWithHttpInfo
      *
-     * Get details of a specifc order
+     * Get details of a specifc currency pair
      *
      * @param string $currency_pair Currency pair (required)
      *
@@ -848,7 +848,7 @@ class SpotApi
     /**
      * Operation getCurrencyPairAsync
      *
-     * Get details of a specifc order
+     * Get details of a specifc currency pair
      *
      * @param string $currency_pair Currency pair (required)
      *
@@ -868,7 +868,7 @@ class SpotApi
     /**
      * Operation getCurrencyPairAsyncWithHttpInfo
      *
-     * Get details of a specifc order
+     * Get details of a specifc currency pair
      *
      * @param string $currency_pair Currency pair (required)
      *
@@ -2468,6 +2468,249 @@ class SpotApi
             }
             else {
                 $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getBatchSpotFee
+     *
+     * Query a batch of user trading fee rates
+     *
+     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return map[string,\GateApi\Model\SpotFee]
+     */
+    public function getBatchSpotFee($currency_pairs)
+    {
+        list($response) = $this->getBatchSpotFeeWithHttpInfo($currency_pairs);
+        return $response;
+    }
+
+    /**
+     * Operation getBatchSpotFeeWithHttpInfo
+     *
+     * Query a batch of user trading fee rates
+     *
+     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of map[string,\GateApi\Model\SpotFee], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getBatchSpotFeeWithHttpInfo($currency_pairs)
+    {
+        $request = $this->getBatchSpotFeeRequest($currency_pairs);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = 'map[string,\GateApi\Model\SpotFee]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getBatchSpotFeeAsync
+     *
+     * Query a batch of user trading fee rates
+     *
+     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getBatchSpotFeeAsync($currency_pairs)
+    {
+        return $this->getBatchSpotFeeAsyncWithHttpInfo($currency_pairs)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getBatchSpotFeeAsyncWithHttpInfo
+     *
+     * Query a batch of user trading fee rates
+     *
+     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getBatchSpotFeeAsyncWithHttpInfo($currency_pairs)
+    {
+        $returnType = 'map[string,\GateApi\Model\SpotFee]';
+        $request = $this->getBatchSpotFeeRequest($currency_pairs);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getBatchSpotFee'
+     *
+     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getBatchSpotFeeRequest($currency_pairs)
+    {
+        // verify the required parameter 'currency_pairs' is set
+        if ($currency_pairs === null || (is_array($currency_pairs) && count($currency_pairs) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency_pairs when calling getBatchSpotFee'
+            );
+        }
+
+        $resourcePath = '/spot/batch_fee';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency_pairs !== null) {
+            if('form' === 'form' && is_array($currency_pairs)) {
+                foreach($currency_pairs as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency_pairs'] = $currency_pairs;
             }
         }
 
@@ -5256,6 +5499,300 @@ class SpotApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation amendOrder
+     *
+     * Amend an order
+     *
+     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param string                    $currency_pair Currency pair (required)
+     * @param \GateApi\Model\OrderPatch $order_patch   order_patch (required)
+     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Order
+     */
+    public function amendOrder($order_id, $currency_pair, $order_patch, $account = null)
+    {
+        list($response) = $this->amendOrderWithHttpInfo($order_id, $currency_pair, $order_patch, $account);
+        return $response;
+    }
+
+    /**
+     * Operation amendOrderWithHttpInfo
+     *
+     * Amend an order
+     *
+     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param string                    $currency_pair Currency pair (required)
+     * @param \GateApi\Model\OrderPatch $order_patch   (required)
+     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Order, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function amendOrderWithHttpInfo($order_id, $currency_pair, $order_patch, $account = null)
+    {
+        $request = $this->amendOrderRequest($order_id, $currency_pair, $order_patch, $account);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody !== null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\Order';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation amendOrderAsync
+     *
+     * Amend an order
+     *
+     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param string                    $currency_pair Currency pair (required)
+     * @param \GateApi\Model\OrderPatch $order_patch   (required)
+     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function amendOrderAsync($order_id, $currency_pair, $order_patch, $account = null)
+    {
+        return $this->amendOrderAsyncWithHttpInfo($order_id, $currency_pair, $order_patch, $account)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation amendOrderAsyncWithHttpInfo
+     *
+     * Amend an order
+     *
+     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param string                    $currency_pair Currency pair (required)
+     * @param \GateApi\Model\OrderPatch $order_patch   (required)
+     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function amendOrderAsyncWithHttpInfo($order_id, $currency_pair, $order_patch, $account = null)
+    {
+        $returnType = '\GateApi\Model\Order';
+        $request = $this->amendOrderRequest($order_id, $currency_pair, $order_patch, $account);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'amendOrder'
+     *
+     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param string                    $currency_pair Currency pair (required)
+     * @param \GateApi\Model\OrderPatch $order_patch   (required)
+     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function amendOrderRequest($order_id, $currency_pair, $order_patch, $account = null)
+    {
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling amendOrder'
+            );
+        }
+        // verify the required parameter 'currency_pair' is set
+        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency_pair when calling amendOrder'
+            );
+        }
+        // verify the required parameter 'order_patch' is set
+        if ($order_patch === null || (is_array($order_patch) && count($order_patch) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_patch when calling amendOrder'
+            );
+        }
+
+        $resourcePath = '/spot/orders/{order_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency_pair !== null) {
+            if('form' === 'form' && is_array($currency_pair)) {
+                foreach($currency_pair as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // query params
+        if ($account !== null) {
+            if('form' === 'form' && is_array($account)) {
+                foreach($account as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['account'] = $account;
+            }
+        }
+
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($order_patch)) {
+            $_tempBody = $order_patch;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('PATCH', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

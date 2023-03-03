@@ -1,6 +1,6 @@
 <?php
 /**
- * FundingBookItem
+ * AgencyTransactionHistory
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * FundingBookItem Class Doc Comment
+ * AgencyTransactionHistory Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class FundingBookItem implements ModelInterface, ArrayAccess
+class AgencyTransactionHistory implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'FundingBookItem';
+    protected static $openAPIModelName = 'AgencyTransactionHistory';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -54,9 +54,9 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'rate' => 'string',
-        'amount' => 'string',
-        'days' => 'int'
+        'currency_pair' => 'string',
+        'total' => 'int',
+        'list' => '\GateApi\Model\AgencyTransaction[]'
     ];
 
     /**
@@ -65,9 +65,9 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPIFormats = [
-        'rate' => null,
-        'amount' => null,
-        'days' => null
+        'currency_pair' => null,
+        'total' => 'int64',
+        'list' => null
     ];
 
     /**
@@ -97,9 +97,9 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rate' => 'rate',
-        'amount' => 'amount',
-        'days' => 'days'
+        'currency_pair' => 'currency_pair',
+        'total' => 'total',
+        'list' => 'list'
     ];
 
     /**
@@ -108,9 +108,9 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rate' => 'setRate',
-        'amount' => 'setAmount',
-        'days' => 'setDays'
+        'currency_pair' => 'setCurrencyPair',
+        'total' => 'setTotal',
+        'list' => 'setList'
     ];
 
     /**
@@ -119,9 +119,9 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rate' => 'getRate',
-        'amount' => 'getAmount',
-        'days' => 'getDays'
+        'currency_pair' => 'getCurrencyPair',
+        'total' => 'getTotal',
+        'list' => 'getList'
     ];
 
     /**
@@ -184,9 +184,9 @@ class FundingBookItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['days'] = isset($data['days']) ? $data['days'] : null;
+        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['list'] = isset($data['list']) ? $data['list'] : null;
     }
 
     /**
@@ -214,73 +214,73 @@ class FundingBookItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rate
+     * Gets currency_pair
      *
      * @return string|null
      */
-    public function getRate()
+    public function getCurrencyPair()
     {
-        return $this->container['rate'];
+        return $this->container['currency_pair'];
     }
 
     /**
-     * Sets rate
+     * Sets currency_pair
      *
-     * @param string|null $rate Loan rate (daily rate)
+     * @param string|null $currency_pair Currency pair
      *
      * @return $this
      */
-    public function setRate($rate)
+    public function setCurrencyPair($currency_pair)
     {
-        $this->container['rate'] = $rate;
+        $this->container['currency_pair'] = $currency_pair;
 
         return $this;
     }
 
     /**
-     * Gets amount
-     *
-     * @return string|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param string|null $amount Borrowable amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets days
+     * Gets total
      *
      * @return int|null
      */
-    public function getDays()
+    public function getTotal()
     {
-        return $this->container['days'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets days
+     * Sets total
      *
-     * @param int|null $days The number of days till the loan repayment's dateline
+     * @param int|null $total Total
      *
      * @return $this
      */
-    public function setDays($days)
+    public function setTotal($total)
     {
-        $this->container['days'] = $days;
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets list
+     *
+     * @return \GateApi\Model\AgencyTransaction[]|null
+     */
+    public function getList()
+    {
+        return $this->container['list'];
+    }
+
+    /**
+     * Sets list
+     *
+     * @param \GateApi\Model\AgencyTransaction[]|null $list List of transaction history
+     *
+     * @return $this
+     */
+    public function setList($list)
+    {
+        $this->container['list'] = $list;
 
         return $this;
     }

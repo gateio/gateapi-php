@@ -59,6 +59,7 @@ class SubAccount implements ModelInterface, ArrayAccess
         'password' => 'string',
         'email' => 'string',
         'state' => 'int',
+        'type' => 'int',
         'user_id' => 'int',
         'create_time' => 'int'
     ];
@@ -74,6 +75,7 @@ class SubAccount implements ModelInterface, ArrayAccess
         'password' => null,
         'email' => null,
         'state' => 'int32',
+        'type' => 'int32',
         'user_id' => 'int64',
         'create_time' => 'int64'
     ];
@@ -110,6 +112,7 @@ class SubAccount implements ModelInterface, ArrayAccess
         'password' => 'password',
         'email' => 'email',
         'state' => 'state',
+        'type' => 'type',
         'user_id' => 'user_id',
         'create_time' => 'create_time'
     ];
@@ -125,6 +128,7 @@ class SubAccount implements ModelInterface, ArrayAccess
         'password' => 'setPassword',
         'email' => 'setEmail',
         'state' => 'setState',
+        'type' => 'setType',
         'user_id' => 'setUserId',
         'create_time' => 'setCreateTime'
     ];
@@ -140,6 +144,7 @@ class SubAccount implements ModelInterface, ArrayAccess
         'password' => 'getPassword',
         'email' => 'getEmail',
         'state' => 'getState',
+        'type' => 'getType',
         'user_id' => 'getUserId',
         'create_time' => 'getCreateTime'
     ];
@@ -209,6 +214,7 @@ class SubAccount implements ModelInterface, ArrayAccess
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
     }
@@ -356,6 +362,30 @@ class SubAccount implements ModelInterface, ArrayAccess
     public function setState($state)
     {
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return int|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param int|null $type Type: 1-Sub-account
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

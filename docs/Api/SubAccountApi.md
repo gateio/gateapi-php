@@ -502,7 +502,7 @@ void (empty response body)
 
 ## lockSubAccount
 
-> lockSubAccount($user_id, $body)
+> lockSubAccount($user_id)
 
 Lock the sub-account
 
@@ -523,10 +523,9 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     $config
 );
 $user_id = 56; // int | The user id of the sub-account
-$body = new \stdClass; // object | 
 
 try {
-    $apiInstance->lockSubAccount($user_id, $body);
+    $apiInstance->lockSubAccount($user_id);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
@@ -541,7 +540,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The user id of the sub-account |
- **body** | **object**|  |
 
 ### Return type
 
@@ -553,7 +551,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -563,7 +561,7 @@ void (empty response body)
 
 ## unlockSubAccount
 
-> unlockSubAccount($user_id, $body)
+> unlockSubAccount($user_id)
 
 Unlock the sub-account
 
@@ -584,10 +582,9 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     $config
 );
 $user_id = 56; // int | The user id of the sub-account
-$body = new \stdClass; // object | 
 
 try {
-    $apiInstance->unlockSubAccount($user_id, $body);
+    $apiInstance->unlockSubAccount($user_id);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
@@ -602,7 +599,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The user id of the sub-account |
- **body** | **object**|  |
 
 ### Return type
 
@@ -614,7 +610,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
