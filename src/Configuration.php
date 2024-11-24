@@ -411,7 +411,7 @@ class Configuration
             $fmt,
             $method,
             $fullPath,
-            \GuzzleHttp\Psr7\build_query($queryParams, false),
+            http_build_query($queryParams, false),
             $hashedPayload,
             $timestamp
         );
