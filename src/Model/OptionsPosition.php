@@ -32,55 +32,69 @@ use \GateApi\ObjectSerializer;
 /**
  * OptionsPosition Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Options position information
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class OptionsPosition implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'OptionsPosition';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'user' => 'int',
+        'underlying' => 'string',
+        'underlying_price' => 'string',
         'contract' => 'string',
         'size' => 'int',
         'entry_price' => 'string',
         'mark_price' => 'string',
+        'mark_iv' => 'string',
         'realised_pnl' => 'string',
         'unrealised_pnl' => 'string',
         'pending_orders' => 'int',
-        'close_order' => '\GateApi\Model\OptionsPositionCloseOrder'
+        'close_order' => '\GateApi\Model\OptionsPositionCloseOrder',
+        'delta' => 'string',
+        'gamma' => 'string',
+        'vega' => 'string',
+        'theta' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'user' => null,
+        'underlying' => null,
+        'underlying_price' => null,
         'contract' => null,
         'size' => 'int64',
         'entry_price' => null,
         'mark_price' => null,
+        'mark_iv' => null,
         'realised_pnl' => null,
         'unrealised_pnl' => null,
         'pending_orders' => null,
-        'close_order' => null
+        'close_order' => null,
+        'delta' => null,
+        'gamma' => null,
+        'vega' => null,
+        'theta' => null
     ];
 
     /**
@@ -111,14 +125,21 @@ class OptionsPosition implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'user' => 'user',
+        'underlying' => 'underlying',
+        'underlying_price' => 'underlying_price',
         'contract' => 'contract',
         'size' => 'size',
         'entry_price' => 'entry_price',
         'mark_price' => 'mark_price',
+        'mark_iv' => 'mark_iv',
         'realised_pnl' => 'realised_pnl',
         'unrealised_pnl' => 'unrealised_pnl',
         'pending_orders' => 'pending_orders',
-        'close_order' => 'close_order'
+        'close_order' => 'close_order',
+        'delta' => 'delta',
+        'gamma' => 'gamma',
+        'vega' => 'vega',
+        'theta' => 'theta'
     ];
 
     /**
@@ -128,14 +149,21 @@ class OptionsPosition implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'user' => 'setUser',
+        'underlying' => 'setUnderlying',
+        'underlying_price' => 'setUnderlyingPrice',
         'contract' => 'setContract',
         'size' => 'setSize',
         'entry_price' => 'setEntryPrice',
         'mark_price' => 'setMarkPrice',
+        'mark_iv' => 'setMarkIv',
         'realised_pnl' => 'setRealisedPnl',
         'unrealised_pnl' => 'setUnrealisedPnl',
         'pending_orders' => 'setPendingOrders',
-        'close_order' => 'setCloseOrder'
+        'close_order' => 'setCloseOrder',
+        'delta' => 'setDelta',
+        'gamma' => 'setGamma',
+        'vega' => 'setVega',
+        'theta' => 'setTheta'
     ];
 
     /**
@@ -145,14 +173,21 @@ class OptionsPosition implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'user' => 'getUser',
+        'underlying' => 'getUnderlying',
+        'underlying_price' => 'getUnderlyingPrice',
         'contract' => 'getContract',
         'size' => 'getSize',
         'entry_price' => 'getEntryPrice',
         'mark_price' => 'getMarkPrice',
+        'mark_iv' => 'getMarkIv',
         'realised_pnl' => 'getRealisedPnl',
         'unrealised_pnl' => 'getUnrealisedPnl',
         'pending_orders' => 'getPendingOrders',
-        'close_order' => 'getCloseOrder'
+        'close_order' => 'getCloseOrder',
+        'delta' => 'getDelta',
+        'gamma' => 'getGamma',
+        'vega' => 'getVega',
+        'theta' => 'getTheta'
     ];
 
     /**
@@ -216,14 +251,21 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
+        $this->container['underlying'] = isset($data['underlying']) ? $data['underlying'] : null;
+        $this->container['underlying_price'] = isset($data['underlying_price']) ? $data['underlying_price'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['entry_price'] = isset($data['entry_price']) ? $data['entry_price'] : null;
         $this->container['mark_price'] = isset($data['mark_price']) ? $data['mark_price'] : null;
+        $this->container['mark_iv'] = isset($data['mark_iv']) ? $data['mark_iv'] : null;
         $this->container['realised_pnl'] = isset($data['realised_pnl']) ? $data['realised_pnl'] : null;
         $this->container['unrealised_pnl'] = isset($data['unrealised_pnl']) ? $data['unrealised_pnl'] : null;
         $this->container['pending_orders'] = isset($data['pending_orders']) ? $data['pending_orders'] : null;
         $this->container['close_order'] = isset($data['close_order']) ? $data['close_order'] : null;
+        $this->container['delta'] = isset($data['delta']) ? $data['delta'] : null;
+        $this->container['gamma'] = isset($data['gamma']) ? $data['gamma'] : null;
+        $this->container['vega'] = isset($data['vega']) ? $data['vega'] : null;
+        $this->container['theta'] = isset($data['theta']) ? $data['theta'] : null;
     }
 
     /**
@@ -270,6 +312,54 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     public function setUser($user)
     {
         $this->container['user'] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Gets underlying
+     *
+     * @return string|null
+     */
+    public function getUnderlying()
+    {
+        return $this->container['underlying'];
+    }
+
+    /**
+     * Sets underlying
+     *
+     * @param string|null $underlying Underlying
+     *
+     * @return $this
+     */
+    public function setUnderlying($underlying)
+    {
+        $this->container['underlying'] = $underlying;
+
+        return $this;
+    }
+
+    /**
+     * Gets underlying_price
+     *
+     * @return string|null
+     */
+    public function getUnderlyingPrice()
+    {
+        return $this->container['underlying_price'];
+    }
+
+    /**
+     * Sets underlying_price
+     *
+     * @param string|null $underlying_price Underlying price (quote currency)
+     *
+     * @return $this
+     */
+    public function setUnderlyingPrice($underlying_price)
+    {
+        $this->container['underlying_price'] = $underlying_price;
 
         return $this;
     }
@@ -371,6 +461,30 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets mark_iv
+     *
+     * @return string|null
+     */
+    public function getMarkIv()
+    {
+        return $this->container['mark_iv'];
+    }
+
+    /**
+     * Sets mark_iv
+     *
+     * @param string|null $mark_iv Implied volatility
+     *
+     * @return $this
+     */
+    public function setMarkIv($mark_iv)
+    {
+        $this->container['mark_iv'] = $mark_iv;
+
+        return $this;
+    }
+
+    /**
      * Gets realised_pnl
      *
      * @return string|null
@@ -462,6 +576,102 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     public function setCloseOrder($close_order)
     {
         $this->container['close_order'] = $close_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets delta
+     *
+     * @return string|null
+     */
+    public function getDelta()
+    {
+        return $this->container['delta'];
+    }
+
+    /**
+     * Sets delta
+     *
+     * @param string|null $delta Delta
+     *
+     * @return $this
+     */
+    public function setDelta($delta)
+    {
+        $this->container['delta'] = $delta;
+
+        return $this;
+    }
+
+    /**
+     * Gets gamma
+     *
+     * @return string|null
+     */
+    public function getGamma()
+    {
+        return $this->container['gamma'];
+    }
+
+    /**
+     * Sets gamma
+     *
+     * @param string|null $gamma Gamma
+     *
+     * @return $this
+     */
+    public function setGamma($gamma)
+    {
+        $this->container['gamma'] = $gamma;
+
+        return $this;
+    }
+
+    /**
+     * Gets vega
+     *
+     * @return string|null
+     */
+    public function getVega()
+    {
+        return $this->container['vega'];
+    }
+
+    /**
+     * Sets vega
+     *
+     * @param string|null $vega Vega
+     *
+     * @return $this
+     */
+    public function setVega($vega)
+    {
+        $this->container['vega'] = $vega;
+
+        return $this;
+    }
+
+    /**
+     * Gets theta
+     *
+     * @return string|null
+     */
+    public function getTheta()
+    {
+        return $this->container['theta'];
+    }
+
+    /**
+     * Sets theta
+     *
+     * @param string|null $theta Theta
+     *
+     * @return $this
+     */
+    public function setTheta($theta)
+    {
+        $this->container['theta'] = $theta;
 
         return $this;
     }

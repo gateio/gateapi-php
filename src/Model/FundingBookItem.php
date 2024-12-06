@@ -42,17 +42,17 @@ class FundingBookItem implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FundingBookItem';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'rate' => 'string',
         'amount' => 'string',
@@ -60,10 +60,10 @@ class FundingBookItem implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'rate' => null,
         'amount' => null,

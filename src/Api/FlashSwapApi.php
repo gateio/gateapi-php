@@ -88,7 +88,7 @@ class FlashSwapApi
     /**
      * Set the host index
      *
-     * @param int Host index (required)
+     * @param  int Host index (required)
      */
     public function setHostIndex($host_index)
     {
@@ -116,7 +116,8 @@ class FlashSwapApi
     /**
      * Operation listFlashSwapCurrencies
      *
-     * List all supported currencies in flash swap
+     * List All Supported Currencies In Flash Swap (deprecated)
+     *
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -131,7 +132,8 @@ class FlashSwapApi
     /**
      * Operation listFlashSwapCurrenciesWithHttpInfo
      *
-     * List all supported currencies in flash swap
+     * List All Supported Currencies In Flash Swap (deprecated)
+     *
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -146,7 +148,7 @@ class FlashSwapApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -183,7 +185,8 @@ class FlashSwapApi
     /**
      * Operation listFlashSwapCurrenciesAsync
      *
-     * List all supported currencies in flash swap
+     * List All Supported Currencies In Flash Swap (deprecated)
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -201,7 +204,8 @@ class FlashSwapApi
     /**
      * Operation listFlashSwapCurrenciesAsyncWithHttpInfo
      *
-     * List all supported currencies in flash swap
+     * List All Supported Currencies In Flash Swap (deprecated)
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -247,6 +251,7 @@ class FlashSwapApi
 
     /**
      * Create request for operation 'listFlashSwapCurrencies'
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -326,18 +331,312 @@ class FlashSwapApi
     }
 
     /**
+     * Operation listFlashSwapCurrencyPair
+     *
+     * List All Supported Currency Pairs In Flash Swap
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\FlashSwapCurrencyPair[]
+     */
+    public function listFlashSwapCurrencyPair($associative_array)
+    {
+        list($response) = $this->listFlashSwapCurrencyPairWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listFlashSwapCurrencyPairWithHttpInfo
+     *
+     * List All Supported Currency Pairs In Flash Swap
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\FlashSwapCurrencyPair[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listFlashSwapCurrencyPairWithHttpInfo($associative_array)
+    {
+        $request = $this->listFlashSwapCurrencyPairRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\FlashSwapCurrencyPair[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listFlashSwapCurrencyPairAsync
+     *
+     * List All Supported Currency Pairs In Flash Swap
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listFlashSwapCurrencyPairAsync($associative_array)
+    {
+        return $this->listFlashSwapCurrencyPairAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listFlashSwapCurrencyPairAsyncWithHttpInfo
+     *
+     * List All Supported Currency Pairs In Flash Swap
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listFlashSwapCurrencyPairAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\FlashSwapCurrencyPair[]';
+        $request = $this->listFlashSwapCurrencyPairRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listFlashSwapCurrencyPair'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listFlashSwapCurrencyPairRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 1000;
+
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling FlashSwapApi.listFlashSwapCurrencyPair, must be bigger than or equal to 1.');
+        }
+
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FlashSwapApi.listFlashSwapCurrencyPair, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FlashSwapApi.listFlashSwapCurrencyPair, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/flash_swap/currency_pairs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listFlashSwapOrders
      *
      * List all flash swap orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status        Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
-     * @param string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param string $buy_currency  Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param bool   $reverse       If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  int $status Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
+     * @param  string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  string $buy_currency Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  bool $reverse If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -356,12 +655,12 @@ class FlashSwapApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status        Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
-     * @param string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param string $buy_currency  Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param bool   $reverse       If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  int $status Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
+     * @param  string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  string $buy_currency Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  bool $reverse If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -376,7 +675,7 @@ class FlashSwapApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -417,12 +716,12 @@ class FlashSwapApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status        Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
-     * @param string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param string $buy_currency  Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param bool   $reverse       If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  int $status Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
+     * @param  string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  string $buy_currency Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  bool $reverse If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -444,12 +743,12 @@ class FlashSwapApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status        Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
-     * @param string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param string $buy_currency  Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param bool   $reverse       If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  int $status Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
+     * @param  string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  string $buy_currency Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  bool $reverse If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -498,12 +797,12 @@ class FlashSwapApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status        Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
-     * @param string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param string $buy_currency  Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
-     * @param bool   $reverse       If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  int $status Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)
+     * @param  string $sell_currency Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  string $buy_currency Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)
+     * @param  bool $reverse If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -681,7 +980,7 @@ class FlashSwapApi
      *
      * Create a flash swap order
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request flash_swap_order_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -698,7 +997,7 @@ class FlashSwapApi
      *
      * Create a flash swap order
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -713,7 +1012,7 @@ class FlashSwapApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -752,7 +1051,7 @@ class FlashSwapApi
      *
      * Create a flash swap order
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -772,7 +1071,7 @@ class FlashSwapApi
      *
      * Create a flash swap order
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -819,7 +1118,7 @@ class FlashSwapApi
     /**
      * Create request for operation 'createFlashSwapOrder'
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -915,7 +1214,7 @@ class FlashSwapApi
      *
      * Get a single flash swap order's detail
      *
-     * @param int $order_id Flash swap order ID (required)
+     * @param  int $order_id Flash swap order ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -932,7 +1231,7 @@ class FlashSwapApi
      *
      * Get a single flash swap order's detail
      *
-     * @param int $order_id Flash swap order ID (required)
+     * @param  int $order_id Flash swap order ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -947,7 +1246,7 @@ class FlashSwapApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -986,7 +1285,7 @@ class FlashSwapApi
      *
      * Get a single flash swap order's detail
      *
-     * @param int $order_id Flash swap order ID (required)
+     * @param  int $order_id Flash swap order ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1006,7 +1305,7 @@ class FlashSwapApi
      *
      * Get a single flash swap order's detail
      *
-     * @param int $order_id Flash swap order ID (required)
+     * @param  int $order_id Flash swap order ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1053,7 +1352,7 @@ class FlashSwapApi
     /**
      * Create request for operation 'getFlashSwapOrder'
      *
-     * @param int $order_id Flash swap order ID (required)
+     * @param  int $order_id Flash swap order ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1155,15 +1454,15 @@ class FlashSwapApi
      *
      * Initiate a flash swap order preview
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapPreviewRequest $flash_swap_preview_request flash_swap_preview_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\FlashSwapOrderPreview
      */
-    public function previewFlashSwapOrder($flash_swap_order_request)
+    public function previewFlashSwapOrder($flash_swap_preview_request)
     {
-        list($response) = $this->previewFlashSwapOrderWithHttpInfo($flash_swap_order_request);
+        list($response) = $this->previewFlashSwapOrderWithHttpInfo($flash_swap_preview_request);
         return $response;
     }
 
@@ -1172,22 +1471,22 @@ class FlashSwapApi
      *
      * Initiate a flash swap order preview
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapPreviewRequest $flash_swap_preview_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\FlashSwapOrderPreview, HTTP status code, HTTP response headers (array of strings)
      */
-    public function previewFlashSwapOrderWithHttpInfo($flash_swap_order_request)
+    public function previewFlashSwapOrderWithHttpInfo($flash_swap_preview_request)
     {
-        $request = $this->previewFlashSwapOrderRequest($flash_swap_order_request);
+        $request = $this->previewFlashSwapOrderRequest($flash_swap_preview_request);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1226,14 +1525,14 @@ class FlashSwapApi
      *
      * Initiate a flash swap order preview
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapPreviewRequest $flash_swap_preview_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewFlashSwapOrderAsync($flash_swap_order_request)
+    public function previewFlashSwapOrderAsync($flash_swap_preview_request)
     {
-        return $this->previewFlashSwapOrderAsyncWithHttpInfo($flash_swap_order_request)
+        return $this->previewFlashSwapOrderAsyncWithHttpInfo($flash_swap_preview_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1246,15 +1545,15 @@ class FlashSwapApi
      *
      * Initiate a flash swap order preview
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapPreviewRequest $flash_swap_preview_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewFlashSwapOrderAsyncWithHttpInfo($flash_swap_order_request)
+    public function previewFlashSwapOrderAsyncWithHttpInfo($flash_swap_preview_request)
     {
         $returnType = '\GateApi\Model\FlashSwapOrderPreview';
-        $request = $this->previewFlashSwapOrderRequest($flash_swap_order_request);
+        $request = $this->previewFlashSwapOrderRequest($flash_swap_preview_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1293,17 +1592,17 @@ class FlashSwapApi
     /**
      * Create request for operation 'previewFlashSwapOrder'
      *
-     * @param \GateApi\Model\FlashSwapOrderRequest $flash_swap_order_request (required)
+     * @param  \GateApi\Model\FlashSwapPreviewRequest $flash_swap_preview_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function previewFlashSwapOrderRequest($flash_swap_order_request)
+    protected function previewFlashSwapOrderRequest($flash_swap_preview_request)
     {
-        // verify the required parameter 'flash_swap_order_request' is set
-        if ($flash_swap_order_request === null || (is_array($flash_swap_order_request) && count($flash_swap_order_request) === 0)) {
+        // verify the required parameter 'flash_swap_preview_request' is set
+        if ($flash_swap_preview_request === null || (is_array($flash_swap_preview_request) && count($flash_swap_preview_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $flash_swap_order_request when calling previewFlashSwapOrder'
+                'Missing the required parameter $flash_swap_preview_request when calling previewFlashSwapOrder'
             );
         }
 
@@ -1316,8 +1615,8 @@ class FlashSwapApi
 
         // body params
         $_tempBody = null;
-        if (isset($flash_swap_order_request)) {
-            $_tempBody = $flash_swap_order_request;
+        if (isset($flash_swap_preview_request)) {
+            $_tempBody = $flash_swap_preview_request;
         }
 
         if ($multipart) {

@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
 [**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**subAccountToSubAccount**](WalletApi.md#subAccountToSubAccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account
+[**getTransferOrderStatus**](WalletApi.md#getTransferOrderStatus) | **GET** /wallet/order_status | Transfer status query
 [**listWithdrawStatus**](WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
@@ -20,6 +21,10 @@ Method | HTTP request | Description
 [**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
 [**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 [**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
+[**listSmallBalance**](WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | List small balance
+[**convertSmallBalance**](WalletApi.md#convertSmallBalance) | **POST** /wallet/small_balance | Convert small balance
+[**listSmallBalanceHistory**](WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | List small balance history
+[**listPushOrders**](WalletApi.md#listPushOrders) | **GET** /wallet/push | Retrieve the UID transfer history
 
 
 ## listCurrencyChains
@@ -140,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## listWithdrawals
 
-> \GateApi\Model\LedgerRecord[] listWithdrawals($currency, $from, $to, $limit, $offset)
+> \GateApi\Model\WithdrawalRecord[] listWithdrawals($currency, $from, $to, $limit, $offset)
 
 Retrieve withdrawal records
 
@@ -194,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\LedgerRecord[]**](../Model/LedgerRecord.md)
+[**\GateApi\Model\WithdrawalRecord[]**](../Model/WithdrawalRecord.md)
 
 ### Authorization
 
@@ -237,7 +242,7 @@ $apiInstance = new GateApi\Api\WalletApi(
 $associate_array['currency'] = 'BTC'; // string | Filter by currency. Return all currency records if not specified
 $associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time
 $associate_array['to'] = 1602123600; // int | Time range ending, default to current time
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['limit'] = 100; // int | The maximum number of entries returned in the list is limited to 500 transactions.
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
@@ -261,7 +266,7 @@ Name | Type | Description  | Notes
  **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional]
  **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **limit** | **int**| The maximum number of entries returned in the list is limited to 500 transactions. | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -288,7 +293,7 @@ Name | Type | Description  | Notes
 
 Transfer between trading accounts
 
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
 
 ### Example
 
@@ -418,7 +423,7 @@ Name | Type | Description  | Notes
 
 ## transferWithSubAccount
 
-> transferWithSubAccount($sub_account_transfer)
+> \GateApi\Model\TransactionID transferWithSubAccount($sub_account_transfer)
 
 Transfer between main and sub accounts
 
@@ -443,7 +448,8 @@ $apiInstance = new GateApi\Api\WalletApi(
 $sub_account_transfer = new \GateApi\Model\SubAccountTransfer(); // \GateApi\Model\SubAccountTransfer | 
 
 try {
-    $apiInstance->transferWithSubAccount($sub_account_transfer);
+    $result = $apiInstance->transferWithSubAccount($sub_account_transfer);
+    print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
@@ -461,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\GateApi\Model\TransactionID**](../Model/TransactionID.md)
 
 ### Authorization
 
@@ -470,7 +476,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -479,9 +485,11 @@ void (empty response body)
 
 ## subAccountToSubAccount
 
-> subAccountToSubAccount($sub_account_to_sub_account)
+> \GateApi\Model\TransactionID subAccountToSubAccount($sub_account_to_sub_account)
 
 Sub-account transfers to sub-account
+
+It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
 
 ### Example
 
@@ -502,7 +510,8 @@ $apiInstance = new GateApi\Api\WalletApi(
 $sub_account_to_sub_account = new \GateApi\Model\SubAccountToSubAccount(); // \GateApi\Model\SubAccountToSubAccount | 
 
 try {
-    $apiInstance->subAccountToSubAccount($sub_account_to_sub_account);
+    $result = $apiInstance->subAccountToSubAccount($sub_account_to_sub_account);
+    print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
@@ -520,7 +529,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\GateApi\Model\TransactionID**](../Model/TransactionID.md)
 
 ### Authorization
 
@@ -529,7 +538,73 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getTransferOrderStatus
+
+> \GateApi\Model\InlineResponse200 getTransferOrderStatus($client_order_id, $tx_id)
+
+Transfer status query
+
+Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WalletApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['client_order_id'] = 'da3ce7a088c8b0372b741419c7829033'; // string | The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens '-', and underscores '_', with a length ranging from 1 to 64 characters.
+$associate_array['tx_id'] = '59636381286'; // string | The transfer operation number and client_order_id cannot be empty at the same time
+
+try {
+    $result = $apiInstance->getTransferOrderStatus($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->getTransferOrderStatus: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **client_order_id** | **string**| The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. | [optional]
+ **tx_id** | **string**| The transfer operation number and client_order_id cannot be empty at the same time | [optional]
+
+### Return type
+
+[**\GateApi\Model\InlineResponse200**](../Model/InlineResponse200.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -850,7 +925,7 @@ Name | Type | Description  | Notes
 
 ## listSavedAddress
 
-> \GateApi\Model\SavedAddress[] listSavedAddress($currency, $chain, $limit)
+> \GateApi\Model\SavedAddress[] listSavedAddress($currency, $chain, $limit, $page)
 
 Query saved address
 
@@ -873,6 +948,7 @@ $apiInstance = new GateApi\Api\WalletApi(
 $associate_array['currency'] = 'USDT'; // string | Currency
 $associate_array['chain'] = ''; // string | Chain name
 $associate_array['limit'] = '50'; // string | Maximum number returned, 100 at most
+$associate_array['page'] = 1; // int | Page number
 
 try {
     $result = $apiInstance->listSavedAddress($associate_array);
@@ -895,6 +971,7 @@ Name | Type | Description  | Notes
  **currency** | **string**| Currency |
  **chain** | **string**| Chain name | [optional] [default to &#39;&#39;]
  **limit** | **string**| Maximum number returned, 100 at most | [optional] [default to &#39;50&#39;]
+ **page** | **int**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -1027,6 +1104,257 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\TotalBalance**](../Model/TotalBalance.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listSmallBalance
+
+> \GateApi\Model\SmallBalance[] listSmallBalance()
+
+List small balance
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WalletApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->listSmallBalance();
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->listSmallBalance: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\GateApi\Model\SmallBalance[]**](../Model/SmallBalance.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## convertSmallBalance
+
+> convertSmallBalance($convert_small_balance)
+
+Convert small balance
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WalletApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$convert_small_balance = new \GateApi\Model\ConvertSmallBalance(); // \GateApi\Model\ConvertSmallBalance | 
+
+try {
+    $apiInstance->convertSmallBalance($convert_small_balance);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->convertSmallBalance: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **convert_small_balance** | [**\GateApi\Model\ConvertSmallBalance**](../Model/ConvertSmallBalance.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listSmallBalanceHistory
+
+> \GateApi\Model\SmallBalanceHistory[] listSmallBalanceHistory($currency, $page, $limit)
+
+List small balance history
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WalletApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['currency'] = 'currency_example'; // string | Currency
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+
+try {
+    $result = $apiInstance->listSmallBalanceHistory($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->listSmallBalanceHistory: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+
+### Return type
+
+[**\GateApi\Model\SmallBalanceHistory[]**](../Model/SmallBalanceHistory.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listPushOrders
+
+> \GateApi\Model\UidPushOrder[] listPushOrders($id, $from, $to, $limit, $offset)
+
+Retrieve the UID transfer history
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\WalletApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['id'] = 56; // int | Order ID
+$associate_array['from'] = 56; // int | The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp
+$associate_array['to'] = 56; // int | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds.
+$associate_array['limit'] = 100; // int | The maximum number of items returned in the list, the default value is 100
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+
+try {
+    $result = $apiInstance->listPushOrders($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling WalletApi->listPushOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Order ID | [optional]
+ **from** | **int**| The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp | [optional]
+ **to** | **int**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional]
+ **limit** | **int**| The maximum number of items returned in the list, the default value is 100 | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\UidPushOrder[]**](../Model/UidPushOrder.md)
 
 ### Authorization
 

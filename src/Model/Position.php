@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * Position Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Futures position details
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class Position implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'Position';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'user' => 'int',
         'contract' => 'string',
@@ -71,6 +71,9 @@ class Position implements ModelInterface, ArrayAccess
         'maintenance_margin' => 'string',
         'unrealised_pnl' => 'string',
         'realised_pnl' => 'string',
+        'pnl_pnl' => 'string',
+        'pnl_fund' => 'string',
+        'pnl_fee' => 'string',
         'history_pnl' => 'string',
         'last_close_pnl' => 'string',
         'realised_point' => 'string',
@@ -79,14 +82,17 @@ class Position implements ModelInterface, ArrayAccess
         'pending_orders' => 'int',
         'close_order' => '\GateApi\Model\PositionCloseOrder',
         'mode' => 'string',
-        'cross_leverage_limit' => 'string'
+        'cross_leverage_limit' => 'string',
+        'update_time' => 'int',
+        'update_id' => 'int',
+        'open_time' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'user' => 'int64',
         'contract' => null,
@@ -104,6 +110,9 @@ class Position implements ModelInterface, ArrayAccess
         'maintenance_margin' => null,
         'unrealised_pnl' => null,
         'realised_pnl' => null,
+        'pnl_pnl' => null,
+        'pnl_fund' => null,
+        'pnl_fee' => null,
         'history_pnl' => null,
         'last_close_pnl' => null,
         'realised_point' => null,
@@ -112,7 +121,10 @@ class Position implements ModelInterface, ArrayAccess
         'pending_orders' => null,
         'close_order' => null,
         'mode' => null,
-        'cross_leverage_limit' => null
+        'cross_leverage_limit' => null,
+        'update_time' => 'int64',
+        'update_id' => 'int64',
+        'open_time' => 'int64'
     ];
 
     /**
@@ -158,6 +170,9 @@ class Position implements ModelInterface, ArrayAccess
         'maintenance_margin' => 'maintenance_margin',
         'unrealised_pnl' => 'unrealised_pnl',
         'realised_pnl' => 'realised_pnl',
+        'pnl_pnl' => 'pnl_pnl',
+        'pnl_fund' => 'pnl_fund',
+        'pnl_fee' => 'pnl_fee',
         'history_pnl' => 'history_pnl',
         'last_close_pnl' => 'last_close_pnl',
         'realised_point' => 'realised_point',
@@ -166,7 +181,10 @@ class Position implements ModelInterface, ArrayAccess
         'pending_orders' => 'pending_orders',
         'close_order' => 'close_order',
         'mode' => 'mode',
-        'cross_leverage_limit' => 'cross_leverage_limit'
+        'cross_leverage_limit' => 'cross_leverage_limit',
+        'update_time' => 'update_time',
+        'update_id' => 'update_id',
+        'open_time' => 'open_time'
     ];
 
     /**
@@ -191,6 +209,9 @@ class Position implements ModelInterface, ArrayAccess
         'maintenance_margin' => 'setMaintenanceMargin',
         'unrealised_pnl' => 'setUnrealisedPnl',
         'realised_pnl' => 'setRealisedPnl',
+        'pnl_pnl' => 'setPnlPnl',
+        'pnl_fund' => 'setPnlFund',
+        'pnl_fee' => 'setPnlFee',
         'history_pnl' => 'setHistoryPnl',
         'last_close_pnl' => 'setLastClosePnl',
         'realised_point' => 'setRealisedPoint',
@@ -199,7 +220,10 @@ class Position implements ModelInterface, ArrayAccess
         'pending_orders' => 'setPendingOrders',
         'close_order' => 'setCloseOrder',
         'mode' => 'setMode',
-        'cross_leverage_limit' => 'setCrossLeverageLimit'
+        'cross_leverage_limit' => 'setCrossLeverageLimit',
+        'update_time' => 'setUpdateTime',
+        'update_id' => 'setUpdateId',
+        'open_time' => 'setOpenTime'
     ];
 
     /**
@@ -224,6 +248,9 @@ class Position implements ModelInterface, ArrayAccess
         'maintenance_margin' => 'getMaintenanceMargin',
         'unrealised_pnl' => 'getUnrealisedPnl',
         'realised_pnl' => 'getRealisedPnl',
+        'pnl_pnl' => 'getPnlPnl',
+        'pnl_fund' => 'getPnlFund',
+        'pnl_fee' => 'getPnlFee',
         'history_pnl' => 'getHistoryPnl',
         'last_close_pnl' => 'getLastClosePnl',
         'realised_point' => 'getRealisedPoint',
@@ -232,7 +259,10 @@ class Position implements ModelInterface, ArrayAccess
         'pending_orders' => 'getPendingOrders',
         'close_order' => 'getCloseOrder',
         'mode' => 'getMode',
-        'cross_leverage_limit' => 'getCrossLeverageLimit'
+        'cross_leverage_limit' => 'getCrossLeverageLimit',
+        'update_time' => 'getUpdateTime',
+        'update_id' => 'getUpdateId',
+        'open_time' => 'getOpenTime'
     ];
 
     /**
@@ -328,6 +358,9 @@ class Position implements ModelInterface, ArrayAccess
         $this->container['maintenance_margin'] = isset($data['maintenance_margin']) ? $data['maintenance_margin'] : null;
         $this->container['unrealised_pnl'] = isset($data['unrealised_pnl']) ? $data['unrealised_pnl'] : null;
         $this->container['realised_pnl'] = isset($data['realised_pnl']) ? $data['realised_pnl'] : null;
+        $this->container['pnl_pnl'] = isset($data['pnl_pnl']) ? $data['pnl_pnl'] : null;
+        $this->container['pnl_fund'] = isset($data['pnl_fund']) ? $data['pnl_fund'] : null;
+        $this->container['pnl_fee'] = isset($data['pnl_fee']) ? $data['pnl_fee'] : null;
         $this->container['history_pnl'] = isset($data['history_pnl']) ? $data['history_pnl'] : null;
         $this->container['last_close_pnl'] = isset($data['last_close_pnl']) ? $data['last_close_pnl'] : null;
         $this->container['realised_point'] = isset($data['realised_point']) ? $data['realised_point'] : null;
@@ -337,6 +370,9 @@ class Position implements ModelInterface, ArrayAccess
         $this->container['close_order'] = isset($data['close_order']) ? $data['close_order'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['cross_leverage_limit'] = isset($data['cross_leverage_limit']) ? $data['cross_leverage_limit'] : null;
+        $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
+        $this->container['update_id'] = isset($data['update_id']) ? $data['update_id'] : null;
+        $this->container['open_time'] = isset($data['open_time']) ? $data['open_time'] : null;
     }
 
     /**
@@ -756,6 +792,78 @@ class Position implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets pnl_pnl
+     *
+     * @return string|null
+     */
+    public function getPnlPnl()
+    {
+        return $this->container['pnl_pnl'];
+    }
+
+    /**
+     * Sets pnl_pnl
+     *
+     * @param string|null $pnl_pnl Realized PNL - Position P/L
+     *
+     * @return $this
+     */
+    public function setPnlPnl($pnl_pnl)
+    {
+        $this->container['pnl_pnl'] = $pnl_pnl;
+
+        return $this;
+    }
+
+    /**
+     * Gets pnl_fund
+     *
+     * @return string|null
+     */
+    public function getPnlFund()
+    {
+        return $this->container['pnl_fund'];
+    }
+
+    /**
+     * Sets pnl_fund
+     *
+     * @param string|null $pnl_fund Realized PNL -  Funding Fees
+     *
+     * @return $this
+     */
+    public function setPnlFund($pnl_fund)
+    {
+        $this->container['pnl_fund'] = $pnl_fund;
+
+        return $this;
+    }
+
+    /**
+     * Gets pnl_fee
+     *
+     * @return string|null
+     */
+    public function getPnlFee()
+    {
+        return $this->container['pnl_fee'];
+    }
+
+    /**
+     * Sets pnl_fee
+     *
+     * @param string|null $pnl_fee Realized PNL - Transaction Fees
+     *
+     * @return $this
+     */
+    public function setPnlFee($pnl_fee)
+    {
+        $this->container['pnl_fee'] = $pnl_fee;
+
+        return $this;
+    }
+
+    /**
      * Gets history_pnl
      *
      * @return string|null
@@ -864,7 +972,7 @@ class Position implements ModelInterface, ArrayAccess
     /**
      * Sets adl_ranking
      *
-     * @param int|null $adl_ranking ADL ranking, ranging from 1 to 5
+     * @param int|null $adl_ranking Ranking of auto deleveraging, a total of 1-5 grades, `1` is the highest, `5` is the lowest, and `6` is the special case when there is no position held or in liquidation
      *
      * @return $this
      */
@@ -976,6 +1084,78 @@ class Position implements ModelInterface, ArrayAccess
     public function setCrossLeverageLimit($cross_leverage_limit)
     {
         $this->container['cross_leverage_limit'] = $cross_leverage_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_time
+     *
+     * @return int|null
+     */
+    public function getUpdateTime()
+    {
+        return $this->container['update_time'];
+    }
+
+    /**
+     * Sets update_time
+     *
+     * @param int|null $update_time Last update time
+     *
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->container['update_time'] = $update_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_id
+     *
+     * @return int|null
+     */
+    public function getUpdateId()
+    {
+        return $this->container['update_id'];
+    }
+
+    /**
+     * Sets update_id
+     *
+     * @param int|null $update_id Update id. Each time the position is updated, the value will be +1.
+     *
+     * @return $this
+     */
+    public function setUpdateId($update_id)
+    {
+        $this->container['update_id'] = $update_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_time
+     *
+     * @return int|null
+     */
+    public function getOpenTime()
+    {
+        return $this->container['open_time'];
+    }
+
+    /**
+     * Sets open_time
+     *
+     * @param int|null $open_time First Open Time
+     *
+     * @return $this
+     */
+    public function setOpenTime($open_time)
+    {
+        $this->container['open_time'] = $open_time;
 
         return $this;
     }

@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * FuturesPriceTriggeredOrder Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Futures order details
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FuturesPriceTriggeredOrder';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'initial' => '\GateApi\Model\FuturesInitialOrder',
         'trigger' => '\GateApi\Model\FuturesPriceTrigger',
@@ -66,14 +66,14 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'finish_as' => 'string',
         'reason' => 'string',
         'order_type' => 'string',
-        'me_order_id' => 'string'
+        'me_order_id' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'initial' => null,
         'trigger' => null,
@@ -86,7 +86,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
         'finish_as' => null,
         'reason' => null,
         'order_type' => null,
-        'me_order_id' => null
+        'me_order_id' => 'int64'
     ];
 
     /**
@@ -613,7 +613,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Gets me_order_id
      *
-     * @return string|null
+     * @return int|null
      */
     public function getMeOrderId()
     {
@@ -623,7 +623,7 @@ class FuturesPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets me_order_id
      *
-     * @param string|null $me_order_id Corresponding order ID of order take-profit/stop-loss.
+     * @param int|null $me_order_id Corresponding order ID of order take-profit/stop-loss.
      *
      * @return $this
      */

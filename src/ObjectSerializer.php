@@ -38,15 +38,13 @@ use GateApi\Model\ModelInterface;
  */
 class ObjectSerializer
 {
-    /**
-     * @var string 
-     */
+    /** @var string */
     private static $dateTimeFormat = \DateTime::ATOM;
 
     /**
      * Change the date format
      *
-     * @param string $format the new date format to use
+     * @param string $format   the new date format to use
      */
     public static function setDateTimeFormat($format)
     {
@@ -83,8 +81,7 @@ class ObjectSerializer
                     if ($value !== null
                         && !in_array($openAPIType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
                         && method_exists($openAPIType, 'getAllowableEnumValues')
-                        && !in_array($value, $openAPIType::getAllowableEnumValues(), true)
-                    ) {
+                        && !in_array($value, $openAPIType::getAllowableEnumValues(), true)) {
                         $imploded = implode("', '", $openAPIType::getAllowableEnumValues());
                         throw new \InvalidArgumentException("Invalid value for enum '$openAPIType', must be one of: '$imploded'");
                     }
@@ -202,7 +199,7 @@ class ObjectSerializer
     {
         if ($value instanceof \DateTime) { // datetime in ISO8601 format
             return $value->format(self::$dateTimeFormat);
-        } elseif (is_bool($value)) {
+        } else if (is_bool($value)) {
             return $value ? 'true' : 'false';
         } else {
             return $value;
@@ -214,7 +211,7 @@ class ObjectSerializer
      *
      * @param array  $collection                 collection to serialize to a string
      * @param string $style                      the format use for serialization (csv,
-     *                                           ssv, tsv, pipes, multi)
+     * ssv, tsv, pipes, multi)
      * @param bool   $allowCollectionFormatMulti allow collection format to be a multidimensional array
      *
      * @return string
@@ -227,22 +224,22 @@ class ObjectSerializer
             return preg_replace('/%5B[0-9]+%5D=/', '=', http_build_query($collection, '', '&'));
         }
         switch ($style) {
-        case 'pipeDelimited':
-        case 'pipes':
-            return implode('|', $collection);
+            case 'pipeDelimited':
+            case 'pipes':
+                return implode('|', $collection);
 
-        case 'tsv':
-            return implode("\t", $collection);
+            case 'tsv':
+                return implode("\t", $collection);
 
-        case 'spaceDelimited':
-        case 'ssv':
-            return implode(' ', $collection);
+            case 'spaceDelimited':
+            case 'ssv':
+                return implode(' ', $collection);
 
-        case 'simple':
-        case 'csv':
-            // Deliberate fall through. CSV is default format.
-        default:
-            return implode(',', $collection);
+            case 'simple':
+            case 'csv':
+                // Deliberate fall through. CSV is default format.
+            default:
+                return implode(',', $collection);
         }
     }
 
@@ -300,14 +297,11 @@ class ObjectSerializer
             settype($data, $class);
             return $data;
         } elseif ($class === '\SplFileObject') {
-            /**
- * @var \Psr\Http\Message\StreamInterface $data 
-*/
+            /** @var \Psr\Http\Message\StreamInterface $data */
 
             // determine file name
-            if (array_key_exists('Content-Disposition', $httpHeaders) 
-                && preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)
-            ) {
+            if (array_key_exists('Content-Disposition', $httpHeaders) &&
+                preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)) {
                 $filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
             } else {
                 $filename = tempnam(Configuration::getDefaultConfiguration()->getTempFolderPath(), '');

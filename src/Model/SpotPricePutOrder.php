@@ -42,38 +42,40 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SpotPricePutOrder';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'type' => 'string',
         'side' => 'string',
         'price' => 'string',
         'amount' => 'string',
         'account' => 'string',
-        'time_in_force' => 'string'
+        'time_in_force' => 'string',
+        'text' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'type' => null,
         'side' => null,
         'price' => null,
         'amount' => null,
         'account' => null,
-        'time_in_force' => null
+        'time_in_force' => null,
+        'text' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         'price' => 'price',
         'amount' => 'amount',
         'account' => 'account',
-        'time_in_force' => 'time_in_force'
+        'time_in_force' => 'time_in_force',
+        'text' => 'text'
     ];
 
     /**
@@ -122,7 +125,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         'price' => 'setPrice',
         'amount' => 'setAmount',
         'account' => 'setAccount',
-        'time_in_force' => 'setTimeInForce'
+        'time_in_force' => 'setTimeInForce',
+        'text' => 'setText'
     ];
 
     /**
@@ -136,7 +140,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         'price' => 'getPrice',
         'amount' => 'getAmount',
         'account' => 'getAccount',
-        'time_in_force' => 'getTimeInForce'
+        'time_in_force' => 'getTimeInForce',
+        'text' => 'getText'
     ];
 
     /**
@@ -180,6 +185,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TYPE_LIMIT = 'limit';
+    const TYPE_MARKET = 'market';
     const SIDE_BUY = 'buy';
     const SIDE_SELL = 'sell';
     const ACCOUNT_NORMAL = 'normal';
@@ -189,6 +196,19 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     const TIME_IN_FORCE_IOC = 'ioc';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_LIMIT,
+            self::TYPE_MARKET,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -252,6 +272,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : 'normal';
         $this->container['time_in_force'] = isset($data['time_in_force']) ? $data['time_in_force'] : 'gtc';
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
     /**
@@ -262,6 +283,14 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['side'] === null) {
             $invalidProperties[] = "'side' can't be null";
@@ -327,12 +356,21 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Order type, default to `limit`
+     * @param string|null $type Order type，default to `limit`  - limit : Limit Order - market : Market Order
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;
@@ -408,7 +446,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Order amount
+     * @param string $amount When `type` is limit, it refers to base currency.  For instance, `BTC_USDT` means `BTC`  When `type` is `market`, it refers to different currency according to `side`  - `side` : `buy` means quote currency, `BTC_USDT` means `USDT` - `side` : `sell` means base currency，`BTC_USDT` means `BTC`
      *
      * @return $this
      */
@@ -481,6 +519,30 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
             );
         }
         $this->container['time_in_force'] = $time_in_force;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text The source of the order, including: - web: web - api: api - app: app
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
 
         return $this;
     }

@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * FlashSwapOrderRequest Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Parameters of flash swap order creation
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FlashSwapOrderRequest';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'preview_id' => 'string',
         'sell_currency' => 'string',
@@ -63,10 +63,10 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'preview_id' => null,
         'sell_currency' => null,
@@ -211,11 +211,20 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['preview_id'] === null) {
+            $invalidProperties[] = "'preview_id' can't be null";
+        }
         if ($this->container['sell_currency'] === null) {
             $invalidProperties[] = "'sell_currency' can't be null";
         }
+        if ($this->container['sell_amount'] === null) {
+            $invalidProperties[] = "'sell_amount' can't be null";
+        }
         if ($this->container['buy_currency'] === null) {
             $invalidProperties[] = "'buy_currency' can't be null";
+        }
+        if ($this->container['buy_amount'] === null) {
+            $invalidProperties[] = "'buy_amount' can't be null";
         }
         return $invalidProperties;
     }
@@ -235,7 +244,7 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Gets preview_id
      *
-     * @return string|null
+     * @return string
      */
     public function getPreviewId()
     {
@@ -245,7 +254,7 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets preview_id
      *
-     * @param string|null $preview_id Preview result ID
+     * @param string $preview_id Preview result ID
      *
      * @return $this
      */
@@ -269,7 +278,7 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets sell_currency
      *
-     * @param string $sell_currency Currency to sell which can be retrieved from supported currency list API `GET /flash_swap/currencies`
+     * @param string $sell_currency The name of the asset being sold, as obtained from the \"GET /flash_swap/currency_pairs\" API, which retrieves a list of supported flash swap currency pairs.
      *
      * @return $this
      */
@@ -283,7 +292,7 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Gets sell_amount
      *
-     * @return string|null
+     * @return string
      */
     public function getSellAmount()
     {
@@ -293,7 +302,7 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets sell_amount
      *
-     * @param string|null $sell_amount Amount to sell. It is required to choose one parameter between `sell_amount` and `buy_amount`
+     * @param string $sell_amount Amount to sell (based on the preview result)
      *
      * @return $this
      */
@@ -317,7 +326,7 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets buy_currency
      *
-     * @param string $buy_currency Currency to buy which can be retrieved from supported currency list API `GET /flash_swap/currencies`
+     * @param string $buy_currency The name of the asset being purchased, as obtained from the \"GET /flash_swap/currency_pairs\" API, which provides a list of supported flash swap currency pairs.
      *
      * @return $this
      */
@@ -331,7 +340,7 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Gets buy_amount
      *
-     * @return string|null
+     * @return string
      */
     public function getBuyAmount()
     {
@@ -341,7 +350,7 @@ class FlashSwapOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets buy_amount
      *
-     * @param string|null $buy_amount Amount to buy. It is required to choose one parameter between `sell_amount` and `buy_amount`
+     * @param string $buy_amount Amount to buy (based on the preview result)
      *
      * @return $this
      */

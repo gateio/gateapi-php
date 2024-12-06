@@ -42,17 +42,17 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubAccountToSubAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency' => 'string',
         'sub_account_type' => 'string',
@@ -64,10 +64,10 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency' => null,
         'sub_account_type' => null,
@@ -185,42 +185,8 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const SUB_ACCOUNT_FROM_TYPE_SPOT = 'spot';
-    const SUB_ACCOUNT_FROM_TYPE_FUTURES = 'futures';
-    const SUB_ACCOUNT_FROM_TYPE_CROSS_MARGIN = 'cross_margin';
-    const SUB_ACCOUNT_TO_TYPE_SPOT = 'spot';
-    const SUB_ACCOUNT_TO_TYPE_FUTURES = 'futures';
-    const SUB_ACCOUNT_TO_TYPE_CROSS_MARGIN = 'cross_margin';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubAccountFromTypeAllowableValues()
-    {
-        return [
-            self::SUB_ACCOUNT_FROM_TYPE_SPOT,
-            self::SUB_ACCOUNT_FROM_TYPE_FUTURES,
-            self::SUB_ACCOUNT_FROM_TYPE_CROSS_MARGIN,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubAccountToTypeAllowableValues()
-    {
-        return [
-            self::SUB_ACCOUNT_TO_TYPE_SPOT,
-            self::SUB_ACCOUNT_TO_TYPE_FUTURES,
-            self::SUB_ACCOUNT_TO_TYPE_CROSS_MARGIN,
-        ];
-    }
     
 
     /**
@@ -265,28 +231,12 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
         if ($this->container['sub_account_from_type'] === null) {
             $invalidProperties[] = "'sub_account_from_type' can't be null";
         }
-        $allowedValues = $this->getSubAccountFromTypeAllowableValues();
-        if (!is_null($this->container['sub_account_from_type']) && !in_array($this->container['sub_account_from_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_account_from_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['sub_account_to'] === null) {
             $invalidProperties[] = "'sub_account_to' can't be null";
         }
         if ($this->container['sub_account_to_type'] === null) {
             $invalidProperties[] = "'sub_account_to_type' can't be null";
         }
-        $allowedValues = $this->getSubAccountToTypeAllowableValues();
-        if (!is_null($this->container['sub_account_to_type']) && !in_array($this->container['sub_account_to_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_account_to_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
@@ -390,21 +340,12 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets sub_account_from_type
      *
-     * @param string $sub_account_from_type Transfer from the account.  `spot` - spot account, `futures` - perpetual contract account, `cross_margin` - cross margin account
+     * @param string $sub_account_from_type The sub-account's outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account.
      *
      * @return $this
      */
     public function setSubAccountFromType($sub_account_from_type)
     {
-        $allowedValues = $this->getSubAccountFromTypeAllowableValues();
-        if (!in_array($sub_account_from_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_account_from_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['sub_account_from_type'] = $sub_account_from_type;
 
         return $this;
@@ -447,21 +388,12 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets sub_account_to_type
      *
-     * @param string $sub_account_to_type Transfer to the account.  `spot` - spot account, `futures` - perpetual contract account, `cross_margin` - cross margin account
+     * @param string $sub_account_to_type The sub-account's incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account
      *
      * @return $this
      */
     public function setSubAccountToType($sub_account_to_type)
     {
-        $allowedValues = $this->getSubAccountToTypeAllowableValues();
-        if (!in_array($sub_account_to_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_account_to_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['sub_account_to_type'] = $sub_account_to_type;
 
         return $this;

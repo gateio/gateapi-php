@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * OptionsUnderlyingTicker Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Options underlying detail
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class OptionsUnderlyingTicker implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'OptionsUnderlyingTicker';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'trade_put' => 'int',
         'trade_call' => 'int',
@@ -61,10 +61,10 @@ class OptionsUnderlyingTicker implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'trade_put' => 'int64',
         'trade_call' => 'int64',

@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**listDeliveryPositionClose**](DeliveryApi.md#listDeliveryPositionClose) | **GET** /delivery/{settle}/position_close | List position close history
 [**listDeliveryLiquidates**](DeliveryApi.md#listDeliveryLiquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history
 [**listDeliverySettlements**](DeliveryApi.md#listDeliverySettlements) | **GET** /delivery/{settle}/settlements | List settlement history
+[**listDeliveryRiskLimitTiers**](DeliveryApi.md#listDeliveryRiskLimitTiers) | **GET** /delivery/{settle}/risk_limit_tiers | List risk limit tiers
 [**listPriceTriggeredDeliveryOrders**](DeliveryApi.md#listPriceTriggeredDeliveryOrders) | **GET** /delivery/{settle}/price_orders | List all auto orders
 [**createPriceTriggeredDeliveryOrder**](DeliveryApi.md#createPriceTriggeredDeliveryOrder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
 [**cancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
@@ -286,7 +287,7 @@ No authorization required
 
 ## listDeliveryCandlesticks
 
-> \GateApi\Model\FuturesCandlestick[] listDeliveryCandlesticks($settle, $contract, $from, $to, $limit, $interval)
+> \GateApi\Model\DeliveryCandlestick[] listDeliveryCandlesticks($settle, $contract, $from, $to, $limit, $interval)
 
 Get futures candlesticks
 
@@ -338,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\FuturesCandlestick[]**](../Model/FuturesCandlestick.md)
+[**\GateApi\Model\DeliveryCandlestick[]**](../Model/DeliveryCandlestick.md)
 
 ### Authorization
 
@@ -1515,6 +1516,72 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listDeliveryRiskLimitTiers
+
+> \GateApi\Model\FuturesLimitRiskTiers[] listDeliveryRiskLimitTiers($settle, $contract, $limit, $offset)
+
+List risk limit tiers
+
+When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the 'contract' parameter is empty.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new GateApi\Api\DeliveryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT_20200814'; // string | Futures contract
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+
+try {
+    $result = $apiInstance->listDeliveryRiskLimitTiers($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling DeliveryApi->listDeliveryRiskLimitTiers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\FuturesLimitRiskTiers[]**](../Model/FuturesLimitRiskTiers.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

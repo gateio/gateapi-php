@@ -42,17 +42,17 @@ class Trade implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'Trade';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'string',
         'create_time' => 'string',
@@ -66,14 +66,17 @@ class Trade implements ModelInterface, ArrayAccess
         'fee' => 'string',
         'fee_currency' => 'string',
         'point_fee' => 'string',
-        'gt_fee' => 'string'
+        'gt_fee' => 'string',
+        'amend_text' => 'string',
+        'sequence_id' => 'string',
+        'text' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => null,
         'create_time' => null,
@@ -87,7 +90,10 @@ class Trade implements ModelInterface, ArrayAccess
         'fee' => null,
         'fee_currency' => null,
         'point_fee' => null,
-        'gt_fee' => null
+        'gt_fee' => null,
+        'amend_text' => null,
+        'sequence_id' => null,
+        'text' => null
     ];
 
     /**
@@ -129,7 +135,10 @@ class Trade implements ModelInterface, ArrayAccess
         'fee' => 'fee',
         'fee_currency' => 'fee_currency',
         'point_fee' => 'point_fee',
-        'gt_fee' => 'gt_fee'
+        'gt_fee' => 'gt_fee',
+        'amend_text' => 'amend_text',
+        'sequence_id' => 'sequence_id',
+        'text' => 'text'
     ];
 
     /**
@@ -150,7 +159,10 @@ class Trade implements ModelInterface, ArrayAccess
         'fee' => 'setFee',
         'fee_currency' => 'setFeeCurrency',
         'point_fee' => 'setPointFee',
-        'gt_fee' => 'setGtFee'
+        'gt_fee' => 'setGtFee',
+        'amend_text' => 'setAmendText',
+        'sequence_id' => 'setSequenceId',
+        'text' => 'setText'
     ];
 
     /**
@@ -171,7 +183,10 @@ class Trade implements ModelInterface, ArrayAccess
         'fee' => 'getFee',
         'fee_currency' => 'getFeeCurrency',
         'point_fee' => 'getPointFee',
-        'gt_fee' => 'getGtFee'
+        'gt_fee' => 'getGtFee',
+        'amend_text' => 'getAmendText',
+        'sequence_id' => 'getSequenceId',
+        'text' => 'getText'
     ];
 
     /**
@@ -277,6 +292,9 @@ class Trade implements ModelInterface, ArrayAccess
         $this->container['fee_currency'] = isset($data['fee_currency']) ? $data['fee_currency'] : null;
         $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
         $this->container['gt_fee'] = isset($data['gt_fee']) ? $data['gt_fee'] : null;
+        $this->container['amend_text'] = isset($data['amend_text']) ? $data['amend_text'] : null;
+        $this->container['sequence_id'] = isset($data['sequence_id']) ? $data['sequence_id'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
     /**
@@ -645,6 +663,78 @@ class Trade implements ModelInterface, ArrayAccess
     public function setGtFee($gt_fee)
     {
         $this->container['gt_fee'] = $gt_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets amend_text
+     *
+     * @return string|null
+     */
+    public function getAmendText()
+    {
+        return $this->container['amend_text'];
+    }
+
+    /**
+     * Sets amend_text
+     *
+     * @param string|null $amend_text The custom data that the user remarked when amending the order
+     *
+     * @return $this
+     */
+    public function setAmendText($amend_text)
+    {
+        $this->container['amend_text'] = $amend_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets sequence_id
+     *
+     * @return string|null
+     */
+    public function getSequenceId()
+    {
+        return $this->container['sequence_id'];
+    }
+
+    /**
+     * Sets sequence_id
+     *
+     * @param string|null $sequence_id Represents a unique and consecutive trade ID within a single market. It is used to track and identify trades in the specific market
+     *
+     * @return $this
+     */
+    public function setSequenceId($sequence_id)
+    {
+        $this->container['sequence_id'] = $sequence_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text User defined information. No value in public endpoints
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
 
         return $this;
     }

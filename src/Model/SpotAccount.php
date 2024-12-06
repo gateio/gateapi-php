@@ -42,32 +42,34 @@ class SpotAccount implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SpotAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency' => 'string',
         'available' => 'string',
-        'locked' => 'string'
+        'locked' => 'string',
+        'update_id' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency' => null,
         'available' => null,
-        'locked' => null
+        'locked' => null,
+        'update_id' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'currency' => 'currency',
         'available' => 'available',
-        'locked' => 'locked'
+        'locked' => 'locked',
+        'update_id' => 'update_id'
     ];
 
     /**
@@ -110,7 +113,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
     protected static $setters = [
         'currency' => 'setCurrency',
         'available' => 'setAvailable',
-        'locked' => 'setLocked'
+        'locked' => 'setLocked',
+        'update_id' => 'setUpdateId'
     ];
 
     /**
@@ -121,7 +125,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
     protected static $getters = [
         'currency' => 'getCurrency',
         'available' => 'getAvailable',
-        'locked' => 'getLocked'
+        'locked' => 'getLocked',
+        'update_id' => 'getUpdateId'
     ];
 
     /**
@@ -187,6 +192,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['available'] = isset($data['available']) ? $data['available'] : null;
         $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
+        $this->container['update_id'] = isset($data['update_id']) ? $data['update_id'] : null;
     }
 
     /**
@@ -281,6 +287,30 @@ class SpotAccount implements ModelInterface, ArrayAccess
     public function setLocked($locked)
     {
         $this->container['locked'] = $locked;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_id
+     *
+     * @return int|null
+     */
+    public function getUpdateId()
+    {
+        return $this->container['update_id'];
+    }
+
+    /**
+     * Sets update_id
+     *
+     * @param int|null $update_id Version number
+     *
+     * @return $this
+     */
+    public function setUpdateId($update_id)
+    {
+        $this->container['update_id'] = $update_id;
 
         return $this;
     }

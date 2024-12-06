@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**listContractStats**](FuturesApi.md#listContractStats) | **GET** /futures/{settle}/contract_stats | Futures stats
 [**getIndexConstituents**](FuturesApi.md#getIndexConstituents) | **GET** /futures/{settle}/index_constituents/{index} | Get index constituents
 [**listLiquidatedOrders**](FuturesApi.md#listLiquidatedOrders) | **GET** /futures/{settle}/liq_orders | Retrieve liquidation history
+[**listFuturesRiskLimitTiers**](FuturesApi.md#listFuturesRiskLimitTiers) | **GET** /futures/{settle}/risk_limit_tiers | List risk limit tiers
 [**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/{settle}/accounts | Query futures account
 [**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/{settle}/account_book | Query account book
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/{settle}/positions | List all positions of a user
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**listFuturesOrders**](FuturesApi.md#listFuturesOrders) | **GET** /futures/{settle}/orders | List futures orders
 [**createFuturesOrder**](FuturesApi.md#createFuturesOrder) | **POST** /futures/{settle}/orders | Create a futures order
 [**cancelFuturesOrders**](FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
+[**getOrdersWithTimeRange**](FuturesApi.md#getOrdersWithTimeRange) | **GET** /futures/{settle}/orders_timerange | List Futures Orders By Time Range
 [**createBatchFuturesOrder**](FuturesApi.md#createBatchFuturesOrder) | **POST** /futures/{settle}/batch_orders | Create a batch of futures orders
 [**getFuturesOrder**](FuturesApi.md#getFuturesOrder) | **GET** /futures/{settle}/orders/{order_id} | Get a single order
 [**amendFuturesOrder**](FuturesApi.md#amendFuturesOrder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
@@ -41,6 +43,9 @@ Method | HTTP request | Description
 [**listLiquidates**](FuturesApi.md#listLiquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
 [**listAutoDeleverages**](FuturesApi.md#listAutoDeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 [**countdownCancelAllFutures**](FuturesApi.md#countdownCancelAllFutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
+[**getFuturesFee**](FuturesApi.md#getFuturesFee) | **GET** /futures/{settle}/fee | Query user trading fee rates
+[**cancelBatchFutureOrders**](FuturesApi.md#cancelBatchFutureOrders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel a batch of orders with an ID list
+[**amendBatchFutureOrders**](FuturesApi.md#amendBatchFutureOrders) | **POST** /futures/{settle}/batch_amend_orders | Batch modify orders with specified IDs
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 [**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
@@ -50,7 +55,7 @@ Method | HTTP request | Description
 
 ## listFuturesContracts
 
-> \GateApi\Model\Contract[] listFuturesContracts($settle)
+> \GateApi\Model\Contract[] listFuturesContracts($settle, $limit, $offset)
 
 List all futures contracts
 
@@ -66,10 +71,12 @@ $apiInstance = new GateApi\Api\FuturesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$settle = 'usdt'; // string | Settle currency
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
-    $result = $apiInstance->listFuturesContracts($settle);
+    $result = $apiInstance->listFuturesContracts($associate_array);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -81,10 +88,14 @@ try {
 
 ### Parameters
 
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -325,7 +336,7 @@ $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['from'] = 1546905600; // int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
 $associate_array['to'] = 1546935600; // int | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
 $associate_array['limit'] = 100; // int | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-$associate_array['interval'] = '5m'; // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0
+$associate_array['interval'] = '5m'; // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days
 
 try {
     $result = $apiInstance->listFuturesCandlesticks($associate_array);
@@ -350,7 +361,7 @@ Name | Type | Description  | Notes
  **from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **int**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
  **limit** | **int**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 | [optional] [default to &#39;5m&#39;]
+ **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days | [optional] [default to &#39;5m&#39;]
 
 ### Return type
 
@@ -502,7 +513,7 @@ No authorization required
 
 ## listFuturesFundingRateHistory
 
-> \GateApi\Model\FundingRateRecord[] listFuturesFundingRateHistory($settle, $contract, $limit)
+> \GateApi\Model\FundingRateRecord[] listFuturesFundingRateHistory($settle, $contract, $limit, $from, $to)
 
 Funding rate history
 
@@ -521,6 +532,8 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $associate_array['settle'] = 'usdt'; // string | Settle currency
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['from'] = 1547706332; // int | Start timestamp
+$associate_array['to'] = 1547706332; // int | End timestamp
 
 try {
     $result = $apiInstance->listFuturesFundingRateHistory($associate_array);
@@ -543,6 +556,8 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **from** | **int**| Start timestamp | [optional]
+ **to** | **int**| End timestamp | [optional]
 
 ### Return type
 
@@ -748,7 +763,7 @@ No authorization required
 
 ## listLiquidatedOrders
 
-> \GateApi\Model\FuturesLiquidate[] listLiquidatedOrders($settle, $contract, $from, $to, $limit)
+> \GateApi\Model\FuturesLiqOrder[] listLiquidatedOrders($settle, $contract, $from, $to, $limit)
 
 Retrieve liquidation history
 
@@ -798,7 +813,73 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\FuturesLiquidate[]**](../Model/FuturesLiquidate.md)
+[**\GateApi\Model\FuturesLiqOrder[]**](../Model/FuturesLiqOrder.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listFuturesRiskLimitTiers
+
+> \GateApi\Model\FuturesLimitRiskTiers[] listFuturesRiskLimitTiers($settle, $contract, $limit, $offset)
+
+List risk limit tiers
+
+When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the 'contract' parameter is empty.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+
+try {
+    $result = $apiInstance->listFuturesRiskLimitTiers($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->listFuturesRiskLimitTiers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**\GateApi\Model\FuturesLimitRiskTiers[]**](../Model/FuturesLimitRiskTiers.md)
 
 ### Authorization
 
@@ -876,9 +957,11 @@ Name | Type | Description  | Notes
 
 ## listFuturesAccountBook
 
-> \GateApi\Model\FuturesAccountBook[] listFuturesAccountBook($settle, $limit, $from, $to, $type)
+> \GateApi\Model\FuturesAccountBook[] listFuturesAccountBook($settle, $contract, $limit, $offset, $from, $to, $type)
 
 Query account book
+
+If the `contract` field is provided, it can only filter records that include this field after 2023-10-30.
 
 ### Example
 
@@ -897,10 +980,12 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp
 $associate_array['to'] = 1547706332; // int | End timestamp
-$associate_array['type'] = 'dnw'; // string | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+$associate_array['type'] = 'dnw'; // string | Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
 
 try {
     $result = $apiInstance->listFuturesAccountBook($associate_array);
@@ -921,10 +1006,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp | [optional]
  **to** | **int**| End timestamp | [optional]
- **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional]
+ **type** | **string**| Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction | [optional]
 
 ### Return type
 
@@ -946,7 +1033,7 @@ Name | Type | Description  | Notes
 
 ## listPositions
 
-> \GateApi\Model\Position[] listPositions($settle)
+> \GateApi\Model\Position[] listPositions($settle, $holding, $limit, $offset)
 
 List all positions of a user
 
@@ -966,10 +1053,13 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$settle = 'usdt'; // string | Settle currency
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['holding'] = true; // bool | Return only real positions - true, return all - false.
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
-    $result = $apiInstance->listPositions($settle);
+    $result = $apiInstance->listPositions($associate_array);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -981,10 +1071,15 @@ try {
 
 ### Parameters
 
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
+ **holding** | **bool**| Return only real positions - true, return all - false. | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -1026,11 +1121,11 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$settle = 'usdt'; // string | Settle currency
-$contract = 'BTC_USDT'; // string | Futures contract
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 
 try {
-    $result = $apiInstance->getPosition($settle, $contract);
+    $result = $apiInstance->getPosition($associate_array);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1041,6 +1136,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 
 Name | Type | Description  | Notes
@@ -1220,7 +1317,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $contract = 'BTC_USDT'; // string | Futures contract
-$risk_limit = '10'; // string | New position risk limit
+$risk_limit = '1000000'; // string | New Risk Limit Value
 
 try {
     $result = $apiInstance->updatePositionRiskLimit($settle, $contract, $risk_limit);
@@ -1240,7 +1337,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
- **risk_limit** | **string**| New position risk limit |
+ **risk_limit** | **string**| New Risk Limit Value |
 
 ### Return type
 
@@ -1346,11 +1443,11 @@ $apiInstance = new GateApi\Api\FuturesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$settle = 'usdt'; // string | Settle currency
-$contract = 'BTC_USDT'; // string | Futures contract
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 
 try {
-    $result = $apiInstance->getDualModePosition($settle, $contract);
+    $result = $apiInstance->getDualModePosition($associate_array);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1361,6 +1458,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 
 Name | Type | Description  | Notes
@@ -1542,7 +1641,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $contract = 'BTC_USDT'; // string | Futures contract
-$risk_limit = '10'; // string | New position risk limit
+$risk_limit = '1000000'; // string | New Risk Limit Value
 
 try {
     $result = $apiInstance->updateDualModePositionRiskLimit($settle, $contract, $risk_limit);
@@ -1562,7 +1661,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
- **risk_limit** | **string**| New position risk limit |
+ **risk_limit** | **string**| New Risk Limit Value |
 
 ### Return type
 
@@ -1584,11 +1683,11 @@ Name | Type | Description  | Notes
 
 ## listFuturesOrders
 
-> \GateApi\Model\FuturesOrder[] listFuturesOrders($settle, $contract, $status, $limit, $offset, $last_id)
+> \GateApi\Model\FuturesOrder[] listFuturesOrders($settle, $status, $contract, $limit, $offset, $last_id)
 
 List futures orders
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.
 
 ### Example
 
@@ -1607,8 +1706,8 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $associate_array['settle'] = 'usdt'; // string | Settle currency
-$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract
 $associate_array['status'] = 'open'; // string | Only list the orders with this status
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['last_id'] = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
@@ -1632,8 +1731,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **contract** | **string**| Futures contract |
  **status** | **string**| Only list the orders with this status |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
@@ -1658,11 +1757,11 @@ Name | Type | Description  | Notes
 
 ## createFuturesOrder
 
-> \GateApi\Model\FuturesOrder createFuturesOrder($settle, $futures_order)
+> \GateApi\Model\FuturesOrder createFuturesOrder($settle, $futures_order, $x_gate_exptime)
 
 Create a futures order
 
-- Creating futures orders requires `size`, which is number of contracts instead of currency amount. You can use `quanto_multiplier` in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set `reduce_only` to `true` can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set `size` to 0 and `close` to `true` - In dual position mode, to close one side position, you need to set `auto_size` side, `reduce_only` to true and `size` to 0
+- Creating futures orders requires `size`, which is number of contracts instead of currency amount. You can use `quanto_multiplier` in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set `reduce_only` to `true` can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set `size` to 0 and `close` to `true` - In dual position mode, to close one side position, you need to set `auto_size` side, `reduce_only` to true and `size` to 0 - Set `stp_act` to decide the strategy of self-trade prevention. For detailed usage, refer to the `stp_act` parameter in request body
 
 ### Example
 
@@ -1682,9 +1781,10 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $futures_order = new \GateApi\Model\FuturesOrder(); // \GateApi\Model\FuturesOrder | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->createFuturesOrder($settle, $futures_order);
+    $result = $apiInstance->createFuturesOrder($settle, $futures_order, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1701,6 +1801,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **futures_order** | [**\GateApi\Model\FuturesOrder**](../Model/FuturesOrder.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1722,7 +1823,7 @@ Name | Type | Description  | Notes
 
 ## cancelFuturesOrders
 
-> \GateApi\Model\FuturesOrder[] cancelFuturesOrders($settle, $contract, $side)
+> \GateApi\Model\FuturesOrder[] cancelFuturesOrders($settle, $contract, $x_gate_exptime, $side)
 
 Cancel all `open` orders matched
 
@@ -1746,10 +1847,11 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $contract = 'BTC_USDT'; // string | Futures contract
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 $side = 'ask'; // string | All bids or asks. Both included if not specified
 
 try {
-    $result = $apiInstance->cancelFuturesOrders($settle, $contract, $side);
+    $result = $apiInstance->cancelFuturesOrders($settle, $contract, $x_gate_exptime, $side);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1766,7 +1868,80 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
  **side** | **string**| All bids or asks. Both included if not specified | [optional]
+
+### Return type
+
+[**\GateApi\Model\FuturesOrder[]**](../Model/FuturesOrder.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getOrdersWithTimeRange
+
+> \GateApi\Model\FuturesOrder[] getOrdersWithTimeRange($settle, $contract, $from, $to, $limit, $offset)
+
+List Futures Orders By Time Range
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
+$associate_array['from'] = 1547706332; // int | Start timestamp
+$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+
+try {
+    $result = $apiInstance->getOrdersWithTimeRange($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->getOrdersWithTimeRange: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
+ **from** | **int**| Start timestamp | [optional]
+ **to** | **int**| End timestamp | [optional]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -1788,7 +1963,7 @@ Name | Type | Description  | Notes
 
 ## createBatchFuturesOrder
 
-> \GateApi\Model\BatchFuturesOrder[] createBatchFuturesOrder($settle, $futures_order)
+> \GateApi\Model\BatchFuturesOrder[] createBatchFuturesOrder($settle, $futures_order, $x_gate_exptime)
 
 Create a batch of futures orders
 
@@ -1812,9 +1987,10 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $futures_order = array(new \GateApi\Model\FuturesOrder()); // \GateApi\Model\FuturesOrder[] | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->createBatchFuturesOrder($settle, $futures_order);
+    $result = $apiInstance->createBatchFuturesOrder($settle, $futures_order, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1831,6 +2007,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **futures_order** | [**\GateApi\Model\FuturesOrder[]**](../Model/FuturesOrder.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1856,7 +2033,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.
 
 ### Example
 
@@ -1916,7 +2093,7 @@ Name | Type | Description  | Notes
 
 ## amendFuturesOrder
 
-> \GateApi\Model\FuturesOrder amendFuturesOrder($settle, $order_id, $futures_order_amendment)
+> \GateApi\Model\FuturesOrder amendFuturesOrder($settle, $order_id, $futures_order_amendment, $x_gate_exptime)
 
 Amend an order
 
@@ -1939,9 +2116,10 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $settle = 'usdt'; // string | Settle currency
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
 $futures_order_amendment = new \GateApi\Model\FuturesOrderAmendment(); // \GateApi\Model\FuturesOrderAmendment | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->amendFuturesOrder($settle, $order_id, $futures_order_amendment);
+    $result = $apiInstance->amendFuturesOrder($settle, $order_id, $futures_order_amendment, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1959,6 +2137,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency |
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. |
  **futures_order_amendment** | [**\GateApi\Model\FuturesOrderAmendment**](../Model/FuturesOrderAmendment.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1980,7 +2159,7 @@ Name | Type | Description  | Notes
 
 ## cancelFuturesOrder
 
-> \GateApi\Model\FuturesOrder cancelFuturesOrder($settle, $order_id)
+> \GateApi\Model\FuturesOrder cancelFuturesOrder($settle, $order_id, $x_gate_exptime)
 
 Cancel a single order
 
@@ -2002,9 +2181,10 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->cancelFuturesOrder($settle, $order_id);
+    $result = $apiInstance->cancelFuturesOrder($settle, $order_id, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -2021,6 +2201,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -2046,6 +2227,8 @@ Name | Type | Description  | Notes
 
 List personal trading history
 
+By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/my_trades_timerange`.
+
 ### Example
 
 ```php
@@ -2067,7 +2250,7 @@ $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return 
 $associate_array['order'] = 12345; // int | Futures order ID, return related data only if specified
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
-$associate_array['last_id'] = '12345'; // string | Specify list staring point using the `id` of last record in previous list-query results
+$associate_array['last_id'] = '12345'; // string | Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. If you need to iterate through and retrieve more records, we recommend using 'GET /futures/{settle}/my_trades_timerange'.
 
 try {
     $result = $apiInstance->getMyTrades($associate_array);
@@ -2092,7 +2275,7 @@ Name | Type | Description  | Notes
  **order** | **int**| Futures order ID, return related data only if specified | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **last_id** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
+ **last_id** | **string**| Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. If you need to iterate through and retrieve more records, we recommend using &#39;GET /futures/{settle}/my_trades_timerange&#39;. | [optional]
 
 ### Return type
 
@@ -2114,7 +2297,7 @@ Name | Type | Description  | Notes
 
 ## getMyTradesWithTimeRange
 
-> \GateApi\Model\MyFuturesTrade[] getMyTradesWithTimeRange($settle, $contract, $from, $to, $limit, $offset)
+> \GateApi\Model\MyFuturesTradeTimeRange[] getMyTradesWithTimeRange($settle, $contract, $from, $to, $limit, $offset, $role)
 
 List personal trading history by time range
 
@@ -2140,6 +2323,7 @@ $associate_array['from'] = 1547706332; // int | Start timestamp
 $associate_array['to'] = 1547706332; // int | End timestamp
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
+$associate_array['role'] = 'maker'; // string | Query role, maker or taker.
 
 try {
     $result = $apiInstance->getMyTradesWithTimeRange($associate_array);
@@ -2165,10 +2349,11 @@ Name | Type | Description  | Notes
  **to** | **int**| End timestamp | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **role** | **string**| Query role, maker or taker. | [optional]
 
 ### Return type
 
-[**\GateApi\Model\MyFuturesTrade[]**](../Model/MyFuturesTrade.md)
+[**\GateApi\Model\MyFuturesTradeTimeRange[]**](../Model/MyFuturesTradeTimeRange.md)
 
 ### Authorization
 
@@ -2186,7 +2371,7 @@ Name | Type | Description  | Notes
 
 ## listPositionClose
 
-> \GateApi\Model\PositionClose[] listPositionClose($settle, $contract, $limit, $offset, $from, $to)
+> \GateApi\Model\PositionClose[] listPositionClose($settle, $contract, $limit, $offset, $from, $to, $side, $pnl)
 
 List position close history
 
@@ -2212,6 +2397,8 @@ $associate_array['limit'] = 100; // int | Maximum number of records to be return
 $associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp
 $associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['side'] = 'short'; // string | Query side.  long or shot
+$associate_array['pnl'] = 'profit'; // string | Query profit or loss
 
 try {
     $result = $apiInstance->listPositionClose($associate_array);
@@ -2237,6 +2424,8 @@ Name | Type | Description  | Notes
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp | [optional]
  **to** | **int**| End timestamp | [optional]
+ **side** | **string**| Query side.  long or shot | [optional]
+ **pnl** | **string**| Query profit or loss | [optional]
 
 ### Return type
 
@@ -2456,6 +2645,202 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## getFuturesFee
+
+> map[string,\GateApi\Model\FuturesFee] getFuturesFee($settle, $contract)
+
+Query user trading fee rates
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['settle'] = 'usdt'; // string | Settle currency
+$associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified
+
+try {
+    $result = $apiInstance->getFuturesFee($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->getFuturesFee: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
+
+### Return type
+
+[**map[string,\GateApi\Model\FuturesFee]**](../Model/FuturesFee.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## cancelBatchFutureOrders
+
+> \GateApi\Model\FutureCancelOrderResult[] cancelBatchFutureOrders($settle, $request_body, $x_gate_exptime)
+
+Cancel a batch of orders with an ID list
+
+Multiple distinct order ID list can be specified。Each request can cancel a maximum of 20 records.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$settle = 'usdt'; // string | Settle currency
+$request_body = array('request_body_example'); // string[] | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+
+try {
+    $result = $apiInstance->cancelBatchFutureOrders($settle, $request_body, $x_gate_exptime);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->cancelBatchFutureOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **request_body** | [**string[]**](../Model/string.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+
+### Return type
+
+[**\GateApi\Model\FutureCancelOrderResult[]**](../Model/FutureCancelOrderResult.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## amendBatchFutureOrders
+
+> \GateApi\Model\BatchFuturesOrder[] amendBatchFutureOrders($settle, $batch_amend_order_req, $x_gate_exptime)
+
+Batch modify orders with specified IDs
+
+You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$settle = 'usdt'; // string | Settle currency
+$batch_amend_order_req = array(new \GateApi\Model\BatchAmendOrderReq()); // \GateApi\Model\BatchAmendOrderReq[] | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+
+try {
+    $result = $apiInstance->amendBatchFutureOrders($settle, $batch_amend_order_req, $x_gate_exptime);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->amendBatchFutureOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency |
+ **batch_amend_order_req** | [**\GateApi\Model\BatchAmendOrderReq[]**](../Model/BatchAmendOrderReq.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+
+### Return type
+
+[**\GateApi\Model\BatchFuturesOrder[]**](../Model/BatchFuturesOrder.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## listPriceTriggeredOrders
 
 > \GateApi\Model\FuturesPriceTriggeredOrder[] listPriceTriggeredOrders($settle, $status, $contract, $limit, $offset)
@@ -2611,7 +2996,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $settle = 'usdt'; // string | Settle currency
-$contract = 'BTC_USDT'; // string | Futures contract
+$contract = 'BTC_USDT'; // string | Futures contract, return related data only if specified
 
 try {
     $result = $apiInstance->cancelPriceTriggeredOrderList($settle, $contract);
@@ -2630,7 +3015,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **contract** | **string**| Futures contract |
+ **contract** | **string**| Futures contract, return related data only if specified | [optional]
 
 ### Return type
 

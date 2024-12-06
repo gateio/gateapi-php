@@ -88,7 +88,7 @@ class OptionsApi
     /**
      * Set the host index
      *
-     * @param int Host index (required)
+     * @param  int Host index (required)
      */
     public function setHostIndex($host_index)
     {
@@ -118,6 +118,7 @@ class OptionsApi
      *
      * List all underlyings
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\OptionsUnderlying[]
@@ -133,6 +134,7 @@ class OptionsApi
      *
      * List all underlyings
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\OptionsUnderlying[], HTTP status code, HTTP response headers (array of strings)
@@ -146,7 +148,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -185,6 +187,7 @@ class OptionsApi
      *
      * List all underlyings
      *
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -202,6 +205,7 @@ class OptionsApi
      * Operation listOptionsUnderlyingsAsyncWithHttpInfo
      *
      * List all underlyings
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -247,6 +251,7 @@ class OptionsApi
 
     /**
      * Create request for operation 'listOptionsUnderlyings'
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -330,7 +335,7 @@ class OptionsApi
      *
      * List all expiration times
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -347,7 +352,7 @@ class OptionsApi
      *
      * List all expiration times
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -362,7 +367,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -401,7 +406,7 @@ class OptionsApi
      *
      * List all expiration times
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -421,7 +426,7 @@ class OptionsApi
      *
      * List all expiration times
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -468,7 +473,7 @@ class OptionsApi
     /**
      * Create request for operation 'listOptionsExpirations'
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -572,8 +577,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -592,8 +597,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -608,7 +613,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -649,8 +654,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -672,8 +677,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -722,8 +727,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $expiration Unix timestamp of the expiration time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -841,7 +846,7 @@ class OptionsApi
      *
      * Query specified contract detail
      *
-     * @param string $contract contract (required)
+     * @param  string $contract contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -858,7 +863,7 @@ class OptionsApi
      *
      * Query specified contract detail
      *
-     * @param string $contract (required)
+     * @param  string $contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -873,7 +878,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -912,7 +917,7 @@ class OptionsApi
      *
      * Query specified contract detail
      *
-     * @param string $contract (required)
+     * @param  string $contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -932,7 +937,7 @@ class OptionsApi
      *
      * Query specified contract detail
      *
-     * @param string $contract (required)
+     * @param  string $contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -979,7 +984,7 @@ class OptionsApi
     /**
      * Create request for operation 'getOptionsContract'
      *
-     * @param string $contract (required)
+     * @param  string $contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1080,11 +1085,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1103,11 +1108,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1122,7 +1127,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1163,11 +1168,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1189,11 +1194,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1242,11 +1247,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1414,9 +1419,9 @@ class OptionsApi
      *
      * Get specified contract's settlement
      *
-     * @param string $contract   contract (required)
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $at         at (required)
+     * @param  string $contract contract (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $at at (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1433,9 +1438,9 @@ class OptionsApi
      *
      * Get specified contract's settlement
      *
-     * @param string $contract   (required)
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $at         (required)
+     * @param  string $contract (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $at (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1450,7 +1455,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1489,9 +1494,9 @@ class OptionsApi
      *
      * Get specified contract's settlement
      *
-     * @param string $contract   (required)
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $at         (required)
+     * @param  string $contract (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $at (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1511,9 +1516,9 @@ class OptionsApi
      *
      * Get specified contract's settlement
      *
-     * @param string $contract   (required)
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $at         (required)
+     * @param  string $contract (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $at (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1560,9 +1565,9 @@ class OptionsApi
     /**
      * Create request for operation 'getOptionsSettlement'
      *
-     * @param string $contract   (required)
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $at         (required)
+     * @param  string $contract (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $at (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1699,12 +1704,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1723,12 +1728,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1743,7 +1748,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1784,12 +1789,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1811,12 +1816,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1865,12 +1870,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2056,10 +2061,10 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $contract Options contract name (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2078,10 +2083,10 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $contract Options contract name (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2096,7 +2101,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2137,10 +2142,10 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $contract Options contract name (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2162,10 +2167,10 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $contract Options contract name (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2214,10 +2219,10 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $contract Options contract name (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2368,7 +2373,7 @@ class OptionsApi
      *
      * List tickers of options contracts
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2385,7 +2390,7 @@ class OptionsApi
      *
      * List tickers of options contracts
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2400,7 +2405,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2439,7 +2444,7 @@ class OptionsApi
      *
      * List tickers of options contracts
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2459,7 +2464,7 @@ class OptionsApi
      *
      * List tickers of options contracts
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2506,7 +2511,7 @@ class OptionsApi
     /**
      * Create request for operation 'listOptionsTickers'
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2608,7 +2613,7 @@ class OptionsApi
      *
      * Get underlying ticker
      *
-     * @param string $underlying Underlying (required)
+     * @param  string $underlying Underlying (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2625,7 +2630,7 @@ class OptionsApi
      *
      * Get underlying ticker
      *
-     * @param string $underlying Underlying (required)
+     * @param  string $underlying Underlying (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2640,7 +2645,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2679,7 +2684,7 @@ class OptionsApi
      *
      * Get underlying ticker
      *
-     * @param string $underlying Underlying (required)
+     * @param  string $underlying Underlying (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2699,7 +2704,7 @@ class OptionsApi
      *
      * Get underlying ticker
      *
-     * @param string $underlying Underlying (required)
+     * @param  string $underlying Underlying (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2746,7 +2751,7 @@ class OptionsApi
     /**
      * Create request for operation 'listOptionsUnderlyingTickers'
      *
-     * @param string $underlying Underlying (required)
+     * @param  string $underlying Underlying (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2847,11 +2852,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $contract Options contract name (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2870,11 +2875,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $contract Options contract name (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2889,7 +2894,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2930,11 +2935,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $contract Options contract name (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2956,11 +2961,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $contract Options contract name (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3009,11 +3014,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $contract Options contract name (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3179,11 +3184,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
-     * @param string $interval   Interval time between data points (optional, default to '5m')
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3202,11 +3207,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
-     * @param string $interval   Interval time between data points (optional, default to '5m')
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3221,7 +3226,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3262,11 +3267,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
-     * @param string $interval   Interval time between data points (optional, default to '5m')
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3288,11 +3293,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
-     * @param string $interval   Interval time between data points (optional, default to '5m')
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3341,11 +3346,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
-     * @param string $interval   Interval time between data points (optional, default to '5m')
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $interval Interval time between data points (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3511,12 +3516,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (optional)
-     * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3535,12 +3540,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (optional)
-     * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3555,7 +3560,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3596,12 +3601,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (optional)
-     * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3623,12 +3628,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (optional)
-     * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3677,12 +3682,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $contract Options contract name (optional)
-     * @param string $type     &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param int    $from     Start timestamp (optional)
-     * @param int    $to       End timestamp (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3857,6 +3862,7 @@ class OptionsApi
      *
      * List options account
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\OptionsAccount
@@ -3872,6 +3878,7 @@ class OptionsApi
      *
      * List options account
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\OptionsAccount, HTTP status code, HTTP response headers (array of strings)
@@ -3885,7 +3892,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3924,6 +3931,7 @@ class OptionsApi
      *
      * List options account
      *
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -3941,6 +3949,7 @@ class OptionsApi
      * Operation listOptionsAccountAsyncWithHttpInfo
      *
      * List options account
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3986,6 +3995,7 @@ class OptionsApi
 
     /**
      * Create request for operation 'listOptionsAccount'
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4074,11 +4084,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset List offset, starting from 0 (optional, default to 0)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4097,11 +4107,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset List offset, starting from 0 (optional, default to 0)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4116,7 +4126,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4157,11 +4167,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset List offset, starting from 0 (optional, default to 0)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4183,11 +4193,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset List offset, starting from 0 (optional, default to 0)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4236,11 +4246,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset List offset, starting from 0 (optional, default to 0)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4407,7 +4417,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (optional)
+     * @param  string $underlying Underlying (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4426,7 +4436,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (optional)
+     * @param  string $underlying Underlying (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4441,7 +4451,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4482,7 +4492,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (optional)
+     * @param  string $underlying Underlying (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4504,7 +4514,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (optional)
+     * @param  string $underlying Underlying (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4553,7 +4563,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (optional)
+     * @param  string $underlying Underlying (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4655,7 +4665,7 @@ class OptionsApi
      *
      * Get specified contract position
      *
-     * @param string $contract contract (required)
+     * @param  string $contract contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4672,7 +4682,7 @@ class OptionsApi
      *
      * Get specified contract position
      *
-     * @param string $contract (required)
+     * @param  string $contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4687,7 +4697,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4726,7 +4736,7 @@ class OptionsApi
      *
      * Get specified contract position
      *
-     * @param string $contract (required)
+     * @param  string $contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4746,7 +4756,7 @@ class OptionsApi
      *
      * Get specified contract position
      *
-     * @param string $contract (required)
+     * @param  string $contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4793,7 +4803,7 @@ class OptionsApi
     /**
      * Create request for operation 'getOptionsPosition'
      *
-     * @param string $contract (required)
+     * @param  string $contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4897,8 +4907,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4917,8 +4927,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4933,7 +4943,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4974,8 +4984,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4997,8 +5007,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5047,8 +5057,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5171,13 +5181,13 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5196,13 +5206,13 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5217,7 +5227,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5258,13 +5268,13 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5286,13 +5296,13 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5341,13 +5351,13 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status     Only list the orders with this status (required)
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5544,7 +5554,7 @@ class OptionsApi
      *
      * Create an options order
      *
-     * @param \GateApi\Model\OptionsOrder $options_order options_order (required)
+     * @param  \GateApi\Model\OptionsOrder $options_order options_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5561,7 +5571,7 @@ class OptionsApi
      *
      * Create an options order
      *
-     * @param \GateApi\Model\OptionsOrder $options_order (required)
+     * @param  \GateApi\Model\OptionsOrder $options_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5576,7 +5586,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5615,7 +5625,7 @@ class OptionsApi
      *
      * Create an options order
      *
-     * @param \GateApi\Model\OptionsOrder $options_order (required)
+     * @param  \GateApi\Model\OptionsOrder $options_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5635,7 +5645,7 @@ class OptionsApi
      *
      * Create an options order
      *
-     * @param \GateApi\Model\OptionsOrder $options_order (required)
+     * @param  \GateApi\Model\OptionsOrder $options_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5682,7 +5692,7 @@ class OptionsApi
     /**
      * Create request for operation 'createOptionsOrder'
      *
-     * @param \GateApi\Model\OptionsOrder $options_order (required)
+     * @param  \GateApi\Model\OptionsOrder $options_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5778,9 +5788,9 @@ class OptionsApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param string $side       All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5797,9 +5807,9 @@ class OptionsApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param string $side       All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5814,7 +5824,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5853,9 +5863,9 @@ class OptionsApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param string $side       All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5875,9 +5885,9 @@ class OptionsApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param string $side       All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5924,9 +5934,9 @@ class OptionsApi
     /**
      * Create request for operation 'cancelOptionsOrders'
      *
-     * @param string $contract   Options contract name (optional)
-     * @param string $underlying Underlying (optional)
-     * @param string $side       All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6049,7 +6059,7 @@ class OptionsApi
      *
      * Get a single order
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6066,7 +6076,7 @@ class OptionsApi
      *
      * Get a single order
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6081,7 +6091,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6120,7 +6130,7 @@ class OptionsApi
      *
      * Get a single order
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6140,7 +6150,7 @@ class OptionsApi
      *
      * Get a single order
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6187,7 +6197,7 @@ class OptionsApi
     /**
      * Create request for operation 'getOptionsOrder'
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6289,7 +6299,7 @@ class OptionsApi
      *
      * Cancel a single order
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6306,7 +6316,7 @@ class OptionsApi
      *
      * Cancel a single order
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6321,7 +6331,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6360,7 +6370,7 @@ class OptionsApi
      *
      * Cancel a single order
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6380,7 +6390,7 @@ class OptionsApi
      *
      * Cancel a single order
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6427,7 +6437,7 @@ class OptionsApi
     /**
      * Create request for operation 'cancelOptionsOrder'
      *
-     * @param int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6525,18 +6535,252 @@ class OptionsApi
     }
 
     /**
+     * Operation countdownCancelAllOptions
+     *
+     * Countdown cancel orders
+     *
+     * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task countdown_cancel_all_options_task (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\TriggerTime
+     */
+    public function countdownCancelAllOptions($countdown_cancel_all_options_task)
+    {
+        list($response) = $this->countdownCancelAllOptionsWithHttpInfo($countdown_cancel_all_options_task);
+        return $response;
+    }
+
+    /**
+     * Operation countdownCancelAllOptionsWithHttpInfo
+     *
+     * Countdown cancel orders
+     *
+     * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\TriggerTime, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function countdownCancelAllOptionsWithHttpInfo($countdown_cancel_all_options_task)
+    {
+        $request = $this->countdownCancelAllOptionsRequest($countdown_cancel_all_options_task);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\TriggerTime';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation countdownCancelAllOptionsAsync
+     *
+     * Countdown cancel orders
+     *
+     * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function countdownCancelAllOptionsAsync($countdown_cancel_all_options_task)
+    {
+        return $this->countdownCancelAllOptionsAsyncWithHttpInfo($countdown_cancel_all_options_task)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation countdownCancelAllOptionsAsyncWithHttpInfo
+     *
+     * Countdown cancel orders
+     *
+     * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function countdownCancelAllOptionsAsyncWithHttpInfo($countdown_cancel_all_options_task)
+    {
+        $returnType = '\GateApi\Model\TriggerTime';
+        $request = $this->countdownCancelAllOptionsRequest($countdown_cancel_all_options_task);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'countdownCancelAllOptions'
+     *
+     * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function countdownCancelAllOptionsRequest($countdown_cancel_all_options_task)
+    {
+        // verify the required parameter 'countdown_cancel_all_options_task' is set
+        if ($countdown_cancel_all_options_task === null || (is_array($countdown_cancel_all_options_task) && count($countdown_cancel_all_options_task) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $countdown_cancel_all_options_task when calling countdownCancelAllOptions'
+            );
+        }
+
+        $resourcePath = '/options/countdown_cancel_all';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+        if (isset($countdown_cancel_all_options_task)) {
+            $_tempBody = $countdown_cancel_all_options_task;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listMyOptionsTrades
      *
      * List personal trading history
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6555,12 +6799,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6575,7 +6819,7 @@ class OptionsApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6616,12 +6860,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6643,12 +6887,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6697,12 +6941,12 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param string $contract   Options contract name (optional)
-     * @param int    $limit      Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset     List offset, starting from 0 (optional, default to 0)
-     * @param int    $from       Start timestamp (optional)
-     * @param int    $to         End timestamp (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $contract Options contract name (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6875,6 +7119,724 @@ class OptionsApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getOptionsMMP
+     *
+     * MMP Query
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $underlying Underlying (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\OptionsMMP[]
+     */
+    public function getOptionsMMP($associative_array)
+    {
+        list($response) = $this->getOptionsMMPWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation getOptionsMMPWithHttpInfo
+     *
+     * MMP Query
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $underlying Underlying (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\OptionsMMP[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getOptionsMMPWithHttpInfo($associative_array)
+    {
+        $request = $this->getOptionsMMPRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\OptionsMMP[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getOptionsMMPAsync
+     *
+     * MMP Query
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $underlying Underlying (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getOptionsMMPAsync($associative_array)
+    {
+        return $this->getOptionsMMPAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getOptionsMMPAsyncWithHttpInfo
+     *
+     * MMP Query
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $underlying Underlying (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getOptionsMMPAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\OptionsMMP[]';
+        $request = $this->getOptionsMMPRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getOptionsMMP'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $underlying Underlying (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getOptionsMMPRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $underlying = array_key_exists('underlying', $associative_array) ? $associative_array['underlying'] : null;
+
+
+        $resourcePath = '/options/mmp';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($underlying !== null) {
+            if('form' === 'form' && is_array($underlying)) {
+                foreach($underlying as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['underlying'] = $underlying;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setOptionsMMP
+     *
+     * MMP Settings
+     *
+     * @param  \GateApi\Model\OptionsMMP $options_mmp options_mmp (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\OptionsMMP
+     */
+    public function setOptionsMMP($options_mmp)
+    {
+        list($response) = $this->setOptionsMMPWithHttpInfo($options_mmp);
+        return $response;
+    }
+
+    /**
+     * Operation setOptionsMMPWithHttpInfo
+     *
+     * MMP Settings
+     *
+     * @param  \GateApi\Model\OptionsMMP $options_mmp (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\OptionsMMP, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setOptionsMMPWithHttpInfo($options_mmp)
+    {
+        $request = $this->setOptionsMMPRequest($options_mmp);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\OptionsMMP';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation setOptionsMMPAsync
+     *
+     * MMP Settings
+     *
+     * @param  \GateApi\Model\OptionsMMP $options_mmp (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setOptionsMMPAsync($options_mmp)
+    {
+        return $this->setOptionsMMPAsyncWithHttpInfo($options_mmp)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setOptionsMMPAsyncWithHttpInfo
+     *
+     * MMP Settings
+     *
+     * @param  \GateApi\Model\OptionsMMP $options_mmp (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setOptionsMMPAsyncWithHttpInfo($options_mmp)
+    {
+        $returnType = '\GateApi\Model\OptionsMMP';
+        $request = $this->setOptionsMMPRequest($options_mmp);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setOptionsMMP'
+     *
+     * @param  \GateApi\Model\OptionsMMP $options_mmp (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function setOptionsMMPRequest($options_mmp)
+    {
+        // verify the required parameter 'options_mmp' is set
+        if ($options_mmp === null || (is_array($options_mmp) && count($options_mmp) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $options_mmp when calling setOptionsMMP'
+            );
+        }
+
+        $resourcePath = '/options/mmp';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+        if (isset($options_mmp)) {
+            $_tempBody = $options_mmp;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation resetOptionsMMP
+     *
+     * MMP Reset
+     *
+     * @param  \GateApi\Model\OptionsMMPReset $options_mmp_reset options_mmp_reset (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\OptionsMMP
+     */
+    public function resetOptionsMMP($options_mmp_reset)
+    {
+        list($response) = $this->resetOptionsMMPWithHttpInfo($options_mmp_reset);
+        return $response;
+    }
+
+    /**
+     * Operation resetOptionsMMPWithHttpInfo
+     *
+     * MMP Reset
+     *
+     * @param  \GateApi\Model\OptionsMMPReset $options_mmp_reset (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\OptionsMMP, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function resetOptionsMMPWithHttpInfo($options_mmp_reset)
+    {
+        $request = $this->resetOptionsMMPRequest($options_mmp_reset);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\OptionsMMP';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation resetOptionsMMPAsync
+     *
+     * MMP Reset
+     *
+     * @param  \GateApi\Model\OptionsMMPReset $options_mmp_reset (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resetOptionsMMPAsync($options_mmp_reset)
+    {
+        return $this->resetOptionsMMPAsyncWithHttpInfo($options_mmp_reset)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation resetOptionsMMPAsyncWithHttpInfo
+     *
+     * MMP Reset
+     *
+     * @param  \GateApi\Model\OptionsMMPReset $options_mmp_reset (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resetOptionsMMPAsyncWithHttpInfo($options_mmp_reset)
+    {
+        $returnType = '\GateApi\Model\OptionsMMP';
+        $request = $this->resetOptionsMMPRequest($options_mmp_reset);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'resetOptionsMMP'
+     *
+     * @param  \GateApi\Model\OptionsMMPReset $options_mmp_reset (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function resetOptionsMMPRequest($options_mmp_reset)
+    {
+        // verify the required parameter 'options_mmp_reset' is set
+        if ($options_mmp_reset === null || (is_array($options_mmp_reset) && count($options_mmp_reset) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $options_mmp_reset when calling resetOptionsMMP'
+            );
+        }
+
+        $resourcePath = '/options/mmp/reset';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+        if (isset($options_mmp_reset)) {
+            $_tempBody = $options_mmp_reset;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

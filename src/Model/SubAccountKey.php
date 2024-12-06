@@ -42,42 +42,46 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubAccountKey';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'user_id' => 'string',
+        'mode' => 'int',
         'name' => 'string',
-        'perms' => '\GateApi\Model\ApiV4KeyPerm[]',
+        'perms' => '\GateApi\Model\SubAccountKeyPerms[]',
         'ip_whitelist' => 'string[]',
         'key' => 'string',
         'state' => 'int',
-        'created_at' => 'string',
-        'updated_at' => 'string'
+        'created_at' => 'int',
+        'updated_at' => 'int',
+        'last_access' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'user_id' => null,
+        'mode' => 'int32',
         'name' => null,
         'perms' => null,
         'ip_whitelist' => null,
         'key' => null,
         'state' => 'int32',
-        'created_at' => null,
-        'updated_at' => null
+        'created_at' => 'int64',
+        'updated_at' => 'int64',
+        'last_access' => 'int64'
     ];
 
     /**
@@ -108,13 +112,15 @@ class SubAccountKey implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'user_id' => 'user_id',
+        'mode' => 'mode',
         'name' => 'name',
         'perms' => 'perms',
         'ip_whitelist' => 'ip_whitelist',
         'key' => 'key',
         'state' => 'state',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'last_access' => 'last_access'
     ];
 
     /**
@@ -124,13 +130,15 @@ class SubAccountKey implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'user_id' => 'setUserId',
+        'mode' => 'setMode',
         'name' => 'setName',
         'perms' => 'setPerms',
         'ip_whitelist' => 'setIpWhitelist',
         'key' => 'setKey',
         'state' => 'setState',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'last_access' => 'setLastAccess'
     ];
 
     /**
@@ -140,13 +148,15 @@ class SubAccountKey implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'user_id' => 'getUserId',
+        'mode' => 'getMode',
         'name' => 'getName',
         'perms' => 'getPerms',
         'ip_whitelist' => 'getIpWhitelist',
         'key' => 'getKey',
         'state' => 'getState',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'last_access' => 'getLastAccess'
     ];
 
     /**
@@ -210,6 +220,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['perms'] = isset($data['perms']) ? $data['perms'] : null;
         $this->container['ip_whitelist'] = isset($data['ip_whitelist']) ? $data['ip_whitelist'] : null;
@@ -217,6 +228,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['last_access'] = isset($data['last_access']) ? $data['last_access'] : null;
     }
 
     /**
@@ -268,6 +280,30 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets mode
+     *
+     * @return int|null
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param int|null $mode Mode: 1 - classic 2 - portfolio account
+     *
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -294,7 +330,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Gets perms
      *
-     * @return \GateApi\Model\ApiV4KeyPerm[]|null
+     * @return \GateApi\Model\SubAccountKeyPerms[]|null
      */
     public function getPerms()
     {
@@ -304,7 +340,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets perms
      *
-     * @param \GateApi\Model\ApiV4KeyPerm[]|null $perms perms
+     * @param \GateApi\Model\SubAccountKeyPerms[]|null $perms perms
      *
      * @return $this
      */
@@ -390,7 +426,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Gets created_at
      *
-     * @return string|null
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -400,7 +436,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets created_at
      *
-     * @param string|null $created_at Creation time
+     * @param int|null $created_at Creation time
      *
      * @return $this
      */
@@ -414,7 +450,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Gets updated_at
      *
-     * @return string|null
+     * @return int|null
      */
     public function getUpdatedAt()
     {
@@ -424,13 +460,37 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param string|null $updated_at Last update time
+     * @param int|null $updated_at Last update time
      *
      * @return $this
      */
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_access
+     *
+     * @return int|null
+     */
+    public function getLastAccess()
+    {
+        return $this->container['last_access'];
+    }
+
+    /**
+     * Sets last_access
+     *
+     * @param int|null $last_access Last access time
+     *
+     * @return $this
+     */
+    public function setLastAccess($last_access)
+    {
+        $this->container['last_access'] = $last_access;
 
         return $this;
     }

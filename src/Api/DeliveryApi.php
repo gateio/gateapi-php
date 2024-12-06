@@ -88,7 +88,7 @@ class DeliveryApi
     /**
      * Set the host index
      *
-     * @param int Host index (required)
+     * @param  int Host index (required)
      */
     public function setHostIndex($host_index)
     {
@@ -118,7 +118,7 @@ class DeliveryApi
      *
      * List all futures contracts
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -135,7 +135,7 @@ class DeliveryApi
      *
      * List all futures contracts
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -150,7 +150,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -189,7 +189,7 @@ class DeliveryApi
      *
      * List all futures contracts
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -209,7 +209,7 @@ class DeliveryApi
      *
      * List all futures contracts
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -256,7 +256,7 @@ class DeliveryApi
     /**
      * Create request for operation 'listDeliveryContracts'
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -355,8 +355,8 @@ class DeliveryApi
      *
      * Get a single contract
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -373,8 +373,8 @@ class DeliveryApi
      *
      * Get a single contract
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -389,7 +389,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -428,8 +428,8 @@ class DeliveryApi
      *
      * Get a single contract
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -449,8 +449,8 @@ class DeliveryApi
      *
      * Get a single contract
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -497,8 +497,8 @@ class DeliveryApi
     /**
      * Create request for operation 'getDeliveryContract'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -614,11 +614,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -637,11 +637,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -656,7 +656,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -697,11 +697,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -723,11 +723,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -776,11 +776,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit    Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id  Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -949,12 +949,12 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $last_id Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  int $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  int $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -973,12 +973,12 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $last_id Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  int $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  int $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -993,7 +993,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1034,12 +1034,12 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $last_id Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  int $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  int $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1061,12 +1061,12 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $last_id Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  int $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  int $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1115,12 +1115,12 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $last_id  Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
-     * @param int    $from     Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
-     * @param int    $to       Specify end time in Unix seconds, default to current time (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $last_id Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param  int $from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned. (optional)
+     * @param  int $to Specify end time in Unix seconds, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1302,16 +1302,16 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\FuturesCandlestick[]
+     * @return \GateApi\Model\DeliveryCandlestick[]
      */
     public function listDeliveryCandlesticks($associative_array)
     {
@@ -1326,16 +1326,16 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\FuturesCandlestick[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\DeliveryCandlestick[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listDeliveryCandlesticksWithHttpInfo($associative_array)
     {
@@ -1346,7 +1346,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1365,7 +1365,7 @@ class DeliveryApi
             );
         }
 
-        $returnType = '\GateApi\Model\FuturesCandlestick[]';
+        $returnType = '\GateApi\Model\DeliveryCandlestick[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -1387,12 +1387,12 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1414,19 +1414,19 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function listDeliveryCandlesticksAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\FuturesCandlestick[]';
+        $returnType = '\GateApi\Model\DeliveryCandlestick[]';
         $request = $this->listDeliveryCandlesticksRequest($associative_array);
 
         return $this->client
@@ -1468,12 +1468,12 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1652,8 +1652,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1672,8 +1672,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1688,7 +1688,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1729,8 +1729,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1752,8 +1752,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1802,8 +1802,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1920,8 +1920,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1940,8 +1940,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1956,7 +1956,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1997,8 +1997,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2020,8 +2020,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2070,8 +2070,8 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2193,7 +2193,7 @@ class DeliveryApi
      *
      * Query futures account
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2210,7 +2210,7 @@ class DeliveryApi
      *
      * Query futures account
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2225,7 +2225,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2264,7 +2264,7 @@ class DeliveryApi
      *
      * Query futures account
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2284,7 +2284,7 @@ class DeliveryApi
      *
      * Query futures account
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2331,7 +2331,7 @@ class DeliveryApi
     /**
      * Create request for operation 'listDeliveryAccounts'
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2435,11 +2435,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2458,11 +2458,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2477,7 +2477,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2518,11 +2518,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2544,11 +2544,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2597,11 +2597,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle Settle currency (required)
-     * @param int    $limit  Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $from   Start timestamp (optional)
-     * @param int    $to     End timestamp (optional)
-     * @param string $type   Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2765,7 +2765,7 @@ class DeliveryApi
      *
      * List all positions of a user
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2782,7 +2782,7 @@ class DeliveryApi
      *
      * List all positions of a user
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2797,7 +2797,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2836,7 +2836,7 @@ class DeliveryApi
      *
      * List all positions of a user
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2856,7 +2856,7 @@ class DeliveryApi
      *
      * List all positions of a user
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2903,7 +2903,7 @@ class DeliveryApi
     /**
      * Create request for operation 'listDeliveryPositions'
      *
-     * @param string $settle Settle currency (required)
+     * @param  string $settle Settle currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3005,8 +3005,8 @@ class DeliveryApi
      *
      * Get single position
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3023,8 +3023,8 @@ class DeliveryApi
      *
      * Get single position
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3039,7 +3039,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3078,8 +3078,8 @@ class DeliveryApi
      *
      * Get single position
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3099,8 +3099,8 @@ class DeliveryApi
      *
      * Get single position
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3147,8 +3147,8 @@ class DeliveryApi
     /**
      * Create request for operation 'getDeliveryPosition'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3265,9 +3265,9 @@ class DeliveryApi
      *
      * Update position margin
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $change Margin change. Use positive number to increase margin, negative number otherwise. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3284,9 +3284,9 @@ class DeliveryApi
      *
      * Update position margin
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $change Margin change. Use positive number to increase margin, negative number otherwise. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3301,7 +3301,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3340,9 +3340,9 @@ class DeliveryApi
      *
      * Update position margin
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $change Margin change. Use positive number to increase margin, negative number otherwise. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3362,9 +3362,9 @@ class DeliveryApi
      *
      * Update position margin
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $change Margin change. Use positive number to increase margin, negative number otherwise. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3411,9 +3411,9 @@ class DeliveryApi
     /**
      * Create request for operation 'updateDeliveryPositionMargin'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $change   Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $change Margin change. Use positive number to increase margin, negative number otherwise. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3548,9 +3548,9 @@ class DeliveryApi
      *
      * Update position leverage
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $leverage New position leverage (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3567,9 +3567,9 @@ class DeliveryApi
      *
      * Update position leverage
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $leverage New position leverage (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3584,7 +3584,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3623,9 +3623,9 @@ class DeliveryApi
      *
      * Update position leverage
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $leverage New position leverage (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3645,9 +3645,9 @@ class DeliveryApi
      *
      * Update position leverage
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $leverage New position leverage (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3694,9 +3694,9 @@ class DeliveryApi
     /**
      * Create request for operation 'updateDeliveryPositionLeverage'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $leverage New position leverage (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $leverage New position leverage (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3831,9 +3831,9 @@ class DeliveryApi
      *
      * Update position risk limit
      *
-     * @param string $settle     Settle currency (required)
-     * @param string $contract   Futures contract (required)
-     * @param string $risk_limit New position risk limit (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $risk_limit New position risk limit (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3850,9 +3850,9 @@ class DeliveryApi
      *
      * Update position risk limit
      *
-     * @param string $settle     Settle currency (required)
-     * @param string $contract   Futures contract (required)
-     * @param string $risk_limit New position risk limit (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $risk_limit New position risk limit (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3867,7 +3867,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3906,9 +3906,9 @@ class DeliveryApi
      *
      * Update position risk limit
      *
-     * @param string $settle     Settle currency (required)
-     * @param string $contract   Futures contract (required)
-     * @param string $risk_limit New position risk limit (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $risk_limit New position risk limit (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3928,9 +3928,9 @@ class DeliveryApi
      *
      * Update position risk limit
      *
-     * @param string $settle     Settle currency (required)
-     * @param string $contract   Futures contract (required)
-     * @param string $risk_limit New position risk limit (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $risk_limit New position risk limit (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3977,9 +3977,9 @@ class DeliveryApi
     /**
      * Create request for operation 'updateDeliveryPositionRiskLimit'
      *
-     * @param string $settle     Settle currency (required)
-     * @param string $contract   Futures contract (required)
-     * @param string $risk_limit New position risk limit (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $risk_limit New position risk limit (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4116,13 +4116,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $status      Only list the orders with this status (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4141,13 +4141,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $status      Only list the orders with this status (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4162,7 +4162,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4203,13 +4203,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $status      Only list the orders with this status (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4231,13 +4231,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $status      Only list the orders with this status (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4286,13 +4286,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $status      Only list the orders with this status (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4492,8 +4492,8 @@ class DeliveryApi
      *
      * Create a futures order
      *
-     * @param string                      $settle        Settle currency (required)
-     * @param \GateApi\Model\FuturesOrder $futures_order futures_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesOrder $futures_order futures_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4510,8 +4510,8 @@ class DeliveryApi
      *
      * Create a futures order
      *
-     * @param string                      $settle        Settle currency (required)
-     * @param \GateApi\Model\FuturesOrder $futures_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesOrder $futures_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4526,7 +4526,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4565,8 +4565,8 @@ class DeliveryApi
      *
      * Create a futures order
      *
-     * @param string                      $settle        Settle currency (required)
-     * @param \GateApi\Model\FuturesOrder $futures_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesOrder $futures_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4586,8 +4586,8 @@ class DeliveryApi
      *
      * Create a futures order
      *
-     * @param string                      $settle        Settle currency (required)
-     * @param \GateApi\Model\FuturesOrder $futures_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesOrder $futures_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4634,8 +4634,8 @@ class DeliveryApi
     /**
      * Create request for operation 'createDeliveryOrder'
      *
-     * @param string                      $settle        Settle currency (required)
-     * @param \GateApi\Model\FuturesOrder $futures_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesOrder $futures_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4746,9 +4746,9 @@ class DeliveryApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included if not specified (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4765,9 +4765,9 @@ class DeliveryApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included if not specified (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4782,7 +4782,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4821,9 +4821,9 @@ class DeliveryApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included if not specified (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4843,9 +4843,9 @@ class DeliveryApi
      *
      * Cancel all `open` orders matched
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included if not specified (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4892,9 +4892,9 @@ class DeliveryApi
     /**
      * Create request for operation 'cancelDeliveryOrders'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
-     * @param string $side     All bids or asks. Both included if not specified (optional)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5026,8 +5026,8 @@ class DeliveryApi
      *
      * Get a single order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5044,8 +5044,8 @@ class DeliveryApi
      *
      * Get a single order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5060,7 +5060,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5099,8 +5099,8 @@ class DeliveryApi
      *
      * Get a single order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5120,8 +5120,8 @@ class DeliveryApi
      *
      * Get a single order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5168,8 +5168,8 @@ class DeliveryApi
     /**
      * Create request for operation 'getDeliveryOrder'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5286,8 +5286,8 @@ class DeliveryApi
      *
      * Cancel a single order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5304,8 +5304,8 @@ class DeliveryApi
      *
      * Cancel a single order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5320,7 +5320,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5359,8 +5359,8 @@ class DeliveryApi
      *
      * Cancel a single order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5380,8 +5380,8 @@ class DeliveryApi
      *
      * Cancel a single order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5428,8 +5428,8 @@ class DeliveryApi
     /**
      * Create request for operation 'cancelDeliveryOrder'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5548,13 +5548,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $order Futures order ID, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5573,13 +5573,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $order Futures order ID, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5594,7 +5594,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5635,13 +5635,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $order Futures order ID, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5663,13 +5663,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $order Futures order ID, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5718,13 +5718,13 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle      Settle currency (required)
-     * @param string $contract    Futures contract (optional)
-     * @param int    $order       Futures order ID, return related data only if specified (optional)
-     * @param int    $limit       Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset      List offset, starting from 0 (optional, default to 0)
-     * @param string $last_id     Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param int    $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $order Futures order ID, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  int $count_total Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5920,9 +5920,9 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5941,9 +5941,9 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5958,7 +5958,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5999,9 +5999,9 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6023,9 +6023,9 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6074,9 +6074,9 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6216,10 +6216,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6238,10 +6238,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6256,7 +6256,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6297,10 +6297,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6322,10 +6322,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6374,10 +6374,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a liquidation timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a liquidation timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6530,10 +6530,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a settlement timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6552,10 +6552,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a settlement timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6570,7 +6570,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6611,10 +6611,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a settlement timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6636,10 +6636,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a settlement timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6688,10 +6688,10 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $at       Specify a settlement timestamp (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $at Specify a settlement timestamp (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6838,17 +6838,332 @@ class DeliveryApi
     }
 
     /**
+     * Operation listDeliveryRiskLimitTiers
+     *
+     * List risk limit tiers
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\FuturesLimitRiskTiers[]
+     */
+    public function listDeliveryRiskLimitTiers($associative_array)
+    {
+        list($response) = $this->listDeliveryRiskLimitTiersWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listDeliveryRiskLimitTiersWithHttpInfo
+     *
+     * List risk limit tiers
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\FuturesLimitRiskTiers[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listDeliveryRiskLimitTiersWithHttpInfo($associative_array)
+    {
+        $request = $this->listDeliveryRiskLimitTiersRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\FuturesLimitRiskTiers[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listDeliveryRiskLimitTiersAsync
+     *
+     * List risk limit tiers
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliveryRiskLimitTiersAsync($associative_array)
+    {
+        return $this->listDeliveryRiskLimitTiersAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listDeliveryRiskLimitTiersAsyncWithHttpInfo
+     *
+     * List risk limit tiers
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listDeliveryRiskLimitTiersAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\FuturesLimitRiskTiers[]';
+        $request = $this->listDeliveryRiskLimitTiersRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listDeliveryRiskLimitTiers'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listDeliveryRiskLimitTiersRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $settle = array_key_exists('settle', $associative_array) ? $associative_array['settle'] : null;
+        $contract = array_key_exists('contract', $associative_array) ? $associative_array['contract'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $offset = array_key_exists('offset', $associative_array) ? $associative_array['offset'] : 0;
+
+        // verify the required parameter 'settle' is set
+        if ($settle === null || (is_array($settle) && count($settle) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $settle when calling listDeliveryRiskLimitTiers'
+            );
+        }
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryRiskLimitTiers, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DeliveryApi.listDeliveryRiskLimitTiers, must be bigger than or equal to 1.');
+        }
+
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling DeliveryApi.listDeliveryRiskLimitTiers, must be bigger than or equal to 0.');
+        }
+
+
+        $resourcePath = '/delivery/{settle}/risk_limit_tiers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($contract !== null) {
+            if('form' === 'form' && is_array($contract)) {
+                foreach($contract as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['contract'] = $contract;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($offset !== null) {
+            if('form' === 'form' && is_array($offset)) {
+                foreach($offset as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['offset'] = $offset;
+            }
+        }
+
+        // path params
+        if ($settle !== null) {
+            $resourcePath = str_replace(
+                '{' . 'settle' . '}',
+                ObjectSerializer::toPathValue($settle),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listPriceTriggeredDeliveryOrders
      *
      * List all auto orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $status   Only list the orders with this status (required)
-     * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6867,11 +7182,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $status   Only list the orders with this status (required)
-     * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6886,7 +7201,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6927,11 +7242,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $status   Only list the orders with this status (required)
-     * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6953,11 +7268,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $status   Only list the orders with this status (required)
-     * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7006,11 +7321,11 @@ class DeliveryApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $status   Only list the orders with this status (required)
-     * @param string $contract Futures contract, return related data only if specified (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $settle Settle currency (required)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $contract Futures contract, return related data only if specified (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7184,8 +7499,8 @@ class DeliveryApi
      *
      * Create a price-triggered order
      *
-     * @param string                                    $settle                        Settle currency (required)
-     * @param \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order futures_price_triggered_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order futures_price_triggered_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7202,8 +7517,8 @@ class DeliveryApi
      *
      * Create a price-triggered order
      *
-     * @param string                                    $settle                        Settle currency (required)
-     * @param \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7218,7 +7533,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7257,8 +7572,8 @@ class DeliveryApi
      *
      * Create a price-triggered order
      *
-     * @param string                                    $settle                        Settle currency (required)
-     * @param \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7278,8 +7593,8 @@ class DeliveryApi
      *
      * Create a price-triggered order
      *
-     * @param string                                    $settle                        Settle currency (required)
-     * @param \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7326,8 +7641,8 @@ class DeliveryApi
     /**
      * Create request for operation 'createPriceTriggeredDeliveryOrder'
      *
-     * @param string                                    $settle                        Settle currency (required)
-     * @param \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
+     * @param  string $settle Settle currency (required)
+     * @param  \GateApi\Model\FuturesPriceTriggeredOrder $futures_price_triggered_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7438,8 +7753,8 @@ class DeliveryApi
      *
      * Cancel all open orders
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7456,8 +7771,8 @@ class DeliveryApi
      *
      * Cancel all open orders
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7472,7 +7787,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7511,8 +7826,8 @@ class DeliveryApi
      *
      * Cancel all open orders
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7532,8 +7847,8 @@ class DeliveryApi
      *
      * Cancel all open orders
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7580,8 +7895,8 @@ class DeliveryApi
     /**
      * Create request for operation 'cancelPriceTriggeredDeliveryOrderList'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $contract Futures contract (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $contract Futures contract (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7701,8 +8016,8 @@ class DeliveryApi
      *
      * Get a price-triggered order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7719,8 +8034,8 @@ class DeliveryApi
      *
      * Get a price-triggered order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7735,7 +8050,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7774,8 +8089,8 @@ class DeliveryApi
      *
      * Get a price-triggered order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7795,8 +8110,8 @@ class DeliveryApi
      *
      * Get a price-triggered order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7843,8 +8158,8 @@ class DeliveryApi
     /**
      * Create request for operation 'getPriceTriggeredDeliveryOrder'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7961,8 +8276,8 @@ class DeliveryApi
      *
      * cancel a price-triggered order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7979,8 +8294,8 @@ class DeliveryApi
      *
      * cancel a price-triggered order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7995,7 +8310,7 @@ class DeliveryApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -8034,8 +8349,8 @@ class DeliveryApi
      *
      * cancel a price-triggered order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8055,8 +8370,8 @@ class DeliveryApi
      *
      * cancel a price-triggered order
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8103,8 +8418,8 @@ class DeliveryApi
     /**
      * Create request for operation 'cancelPriceTriggeredDeliveryOrder'
      *
-     * @param string $settle   Settle currency (required)
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $settle Settle currency (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

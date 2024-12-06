@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * Transfer Class Doc Comment
  *
- * @category    Class
- * @description Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account - &#x60;cross_margin&#x60;: cross margin account - &#x60;options&#x60;: options account
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @category Class
+ * @description Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account - &#x60;options&#x60;: options account
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class Transfer implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'Transfer';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency' => 'string',
         'from' => 'string',
@@ -64,10 +64,10 @@ class Transfer implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency' => null,
         'from' => null,
@@ -185,13 +185,11 @@ class Transfer implements ModelInterface, ArrayAccess
     const FROM_MARGIN = 'margin';
     const FROM_FUTURES = 'futures';
     const FROM_DELIVERY = 'delivery';
-    const FROM_CROSS_MARGIN = 'cross_margin';
     const FROM_OPTIONS = 'options';
     const TO_SPOT = 'spot';
     const TO_MARGIN = 'margin';
     const TO_FUTURES = 'futures';
     const TO_DELIVERY = 'delivery';
-    const TO_CROSS_MARGIN = 'cross_margin';
     const TO_OPTIONS = 'options';
     
 
@@ -208,7 +206,6 @@ class Transfer implements ModelInterface, ArrayAccess
             self::FROM_MARGIN,
             self::FROM_FUTURES,
             self::FROM_DELIVERY,
-            self::FROM_CROSS_MARGIN,
             self::FROM_OPTIONS,
         ];
     }
@@ -225,7 +222,6 @@ class Transfer implements ModelInterface, ArrayAccess
             self::TO_MARGIN,
             self::TO_FUTURES,
             self::TO_DELIVERY,
-            self::TO_CROSS_MARGIN,
             self::TO_OPTIONS,
         ];
     }

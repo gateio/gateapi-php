@@ -88,7 +88,7 @@ class MarginApi
     /**
      * Set the host index
      *
-     * @param int Host index (required)
+     * @param  int Host index (required)
      */
     public function setHostIndex($host_index)
     {
@@ -114,702 +114,13 @@ class MarginApi
     }
 
     /**
-     * Operation listMarginCurrencyPairs
-     *
-     * List all supported currency pairs supported in margin trading
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\MarginCurrencyPair[]
-     */
-    public function listMarginCurrencyPairs()
-    {
-        list($response) = $this->listMarginCurrencyPairsWithHttpInfo();
-        return $response;
-    }
-
-    /**
-     * Operation listMarginCurrencyPairsWithHttpInfo
-     *
-     * List all supported currency pairs supported in margin trading
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\MarginCurrencyPair[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listMarginCurrencyPairsWithHttpInfo()
-    {
-        $request = $this->listMarginCurrencyPairsRequest();
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\MarginCurrencyPair[]';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation listMarginCurrencyPairsAsync
-     *
-     * List all supported currency pairs supported in margin trading
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listMarginCurrencyPairsAsync()
-    {
-        return $this->listMarginCurrencyPairsAsyncWithHttpInfo()
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listMarginCurrencyPairsAsyncWithHttpInfo
-     *
-     * List all supported currency pairs supported in margin trading
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listMarginCurrencyPairsAsyncWithHttpInfo()
-    {
-        $returnType = '\GateApi\Model\MarginCurrencyPair[]';
-        $request = $this->listMarginCurrencyPairsRequest();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listMarginCurrencyPairs'
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listMarginCurrencyPairsRequest()
-    {
-
-        $resourcePath = '/margin/currency_pairs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getMarginCurrencyPair
-     *
-     * Query one single margin currency pair
-     *
-     * @param string $currency_pair Margin currency pair (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\MarginCurrencyPair
-     */
-    public function getMarginCurrencyPair($currency_pair)
-    {
-        list($response) = $this->getMarginCurrencyPairWithHttpInfo($currency_pair);
-        return $response;
-    }
-
-    /**
-     * Operation getMarginCurrencyPairWithHttpInfo
-     *
-     * Query one single margin currency pair
-     *
-     * @param string $currency_pair Margin currency pair (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\MarginCurrencyPair, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getMarginCurrencyPairWithHttpInfo($currency_pair)
-    {
-        $request = $this->getMarginCurrencyPairRequest($currency_pair);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\MarginCurrencyPair';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation getMarginCurrencyPairAsync
-     *
-     * Query one single margin currency pair
-     *
-     * @param string $currency_pair Margin currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMarginCurrencyPairAsync($currency_pair)
-    {
-        return $this->getMarginCurrencyPairAsyncWithHttpInfo($currency_pair)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getMarginCurrencyPairAsyncWithHttpInfo
-     *
-     * Query one single margin currency pair
-     *
-     * @param string $currency_pair Margin currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMarginCurrencyPairAsyncWithHttpInfo($currency_pair)
-    {
-        $returnType = '\GateApi\Model\MarginCurrencyPair';
-        $request = $this->getMarginCurrencyPairRequest($currency_pair);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getMarginCurrencyPair'
-     *
-     * @param string $currency_pair Margin currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getMarginCurrencyPairRequest($currency_pair)
-    {
-        // verify the required parameter 'currency_pair' is set
-        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $currency_pair when calling getMarginCurrencyPair'
-            );
-        }
-
-        $resourcePath = '/margin/currency_pairs/{currency_pair}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // path params
-        if ($currency_pair !== null) {
-            $resourcePath = str_replace(
-                '{' . 'currency_pair' . '}',
-                ObjectSerializer::toPathValue($currency_pair),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listFundingBook
-     *
-     * Order book of lending loans
-     *
-     * @param string $currency Retrieve data of the specified currency (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\FundingBookItem[]
-     */
-    public function listFundingBook($currency)
-    {
-        list($response) = $this->listFundingBookWithHttpInfo($currency);
-        return $response;
-    }
-
-    /**
-     * Operation listFundingBookWithHttpInfo
-     *
-     * Order book of lending loans
-     *
-     * @param string $currency Retrieve data of the specified currency (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\FundingBookItem[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listFundingBookWithHttpInfo($currency)
-    {
-        $request = $this->listFundingBookRequest($currency);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\FundingBookItem[]';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation listFundingBookAsync
-     *
-     * Order book of lending loans
-     *
-     * @param string $currency Retrieve data of the specified currency (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listFundingBookAsync($currency)
-    {
-        return $this->listFundingBookAsyncWithHttpInfo($currency)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listFundingBookAsyncWithHttpInfo
-     *
-     * Order book of lending loans
-     *
-     * @param string $currency Retrieve data of the specified currency (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listFundingBookAsyncWithHttpInfo($currency)
-    {
-        $returnType = '\GateApi\Model\FundingBookItem[]';
-        $request = $this->listFundingBookRequest($currency);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listFundingBook'
-     *
-     * @param string $currency Retrieve data of the specified currency (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listFundingBookRequest($currency)
-    {
-        // verify the required parameter 'currency' is set
-        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $currency when calling listFundingBook'
-            );
-        }
-
-        $resourcePath = '/margin/funding_book';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($currency !== null) {
-            if('form' === 'form' && is_array($currency)) {
-                foreach($currency as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['currency'] = $currency;
-            }
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation listMarginAccounts
      *
      * Margin account list
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -828,7 +139,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -843,7 +154,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -884,7 +195,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -906,7 +217,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -955,7 +266,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1059,12 +370,13 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
-     * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
+     * @param  string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1083,12 +395,13 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
-     * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
+     * @param  string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1103,7 +416,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1144,12 +457,13 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
-     * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
+     * @param  string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1171,12 +485,13 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
-     * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
+     * @param  string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1225,12 +540,13 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
-     * @param string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)
+     * @param  string $currency_pair List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1240,6 +556,7 @@ class MarginApi
         // unbox the parameters from the associative array
         $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
         $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
+        $type = array_key_exists('type', $associative_array) ? $associative_array['type'] : null;
         $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
         $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
         $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
@@ -1285,6 +602,18 @@ class MarginApi
             }
             else {
                 $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // query params
+        if ($type !== null) {
+            if('form' === 'form' && is_array($type)) {
+                foreach($type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['type'] = $type;
             }
         }
 
@@ -1410,7 +739,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1429,7 +758,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1444,7 +773,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1485,7 +814,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1507,7 +836,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1556,7 +885,7 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1654,20 +983,1451 @@ class MarginApi
     }
 
     /**
-     * Operation listLoans
+     * Operation getAutoRepayStatus
      *
-     * List all loans
+     * Retrieve user auto repayment setting
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\AutoRepaySetting
+     */
+    public function getAutoRepayStatus()
+    {
+        list($response) = $this->getAutoRepayStatusWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getAutoRepayStatusWithHttpInfo
+     *
+     * Retrieve user auto repayment setting
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\AutoRepaySetting, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoRepayStatusWithHttpInfo()
+    {
+        $request = $this->getAutoRepayStatusRequest();
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\AutoRepaySetting';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getAutoRepayStatusAsync
+     *
+     * Retrieve user auto repayment setting
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAutoRepayStatusAsync()
+    {
+        return $this->getAutoRepayStatusAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAutoRepayStatusAsyncWithHttpInfo
+     *
+     * Retrieve user auto repayment setting
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAutoRepayStatusAsyncWithHttpInfo()
+    {
+        $returnType = '\GateApi\Model\AutoRepaySetting';
+        $request = $this->getAutoRepayStatusRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAutoRepayStatus'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAutoRepayStatusRequest()
+    {
+
+        $resourcePath = '/margin/auto_repay';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setAutoRepay
+     *
+     * Update user's auto repayment setting
+     *
+     * @param  string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\AutoRepaySetting
+     */
+    public function setAutoRepay($status)
+    {
+        list($response) = $this->setAutoRepayWithHttpInfo($status);
+        return $response;
+    }
+
+    /**
+     * Operation setAutoRepayWithHttpInfo
+     *
+     * Update user's auto repayment setting
+     *
+     * @param  string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\AutoRepaySetting, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setAutoRepayWithHttpInfo($status)
+    {
+        $request = $this->setAutoRepayRequest($status);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\AutoRepaySetting';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation setAutoRepayAsync
+     *
+     * Update user's auto repayment setting
+     *
+     * @param  string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setAutoRepayAsync($status)
+    {
+        return $this->setAutoRepayAsyncWithHttpInfo($status)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setAutoRepayAsyncWithHttpInfo
+     *
+     * Update user's auto repayment setting
+     *
+     * @param  string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setAutoRepayAsyncWithHttpInfo($status)
+    {
+        $returnType = '\GateApi\Model\AutoRepaySetting';
+        $request = $this->setAutoRepayRequest($status);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setAutoRepay'
+     *
+     * @param  string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function setAutoRepayRequest($status)
+    {
+        // verify the required parameter 'status' is set
+        if ($status === null || (is_array($status) && count($status) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $status when calling setAutoRepay'
+            );
+        }
+
+        $resourcePath = '/margin/auto_repay';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($status !== null) {
+            if('form' === 'form' && is_array($status)) {
+                foreach($status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['status'] = $status;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarginTransferable
+     *
+     * Get the max transferable amount for a specific margin currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status        Loan status (required)
-     * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieve data of the specified currency (optional)
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
-     * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\MarginTransferable
+     */
+    public function getMarginTransferable($associative_array)
+    {
+        list($response) = $this->getMarginTransferableWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation getMarginTransferableWithHttpInfo
+     *
+     * Get the max transferable amount for a specific margin currency
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\MarginTransferable, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarginTransferableWithHttpInfo($associative_array)
+    {
+        $request = $this->getMarginTransferableRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\MarginTransferable';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getMarginTransferableAsync
+     *
+     * Get the max transferable amount for a specific margin currency
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarginTransferableAsync($associative_array)
+    {
+        return $this->getMarginTransferableAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarginTransferableAsyncWithHttpInfo
+     *
+     * Get the max transferable amount for a specific margin currency
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarginTransferableAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\MarginTransferable';
+        $request = $this->getMarginTransferableRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarginTransferable'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMarginTransferableRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
+
+        // verify the required parameter 'currency' is set
+        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency when calling getMarginTransferable'
+            );
+        }
+
+        $resourcePath = '/margin/transferable';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($currency_pair !== null) {
+            if('form' === 'form' && is_array($currency_pair)) {
+                foreach($currency_pair as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listMarginCurrencyPairs
+     *
+     * List all supported currency pairs supported in margin trading(Deprecated)
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\MarginCurrencyPair[]
+     */
+    public function listMarginCurrencyPairs()
+    {
+        list($response) = $this->listMarginCurrencyPairsWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation listMarginCurrencyPairsWithHttpInfo
+     *
+     * List all supported currency pairs supported in margin trading(Deprecated)
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\MarginCurrencyPair[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listMarginCurrencyPairsWithHttpInfo()
+    {
+        $request = $this->listMarginCurrencyPairsRequest();
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\MarginCurrencyPair[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listMarginCurrencyPairsAsync
+     *
+     * List all supported currency pairs supported in margin trading(Deprecated)
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listMarginCurrencyPairsAsync()
+    {
+        return $this->listMarginCurrencyPairsAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listMarginCurrencyPairsAsyncWithHttpInfo
+     *
+     * List all supported currency pairs supported in margin trading(Deprecated)
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listMarginCurrencyPairsAsyncWithHttpInfo()
+    {
+        $returnType = '\GateApi\Model\MarginCurrencyPair[]';
+        $request = $this->listMarginCurrencyPairsRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listMarginCurrencyPairs'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listMarginCurrencyPairsRequest()
+    {
+
+        $resourcePath = '/margin/currency_pairs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarginCurrencyPair
+     *
+     * Query one single margin currency pair(Deprecated)
+     *
+     * @param  string $currency_pair Margin currency pair (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\MarginCurrencyPair
+     */
+    public function getMarginCurrencyPair($currency_pair)
+    {
+        list($response) = $this->getMarginCurrencyPairWithHttpInfo($currency_pair);
+        return $response;
+    }
+
+    /**
+     * Operation getMarginCurrencyPairWithHttpInfo
+     *
+     * Query one single margin currency pair(Deprecated)
+     *
+     * @param  string $currency_pair Margin currency pair (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\MarginCurrencyPair, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarginCurrencyPairWithHttpInfo($currency_pair)
+    {
+        $request = $this->getMarginCurrencyPairRequest($currency_pair);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\MarginCurrencyPair';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getMarginCurrencyPairAsync
+     *
+     * Query one single margin currency pair(Deprecated)
+     *
+     * @param  string $currency_pair Margin currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarginCurrencyPairAsync($currency_pair)
+    {
+        return $this->getMarginCurrencyPairAsyncWithHttpInfo($currency_pair)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarginCurrencyPairAsyncWithHttpInfo
+     *
+     * Query one single margin currency pair(Deprecated)
+     *
+     * @param  string $currency_pair Margin currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarginCurrencyPairAsyncWithHttpInfo($currency_pair)
+    {
+        $returnType = '\GateApi\Model\MarginCurrencyPair';
+        $request = $this->getMarginCurrencyPairRequest($currency_pair);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarginCurrencyPair'
+     *
+     * @param  string $currency_pair Margin currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMarginCurrencyPairRequest($currency_pair)
+    {
+        // verify the required parameter 'currency_pair' is set
+        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency_pair when calling getMarginCurrencyPair'
+            );
+        }
+
+        $resourcePath = '/margin/currency_pairs/{currency_pair}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // path params
+        if ($currency_pair !== null) {
+            $resourcePath = str_replace(
+                '{' . 'currency_pair' . '}',
+                ObjectSerializer::toPathValue($currency_pair),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listFundingBook
+     *
+     * Order book of lending loans(Deprecated)
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\FundingBookItem[]
+     */
+    public function listFundingBook($currency)
+    {
+        list($response) = $this->listFundingBookWithHttpInfo($currency);
+        return $response;
+    }
+
+    /**
+     * Operation listFundingBookWithHttpInfo
+     *
+     * Order book of lending loans(Deprecated)
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\FundingBookItem[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listFundingBookWithHttpInfo($currency)
+    {
+        $request = $this->listFundingBookRequest($currency);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\FundingBookItem[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listFundingBookAsync
+     *
+     * Order book of lending loans(Deprecated)
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listFundingBookAsync($currency)
+    {
+        return $this->listFundingBookAsyncWithHttpInfo($currency)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listFundingBookAsyncWithHttpInfo
+     *
+     * Order book of lending loans(Deprecated)
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listFundingBookAsyncWithHttpInfo($currency)
+    {
+        $returnType = '\GateApi\Model\FundingBookItem[]';
+        $request = $this->listFundingBookRequest($currency);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listFundingBook'
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listFundingBookRequest($currency)
+    {
+        // verify the required parameter 'currency' is set
+        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency when calling listFundingBook'
+            );
+        }
+
+        $resourcePath = '/margin/funding_book';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listLoans
+     *
+     * List all loans(Deprecated)
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $status Loan status (required)
+     * @param  string $side Lend or borrow (required)
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
+     * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1682,18 +2442,18 @@ class MarginApi
     /**
      * Operation listLoansWithHttpInfo
      *
-     * List all loans
+     * List all loans(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status        Loan status (required)
-     * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieve data of the specified currency (optional)
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
-     * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $status Loan status (required)
+     * @param  string $side Lend or borrow (required)
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
+     * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1708,7 +2468,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1745,18 +2505,18 @@ class MarginApi
     /**
      * Operation listLoansAsync
      *
-     * List all loans
+     * List all loans(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status        Loan status (required)
-     * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieve data of the specified currency (optional)
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
-     * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $status Loan status (required)
+     * @param  string $side Lend or borrow (required)
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
+     * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1774,18 +2534,18 @@ class MarginApi
     /**
      * Operation listLoansAsyncWithHttpInfo
      *
-     * List all loans
+     * List all loans(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status        Loan status (required)
-     * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieve data of the specified currency (optional)
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
-     * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $status Loan status (required)
+     * @param  string $side Lend or borrow (required)
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
+     * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1834,14 +2594,14 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status        Loan status (required)
-     * @param string $side          Lend or borrow (required)
-     * @param string $currency      Retrieve data of the specified currency (optional)
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $sort_by       Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
-     * @param bool   $reverse_sort  Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $status Loan status (required)
+     * @param  string $side Lend or borrow (required)
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $sort_by Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
+     * @param  bool $reverse_sort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2055,9 +2815,9 @@ class MarginApi
     /**
      * Operation createLoan
      *
-     * Lend or borrow
+     * Lend or borrow(Deprecated)
      *
-     * @param \GateApi\Model\Loan $loan loan (required)
+     * @param  \GateApi\Model\Loan $loan loan (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2072,9 +2832,9 @@ class MarginApi
     /**
      * Operation createLoanWithHttpInfo
      *
-     * Lend or borrow
+     * Lend or borrow(Deprecated)
      *
-     * @param \GateApi\Model\Loan $loan (required)
+     * @param  \GateApi\Model\Loan $loan (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2089,7 +2849,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2126,9 +2886,9 @@ class MarginApi
     /**
      * Operation createLoanAsync
      *
-     * Lend or borrow
+     * Lend or borrow(Deprecated)
      *
-     * @param \GateApi\Model\Loan $loan (required)
+     * @param  \GateApi\Model\Loan $loan (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2146,9 +2906,9 @@ class MarginApi
     /**
      * Operation createLoanAsyncWithHttpInfo
      *
-     * Lend or borrow
+     * Lend or borrow(Deprecated)
      *
-     * @param \GateApi\Model\Loan $loan (required)
+     * @param  \GateApi\Model\Loan $loan (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2195,7 +2955,7 @@ class MarginApi
     /**
      * Create request for operation 'createLoan'
      *
-     * @param \GateApi\Model\Loan $loan (required)
+     * @param  \GateApi\Model\Loan $loan (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2289,10 +3049,10 @@ class MarginApi
     /**
      * Operation mergeLoans
      *
-     * Merge multiple lending loans
+     * Merge multiple lending loans(Deprecated)
      *
-     * @param string $currency Retrieve data of the specified currency (required)
-     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2307,10 +3067,10 @@ class MarginApi
     /**
      * Operation mergeLoansWithHttpInfo
      *
-     * Merge multiple lending loans
+     * Merge multiple lending loans(Deprecated)
      *
-     * @param string $currency Retrieve data of the specified currency (required)
-     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2325,7 +3085,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2362,10 +3122,10 @@ class MarginApi
     /**
      * Operation mergeLoansAsync
      *
-     * Merge multiple lending loans
+     * Merge multiple lending loans(Deprecated)
      *
-     * @param string $currency Retrieve data of the specified currency (required)
-     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2383,10 +3143,10 @@ class MarginApi
     /**
      * Operation mergeLoansAsyncWithHttpInfo
      *
-     * Merge multiple lending loans
+     * Merge multiple lending loans(Deprecated)
      *
-     * @param string $currency Retrieve data of the specified currency (required)
-     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2433,8 +3193,8 @@ class MarginApi
     /**
      * Create request for operation 'mergeLoans'
      *
-     * @param string $currency Retrieve data of the specified currency (required)
-     * @param string $ids      A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2555,10 +3315,10 @@ class MarginApi
     /**
      * Operation getLoan
      *
-     * Retrieve one single loan detail
+     * Retrieve one single loan detail(Deprecated)
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $side    Lend or borrow (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $side Lend or borrow (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2573,10 +3333,10 @@ class MarginApi
     /**
      * Operation getLoanWithHttpInfo
      *
-     * Retrieve one single loan detail
+     * Retrieve one single loan detail(Deprecated)
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $side    Lend or borrow (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $side Lend or borrow (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2591,7 +3351,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2628,10 +3388,10 @@ class MarginApi
     /**
      * Operation getLoanAsync
      *
-     * Retrieve one single loan detail
+     * Retrieve one single loan detail(Deprecated)
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $side    Lend or borrow (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $side Lend or borrow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2649,10 +3409,10 @@ class MarginApi
     /**
      * Operation getLoanAsyncWithHttpInfo
      *
-     * Retrieve one single loan detail
+     * Retrieve one single loan detail(Deprecated)
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $side    Lend or borrow (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $side Lend or borrow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2699,8 +3459,8 @@ class MarginApi
     /**
      * Create request for operation 'getLoan'
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $side    Lend or borrow (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $side Lend or borrow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2818,10 +3578,10 @@ class MarginApi
     /**
      * Operation cancelLoan
      *
-     * Cancel lending loan
+     * Cancel lending loan(Deprecated)
      *
-     * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2836,10 +3596,10 @@ class MarginApi
     /**
      * Operation cancelLoanWithHttpInfo
      *
-     * Cancel lending loan
+     * Cancel lending loan(Deprecated)
      *
-     * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2854,7 +3614,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2891,10 +3651,10 @@ class MarginApi
     /**
      * Operation cancelLoanAsync
      *
-     * Cancel lending loan
+     * Cancel lending loan(Deprecated)
      *
-     * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2912,10 +3672,10 @@ class MarginApi
     /**
      * Operation cancelLoanAsyncWithHttpInfo
      *
-     * Cancel lending loan
+     * Cancel lending loan(Deprecated)
      *
-     * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2962,8 +3722,8 @@ class MarginApi
     /**
      * Create request for operation 'cancelLoan'
      *
-     * @param string $loan_id  Loan ID (required)
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3081,10 +3841,10 @@ class MarginApi
     /**
      * Operation updateLoan
      *
-     * Modify a loan
+     * Modify a loan(Deprecated)
      *
-     * @param string                   $loan_id    Loan ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch loan_patch (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch loan_patch (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3099,10 +3859,10 @@ class MarginApi
     /**
      * Operation updateLoanWithHttpInfo
      *
-     * Modify a loan
+     * Modify a loan(Deprecated)
      *
-     * @param string                   $loan_id    Loan ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3117,7 +3877,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3154,10 +3914,10 @@ class MarginApi
     /**
      * Operation updateLoanAsync
      *
-     * Modify a loan
+     * Modify a loan(Deprecated)
      *
-     * @param string                   $loan_id    Loan ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3175,10 +3935,10 @@ class MarginApi
     /**
      * Operation updateLoanAsyncWithHttpInfo
      *
-     * Modify a loan
+     * Modify a loan(Deprecated)
      *
-     * @param string                   $loan_id    Loan ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3225,8 +3985,8 @@ class MarginApi
     /**
      * Create request for operation 'updateLoan'
      *
-     * @param string                   $loan_id    Loan ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3335,9 +4095,9 @@ class MarginApi
     /**
      * Operation listLoanRepayments
      *
-     * List loan repayment records
+     * List loan repayment records(Deprecated)
      *
-     * @param string $loan_id Loan ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3352,9 +4112,9 @@ class MarginApi
     /**
      * Operation listLoanRepaymentsWithHttpInfo
      *
-     * List loan repayment records
+     * List loan repayment records(Deprecated)
      *
-     * @param string $loan_id Loan ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3369,7 +4129,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3406,9 +4166,9 @@ class MarginApi
     /**
      * Operation listLoanRepaymentsAsync
      *
-     * List loan repayment records
+     * List loan repayment records(Deprecated)
      *
-     * @param string $loan_id Loan ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3426,9 +4186,9 @@ class MarginApi
     /**
      * Operation listLoanRepaymentsAsyncWithHttpInfo
      *
-     * List loan repayment records
+     * List loan repayment records(Deprecated)
      *
-     * @param string $loan_id Loan ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3475,7 +4235,7 @@ class MarginApi
     /**
      * Create request for operation 'listLoanRepayments'
      *
-     * @param string $loan_id Loan ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3575,10 +4335,10 @@ class MarginApi
     /**
      * Operation repayLoan
      *
-     * Repay a loan
+     * Repay a loan(Deprecated)
      *
-     * @param string                      $loan_id       Loan ID (required)
-     * @param \GateApi\Model\RepayRequest $repay_request repay_request (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\RepayRequest $repay_request repay_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3593,10 +4353,10 @@ class MarginApi
     /**
      * Operation repayLoanWithHttpInfo
      *
-     * Repay a loan
+     * Repay a loan(Deprecated)
      *
-     * @param string                      $loan_id       Loan ID (required)
-     * @param \GateApi\Model\RepayRequest $repay_request (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\RepayRequest $repay_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3611,7 +4371,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3648,10 +4408,10 @@ class MarginApi
     /**
      * Operation repayLoanAsync
      *
-     * Repay a loan
+     * Repay a loan(Deprecated)
      *
-     * @param string                      $loan_id       Loan ID (required)
-     * @param \GateApi\Model\RepayRequest $repay_request (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\RepayRequest $repay_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3669,10 +4429,10 @@ class MarginApi
     /**
      * Operation repayLoanAsyncWithHttpInfo
      *
-     * Repay a loan
+     * Repay a loan(Deprecated)
      *
-     * @param string                      $loan_id       Loan ID (required)
-     * @param \GateApi\Model\RepayRequest $repay_request (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\RepayRequest $repay_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3719,8 +4479,8 @@ class MarginApi
     /**
      * Create request for operation 'repayLoan'
      *
-     * @param string                      $loan_id       Loan ID (required)
-     * @param \GateApi\Model\RepayRequest $repay_request (required)
+     * @param  string $loan_id Loan ID (required)
+     * @param  \GateApi\Model\RepayRequest $repay_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3829,14 +4589,14 @@ class MarginApi
     /**
      * Operation listLoanRecords
      *
-     * List repayment records of a specific loan
+     * List repayment records of a specific loan(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $status  Loan record status (optional)
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $status Loan record status (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3851,14 +4611,14 @@ class MarginApi
     /**
      * Operation listLoanRecordsWithHttpInfo
      *
-     * List repayment records of a specific loan
+     * List repayment records of a specific loan(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $status  Loan record status (optional)
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $status Loan record status (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3873,7 +4633,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3910,14 +4670,14 @@ class MarginApi
     /**
      * Operation listLoanRecordsAsync
      *
-     * List repayment records of a specific loan
+     * List repayment records of a specific loan(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $status  Loan record status (optional)
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $status Loan record status (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3935,14 +4695,14 @@ class MarginApi
     /**
      * Operation listLoanRecordsAsyncWithHttpInfo
      *
-     * List repayment records of a specific loan
+     * List repayment records of a specific loan(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $status  Loan record status (optional)
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $status Loan record status (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3991,10 +4751,10 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $loan_id Loan ID (required)
-     * @param string $status  Loan record status (optional)
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $loan_id Loan ID (required)
+     * @param  string $status Loan record status (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4150,10 +4910,10 @@ class MarginApi
     /**
      * Operation getLoanRecord
      *
-     * Get one single loan record
+     * Get one single loan record(Deprecated)
      *
-     * @param string $loan_record_id Loan record ID (required)
-     * @param string $loan_id        Loan ID (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4168,10 +4928,10 @@ class MarginApi
     /**
      * Operation getLoanRecordWithHttpInfo
      *
-     * Get one single loan record
+     * Get one single loan record(Deprecated)
      *
-     * @param string $loan_record_id Loan record ID (required)
-     * @param string $loan_id        Loan ID (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4186,7 +4946,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4223,10 +4983,10 @@ class MarginApi
     /**
      * Operation getLoanRecordAsync
      *
-     * Get one single loan record
+     * Get one single loan record(Deprecated)
      *
-     * @param string $loan_record_id Loan record ID (required)
-     * @param string $loan_id        Loan ID (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4244,10 +5004,10 @@ class MarginApi
     /**
      * Operation getLoanRecordAsyncWithHttpInfo
      *
-     * Get one single loan record
+     * Get one single loan record(Deprecated)
      *
-     * @param string $loan_record_id Loan record ID (required)
-     * @param string $loan_id        Loan ID (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4294,8 +5054,8 @@ class MarginApi
     /**
      * Create request for operation 'getLoanRecord'
      *
-     * @param string $loan_record_id Loan record ID (required)
-     * @param string $loan_id        Loan ID (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  string $loan_id Loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4413,10 +5173,10 @@ class MarginApi
     /**
      * Operation updateLoanRecord
      *
-     * Modify a loan record
+     * Modify a loan record(Deprecated)
      *
-     * @param string                   $loan_record_id Loan record ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch     loan_patch (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch loan_patch (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4431,10 +5191,10 @@ class MarginApi
     /**
      * Operation updateLoanRecordWithHttpInfo
      *
-     * Modify a loan record
+     * Modify a loan record(Deprecated)
      *
-     * @param string                   $loan_record_id Loan record ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch     (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4449,7 +5209,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4486,10 +5246,10 @@ class MarginApi
     /**
      * Operation updateLoanRecordAsync
      *
-     * Modify a loan record
+     * Modify a loan record(Deprecated)
      *
-     * @param string                   $loan_record_id Loan record ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch     (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4507,10 +5267,10 @@ class MarginApi
     /**
      * Operation updateLoanRecordAsyncWithHttpInfo
      *
-     * Modify a loan record
+     * Modify a loan record(Deprecated)
      *
-     * @param string                   $loan_record_id Loan record ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch     (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4557,8 +5317,8 @@ class MarginApi
     /**
      * Create request for operation 'updateLoanRecord'
      *
-     * @param string                   $loan_record_id Loan record ID (required)
-     * @param \GateApi\Model\LoanPatch $loan_patch     (required)
+     * @param  string $loan_record_id Loan record ID (required)
+     * @param  \GateApi\Model\LoanPatch $loan_patch (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4665,746 +5425,14 @@ class MarginApi
     }
 
     /**
-     * Operation getAutoRepayStatus
-     *
-     * Retrieve user auto repayment setting
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\AutoRepaySetting
-     */
-    public function getAutoRepayStatus()
-    {
-        list($response) = $this->getAutoRepayStatusWithHttpInfo();
-        return $response;
-    }
-
-    /**
-     * Operation getAutoRepayStatusWithHttpInfo
-     *
-     * Retrieve user auto repayment setting
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\AutoRepaySetting, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAutoRepayStatusWithHttpInfo()
-    {
-        $request = $this->getAutoRepayStatusRequest();
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\AutoRepaySetting';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation getAutoRepayStatusAsync
-     *
-     * Retrieve user auto repayment setting
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAutoRepayStatusAsync()
-    {
-        return $this->getAutoRepayStatusAsyncWithHttpInfo()
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAutoRepayStatusAsyncWithHttpInfo
-     *
-     * Retrieve user auto repayment setting
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAutoRepayStatusAsyncWithHttpInfo()
-    {
-        $returnType = '\GateApi\Model\AutoRepaySetting';
-        $request = $this->getAutoRepayStatusRequest();
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAutoRepayStatus'
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getAutoRepayStatusRequest()
-    {
-
-        $resourcePath = '/margin/auto_repay';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation setAutoRepay
-     *
-     * Update user's auto repayment setting
-     *
-     * @param string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\AutoRepaySetting
-     */
-    public function setAutoRepay($status)
-    {
-        list($response) = $this->setAutoRepayWithHttpInfo($status);
-        return $response;
-    }
-
-    /**
-     * Operation setAutoRepayWithHttpInfo
-     *
-     * Update user's auto repayment setting
-     *
-     * @param string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\AutoRepaySetting, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function setAutoRepayWithHttpInfo($status)
-    {
-        $request = $this->setAutoRepayRequest($status);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\AutoRepaySetting';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation setAutoRepayAsync
-     *
-     * Update user's auto repayment setting
-     *
-     * @param string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function setAutoRepayAsync($status)
-    {
-        return $this->setAutoRepayAsyncWithHttpInfo($status)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation setAutoRepayAsyncWithHttpInfo
-     *
-     * Update user's auto repayment setting
-     *
-     * @param string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function setAutoRepayAsyncWithHttpInfo($status)
-    {
-        $returnType = '\GateApi\Model\AutoRepaySetting';
-        $request = $this->setAutoRepayRequest($status);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'setAutoRepay'
-     *
-     * @param string $status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function setAutoRepayRequest($status)
-    {
-        // verify the required parameter 'status' is set
-        if ($status === null || (is_array($status) && count($status) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling setAutoRepay'
-            );
-        }
-
-        $resourcePath = '/margin/auto_repay';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($status !== null) {
-            if('form' === 'form' && is_array($status)) {
-                foreach($status as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['status'] = $status;
-            }
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getMarginTransferable
-     *
-     * Get the max transferable amount for a specific margin currency
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\MarginTransferable
-     */
-    public function getMarginTransferable($associative_array)
-    {
-        list($response) = $this->getMarginTransferableWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation getMarginTransferableWithHttpInfo
-     *
-     * Get the max transferable amount for a specific margin currency
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\MarginTransferable, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getMarginTransferableWithHttpInfo($associative_array)
-    {
-        $request = $this->getMarginTransferableRequest($associative_array);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\MarginTransferable';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation getMarginTransferableAsync
-     *
-     * Get the max transferable amount for a specific margin currency
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMarginTransferableAsync($associative_array)
-    {
-        return $this->getMarginTransferableAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getMarginTransferableAsyncWithHttpInfo
-     *
-     * Get the max transferable amount for a specific margin currency
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMarginTransferableAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\GateApi\Model\MarginTransferable';
-        $request = $this->getMarginTransferableRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getMarginTransferable'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getMarginTransferableRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
-        $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
-
-        // verify the required parameter 'currency' is set
-        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $currency when calling getMarginTransferable'
-            );
-        }
-
-        $resourcePath = '/margin/transferable';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($currency !== null) {
-            if('form' === 'form' && is_array($currency)) {
-                foreach($currency as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['currency'] = $currency;
-            }
-        }
-
-        // query params
-        if ($currency_pair !== null) {
-            if('form' === 'form' && is_array($currency_pair)) {
-                foreach($currency_pair as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['currency_pair'] = $currency_pair;
-            }
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getMarginBorrowable
      *
-     * Get the max borrowable amount for a specific margin currency
+     * Get the max borrowable amount for a specific margin currency(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5419,12 +5447,12 @@ class MarginApi
     /**
      * Operation getMarginBorrowableWithHttpInfo
      *
-     * Get the max borrowable amount for a specific margin currency
+     * Get the max borrowable amount for a specific margin currency(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5439,7 +5467,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5476,12 +5504,12 @@ class MarginApi
     /**
      * Operation getMarginBorrowableAsync
      *
-     * Get the max borrowable amount for a specific margin currency
+     * Get the max borrowable amount for a specific margin currency(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5499,12 +5527,12 @@ class MarginApi
     /**
      * Operation getMarginBorrowableAsyncWithHttpInfo
      *
-     * Get the max borrowable amount for a specific margin currency
+     * Get the max borrowable amount for a specific margin currency(Deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5553,8 +5581,8 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency      Retrieve data of the specified currency (required)
-     * @param string $currency_pair Currency pair (optional)
+     * @param  string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency_pair Currency pair (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5675,6 +5703,7 @@ class MarginApi
      *
      * Currencies supported by cross margin.
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\CrossMarginCurrency[]
@@ -5690,6 +5719,7 @@ class MarginApi
      *
      * Currencies supported by cross margin.
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\CrossMarginCurrency[], HTTP status code, HTTP response headers (array of strings)
@@ -5703,7 +5733,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5742,6 +5772,7 @@ class MarginApi
      *
      * Currencies supported by cross margin.
      *
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -5759,6 +5790,7 @@ class MarginApi
      * Operation listCrossMarginCurrenciesAsyncWithHttpInfo
      *
      * Currencies supported by cross margin.
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5804,6 +5836,7 @@ class MarginApi
 
     /**
      * Create request for operation 'listCrossMarginCurrencies'
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5887,7 +5920,7 @@ class MarginApi
      *
      * Retrieve detail of one single currency supported by cross margin
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5904,7 +5937,7 @@ class MarginApi
      *
      * Retrieve detail of one single currency supported by cross margin
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5919,7 +5952,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5958,7 +5991,7 @@ class MarginApi
      *
      * Retrieve detail of one single currency supported by cross margin
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5978,7 +6011,7 @@ class MarginApi
      *
      * Retrieve detail of one single currency supported by cross margin
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6025,7 +6058,7 @@ class MarginApi
     /**
      * Create request for operation 'getCrossMarginCurrency'
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6124,6 +6157,7 @@ class MarginApi
      *
      * Retrieve cross margin account
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\CrossMarginAccount
@@ -6139,6 +6173,7 @@ class MarginApi
      *
      * Retrieve cross margin account
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\CrossMarginAccount, HTTP status code, HTTP response headers (array of strings)
@@ -6152,7 +6187,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6191,6 +6226,7 @@ class MarginApi
      *
      * Retrieve cross margin account
      *
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -6208,6 +6244,7 @@ class MarginApi
      * Operation getCrossMarginAccountAsyncWithHttpInfo
      *
      * Retrieve cross margin account
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6253,6 +6290,7 @@ class MarginApi
 
     /**
      * Create request for operation 'getCrossMarginAccount'
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6341,12 +6379,12 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency (optional)
-     * @param int    $from     Start timestamp of the query (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6365,12 +6403,12 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency (optional)
-     * @param int    $from     Start timestamp of the query (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6385,7 +6423,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6426,12 +6464,12 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency (optional)
-     * @param int    $from     Start timestamp of the query (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6453,12 +6491,12 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency (optional)
-     * @param int    $from     Start timestamp of the query (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6507,12 +6545,12 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency (optional)
-     * @param int    $from     Start timestamp of the query (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $page     Page number (optional, default to 1)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param string $type     Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6692,11 +6730,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
-     * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  int $status Filter by status. Supported values are 2 and 3. (deprecated.) (required)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6715,11 +6753,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
-     * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  int $status Filter by status. Supported values are 2 and 3. (deprecated.) (required)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6734,7 +6772,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6775,11 +6813,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
-     * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  int $status Filter by status. Supported values are 2 and 3. (deprecated.) (required)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6801,11 +6839,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
-     * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  int $status Filter by status. Supported values are 2 and 3. (deprecated.) (required)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6854,11 +6892,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $status   Filter by status. Supported values are 2 and 3. (required)
-     * @param string $currency Filter by currency (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  int $status Filter by status. Supported values are 2 and 3. (deprecated.) (required)
+     * @param  string $currency Filter by currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7029,7 +7067,7 @@ class MarginApi
      *
      * Create a cross margin borrow loan
      *
-     * @param \GateApi\Model\CrossMarginLoan $cross_margin_loan cross_margin_loan (required)
+     * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan cross_margin_loan (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7046,7 +7084,7 @@ class MarginApi
      *
      * Create a cross margin borrow loan
      *
-     * @param \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
+     * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7061,7 +7099,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7100,7 +7138,7 @@ class MarginApi
      *
      * Create a cross margin borrow loan
      *
-     * @param \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
+     * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7120,7 +7158,7 @@ class MarginApi
      *
      * Create a cross margin borrow loan
      *
-     * @param \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
+     * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7167,7 +7205,7 @@ class MarginApi
     /**
      * Create request for operation 'createCrossMarginLoan'
      *
-     * @param \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
+     * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7263,7 +7301,7 @@ class MarginApi
      *
      * Retrieve single borrow loan detail
      *
-     * @param string $loan_id Borrow loan ID (required)
+     * @param  string $loan_id Borrow loan ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7280,7 +7318,7 @@ class MarginApi
      *
      * Retrieve single borrow loan detail
      *
-     * @param string $loan_id Borrow loan ID (required)
+     * @param  string $loan_id Borrow loan ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7295,7 +7333,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7334,7 +7372,7 @@ class MarginApi
      *
      * Retrieve single borrow loan detail
      *
-     * @param string $loan_id Borrow loan ID (required)
+     * @param  string $loan_id Borrow loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7354,7 +7392,7 @@ class MarginApi
      *
      * Retrieve single borrow loan detail
      *
-     * @param string $loan_id Borrow loan ID (required)
+     * @param  string $loan_id Borrow loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7401,7 +7439,7 @@ class MarginApi
     /**
      * Create request for operation 'getCrossMarginLoan'
      *
-     * @param string $loan_id Borrow loan ID (required)
+     * @param  string $loan_id Borrow loan ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7505,11 +7543,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency currency (optional)
-     * @param string $loan_id  loan_id (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  string $currency currency (optional)
+     * @param  string $loan_id loan_id (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7528,11 +7566,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency (optional)
-     * @param string $loan_id  (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  string $currency (optional)
+     * @param  string $loan_id (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7547,7 +7585,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7588,11 +7626,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency (optional)
-     * @param string $loan_id  (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  string $currency (optional)
+     * @param  string $loan_id (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7614,11 +7652,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency (optional)
-     * @param string $loan_id  (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  string $currency (optional)
+     * @param  string $loan_id (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7667,11 +7705,11 @@ class MarginApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency (optional)
-     * @param string $loan_id  (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
-     * @param bool   $reverse  Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+     * @param  string $currency (optional)
+     * @param  string $loan_id (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  bool $reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7836,7 +7874,7 @@ class MarginApi
      *
      * Cross margin repayments
      *
-     * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request cross_margin_repay_request (required)
+     * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request cross_margin_repay_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7853,7 +7891,7 @@ class MarginApi
      *
      * Cross margin repayments
      *
-     * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
+     * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7868,7 +7906,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7907,7 +7945,7 @@ class MarginApi
      *
      * Cross margin repayments
      *
-     * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
+     * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7927,7 +7965,7 @@ class MarginApi
      *
      * Cross margin repayments
      *
-     * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
+     * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7974,7 +8012,7 @@ class MarginApi
     /**
      * Create request for operation 'repayCrossMarginLoan'
      *
-     * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
+     * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8066,11 +8104,344 @@ class MarginApi
     }
 
     /**
+     * Operation getCrossMarginInterestRecords
+     *
+     * Interest records for the cross margin account
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\UniLoanInterestRecord[]
+     */
+    public function getCrossMarginInterestRecords($associative_array)
+    {
+        list($response) = $this->getCrossMarginInterestRecordsWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation getCrossMarginInterestRecordsWithHttpInfo
+     *
+     * Interest records for the cross margin account
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\UniLoanInterestRecord[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCrossMarginInterestRecordsWithHttpInfo($associative_array)
+    {
+        $request = $this->getCrossMarginInterestRecordsRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\UniLoanInterestRecord[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getCrossMarginInterestRecordsAsync
+     *
+     * Interest records for the cross margin account
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCrossMarginInterestRecordsAsync($associative_array)
+    {
+        return $this->getCrossMarginInterestRecordsAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCrossMarginInterestRecordsAsyncWithHttpInfo
+     *
+     * Interest records for the cross margin account
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCrossMarginInterestRecordsAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\UniLoanInterestRecord[]';
+        $request = $this->getCrossMarginInterestRecordsRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCrossMarginInterestRecords'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  int $from Start timestamp (optional)
+     * @param  int $to End timestamp (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCrossMarginInterestRecordsRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
+
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling MarginApi.getCrossMarginInterestRecords, must be bigger than or equal to 1.');
+        }
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling MarginApi.getCrossMarginInterestRecords, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling MarginApi.getCrossMarginInterestRecords, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/margin/cross/interest_records';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
+        if ($to !== null) {
+            if('form' === 'form' && is_array($to)) {
+                foreach($to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['to'] = $to;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getCrossMarginTransferable
      *
      * Get the max transferable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8087,7 +8458,7 @@ class MarginApi
      *
      * Get the max transferable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8102,7 +8473,7 @@ class MarginApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -8141,7 +8512,7 @@ class MarginApi
      *
      * Get the max transferable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8161,7 +8532,7 @@ class MarginApi
      *
      * Get the max transferable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8208,7 +8579,7 @@ class MarginApi
     /**
      * Create request for operation 'getCrossMarginTransferable'
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8309,43 +8680,43 @@ class MarginApi
     }
 
     /**
-     * Operation getCrossMarginBorrowable
+     * Operation getCrossMarginEstimateRate
      *
-     * Get the max borrowable amount for a specific cross margin currency
+     * Estimated interest rates
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\CrossMarginBorrowable
+     * @return map[string,string]
      */
-    public function getCrossMarginBorrowable($currency)
+    public function getCrossMarginEstimateRate($currencies)
     {
-        list($response) = $this->getCrossMarginBorrowableWithHttpInfo($currency);
+        list($response) = $this->getCrossMarginEstimateRateWithHttpInfo($currencies);
         return $response;
     }
 
     /**
-     * Operation getCrossMarginBorrowableWithHttpInfo
+     * Operation getCrossMarginEstimateRateWithHttpInfo
      *
-     * Get the max borrowable amount for a specific cross margin currency
+     * Estimated interest rates
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\CrossMarginBorrowable, HTTP status code, HTTP response headers (array of strings)
+     * @return array of map[string,string], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCrossMarginBorrowableWithHttpInfo($currency)
+    public function getCrossMarginEstimateRateWithHttpInfo($currencies)
     {
-        $request = $this->getCrossMarginBorrowableRequest($currency);
+        $request = $this->getCrossMarginEstimateRateRequest($currencies);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -8364,7 +8735,257 @@ class MarginApi
             );
         }
 
-        $returnType = '\GateApi\Model\CrossMarginBorrowable';
+        $returnType = 'map[string,string]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getCrossMarginEstimateRateAsync
+     *
+     * Estimated interest rates
+     *
+     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCrossMarginEstimateRateAsync($currencies)
+    {
+        return $this->getCrossMarginEstimateRateAsyncWithHttpInfo($currencies)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCrossMarginEstimateRateAsyncWithHttpInfo
+     *
+     * Estimated interest rates
+     *
+     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCrossMarginEstimateRateAsyncWithHttpInfo($currencies)
+    {
+        $returnType = 'map[string,string]';
+        $request = $this->getCrossMarginEstimateRateRequest($currencies);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCrossMarginEstimateRate'
+     *
+     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCrossMarginEstimateRateRequest($currencies)
+    {
+        // verify the required parameter 'currencies' is set
+        if ($currencies === null || (is_array($currencies) && count($currencies) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currencies when calling getCrossMarginEstimateRate'
+            );
+        }
+        if (count($currencies) > 10) {
+            throw new \InvalidArgumentException('invalid value for "$currencies" when calling MarginApi.getCrossMarginEstimateRate, number of items must be less than or equal to 10.');
+        }
+        if (count($currencies) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$currencies" when calling MarginApi.getCrossMarginEstimateRate, number of items must be greater than or equal to 1.');
+        }
+
+
+        $resourcePath = '/margin/cross/estimate_rate';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currencies !== null) {
+            if('form' === 'form' && is_array($currencies)) {
+                foreach($currencies as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currencies'] = $currencies;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCrossMarginBorrowable
+     *
+     * Get the max borrowable amount for a specific cross margin currency
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\UnifiedBorrowable
+     */
+    public function getCrossMarginBorrowable($currency)
+    {
+        list($response) = $this->getCrossMarginBorrowableWithHttpInfo($currency);
+        return $response;
+    }
+
+    /**
+     * Operation getCrossMarginBorrowableWithHttpInfo
+     *
+     * Get the max borrowable amount for a specific cross margin currency
+     *
+     * @param  string $currency Retrieve data of the specified currency (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\UnifiedBorrowable, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCrossMarginBorrowableWithHttpInfo($currency)
+    {
+        $request = $this->getCrossMarginBorrowableRequest($currency);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\UnifiedBorrowable';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -8384,7 +9005,7 @@ class MarginApi
      *
      * Get the max borrowable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8404,14 +9025,14 @@ class MarginApi
      *
      * Get the max borrowable amount for a specific cross margin currency
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getCrossMarginBorrowableAsyncWithHttpInfo($currency)
     {
-        $returnType = '\GateApi\Model\CrossMarginBorrowable';
+        $returnType = '\GateApi\Model\UnifiedBorrowable';
         $request = $this->getCrossMarginBorrowableRequest($currency);
 
         return $this->client
@@ -8451,7 +9072,7 @@ class MarginApi
     /**
      * Create request for operation 'getCrossMarginBorrowable'
      *
-     * @param string $currency Retrieve data of the specified currency (required)
+     * @param  string $currency Retrieve data of the specified currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **withdraw_day_limit_remain** | **string** | Daily withdrawal amount left | [optional] 
 **withdraw_eachtime_limit** | **string** | Maximum amount for each withdrawal | [optional] 
 **withdraw_fix_on_chains** | **map[string,string]** | Fixed withdrawal fee on multiple chains | [optional] 
+**withdraw_percent_on_chains** | **map[string,string]** | Percentage withdrawal fee on multiple chains | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

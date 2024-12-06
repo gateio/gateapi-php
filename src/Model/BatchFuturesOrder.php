@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * BatchFuturesOrder Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Futures order details
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class BatchFuturesOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'BatchFuturesOrder';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'succeeded' => 'bool',
         'label' => 'string',
@@ -80,14 +80,16 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
         'tkfr' => 'string',
         'mkfr' => 'string',
         'refu' => 'int',
-        'auto_size' => 'string'
+        'auto_size' => 'string',
+        'stp_act' => 'string',
+        'stp_id' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'succeeded' => null,
         'label' => null,
@@ -114,7 +116,9 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
         'tkfr' => null,
         'mkfr' => null,
         'refu' => null,
-        'auto_size' => null
+        'auto_size' => null,
+        'stp_act' => null,
+        'stp_id' => null
     ];
 
     /**
@@ -169,7 +173,9 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
         'tkfr' => 'tkfr',
         'mkfr' => 'mkfr',
         'refu' => 'refu',
-        'auto_size' => 'auto_size'
+        'auto_size' => 'auto_size',
+        'stp_act' => 'stp_act',
+        'stp_id' => 'stp_id'
     ];
 
     /**
@@ -203,7 +209,9 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
         'tkfr' => 'setTkfr',
         'mkfr' => 'setMkfr',
         'refu' => 'setRefu',
-        'auto_size' => 'setAutoSize'
+        'auto_size' => 'setAutoSize',
+        'stp_act' => 'setStpAct',
+        'stp_id' => 'setStpId'
     ];
 
     /**
@@ -237,7 +245,9 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
         'tkfr' => 'getTkfr',
         'mkfr' => 'getMkfr',
         'refu' => 'getRefu',
-        'auto_size' => 'getAutoSize'
+        'auto_size' => 'getAutoSize',
+        'stp_act' => 'getStpAct',
+        'stp_id' => 'getStpId'
     ];
 
     /**
@@ -289,6 +299,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     const FINISH_AS_REDUCE_ONLY = 'reduce_only';
     const FINISH_AS_POSITION_CLOSED = 'position_closed';
     const FINISH_AS_REDUCE_OUT = 'reduce_out';
+    const FINISH_AS_STP = 'stp';
     const STATUS_OPEN = 'open';
     const STATUS_FINISHED = 'finished';
     const TIF_GTC = 'gtc';
@@ -297,6 +308,10 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     const TIF_FOK = 'fok';
     const AUTO_SIZE_LONG = 'close_long';
     const AUTO_SIZE_SHORT = 'close_short';
+    const STP_ACT_CO = 'co';
+    const STP_ACT_CN = 'cn';
+    const STP_ACT_CB = 'cb';
+    const STP_ACT_MINUS = '-';
     
 
     
@@ -316,6 +331,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
             self::FINISH_AS_REDUCE_ONLY,
             self::FINISH_AS_POSITION_CLOSED,
             self::FINISH_AS_REDUCE_OUT,
+            self::FINISH_AS_STP,
         ];
     }
     
@@ -357,6 +373,21 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
         return [
             self::AUTO_SIZE_LONG,
             self::AUTO_SIZE_SHORT,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStpActAllowableValues()
+    {
+        return [
+            self::STP_ACT_CO,
+            self::STP_ACT_CN,
+            self::STP_ACT_CB,
+            self::STP_ACT_MINUS,
         ];
     }
     
@@ -402,6 +433,8 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
         $this->container['mkfr'] = isset($data['mkfr']) ? $data['mkfr'] : null;
         $this->container['refu'] = isset($data['refu']) ? $data['refu'] : null;
         $this->container['auto_size'] = isset($data['auto_size']) ? $data['auto_size'] : null;
+        $this->container['stp_act'] = isset($data['stp_act']) ? $data['stp_act'] : null;
+        $this->container['stp_id'] = isset($data['stp_id']) ? $data['stp_id'] : null;
     }
 
     /**
@@ -441,6 +474,14 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
         if (!is_null($this->container['auto_size']) && !in_array($this->container['auto_size'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'auto_size', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStpActAllowableValues();
+        if (!is_null($this->container['stp_act']) && !in_array($this->container['stp_act'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'stp_act', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -641,7 +682,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_as
      *
-     * @param string|null $finish_as How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set- position_closed: cancelled because of position close
+     * @param string|null $finish_as How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention
      *
      * @return $this
      */
@@ -1116,6 +1157,63 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
             );
         }
         $this->container['auto_size'] = $auto_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets stp_act
+     *
+     * @return string|null
+     */
+    public function getStpAct()
+    {
+        return $this->container['stp_act'];
+    }
+
+    /**
+     * Sets stp_act
+     *
+     * @param string|null $stp_act Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the `STP Group`, he can pass `stp_act` to limit the user's self-trade prevetion strategy. If `stp_act` is not passed, the default is `cn` strategy。 2. When the user does not join the `STP group`, an error will be returned when passing the `stp_act` parameter。 3. If the user did not use 'stp_act' when placing the order, 'stp_act' will return '-'  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     *
+     * @return $this
+     */
+    public function setStpAct($stp_act)
+    {
+        $allowedValues = $this->getStpActAllowableValues();
+        if (!is_null($stp_act) && !in_array($stp_act, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'stp_act', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['stp_act'] = $stp_act;
+
+        return $this;
+    }
+
+    /**
+     * Gets stp_id
+     *
+     * @return int|null
+     */
+    public function getStpId()
+    {
+        return $this->container['stp_id'];
+    }
+
+    /**
+     * Sets stp_id
+     *
+     * @param int|null $stp_id Orders between users in the same `stp_id` group are not allowed to be self-traded  1. If the `stp_id` of two orders being matched is non-zero and equal, they will not be executed. Instead, the corresponding strategy will be executed based on the `stp_act` of the taker. 2. `stp_id` returns `0` by default for orders that have not been set for `STP group`
+     *
+     * @return $this
+     */
+    public function setStpId($stp_id)
+    {
+        $this->container['stp_id'] = $stp_id;
 
         return $this;
     }

@@ -32,41 +32,45 @@ use \GateApi\ObjectSerializer;
 /**
  * AccountBalance Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Total balances calculated with specified currency unit
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class AccountBalance implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'AccountBalance';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'amount' => 'string',
-        'currency' => 'string'
+        'currency' => 'string',
+        'unrealised_pnl' => 'string',
+        'borrowed' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'amount' => null,
-        'currency' => null
+        'currency' => null,
+        'unrealised_pnl' => null,
+        'borrowed' => null
     ];
 
     /**
@@ -97,7 +101,9 @@ class AccountBalance implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'amount' => 'amount',
-        'currency' => 'currency'
+        'currency' => 'currency',
+        'unrealised_pnl' => 'unrealised_pnl',
+        'borrowed' => 'borrowed'
     ];
 
     /**
@@ -107,7 +113,9 @@ class AccountBalance implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'amount' => 'setAmount',
-        'currency' => 'setCurrency'
+        'currency' => 'setCurrency',
+        'unrealised_pnl' => 'setUnrealisedPnl',
+        'borrowed' => 'setBorrowed'
     ];
 
     /**
@@ -117,7 +125,9 @@ class AccountBalance implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'amount' => 'getAmount',
-        'currency' => 'getCurrency'
+        'currency' => 'getCurrency',
+        'unrealised_pnl' => 'getUnrealisedPnl',
+        'borrowed' => 'getBorrowed'
     ];
 
     /**
@@ -201,6 +211,8 @@ class AccountBalance implements ModelInterface, ArrayAccess
     {
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['unrealised_pnl'] = isset($data['unrealised_pnl']) ? $data['unrealised_pnl'] : null;
+        $this->container['borrowed'] = isset($data['borrowed']) ? $data['borrowed'] : null;
     }
 
     /**
@@ -288,6 +300,54 @@ class AccountBalance implements ModelInterface, ArrayAccess
             );
         }
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets unrealised_pnl
+     *
+     * @return string|null
+     */
+    public function getUnrealisedPnl()
+    {
+        return $this->container['unrealised_pnl'];
+    }
+
+    /**
+     * Sets unrealised_pnl
+     *
+     * @param string|null $unrealised_pnl Unrealised_pnl, this field will only appear in futures, options, delivery, and total accounts
+     *
+     * @return $this
+     */
+    public function setUnrealisedPnl($unrealised_pnl)
+    {
+        $this->container['unrealised_pnl'] = $unrealised_pnl;
+
+        return $this;
+    }
+
+    /**
+     * Gets borrowed
+     *
+     * @return string|null
+     */
+    public function getBorrowed()
+    {
+        return $this->container['borrowed'];
+    }
+
+    /**
+     * Sets borrowed
+     *
+     * @param string|null $borrowed Borrowed，this field will only appear in margin and cross_margin accounts
+     *
+     * @return $this
+     */
+    public function setBorrowed($borrowed)
+    {
+        $this->container['borrowed'] = $borrowed;
 
         return $this;
     }

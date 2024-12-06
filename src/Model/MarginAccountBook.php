@@ -42,17 +42,17 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'MarginAccountBook';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'string',
         'time' => 'string',
@@ -60,14 +60,15 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'currency_pair' => 'string',
         'change' => 'string',
-        'balance' => 'string'
+        'balance' => 'string',
+        'type' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => null,
         'time' => null,
@@ -75,7 +76,8 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
         'currency' => null,
         'currency_pair' => null,
         'change' => null,
-        'balance' => null
+        'balance' => null,
+        'type' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
         'currency' => 'currency',
         'currency_pair' => 'currency_pair',
         'change' => 'change',
-        'balance' => 'balance'
+        'balance' => 'balance',
+        'type' => 'type'
     ];
 
     /**
@@ -126,7 +129,8 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'currency_pair' => 'setCurrencyPair',
         'change' => 'setChange',
-        'balance' => 'setBalance'
+        'balance' => 'setBalance',
+        'type' => 'setType'
     ];
 
     /**
@@ -141,7 +145,8 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'currency_pair' => 'getCurrencyPair',
         'change' => 'getChange',
-        'balance' => 'getBalance'
+        'balance' => 'getBalance',
+        'type' => 'getType'
     ];
 
     /**
@@ -211,6 +216,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['change'] = isset($data['change']) ? $data['change'] : null;
         $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -401,6 +407,30 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     public function setBalance($balance)
     {
         $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Account book type.  Please refer to [account book type](#accountbook-type) for more detail
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

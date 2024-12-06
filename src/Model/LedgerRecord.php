@@ -42,17 +42,17 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'LedgerRecord';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'string',
         'txid' => 'string',
@@ -63,15 +63,14 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => 'string',
         'memo' => 'string',
         'status' => 'string',
-        'chain' => 'string',
-        'fee' => 'string'
+        'chain' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => null,
         'txid' => null,
@@ -82,8 +81,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => null,
         'memo' => null,
         'status' => null,
-        'chain' => null,
-        'fee' => null
+        'chain' => null
     ];
 
     /**
@@ -122,8 +120,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => 'address',
         'memo' => 'memo',
         'status' => 'status',
-        'chain' => 'chain',
-        'fee' => 'fee'
+        'chain' => 'chain'
     ];
 
     /**
@@ -141,8 +138,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => 'setAddress',
         'memo' => 'setMemo',
         'status' => 'setStatus',
-        'chain' => 'setChain',
-        'fee' => 'setFee'
+        'chain' => 'setChain'
     ];
 
     /**
@@ -160,8 +156,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'address' => 'getAddress',
         'memo' => 'getMemo',
         'status' => 'getStatus',
-        'chain' => 'getChain',
-        'fee' => 'getFee'
+        'chain' => 'getChain'
     ];
 
     /**
@@ -271,7 +266,6 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
-        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
     }
 
     /**
@@ -560,30 +554,6 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     public function setChain($chain)
     {
         $this->container['chain'] = $chain;
-
-        return $this;
-    }
-
-    /**
-     * Gets fee
-     *
-     * @return string|null
-     */
-    public function getFee()
-    {
-        return $this->container['fee'];
-    }
-
-    /**
-     * Sets fee
-     *
-     * @param string|null $fee Fee
-     *
-     * @return $this
-     */
-    public function setFee($fee)
-    {
-        $this->container['fee'] = $fee;
 
         return $this;
     }

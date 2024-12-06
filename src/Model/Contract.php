@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * Contract Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Futures contract details
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class Contract implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'Contract';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'name' => 'string',
         'type' => 'string',
@@ -88,14 +88,16 @@ class Contract implements ModelInterface, ArrayAccess
         'in_delisting' => 'bool',
         'orders_limit' => 'int',
         'enable_bonus' => 'bool',
-        'enable_credit' => 'bool'
+        'enable_credit' => 'bool',
+        'create_time' => 'double',
+        'funding_cap_ratio' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'name' => null,
         'type' => null,
@@ -130,7 +132,9 @@ class Contract implements ModelInterface, ArrayAccess
         'in_delisting' => null,
         'orders_limit' => null,
         'enable_bonus' => null,
-        'enable_credit' => null
+        'enable_credit' => null,
+        'create_time' => 'double',
+        'funding_cap_ratio' => null
     ];
 
     /**
@@ -193,7 +197,9 @@ class Contract implements ModelInterface, ArrayAccess
         'in_delisting' => 'in_delisting',
         'orders_limit' => 'orders_limit',
         'enable_bonus' => 'enable_bonus',
-        'enable_credit' => 'enable_credit'
+        'enable_credit' => 'enable_credit',
+        'create_time' => 'create_time',
+        'funding_cap_ratio' => 'funding_cap_ratio'
     ];
 
     /**
@@ -235,7 +241,9 @@ class Contract implements ModelInterface, ArrayAccess
         'in_delisting' => 'setInDelisting',
         'orders_limit' => 'setOrdersLimit',
         'enable_bonus' => 'setEnableBonus',
-        'enable_credit' => 'setEnableCredit'
+        'enable_credit' => 'setEnableCredit',
+        'create_time' => 'setCreateTime',
+        'funding_cap_ratio' => 'setFundingCapRatio'
     ];
 
     /**
@@ -277,7 +285,9 @@ class Contract implements ModelInterface, ArrayAccess
         'in_delisting' => 'getInDelisting',
         'orders_limit' => 'getOrdersLimit',
         'enable_bonus' => 'getEnableBonus',
-        'enable_credit' => 'getEnableCredit'
+        'enable_credit' => 'getEnableCredit',
+        'create_time' => 'getCreateTime',
+        'funding_cap_ratio' => 'getFundingCapRatio'
     ];
 
     /**
@@ -404,6 +414,8 @@ class Contract implements ModelInterface, ArrayAccess
         $this->container['orders_limit'] = isset($data['orders_limit']) ? $data['orders_limit'] : null;
         $this->container['enable_bonus'] = isset($data['enable_bonus']) ? $data['enable_bonus'] : null;
         $this->container['enable_credit'] = isset($data['enable_credit']) ? $data['enable_credit'] : null;
+        $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
+        $this->container['funding_cap_ratio'] = isset($data['funding_cap_ratio']) ? $data['funding_cap_ratio'] : null;
     }
 
     /**
@@ -885,7 +897,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets risk_limit_base
      *
-     * @param string|null $risk_limit_base Risk limit base
+     * @param string|null $risk_limit_base Risk limit base,deprecated
      *
      * @return $this
      */
@@ -909,7 +921,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets risk_limit_step
      *
-     * @param string|null $risk_limit_step Step of adjusting risk limit
+     * @param string|null $risk_limit_step Step of adjusting risk limit,deprecated
      *
      * @return $this
      */
@@ -933,7 +945,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets risk_limit_max
      *
-     * @param string|null $risk_limit_max Maximum risk limit the contract allowed
+     * @param string|null $risk_limit_max Maximum risk limit the contract allowed,deprecated,It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits.
      *
      * @return $this
      */
@@ -1197,7 +1209,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets in_delisting
      *
-     * @param bool|null $in_delisting Contract is delisting
+     * @param bool|null $in_delisting `in_delisting=true` And when position_size>0, it means the contract is in the offline transition period `in_delisting=true` And when position_size=0, it means the contract is offline
      *
      * @return $this
      */
@@ -1276,6 +1288,54 @@ class Contract implements ModelInterface, ArrayAccess
     public function setEnableCredit($enable_credit)
     {
         $this->container['enable_credit'] = $enable_credit;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_time
+     *
+     * @return double|null
+     */
+    public function getCreateTime()
+    {
+        return $this->container['create_time'];
+    }
+
+    /**
+     * Sets create_time
+     *
+     * @param double|null $create_time Created time of the contract
+     *
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->container['create_time'] = $create_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets funding_cap_ratio
+     *
+     * @return string|null
+     */
+    public function getFundingCapRatio()
+    {
+        return $this->container['funding_cap_ratio'];
+    }
+
+    /**
+     * Sets funding_cap_ratio
+     *
+     * @param string|null $funding_cap_ratio The factor for the maximum of the funding rate. Maximum of funding rate = (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio
+     *
+     * @return $this
+     */
+    public function setFundingCapRatio($funding_cap_ratio)
+    {
+        $this->container['funding_cap_ratio'] = $funding_cap_ratio;
 
         return $this;
     }

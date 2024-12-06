@@ -42,17 +42,17 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CrossMarginAccountBook';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'string',
         'time' => 'int',
@@ -63,10 +63,10 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => null,
         'time' => 'int64',
@@ -180,39 +180,8 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TYPE_IN = 'in';
-    const TYPE_OUT = 'out';
-    const TYPE_REPAY = 'repay';
-    const TYPE_BORROW = 'borrow';
-    const TYPE_INTEREST = 'interest';
-    const TYPE_NEW_ORDER = 'new_order';
-    const TYPE_ORDER_FILL = 'order_fill';
-    const TYPE_REFERRAL_FEE = 'referral_fee';
-    const TYPE_ORDER_FEE = 'order_fee';
-    const TYPE_UNKNOWN = 'unknown';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_IN,
-            self::TYPE_OUT,
-            self::TYPE_REPAY,
-            self::TYPE_BORROW,
-            self::TYPE_INTEREST,
-            self::TYPE_NEW_ORDER,
-            self::TYPE_ORDER_FILL,
-            self::TYPE_REFERRAL_FEE,
-            self::TYPE_ORDER_FEE,
-            self::TYPE_UNKNOWN,
-        ];
-    }
     
 
     /**
@@ -246,14 +215,6 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -403,21 +364,12 @@ class CrossMarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+     * @param string|null $type Account book type.  Please refer to [account book type](#accountbook-type) for more detail
      *
      * @return $this
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;

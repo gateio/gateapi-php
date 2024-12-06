@@ -88,7 +88,7 @@ class WalletApi
     /**
      * Set the host index
      *
-     * @param int Host index (required)
+     * @param  int Host index (required)
      */
     public function setHostIndex($host_index)
     {
@@ -118,7 +118,7 @@ class WalletApi
      *
      * List chains supported for specified currency
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -135,7 +135,7 @@ class WalletApi
      *
      * List chains supported for specified currency
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -150,7 +150,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -189,7 +189,7 @@ class WalletApi
      *
      * List chains supported for specified currency
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -209,7 +209,7 @@ class WalletApi
      *
      * List chains supported for specified currency
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -256,7 +256,7 @@ class WalletApi
     /**
      * Create request for operation 'listCurrencyChains'
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -358,7 +358,7 @@ class WalletApi
      *
      * Generate currency deposit address
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -375,7 +375,7 @@ class WalletApi
      *
      * Generate currency deposit address
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -390,7 +390,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -429,7 +429,7 @@ class WalletApi
      *
      * Generate currency deposit address
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -449,7 +449,7 @@ class WalletApi
      *
      * Generate currency deposit address
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -496,7 +496,7 @@ class WalletApi
     /**
      * Create request for operation 'getDepositAddress'
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -603,15 +603,15 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\LedgerRecord[]
+     * @return \GateApi\Model\WithdrawalRecord[]
      */
     public function listWithdrawals($associative_array)
     {
@@ -626,15 +626,15 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\LedgerRecord[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\WithdrawalRecord[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listWithdrawalsWithHttpInfo($associative_array)
     {
@@ -645,7 +645,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -664,7 +664,7 @@ class WalletApi
             );
         }
 
-        $returnType = '\GateApi\Model\LedgerRecord[]';
+        $returnType = '\GateApi\Model\WithdrawalRecord[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -686,11 +686,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -712,18 +712,18 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function listWithdrawalsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\LedgerRecord[]';
+        $returnType = '\GateApi\Model\WithdrawalRecord[]';
         $request = $this->listWithdrawalsRequest($associative_array);
 
         return $this->client
@@ -765,11 +765,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -936,11 +936,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -959,11 +959,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -978,7 +978,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1019,11 +1019,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1045,11 +1045,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1098,11 +1098,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param int    $from     Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to       Time range ending, default to current time (optional)
-     * @param int    $limit    Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset   List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1116,8 +1116,8 @@ class WalletApi
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
         $offset = array_key_exists('offset', $associative_array) ? $associative_array['offset'] : 0;
 
-        if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listDeposits, must be smaller than or equal to 1000.');
+        if ($limit !== null && $limit > 500) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listDeposits, must be smaller than or equal to 500.');
         }
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listDeposits, must be bigger than or equal to 1.');
@@ -1267,7 +1267,7 @@ class WalletApi
      *
      * Transfer between trading accounts
      *
-     * @param \GateApi\Model\Transfer $transfer transfer (required)
+     * @param  \GateApi\Model\Transfer $transfer transfer (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1284,7 +1284,7 @@ class WalletApi
      *
      * Transfer between trading accounts
      *
-     * @param \GateApi\Model\Transfer $transfer (required)
+     * @param  \GateApi\Model\Transfer $transfer (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1299,7 +1299,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1338,7 +1338,7 @@ class WalletApi
      *
      * Transfer between trading accounts
      *
-     * @param \GateApi\Model\Transfer $transfer (required)
+     * @param  \GateApi\Model\Transfer $transfer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1358,7 +1358,7 @@ class WalletApi
      *
      * Transfer between trading accounts
      *
-     * @param \GateApi\Model\Transfer $transfer (required)
+     * @param  \GateApi\Model\Transfer $transfer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1405,7 +1405,7 @@ class WalletApi
     /**
      * Create request for operation 'transfer'
      *
-     * @param \GateApi\Model\Transfer $transfer (required)
+     * @param  \GateApi\Model\Transfer $transfer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1503,11 +1503,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param int    $from    Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to      Time range ending, default to current time (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1526,11 +1526,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param int    $from    Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to      Time range ending, default to current time (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1545,7 +1545,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1586,11 +1586,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param int    $from    Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to      Time range ending, default to current time (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1612,11 +1612,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param int    $from    Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to      Time range ending, default to current time (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1665,11 +1665,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param int    $from    Time range beginning, default to 7 days before current time (optional)
-     * @param int    $to      Time range ending, default to current time (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1834,15 +1834,16 @@ class WalletApi
      *
      * Transfer between main and sub accounts
      *
-     * @param \GateApi\Model\SubAccountTransfer $sub_account_transfer sub_account_transfer (required)
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer sub_account_transfer (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \GateApi\Model\TransactionID
      */
     public function transferWithSubAccount($sub_account_transfer)
     {
-        $this->transferWithSubAccountWithHttpInfo($sub_account_transfer);
+        list($response) = $this->transferWithSubAccountWithHttpInfo($sub_account_transfer);
+        return $response;
     }
 
     /**
@@ -1850,11 +1851,11 @@ class WalletApi
      *
      * Transfer between main and sub accounts
      *
-     * @param \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\TransactionID, HTTP status code, HTTP response headers (array of strings)
      */
     public function transferWithSubAccountWithHttpInfo($sub_account_transfer)
     {
@@ -1865,7 +1866,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1884,7 +1885,19 @@ class WalletApi
             );
         }
 
-        return [null, $statusCode, $response->getHeaders()];
+        $returnType = '\GateApi\Model\TransactionID';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /**
@@ -1892,7 +1905,7 @@ class WalletApi
      *
      * Transfer between main and sub accounts
      *
-     * @param \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1912,21 +1925,32 @@ class WalletApi
      *
      * Transfer between main and sub accounts
      *
-     * @param \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function transferWithSubAccountAsyncWithHttpInfo($sub_account_transfer)
     {
-        $returnType = '';
+        $returnType = '\GateApi\Model\TransactionID';
         $request = $this->transferWithSubAccountRequest($sub_account_transfer);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1948,7 +1972,7 @@ class WalletApi
     /**
      * Create request for operation 'transferWithSubAccount'
      *
-     * @param \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
+     * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1977,11 +2001,11 @@ class WalletApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -2044,15 +2068,16 @@ class WalletApi
      *
      * Sub-account transfers to sub-account
      *
-     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account sub_account_to_sub_account (required)
+     * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account sub_account_to_sub_account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \GateApi\Model\TransactionID
      */
     public function subAccountToSubAccount($sub_account_to_sub_account)
     {
-        $this->subAccountToSubAccountWithHttpInfo($sub_account_to_sub_account);
+        list($response) = $this->subAccountToSubAccountWithHttpInfo($sub_account_to_sub_account);
+        return $response;
     }
 
     /**
@@ -2060,11 +2085,11 @@ class WalletApi
      *
      * Sub-account transfers to sub-account
      *
-     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
+     * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\TransactionID, HTTP status code, HTTP response headers (array of strings)
      */
     public function subAccountToSubAccountWithHttpInfo($sub_account_to_sub_account)
     {
@@ -2075,7 +2100,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2094,7 +2119,19 @@ class WalletApi
             );
         }
 
-        return [null, $statusCode, $response->getHeaders()];
+        $returnType = '\GateApi\Model\TransactionID';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /**
@@ -2102,7 +2139,7 @@ class WalletApi
      *
      * Sub-account transfers to sub-account
      *
-     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
+     * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2122,21 +2159,32 @@ class WalletApi
      *
      * Sub-account transfers to sub-account
      *
-     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
+     * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function subAccountToSubAccountAsyncWithHttpInfo($sub_account_to_sub_account)
     {
-        $returnType = '';
+        $returnType = '\GateApi\Model\TransactionID';
         $request = $this->subAccountToSubAccountRequest($sub_account_to_sub_account);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -2158,7 +2206,7 @@ class WalletApi
     /**
      * Create request for operation 'subAccountToSubAccount'
      *
-     * @param \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
+     * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2187,11 +2235,11 @@ class WalletApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -2250,13 +2298,281 @@ class WalletApi
     }
 
     /**
+     * Operation getTransferOrderStatus
+     *
+     * Transfer status query
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $client_order_id The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)
+     * @param  string $tx_id The transfer operation number and client_order_id cannot be empty at the same time (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\InlineResponse200
+     */
+    public function getTransferOrderStatus($associative_array)
+    {
+        list($response) = $this->getTransferOrderStatusWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation getTransferOrderStatusWithHttpInfo
+     *
+     * Transfer status query
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $client_order_id The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)
+     * @param  string $tx_id The transfer operation number and client_order_id cannot be empty at the same time (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTransferOrderStatusWithHttpInfo($associative_array)
+    {
+        $request = $this->getTransferOrderStatusRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\InlineResponse200';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getTransferOrderStatusAsync
+     *
+     * Transfer status query
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $client_order_id The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)
+     * @param  string $tx_id The transfer operation number and client_order_id cannot be empty at the same time (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTransferOrderStatusAsync($associative_array)
+    {
+        return $this->getTransferOrderStatusAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTransferOrderStatusAsyncWithHttpInfo
+     *
+     * Transfer status query
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $client_order_id The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)
+     * @param  string $tx_id The transfer operation number and client_order_id cannot be empty at the same time (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTransferOrderStatusAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\InlineResponse200';
+        $request = $this->getTransferOrderStatusRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTransferOrderStatus'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $client_order_id The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)
+     * @param  string $tx_id The transfer operation number and client_order_id cannot be empty at the same time (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getTransferOrderStatusRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $client_order_id = array_key_exists('client_order_id', $associative_array) ? $associative_array['client_order_id'] : null;
+        $tx_id = array_key_exists('tx_id', $associative_array) ? $associative_array['tx_id'] : null;
+
+
+        $resourcePath = '/wallet/order_status';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($client_order_id !== null) {
+            if('form' === 'form' && is_array($client_order_id)) {
+                foreach($client_order_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['client_order_id'] = $client_order_id;
+            }
+        }
+
+        // query params
+        if ($tx_id !== null) {
+            if('form' === 'form' && is_array($tx_id)) {
+                foreach($tx_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['tx_id'] = $tx_id;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listWithdrawStatus
      *
      * Retrieve withdrawal status
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2275,7 +2591,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2290,7 +2606,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2331,7 +2647,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2353,7 +2669,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2402,7 +2718,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2506,7 +2822,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2525,7 +2841,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2540,7 +2856,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2581,7 +2897,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2603,7 +2919,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2652,7 +2968,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2756,7 +3072,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2775,7 +3091,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2790,7 +3106,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2831,7 +3147,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2853,7 +3169,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2902,7 +3218,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3006,8 +3322,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param string $settle  Query only balances of specified settle currency (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $settle Query only balances of specified settle currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3026,8 +3342,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param string $settle  Query only balances of specified settle currency (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $settle Query only balances of specified settle currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3042,7 +3358,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3083,8 +3399,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param string $settle  Query only balances of specified settle currency (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $settle Query only balances of specified settle currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3106,8 +3422,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param string $settle  Query only balances of specified settle currency (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $settle Query only balances of specified settle currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3156,8 +3472,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param string $settle  Query only balances of specified settle currency (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $settle Query only balances of specified settle currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3274,7 +3590,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3293,7 +3609,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3308,7 +3624,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3349,7 +3665,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3371,7 +3687,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3420,7 +3736,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
+     * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3524,9 +3840,10 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency (required)
-     * @param string $chain    Chain name (optional, default to '')
-     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     * @param  string $currency Currency (required)
+     * @param  string $chain Chain name (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3545,9 +3862,10 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency (required)
-     * @param string $chain    Chain name (optional, default to '')
-     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     * @param  string $currency Currency (required)
+     * @param  string $chain Chain name (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3562,7 +3880,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3603,9 +3921,10 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency (required)
-     * @param string $chain    Chain name (optional, default to '')
-     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     * @param  string $currency Currency (required)
+     * @param  string $chain Chain name (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3627,9 +3946,10 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency (required)
-     * @param string $chain    Chain name (optional, default to '')
-     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     * @param  string $currency Currency (required)
+     * @param  string $chain Chain name (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3678,9 +3998,10 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency (required)
-     * @param string $chain    Chain name (optional, default to '')
-     * @param string $limit    Maximum number returned, 100 at most (optional, default to '50')
+     * @param  string $currency Currency (required)
+     * @param  string $chain Chain name (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3691,6 +4012,7 @@ class WalletApi
         $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
         $chain = array_key_exists('chain', $associative_array) ? $associative_array['chain'] : '';
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : '50';
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
 
         // verify the required parameter 'currency' is set
         if ($currency === null || (is_array($currency) && count($currency) === 0)) {
@@ -3698,6 +4020,10 @@ class WalletApi
                 'Missing the required parameter $currency when calling listSavedAddress'
             );
         }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling WalletApi.listSavedAddress, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/wallet/saved_address';
         $formParams = [];
@@ -3739,6 +4065,18 @@ class WalletApi
             }
             else {
                 $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
             }
         }
 
@@ -3816,8 +4154,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
-     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $settle Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3836,8 +4174,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
-     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $settle Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3852,7 +4190,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3893,8 +4231,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
-     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $settle Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3916,8 +4254,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
-     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $settle Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3966,8 +4304,8 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
-     * @param string $settle        Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $settle Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4084,7 +4422,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
+     * @param  string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4103,7 +4441,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
+     * @param  string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4118,7 +4456,7 @@ class WalletApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4159,7 +4497,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
+     * @param  string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4181,7 +4519,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
+     * @param  string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4230,7 +4568,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
+     * @param  string $currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to 'USDT')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4257,6 +4595,1063 @@ class WalletApi
             }
             else {
                 $queryParams['currency'] = $currency;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listSmallBalance
+     *
+     * List small balance
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SmallBalance[]
+     */
+    public function listSmallBalance()
+    {
+        list($response) = $this->listSmallBalanceWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation listSmallBalanceWithHttpInfo
+     *
+     * List small balance
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SmallBalance[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSmallBalanceWithHttpInfo()
+    {
+        $request = $this->listSmallBalanceRequest();
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SmallBalance[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listSmallBalanceAsync
+     *
+     * List small balance
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSmallBalanceAsync()
+    {
+        return $this->listSmallBalanceAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listSmallBalanceAsyncWithHttpInfo
+     *
+     * List small balance
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSmallBalanceAsyncWithHttpInfo()
+    {
+        $returnType = '\GateApi\Model\SmallBalance[]';
+        $request = $this->listSmallBalanceRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listSmallBalance'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listSmallBalanceRequest()
+    {
+
+        $resourcePath = '/wallet/small_balance';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation convertSmallBalance
+     *
+     * Convert small balance
+     *
+     * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance convert_small_balance (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function convertSmallBalance($convert_small_balance)
+    {
+        $this->convertSmallBalanceWithHttpInfo($convert_small_balance);
+    }
+
+    /**
+     * Operation convertSmallBalanceWithHttpInfo
+     *
+     * Convert small balance
+     *
+     * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function convertSmallBalanceWithHttpInfo($convert_small_balance)
+    {
+        $request = $this->convertSmallBalanceRequest($convert_small_balance);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        return [null, $statusCode, $response->getHeaders()];
+    }
+
+    /**
+     * Operation convertSmallBalanceAsync
+     *
+     * Convert small balance
+     *
+     * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function convertSmallBalanceAsync($convert_small_balance)
+    {
+        return $this->convertSmallBalanceAsyncWithHttpInfo($convert_small_balance)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation convertSmallBalanceAsyncWithHttpInfo
+     *
+     * Convert small balance
+     *
+     * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function convertSmallBalanceAsyncWithHttpInfo($convert_small_balance)
+    {
+        $returnType = '';
+        $request = $this->convertSmallBalanceRequest($convert_small_balance);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'convertSmallBalance'
+     *
+     * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function convertSmallBalanceRequest($convert_small_balance)
+    {
+        // verify the required parameter 'convert_small_balance' is set
+        if ($convert_small_balance === null || (is_array($convert_small_balance) && count($convert_small_balance) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $convert_small_balance when calling convertSmallBalance'
+            );
+        }
+
+        $resourcePath = '/wallet/small_balance';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+        if (isset($convert_small_balance)) {
+            $_tempBody = $convert_small_balance;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listSmallBalanceHistory
+     *
+     * List small balance history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SmallBalanceHistory[]
+     */
+    public function listSmallBalanceHistory($associative_array)
+    {
+        list($response) = $this->listSmallBalanceHistoryWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listSmallBalanceHistoryWithHttpInfo
+     *
+     * List small balance history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SmallBalanceHistory[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSmallBalanceHistoryWithHttpInfo($associative_array)
+    {
+        $request = $this->listSmallBalanceHistoryRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SmallBalanceHistory[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listSmallBalanceHistoryAsync
+     *
+     * List small balance history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSmallBalanceHistoryAsync($associative_array)
+    {
+        return $this->listSmallBalanceHistoryAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listSmallBalanceHistoryAsyncWithHttpInfo
+     *
+     * List small balance history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSmallBalanceHistoryAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\SmallBalanceHistory[]';
+        $request = $this->listSmallBalanceHistoryRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listSmallBalanceHistory'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Currency (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listSmallBalanceHistoryRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling WalletApi.listSmallBalanceHistory, must be bigger than or equal to 1.');
+        }
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listSmallBalanceHistory, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listSmallBalanceHistory, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/wallet/small_balance_history';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listPushOrders
+     *
+     * Retrieve the UID transfer history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $id Order ID (optional)
+     * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
+     * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\UidPushOrder[]
+     */
+    public function listPushOrders($associative_array)
+    {
+        list($response) = $this->listPushOrdersWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listPushOrdersWithHttpInfo
+     *
+     * Retrieve the UID transfer history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $id Order ID (optional)
+     * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
+     * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\UidPushOrder[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listPushOrdersWithHttpInfo($associative_array)
+    {
+        $request = $this->listPushOrdersRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\UidPushOrder[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listPushOrdersAsync
+     *
+     * Retrieve the UID transfer history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $id Order ID (optional)
+     * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
+     * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listPushOrdersAsync($associative_array)
+    {
+        return $this->listPushOrdersAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listPushOrdersAsyncWithHttpInfo
+     *
+     * Retrieve the UID transfer history
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $id Order ID (optional)
+     * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
+     * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listPushOrdersAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\UidPushOrder[]';
+        $request = $this->listPushOrdersRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listPushOrders'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $id Order ID (optional)
+     * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
+     * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listPushOrdersRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $id = array_key_exists('id', $associative_array) ? $associative_array['id'] : null;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $offset = array_key_exists('offset', $associative_array) ? $associative_array['offset'] : 0;
+
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listPushOrders, must be bigger than or equal to 1.');
+        }
+
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling WalletApi.listPushOrders, must be bigger than or equal to 0.');
+        }
+
+
+        $resourcePath = '/wallet/push';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($id !== null) {
+            if('form' === 'form' && is_array($id)) {
+                foreach($id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['id'] = $id;
+            }
+        }
+
+        // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
+        if ($to !== null) {
+            if('form' === 'form' && is_array($to)) {
+                foreach($to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['to'] = $to;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($offset !== null) {
+            if('form' === 'form' && is_array($offset)) {
+                foreach($offset as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['offset'] = $offset;
             }
         }
 

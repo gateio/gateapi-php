@@ -42,38 +42,42 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CurrencyChain';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'chain' => 'string',
         'name_cn' => 'string',
         'name_en' => 'string',
+        'contract_address' => 'string',
         'is_disabled' => 'int',
         'is_deposit_disabled' => 'int',
-        'is_withdraw_disabled' => 'int'
+        'is_withdraw_disabled' => 'int',
+        'decimal' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'chain' => null,
         'name_cn' => null,
         'name_en' => null,
-        'is_disabled' => null,
-        'is_deposit_disabled' => null,
-        'is_withdraw_disabled' => null
+        'contract_address' => null,
+        'is_disabled' => 'int32',
+        'is_deposit_disabled' => 'int32',
+        'is_withdraw_disabled' => 'int32',
+        'decimal' => null
     ];
 
     /**
@@ -106,9 +110,11 @@ class CurrencyChain implements ModelInterface, ArrayAccess
         'chain' => 'chain',
         'name_cn' => 'name_cn',
         'name_en' => 'name_en',
+        'contract_address' => 'contract_address',
         'is_disabled' => 'is_disabled',
         'is_deposit_disabled' => 'is_deposit_disabled',
-        'is_withdraw_disabled' => 'is_withdraw_disabled'
+        'is_withdraw_disabled' => 'is_withdraw_disabled',
+        'decimal' => 'decimal'
     ];
 
     /**
@@ -120,9 +126,11 @@ class CurrencyChain implements ModelInterface, ArrayAccess
         'chain' => 'setChain',
         'name_cn' => 'setNameCn',
         'name_en' => 'setNameEn',
+        'contract_address' => 'setContractAddress',
         'is_disabled' => 'setIsDisabled',
         'is_deposit_disabled' => 'setIsDepositDisabled',
-        'is_withdraw_disabled' => 'setIsWithdrawDisabled'
+        'is_withdraw_disabled' => 'setIsWithdrawDisabled',
+        'decimal' => 'setDecimal'
     ];
 
     /**
@@ -134,9 +142,11 @@ class CurrencyChain implements ModelInterface, ArrayAccess
         'chain' => 'getChain',
         'name_cn' => 'getNameCn',
         'name_en' => 'getNameEn',
+        'contract_address' => 'getContractAddress',
         'is_disabled' => 'getIsDisabled',
         'is_deposit_disabled' => 'getIsDepositDisabled',
-        'is_withdraw_disabled' => 'getIsWithdrawDisabled'
+        'is_withdraw_disabled' => 'getIsWithdrawDisabled',
+        'decimal' => 'getDecimal'
     ];
 
     /**
@@ -202,9 +212,11 @@ class CurrencyChain implements ModelInterface, ArrayAccess
         $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
         $this->container['name_cn'] = isset($data['name_cn']) ? $data['name_cn'] : null;
         $this->container['name_en'] = isset($data['name_en']) ? $data['name_en'] : null;
+        $this->container['contract_address'] = isset($data['contract_address']) ? $data['contract_address'] : null;
         $this->container['is_disabled'] = isset($data['is_disabled']) ? $data['is_disabled'] : null;
         $this->container['is_deposit_disabled'] = isset($data['is_deposit_disabled']) ? $data['is_deposit_disabled'] : null;
         $this->container['is_withdraw_disabled'] = isset($data['is_withdraw_disabled']) ? $data['is_withdraw_disabled'] : null;
+        $this->container['decimal'] = isset($data['decimal']) ? $data['decimal'] : null;
     }
 
     /**
@@ -304,6 +316,30 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets contract_address
+     *
+     * @return string|null
+     */
+    public function getContractAddress()
+    {
+        return $this->container['contract_address'];
+    }
+
+    /**
+     * Sets contract_address
+     *
+     * @param string|null $contract_address Smart contract address for the currency; if no address is available, it will be an empty string
+     *
+     * @return $this
+     */
+    public function setContractAddress($contract_address)
+    {
+        $this->container['contract_address'] = $contract_address;
+
+        return $this;
+    }
+
+    /**
      * Gets is_disabled
      *
      * @return int|null
@@ -371,6 +407,30 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     public function setIsWithdrawDisabled($is_withdraw_disabled)
     {
         $this->container['is_withdraw_disabled'] = $is_withdraw_disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets decimal
+     *
+     * @return string|null
+     */
+    public function getDecimal()
+    {
+        return $this->container['decimal'];
+    }
+
+    /**
+     * Sets decimal
+     *
+     * @param string|null $decimal Withdrawal precision
+     *
+     * @return $this
+     */
+    public function setDecimal($decimal)
+    {
+        $this->container['decimal'] = $decimal;
 
         return $this;
     }

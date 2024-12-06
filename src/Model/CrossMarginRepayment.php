@@ -42,38 +42,40 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CrossMarginRepayment';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'string',
         'create_time' => 'int',
         'loan_id' => 'string',
         'currency' => 'string',
         'principal' => 'string',
-        'interest' => 'string'
+        'interest' => 'string',
+        'repayment_type' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => null,
         'create_time' => 'int64',
         'loan_id' => null,
         'currency' => null,
         'principal' => null,
-        'interest' => null
+        'interest' => null,
+        'repayment_type' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
         'loan_id' => 'loan_id',
         'currency' => 'currency',
         'principal' => 'principal',
-        'interest' => 'interest'
+        'interest' => 'interest',
+        'repayment_type' => 'repayment_type'
     ];
 
     /**
@@ -122,7 +125,8 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
         'loan_id' => 'setLoanId',
         'currency' => 'setCurrency',
         'principal' => 'setPrincipal',
-        'interest' => 'setInterest'
+        'interest' => 'setInterest',
+        'repayment_type' => 'setRepaymentType'
     ];
 
     /**
@@ -136,7 +140,8 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
         'loan_id' => 'getLoanId',
         'currency' => 'getCurrency',
         'principal' => 'getPrincipal',
-        'interest' => 'getInterest'
+        'interest' => 'getInterest',
+        'repayment_type' => 'getRepaymentType'
     ];
 
     /**
@@ -205,6 +210,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['principal'] = isset($data['principal']) ? $data['principal'] : null;
         $this->container['interest'] = isset($data['interest']) ? $data['interest'] : null;
+        $this->container['repayment_type'] = isset($data['repayment_type']) ? $data['repayment_type'] : null;
     }
 
     /**
@@ -292,7 +298,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     /**
      * Sets loan_id
      *
-     * @param string|null $loan_id Borrow loan ID
+     * @param string|null $loan_id Loan record ID
      *
      * @return $this
      */
@@ -371,6 +377,30 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     public function setInterest($interest)
     {
         $this->container['interest'] = $interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets repayment_type
+     *
+     * @return string|null
+     */
+    public function getRepaymentType()
+    {
+        return $this->container['repayment_type'];
+    }
+
+    /**
+     * Sets repayment_type
+     *
+     * @param string|null $repayment_type Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation
+     *
+     * @return $this
+     */
+    public function setRepaymentType($repayment_type)
+    {
+        $this->container['repayment_type'] = $repayment_type;
 
         return $this;
     }

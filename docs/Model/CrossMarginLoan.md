@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Borrow loan ID | [optional] [readonly] 
+**id** | **string** | Loan record ID | [optional] [readonly] 
 **create_time** | **int** | Creation timestamp, in milliseconds | [optional] [readonly] 
 **update_time** | **int** | Update timestamp, in milliseconds | [optional] [readonly] 
 **currency** | **string** | Currency name | 
 **amount** | **string** | Borrowed amount | 
 **text** | **string** | User defined custom ID | [optional] 
-**status** | **int** | Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete | [optional] [readonly] 
+**status** | **int** | Deprecated. Currently, all statuses have been set to 2.  Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete | [optional] [readonly] 
 **repaid** | **string** | Repaid amount | [optional] [readonly] 
 **repaid_interest** | **string** | Repaid interest | [optional] [readonly] 
 **unpaid_interest** | **string** | Outstanding interest yet to be paid | [optional] [readonly] 

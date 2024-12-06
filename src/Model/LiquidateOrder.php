@@ -32,45 +32,47 @@ use \GateApi\ObjectSerializer;
 /**
  * LiquidateOrder Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Liquidate Order detail
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class LiquidateOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'LiquidateOrder';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'text' => 'string',
         'currency_pair' => 'string',
         'amount' => 'string',
-        'price' => 'string'
+        'price' => 'string',
+        'action_mode' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'text' => null,
         'currency_pair' => null,
         'amount' => null,
-        'price' => null
+        'price' => null,
+        'action_mode' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class LiquidateOrder implements ModelInterface, ArrayAccess
         'text' => 'text',
         'currency_pair' => 'currency_pair',
         'amount' => 'amount',
-        'price' => 'price'
+        'price' => 'price',
+        'action_mode' => 'action_mode'
     ];
 
     /**
@@ -115,7 +118,8 @@ class LiquidateOrder implements ModelInterface, ArrayAccess
         'text' => 'setText',
         'currency_pair' => 'setCurrencyPair',
         'amount' => 'setAmount',
-        'price' => 'setPrice'
+        'price' => 'setPrice',
+        'action_mode' => 'setActionMode'
     ];
 
     /**
@@ -127,7 +131,8 @@ class LiquidateOrder implements ModelInterface, ArrayAccess
         'text' => 'getText',
         'currency_pair' => 'getCurrencyPair',
         'amount' => 'getAmount',
-        'price' => 'getPrice'
+        'price' => 'getPrice',
+        'action_mode' => 'getActionMode'
     ];
 
     /**
@@ -194,6 +199,7 @@ class LiquidateOrder implements ModelInterface, ArrayAccess
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['action_mode'] = isset($data['action_mode']) ? $data['action_mode'] : null;
     }
 
     /**
@@ -321,6 +327,30 @@ class LiquidateOrder implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets action_mode
+     *
+     * @return string|null
+     */
+    public function getActionMode()
+    {
+        return $this->container['action_mode'];
+    }
+
+    /**
+     * Sets action_mode
+     *
+     * @param string|null $action_mode Processing Mode:  Different fields are returned when placing an order based on action_mode. This field is only valid during the request, and it is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
+     *
+     * @return $this
+     */
+    public function setActionMode($action_mode)
+    {
+        $this->container['action_mode'] = $action_mode;
 
         return $this;
     }

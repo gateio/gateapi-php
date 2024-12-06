@@ -42,34 +42,44 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CrossMarginBalance';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'available' => 'string',
         'freeze' => 'string',
         'borrowed' => 'string',
-        'interest' => 'string'
+        'interest' => 'string',
+        'negative_liab' => 'string',
+        'futures_pos_liab' => 'string',
+        'equity' => 'string',
+        'total_freeze' => 'string',
+        'total_liab' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'available' => null,
         'freeze' => null,
         'borrowed' => null,
-        'interest' => null
+        'interest' => null,
+        'negative_liab' => null,
+        'futures_pos_liab' => null,
+        'equity' => null,
+        'total_freeze' => null,
+        'total_liab' => null
     ];
 
     /**
@@ -102,7 +112,12 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
         'available' => 'available',
         'freeze' => 'freeze',
         'borrowed' => 'borrowed',
-        'interest' => 'interest'
+        'interest' => 'interest',
+        'negative_liab' => 'negative_liab',
+        'futures_pos_liab' => 'futures_pos_liab',
+        'equity' => 'equity',
+        'total_freeze' => 'total_freeze',
+        'total_liab' => 'total_liab'
     ];
 
     /**
@@ -114,7 +129,12 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
         'available' => 'setAvailable',
         'freeze' => 'setFreeze',
         'borrowed' => 'setBorrowed',
-        'interest' => 'setInterest'
+        'interest' => 'setInterest',
+        'negative_liab' => 'setNegativeLiab',
+        'futures_pos_liab' => 'setFuturesPosLiab',
+        'equity' => 'setEquity',
+        'total_freeze' => 'setTotalFreeze',
+        'total_liab' => 'setTotalLiab'
     ];
 
     /**
@@ -126,7 +146,12 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
         'available' => 'getAvailable',
         'freeze' => 'getFreeze',
         'borrowed' => 'getBorrowed',
-        'interest' => 'getInterest'
+        'interest' => 'getInterest',
+        'negative_liab' => 'getNegativeLiab',
+        'futures_pos_liab' => 'getFuturesPosLiab',
+        'equity' => 'getEquity',
+        'total_freeze' => 'getTotalFreeze',
+        'total_liab' => 'getTotalLiab'
     ];
 
     /**
@@ -193,6 +218,11 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
         $this->container['freeze'] = isset($data['freeze']) ? $data['freeze'] : null;
         $this->container['borrowed'] = isset($data['borrowed']) ? $data['borrowed'] : null;
         $this->container['interest'] = isset($data['interest']) ? $data['interest'] : null;
+        $this->container['negative_liab'] = isset($data['negative_liab']) ? $data['negative_liab'] : null;
+        $this->container['futures_pos_liab'] = isset($data['futures_pos_liab']) ? $data['futures_pos_liab'] : null;
+        $this->container['equity'] = isset($data['equity']) ? $data['equity'] : null;
+        $this->container['total_freeze'] = isset($data['total_freeze']) ? $data['total_freeze'] : null;
+        $this->container['total_liab'] = isset($data['total_liab']) ? $data['total_liab'] : null;
     }
 
     /**
@@ -311,6 +341,126 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
     public function setInterest($interest)
     {
         $this->container['interest'] = $interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets negative_liab
+     *
+     * @return string|null
+     */
+    public function getNegativeLiab()
+    {
+        return $this->container['negative_liab'];
+    }
+
+    /**
+     * Sets negative_liab
+     *
+     * @param string|null $negative_liab Negative Liabilities. Formula:Min[available+total+unrealized_pnl,0]
+     *
+     * @return $this
+     */
+    public function setNegativeLiab($negative_liab)
+    {
+        $this->container['negative_liab'] = $negative_liab;
+
+        return $this;
+    }
+
+    /**
+     * Gets futures_pos_liab
+     *
+     * @return string|null
+     */
+    public function getFuturesPosLiab()
+    {
+        return $this->container['futures_pos_liab'];
+    }
+
+    /**
+     * Sets futures_pos_liab
+     *
+     * @param string|null $futures_pos_liab Borrowing to Open Positions in Futures
+     *
+     * @return $this
+     */
+    public function setFuturesPosLiab($futures_pos_liab)
+    {
+        $this->container['futures_pos_liab'] = $futures_pos_liab;
+
+        return $this;
+    }
+
+    /**
+     * Gets equity
+     *
+     * @return string|null
+     */
+    public function getEquity()
+    {
+        return $this->container['equity'];
+    }
+
+    /**
+     * Sets equity
+     *
+     * @param string|null $equity Equity. Formula: available + freeze - borrowed + futures account's total + unrealized_pnl
+     *
+     * @return $this
+     */
+    public function setEquity($equity)
+    {
+        $this->container['equity'] = $equity;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_freeze
+     *
+     * @return string|null
+     */
+    public function getTotalFreeze()
+    {
+        return $this->container['total_freeze'];
+    }
+
+    /**
+     * Sets total_freeze
+     *
+     * @param string|null $total_freeze Total freeze. Formula: freeze + position_initial_margin + order_margin
+     *
+     * @return $this
+     */
+    public function setTotalFreeze($total_freeze)
+    {
+        $this->container['total_freeze'] = $total_freeze;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_liab
+     *
+     * @return string|null
+     */
+    public function getTotalLiab()
+    {
+        return $this->container['total_liab'];
+    }
+
+    /**
+     * Sets total_liab
+     *
+     * @param string|null $total_liab Total liabilities. Formula: Max[Abs[Min[quity - total_freeze,0], borrowed]] - futures_pos_liab
+     *
+     * @return $this
+     */
+    public function setTotalLiab($total_liab)
+    {
+        $this->container['total_liab'] = $total_liab;
 
         return $this;
     }

@@ -42,17 +42,17 @@ class OpenOrders implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'OpenOrders';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency_pair' => 'string',
         'total' => 'int',
@@ -60,10 +60,10 @@ class OpenOrders implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency_pair' => null,
         'total' => null,
@@ -250,7 +250,7 @@ class OpenOrders implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param int|null $total Total open orders in this currency pair
+     * @param int|null $total The total number of pending orders for this trading pair on the current page
      *
      * @return $this
      */

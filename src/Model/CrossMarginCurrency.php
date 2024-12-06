@@ -42,17 +42,17 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CrossMarginCurrency';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'name' => 'string',
         'rate' => 'string',
@@ -62,14 +62,15 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'user_max_borrow_amount' => 'string',
         'total_max_borrow_amount' => 'string',
         'price' => 'string',
+        'loanable' => 'bool',
         'status' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'name' => null,
         'rate' => null,
@@ -79,6 +80,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'user_max_borrow_amount' => null,
         'total_max_borrow_amount' => null,
         'price' => null,
+        'loanable' => null,
         'status' => null
     ];
 
@@ -117,6 +119,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'user_max_borrow_amount' => 'user_max_borrow_amount',
         'total_max_borrow_amount' => 'total_max_borrow_amount',
         'price' => 'price',
+        'loanable' => 'loanable',
         'status' => 'status'
     ];
 
@@ -134,6 +137,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'user_max_borrow_amount' => 'setUserMaxBorrowAmount',
         'total_max_borrow_amount' => 'setTotalMaxBorrowAmount',
         'price' => 'setPrice',
+        'loanable' => 'setLoanable',
         'status' => 'setStatus'
     ];
 
@@ -151,6 +155,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'user_max_borrow_amount' => 'getUserMaxBorrowAmount',
         'total_max_borrow_amount' => 'getTotalMaxBorrowAmount',
         'price' => 'getPrice',
+        'loanable' => 'getLoanable',
         'status' => 'getStatus'
     ];
 
@@ -222,6 +227,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         $this->container['user_max_borrow_amount'] = isset($data['user_max_borrow_amount']) ? $data['user_max_borrow_amount'] : null;
         $this->container['total_max_borrow_amount'] = isset($data['total_max_borrow_amount']) ? $data['total_max_borrow_amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['loanable'] = isset($data['loanable']) ? $data['loanable'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -437,6 +443,30 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets loanable
+     *
+     * @return bool|null
+     */
+    public function getLoanable()
+    {
+        return $this->container['loanable'];
+    }
+
+    /**
+     * Sets loanable
+     *
+     * @param bool|null $loanable Whether currency is borrowed
+     *
+     * @return $this
+     */
+    public function setLoanable($loanable)
+    {
+        $this->container['loanable'] = $loanable;
 
         return $this;
     }

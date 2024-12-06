@@ -88,7 +88,7 @@ class SpotApi
     /**
      * Set the host index
      *
-     * @param int Host index (required)
+     * @param  int Host index (required)
      */
     public function setHostIndex($host_index)
     {
@@ -118,6 +118,7 @@ class SpotApi
      *
      * List all currencies' details
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Currency[]
@@ -133,6 +134,7 @@ class SpotApi
      *
      * List all currencies' details
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Currency[], HTTP status code, HTTP response headers (array of strings)
@@ -146,7 +148,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -185,6 +187,7 @@ class SpotApi
      *
      * List all currencies' details
      *
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -202,6 +205,7 @@ class SpotApi
      * Operation listCurrenciesAsyncWithHttpInfo
      *
      * List all currencies' details
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -247,6 +251,7 @@ class SpotApi
 
     /**
      * Create request for operation 'listCurrencies'
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -330,7 +335,7 @@ class SpotApi
      *
      * Get details of a specific currency
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -347,7 +352,7 @@ class SpotApi
      *
      * Get details of a specific currency
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -362,7 +367,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -401,7 +406,7 @@ class SpotApi
      *
      * Get details of a specific currency
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -421,7 +426,7 @@ class SpotApi
      *
      * Get details of a specific currency
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -468,7 +473,7 @@ class SpotApi
     /**
      * Create request for operation 'getCurrency'
      *
-     * @param string $currency Currency name (required)
+     * @param  string $currency Currency name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -567,6 +572,7 @@ class SpotApi
      *
      * List all currency pairs supported
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\CurrencyPair[]
@@ -582,6 +588,7 @@ class SpotApi
      *
      * List all currency pairs supported
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\CurrencyPair[], HTTP status code, HTTP response headers (array of strings)
@@ -595,7 +602,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -634,6 +641,7 @@ class SpotApi
      *
      * List all currency pairs supported
      *
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -651,6 +659,7 @@ class SpotApi
      * Operation listCurrencyPairsAsyncWithHttpInfo
      *
      * List all currency pairs supported
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -696,6 +705,7 @@ class SpotApi
 
     /**
      * Create request for operation 'listCurrencyPairs'
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -779,7 +789,7 @@ class SpotApi
      *
      * Get details of a specifc currency pair
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -796,7 +806,7 @@ class SpotApi
      *
      * Get details of a specifc currency pair
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -811,7 +821,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -850,7 +860,7 @@ class SpotApi
      *
      * Get details of a specifc currency pair
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -870,7 +880,7 @@ class SpotApi
      *
      * Get details of a specifc currency pair
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -917,7 +927,7 @@ class SpotApi
     /**
      * Create request for operation 'getCurrencyPair'
      *
-     * @param string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1018,8 +1028,8 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $timezone      Timezone (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $timezone Timezone (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1038,8 +1048,8 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $timezone      Timezone (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $timezone Timezone (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1054,7 +1064,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1095,8 +1105,8 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $timezone      Timezone (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $timezone Timezone (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1118,8 +1128,8 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $timezone      Timezone (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $timezone Timezone (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1168,8 +1178,8 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (optional)
-     * @param string $timezone      Timezone (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $timezone Timezone (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1283,10 +1293,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id       Return order book ID (optional, default to false)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Return order book ID (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1305,10 +1315,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id       Return order book ID (optional, default to false)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Return order book ID (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1323,7 +1333,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1364,10 +1374,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id       Return order book ID (optional, default to false)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Return order book ID (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1389,10 +1399,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id       Return order book ID (optional, default to false)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Return order book ID (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1441,10 +1451,10 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $interval      Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param int    $limit         Maximum number of order depth data in asks or bids (optional, default to 10)
-     * @param bool   $with_id       Return order book ID (optional, default to false)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  bool $with_id Return order book ID (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1594,13 +1604,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
-     * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  bool $reverse Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1619,13 +1629,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
-     * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  bool $reverse Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1640,7 +1650,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1681,13 +1691,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
-     * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  bool $reverse Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1709,13 +1719,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
-     * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  bool $reverse Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1764,13 +1774,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
-     * @param string $last_id       Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
-     * @param bool   $reverse       Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param int    $page          Page number (optional, default to 1)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  string $last_id Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param  bool $reverse Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1966,11 +1976,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  string $interval Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1989,11 +1999,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  string $interval Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2008,7 +2018,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2049,11 +2059,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  string $interval Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2075,11 +2085,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  string $interval Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2128,11 +2138,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param int    $limit         Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param int    $from          Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
-     * @param int    $to            End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
-     * @param string $interval      Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
+     * @param  string $currency_pair Currency pair (required)
+     * @param  int $limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param  int $from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param  int $to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
+     * @param  string $interval Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to '30m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2295,11 +2305,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\TradeFee
+     * @return \GateApi\Model\SpotFee
      */
     public function getFee($associative_array)
     {
@@ -2314,11 +2324,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\TradeFee, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\SpotFee, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeeWithHttpInfo($associative_array)
     {
@@ -2329,7 +2339,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2348,7 +2358,7 @@ class SpotApi
             );
         }
 
-        $returnType = '\GateApi\Model\TradeFee';
+        $returnType = '\GateApi\Model\SpotFee';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -2370,7 +2380,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2392,14 +2402,14 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getFeeAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\TradeFee';
+        $returnType = '\GateApi\Model\SpotFee';
         $request = $this->getFeeRequest($associative_array);
 
         return $this->client
@@ -2441,7 +2451,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+     * @param  string $currency_pair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2543,7 +2553,7 @@ class SpotApi
      *
      * Query a batch of user trading fee rates
      *
-     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     * @param  string $currency_pairs A request can only query up to 50 currency pairs (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2560,7 +2570,7 @@ class SpotApi
      *
      * Query a batch of user trading fee rates
      *
-     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     * @param  string $currency_pairs A request can only query up to 50 currency pairs (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2575,7 +2585,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2614,7 +2624,7 @@ class SpotApi
      *
      * Query a batch of user trading fee rates
      *
-     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     * @param  string $currency_pairs A request can only query up to 50 currency pairs (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2634,7 +2644,7 @@ class SpotApi
      *
      * Query a batch of user trading fee rates
      *
-     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     * @param  string $currency_pairs A request can only query up to 50 currency pairs (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2681,7 +2691,7 @@ class SpotApi
     /**
      * Create request for operation 'getBatchSpotFee'
      *
-     * @param string $currency_pairs A request can only query up to 50 currency pairs (required)
+     * @param  string $currency_pairs A request can only query up to 50 currency pairs (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2788,7 +2798,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2807,7 +2817,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2822,7 +2832,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2863,7 +2873,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2885,7 +2895,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2934,7 +2944,7 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3032,19 +3042,371 @@ class SpotApi
     }
 
     /**
+     * Operation listSpotAccountBook
+     *
+     * Query account book
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SpotAccountBook[]
+     */
+    public function listSpotAccountBook($associative_array)
+    {
+        list($response) = $this->listSpotAccountBookWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listSpotAccountBookWithHttpInfo
+     *
+     * Query account book
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SpotAccountBook[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSpotAccountBookWithHttpInfo($associative_array)
+    {
+        $request = $this->listSpotAccountBookRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SpotAccountBook[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listSpotAccountBookAsync
+     *
+     * Query account book
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSpotAccountBookAsync($associative_array)
+    {
+        return $this->listSpotAccountBookAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listSpotAccountBookAsyncWithHttpInfo
+     *
+     * Query account book
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSpotAccountBookAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\SpotAccountBook[]';
+        $request = $this->listSpotAccountBookRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listSpotAccountBook'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listSpotAccountBookRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $type = array_key_exists('type', $associative_array) ? $associative_array['type'] : null;
+
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling SpotApi.listSpotAccountBook, must be bigger than or equal to 1.');
+        }
+
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listSpotAccountBook, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SpotApi.listSpotAccountBook, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/spot/account_book';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
+        if ($to !== null) {
+            if('form' === 'form' && is_array($to)) {
+                foreach($to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['to'] = $to;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($type !== null) {
+            if('form' === 'form' && is_array($type)) {
+                foreach($type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['type'] = $type;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createBatchOrders
      *
      * Create a batch of orders
      *
-     * @param \GateApi\Model\Order[] $order order (required)
+     * @param  \GateApi\Model\Order[] $order order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\BatchOrder[]
      */
-    public function createBatchOrders($order)
+    public function createBatchOrders($order, $x_gate_exptime = null)
     {
-        list($response) = $this->createBatchOrdersWithHttpInfo($order);
+        list($response) = $this->createBatchOrdersWithHttpInfo($order, $x_gate_exptime);
         return $response;
     }
 
@@ -3053,22 +3415,23 @@ class SpotApi
      *
      * Create a batch of orders
      *
-     * @param \GateApi\Model\Order[] $order (required)
+     * @param  \GateApi\Model\Order[] $order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\BatchOrder[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBatchOrdersWithHttpInfo($order)
+    public function createBatchOrdersWithHttpInfo($order, $x_gate_exptime = null)
     {
-        $request = $this->createBatchOrdersRequest($order);
+        $request = $this->createBatchOrdersRequest($order, $x_gate_exptime);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3107,14 +3470,15 @@ class SpotApi
      *
      * Create a batch of orders
      *
-     * @param \GateApi\Model\Order[] $order (required)
+     * @param  \GateApi\Model\Order[] $order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBatchOrdersAsync($order)
+    public function createBatchOrdersAsync($order, $x_gate_exptime = null)
     {
-        return $this->createBatchOrdersAsyncWithHttpInfo($order)
+        return $this->createBatchOrdersAsyncWithHttpInfo($order, $x_gate_exptime)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3127,15 +3491,16 @@ class SpotApi
      *
      * Create a batch of orders
      *
-     * @param \GateApi\Model\Order[] $order (required)
+     * @param  \GateApi\Model\Order[] $order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBatchOrdersAsyncWithHttpInfo($order)
+    public function createBatchOrdersAsyncWithHttpInfo($order, $x_gate_exptime = null)
     {
         $returnType = '\GateApi\Model\BatchOrder[]';
-        $request = $this->createBatchOrdersRequest($order);
+        $request = $this->createBatchOrdersRequest($order, $x_gate_exptime);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3174,12 +3539,13 @@ class SpotApi
     /**
      * Create request for operation 'createBatchOrders'
      *
-     * @param \GateApi\Model\Order[] $order (required)
+     * @param  \GateApi\Model\Order[] $order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createBatchOrdersRequest($order)
+    protected function createBatchOrdersRequest($order, $x_gate_exptime = null)
     {
         // verify the required parameter 'order' is set
         if ($order === null || (is_array($order) && count($order) === 0)) {
@@ -3194,6 +3560,11 @@ class SpotApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // header params
+        if ($x_gate_exptime !== null) {
+            $headerParams['x-gate-exptime'] = ObjectSerializer::toHeaderValue($x_gate_exptime);
+        }
 
         // body params
         $_tempBody = null;
@@ -3272,9 +3643,9 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param string $account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3293,9 +3664,9 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param string $account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3310,7 +3681,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3351,9 +3722,9 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param string $account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3375,9 +3746,9 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param string $account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3426,9 +3797,9 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param int    $page    Page number (optional, default to 1)
-     * @param int    $limit   Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param string $account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3567,7 +3938,7 @@ class SpotApi
      *
      * close position when cross-currency is disabled
      *
-     * @param \GateApi\Model\LiquidateOrder $liquidate_order liquidate_order (required)
+     * @param  \GateApi\Model\LiquidateOrder $liquidate_order liquidate_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3584,7 +3955,7 @@ class SpotApi
      *
      * close position when cross-currency is disabled
      *
-     * @param \GateApi\Model\LiquidateOrder $liquidate_order (required)
+     * @param  \GateApi\Model\LiquidateOrder $liquidate_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3599,7 +3970,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3638,7 +4009,7 @@ class SpotApi
      *
      * close position when cross-currency is disabled
      *
-     * @param \GateApi\Model\LiquidateOrder $liquidate_order (required)
+     * @param  \GateApi\Model\LiquidateOrder $liquidate_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3658,7 +4029,7 @@ class SpotApi
      *
      * close position when cross-currency is disabled
      *
-     * @param \GateApi\Model\LiquidateOrder $liquidate_order (required)
+     * @param  \GateApi\Model\LiquidateOrder $liquidate_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3705,7 +4076,7 @@ class SpotApi
     /**
      * Create request for operation 'createCrossLiquidateOrder'
      *
-     * @param \GateApi\Model\LiquidateOrder $liquidate_order (required)
+     * @param  \GateApi\Model\LiquidateOrder $liquidate_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3803,14 +4174,14 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3829,14 +4200,14 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3851,7 +4222,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -3892,14 +4263,14 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3921,14 +4292,14 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3977,14 +4348,14 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
-     * @param string $status        List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param int    $limit         Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4200,15 +4571,16 @@ class SpotApi
      *
      * Create an order
      *
-     * @param \GateApi\Model\Order $order order (required)
+     * @param  \GateApi\Model\Order $order order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Order
      */
-    public function createOrder($order)
+    public function createOrder($order, $x_gate_exptime = null)
     {
-        list($response) = $this->createOrderWithHttpInfo($order);
+        list($response) = $this->createOrderWithHttpInfo($order, $x_gate_exptime);
         return $response;
     }
 
@@ -4217,22 +4589,23 @@ class SpotApi
      *
      * Create an order
      *
-     * @param \GateApi\Model\Order $order (required)
+     * @param  \GateApi\Model\Order $order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Order, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOrderWithHttpInfo($order)
+    public function createOrderWithHttpInfo($order, $x_gate_exptime = null)
     {
-        $request = $this->createOrderRequest($order);
+        $request = $this->createOrderRequest($order, $x_gate_exptime);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4271,14 +4644,15 @@ class SpotApi
      *
      * Create an order
      *
-     * @param \GateApi\Model\Order $order (required)
+     * @param  \GateApi\Model\Order $order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrderAsync($order)
+    public function createOrderAsync($order, $x_gate_exptime = null)
     {
-        return $this->createOrderAsyncWithHttpInfo($order)
+        return $this->createOrderAsyncWithHttpInfo($order, $x_gate_exptime)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4291,15 +4665,16 @@ class SpotApi
      *
      * Create an order
      *
-     * @param \GateApi\Model\Order $order (required)
+     * @param  \GateApi\Model\Order $order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrderAsyncWithHttpInfo($order)
+    public function createOrderAsyncWithHttpInfo($order, $x_gate_exptime = null)
     {
         $returnType = '\GateApi\Model\Order';
-        $request = $this->createOrderRequest($order);
+        $request = $this->createOrderRequest($order, $x_gate_exptime);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4338,12 +4713,13 @@ class SpotApi
     /**
      * Create request for operation 'createOrder'
      *
-     * @param \GateApi\Model\Order $order (required)
+     * @param  \GateApi\Model\Order $order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createOrderRequest($order)
+    protected function createOrderRequest($order, $x_gate_exptime = null)
     {
         // verify the required parameter 'order' is set
         if ($order === null || (is_array($order) && count($order) === 0)) {
@@ -4358,6 +4734,11 @@ class SpotApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // header params
+        if ($x_gate_exptime !== null) {
+            $headerParams['x-gate-exptime'] = ObjectSerializer::toHeaderValue($x_gate_exptime);
+        }
 
         // body params
         $_tempBody = null;
@@ -4434,18 +4815,19 @@ class SpotApi
      *
      * Cancel all `open` orders in specified currency pair
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
-     * @param string $account       Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only
-     *                              (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\Order[]
+     * @return \GateApi\Model\OrderCancel[]
      */
-    public function cancelOrders($currency_pair, $side = null, $account = null)
+    public function cancelOrders($currency_pair = null, $side = null, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
-        list($response) = $this->cancelOrdersWithHttpInfo($currency_pair, $side, $account);
+        list($response) = $this->cancelOrdersWithHttpInfo($currency_pair, $side, $account, $action_mode, $x_gate_exptime);
         return $response;
     }
 
@@ -4454,25 +4836,26 @@ class SpotApi
      *
      * Cancel all `open` orders in specified currency pair
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
-     * @param string $account       Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only
-     *                              (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\Order[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\OrderCancel[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrdersWithHttpInfo($currency_pair, $side = null, $account = null)
+    public function cancelOrdersWithHttpInfo($currency_pair = null, $side = null, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
-        $request = $this->cancelOrdersRequest($currency_pair, $side, $account);
+        $request = $this->cancelOrdersRequest($currency_pair, $side, $account, $action_mode, $x_gate_exptime);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4491,7 +4874,7 @@ class SpotApi
             );
         }
 
-        $returnType = '\GateApi\Model\Order[]';
+        $returnType = '\GateApi\Model\OrderCancel[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -4511,17 +4894,18 @@ class SpotApi
      *
      * Cancel all `open` orders in specified currency pair
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
-     * @param string $account       Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only
-     *                              (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrdersAsync($currency_pair, $side = null, $account = null)
+    public function cancelOrdersAsync($currency_pair = null, $side = null, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
-        return $this->cancelOrdersAsyncWithHttpInfo($currency_pair, $side, $account)
+        return $this->cancelOrdersAsyncWithHttpInfo($currency_pair, $side, $account, $action_mode, $x_gate_exptime)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4534,18 +4918,19 @@ class SpotApi
      *
      * Cancel all `open` orders in specified currency pair
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
-     * @param string $account       Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only
-     *                              (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrdersAsyncWithHttpInfo($currency_pair, $side = null, $account = null)
+    public function cancelOrdersAsyncWithHttpInfo($currency_pair = null, $side = null, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
-        $returnType = '\GateApi\Model\Order[]';
-        $request = $this->cancelOrdersRequest($currency_pair, $side, $account);
+        $returnType = '\GateApi\Model\OrderCancel[]';
+        $request = $this->cancelOrdersRequest($currency_pair, $side, $account, $action_mode, $x_gate_exptime);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4584,22 +4969,17 @@ class SpotApi
     /**
      * Create request for operation 'cancelOrders'
      *
-     * @param string $currency_pair Currency pair (required)
-     * @param string $side          All bids or asks. Both included if not specified (optional)
-     * @param string $account       Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only
-     *                              (optional)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelOrdersRequest($currency_pair, $side = null, $account = null)
+    protected function cancelOrdersRequest($currency_pair = null, $side = null, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
-        // verify the required parameter 'currency_pair' is set
-        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $currency_pair when calling cancelOrders'
-            );
-        }
 
         $resourcePath = '/spot/orders';
         $formParams = [];
@@ -4642,6 +5022,23 @@ class SpotApi
             else {
                 $queryParams['account'] = $account;
             }
+        }
+
+        // query params
+        if ($action_mode !== null) {
+            if('form' === 'form' && is_array($action_mode)) {
+                foreach($action_mode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['action_mode'] = $action_mode;
+            }
+        }
+
+        // header params
+        if ($x_gate_exptime !== null) {
+            $headerParams['x-gate-exptime'] = ObjectSerializer::toHeaderValue($x_gate_exptime);
         }
 
         // body params
@@ -4716,15 +5113,16 @@ class SpotApi
      *
      * Cancel a batch of orders with an ID list
      *
-     * @param \GateApi\Model\CancelOrder[] $cancel_order cancel_order (required)
+     * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order cancel_batch_order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\CancelOrderResult[]
      */
-    public function cancelBatchOrders($cancel_order)
+    public function cancelBatchOrders($cancel_batch_order, $x_gate_exptime = null)
     {
-        list($response) = $this->cancelBatchOrdersWithHttpInfo($cancel_order);
+        list($response) = $this->cancelBatchOrdersWithHttpInfo($cancel_batch_order, $x_gate_exptime);
         return $response;
     }
 
@@ -4733,22 +5131,23 @@ class SpotApi
      *
      * Cancel a batch of orders with an ID list
      *
-     * @param \GateApi\Model\CancelOrder[] $cancel_order (required)
+     * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\CancelOrderResult[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelBatchOrdersWithHttpInfo($cancel_order)
+    public function cancelBatchOrdersWithHttpInfo($cancel_batch_order, $x_gate_exptime = null)
     {
-        $request = $this->cancelBatchOrdersRequest($cancel_order);
+        $request = $this->cancelBatchOrdersRequest($cancel_batch_order, $x_gate_exptime);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -4787,14 +5186,15 @@ class SpotApi
      *
      * Cancel a batch of orders with an ID list
      *
-     * @param \GateApi\Model\CancelOrder[] $cancel_order (required)
+     * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelBatchOrdersAsync($cancel_order)
+    public function cancelBatchOrdersAsync($cancel_batch_order, $x_gate_exptime = null)
     {
-        return $this->cancelBatchOrdersAsyncWithHttpInfo($cancel_order)
+        return $this->cancelBatchOrdersAsyncWithHttpInfo($cancel_batch_order, $x_gate_exptime)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4807,15 +5207,16 @@ class SpotApi
      *
      * Cancel a batch of orders with an ID list
      *
-     * @param \GateApi\Model\CancelOrder[] $cancel_order (required)
+     * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelBatchOrdersAsyncWithHttpInfo($cancel_order)
+    public function cancelBatchOrdersAsyncWithHttpInfo($cancel_batch_order, $x_gate_exptime = null)
     {
         $returnType = '\GateApi\Model\CancelOrderResult[]';
-        $request = $this->cancelBatchOrdersRequest($cancel_order);
+        $request = $this->cancelBatchOrdersRequest($cancel_batch_order, $x_gate_exptime);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4854,17 +5255,18 @@ class SpotApi
     /**
      * Create request for operation 'cancelBatchOrders'
      *
-     * @param \GateApi\Model\CancelOrder[] $cancel_order (required)
+     * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelBatchOrdersRequest($cancel_order)
+    protected function cancelBatchOrdersRequest($cancel_batch_order, $x_gate_exptime = null)
     {
-        // verify the required parameter 'cancel_order' is set
-        if ($cancel_order === null || (is_array($cancel_order) && count($cancel_order) === 0)) {
+        // verify the required parameter 'cancel_batch_order' is set
+        if ($cancel_batch_order === null || (is_array($cancel_batch_order) && count($cancel_batch_order) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cancel_order when calling cancelBatchOrders'
+                'Missing the required parameter $cancel_batch_order when calling cancelBatchOrders'
             );
         }
 
@@ -4875,10 +5277,15 @@ class SpotApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($x_gate_exptime !== null) {
+            $headerParams['x-gate-exptime'] = ObjectSerializer::toHeaderValue($x_gate_exptime);
+        }
+
         // body params
         $_tempBody = null;
-        if (isset($cancel_order)) {
-            $_tempBody = $cancel_order;
+        if (isset($cancel_batch_order)) {
+            $_tempBody = $cancel_batch_order;
         }
 
         if ($multipart) {
@@ -4950,9 +5357,9 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4969,9 +5376,9 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4986,7 +5393,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5025,9 +5432,9 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5047,9 +5454,9 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5096,9 +5503,9 @@ class SpotApi
     /**
      * Create request for operation 'getOrder'
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5230,17 +5637,19 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Order
      */
-    public function cancelOrder($order_id, $currency_pair, $account = null)
+    public function cancelOrder($order_id, $currency_pair, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
-        list($response) = $this->cancelOrderWithHttpInfo($order_id, $currency_pair, $account);
+        list($response) = $this->cancelOrderWithHttpInfo($order_id, $currency_pair, $account, $action_mode, $x_gate_exptime);
         return $response;
     }
 
@@ -5249,24 +5658,26 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Order, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrderWithHttpInfo($order_id, $currency_pair, $account = null)
+    public function cancelOrderWithHttpInfo($order_id, $currency_pair, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
-        $request = $this->cancelOrderRequest($order_id, $currency_pair, $account);
+        $request = $this->cancelOrderRequest($order_id, $currency_pair, $account, $action_mode, $x_gate_exptime);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5305,16 +5716,18 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsync($order_id, $currency_pair, $account = null)
+    public function cancelOrderAsync($order_id, $currency_pair, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
-        return $this->cancelOrderAsyncWithHttpInfo($order_id, $currency_pair, $account)
+        return $this->cancelOrderAsyncWithHttpInfo($order_id, $currency_pair, $account, $action_mode, $x_gate_exptime)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5327,17 +5740,19 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsyncWithHttpInfo($order_id, $currency_pair, $account = null)
+    public function cancelOrderAsyncWithHttpInfo($order_id, $currency_pair, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
         $returnType = '\GateApi\Model\Order';
-        $request = $this->cancelOrderRequest($order_id, $currency_pair, $account);
+        $request = $this->cancelOrderRequest($order_id, $currency_pair, $account, $action_mode, $x_gate_exptime);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5376,14 +5791,16 @@ class SpotApi
     /**
      * Create request for operation 'cancelOrder'
      *
-     * @param string $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string $currency_pair Currency pair (required)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $currency_pair Currency pair (required)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelOrderRequest($order_id, $currency_pair, $account = null)
+    protected function cancelOrderRequest($order_id, $currency_pair, $account = null, $action_mode = null, $x_gate_exptime = null)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
@@ -5427,6 +5844,23 @@ class SpotApi
             else {
                 $queryParams['account'] = $account;
             }
+        }
+
+        // query params
+        if ($action_mode !== null) {
+            if('form' === 'form' && is_array($action_mode)) {
+                foreach($action_mode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['action_mode'] = $action_mode;
+            }
+        }
+
+        // header params
+        if ($x_gate_exptime !== null) {
+            $headerParams['x-gate-exptime'] = ObjectSerializer::toHeaderValue($x_gate_exptime);
         }
 
         // path params
@@ -5510,18 +5944,19 @@ class SpotApi
      *
      * Amend an order
      *
-     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string                    $currency_pair Currency pair (required)
-     * @param \GateApi\Model\OrderPatch $order_patch   order_patch (required)
-     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  \GateApi\Model\OrderPatch $order_patch order_patch (required)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Order
      */
-    public function amendOrder($order_id, $currency_pair, $order_patch, $account = null)
+    public function amendOrder($order_id, $order_patch, $currency_pair = null, $account = null, $x_gate_exptime = null)
     {
-        list($response) = $this->amendOrderWithHttpInfo($order_id, $currency_pair, $order_patch, $account);
+        list($response) = $this->amendOrderWithHttpInfo($order_id, $order_patch, $currency_pair, $account, $x_gate_exptime);
         return $response;
     }
 
@@ -5530,25 +5965,26 @@ class SpotApi
      *
      * Amend an order
      *
-     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string                    $currency_pair Currency pair (required)
-     * @param \GateApi\Model\OrderPatch $order_patch   (required)
-     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  \GateApi\Model\OrderPatch $order_patch (required)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Order, HTTP status code, HTTP response headers (array of strings)
      */
-    public function amendOrderWithHttpInfo($order_id, $currency_pair, $order_patch, $account = null)
+    public function amendOrderWithHttpInfo($order_id, $order_patch, $currency_pair = null, $account = null, $x_gate_exptime = null)
     {
-        $request = $this->amendOrderRequest($order_id, $currency_pair, $order_patch, $account);
+        $request = $this->amendOrderRequest($order_id, $order_patch, $currency_pair, $account, $x_gate_exptime);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5587,17 +6023,18 @@ class SpotApi
      *
      * Amend an order
      *
-     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string                    $currency_pair Currency pair (required)
-     * @param \GateApi\Model\OrderPatch $order_patch   (required)
-     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  \GateApi\Model\OrderPatch $order_patch (required)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function amendOrderAsync($order_id, $currency_pair, $order_patch, $account = null)
+    public function amendOrderAsync($order_id, $order_patch, $currency_pair = null, $account = null, $x_gate_exptime = null)
     {
-        return $this->amendOrderAsyncWithHttpInfo($order_id, $currency_pair, $order_patch, $account)
+        return $this->amendOrderAsyncWithHttpInfo($order_id, $order_patch, $currency_pair, $account, $x_gate_exptime)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5610,18 +6047,19 @@ class SpotApi
      *
      * Amend an order
      *
-     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string                    $currency_pair Currency pair (required)
-     * @param \GateApi\Model\OrderPatch $order_patch   (required)
-     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  \GateApi\Model\OrderPatch $order_patch (required)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function amendOrderAsyncWithHttpInfo($order_id, $currency_pair, $order_patch, $account = null)
+    public function amendOrderAsyncWithHttpInfo($order_id, $order_patch, $currency_pair = null, $account = null, $x_gate_exptime = null)
     {
         $returnType = '\GateApi\Model\Order';
-        $request = $this->amendOrderRequest($order_id, $currency_pair, $order_patch, $account);
+        $request = $this->amendOrderRequest($order_id, $order_patch, $currency_pair, $account, $x_gate_exptime);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5660,26 +6098,21 @@ class SpotApi
     /**
      * Create request for operation 'amendOrder'
      *
-     * @param string                    $order_id      Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param string                    $currency_pair Currency pair (required)
-     * @param \GateApi\Model\OrderPatch $order_patch   (required)
-     * @param string                    $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  \GateApi\Model\OrderPatch $order_patch (required)
+     * @param  string $currency_pair Currency pair (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function amendOrderRequest($order_id, $currency_pair, $order_patch, $account = null)
+    protected function amendOrderRequest($order_id, $order_patch, $currency_pair = null, $account = null, $x_gate_exptime = null)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $order_id when calling amendOrder'
-            );
-        }
-        // verify the required parameter 'currency_pair' is set
-        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $currency_pair when calling amendOrder'
             );
         }
         // verify the required parameter 'order_patch' is set
@@ -5718,6 +6151,11 @@ class SpotApi
             else {
                 $queryParams['account'] = $account;
             }
+        }
+
+        // header params
+        if ($x_gate_exptime !== null) {
+            $headerParams['x-gate-exptime'] = ObjectSerializer::toHeaderValue($x_gate_exptime);
         }
 
         // path params
@@ -5806,13 +6244,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5831,13 +6269,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5852,7 +6290,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -5893,13 +6331,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5921,13 +6359,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5976,13 +6414,13 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $currency_pair Retrieve results with specified currency pair (optional)
-     * @param int    $limit         Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $page          Page number (optional, default to 1)
-     * @param string $order_id      Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param string $account       Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
-     * @param int    $from          Start timestamp of the query (optional)
-     * @param int    $to            Time range ending, default to current time (optional)
+     * @param  string $currency_pair Retrieve results with specified currency pair (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
+     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  int $from Start timestamp of the query (optional)
+     * @param  int $to Time range ending, default to current time (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6173,6 +6611,7 @@ class SpotApi
      *
      * Get server current time
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\SystemTime
@@ -6188,6 +6627,7 @@ class SpotApi
      *
      * Get server current time
      *
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\SystemTime, HTTP status code, HTTP response headers (array of strings)
@@ -6201,7 +6641,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6240,6 +6680,7 @@ class SpotApi
      *
      * Get server current time
      *
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -6257,6 +6698,7 @@ class SpotApi
      * Operation getSystemTimeAsyncWithHttpInfo
      *
      * Get server current time
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6302,6 +6744,7 @@ class SpotApi
 
     /**
      * Create request for operation 'getSystemTime'
+     *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6385,7 +6828,7 @@ class SpotApi
      *
      * Countdown cancel orders
      *
-     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task countdown_cancel_all_spot_task (required)
+     * @param  \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task countdown_cancel_all_spot_task (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6402,7 +6845,7 @@ class SpotApi
      *
      * Countdown cancel orders
      *
-     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
+     * @param  \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6417,7 +6860,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6456,7 +6899,7 @@ class SpotApi
      *
      * Countdown cancel orders
      *
-     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
+     * @param  \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6476,7 +6919,7 @@ class SpotApi
      *
      * Countdown cancel orders
      *
-     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
+     * @param  \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6523,7 +6966,7 @@ class SpotApi
     /**
      * Create request for operation 'countdownCancelAllSpot'
      *
-     * @param \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
+     * @param  \GateApi\Model\CountdownCancelAllSpotTask $countdown_cancel_all_spot_task (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6615,17 +7058,261 @@ class SpotApi
     }
 
     /**
+     * Operation amendBatchOrders
+     *
+     * Batch modification of orders
+     *
+     * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item batch_amend_item (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\BatchOrder[]
+     */
+    public function amendBatchOrders($batch_amend_item, $x_gate_exptime = null)
+    {
+        list($response) = $this->amendBatchOrdersWithHttpInfo($batch_amend_item, $x_gate_exptime);
+        return $response;
+    }
+
+    /**
+     * Operation amendBatchOrdersWithHttpInfo
+     *
+     * Batch modification of orders
+     *
+     * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\BatchOrder[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function amendBatchOrdersWithHttpInfo($batch_amend_item, $x_gate_exptime = null)
+    {
+        $request = $this->amendBatchOrdersRequest($batch_amend_item, $x_gate_exptime);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\BatchOrder[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation amendBatchOrdersAsync
+     *
+     * Batch modification of orders
+     *
+     * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function amendBatchOrdersAsync($batch_amend_item, $x_gate_exptime = null)
+    {
+        return $this->amendBatchOrdersAsyncWithHttpInfo($batch_amend_item, $x_gate_exptime)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation amendBatchOrdersAsyncWithHttpInfo
+     *
+     * Batch modification of orders
+     *
+     * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function amendBatchOrdersAsyncWithHttpInfo($batch_amend_item, $x_gate_exptime = null)
+    {
+        $returnType = '\GateApi\Model\BatchOrder[]';
+        $request = $this->amendBatchOrdersRequest($batch_amend_item, $x_gate_exptime);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'amendBatchOrders'
+     *
+     * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item (required)
+     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function amendBatchOrdersRequest($batch_amend_item, $x_gate_exptime = null)
+    {
+        // verify the required parameter 'batch_amend_item' is set
+        if ($batch_amend_item === null || (is_array($batch_amend_item) && count($batch_amend_item) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $batch_amend_item when calling amendBatchOrders'
+            );
+        }
+
+        $resourcePath = '/spot/amend_batch_orders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($x_gate_exptime !== null) {
+            $headerParams['x-gate-exptime'] = ObjectSerializer::toHeaderValue($x_gate_exptime);
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($batch_amend_item)) {
+            $_tempBody = $batch_amend_item;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listSpotPriceTriggeredOrders
      *
      * Retrieve running auto order list
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  Only list the orders with this status (required)
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6644,11 +7331,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  Only list the orders with this status (required)
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6663,7 +7350,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -6704,11 +7391,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  Only list the orders with this status (required)
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6730,11 +7417,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  Only list the orders with this status (required)
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6783,11 +7470,11 @@ class SpotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param string $status  Only list the orders with this status (required)
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
-     * @param int    $limit   Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param int    $offset  List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status (required)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6958,7 +7645,7 @@ class SpotApi
      *
      * Create a price-triggered order
      *
-     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order spot_price_triggered_order (required)
+     * @param  \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order spot_price_triggered_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6975,7 +7662,7 @@ class SpotApi
      *
      * Create a price-triggered order
      *
-     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
+     * @param  \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6990,7 +7677,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7029,7 +7716,7 @@ class SpotApi
      *
      * Create a price-triggered order
      *
-     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
+     * @param  \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7049,7 +7736,7 @@ class SpotApi
      *
      * Create a price-triggered order
      *
-     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
+     * @param  \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7096,7 +7783,7 @@ class SpotApi
     /**
      * Create request for operation 'createSpotPriceTriggeredOrder'
      *
-     * @param \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
+     * @param  \GateApi\Model\SpotPriceTriggeredOrder $spot_price_triggered_order (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7192,8 +7879,8 @@ class SpotApi
      *
      * Cancel all open orders
      *
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7210,8 +7897,8 @@ class SpotApi
      *
      * Cancel all open orders
      *
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7226,7 +7913,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7265,8 +7952,8 @@ class SpotApi
      *
      * Cancel all open orders
      *
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7286,8 +7973,8 @@ class SpotApi
      *
      * Cancel all open orders
      *
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7334,8 +8021,8 @@ class SpotApi
     /**
      * Create request for operation 'cancelSpotPriceTriggeredOrderList'
      *
-     * @param string $market  Currency pair (optional)
-     * @param string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $market Currency pair (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7446,7 +8133,7 @@ class SpotApi
      *
      * Get a price-triggered order
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7463,7 +8150,7 @@ class SpotApi
      *
      * Get a price-triggered order
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7478,7 +8165,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7517,7 +8204,7 @@ class SpotApi
      *
      * Get a price-triggered order
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7537,7 +8224,7 @@ class SpotApi
      *
      * Get a price-triggered order
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7584,7 +8271,7 @@ class SpotApi
     /**
      * Create request for operation 'getSpotPriceTriggeredOrder'
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7686,7 +8373,7 @@ class SpotApi
      *
      * cancel a price-triggered order
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7703,7 +8390,7 @@ class SpotApi
      *
      * cancel a price-triggered order
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7718,7 +8405,7 @@ class SpotApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -7757,7 +8444,7 @@ class SpotApi
      *
      * cancel a price-triggered order
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7777,7 +8464,7 @@ class SpotApi
      *
      * cancel a price-triggered order
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7824,7 +8511,7 @@ class SpotApi
     /**
      * Create request for operation 'cancelSpotPriceTriggeredOrder'
      *
-     * @param string $order_id Retrieve the data of the order with the specified ID (required)
+     * @param  string $order_id Retrieve the data of the order with the specified ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

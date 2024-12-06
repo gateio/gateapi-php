@@ -42,17 +42,17 @@ class WithdrawStatus implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'WithdrawStatus';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency' => 'string',
         'name' => 'string',
@@ -64,14 +64,15 @@ class WithdrawStatus implements ModelInterface, ArrayAccess
         'withdraw_amount_mini' => 'string',
         'withdraw_day_limit_remain' => 'string',
         'withdraw_eachtime_limit' => 'string',
-        'withdraw_fix_on_chains' => 'map[string,string]'
+        'withdraw_fix_on_chains' => 'map[string,string]',
+        'withdraw_percent_on_chains' => 'map[string,string]'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency' => null,
         'name' => null,
@@ -83,7 +84,8 @@ class WithdrawStatus implements ModelInterface, ArrayAccess
         'withdraw_amount_mini' => null,
         'withdraw_day_limit_remain' => null,
         'withdraw_eachtime_limit' => null,
-        'withdraw_fix_on_chains' => null
+        'withdraw_fix_on_chains' => null,
+        'withdraw_percent_on_chains' => null
     ];
 
     /**
@@ -123,7 +125,8 @@ class WithdrawStatus implements ModelInterface, ArrayAccess
         'withdraw_amount_mini' => 'withdraw_amount_mini',
         'withdraw_day_limit_remain' => 'withdraw_day_limit_remain',
         'withdraw_eachtime_limit' => 'withdraw_eachtime_limit',
-        'withdraw_fix_on_chains' => 'withdraw_fix_on_chains'
+        'withdraw_fix_on_chains' => 'withdraw_fix_on_chains',
+        'withdraw_percent_on_chains' => 'withdraw_percent_on_chains'
     ];
 
     /**
@@ -142,7 +145,8 @@ class WithdrawStatus implements ModelInterface, ArrayAccess
         'withdraw_amount_mini' => 'setWithdrawAmountMini',
         'withdraw_day_limit_remain' => 'setWithdrawDayLimitRemain',
         'withdraw_eachtime_limit' => 'setWithdrawEachtimeLimit',
-        'withdraw_fix_on_chains' => 'setWithdrawFixOnChains'
+        'withdraw_fix_on_chains' => 'setWithdrawFixOnChains',
+        'withdraw_percent_on_chains' => 'setWithdrawPercentOnChains'
     ];
 
     /**
@@ -161,7 +165,8 @@ class WithdrawStatus implements ModelInterface, ArrayAccess
         'withdraw_amount_mini' => 'getWithdrawAmountMini',
         'withdraw_day_limit_remain' => 'getWithdrawDayLimitRemain',
         'withdraw_eachtime_limit' => 'getWithdrawEachtimeLimit',
-        'withdraw_fix_on_chains' => 'getWithdrawFixOnChains'
+        'withdraw_fix_on_chains' => 'getWithdrawFixOnChains',
+        'withdraw_percent_on_chains' => 'getWithdrawPercentOnChains'
     ];
 
     /**
@@ -235,6 +240,7 @@ class WithdrawStatus implements ModelInterface, ArrayAccess
         $this->container['withdraw_day_limit_remain'] = isset($data['withdraw_day_limit_remain']) ? $data['withdraw_day_limit_remain'] : null;
         $this->container['withdraw_eachtime_limit'] = isset($data['withdraw_eachtime_limit']) ? $data['withdraw_eachtime_limit'] : null;
         $this->container['withdraw_fix_on_chains'] = isset($data['withdraw_fix_on_chains']) ? $data['withdraw_fix_on_chains'] : null;
+        $this->container['withdraw_percent_on_chains'] = isset($data['withdraw_percent_on_chains']) ? $data['withdraw_percent_on_chains'] : null;
     }
 
     /**
@@ -521,6 +527,30 @@ class WithdrawStatus implements ModelInterface, ArrayAccess
     public function setWithdrawFixOnChains($withdraw_fix_on_chains)
     {
         $this->container['withdraw_fix_on_chains'] = $withdraw_fix_on_chains;
+
+        return $this;
+    }
+
+    /**
+     * Gets withdraw_percent_on_chains
+     *
+     * @return map[string,string]|null
+     */
+    public function getWithdrawPercentOnChains()
+    {
+        return $this->container['withdraw_percent_on_chains'];
+    }
+
+    /**
+     * Sets withdraw_percent_on_chains
+     *
+     * @param map[string,string]|null $withdraw_percent_on_chains Percentage withdrawal fee on multiple chains
+     *
+     * @return $this
+     */
+    public function setWithdrawPercentOnChains($withdraw_percent_on_chains)
+    {
+        $this->container['withdraw_percent_on_chains'] = $withdraw_percent_on_chains;
 
         return $this;
     }

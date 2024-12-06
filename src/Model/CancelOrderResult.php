@@ -32,31 +32,32 @@ use \GateApi\ObjectSerializer;
 /**
  * CancelOrderResult Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Order cancellation result
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class CancelOrderResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CancelOrderResult';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency_pair' => 'string',
         'id' => 'string',
+        'text' => 'string',
         'succeeded' => 'bool',
         'label' => 'string',
         'message' => 'string',
@@ -64,13 +65,14 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency_pair' => null,
         'id' => null,
+        'text' => null,
         'succeeded' => null,
         'label' => null,
         'message' => null,
@@ -106,6 +108,7 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'currency_pair' => 'currency_pair',
         'id' => 'id',
+        'text' => 'text',
         'succeeded' => 'succeeded',
         'label' => 'label',
         'message' => 'message',
@@ -120,6 +123,7 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
     protected static $setters = [
         'currency_pair' => 'setCurrencyPair',
         'id' => 'setId',
+        'text' => 'setText',
         'succeeded' => 'setSucceeded',
         'label' => 'setLabel',
         'message' => 'setMessage',
@@ -134,6 +138,7 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
     protected static $getters = [
         'currency_pair' => 'getCurrencyPair',
         'id' => 'getId',
+        'text' => 'getText',
         'succeeded' => 'getSucceeded',
         'label' => 'getLabel',
         'message' => 'getMessage',
@@ -202,6 +207,7 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
     {
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['succeeded'] = isset($data['succeeded']) ? $data['succeeded'] : null;
         $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
@@ -276,6 +282,30 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text Custom order information
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
 
         return $this;
     }

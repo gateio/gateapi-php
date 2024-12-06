@@ -14,5 +14,8 @@ Name | Type | Description | Notes
 **point_type** | **string** | Point type. 0 - Initial version. 1 - new version since 202009 | [optional] 
 **futures_taker_fee** | **string** | Futures trading taker fee | [optional] 
 **futures_maker_fee** | **string** | Future trading maker fee | [optional] 
+**delivery_taker_fee** | **string** | Delivery trading taker fee | [optional] 
+**delivery_maker_fee** | **string** | Delivery trading maker fee | [optional] 
+**debit_fee** | **int** | Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

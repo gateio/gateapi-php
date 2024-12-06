@@ -42,23 +42,24 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'MyFuturesTrade';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'int',
         'create_time' => 'double',
         'contract' => 'string',
         'order_id' => 'string',
         'size' => 'int',
+        'close_size' => 'int',
         'price' => 'string',
         'role' => 'string',
         'text' => 'string',
@@ -67,16 +68,17 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => 'int64',
         'create_time' => 'double',
         'contract' => null,
         'order_id' => null,
         'size' => 'int64',
+        'close_size' => 'int64',
         'price' => null,
         'role' => null,
         'text' => null,
@@ -116,6 +118,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         'contract' => 'contract',
         'order_id' => 'order_id',
         'size' => 'size',
+        'close_size' => 'close_size',
         'price' => 'price',
         'role' => 'role',
         'text' => 'text',
@@ -134,6 +137,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         'contract' => 'setContract',
         'order_id' => 'setOrderId',
         'size' => 'setSize',
+        'close_size' => 'setCloseSize',
         'price' => 'setPrice',
         'role' => 'setRole',
         'text' => 'setText',
@@ -152,6 +156,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         'contract' => 'getContract',
         'order_id' => 'getOrderId',
         'size' => 'getSize',
+        'close_size' => 'getCloseSize',
         'price' => 'getPrice',
         'role' => 'getRole',
         'text' => 'getText',
@@ -239,6 +244,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['close_size'] = isset($data['close_size']) ? $data['close_size'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
@@ -394,6 +400,30 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     public function setSize($size)
     {
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets close_size
+     *
+     * @return int|null
+     */
+    public function getCloseSize()
+    {
+        return $this->container['close_size'];
+    }
+
+    /**
+     * Sets close_size
+     *
+     * @param int|null $close_size Number of closed positions:  close_size=0 && size＞0       Open long position close_size=0 && size＜0       Open short position close_size>0 && size>0 && size <= close_size Close short postion close_size>0 && size>0 && size > close_size Close short position and open long position close_size<0 && size<0 && size >= close_size Close long postion close_size<0 && size<0 && size < close_size Close long position and open short position
+     *
+     * @return $this
+     */
+    public function setCloseSize($close_size)
+    {
+        $this->container['close_size'] = $close_size;
 
         return $this;
     }

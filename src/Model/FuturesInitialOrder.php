@@ -42,17 +42,17 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FuturesInitialOrder';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'contract' => 'string',
         'size' => 'int',
@@ -67,10 +67,10 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'contract' => null,
         'size' => 'int64',
@@ -426,7 +426,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text How the order is created. Possible values are: web, api and app
+     * @param string|null $text The source of the order, including: - web: web - api: api - app: app
      *
      * @return $this
      */

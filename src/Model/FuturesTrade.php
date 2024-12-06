@@ -42,38 +42,40 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FuturesTrade';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'int',
         'create_time' => 'double',
         'create_time_ms' => 'double',
         'contract' => 'string',
         'size' => 'int',
-        'price' => 'string'
+        'price' => 'string',
+        'is_internal' => 'bool'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => 'int64',
         'create_time' => 'double',
         'create_time_ms' => 'double',
         'contract' => null,
         'size' => 'int64',
-        'price' => null
+        'price' => null,
+        'is_internal' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class FuturesTrade implements ModelInterface, ArrayAccess
         'create_time_ms' => 'create_time_ms',
         'contract' => 'contract',
         'size' => 'size',
-        'price' => 'price'
+        'price' => 'price',
+        'is_internal' => 'is_internal'
     ];
 
     /**
@@ -122,7 +125,8 @@ class FuturesTrade implements ModelInterface, ArrayAccess
         'create_time_ms' => 'setCreateTimeMs',
         'contract' => 'setContract',
         'size' => 'setSize',
-        'price' => 'setPrice'
+        'price' => 'setPrice',
+        'is_internal' => 'setIsInternal'
     ];
 
     /**
@@ -136,7 +140,8 @@ class FuturesTrade implements ModelInterface, ArrayAccess
         'create_time_ms' => 'getCreateTimeMs',
         'contract' => 'getContract',
         'size' => 'getSize',
-        'price' => 'getPrice'
+        'price' => 'getPrice',
+        'is_internal' => 'getIsInternal'
     ];
 
     /**
@@ -205,6 +210,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['is_internal'] = isset($data['is_internal']) ? $data['is_internal'] : null;
     }
 
     /**
@@ -371,6 +377,30 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_internal
+     *
+     * @return bool|null
+     */
+    public function getIsInternal()
+    {
+        return $this->container['is_internal'];
+    }
+
+    /**
+     * Sets is_internal
+     *
+     * @param bool|null $is_internal Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned.
+     *
+     * @return $this
+     */
+    public function setIsInternal($is_internal)
+    {
+        $this->container['is_internal'] = $is_internal;
 
         return $this;
     }

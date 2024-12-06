@@ -71,7 +71,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/5.40.0/PHP';
+    protected $userAgent = 'OpenAPI-Generator/5.86.0/PHP';
 
     /**
      * Debug switch (default set to false)
@@ -387,18 +387,18 @@ class Configuration
         $report  = 'PHP SDK (GateApi) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    The version of the OpenAPI document: 4.40.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 5.40.0' . PHP_EOL;
+        $report .= '    The version of the OpenAPI document: 4.86.0' . PHP_EOL;
+        $report .= '    SDK Package Version: 5.86.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
     }
 
     /**
-     * @param  string $method       Request method
-     * @param  string $resourcePath Request path
-     * @param  array  $queryParams  Query parameter array
-     * @param  string $payload      Body string
+     * @param string $method Request method
+     * @param string $resourcePath Request path
+     * @param array  $queryParams Query parameter array
+     * @param string $payload Body string
      * @return array Signature headers
      */
     public function buildSignHeaders($method, $resourcePath, $queryParams = null, $payload = null)
@@ -406,15 +406,10 @@ class Configuration
         $fullPath = parse_url($this->getHost(), PHP_URL_PATH) . $resourcePath;
         $fmt = "%s\n%s\n%s\n%s\n%s";
         $timestamp = time();
-        $hashedPayload = hash("sha512", ($payload !== null) ? $payload : "");
-        $signatureString = sprintf(
-            $fmt,
-            $method,
-            $fullPath,
+        $hashedPayload = hash("sha512", ($payload != null) ? $payload : "");
+        $signatureString = sprintf($fmt, $method, $fullPath,
             \GuzzleHttp\Psr7\build_query($queryParams, false),
-            $hashedPayload,
-            $timestamp
-        );
+            $hashedPayload, $timestamp);
         $signature = hash_hmac("sha512", $signatureString, $this->getSecret());
         return [
             "KEY" => $this->getKey(),
@@ -430,29 +425,29 @@ class Configuration
      */
     public function getHostSettings()
     {
-        return [
-          [
+        return array(
+          array(
             "url" => "https://api.gateio.ws/api/v4",
             "description" => "Real Trading",
-          ],
-          [
+          ),
+          array(
             "url" => "https://fx-api-testnet.gateio.ws/api/v4",
             "description" => "TestNet Trading",
-          ]
-        ];
+          )
+        );
     }
 
     /**
      * Returns URL based on the index and variables
      *
-     * @param  int   $index     array index of the host settings
-     * @param  array $variables hash of variable and the corresponding value (optional)
+     * @param int $index array index of the host settings
+     * @param array $variables hash of variable and the corresponding value (optional)
      * @return string URL based on host settings
      */
     public function getHostFromSettings($index, $variables = null)
     {
         if (null === $variables) {
-            $variables = [];
+            $variables = array();
         }
 
         $hosts = $this->getHostSettings();
@@ -468,7 +463,7 @@ class Configuration
         // go through variable and assign a value
         foreach ($host["variables"] as $name => $variable) {
             if (array_key_exists($name, $variables)) { // check to see if it's in the variables provided by the user
-                if (in_array($variables[$name], $variable["enum_values"], true)) { // check to see if the value is in the enum
+                if (in_array($variables[$name], $variable["enum_values"])) { // check to see if the value is in the enum
                     $url = str_replace("{".$name."}", $variables[$name], $url);
                 } else {
                     throw new \InvalidArgumentException("The variable `$name` in the host URL has invalid value ".$variables[$name].". Must be ".join(',', $variable["enum_values"]).".");

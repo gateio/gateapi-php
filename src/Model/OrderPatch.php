@@ -32,41 +32,49 @@ use \GateApi\ObjectSerializer;
 /**
  * OrderPatch Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Spot order details
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class OrderPatch implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'OrderPatch';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
+        'currency_pair' => 'string',
+        'account' => 'string',
         'amount' => 'string',
-        'price' => 'string'
+        'price' => 'string',
+        'amend_text' => 'string',
+        'action_mode' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
+        'currency_pair' => null,
+        'account' => null,
         'amount' => null,
-        'price' => null
+        'price' => null,
+        'amend_text' => null,
+        'action_mode' => null
     ];
 
     /**
@@ -96,8 +104,12 @@ class OrderPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'currency_pair' => 'currency_pair',
+        'account' => 'account',
         'amount' => 'amount',
-        'price' => 'price'
+        'price' => 'price',
+        'amend_text' => 'amend_text',
+        'action_mode' => 'action_mode'
     ];
 
     /**
@@ -106,8 +118,12 @@ class OrderPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'currency_pair' => 'setCurrencyPair',
+        'account' => 'setAccount',
         'amount' => 'setAmount',
-        'price' => 'setPrice'
+        'price' => 'setPrice',
+        'amend_text' => 'setAmendText',
+        'action_mode' => 'setActionMode'
     ];
 
     /**
@@ -116,8 +132,12 @@ class OrderPatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'currency_pair' => 'getCurrencyPair',
+        'account' => 'getAccount',
         'amount' => 'getAmount',
-        'price' => 'getPrice'
+        'price' => 'getPrice',
+        'amend_text' => 'getAmendText',
+        'action_mode' => 'getActionMode'
     ];
 
     /**
@@ -180,8 +200,12 @@ class OrderPatch implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['amend_text'] = isset($data['amend_text']) ? $data['amend_text'] : null;
+        $this->container['action_mode'] = isset($data['action_mode']) ? $data['action_mode'] : null;
     }
 
     /**
@@ -192,6 +216,10 @@ class OrderPatch implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['amend_text']) && (mb_strlen($this->container['amend_text']) > 31)) {
+            $invalidProperties[] = "invalid value for 'amend_text', the character length must be smaller than or equal to 31.";
+        }
 
         return $invalidProperties;
     }
@@ -207,6 +235,54 @@ class OrderPatch implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets currency_pair
+     *
+     * @return string|null
+     */
+    public function getCurrencyPair()
+    {
+        return $this->container['currency_pair'];
+    }
+
+    /**
+     * Sets currency_pair
+     *
+     * @param string|null $currency_pair Currency pair
+     *
+     * @return $this
+     */
+    public function setCurrencyPair($currency_pair)
+    {
+        $this->container['currency_pair'] = $currency_pair;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return string|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param string|null $account 指定查询账户。
+     *
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
+
+        return $this;
+    }
 
     /**
      * Gets amount
@@ -252,6 +328,58 @@ class OrderPatch implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets amend_text
+     *
+     * @return string|null
+     */
+    public function getAmendText()
+    {
+        return $this->container['amend_text'];
+    }
+
+    /**
+     * Sets amend_text
+     *
+     * @param string|null $amend_text Custom info during amending order
+     *
+     * @return $this
+     */
+    public function setAmendText($amend_text)
+    {
+        if (!is_null($amend_text) && (mb_strlen($amend_text) > 31)) {
+            throw new \InvalidArgumentException('invalid length for $amend_text when calling OrderPatch., must be smaller than or equal to 31.');
+        }
+
+        $this->container['amend_text'] = $amend_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets action_mode
+     *
+     * @return string|null
+     */
+    public function getActionMode()
+    {
+        return $this->container['action_mode'];
+    }
+
+    /**
+     * Sets action_mode
+     *
+     * @param string|null $action_mode Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
+     *
+     * @return $this
+     */
+    public function setActionMode($action_mode)
+    {
+        $this->container['action_mode'] = $action_mode;
 
         return $this;
     }

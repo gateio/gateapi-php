@@ -42,19 +42,20 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CrossMarginAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'user_id' => 'int',
+        'refresh_time' => 'int',
         'locked' => 'bool',
         'balances' => 'map[string,\GateApi\Model\CrossMarginBalance]',
         'total' => 'string',
@@ -67,16 +68,19 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total_initial_margin_rate' => 'string',
         'total_maintenance_margin_rate' => 'string',
         'total_available_margin' => 'string',
-        'portfolio_margin_total' => 'string'
+        'portfolio_margin_total' => 'string',
+        'portfolio_margin_total_liab' => 'string',
+        'portfolio_margin_total_equity' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'user_id' => 'int64',
+        'refresh_time' => 'int64',
         'locked' => null,
         'balances' => null,
         'total' => null,
@@ -89,7 +93,9 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total_initial_margin_rate' => null,
         'total_maintenance_margin_rate' => null,
         'total_available_margin' => null,
-        'portfolio_margin_total' => null
+        'portfolio_margin_total' => null,
+        'portfolio_margin_total_liab' => null,
+        'portfolio_margin_total_equity' => null
     ];
 
     /**
@@ -120,6 +126,7 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'user_id' => 'user_id',
+        'refresh_time' => 'refresh_time',
         'locked' => 'locked',
         'balances' => 'balances',
         'total' => 'total',
@@ -132,7 +139,9 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total_initial_margin_rate' => 'total_initial_margin_rate',
         'total_maintenance_margin_rate' => 'total_maintenance_margin_rate',
         'total_available_margin' => 'total_available_margin',
-        'portfolio_margin_total' => 'portfolio_margin_total'
+        'portfolio_margin_total' => 'portfolio_margin_total',
+        'portfolio_margin_total_liab' => 'portfolio_margin_total_liab',
+        'portfolio_margin_total_equity' => 'portfolio_margin_total_equity'
     ];
 
     /**
@@ -142,6 +151,7 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'user_id' => 'setUserId',
+        'refresh_time' => 'setRefreshTime',
         'locked' => 'setLocked',
         'balances' => 'setBalances',
         'total' => 'setTotal',
@@ -154,7 +164,9 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total_initial_margin_rate' => 'setTotalInitialMarginRate',
         'total_maintenance_margin_rate' => 'setTotalMaintenanceMarginRate',
         'total_available_margin' => 'setTotalAvailableMargin',
-        'portfolio_margin_total' => 'setPortfolioMarginTotal'
+        'portfolio_margin_total' => 'setPortfolioMarginTotal',
+        'portfolio_margin_total_liab' => 'setPortfolioMarginTotalLiab',
+        'portfolio_margin_total_equity' => 'setPortfolioMarginTotalEquity'
     ];
 
     /**
@@ -164,6 +176,7 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'user_id' => 'getUserId',
+        'refresh_time' => 'getRefreshTime',
         'locked' => 'getLocked',
         'balances' => 'getBalances',
         'total' => 'getTotal',
@@ -176,7 +189,9 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         'total_initial_margin_rate' => 'getTotalInitialMarginRate',
         'total_maintenance_margin_rate' => 'getTotalMaintenanceMarginRate',
         'total_available_margin' => 'getTotalAvailableMargin',
-        'portfolio_margin_total' => 'getPortfolioMarginTotal'
+        'portfolio_margin_total' => 'getPortfolioMarginTotal',
+        'portfolio_margin_total_liab' => 'getPortfolioMarginTotalLiab',
+        'portfolio_margin_total_equity' => 'getPortfolioMarginTotalEquity'
     ];
 
     /**
@@ -240,6 +255,7 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['refresh_time'] = isset($data['refresh_time']) ? $data['refresh_time'] : null;
         $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
         $this->container['balances'] = isset($data['balances']) ? $data['balances'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
@@ -253,6 +269,8 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
         $this->container['total_maintenance_margin_rate'] = isset($data['total_maintenance_margin_rate']) ? $data['total_maintenance_margin_rate'] : null;
         $this->container['total_available_margin'] = isset($data['total_available_margin']) ? $data['total_available_margin'] : null;
         $this->container['portfolio_margin_total'] = isset($data['portfolio_margin_total']) ? $data['portfolio_margin_total'] : null;
+        $this->container['portfolio_margin_total_liab'] = isset($data['portfolio_margin_total_liab']) ? $data['portfolio_margin_total_liab'] : null;
+        $this->container['portfolio_margin_total_equity'] = isset($data['portfolio_margin_total_equity']) ? $data['portfolio_margin_total_equity'] : null;
     }
 
     /**
@@ -299,6 +317,30 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
     public function setUserId($user_id)
     {
         $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets refresh_time
+     *
+     * @return int|null
+     */
+    public function getRefreshTime()
+    {
+        return $this->container['refresh_time'];
+    }
+
+    /**
+     * Sets refresh_time
+     *
+     * @param int|null $refresh_time Time of the most recent refresh
+     *
+     * @return $this
+     */
+    public function setRefreshTime($refresh_time)
+    {
+        $this->container['refresh_time'] = $refresh_time;
 
         return $this;
     }
@@ -484,7 +526,7 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total_margin_balance
      *
-     * @param string|null $total_margin_balance Total margin balance
+     * @param string|null $total_margin_balance Total Margin Balance (∑(positive equity ＊ index price * discount) + ∑(negative equity * index price))
      *
      * @return $this
      */
@@ -611,6 +653,54 @@ class CrossMarginAccount implements ModelInterface, ArrayAccess
     public function setPortfolioMarginTotal($portfolio_margin_total)
     {
         $this->container['portfolio_margin_total'] = $portfolio_margin_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets portfolio_margin_total_liab
+     *
+     * @return string|null
+     */
+    public function getPortfolioMarginTotalLiab()
+    {
+        return $this->container['portfolio_margin_total_liab'];
+    }
+
+    /**
+     * Sets portfolio_margin_total_liab
+     *
+     * @param string|null $portfolio_margin_total_liab Total liabilities of the portfolio margin account
+     *
+     * @return $this
+     */
+    public function setPortfolioMarginTotalLiab($portfolio_margin_total_liab)
+    {
+        $this->container['portfolio_margin_total_liab'] = $portfolio_margin_total_liab;
+
+        return $this;
+    }
+
+    /**
+     * Gets portfolio_margin_total_equity
+     *
+     * @return string|null
+     */
+    public function getPortfolioMarginTotalEquity()
+    {
+        return $this->container['portfolio_margin_total_equity'];
+    }
+
+    /**
+     * Sets portfolio_margin_total_equity
+     *
+     * @param string|null $portfolio_margin_total_equity Total equity of the portfolio margin account
+     *
+     * @return $this
+     */
+    public function setPortfolioMarginTotalEquity($portfolio_margin_total_equity)
+    {
+        $this->container['portfolio_margin_total_equity'] = $portfolio_margin_total_equity;
 
         return $this;
     }

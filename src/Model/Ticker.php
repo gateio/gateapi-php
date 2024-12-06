@@ -42,22 +42,24 @@ class Ticker implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'Ticker';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency_pair' => 'string',
         'last' => 'string',
         'lowest_ask' => 'string',
+        'lowest_size' => 'string',
         'highest_bid' => 'string',
+        'highest_size' => 'string',
         'change_percentage' => 'string',
         'change_utc0' => 'string',
         'change_utc8' => 'string',
@@ -72,15 +74,17 @@ class Ticker implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency_pair' => null,
         'last' => null,
         'lowest_ask' => null,
+        'lowest_size' => null,
         'highest_bid' => null,
+        'highest_size' => null,
         'change_percentage' => null,
         'change_utc0' => null,
         'change_utc8' => null,
@@ -124,7 +128,9 @@ class Ticker implements ModelInterface, ArrayAccess
         'currency_pair' => 'currency_pair',
         'last' => 'last',
         'lowest_ask' => 'lowest_ask',
+        'lowest_size' => 'lowest_size',
         'highest_bid' => 'highest_bid',
+        'highest_size' => 'highest_size',
         'change_percentage' => 'change_percentage',
         'change_utc0' => 'change_utc0',
         'change_utc8' => 'change_utc8',
@@ -147,7 +153,9 @@ class Ticker implements ModelInterface, ArrayAccess
         'currency_pair' => 'setCurrencyPair',
         'last' => 'setLast',
         'lowest_ask' => 'setLowestAsk',
+        'lowest_size' => 'setLowestSize',
         'highest_bid' => 'setHighestBid',
+        'highest_size' => 'setHighestSize',
         'change_percentage' => 'setChangePercentage',
         'change_utc0' => 'setChangeUtc0',
         'change_utc8' => 'setChangeUtc8',
@@ -170,7 +178,9 @@ class Ticker implements ModelInterface, ArrayAccess
         'currency_pair' => 'getCurrencyPair',
         'last' => 'getLast',
         'lowest_ask' => 'getLowestAsk',
+        'lowest_size' => 'getLowestSize',
         'highest_bid' => 'getHighestBid',
+        'highest_size' => 'getHighestSize',
         'change_percentage' => 'getChangePercentage',
         'change_utc0' => 'getChangeUtc0',
         'change_utc8' => 'getChangeUtc8',
@@ -247,7 +257,9 @@ class Ticker implements ModelInterface, ArrayAccess
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['last'] = isset($data['last']) ? $data['last'] : null;
         $this->container['lowest_ask'] = isset($data['lowest_ask']) ? $data['lowest_ask'] : null;
+        $this->container['lowest_size'] = isset($data['lowest_size']) ? $data['lowest_size'] : null;
         $this->container['highest_bid'] = isset($data['highest_bid']) ? $data['highest_bid'] : null;
+        $this->container['highest_size'] = isset($data['highest_size']) ? $data['highest_size'] : null;
         $this->container['change_percentage'] = isset($data['change_percentage']) ? $data['change_percentage'] : null;
         $this->container['change_utc0'] = isset($data['change_utc0']) ? $data['change_utc0'] : null;
         $this->container['change_utc8'] = isset($data['change_utc8']) ? $data['change_utc8'] : null;
@@ -358,6 +370,30 @@ class Ticker implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets lowest_size
+     *
+     * @return string|null
+     */
+    public function getLowestSize()
+    {
+        return $this->container['lowest_size'];
+    }
+
+    /**
+     * Sets lowest_size
+     *
+     * @param string|null $lowest_size The latest seller's lowest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data
+     *
+     * @return $this
+     */
+    public function setLowestSize($lowest_size)
+    {
+        $this->container['lowest_size'] = $lowest_size;
+
+        return $this;
+    }
+
+    /**
      * Gets highest_bid
      *
      * @return string|null
@@ -377,6 +413,30 @@ class Ticker implements ModelInterface, ArrayAccess
     public function setHighestBid($highest_bid)
     {
         $this->container['highest_bid'] = $highest_bid;
+
+        return $this;
+    }
+
+    /**
+     * Gets highest_size
+     *
+     * @return string|null
+     */
+    public function getHighestSize()
+    {
+        return $this->container['highest_size'];
+    }
+
+    /**
+     * Sets highest_size
+     *
+     * @param string|null $highest_size The latest buyer's highest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data
+     *
+     * @return $this
+     */
+    public function setHighestSize($highest_size)
+    {
+        $this->container['highest_size'] = $highest_size;
 
         return $this;
     }

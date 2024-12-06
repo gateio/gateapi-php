@@ -32,29 +32,31 @@ use \GateApi\ObjectSerializer;
 /**
  * BatchOrder Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Batch order details
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class BatchOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'BatchOrder';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
+        'order_id' => 'string',
+        'amend_text' => 'string',
         'text' => 'string',
         'succeeded' => 'bool',
         'label' => 'string',
@@ -76,23 +78,30 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'auto_borrow' => 'bool',
         'auto_repay' => 'bool',
         'left' => 'string',
+        'filled_amount' => 'string',
         'fill_price' => 'string',
         'filled_total' => 'string',
+        'avg_deal_price' => 'string',
         'fee' => 'string',
         'fee_currency' => 'string',
         'point_fee' => 'string',
         'gt_fee' => 'string',
         'gt_discount' => 'bool',
         'rebated_fee' => 'string',
-        'rebated_fee_currency' => 'string'
+        'rebated_fee_currency' => 'string',
+        'stp_id' => 'int',
+        'stp_act' => 'string',
+        'finish_as' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
+        'order_id' => null,
+        'amend_text' => null,
         'text' => null,
         'succeeded' => null,
         'label' => null,
@@ -114,15 +123,20 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'auto_borrow' => null,
         'auto_repay' => null,
         'left' => null,
+        'filled_amount' => null,
         'fill_price' => null,
         'filled_total' => null,
+        'avg_deal_price' => null,
         'fee' => null,
         'fee_currency' => null,
         'point_fee' => null,
         'gt_fee' => null,
         'gt_discount' => null,
         'rebated_fee' => null,
-        'rebated_fee_currency' => null
+        'rebated_fee_currency' => null,
+        'stp_id' => null,
+        'stp_act' => null,
+        'finish_as' => null
     ];
 
     /**
@@ -152,6 +166,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'order_id' => 'order_id',
+        'amend_text' => 'amend_text',
         'text' => 'text',
         'succeeded' => 'succeeded',
         'label' => 'label',
@@ -173,15 +189,20 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'auto_borrow' => 'auto_borrow',
         'auto_repay' => 'auto_repay',
         'left' => 'left',
+        'filled_amount' => 'filled_amount',
         'fill_price' => 'fill_price',
         'filled_total' => 'filled_total',
+        'avg_deal_price' => 'avg_deal_price',
         'fee' => 'fee',
         'fee_currency' => 'fee_currency',
         'point_fee' => 'point_fee',
         'gt_fee' => 'gt_fee',
         'gt_discount' => 'gt_discount',
         'rebated_fee' => 'rebated_fee',
-        'rebated_fee_currency' => 'rebated_fee_currency'
+        'rebated_fee_currency' => 'rebated_fee_currency',
+        'stp_id' => 'stp_id',
+        'stp_act' => 'stp_act',
+        'finish_as' => 'finish_as'
     ];
 
     /**
@@ -190,6 +211,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'order_id' => 'setOrderId',
+        'amend_text' => 'setAmendText',
         'text' => 'setText',
         'succeeded' => 'setSucceeded',
         'label' => 'setLabel',
@@ -211,15 +234,20 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'auto_borrow' => 'setAutoBorrow',
         'auto_repay' => 'setAutoRepay',
         'left' => 'setLeft',
+        'filled_amount' => 'setFilledAmount',
         'fill_price' => 'setFillPrice',
         'filled_total' => 'setFilledTotal',
+        'avg_deal_price' => 'setAvgDealPrice',
         'fee' => 'setFee',
         'fee_currency' => 'setFeeCurrency',
         'point_fee' => 'setPointFee',
         'gt_fee' => 'setGtFee',
         'gt_discount' => 'setGtDiscount',
         'rebated_fee' => 'setRebatedFee',
-        'rebated_fee_currency' => 'setRebatedFeeCurrency'
+        'rebated_fee_currency' => 'setRebatedFeeCurrency',
+        'stp_id' => 'setStpId',
+        'stp_act' => 'setStpAct',
+        'finish_as' => 'setFinishAs'
     ];
 
     /**
@@ -228,6 +256,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'order_id' => 'getOrderId',
+        'amend_text' => 'getAmendText',
         'text' => 'getText',
         'succeeded' => 'getSucceeded',
         'label' => 'getLabel',
@@ -249,15 +279,20 @@ class BatchOrder implements ModelInterface, ArrayAccess
         'auto_borrow' => 'getAutoBorrow',
         'auto_repay' => 'getAutoRepay',
         'left' => 'getLeft',
+        'filled_amount' => 'getFilledAmount',
         'fill_price' => 'getFillPrice',
         'filled_total' => 'getFilledTotal',
+        'avg_deal_price' => 'getAvgDealPrice',
         'fee' => 'getFee',
         'fee_currency' => 'getFeeCurrency',
         'point_fee' => 'getPointFee',
         'gt_fee' => 'getGtFee',
         'gt_discount' => 'getGtDiscount',
         'rebated_fee' => 'getRebatedFee',
-        'rebated_fee_currency' => 'getRebatedFeeCurrency'
+        'rebated_fee_currency' => 'getRebatedFeeCurrency',
+        'stp_id' => 'getStpId',
+        'stp_act' => 'getStpAct',
+        'finish_as' => 'getFinishAs'
     ];
 
     /**
@@ -309,12 +344,22 @@ class BatchOrder implements ModelInterface, ArrayAccess
     const ACCOUNT_SPOT = 'spot';
     const ACCOUNT_MARGIN = 'margin';
     const ACCOUNT_CROSS_MARGIN = 'cross_margin';
+    const ACCOUNT_UNIFIED = 'unified';
     const SIDE_BUY = 'buy';
     const SIDE_SELL = 'sell';
     const TIME_IN_FORCE_GTC = 'gtc';
     const TIME_IN_FORCE_IOC = 'ioc';
     const TIME_IN_FORCE_POC = 'poc';
     const TIME_IN_FORCE_FOK = 'fok';
+    const STP_ACT_CN = 'cn';
+    const STP_ACT_CO = 'co';
+    const STP_ACT_CB = 'cb';
+    const STP_ACT_MINUS = '-';
+    const FINISH_AS_OPEN = 'open';
+    const FINISH_AS_FILLED = 'filled';
+    const FINISH_AS_CANCELLED = 'cancelled';
+    const FINISH_AS_IOC = 'ioc';
+    const FINISH_AS_STP = 'stp';
     
 
     
@@ -356,6 +401,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
             self::ACCOUNT_SPOT,
             self::ACCOUNT_MARGIN,
             self::ACCOUNT_CROSS_MARGIN,
+            self::ACCOUNT_UNIFIED,
         ];
     }
     
@@ -387,6 +433,37 @@ class BatchOrder implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStpActAllowableValues()
+    {
+        return [
+            self::STP_ACT_CN,
+            self::STP_ACT_CO,
+            self::STP_ACT_CB,
+            self::STP_ACT_MINUS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFinishAsAllowableValues()
+    {
+        return [
+            self::FINISH_AS_OPEN,
+            self::FINISH_AS_FILLED,
+            self::FINISH_AS_CANCELLED,
+            self::FINISH_AS_IOC,
+            self::FINISH_AS_STP,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -403,6 +480,8 @@ class BatchOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['amend_text'] = isset($data['amend_text']) ? $data['amend_text'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['succeeded'] = isset($data['succeeded']) ? $data['succeeded'] : null;
         $this->container['label'] = isset($data['label']) ? $data['label'] : null;
@@ -424,8 +503,10 @@ class BatchOrder implements ModelInterface, ArrayAccess
         $this->container['auto_borrow'] = isset($data['auto_borrow']) ? $data['auto_borrow'] : null;
         $this->container['auto_repay'] = isset($data['auto_repay']) ? $data['auto_repay'] : null;
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
+        $this->container['filled_amount'] = isset($data['filled_amount']) ? $data['filled_amount'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
         $this->container['filled_total'] = isset($data['filled_total']) ? $data['filled_total'] : null;
+        $this->container['avg_deal_price'] = isset($data['avg_deal_price']) ? $data['avg_deal_price'] : null;
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
         $this->container['fee_currency'] = isset($data['fee_currency']) ? $data['fee_currency'] : null;
         $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
@@ -433,6 +514,9 @@ class BatchOrder implements ModelInterface, ArrayAccess
         $this->container['gt_discount'] = isset($data['gt_discount']) ? $data['gt_discount'] : null;
         $this->container['rebated_fee'] = isset($data['rebated_fee']) ? $data['rebated_fee'] : null;
         $this->container['rebated_fee_currency'] = isset($data['rebated_fee_currency']) ? $data['rebated_fee_currency'] : null;
+        $this->container['stp_id'] = isset($data['stp_id']) ? $data['stp_id'] : null;
+        $this->container['stp_act'] = isset($data['stp_act']) ? $data['stp_act'] : null;
+        $this->container['finish_as'] = isset($data['finish_as']) ? $data['finish_as'] : null;
     }
 
     /**
@@ -484,6 +568,22 @@ class BatchOrder implements ModelInterface, ArrayAccess
             );
         }
 
+        $allowedValues = $this->getStpActAllowableValues();
+        if (!is_null($this->container['stp_act']) && !in_array($this->container['stp_act'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'stp_act', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getFinishAsAllowableValues();
+        if (!is_null($this->container['finish_as']) && !in_array($this->container['finish_as'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'finish_as', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -498,6 +598,54 @@ class BatchOrder implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets order_id
+     *
+     * @return string|null
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param string|null $order_id Order ID
+     *
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets amend_text
+     *
+     * @return string|null
+     */
+    public function getAmendText()
+    {
+        return $this->container['amend_text'];
+    }
+
+    /**
+     * Sets amend_text
+     *
+     * @param string|null $amend_text The custom data that the user remarked when amending the order
+     *
+     * @return $this
+     */
+    public function setAmendText($amend_text)
+    {
+        $this->container['amend_text'] = $amend_text;
+
+        return $this;
+    }
 
     /**
      * Gets text
@@ -818,7 +966,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
+     * @param string|null $account Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, unified - unified account
      *
      * @return $this
      */
@@ -1013,7 +1161,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_repay
      *
-     * @param bool|null $auto_repay Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. `auto_borrow` and `auto_repay` cannot be both set to true in one order.
+     * @param bool|null $auto_repay Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. `auto_borrow` and `auto_repay` can be both set to true in one order.
      *
      * @return $this
      */
@@ -1044,6 +1192,30 @@ class BatchOrder implements ModelInterface, ArrayAccess
     public function setLeft($left)
     {
         $this->container['left'] = $left;
+
+        return $this;
+    }
+
+    /**
+     * Gets filled_amount
+     *
+     * @return string|null
+     */
+    public function getFilledAmount()
+    {
+        return $this->container['filled_amount'];
+    }
+
+    /**
+     * Sets filled_amount
+     *
+     * @param string|null $filled_amount Amount traded to fill
+     *
+     * @return $this
+     */
+    public function setFilledAmount($filled_amount)
+    {
+        $this->container['filled_amount'] = $filled_amount;
 
         return $this;
     }
@@ -1092,6 +1264,30 @@ class BatchOrder implements ModelInterface, ArrayAccess
     public function setFilledTotal($filled_total)
     {
         $this->container['filled_total'] = $filled_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_deal_price
+     *
+     * @return string|null
+     */
+    public function getAvgDealPrice()
+    {
+        return $this->container['avg_deal_price'];
+    }
+
+    /**
+     * Sets avg_deal_price
+     *
+     * @param string|null $avg_deal_price Average fill price
+     *
+     * @return $this
+     */
+    public function setAvgDealPrice($avg_deal_price)
+    {
+        $this->container['avg_deal_price'] = $avg_deal_price;
 
         return $this;
     }
@@ -1260,6 +1456,96 @@ class BatchOrder implements ModelInterface, ArrayAccess
     public function setRebatedFeeCurrency($rebated_fee_currency)
     {
         $this->container['rebated_fee_currency'] = $rebated_fee_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets stp_id
+     *
+     * @return int|null
+     */
+    public function getStpId()
+    {
+        return $this->container['stp_id'];
+    }
+
+    /**
+     * Sets stp_id
+     *
+     * @param int|null $stp_id Orders between users in the same `stp_id` group are not allowed to be self-traded  1. If the `stp_id` of two orders being matched is non-zero and equal, they will not be executed. Instead, the corresponding strategy will be executed based on the `stp_act` of the taker. 2. `stp_id` returns `0` by default for orders that have not been set for `STP group`
+     *
+     * @return $this
+     */
+    public function setStpId($stp_id)
+    {
+        $this->container['stp_id'] = $stp_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets stp_act
+     *
+     * @return string|null
+     */
+    public function getStpAct()
+    {
+        return $this->container['stp_act'];
+    }
+
+    /**
+     * Sets stp_act
+     *
+     * @param string|null $stp_act Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the `STP Group`, he can pass `stp_act` to limit the user's self-trade prevetion strategy. If `stp_act` is not passed, the default is `cn` strategy。 2. When the user does not join the `STP group`, an error will be returned when passing the `stp_act` parameter。 3. If the user did not use 'stp_act' when placing the order, 'stp_act' will return '-'  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     *
+     * @return $this
+     */
+    public function setStpAct($stp_act)
+    {
+        $allowedValues = $this->getStpActAllowableValues();
+        if (!is_null($stp_act) && !in_array($stp_act, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'stp_act', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['stp_act'] = $stp_act;
+
+        return $this;
+    }
+
+    /**
+     * Gets finish_as
+     *
+     * @return string|null
+     */
+    public function getFinishAs()
+    {
+        return $this->container['finish_as'];
+    }
+
+    /**
+     * Sets finish_as
+     *
+     * @param string|null $finish_as How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is `IOC`, finish immediately - stp: cancelled because self trade prevention
+     *
+     * @return $this
+     */
+    public function setFinishAs($finish_as)
+    {
+        $allowedValues = $this->getFinishAsAllowableValues();
+        if (!is_null($finish_as) && !in_array($finish_as, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'finish_as', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['finish_as'] = $finish_as;
 
         return $this;
     }

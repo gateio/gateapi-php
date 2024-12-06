@@ -4,7 +4,8 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listFlashSwapCurrencies**](FlashSwapApi.md#listFlashSwapCurrencies) | **GET** /flash_swap/currencies | List all supported currencies in flash swap
+[**listFlashSwapCurrencies**](FlashSwapApi.md#listFlashSwapCurrencies) | **GET** /flash_swap/currencies | List All Supported Currencies In Flash Swap (deprecated)
+[**listFlashSwapCurrencyPair**](FlashSwapApi.md#listFlashSwapCurrencyPair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap
 [**listFlashSwapOrders**](FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders
 [**createFlashSwapOrder**](FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
 [**getFlashSwapOrder**](FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Get a single flash swap order&#39;s detail
@@ -15,7 +16,7 @@ Method | HTTP request | Description
 
 > \GateApi\Model\FlashSwapCurrency[] listFlashSwapCurrencies()
 
-List all supported currencies in flash swap
+List All Supported Currencies In Flash Swap (deprecated)
 
 ### Example
 
@@ -48,6 +49,70 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\GateApi\Model\FlashSwapCurrency[]**](../Model/FlashSwapCurrency.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listFlashSwapCurrencyPair
+
+> \GateApi\Model\FlashSwapCurrencyPair[] listFlashSwapCurrencyPair($currency, $page, $limit)
+
+List All Supported Currency Pairs In Flash Swap
+
+`BTC_GT` represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new GateApi\Api\FlashSwapApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 1000; // int | Maximum response items.  Default: 100, minimum: 1, Maximum: 1000
+
+try {
+    $result = $apiInstance->listFlashSwapCurrencyPair($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FlashSwapApi->listFlashSwapCurrencyPair: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieve data of the specified currency | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 | [optional] [default to 1000]
+
+### Return type
+
+[**\GateApi\Model\FlashSwapCurrencyPair[]**](../Model/FlashSwapCurrencyPair.md)
 
 ### Authorization
 
@@ -259,7 +324,7 @@ Name | Type | Description  | Notes
 
 ## previewFlashSwapOrder
 
-> \GateApi\Model\FlashSwapOrderPreview previewFlashSwapOrder($flash_swap_order_request)
+> \GateApi\Model\FlashSwapOrderPreview previewFlashSwapOrder($flash_swap_preview_request)
 
 Initiate a flash swap order preview
 
@@ -279,10 +344,10 @@ $apiInstance = new GateApi\Api\FlashSwapApi(
     new GuzzleHttp\Client(),
     $config
 );
-$flash_swap_order_request = new \GateApi\Model\FlashSwapOrderRequest(); // \GateApi\Model\FlashSwapOrderRequest | 
+$flash_swap_preview_request = new \GateApi\Model\FlashSwapPreviewRequest(); // \GateApi\Model\FlashSwapPreviewRequest | 
 
 try {
-    $result = $apiInstance->previewFlashSwapOrder($flash_swap_order_request);
+    $result = $apiInstance->previewFlashSwapOrder($flash_swap_preview_request);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -297,7 +362,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **flash_swap_order_request** | [**\GateApi\Model\FlashSwapOrderRequest**](../Model/FlashSwapOrderRequest.md)|  |
+ **flash_swap_preview_request** | [**\GateApi\Model\FlashSwapPreviewRequest**](../Model/FlashSwapPreviewRequest.md)|  |
 
 ### Return type
 

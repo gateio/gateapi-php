@@ -42,39 +42,41 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubAccountTransfer';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency' => 'string',
         'sub_account' => 'string',
         'direction' => 'string',
         'amount' => 'string',
         'uid' => 'string',
+        'client_order_id' => 'string',
         'timest' => 'string',
         'source' => 'string',
         'sub_account_type' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency' => null,
         'sub_account' => null,
         'direction' => null,
         'amount' => null,
         'uid' => null,
+        'client_order_id' => null,
         'timest' => null,
         'source' => null,
         'sub_account_type' => null
@@ -112,6 +114,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         'direction' => 'direction',
         'amount' => 'amount',
         'uid' => 'uid',
+        'client_order_id' => 'client_order_id',
         'timest' => 'timest',
         'source' => 'source',
         'sub_account_type' => 'sub_account_type'
@@ -128,6 +131,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         'direction' => 'setDirection',
         'amount' => 'setAmount',
         'uid' => 'setUid',
+        'client_order_id' => 'setClientOrderId',
         'timest' => 'setTimest',
         'source' => 'setSource',
         'sub_account_type' => 'setSubAccountType'
@@ -144,6 +148,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         'direction' => 'getDirection',
         'amount' => 'getAmount',
         'uid' => 'getUid',
+        'client_order_id' => 'getClientOrderId',
         'timest' => 'getTimest',
         'source' => 'getSource',
         'sub_account_type' => 'getSubAccountType'
@@ -190,40 +195,8 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const DIRECTION_TO = 'to';
-    const DIRECTION_FROM = 'from';
-    const SUB_ACCOUNT_TYPE_SPOT = 'spot';
-    const SUB_ACCOUNT_TYPE_FUTURES = 'futures';
-    const SUB_ACCOUNT_TYPE_CROSS_MARGIN = 'cross_margin';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDirectionAllowableValues()
-    {
-        return [
-            self::DIRECTION_TO,
-            self::DIRECTION_FROM,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubAccountTypeAllowableValues()
-    {
-        return [
-            self::SUB_ACCOUNT_TYPE_SPOT,
-            self::SUB_ACCOUNT_TYPE_FUTURES,
-            self::SUB_ACCOUNT_TYPE_CROSS_MARGIN,
-        ];
-    }
     
 
     /**
@@ -246,6 +219,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['client_order_id'] = isset($data['client_order_id']) ? $data['client_order_id'] : null;
         $this->container['timest'] = isset($data['timest']) ? $data['timest'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['sub_account_type'] = isset($data['sub_account_type']) ? $data['sub_account_type'] : 'spot';
@@ -269,25 +243,9 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
         if ($this->container['direction'] === null) {
             $invalidProperties[] = "'direction' can't be null";
         }
-        $allowedValues = $this->getDirectionAllowableValues();
-        if (!is_null($this->container['direction']) && !in_array($this->container['direction'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'direction', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        $allowedValues = $this->getSubAccountTypeAllowableValues();
-        if (!is_null($this->container['sub_account_type']) && !in_array($this->container['sub_account_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'sub_account_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -370,15 +328,6 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
      */
     public function setDirection($direction)
     {
-        $allowedValues = $this->getDirectionAllowableValues();
-        if (!in_array($direction, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'direction', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['direction'] = $direction;
 
         return $this;
@@ -428,6 +377,30 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     public function setUid($uid)
     {
         $this->container['uid'] = $uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_order_id
+     *
+     * @return string|null
+     */
+    public function getClientOrderId()
+    {
+        return $this->container['client_order_id'];
+    }
+
+    /**
+     * Sets client_order_id
+     *
+     * @param string|null $client_order_id The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens '-', and underscores '_', with a length ranging from 1 to 64 characters.
+     *
+     * @return $this
+     */
+    public function setClientOrderId($client_order_id)
+    {
+        $this->container['client_order_id'] = $client_order_id;
 
         return $this;
     }
@@ -493,21 +466,12 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets sub_account_type
      *
-     * @param string|null $sub_account_type Target sub user's account. `spot` - spot account, `futures` - perpetual contract account, `cross_margin` - cross margin account
+     * @param string|null $sub_account_type Target sub user's account. `spot` - spot account, `futures` - perpetual contract account, `delivery` - delivery account
      *
      * @return $this
      */
     public function setSubAccountType($sub_account_type)
     {
-        $allowedValues = $this->getSubAccountTypeAllowableValues();
-        if (!is_null($sub_account_type) && !in_array($sub_account_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'sub_account_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['sub_account_type'] = $sub_account_type;
 
         return $this;

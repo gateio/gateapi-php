@@ -88,7 +88,7 @@ class SubAccountApi
     /**
      * Set the host index
      *
-     * @param int Host index (required)
+     * @param  int Host index (required)
      */
     public function setHostIndex($host_index)
     {
@@ -118,13 +118,17 @@ class SubAccountApi
      *
      * List sub-accounts
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $type &#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\SubAccount[]
      */
-    public function listSubAccounts()
+    public function listSubAccounts($associative_array)
     {
-        list($response) = $this->listSubAccountsWithHttpInfo();
+        list($response) = $this->listSubAccountsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -133,20 +137,24 @@ class SubAccountApi
      *
      * List sub-accounts
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $type &#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)
+     *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\SubAccount[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSubAccountsWithHttpInfo()
+    public function listSubAccountsWithHttpInfo($associative_array)
     {
-        $request = $this->listSubAccountsRequest();
+        $request = $this->listSubAccountsRequest($associative_array);
 
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -185,12 +193,16 @@ class SubAccountApi
      *
      * List sub-accounts
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $type &#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSubAccountsAsync()
+    public function listSubAccountsAsync($associative_array)
     {
-        return $this->listSubAccountsAsyncWithHttpInfo()
+        return $this->listSubAccountsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -203,13 +215,17 @@ class SubAccountApi
      *
      * List sub-accounts
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $type &#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSubAccountsAsyncWithHttpInfo()
+    public function listSubAccountsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\GateApi\Model\SubAccount[]';
-        $request = $this->listSubAccountsRequest();
+        $request = $this->listSubAccountsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -248,11 +264,18 @@ class SubAccountApi
     /**
      * Create request for operation 'listSubAccounts'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $type &#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)
+     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listSubAccountsRequest()
+    protected function listSubAccountsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $type = array_key_exists('type', $associative_array) ? $associative_array['type'] : null;
+
 
         $resourcePath = '/sub_accounts';
         $formParams = [];
@@ -260,6 +283,18 @@ class SubAccountApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // query params
+        if ($type !== null) {
+            if('form' === 'form' && is_array($type)) {
+                foreach($type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['type'] = $type;
+            }
+        }
 
         // body params
         $_tempBody = null;
@@ -333,7 +368,7 @@ class SubAccountApi
      *
      * Create a new sub-account
      *
-     * @param \GateApi\Model\SubAccount $sub_account sub_account (required)
+     * @param  \GateApi\Model\SubAccount $sub_account sub_account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -350,7 +385,7 @@ class SubAccountApi
      *
      * Create a new sub-account
      *
-     * @param \GateApi\Model\SubAccount $sub_account (required)
+     * @param  \GateApi\Model\SubAccount $sub_account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -365,7 +400,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -404,7 +439,7 @@ class SubAccountApi
      *
      * Create a new sub-account
      *
-     * @param \GateApi\Model\SubAccount $sub_account (required)
+     * @param  \GateApi\Model\SubAccount $sub_account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -424,7 +459,7 @@ class SubAccountApi
      *
      * Create a new sub-account
      *
-     * @param \GateApi\Model\SubAccount $sub_account (required)
+     * @param  \GateApi\Model\SubAccount $sub_account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -471,7 +506,7 @@ class SubAccountApi
     /**
      * Create request for operation 'createSubAccounts'
      *
-     * @param \GateApi\Model\SubAccount $sub_account (required)
+     * @param  \GateApi\Model\SubAccount $sub_account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -567,7 +602,7 @@ class SubAccountApi
      *
      * Get the sub-account
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -584,7 +619,7 @@ class SubAccountApi
      *
      * Get the sub-account
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -599,7 +634,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -638,7 +673,7 @@ class SubAccountApi
      *
      * Get the sub-account
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -658,7 +693,7 @@ class SubAccountApi
      *
      * Get the sub-account
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -705,7 +740,7 @@ class SubAccountApi
     /**
      * Create request for operation 'getSubAccount'
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -807,7 +842,7 @@ class SubAccountApi
      *
      * List all API Key of the sub-account
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -824,7 +859,7 @@ class SubAccountApi
      *
      * List all API Key of the sub-account
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -839,7 +874,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -878,7 +913,7 @@ class SubAccountApi
      *
      * List all API Key of the sub-account
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -898,7 +933,7 @@ class SubAccountApi
      *
      * List all API Key of the sub-account
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -945,7 +980,7 @@ class SubAccountApi
     /**
      * Create request for operation 'listSubAccountKeys'
      *
-     * @param int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1047,8 +1082,8 @@ class SubAccountApi
      *
      * Create API Key of the sub-account
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key sub_account_key (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1065,8 +1100,8 @@ class SubAccountApi
      *
      * Create API Key of the sub-account
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1081,7 +1116,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1120,8 +1155,8 @@ class SubAccountApi
      *
      * Create API Key of the sub-account
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1141,8 +1176,8 @@ class SubAccountApi
      *
      * Create API Key of the sub-account
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1189,8 +1224,8 @@ class SubAccountApi
     /**
      * Create request for operation 'createSubAccountKeys'
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1301,8 +1336,8 @@ class SubAccountApi
      *
      * Get the API Key of the sub-account
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1319,8 +1354,8 @@ class SubAccountApi
      *
      * Get the API Key of the sub-account
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1335,7 +1370,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1374,8 +1409,8 @@ class SubAccountApi
      *
      * Get the API Key of the sub-account
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1395,8 +1430,8 @@ class SubAccountApi
      *
      * Get the API Key of the sub-account
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1443,8 +1478,8 @@ class SubAccountApi
     /**
      * Create request for operation 'getSubAccountKey'
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1561,9 +1596,9 @@ class SubAccountApi
      *
      * Update API key of the sub-account
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param string                       $key             The API Key of the sub-account (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key sub_account_key (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1579,9 +1614,9 @@ class SubAccountApi
      *
      * Update API key of the sub-account
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param string                       $key             The API Key of the sub-account (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1596,7 +1631,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1623,9 +1658,9 @@ class SubAccountApi
      *
      * Update API key of the sub-account
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param string                       $key             The API Key of the sub-account (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1645,9 +1680,9 @@ class SubAccountApi
      *
      * Update API key of the sub-account
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param string                       $key             The API Key of the sub-account (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1683,9 +1718,9 @@ class SubAccountApi
     /**
      * Create request for operation 'updateSubAccountKeys'
      *
-     * @param int                          $user_id         Sub-account user id (required)
-     * @param string                       $key             The API Key of the sub-account (required)
-     * @param \GateApi\Model\SubAccountKey $sub_account_key (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
+     * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1811,8 +1846,8 @@ class SubAccountApi
      *
      * Delete API key of the sub-account
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1828,8 +1863,8 @@ class SubAccountApi
      *
      * Delete API key of the sub-account
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1844,7 +1879,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -1871,8 +1906,8 @@ class SubAccountApi
      *
      * Delete API key of the sub-account
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1892,8 +1927,8 @@ class SubAccountApi
      *
      * Delete API key of the sub-account
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1929,8 +1964,8 @@ class SubAccountApi
     /**
      * Create request for operation 'deleteSubAccountKeys'
      *
-     * @param int    $user_id Sub-account user id (required)
-     * @param string $key     The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id (required)
+     * @param  string $key The API Key of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2047,7 +2082,7 @@ class SubAccountApi
      *
      * Lock the sub-account
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2063,7 +2098,7 @@ class SubAccountApi
      *
      * Lock the sub-account
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2078,7 +2113,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2105,7 +2140,7 @@ class SubAccountApi
      *
      * Lock the sub-account
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2125,7 +2160,7 @@ class SubAccountApi
      *
      * Lock the sub-account
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2161,7 +2196,7 @@ class SubAccountApi
     /**
      * Create request for operation 'lockSubAccount'
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2263,7 +2298,7 @@ class SubAccountApi
      *
      * Unlock the sub-account
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2279,7 +2314,7 @@ class SubAccountApi
      *
      * Unlock the sub-account
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2294,7 +2329,7 @@ class SubAccountApi
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody !== null) {
+            if ($responseBody != null) {
                 $gateError = json_decode($responseBody, true);
                 if ($gateError !== null && isset($gateError['label'])) {
                     throw new GateApiException(
@@ -2321,7 +2356,7 @@ class SubAccountApi
      *
      * Unlock the sub-account
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2341,7 +2376,7 @@ class SubAccountApi
      *
      * Unlock the sub-account
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2377,7 +2412,7 @@ class SubAccountApi
     /**
      * Create request for operation 'unlockSubAccount'
      *
-     * @param int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2468,6 +2503,226 @@ class SubAccountApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listUnifiedMode
+     *
+     * Get sub-account mode
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\SubUserMode[]
+     */
+    public function listUnifiedMode()
+    {
+        list($response) = $this->listUnifiedModeWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation listUnifiedModeWithHttpInfo
+     *
+     * Get sub-account mode
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\SubUserMode[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listUnifiedModeWithHttpInfo()
+    {
+        $request = $this->listUnifiedModeRequest();
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\SubUserMode[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listUnifiedModeAsync
+     *
+     * Get sub-account mode
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listUnifiedModeAsync()
+    {
+        return $this->listUnifiedModeAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listUnifiedModeAsyncWithHttpInfo
+     *
+     * Get sub-account mode
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listUnifiedModeAsyncWithHttpInfo()
+    {
+        $returnType = '\GateApi\Model\SubUserMode[]';
+        $request = $this->listUnifiedModeRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listUnifiedMode'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listUnifiedModeRequest()
+    {
+
+        $resourcePath = '/sub_accounts/unified_mode';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

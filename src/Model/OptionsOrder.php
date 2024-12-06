@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * OptionsOrder Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Options order detail
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class OptionsOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'OptionsOrder';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'int',
         'user' => 'int',
@@ -70,6 +70,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'reduce_only' => 'bool',
         'is_reduce_only' => 'bool',
         'is_liq' => 'bool',
+        'mmp' => 'bool',
+        'is_mmp' => 'bool',
         'tif' => 'string',
         'left' => 'int',
         'fill_price' => 'string',
@@ -81,10 +83,10 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => 'int64',
         'user' => null,
@@ -101,6 +103,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'reduce_only' => null,
         'is_reduce_only' => null,
         'is_liq' => null,
+        'mmp' => null,
+        'is_mmp' => null,
         'tif' => null,
         'left' => 'int64',
         'fill_price' => null,
@@ -153,6 +157,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'reduce_only' => 'reduce_only',
         'is_reduce_only' => 'is_reduce_only',
         'is_liq' => 'is_liq',
+        'mmp' => 'mmp',
+        'is_mmp' => 'is_mmp',
         'tif' => 'tif',
         'left' => 'left',
         'fill_price' => 'fill_price',
@@ -184,6 +190,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'reduce_only' => 'setReduceOnly',
         'is_reduce_only' => 'setIsReduceOnly',
         'is_liq' => 'setIsLiq',
+        'mmp' => 'setMmp',
+        'is_mmp' => 'setIsMmp',
         'tif' => 'setTif',
         'left' => 'setLeft',
         'fill_price' => 'setFillPrice',
@@ -215,6 +223,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         'reduce_only' => 'getReduceOnly',
         'is_reduce_only' => 'getIsReduceOnly',
         'is_liq' => 'getIsLiq',
+        'mmp' => 'getMmp',
+        'is_mmp' => 'getIsMmp',
         'tif' => 'getTif',
         'left' => 'getLeft',
         'fill_price' => 'getFillPrice',
@@ -274,6 +284,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     const FINISH_AS_REDUCE_ONLY = 'reduce_only';
     const FINISH_AS_POSITION_CLOSED = 'position_closed';
     const FINISH_AS_REDUCE_OUT = 'reduce_out';
+    const FINISH_AS_MMP_CANCELLED = 'mmp_cancelled';
     const STATUS_OPEN = 'open';
     const STATUS_FINISHED = 'finished';
     const TIF_GTC = 'gtc';
@@ -298,6 +309,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
             self::FINISH_AS_REDUCE_ONLY,
             self::FINISH_AS_POSITION_CLOSED,
             self::FINISH_AS_REDUCE_OUT,
+            self::FINISH_AS_MMP_CANCELLED,
         ];
     }
     
@@ -359,6 +371,8 @@ class OptionsOrder implements ModelInterface, ArrayAccess
         $this->container['reduce_only'] = isset($data['reduce_only']) ? $data['reduce_only'] : false;
         $this->container['is_reduce_only'] = isset($data['is_reduce_only']) ? $data['is_reduce_only'] : null;
         $this->container['is_liq'] = isset($data['is_liq']) ? $data['is_liq'] : null;
+        $this->container['mmp'] = isset($data['mmp']) ? $data['mmp'] : false;
+        $this->container['is_mmp'] = isset($data['is_mmp']) ? $data['is_mmp'] : null;
         $this->container['tif'] = isset($data['tif']) ? $data['tif'] : 'gtc';
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
@@ -532,7 +546,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_as
      *
-     * @param string|null $finish_as How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set- position_closed: cancelled because of position close
+     * @param string|null $finish_as 结束方式，包括：  - filled: 完全成交 - cancelled: 用户撤销 - liquidated: 强制平仓撤销 - ioc: 未立即完全成交，因为tif设置为ioc - auto_deleveraged: 自动减仓撤销 - reduce_only: 增持仓位撤销，因为设置reduce_only或平仓 - position_closed: 因为仓位平掉了，所以挂单被撤掉 - reduce_out: 只减仓被排除的不容易成交的挂单 - mmp_cancelled: MMP撤销
      *
      * @return $this
      */
@@ -797,6 +811,54 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     public function setIsLiq($is_liq)
     {
         $this->container['is_liq'] = $is_liq;
+
+        return $this;
+    }
+
+    /**
+     * Gets mmp
+     *
+     * @return bool|null
+     */
+    public function getMmp()
+    {
+        return $this->container['mmp'];
+    }
+
+    /**
+     * Sets mmp
+     *
+     * @param bool|null $mmp 设置为 true 的时候，为MMP委托
+     *
+     * @return $this
+     */
+    public function setMmp($mmp)
+    {
+        $this->container['mmp'] = $mmp;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_mmp
+     *
+     * @return bool|null
+     */
+    public function getIsMmp()
+    {
+        return $this->container['is_mmp'];
+    }
+
+    /**
+     * Sets is_mmp
+     *
+     * @param bool|null $is_mmp 是否为MMP委托。对应请求中的`mmp`。
+     *
+     * @return $this
+     */
+    public function setIsMmp($is_mmp)
+    {
+        $this->container['is_mmp'] = $is_mmp;
 
         return $this;
     }

@@ -42,21 +42,21 @@ class SubCrossMarginAccount implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubCrossMarginAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'user_id' => 'int',
         'locked' => 'bool',
-        'balances' => 'map[string,\GateApi\Model\CrossMarginBalance]',
+        'balances' => 'map[string,\GateApi\Model\CrossMarginBalance1]',
         'total' => 'string',
         'borrowed' => 'string',
         'borrowed_net' => 'string',
@@ -73,10 +73,10 @@ class SubCrossMarginAccount implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'user_id' => 'int64',
         'locked' => null,
@@ -342,7 +342,7 @@ class SubCrossMarginAccount implements ModelInterface, ArrayAccess
     /**
      * Gets balances
      *
-     * @return map[string,\GateApi\Model\CrossMarginBalance]|null
+     * @return map[string,\GateApi\Model\CrossMarginBalance1]|null
      */
     public function getBalances()
     {
@@ -352,7 +352,7 @@ class SubCrossMarginAccount implements ModelInterface, ArrayAccess
     /**
      * Sets balances
      *
-     * @param map[string,\GateApi\Model\CrossMarginBalance]|null $balances balances
+     * @param map[string,\GateApi\Model\CrossMarginBalance1]|null $balances balances
      *
      * @return $this
      */

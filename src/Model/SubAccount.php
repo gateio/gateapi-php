@@ -42,17 +42,17 @@ class SubAccount implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'remark' => 'string',
         'login_name' => 'string',
@@ -65,10 +65,10 @@ class SubAccount implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'remark' => null,
         'login_name' => null,
@@ -379,7 +379,7 @@ class SubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param int|null $type Type: 1-Sub-account
+     * @param int|null $type \"Sub-account type: 1 - sub-account, 3 - cross margin account
      *
      * @return $this
      */

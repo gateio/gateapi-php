@@ -42,17 +42,17 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FuturesAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'total' => 'string',
         'unrealised_pnl' => 'string',
@@ -66,14 +66,23 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'position_initial_margin' => 'string',
         'maintenance_margin' => 'string',
         'bonus' => 'string',
+        'enable_evolved_classic' => 'bool',
+        'cross_order_margin' => 'string',
+        'cross_initial_margin' => 'string',
+        'cross_maintenance_margin' => 'string',
+        'cross_unrealised_pnl' => 'string',
+        'cross_available' => 'string',
+        'isolated_position_margin' => 'string',
+        'enable_new_dual_mode' => 'bool',
+        'margin_mode' => 'int',
         'history' => '\GateApi\Model\FuturesAccountHistory'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'total' => null,
         'unrealised_pnl' => null,
@@ -87,6 +96,15 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'position_initial_margin' => null,
         'maintenance_margin' => null,
         'bonus' => null,
+        'enable_evolved_classic' => null,
+        'cross_order_margin' => null,
+        'cross_initial_margin' => null,
+        'cross_maintenance_margin' => null,
+        'cross_unrealised_pnl' => null,
+        'cross_available' => null,
+        'isolated_position_margin' => null,
+        'enable_new_dual_mode' => null,
+        'margin_mode' => null,
         'history' => null
     ];
 
@@ -129,6 +147,15 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'position_initial_margin' => 'position_initial_margin',
         'maintenance_margin' => 'maintenance_margin',
         'bonus' => 'bonus',
+        'enable_evolved_classic' => 'enable_evolved_classic',
+        'cross_order_margin' => 'cross_order_margin',
+        'cross_initial_margin' => 'cross_initial_margin',
+        'cross_maintenance_margin' => 'cross_maintenance_margin',
+        'cross_unrealised_pnl' => 'cross_unrealised_pnl',
+        'cross_available' => 'cross_available',
+        'isolated_position_margin' => 'isolated_position_margin',
+        'enable_new_dual_mode' => 'enable_new_dual_mode',
+        'margin_mode' => 'margin_mode',
         'history' => 'history'
     ];
 
@@ -150,6 +177,15 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'position_initial_margin' => 'setPositionInitialMargin',
         'maintenance_margin' => 'setMaintenanceMargin',
         'bonus' => 'setBonus',
+        'enable_evolved_classic' => 'setEnableEvolvedClassic',
+        'cross_order_margin' => 'setCrossOrderMargin',
+        'cross_initial_margin' => 'setCrossInitialMargin',
+        'cross_maintenance_margin' => 'setCrossMaintenanceMargin',
+        'cross_unrealised_pnl' => 'setCrossUnrealisedPnl',
+        'cross_available' => 'setCrossAvailable',
+        'isolated_position_margin' => 'setIsolatedPositionMargin',
+        'enable_new_dual_mode' => 'setEnableNewDualMode',
+        'margin_mode' => 'setMarginMode',
         'history' => 'setHistory'
     ];
 
@@ -171,6 +207,15 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'position_initial_margin' => 'getPositionInitialMargin',
         'maintenance_margin' => 'getMaintenanceMargin',
         'bonus' => 'getBonus',
+        'enable_evolved_classic' => 'getEnableEvolvedClassic',
+        'cross_order_margin' => 'getCrossOrderMargin',
+        'cross_initial_margin' => 'getCrossInitialMargin',
+        'cross_maintenance_margin' => 'getCrossMaintenanceMargin',
+        'cross_unrealised_pnl' => 'getCrossUnrealisedPnl',
+        'cross_available' => 'getCrossAvailable',
+        'isolated_position_margin' => 'getIsolatedPositionMargin',
+        'enable_new_dual_mode' => 'getEnableNewDualMode',
+        'margin_mode' => 'getMarginMode',
         'history' => 'getHistory'
     ];
 
@@ -246,6 +291,15 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         $this->container['position_initial_margin'] = isset($data['position_initial_margin']) ? $data['position_initial_margin'] : null;
         $this->container['maintenance_margin'] = isset($data['maintenance_margin']) ? $data['maintenance_margin'] : null;
         $this->container['bonus'] = isset($data['bonus']) ? $data['bonus'] : null;
+        $this->container['enable_evolved_classic'] = isset($data['enable_evolved_classic']) ? $data['enable_evolved_classic'] : null;
+        $this->container['cross_order_margin'] = isset($data['cross_order_margin']) ? $data['cross_order_margin'] : null;
+        $this->container['cross_initial_margin'] = isset($data['cross_initial_margin']) ? $data['cross_initial_margin'] : null;
+        $this->container['cross_maintenance_margin'] = isset($data['cross_maintenance_margin']) ? $data['cross_maintenance_margin'] : null;
+        $this->container['cross_unrealised_pnl'] = isset($data['cross_unrealised_pnl']) ? $data['cross_unrealised_pnl'] : null;
+        $this->container['cross_available'] = isset($data['cross_available']) ? $data['cross_available'] : null;
+        $this->container['isolated_position_margin'] = isset($data['isolated_position_margin']) ? $data['isolated_position_margin'] : null;
+        $this->container['enable_new_dual_mode'] = isset($data['enable_new_dual_mode']) ? $data['enable_new_dual_mode'] : null;
+        $this->container['margin_mode'] = isset($data['margin_mode']) ? $data['margin_mode'] : null;
         $this->container['history'] = isset($data['history']) ? $data['history'] : null;
     }
 
@@ -526,7 +580,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets maintenance_margin
      *
-     * @param string|null $maintenance_margin Maintenance margin position, applicable to the portfolio margin account model
+     * @param string|null $maintenance_margin The maintenance deposit occupied by the position is suitable for the new classic account margin model and unified account model
      *
      * @return $this
      */
@@ -557,6 +611,222 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     public function setBonus($bonus)
     {
         $this->container['bonus'] = $bonus;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_evolved_classic
+     *
+     * @return bool|null
+     */
+    public function getEnableEvolvedClassic()
+    {
+        return $this->container['enable_evolved_classic'];
+    }
+
+    /**
+     * Sets enable_evolved_classic
+     *
+     * @param bool|null $enable_evolved_classic Classic account margin mode, true-new mode, false-old mode
+     *
+     * @return $this
+     */
+    public function setEnableEvolvedClassic($enable_evolved_classic)
+    {
+        $this->container['enable_evolved_classic'] = $enable_evolved_classic;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_order_margin
+     *
+     * @return string|null
+     */
+    public function getCrossOrderMargin()
+    {
+        return $this->container['cross_order_margin'];
+    }
+
+    /**
+     * Sets cross_order_margin
+     *
+     * @param string|null $cross_order_margin Full -warehouse hanging order deposit, suitable for the new classic account margin model
+     *
+     * @return $this
+     */
+    public function setCrossOrderMargin($cross_order_margin)
+    {
+        $this->container['cross_order_margin'] = $cross_order_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_initial_margin
+     *
+     * @return string|null
+     */
+    public function getCrossInitialMargin()
+    {
+        return $this->container['cross_initial_margin'];
+    }
+
+    /**
+     * Sets cross_initial_margin
+     *
+     * @param string|null $cross_initial_margin The initial security deposit of the full warehouse is suitable for the new classic account margin model
+     *
+     * @return $this
+     */
+    public function setCrossInitialMargin($cross_initial_margin)
+    {
+        $this->container['cross_initial_margin'] = $cross_initial_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_maintenance_margin
+     *
+     * @return string|null
+     */
+    public function getCrossMaintenanceMargin()
+    {
+        return $this->container['cross_maintenance_margin'];
+    }
+
+    /**
+     * Sets cross_maintenance_margin
+     *
+     * @param string|null $cross_maintenance_margin Maintain deposit in full warehouse, suitable for new classic account margin models
+     *
+     * @return $this
+     */
+    public function setCrossMaintenanceMargin($cross_maintenance_margin)
+    {
+        $this->container['cross_maintenance_margin'] = $cross_maintenance_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_unrealised_pnl
+     *
+     * @return string|null
+     */
+    public function getCrossUnrealisedPnl()
+    {
+        return $this->container['cross_unrealised_pnl'];
+    }
+
+    /**
+     * Sets cross_unrealised_pnl
+     *
+     * @param string|null $cross_unrealised_pnl The full warehouse does not achieve profit and loss, suitable for the new classic account margin model
+     *
+     * @return $this
+     */
+    public function setCrossUnrealisedPnl($cross_unrealised_pnl)
+    {
+        $this->container['cross_unrealised_pnl'] = $cross_unrealised_pnl;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_available
+     *
+     * @return string|null
+     */
+    public function getCrossAvailable()
+    {
+        return $this->container['cross_available'];
+    }
+
+    /**
+     * Sets cross_available
+     *
+     * @param string|null $cross_available Full warehouse available amount, suitable for the new classic account margin model
+     *
+     * @return $this
+     */
+    public function setCrossAvailable($cross_available)
+    {
+        $this->container['cross_available'] = $cross_available;
+
+        return $this;
+    }
+
+    /**
+     * Gets isolated_position_margin
+     *
+     * @return string|null
+     */
+    public function getIsolatedPositionMargin()
+    {
+        return $this->container['isolated_position_margin'];
+    }
+
+    /**
+     * Sets isolated_position_margin
+     *
+     * @param string|null $isolated_position_margin Ware -position margin, suitable for the new classic account margin model
+     *
+     * @return $this
+     */
+    public function setIsolatedPositionMargin($isolated_position_margin)
+    {
+        $this->container['isolated_position_margin'] = $isolated_position_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_new_dual_mode
+     *
+     * @return bool|null
+     */
+    public function getEnableNewDualMode()
+    {
+        return $this->container['enable_new_dual_mode'];
+    }
+
+    /**
+     * Sets enable_new_dual_mode
+     *
+     * @param bool|null $enable_new_dual_mode Whether to open a new two-way position mode
+     *
+     * @return $this
+     */
+    public function setEnableNewDualMode($enable_new_dual_mode)
+    {
+        $this->container['enable_new_dual_mode'] = $enable_new_dual_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets margin_mode
+     *
+     * @return int|null
+     */
+    public function getMarginMode()
+    {
+        return $this->container['margin_mode'];
+    }
+
+    /**
+     * Sets margin_mode
+     *
+     * @param int|null $margin_mode Margin mode, 0-classic margin mode, 1-cross-currency margin mode, 2-combined margin mode
+     *
+     * @return $this
+     */
+    public function setMarginMode($margin_mode)
+    {
+        $this->container['margin_mode'] = $margin_mode;
 
         return $this;
     }

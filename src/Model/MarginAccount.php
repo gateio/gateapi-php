@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * MarginAccount Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Margin account detail. &#x60;base&#x60; refers to base currency, while &#x60;quotes to quote currency
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class MarginAccount implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'MarginAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'currency_pair' => 'string',
         'locked' => 'bool',
@@ -63,10 +63,10 @@ class MarginAccount implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'currency_pair' => null,
         'locked' => null,

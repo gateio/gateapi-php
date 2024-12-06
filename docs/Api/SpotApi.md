@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getFee**](SpotApi.md#getFee) | **GET** /spot/fee | Query user trading fee rates
 [**getBatchSpotFee**](SpotApi.md#getBatchSpotFee) | **GET** /spot/batch_fee | Query a batch of user trading fee rates
 [**listSpotAccounts**](SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot accounts
+[**listSpotAccountBook**](SpotApi.md#listSpotAccountBook) | **GET** /spot/account_book | Query account book
 [**createBatchOrders**](SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders
 [**listAllOpenOrders**](SpotApi.md#listAllOpenOrders) | **GET** /spot/open_orders | List all open orders
 [**createCrossLiquidateOrder**](SpotApi.md#createCrossLiquidateOrder) | **POST** /spot/cross_liquidate_orders | close position when cross-currency is disabled
@@ -28,6 +29,7 @@ Method | HTTP request | Description
 [**listMyTrades**](SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
 [**getSystemTime**](SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time
 [**countdownCancelAllSpot**](SpotApi.md#countdownCancelAllSpot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders
+[**amendBatchOrders**](SpotApi.md#amendBatchOrders) | **POST** /spot/amend_batch_orders | Batch modification of orders
 [**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
 [**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
 [**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
@@ -387,7 +389,7 @@ No authorization required
 
 Retrieve market trades
 
-You can use `from` and `to` to query by time range, or use `last_id` by scrolling page. The default behavior is by time range.  Scrolling query using `last_id` is not recommended any more. If `last_id` is specified, time range query parameters will be ignored.
+You can use `from` and `to` to query by time range, or use `last_id` by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using `last_id` is not recommended any more. If `last_id` is specified, time range query parameters will be ignored.
 
 ### Example
 
@@ -523,7 +525,7 @@ No authorization required
 
 ## getFee
 
-> \GateApi\Model\TradeFee getFee($currency_pair)
+> \GateApi\Model\SpotFee getFee($currency_pair)
 
 Query user trading fee rates
 
@@ -569,7 +571,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\TradeFee**](../Model/TradeFee.md)
+[**\GateApi\Model\SpotFee**](../Model/SpotFee.md)
 
 ### Authorization
 
@@ -707,9 +709,83 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## listSpotAccountBook
+
+> \GateApi\Model\SpotAccountBook[] listSpotAccountBook($currency, $from, $to, $page, $limit, $type)
+
+Query account book
+
+Record time range cannot exceed 30 days
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
+$associate_array['from'] = 1627706330; // int | Start timestamp of the query
+$associate_array['to'] = 1635329650; // int | Time range ending, default to current time
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['type'] = 'lend'; // string | Only retrieve changes of the specified type. All types will be returned if not specified.
+
+try {
+    $result = $apiInstance->listSpotAccountBook($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->listSpotAccountBook: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieve data of the specified currency | [optional]
+ **from** | **int**| Start timestamp of the query | [optional]
+ **to** | **int**| Time range ending, default to current time | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
+
+### Return type
+
+[**\GateApi\Model\SpotAccountBook[]**](../Model/SpotAccountBook.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## createBatchOrders
 
-> \GateApi\Model\BatchOrder[] createBatchOrders($order)
+> \GateApi\Model\BatchOrder[] createBatchOrders($order, $x_gate_exptime)
 
 Create a batch of orders
 
@@ -732,9 +808,10 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $order = array(new \GateApi\Model\Order()); // \GateApi\Model\Order[] | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->createBatchOrders($order);
+    $result = $apiInstance->createBatchOrders($order, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -750,6 +827,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**\GateApi\Model\Order[]**](../Model/Order.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -775,7 +853,7 @@ Name | Type | Description  | Notes
 
 List all open orders
 
-List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair's open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, `account` must be set to `cross_margin`
+List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair's open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, `account` must be set to `cross_margin`
 
 ### Example
 
@@ -795,7 +873,7 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records returned in one page in each currency pair
-$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 
 try {
     $result = $apiInstance->listAllOpenOrders($associate_array);
@@ -817,7 +895,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records returned in one page in each currency pair | [optional] [default to 100]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -905,7 +983,7 @@ Name | Type | Description  | Notes
 
 List orders
 
-Spot and margin orders are returned by default. If cross margin orders are needed, `account` must be set to `cross_margin`  When `status` is `open`, i.e., listing open orders, only pagination parameters `page` and `limit` are supported and `limit` cannot be larger than 100. Query by `side` and time range parameters `from` and `to` are not supported.  When `status` is `finished`, i.e., listing finished orders, pagination parameters, time range parameters `from` and `to`, and `side` parameters are all supported. Time range parameters are handled as order finish time.
+Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, `account` must be set to `cross_margin`  When `status` is `open`, i.e., listing open orders, only pagination parameters `page` and `limit` are supported and `limit` cannot be larger than 100. Query by `side` and time range parameters `from` and `to` are not supported.  When `status` is `finished`, i.e., listing finished orders, pagination parameters, time range parameters `from` and `to`, and `side` parameters are all supported. Time range parameters are handled as order finish time.
 
 ### Example
 
@@ -927,7 +1005,7 @@ $associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results wit
 $associate_array['status'] = 'open'; // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100
-$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 $associate_array['from'] = 1627706330; // int | Start timestamp of the query
 $associate_array['to'] = 1635329650; // int | Time range ending, default to current time
 $associate_array['side'] = 'sell'; // string | All bids or asks. Both included if not specified
@@ -954,7 +1032,7 @@ Name | Type | Description  | Notes
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled |
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
  **from** | **int**| Start timestamp of the query | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **side** | **string**| All bids or asks. Both included if not specified | [optional]
@@ -979,11 +1057,11 @@ Name | Type | Description  | Notes
 
 ## createOrder
 
-> \GateApi\Model\Order createOrder($order)
+> \GateApi\Model\Order createOrder($order, $x_gate_exptime)
 
 Create an order
 
-You can place orders with spot, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide the order completely. Note that the hidden part's fee will be charged using taker's fee rate.
+You can place orders with spot, portfolio, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide the order completely. Note that the hidden part's fee will be charged using taker's fee rate. **Self Trade Prevention**  - Set `stp_act` to decide the strategy of self-trade prevention. For detailed usage, refer to the `stp_act` parameter in request body
 
 ### Example
 
@@ -1002,9 +1080,10 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $order = new \GateApi\Model\Order(); // \GateApi\Model\Order | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->createOrder($order);
+    $result = $apiInstance->createOrder($order, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1020,6 +1099,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**\GateApi\Model\Order**](../Model/Order.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1041,11 +1121,11 @@ Name | Type | Description  | Notes
 
 ## cancelOrders
 
-> \GateApi\Model\Order[] cancelOrders($currency_pair, $side, $account)
+> \GateApi\Model\OrderCancel[] cancelOrders($currency_pair, $side, $account, $action_mode, $x_gate_exptime)
 
 Cancel all `open` orders in specified currency pair
 
-If `account` is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set `account` to cancel only orders within the specified account
+If `account` is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If `currency_pair` is not specified, all pending orders for trading pairs will be cancelled. You can set `account` to cancel only orders within the specified account
 
 ### Example
 
@@ -1065,10 +1145,12 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $side = 'sell'; // string | All bids or asks. Both included if not specified
-$account = 'spot'; // string | Specify account type  - classic account：Default to all account types being included   - portfolio margin account：`cross_margin` only
+$account = 'spot'; // string | Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify `unified` - Unified account (legacy): Can only specify `cross_margin`
+$action_mode = 'ACK'; // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->cancelOrders($currency_pair, $side, $account);
+    $result = $apiInstance->cancelOrders($currency_pair, $side, $account, $action_mode, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1083,13 +1165,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair |
+ **currency_pair** | **string**| Currency pair | [optional]
  **side** | **string**| All bids or asks. Both included if not specified | [optional]
- **account** | **string**| Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only | [optional]
+ **account** | **string**| Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; | [optional]
+ **action_mode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
-[**\GateApi\Model\Order[]**](../Model/Order.md)
+[**\GateApi\Model\OrderCancel[]**](../Model/OrderCancel.md)
 
 ### Authorization
 
@@ -1107,7 +1191,7 @@ Name | Type | Description  | Notes
 
 ## cancelBatchOrders
 
-> \GateApi\Model\CancelOrderResult[] cancelBatchOrders($cancel_order)
+> \GateApi\Model\CancelOrderResult[] cancelBatchOrders($cancel_batch_order, $x_gate_exptime)
 
 Cancel a batch of orders with an ID list
 
@@ -1129,10 +1213,11 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cancel_order = array(new \GateApi\Model\CancelOrder()); // \GateApi\Model\CancelOrder[] | 
+$cancel_batch_order = array(new \GateApi\Model\CancelBatchOrder()); // \GateApi\Model\CancelBatchOrder[] | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->cancelBatchOrders($cancel_order);
+    $result = $apiInstance->cancelBatchOrders($cancel_batch_order, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1147,7 +1232,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order** | [**\GateApi\Model\CancelOrder[]**](../Model/CancelOrder.md)|  |
+ **cancel_batch_order** | [**\GateApi\Model\CancelBatchOrder[]**](../Model/CancelBatchOrder.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1173,7 +1259,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
 
 ### Example
 
@@ -1192,8 +1278,8 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
-$currency_pair = 'BTC_USDT'; // string | Currency pair
-$account = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+$currency_pair = 'BTC_USDT'; // string | Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.
+$account = 'cross_margin'; // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 
 try {
     $result = $apiInstance->getOrder($order_id, $currency_pair, $account);
@@ -1212,8 +1298,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. |
- **currency_pair** | **string**| Currency pair |
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **currency_pair** | **string**| Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. |
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -1235,11 +1321,11 @@ Name | Type | Description  | Notes
 
 ## cancelOrder
 
-> \GateApi\Model\Order cancelOrder($order_id, $currency_pair, $account)
+> \GateApi\Model\Order cancelOrder($order_id, $currency_pair, $account, $action_mode, $x_gate_exptime)
 
 Cancel a single order
 
-Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
 
 ### Example
 
@@ -1259,10 +1345,12 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
 $currency_pair = 'BTC_USDT'; // string | Currency pair
-$account = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+$account = 'cross_margin'; // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+$action_mode = 'ACK'; // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->cancelOrder($order_id, $currency_pair, $account);
+    $result = $apiInstance->cancelOrder($order_id, $currency_pair, $account, $action_mode, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1279,7 +1367,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. |
  **currency_pair** | **string**| Currency pair |
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **action_mode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1301,11 +1391,11 @@ Name | Type | Description  | Notes
 
 ## amendOrder
 
-> \GateApi\Model\Order amendOrder($order_id, $currency_pair, $order_patch, $account)
+> \GateApi\Model\Order amendOrder($order_id, $order_patch, $currency_pair, $account, $x_gate_exptime)
 
 Amend an order
 
-By default, the orders of spot and margin account are updated.  If you need to modify orders of the `cross-margin` account, you must specify account as `cross_margin`.  For portfolio margin account, only `cross_margin` account is supported.  Currently, only supports modification of `price` or `amount` fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the `cross-margin` account, you must specify account as `cross_margin`.  For portfolio margin account, only `cross_margin` account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of `price` or `amount` fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
 
 ### Example
 
@@ -1324,12 +1414,13 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
-$currency_pair = 'BTC_USDT'; // string | Currency pair
 $order_patch = new \GateApi\Model\OrderPatch(); // \GateApi\Model\OrderPatch | 
-$account = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+$currency_pair = 'BTC_USDT'; // string | Currency pair
+$account = 'cross_margin'; // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
-    $result = $apiInstance->amendOrder($order_id, $currency_pair, $order_patch, $account);
+    $result = $apiInstance->amendOrder($order_id, $order_patch, $currency_pair, $account, $x_gate_exptime);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1345,9 +1436,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. |
- **currency_pair** | **string**| Currency pair |
  **order_patch** | [**\GateApi\Model\OrderPatch**](../Model/OrderPatch.md)|  |
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **currency_pair** | **string**| Currency pair | [optional]
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1373,7 +1465,7 @@ Name | Type | Description  | Notes
 
 List personal trading history
 
-Spot and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`  You can also set `from` and(or) `to` to query by time range. If you don't specify `from` and/or `to` parameters, only the last 7 days of data will be retured. The range of `from` and `to` is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`  You can also set `from` and(or) `to` to query by time range. If you don't specify `from` and/or `to` parameters, only the last 7 days of data will be retured. The range of `from` and `to` is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
 
 ### Example
 
@@ -1392,10 +1484,10 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results with specified currency pair
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000
 $associate_array['page'] = 1; // int | Page number
 $associate_array['order_id'] = '12345'; // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present
-$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+$associate_array['account'] = 'cross_margin'; // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
 $associate_array['from'] = 1627706330; // int | Start timestamp of the query
 $associate_array['to'] = 1635329650; // int | Time range ending, default to current time
 
@@ -1418,10 +1510,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **string**| Retrieve results with specified currency pair | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 | [optional] [default to 100]
  **page** | **int**| Page number | [optional] [default to 1]
  **order_id** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
  **from** | **int**| Start timestamp of the query | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
 
@@ -1542,6 +1634,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\GateApi\Model\TriggerTime**](../Model/TriggerTime.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## amendBatchOrders
+
+> \GateApi\Model\BatchOrder[] amendBatchOrders($batch_amend_item, $x_gate_exptime)
+
+Batch modification of orders
+
+Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the `account` parameter must be specified as `cross_margin`.  For portfolio margin accounts, the `account` parameter can only be specified as `cross_margin`. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$batch_amend_item = array(new \GateApi\Model\BatchAmendItem()); // \GateApi\Model\BatchAmendItem[] | 
+$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+
+try {
+    $result = $apiInstance->amendBatchOrders($batch_amend_item, $x_gate_exptime);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->amendBatchOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch_amend_item** | [**\GateApi\Model\BatchAmendItem[]**](../Model/BatchAmendItem.md)|  |
+ **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+
+### Return type
+
+[**\GateApi\Model\BatchOrder[]**](../Model/BatchOrder.md)
 
 ### Authorization
 

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency_pair** | **string** | Order currency pair | [optional] 
 **id** | **string** | Order ID | [optional] 
+**text** | **string** | Custom order information | [optional] 
 **succeeded** | **bool** | Whether cancellation succeeded | [optional] 
 **label** | **string** | Error label when failed to cancel the order; emtpy if succeeded | [optional] 
 **message** | **string** | Error message when failed to cancel the order; empty if succeeded | [optional] 

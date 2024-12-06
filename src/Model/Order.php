@@ -32,31 +32,32 @@ use \GateApi\ObjectSerializer;
 /**
  * Order Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Spot order details
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class Order implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'Order';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'string',
         'text' => 'string',
+        'amend_text' => 'string',
         'create_time' => 'string',
         'update_time' => 'string',
         'create_time_ms' => 'int',
@@ -73,6 +74,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => 'bool',
         'auto_repay' => 'bool',
         'left' => 'string',
+        'filled_amount' => 'string',
         'fill_price' => 'string',
         'filled_total' => 'string',
         'avg_deal_price' => 'string',
@@ -84,17 +86,22 @@ class Order implements ModelInterface, ArrayAccess
         'gt_taker_fee' => 'string',
         'gt_discount' => 'bool',
         'rebated_fee' => 'string',
-        'rebated_fee_currency' => 'string'
+        'rebated_fee_currency' => 'string',
+        'stp_id' => 'int',
+        'stp_act' => 'string',
+        'finish_as' => 'string',
+        'action_mode' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => null,
         'text' => null,
+        'amend_text' => null,
         'create_time' => null,
         'update_time' => null,
         'create_time_ms' => 'int64',
@@ -111,6 +118,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => null,
         'auto_repay' => null,
         'left' => null,
+        'filled_amount' => null,
         'fill_price' => null,
         'filled_total' => null,
         'avg_deal_price' => null,
@@ -122,7 +130,11 @@ class Order implements ModelInterface, ArrayAccess
         'gt_taker_fee' => null,
         'gt_discount' => null,
         'rebated_fee' => null,
-        'rebated_fee_currency' => null
+        'rebated_fee_currency' => null,
+        'stp_id' => null,
+        'stp_act' => null,
+        'finish_as' => null,
+        'action_mode' => null
     ];
 
     /**
@@ -154,6 +166,7 @@ class Order implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'text' => 'text',
+        'amend_text' => 'amend_text',
         'create_time' => 'create_time',
         'update_time' => 'update_time',
         'create_time_ms' => 'create_time_ms',
@@ -170,6 +183,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => 'auto_borrow',
         'auto_repay' => 'auto_repay',
         'left' => 'left',
+        'filled_amount' => 'filled_amount',
         'fill_price' => 'fill_price',
         'filled_total' => 'filled_total',
         'avg_deal_price' => 'avg_deal_price',
@@ -181,7 +195,11 @@ class Order implements ModelInterface, ArrayAccess
         'gt_taker_fee' => 'gt_taker_fee',
         'gt_discount' => 'gt_discount',
         'rebated_fee' => 'rebated_fee',
-        'rebated_fee_currency' => 'rebated_fee_currency'
+        'rebated_fee_currency' => 'rebated_fee_currency',
+        'stp_id' => 'stp_id',
+        'stp_act' => 'stp_act',
+        'finish_as' => 'finish_as',
+        'action_mode' => 'action_mode'
     ];
 
     /**
@@ -192,6 +210,7 @@ class Order implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'text' => 'setText',
+        'amend_text' => 'setAmendText',
         'create_time' => 'setCreateTime',
         'update_time' => 'setUpdateTime',
         'create_time_ms' => 'setCreateTimeMs',
@@ -208,6 +227,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => 'setAutoBorrow',
         'auto_repay' => 'setAutoRepay',
         'left' => 'setLeft',
+        'filled_amount' => 'setFilledAmount',
         'fill_price' => 'setFillPrice',
         'filled_total' => 'setFilledTotal',
         'avg_deal_price' => 'setAvgDealPrice',
@@ -219,7 +239,11 @@ class Order implements ModelInterface, ArrayAccess
         'gt_taker_fee' => 'setGtTakerFee',
         'gt_discount' => 'setGtDiscount',
         'rebated_fee' => 'setRebatedFee',
-        'rebated_fee_currency' => 'setRebatedFeeCurrency'
+        'rebated_fee_currency' => 'setRebatedFeeCurrency',
+        'stp_id' => 'setStpId',
+        'stp_act' => 'setStpAct',
+        'finish_as' => 'setFinishAs',
+        'action_mode' => 'setActionMode'
     ];
 
     /**
@@ -230,6 +254,7 @@ class Order implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'text' => 'getText',
+        'amend_text' => 'getAmendText',
         'create_time' => 'getCreateTime',
         'update_time' => 'getUpdateTime',
         'create_time_ms' => 'getCreateTimeMs',
@@ -246,6 +271,7 @@ class Order implements ModelInterface, ArrayAccess
         'auto_borrow' => 'getAutoBorrow',
         'auto_repay' => 'getAutoRepay',
         'left' => 'getLeft',
+        'filled_amount' => 'getFilledAmount',
         'fill_price' => 'getFillPrice',
         'filled_total' => 'getFilledTotal',
         'avg_deal_price' => 'getAvgDealPrice',
@@ -257,7 +283,11 @@ class Order implements ModelInterface, ArrayAccess
         'gt_taker_fee' => 'getGtTakerFee',
         'gt_discount' => 'getGtDiscount',
         'rebated_fee' => 'getRebatedFee',
-        'rebated_fee_currency' => 'getRebatedFeeCurrency'
+        'rebated_fee_currency' => 'getRebatedFeeCurrency',
+        'stp_id' => 'getStpId',
+        'stp_act' => 'getStpAct',
+        'finish_as' => 'getFinishAs',
+        'action_mode' => 'getActionMode'
     ];
 
     /**
@@ -306,15 +336,28 @@ class Order implements ModelInterface, ArrayAccess
     const STATUS_CANCELLED = 'cancelled';
     const TYPE_LIMIT = 'limit';
     const TYPE_MARKET = 'market';
-    const ACCOUNT_SPOT = 'spot';
-    const ACCOUNT_MARGIN = 'margin';
-    const ACCOUNT_CROSS_MARGIN = 'cross_margin';
     const SIDE_BUY = 'buy';
     const SIDE_SELL = 'sell';
     const TIME_IN_FORCE_GTC = 'gtc';
     const TIME_IN_FORCE_IOC = 'ioc';
     const TIME_IN_FORCE_POC = 'poc';
     const TIME_IN_FORCE_FOK = 'fok';
+    const STP_ACT_CN = 'cn';
+    const STP_ACT_CO = 'co';
+    const STP_ACT_CB = 'cb';
+    const STP_ACT_MINUS = '-';
+    const FINISH_AS_OPEN = 'open';
+    const FINISH_AS_FILLED = 'filled';
+    const FINISH_AS_CANCELLED = 'cancelled';
+    const FINISH_AS_LIQUIDATE_CANCELLED = 'liquidate_cancelled';
+    const FINISH_AS_DEPTH_NOT_ENOUGH = 'depth_not_enough';
+    const FINISH_AS_TRADER_NOT_ENOUGH = 'trader_not_enough';
+    const FINISH_AS_SMALL = 'small';
+    const FINISH_AS_IOC = 'ioc';
+    const FINISH_AS_POC = 'poc';
+    const FINISH_AS_FOK = 'fok';
+    const FINISH_AS_STP = 'stp';
+    const FINISH_AS_UNKNOWN = 'unknown';
     
 
     
@@ -350,20 +393,6 @@ class Order implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getAccountAllowableValues()
-    {
-        return [
-            self::ACCOUNT_SPOT,
-            self::ACCOUNT_MARGIN,
-            self::ACCOUNT_CROSS_MARGIN,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
     public function getSideAllowableValues()
     {
         return [
@@ -387,6 +416,44 @@ class Order implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStpActAllowableValues()
+    {
+        return [
+            self::STP_ACT_CN,
+            self::STP_ACT_CO,
+            self::STP_ACT_CB,
+            self::STP_ACT_MINUS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFinishAsAllowableValues()
+    {
+        return [
+            self::FINISH_AS_OPEN,
+            self::FINISH_AS_FILLED,
+            self::FINISH_AS_CANCELLED,
+            self::FINISH_AS_LIQUIDATE_CANCELLED,
+            self::FINISH_AS_DEPTH_NOT_ENOUGH,
+            self::FINISH_AS_TRADER_NOT_ENOUGH,
+            self::FINISH_AS_SMALL,
+            self::FINISH_AS_IOC,
+            self::FINISH_AS_POC,
+            self::FINISH_AS_FOK,
+            self::FINISH_AS_STP,
+            self::FINISH_AS_UNKNOWN,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -405,6 +472,7 @@ class Order implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['amend_text'] = isset($data['amend_text']) ? $data['amend_text'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
         $this->container['create_time_ms'] = isset($data['create_time_ms']) ? $data['create_time_ms'] : null;
@@ -421,6 +489,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['auto_borrow'] = isset($data['auto_borrow']) ? $data['auto_borrow'] : null;
         $this->container['auto_repay'] = isset($data['auto_repay']) ? $data['auto_repay'] : null;
         $this->container['left'] = isset($data['left']) ? $data['left'] : null;
+        $this->container['filled_amount'] = isset($data['filled_amount']) ? $data['filled_amount'] : null;
         $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
         $this->container['filled_total'] = isset($data['filled_total']) ? $data['filled_total'] : null;
         $this->container['avg_deal_price'] = isset($data['avg_deal_price']) ? $data['avg_deal_price'] : null;
@@ -433,6 +502,10 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['gt_discount'] = isset($data['gt_discount']) ? $data['gt_discount'] : null;
         $this->container['rebated_fee'] = isset($data['rebated_fee']) ? $data['rebated_fee'] : null;
         $this->container['rebated_fee_currency'] = isset($data['rebated_fee_currency']) ? $data['rebated_fee_currency'] : null;
+        $this->container['stp_id'] = isset($data['stp_id']) ? $data['stp_id'] : null;
+        $this->container['stp_act'] = isset($data['stp_act']) ? $data['stp_act'] : null;
+        $this->container['finish_as'] = isset($data['finish_as']) ? $data['finish_as'] : null;
+        $this->container['action_mode'] = isset($data['action_mode']) ? $data['action_mode'] : null;
     }
 
     /**
@@ -463,14 +536,6 @@ class Order implements ModelInterface, ArrayAccess
             );
         }
 
-        $allowedValues = $this->getAccountAllowableValues();
-        if (!is_null($this->container['account']) && !in_array($this->container['account'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'account', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['side'] === null) {
             $invalidProperties[] = "'side' can't be null";
         }
@@ -489,6 +554,22 @@ class Order implements ModelInterface, ArrayAccess
         if (!is_null($this->container['time_in_force']) && !in_array($this->container['time_in_force'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'time_in_force', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStpActAllowableValues();
+        if (!is_null($this->container['stp_act']) && !in_array($this->container['stp_act'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'stp_act', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getFinishAsAllowableValues();
+        if (!is_null($this->container['finish_as']) && !in_array($this->container['finish_as'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'finish_as', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -552,6 +633,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setText($text)
     {
         $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets amend_text
+     *
+     * @return string|null
+     */
+    public function getAmendText()
+    {
+        return $this->container['amend_text'];
+    }
+
+    /**
+     * Sets amend_text
+     *
+     * @param string|null $amend_text The custom data that the user remarked when amending the order
+     *
+     * @return $this
+     */
+    public function setAmendText($amend_text)
+    {
+        $this->container['amend_text'] = $amend_text;
 
         return $this;
     }
@@ -755,21 +860,12 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to `cross-margin`
+     * @param string|null $account Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.  Portfolio margin accounts can only be set to `cross_margin`
      *
      * @return $this
      */
     public function setAccount($account)
     {
-        $allowedValues = $this->getAccountAllowableValues();
-        if (!is_null($account) && !in_array($account, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'account', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['account'] = $account;
 
         return $this;
@@ -950,7 +1046,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets auto_repay
      *
-     * @param bool|null $auto_repay Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. `auto_borrow` and `auto_repay` cannot be both set to true in one order.
+     * @param bool|null $auto_repay Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. `auto_borrow` and `auto_repay` can be both set to true in one order.
      *
      * @return $this
      */
@@ -981,6 +1077,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setLeft($left)
     {
         $this->container['left'] = $left;
+
+        return $this;
+    }
+
+    /**
+     * Gets filled_amount
+     *
+     * @return string|null
+     */
+    public function getFilledAmount()
+    {
+        return $this->container['filled_amount'];
+    }
+
+    /**
+     * Sets filled_amount
+     *
+     * @param string|null $filled_amount Amount traded to fill
+     *
+     * @return $this
+     */
+    public function setFilledAmount($filled_amount)
+    {
+        $this->container['filled_amount'] = $filled_amount;
 
         return $this;
     }
@@ -1269,6 +1389,120 @@ class Order implements ModelInterface, ArrayAccess
     public function setRebatedFeeCurrency($rebated_fee_currency)
     {
         $this->container['rebated_fee_currency'] = $rebated_fee_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets stp_id
+     *
+     * @return int|null
+     */
+    public function getStpId()
+    {
+        return $this->container['stp_id'];
+    }
+
+    /**
+     * Sets stp_id
+     *
+     * @param int|null $stp_id Orders between users in the same `stp_id` group are not allowed to be self-traded  1. If the `stp_id` of two orders being matched is non-zero and equal, they will not be executed. Instead, the corresponding strategy will be executed based on the `stp_act` of the taker. 2. `stp_id` returns `0` by default for orders that have not been set for `STP group`
+     *
+     * @return $this
+     */
+    public function setStpId($stp_id)
+    {
+        $this->container['stp_id'] = $stp_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets stp_act
+     *
+     * @return string|null
+     */
+    public function getStpAct()
+    {
+        return $this->container['stp_act'];
+    }
+
+    /**
+     * Sets stp_act
+     *
+     * @param string|null $stp_act Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the `STP Group`, he can pass `stp_act` to limit the user's self-trade prevetion strategy. If `stp_act` is not passed, the default is `cn` strategy。 2. When the user does not join the `STP group`, an error will be returned when passing the `stp_act` parameter。 3. If the user did not use 'stp_act' when placing the order, 'stp_act' will return '-'  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     *
+     * @return $this
+     */
+    public function setStpAct($stp_act)
+    {
+        $allowedValues = $this->getStpActAllowableValues();
+        if (!is_null($stp_act) && !in_array($stp_act, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'stp_act', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['stp_act'] = $stp_act;
+
+        return $this;
+    }
+
+    /**
+     * Gets finish_as
+     *
+     * @return string|null
+     */
+    public function getFinishAs()
+    {
+        return $this->container['finish_as'];
+    }
+
+    /**
+     * Sets finish_as
+     *
+     * @param string|null $finish_as Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order strategy because tif is set to poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
+     *
+     * @return $this
+     */
+    public function setFinishAs($finish_as)
+    {
+        $allowedValues = $this->getFinishAsAllowableValues();
+        if (!is_null($finish_as) && !in_array($finish_as, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'finish_as', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['finish_as'] = $finish_as;
+
+        return $this;
+    }
+
+    /**
+     * Gets action_mode
+     *
+     * @return string|null
+     */
+    public function getActionMode()
+    {
+        return $this->container['action_mode'];
+    }
+
+    /**
+     * Sets action_mode
+     *
+     * @param string|null $action_mode Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
+     *
+     * @return $this
+     */
+    public function setActionMode($action_mode)
+    {
+        $this->container['action_mode'] = $action_mode;
 
         return $this;
     }

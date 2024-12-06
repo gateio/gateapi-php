@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * OptionsContract Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Options contract detail
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class OptionsContract implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'OptionsContract';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'name' => 'string',
         'tag' => 'string',
@@ -83,10 +83,10 @@ class OptionsContract implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'name' => null,
         'tag' => null,
@@ -767,7 +767,7 @@ class OptionsContract implements ModelInterface, ArrayAccess
     /**
      * Sets order_price_deviate
      *
-     * @param string|null $order_price_deviate deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) <= mark_price * order_price_deviate
+     * @param string|null $order_price_deviate The positive and negative offset allowed between the order price and the current mark price, that is, the order price `order_price` must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price  and does not distinguish between buy and sell orders
      *
      * @return $this
      */

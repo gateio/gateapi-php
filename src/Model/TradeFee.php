@@ -42,17 +42,17 @@ class TradeFee implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'TradeFee';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'user_id' => 'int',
         'taker_fee' => 'string',
@@ -63,14 +63,17 @@ class TradeFee implements ModelInterface, ArrayAccess
         'loan_fee' => 'string',
         'point_type' => 'string',
         'futures_taker_fee' => 'string',
-        'futures_maker_fee' => 'string'
+        'futures_maker_fee' => 'string',
+        'delivery_taker_fee' => 'string',
+        'delivery_maker_fee' => 'string',
+        'debit_fee' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'user_id' => 'int64',
         'taker_fee' => null,
@@ -81,7 +84,10 @@ class TradeFee implements ModelInterface, ArrayAccess
         'loan_fee' => null,
         'point_type' => null,
         'futures_taker_fee' => null,
-        'futures_maker_fee' => null
+        'futures_maker_fee' => null,
+        'delivery_taker_fee' => null,
+        'delivery_maker_fee' => null,
+        'debit_fee' => null
     ];
 
     /**
@@ -120,7 +126,10 @@ class TradeFee implements ModelInterface, ArrayAccess
         'loan_fee' => 'loan_fee',
         'point_type' => 'point_type',
         'futures_taker_fee' => 'futures_taker_fee',
-        'futures_maker_fee' => 'futures_maker_fee'
+        'futures_maker_fee' => 'futures_maker_fee',
+        'delivery_taker_fee' => 'delivery_taker_fee',
+        'delivery_maker_fee' => 'delivery_maker_fee',
+        'debit_fee' => 'debit_fee'
     ];
 
     /**
@@ -138,7 +147,10 @@ class TradeFee implements ModelInterface, ArrayAccess
         'loan_fee' => 'setLoanFee',
         'point_type' => 'setPointType',
         'futures_taker_fee' => 'setFuturesTakerFee',
-        'futures_maker_fee' => 'setFuturesMakerFee'
+        'futures_maker_fee' => 'setFuturesMakerFee',
+        'delivery_taker_fee' => 'setDeliveryTakerFee',
+        'delivery_maker_fee' => 'setDeliveryMakerFee',
+        'debit_fee' => 'setDebitFee'
     ];
 
     /**
@@ -156,7 +168,10 @@ class TradeFee implements ModelInterface, ArrayAccess
         'loan_fee' => 'getLoanFee',
         'point_type' => 'getPointType',
         'futures_taker_fee' => 'getFuturesTakerFee',
-        'futures_maker_fee' => 'getFuturesMakerFee'
+        'futures_maker_fee' => 'getFuturesMakerFee',
+        'delivery_taker_fee' => 'getDeliveryTakerFee',
+        'delivery_maker_fee' => 'getDeliveryMakerFee',
+        'debit_fee' => 'getDebitFee'
     ];
 
     /**
@@ -229,6 +244,9 @@ class TradeFee implements ModelInterface, ArrayAccess
         $this->container['point_type'] = isset($data['point_type']) ? $data['point_type'] : null;
         $this->container['futures_taker_fee'] = isset($data['futures_taker_fee']) ? $data['futures_taker_fee'] : null;
         $this->container['futures_maker_fee'] = isset($data['futures_maker_fee']) ? $data['futures_maker_fee'] : null;
+        $this->container['delivery_taker_fee'] = isset($data['delivery_taker_fee']) ? $data['delivery_taker_fee'] : null;
+        $this->container['delivery_maker_fee'] = isset($data['delivery_maker_fee']) ? $data['delivery_maker_fee'] : null;
+        $this->container['debit_fee'] = isset($data['debit_fee']) ? $data['debit_fee'] : null;
     }
 
     /**
@@ -491,6 +509,78 @@ class TradeFee implements ModelInterface, ArrayAccess
     public function setFuturesMakerFee($futures_maker_fee)
     {
         $this->container['futures_maker_fee'] = $futures_maker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_taker_fee
+     *
+     * @return string|null
+     */
+    public function getDeliveryTakerFee()
+    {
+        return $this->container['delivery_taker_fee'];
+    }
+
+    /**
+     * Sets delivery_taker_fee
+     *
+     * @param string|null $delivery_taker_fee Delivery trading taker fee
+     *
+     * @return $this
+     */
+    public function setDeliveryTakerFee($delivery_taker_fee)
+    {
+        $this->container['delivery_taker_fee'] = $delivery_taker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_maker_fee
+     *
+     * @return string|null
+     */
+    public function getDeliveryMakerFee()
+    {
+        return $this->container['delivery_maker_fee'];
+    }
+
+    /**
+     * Sets delivery_maker_fee
+     *
+     * @param string|null $delivery_maker_fee Delivery trading maker fee
+     *
+     * @return $this
+     */
+    public function setDeliveryMakerFee($delivery_maker_fee)
+    {
+        $this->container['delivery_maker_fee'] = $delivery_maker_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets debit_fee
+     *
+     * @return int|null
+     */
+    public function getDebitFee()
+    {
+        return $this->container['debit_fee'];
+    }
+
+    /**
+     * Sets debit_fee
+     *
+     * @param int|null $debit_fee Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates
+     *
+     * @return $this
+     */
+    public function setDebitFee($debit_fee)
+    {
+        $this->container['debit_fee'] = $debit_fee;
 
         return $this;
     }

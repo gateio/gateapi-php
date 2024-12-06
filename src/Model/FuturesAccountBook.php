@@ -42,36 +42,42 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FuturesAccountBook';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'time' => 'double',
         'change' => 'string',
         'balance' => 'string',
         'type' => 'string',
-        'text' => 'string'
+        'text' => 'string',
+        'contract' => 'string',
+        'trade_id' => 'string',
+        'id' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'time' => 'double',
         'change' => null,
         'balance' => null,
         'type' => null,
-        'text' => null
+        'text' => null,
+        'contract' => null,
+        'trade_id' => null,
+        'id' => null
     ];
 
     /**
@@ -105,7 +111,10 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
         'change' => 'change',
         'balance' => 'balance',
         'type' => 'type',
-        'text' => 'text'
+        'text' => 'text',
+        'contract' => 'contract',
+        'trade_id' => 'trade_id',
+        'id' => 'id'
     ];
 
     /**
@@ -118,7 +127,10 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
         'change' => 'setChange',
         'balance' => 'setBalance',
         'type' => 'setType',
-        'text' => 'setText'
+        'text' => 'setText',
+        'contract' => 'setContract',
+        'trade_id' => 'setTradeId',
+        'id' => 'setId'
     ];
 
     /**
@@ -131,7 +143,10 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
         'change' => 'getChange',
         'balance' => 'getBalance',
         'type' => 'getType',
-        'text' => 'getText'
+        'text' => 'getText',
+        'contract' => 'getContract',
+        'trade_id' => 'getTradeId',
+        'id' => 'getId'
     ];
 
     /**
@@ -183,6 +198,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     const TYPE_POINT_DNW = 'point_dnw';
     const TYPE_POINT_FEE = 'point_fee';
     const TYPE_POINT_REFR = 'point_refr';
+    const TYPE_BONUS_OFFSET = 'bonus_offset';
     
 
     
@@ -202,6 +218,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
             self::TYPE_POINT_DNW,
             self::TYPE_POINT_FEE,
             self::TYPE_POINT_REFR,
+            self::TYPE_BONUS_OFFSET,
         ];
     }
     
@@ -226,6 +243,9 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
         $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['trade_id'] = isset($data['trade_id']) ? $data['trade_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -345,7 +365,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+     * @param string|null $type Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
      *
      * @return $this
      */
@@ -385,6 +405,78 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     public function setText($text)
     {
         $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets contract
+     *
+     * @return string|null
+     */
+    public function getContract()
+    {
+        return $this->container['contract'];
+    }
+
+    /**
+     * Sets contract
+     *
+     * @param string|null $contract Futures contract, the field is only available for data after 2023-10-30.
+     *
+     * @return $this
+     */
+    public function setContract($contract)
+    {
+        $this->container['contract'] = $contract;
+
+        return $this;
+    }
+
+    /**
+     * Gets trade_id
+     *
+     * @return string|null
+     */
+    public function getTradeId()
+    {
+        return $this->container['trade_id'];
+    }
+
+    /**
+     * Sets trade_id
+     *
+     * @param string|null $trade_id trade id
+     *
+     * @return $this
+     */
+    public function setTradeId($trade_id)
+    {
+        $this->container['trade_id'] = $trade_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id 账户变更记录 id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }

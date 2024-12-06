@@ -42,17 +42,17 @@ class FuturesTicker implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FuturesTicker';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'contract' => 'string',
         'last' => 'string',
@@ -72,14 +72,18 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'index_price' => 'string',
         'quanto_base_rate' => 'string',
         'basis_rate' => 'string',
-        'basis_value' => 'string'
+        'basis_value' => 'string',
+        'lowest_ask' => 'string',
+        'lowest_size' => 'string',
+        'highest_bid' => 'string',
+        'highest_size' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'contract' => null,
         'last' => null,
@@ -99,7 +103,11 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'index_price' => null,
         'quanto_base_rate' => null,
         'basis_rate' => null,
-        'basis_value' => null
+        'basis_value' => null,
+        'lowest_ask' => null,
+        'lowest_size' => null,
+        'highest_bid' => null,
+        'highest_size' => null
     ];
 
     /**
@@ -147,7 +155,11 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'index_price' => 'index_price',
         'quanto_base_rate' => 'quanto_base_rate',
         'basis_rate' => 'basis_rate',
-        'basis_value' => 'basis_value'
+        'basis_value' => 'basis_value',
+        'lowest_ask' => 'lowest_ask',
+        'lowest_size' => 'lowest_size',
+        'highest_bid' => 'highest_bid',
+        'highest_size' => 'highest_size'
     ];
 
     /**
@@ -174,7 +186,11 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'index_price' => 'setIndexPrice',
         'quanto_base_rate' => 'setQuantoBaseRate',
         'basis_rate' => 'setBasisRate',
-        'basis_value' => 'setBasisValue'
+        'basis_value' => 'setBasisValue',
+        'lowest_ask' => 'setLowestAsk',
+        'lowest_size' => 'setLowestSize',
+        'highest_bid' => 'setHighestBid',
+        'highest_size' => 'setHighestSize'
     ];
 
     /**
@@ -201,7 +217,11 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'index_price' => 'getIndexPrice',
         'quanto_base_rate' => 'getQuantoBaseRate',
         'basis_rate' => 'getBasisRate',
-        'basis_value' => 'getBasisValue'
+        'basis_value' => 'getBasisValue',
+        'lowest_ask' => 'getLowestAsk',
+        'lowest_size' => 'getLowestSize',
+        'highest_bid' => 'getHighestBid',
+        'highest_size' => 'getHighestSize'
     ];
 
     /**
@@ -283,6 +303,10 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         $this->container['quanto_base_rate'] = isset($data['quanto_base_rate']) ? $data['quanto_base_rate'] : null;
         $this->container['basis_rate'] = isset($data['basis_rate']) ? $data['basis_rate'] : null;
         $this->container['basis_value'] = isset($data['basis_value']) ? $data['basis_value'] : null;
+        $this->container['lowest_ask'] = isset($data['lowest_ask']) ? $data['lowest_ask'] : null;
+        $this->container['lowest_size'] = isset($data['lowest_size']) ? $data['lowest_size'] : null;
+        $this->container['highest_bid'] = isset($data['highest_bid']) ? $data['highest_bid'] : null;
+        $this->container['highest_size'] = isset($data['highest_size']) ? $data['highest_size'] : null;
     }
 
     /**
@@ -761,6 +785,102 @@ class FuturesTicker implements ModelInterface, ArrayAccess
     public function setBasisValue($basis_value)
     {
         $this->container['basis_value'] = $basis_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets lowest_ask
+     *
+     * @return string|null
+     */
+    public function getLowestAsk()
+    {
+        return $this->container['lowest_ask'];
+    }
+
+    /**
+     * Sets lowest_ask
+     *
+     * @param string|null $lowest_ask Recent lowest ask
+     *
+     * @return $this
+     */
+    public function setLowestAsk($lowest_ask)
+    {
+        $this->container['lowest_ask'] = $lowest_ask;
+
+        return $this;
+    }
+
+    /**
+     * Gets lowest_size
+     *
+     * @return string|null
+     */
+    public function getLowestSize()
+    {
+        return $this->container['lowest_size'];
+    }
+
+    /**
+     * Sets lowest_size
+     *
+     * @param string|null $lowest_size The latest seller's lowest price order quantity
+     *
+     * @return $this
+     */
+    public function setLowestSize($lowest_size)
+    {
+        $this->container['lowest_size'] = $lowest_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets highest_bid
+     *
+     * @return string|null
+     */
+    public function getHighestBid()
+    {
+        return $this->container['highest_bid'];
+    }
+
+    /**
+     * Sets highest_bid
+     *
+     * @param string|null $highest_bid Recent highest bid
+     *
+     * @return $this
+     */
+    public function setHighestBid($highest_bid)
+    {
+        $this->container['highest_bid'] = $highest_bid;
+
+        return $this;
+    }
+
+    /**
+     * Gets highest_size
+     *
+     * @return string|null
+     */
+    public function getHighestSize()
+    {
+        return $this->container['highest_size'];
+    }
+
+    /**
+     * Sets highest_size
+     *
+     * @param string|null $highest_size The latest buyer's highest price order volume
+     *
+     * @return $this
+     */
+    public function setHighestSize($highest_size)
+    {
+        $this->container['highest_size'] = $highest_size;
 
         return $this;
     }

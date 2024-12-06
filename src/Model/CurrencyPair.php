@@ -32,28 +32,28 @@ use \GateApi\ObjectSerializer;
 /**
  * CurrencyPair Class Doc Comment
  *
- * @category    Class
+ * @category Class
  * @description Spot currency pair
- * @package     GateApi
- * @author      GateIO
- * @link        https://www.gate.io
+ * @package  GateApi
+ * @author   GateIO
+ * @link     https://www.gate.io
  */
 class CurrencyPair implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CurrencyPair';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'string',
         'base' => 'string',
@@ -61,6 +61,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => 'string',
         'min_base_amount' => 'string',
         'min_quote_amount' => 'string',
+        'max_base_amount' => 'string',
+        'max_quote_amount' => 'string',
         'amount_precision' => 'int',
         'precision' => 'int',
         'trade_status' => 'string',
@@ -69,10 +71,10 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => null,
         'base' => null,
@@ -80,6 +82,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => null,
         'min_base_amount' => null,
         'min_quote_amount' => null,
+        'max_base_amount' => null,
+        'max_quote_amount' => null,
         'amount_precision' => null,
         'precision' => null,
         'trade_status' => null,
@@ -120,6 +124,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => 'fee',
         'min_base_amount' => 'min_base_amount',
         'min_quote_amount' => 'min_quote_amount',
+        'max_base_amount' => 'max_base_amount',
+        'max_quote_amount' => 'max_quote_amount',
         'amount_precision' => 'amount_precision',
         'precision' => 'precision',
         'trade_status' => 'trade_status',
@@ -139,6 +145,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => 'setFee',
         'min_base_amount' => 'setMinBaseAmount',
         'min_quote_amount' => 'setMinQuoteAmount',
+        'max_base_amount' => 'setMaxBaseAmount',
+        'max_quote_amount' => 'setMaxQuoteAmount',
         'amount_precision' => 'setAmountPrecision',
         'precision' => 'setPrecision',
         'trade_status' => 'setTradeStatus',
@@ -158,6 +166,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'fee' => 'getFee',
         'min_base_amount' => 'getMinBaseAmount',
         'min_quote_amount' => 'getMinQuoteAmount',
+        'max_base_amount' => 'getMaxBaseAmount',
+        'max_quote_amount' => 'getMaxQuoteAmount',
         'amount_precision' => 'getAmountPrecision',
         'precision' => 'getPrecision',
         'trade_status' => 'getTradeStatus',
@@ -250,6 +260,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
         $this->container['min_base_amount'] = isset($data['min_base_amount']) ? $data['min_base_amount'] : null;
         $this->container['min_quote_amount'] = isset($data['min_quote_amount']) ? $data['min_quote_amount'] : null;
+        $this->container['max_base_amount'] = isset($data['max_base_amount']) ? $data['max_base_amount'] : null;
+        $this->container['max_quote_amount'] = isset($data['max_quote_amount']) ? $data['max_quote_amount'] : null;
         $this->container['amount_precision'] = isset($data['amount_precision']) ? $data['amount_precision'] : null;
         $this->container['precision'] = isset($data['precision']) ? $data['precision'] : null;
         $this->container['trade_status'] = isset($data['trade_status']) ? $data['trade_status'] : null;
@@ -429,6 +441,54 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     public function setMinQuoteAmount($min_quote_amount)
     {
         $this->container['min_quote_amount'] = $min_quote_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_base_amount
+     *
+     * @return string|null
+     */
+    public function getMaxBaseAmount()
+    {
+        return $this->container['max_base_amount'];
+    }
+
+    /**
+     * Sets max_base_amount
+     *
+     * @param string|null $max_base_amount Maximum amount of base currency to trade, `null` means no limit
+     *
+     * @return $this
+     */
+    public function setMaxBaseAmount($max_base_amount)
+    {
+        $this->container['max_base_amount'] = $max_base_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_quote_amount
+     *
+     * @return string|null
+     */
+    public function getMaxQuoteAmount()
+    {
+        return $this->container['max_quote_amount'];
+    }
+
+    /**
+     * Sets max_quote_amount
+     *
+     * @param string|null $max_quote_amount Maximum amount of quote currency to trade, `null` means no limit
+     *
+     * @return $this
+     */
+    public function setMaxQuoteAmount($max_quote_amount)
+    {
+        $this->container['max_quote_amount'] = $max_quote_amount;
 
         return $this;
     }

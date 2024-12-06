@@ -42,17 +42,17 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'CrossMarginLoan';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'id' => 'string',
         'create_time' => 'int',
@@ -67,10 +67,10 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPIFormats = [
         'id' => null,
         'create_time' => 'int64',
@@ -299,7 +299,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Borrow loan ID
+     * @param string|null $id Loan record ID
      *
      * @return $this
      */
@@ -443,7 +443,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int|null $status Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
+     * @param int|null $status Deprecated. Currently, all statuses have been set to 2.  Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
      *
      * @return $this
      */
