@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**getSystemTime**](SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time
 [**countdownCancelAllSpot**](SpotApi.md#countdownCancelAllSpot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders
 [**amendBatchOrders**](SpotApi.md#amendBatchOrders) | **POST** /spot/amend_batch_orders | Batch modification of orders
+[**getSpotInsuranceHistory**](SpotApi.md#getSpotInsuranceHistory) | **GET** /spot/insurance_history | Query spot insurance fund historical data
 [**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
 [**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
 [**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
@@ -389,7 +390,7 @@ No authorization required
 
 Retrieve market trades
 
-You can use `from` and `to` to query by time range, or use `last_id` by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using `last_id` is not recommended any more. If `last_id` is specified, time range query parameters will be ignored.
+支持指定 `from` 和 `to` 按时间范围查询或基于 `last_id` 的翻页查询。默认按时间范围查询,查询范围为最近30天。  基于 `last_id` 翻页的查询方式不再推荐继续使用。如果指定 `last_id` ，时间范围查询参数会被忽略。  使用 limit&page分页功能检索数据时最大分页数量为100,000条，即 (limit * page - 1) <= 100000。
 
 ### Example
 
@@ -715,7 +716,7 @@ Name | Type | Description  | Notes
 
 Query account book
 
-Record time range cannot exceed 30 days
+记录查询时间范围不允许超过 30 天。  使用 limit&page分页功能检索数据时最大分页数量为100,000条，即 (limit * page - 1) <= 100000。
 
 ### Example
 
@@ -1465,7 +1466,7 @@ Name | Type | Description  | Notes
 
 List personal trading history
 
-Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`  You can also set `from` and(or) `to` to query by time range. If you don't specify `from` and/or `to` parameters, only the last 7 days of data will be retured. The range of `from` and `to` is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`  You can also set `from` and(or) `to` to query by time range. If you don't specify `from` and/or `to` parameters, only the last 7 days of data will be retured. The range of `from` and `to` is not alloed to exceed 30 days.  Time range parameters are handled as order finish time. When using the limit&page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit * page - 1) <= 100000.
 
 ### Example
 
@@ -1706,6 +1707,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getSpotInsuranceHistory
+
+> \GateApi\Model\SpotInsuranceHistory[] getSpotInsuranceHistory($business, $currency, $from, $to, $page, $limit)
+
+Query spot insurance fund historical data
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\SpotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$associate_array['business'] = 'margin'; // string | Leverage business, margin - position by position; unified - unified account
+$associate_array['currency'] = 'BTC'; // string | Currency
+$associate_array['from'] = 1547706332; // int | Start timestamp, seconds
+$associate_array['to'] = 1547706332; // int | End timestamp, in seconds
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 30; // int | The maximum number of items returned in the list, the default value is 30
+
+try {
+    $result = $apiInstance->getSpotInsuranceHistory($associate_array);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling SpotApi->getSpotInsuranceHistory: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **business** | **string**| Leverage business, margin - position by position; unified - unified account |
+ **currency** | **string**| Currency |
+ **from** | **int**| Start timestamp, seconds |
+ **to** | **int**| End timestamp, in seconds |
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| The maximum number of items returned in the list, the default value is 30 | [optional] [default to 30]
+
+### Return type
+
+[**\GateApi\Model\SpotInsuranceHistory[]**](../Model/SpotInsuranceHistory.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

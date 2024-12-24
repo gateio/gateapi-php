@@ -1522,7 +1522,7 @@ This endpoint does not need any parameter.
 
 Retrieve cross margin account change history
 
-Record time range cannot exceed 30 days
+记录查询时间范围不允许超过 30 天。  使用 limit&page分页功能检索数据时最大分页数量为100,000条，即 (limit * page - 1) <= 100000。
 
 ### Example
 

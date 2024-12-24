@@ -1,6 +1,6 @@
 <?php
 /**
- * UnifiedModeSet
+ * SpotInsuranceHistory
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * UnifiedModeSet Class Doc Comment
+ * SpotInsuranceHistory Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class UnifiedModeSet implements ModelInterface, ArrayAccess
+class SpotInsuranceHistory implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UnifiedModeSet';
+    protected static $openAPIModelName = 'SpotInsuranceHistory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,8 +54,9 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'mode' => 'string',
-        'settings' => '\GateApi\Model\UnifiedSettings'
+        'currency' => 'string',
+        'balance' => 'string',
+        'time' => 'int'
     ];
 
     /**
@@ -64,8 +65,9 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'mode' => null,
-        'settings' => null
+        'currency' => null,
+        'balance' => null,
+        'time' => 'int64'
     ];
 
     /**
@@ -95,8 +97,9 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'mode' => 'mode',
-        'settings' => 'settings'
+        'currency' => 'currency',
+        'balance' => 'balance',
+        'time' => 'time'
     ];
 
     /**
@@ -105,8 +108,9 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'mode' => 'setMode',
-        'settings' => 'setSettings'
+        'currency' => 'setCurrency',
+        'balance' => 'setBalance',
+        'time' => 'setTime'
     ];
 
     /**
@@ -115,8 +119,9 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'mode' => 'getMode',
-        'settings' => 'getSettings'
+        'currency' => 'getCurrency',
+        'balance' => 'getBalance',
+        'time' => 'getTime'
     ];
 
     /**
@@ -179,8 +184,9 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['settings'] = isset($data['settings']) ? $data['settings'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
     }
 
     /**
@@ -192,9 +198,6 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['mode'] === null) {
-            $invalidProperties[] = "'mode' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -211,49 +214,73 @@ class UnifiedModeSet implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets mode
+     * Gets currency
      *
-     * @return string
+     * @return string|null
      */
-    public function getMode()
+    public function getCurrency()
     {
-        return $this->container['mode'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets mode
+     * Sets currency
      *
-     * @param string $mode Unified account mode:  - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode - `single_currency`: Single Currency Margin Model
+     * @param string|null $currency Currency
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setCurrency($currency)
     {
-        $this->container['mode'] = $mode;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets settings
+     * Gets balance
      *
-     * @return \GateApi\Model\UnifiedSettings|null
+     * @return string|null
      */
-    public function getSettings()
+    public function getBalance()
     {
-        return $this->container['settings'];
+        return $this->container['balance'];
     }
 
     /**
-     * Sets settings
+     * Sets balance
      *
-     * @param \GateApi\Model\UnifiedSettings|null $settings settings
+     * @param string|null $balance 余额
      *
      * @return $this
      */
-    public function setSettings($settings)
+    public function setBalance($balance)
     {
-        $this->container['settings'] = $settings;
+        $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets time
+     *
+     * @return int|null
+     */
+    public function getTime()
+    {
+        return $this->container['time'];
+    }
+
+    /**
+     * Sets time
+     *
+     * @param int|null $time Creation time, timestamp, milliseconds
+     *
+     * @return $this
+     */
+    public function setTime($time)
+    {
+        $this->container['time'] = $time;
 
         return $this;
     }

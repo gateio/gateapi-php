@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**calculatePortfolioMargin**](UnifiedApi.md#calculatePortfolioMargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
 [**getUserLeverageCurrencyConfig**](UnifiedApi.md#getUserLeverageCurrencyConfig) | **GET** /unified/leverage/user_currency_config | The maximum and minimum leverage multiples that users can set for a currency type are:
 [**getUserLeverageCurrencySetting**](UnifiedApi.md#getUserLeverageCurrencySetting) | **GET** /unified/leverage/user_currency_setting | Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
-[**setUserLeverageCurrencySetting**](UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set the currency leverage ratio
+[**setUserLeverageCurrencySetting**](UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage
 [**getHistoryLoanRate**](UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | get historical lending rates
 
 
@@ -659,7 +659,7 @@ This endpoint does not need any parameter.
 
 Query mode of the unified account
 
-Unified account mode： - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode
+Unified account mode: - `classic`: Classic account mode - `multi_currency`: Cross-currency margin mode - `portfolio`: Portfolio margin mode - `single_currency`: Single-currency margin mode
 
 ### Example
 
@@ -717,7 +717,7 @@ This endpoint does not need any parameter.
 
 Set mode of the unified account
 
-Switching between different account modes requires only passing the parameters n\\corresponding to the target account mode. It also supports opening or closing configuration switches for the corresponding account mode when switching- When enabling classic account mode,mode=classic ```     PUT /unified/unified_mode     {       \"mode\": \"classic\"     } ``` - When enabling multi-currency margin mode, mode=multi_currency ```     PUT /unified/unified_mode     {       \"mode\": \"multi_currency\",       \"settings\": {          \"usdt_futures\": true       }     } ``` - When enabling portfolio margin mode,mode=portfolio ```     PUT /unified/unified_mode     {       \"mode\": \"portfolio\",       \"settings\": {          \"spot_hedge\": true       }     } ```
+每种账户模式的切换只需要传对应账户模式的参数，同时支持在切换账户模式时打开或关闭对应账户模式下的配置开关   - 开通经典账户模式时，mode=classic ```     PUT /unified/unified_mode     {       \"mode\": \"classic\"     } ``` - 开通跨币种保证金模式，mode=multi_currency ```     PUT /unified/unified_mode     {       \"mode\": \"multi_currency\",       \"settings\": {          \"usdt_futures\": true       }     } ``` - 开通组合保证金模式时，mode=portfolio ```     PUT /unified/unified_mode     {       \"mode\": \"portfolio\",       \"settings\": {          \"spot_hedge\": true       }     } ``` - 开通组合保证金模式时，mode=single_currency ```     PUT /unified/unified_mode     {       \"mode\": \"single_currency\"     } ```
 
 ### Example
 
@@ -1122,7 +1122,7 @@ Name | Type | Description  | Notes
 
 > setUserLeverageCurrencySetting($unified_leverage_setting)
 
-Set the currency leverage ratio
+Set the loan currency leverage
 
 ### Example
 

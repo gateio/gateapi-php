@@ -4555,7 +4555,7 @@ class UnifiedApi
     /**
      * Operation setUserLeverageCurrencySetting
      *
-     * Set the currency leverage ratio
+     * Set the loan currency leverage
      *
      * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting unified_leverage_setting (optional)
      *
@@ -4571,7 +4571,7 @@ class UnifiedApi
     /**
      * Operation setUserLeverageCurrencySettingWithHttpInfo
      *
-     * Set the currency leverage ratio
+     * Set the loan currency leverage
      *
      * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (optional)
      *
@@ -4613,7 +4613,7 @@ class UnifiedApi
     /**
      * Operation setUserLeverageCurrencySettingAsync
      *
-     * Set the currency leverage ratio
+     * Set the loan currency leverage
      *
      * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (optional)
      *
@@ -4633,7 +4633,7 @@ class UnifiedApi
     /**
      * Operation setUserLeverageCurrencySettingAsyncWithHttpInfo
      *
-     * Set the currency leverage ratio
+     * Set the loan currency leverage
      *
      * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (optional)
      *

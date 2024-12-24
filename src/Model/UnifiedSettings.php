@@ -232,7 +232,7 @@ class UnifiedSettings implements ModelInterface, ArrayAccess
     /**
      * Sets usdt_futures
      *
-     * @param bool|null $usdt_futures USDT contract switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.
+     * @param bool|null $usdt_futures USDT contract switch. In cross-currency margin mode, it can only be turned on and not off
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class UnifiedSettings implements ModelInterface, ArrayAccess
     /**
      * Sets spot_hedge
      *
-     * @param bool|null $spot_hedge Spot hedging switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.
+     * @param bool|null $spot_hedge 现货对冲开关。
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class UnifiedSettings implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param bool|null $options Option switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.
+     * @param bool|null $options Option switch. In cross-currency margin mode, it can only be turned on and not off
      *
      * @return $this
      */

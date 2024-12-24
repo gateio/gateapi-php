@@ -64,7 +64,15 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'total_liab' => 'string',
         'spot_in_use' => 'string',
         'funding' => 'string',
-        'funding_version' => 'string'
+        'funding_version' => 'string',
+        'cross_balance' => 'string',
+        'iso_balance' => 'string',
+        'im' => 'string',
+        'mm' => 'string',
+        'imr' => 'string',
+        'mmr' => 'string',
+        'margin_balance' => 'string',
+        'available_margin' => 'string'
     ];
 
     /**
@@ -83,7 +91,15 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'total_liab' => null,
         'spot_in_use' => null,
         'funding' => null,
-        'funding_version' => null
+        'funding_version' => null,
+        'cross_balance' => null,
+        'iso_balance' => null,
+        'im' => null,
+        'mm' => null,
+        'imr' => null,
+        'mmr' => null,
+        'margin_balance' => null,
+        'available_margin' => null
     ];
 
     /**
@@ -123,7 +139,15 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'total_liab' => 'total_liab',
         'spot_in_use' => 'spot_in_use',
         'funding' => 'funding',
-        'funding_version' => 'funding_version'
+        'funding_version' => 'funding_version',
+        'cross_balance' => 'cross_balance',
+        'iso_balance' => 'iso_balance',
+        'im' => 'im',
+        'mm' => 'mm',
+        'imr' => 'imr',
+        'mmr' => 'mmr',
+        'margin_balance' => 'margin_balance',
+        'available_margin' => 'available_margin'
     ];
 
     /**
@@ -142,7 +166,15 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'total_liab' => 'setTotalLiab',
         'spot_in_use' => 'setSpotInUse',
         'funding' => 'setFunding',
-        'funding_version' => 'setFundingVersion'
+        'funding_version' => 'setFundingVersion',
+        'cross_balance' => 'setCrossBalance',
+        'iso_balance' => 'setIsoBalance',
+        'im' => 'setIm',
+        'mm' => 'setMm',
+        'imr' => 'setImr',
+        'mmr' => 'setMmr',
+        'margin_balance' => 'setMarginBalance',
+        'available_margin' => 'setAvailableMargin'
     ];
 
     /**
@@ -161,7 +193,15 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'total_liab' => 'getTotalLiab',
         'spot_in_use' => 'getSpotInUse',
         'funding' => 'getFunding',
-        'funding_version' => 'getFundingVersion'
+        'funding_version' => 'getFundingVersion',
+        'cross_balance' => 'getCrossBalance',
+        'iso_balance' => 'getIsoBalance',
+        'im' => 'getIm',
+        'mm' => 'getMm',
+        'imr' => 'getImr',
+        'mmr' => 'getMmr',
+        'margin_balance' => 'getMarginBalance',
+        'available_margin' => 'getAvailableMargin'
     ];
 
     /**
@@ -235,6 +275,14 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         $this->container['spot_in_use'] = isset($data['spot_in_use']) ? $data['spot_in_use'] : null;
         $this->container['funding'] = isset($data['funding']) ? $data['funding'] : null;
         $this->container['funding_version'] = isset($data['funding_version']) ? $data['funding_version'] : null;
+        $this->container['cross_balance'] = isset($data['cross_balance']) ? $data['cross_balance'] : null;
+        $this->container['iso_balance'] = isset($data['iso_balance']) ? $data['iso_balance'] : null;
+        $this->container['im'] = isset($data['im']) ? $data['im'] : null;
+        $this->container['mm'] = isset($data['mm']) ? $data['mm'] : null;
+        $this->container['imr'] = isset($data['imr']) ? $data['imr'] : null;
+        $this->container['mmr'] = isset($data['mmr']) ? $data['mmr'] : null;
+        $this->container['margin_balance'] = isset($data['margin_balance']) ? $data['margin_balance'] : null;
+        $this->container['available_margin'] = isset($data['available_margin']) ? $data['available_margin'] : null;
     }
 
     /**
@@ -274,7 +322,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param string|null $available Available amount
+     * @param string|null $available Available amount is valid in single currency margin/cross-currency margin/combined margin mode, and the calculation is different in different modes
      *
      * @return $this
      */
@@ -298,7 +346,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets freeze
      *
-     * @param string|null $freeze Locked amount
+     * @param string|null $freeze The locked amount is valid in single currency margin/cross-currency margin/combined margin mode
      *
      * @return $this
      */
@@ -322,7 +370,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets borrowed
      *
-     * @param string|null $borrowed Borrowed amount
+     * @param string|null $borrowed Borrow limit, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -346,7 +394,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets negative_liab
      *
-     * @param string|null $negative_liab Negative Liabilities
+     * @param string|null $negative_liab Negative balance loan is valid in cross-currency margin/combined margin mode, and is 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -394,7 +442,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets equity
      *
-     * @param string|null $equity Equity
+     * @param string|null $equity Equity, valid in single currency margin/cross currency margin/combined margin mode
      *
      * @return $this
      */
@@ -442,7 +490,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets total_liab
      *
-     * @param string|null $total_liab Total liabilities
+     * @param string|null $total_liab Total borrowing, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -466,7 +514,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets spot_in_use
      *
-     * @param string|null $spot_in_use Spot hedging utilization
+     * @param string|null $spot_in_use The amount of spot hedging is valid in the combined margin mode, and is 0 in other margin modes such as single currency and cross-currency margin modes
      *
      * @return $this
      */
@@ -490,7 +538,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets funding
      *
-     * @param string|null $funding Quantity of funding
+     * @param string|null $funding Yubibao financial management amount, effective when Yubibao financial management is turned on as a unified account margin switch
      *
      * @return $this
      */
@@ -521,6 +569,198 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     public function setFundingVersion($funding_version)
     {
         $this->container['funding_version'] = $funding_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_balance
+     *
+     * @return string|null
+     */
+    public function getCrossBalance()
+    {
+        return $this->container['cross_balance'];
+    }
+
+    /**
+     * Sets cross_balance
+     *
+     * @param string|null $cross_balance Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode
+     *
+     * @return $this
+     */
+    public function setCrossBalance($cross_balance)
+    {
+        $this->container['cross_balance'] = $cross_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets iso_balance
+     *
+     * @return string|null
+     */
+    public function getIsoBalance()
+    {
+        return $this->container['iso_balance'];
+    }
+
+    /**
+     * Sets iso_balance
+     *
+     * @param string|null $iso_balance Isolated margin balance is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     *
+     * @return $this
+     */
+    public function setIsoBalance($iso_balance)
+    {
+        $this->container['iso_balance'] = $iso_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets im
+     *
+     * @return string|null
+     */
+    public function getIm()
+    {
+        return $this->container['im'];
+    }
+
+    /**
+     * Sets im
+     *
+     * @param string|null $im Full-position initial margin is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     *
+     * @return $this
+     */
+    public function setIm($im)
+    {
+        $this->container['im'] = $im;
+
+        return $this;
+    }
+
+    /**
+     * Gets mm
+     *
+     * @return string|null
+     */
+    public function getMm()
+    {
+        return $this->container['mm'];
+    }
+
+    /**
+     * Sets mm
+     *
+     * @param string|null $mm Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     *
+     * @return $this
+     */
+    public function setMm($mm)
+    {
+        $this->container['mm'] = $mm;
+
+        return $this;
+    }
+
+    /**
+     * Gets imr
+     *
+     * @return string|null
+     */
+    public function getImr()
+    {
+        return $this->container['imr'];
+    }
+
+    /**
+     * Sets imr
+     *
+     * @param string|null $imr Full-position initial margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     *
+     * @return $this
+     */
+    public function setImr($imr)
+    {
+        $this->container['imr'] = $imr;
+
+        return $this;
+    }
+
+    /**
+     * Gets mmr
+     *
+     * @return string|null
+     */
+    public function getMmr()
+    {
+        return $this->container['mmr'];
+    }
+
+    /**
+     * Sets mmr
+     *
+     * @param string|null $mmr Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     *
+     * @return $this
+     */
+    public function setMmr($mmr)
+    {
+        $this->container['mmr'] = $mmr;
+
+        return $this;
+    }
+
+    /**
+     * Gets margin_balance
+     *
+     * @return string|null
+     */
+    public function getMarginBalance()
+    {
+        return $this->container['margin_balance'];
+    }
+
+    /**
+     * Sets margin_balance
+     *
+     * @param string|null $margin_balance Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode
+     *
+     * @return $this
+     */
+    public function setMarginBalance($margin_balance)
+    {
+        $this->container['margin_balance'] = $margin_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets available_margin
+     *
+     * @return string|null
+     */
+    public function getAvailableMargin()
+    {
+        return $this->container['available_margin'];
+    }
+
+    /**
+     * Sets available_margin
+     *
+     * @param string|null $available_margin Full margin available for full position is valid in single currency margin mode, and is 0 in other modes such as cross-currency margin/combined margin mode
+     *
+     * @return $this
+     */
+    public function setAvailableMargin($available_margin)
+    {
+        $this->container['available_margin'] = $available_margin;
 
         return $this;
     }

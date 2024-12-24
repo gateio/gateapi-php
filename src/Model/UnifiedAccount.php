@@ -370,7 +370,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets locked
      *
-     * @param bool|null $locked Whether account is locked
+     * @param bool|null $locked Whether the account is locked, valid in cross-currency margin/combined margin mode, false in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -442,7 +442,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets borrowed
      *
-     * @param string|null $borrowed The total borrowed amount in USD, calculated as the sum of the product of `borrowed * price` for all currencies (excluding points cards).
+     * @param string|null $borrowed The total borrowed amount of the account converted into USD, i.e. the sum of `borrowed * price` of all currencies (excluding Point Cards). It is valid in cross-currency margin/combined margin mode, and is 0 in other modes such as single-currency margin mode.
      *
      * @return $this
      */
@@ -466,7 +466,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total_initial_margin
      *
-     * @param string|null $total_initial_margin Total initial margin
+     * @param string|null $total_initial_margin Total initial margin, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -490,7 +490,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total_margin_balance
      *
-     * @param string|null $total_margin_balance Total margin balance
+     * @param string|null $total_margin_balance Total margin balance, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -514,7 +514,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total_maintenance_margin
      *
-     * @param string|null $total_maintenance_margin Total maintenance margin
+     * @param string|null $total_maintenance_margin Total maintenance margin is valid in cross-currency margin/combined margin mode, and is 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -538,7 +538,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total_initial_margin_rate
      *
-     * @param string|null $total_initial_margin_rate Total initial margin rate
+     * @param string|null $total_initial_margin_rate Total initial margin rate, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -562,7 +562,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total_maintenance_margin_rate
      *
-     * @param string|null $total_maintenance_margin_rate Total maintenance margin rate
+     * @param string|null $total_maintenance_margin_rate Total maintenance margin rate, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -586,7 +586,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total_available_margin
      *
-     * @param string|null $total_available_margin Total available margin
+     * @param string|null $total_available_margin Available margin amount, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -610,7 +610,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets unified_account_total
      *
-     * @param string|null $unified_account_total Total amount of the portfolio margin account
+     * @param string|null $unified_account_total Unify the total account assets, valid in single currency margin/cross-currency margin/combined margin mode
      *
      * @return $this
      */
@@ -634,7 +634,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets unified_account_total_liab
      *
-     * @param string|null $unified_account_total_liab Total liabilities of the portfolio margin account
+     * @param string|null $unified_account_total_liab Unify the total loan of the account, valid in the cross-currency margin/combined margin mode, and 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
@@ -658,7 +658,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets unified_account_total_equity
      *
-     * @param string|null $unified_account_total_equity Total equity of the portfolio margin account
+     * @param string|null $unified_account_total_equity Unify the total account equity, valid in single currency margin/cross-currency margin/combined margin mode
      *
      * @return $this
      */
@@ -682,7 +682,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage Leverage
+     * @param string|null $leverage Actual leverage, valid in cross-currency margin/combined margin mode
      *
      * @return $this
      */
@@ -706,7 +706,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets spot_order_loss
      *
-     * @param string|null $spot_order_loss Total order loss, in USDT
+     * @param string|null $spot_order_loss Total pending order loss, in USDT, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
      *
      * @return $this
      */
