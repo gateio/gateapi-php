@@ -256,7 +256,7 @@ class UnifiedSettings implements ModelInterface, ArrayAccess
     /**
      * Sets spot_hedge
      *
-     * @param bool|null $spot_hedge 现货对冲开关。
+     * @param bool|null $spot_hedge Spot hedging switch.
      *
      * @return $this
      */

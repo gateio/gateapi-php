@@ -5,8 +5,6 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**listUnifiedAccounts**](UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information
-[**listUnifiedAccountMode**](UnifiedApi.md#listUnifiedAccountMode) | **GET** /unified/account_mode | Inquire about unified account mode (deprecated)
-[**setUnifiedAccountMode**](UnifiedApi.md#setUnifiedAccountMode) | **POST** /unified/account_mode | Set unified account mode (deprecated)
 [**getUnifiedBorrowable**](UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query about the maximum borrowing for the unified account
 [**getUnifiedTransferable**](UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query about the maximum transferable for the unified account
 [**listUnifiedLoans**](UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | List loans
@@ -83,124 +81,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## listUnifiedAccountMode
-
-> map[string,bool] listUnifiedAccountMode()
-
-Inquire about unified account mode (deprecated)
-
-cross_margin - Spot full-margin trading, usdt_futures - USDT perpetual futures
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure Gate APIv4 authorization: apiv4
-$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
-
-
-$apiInstance = new GateApi\Api\UnifiedApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->listUnifiedAccountMode();
-    print_r($result);
-} catch (GateApi\GateApiException $e) {
-    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
-} catch (Exception $e) {
-    echo 'Exception when calling UnifiedApi->listUnifiedAccountMode: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-**map[string,bool]**
-
-### Authorization
-
-[apiv4](../../README.md#apiv4)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## setUnifiedAccountMode
-
-> map[string,bool] setUnifiedAccountMode($unified_mode)
-
-Set unified account mode (deprecated)
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure Gate APIv4 authorization: apiv4
-$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
-
-
-$apiInstance = new GateApi\Api\UnifiedApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$unified_mode = new \GateApi\Model\UnifiedMode(); // \GateApi\Model\UnifiedMode | 
-
-try {
-    $result = $apiInstance->setUnifiedAccountMode($unified_mode);
-    print_r($result);
-} catch (GateApi\GateApiException $e) {
-    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
-} catch (Exception $e) {
-    echo 'Exception when calling UnifiedApi->setUnifiedAccountMode: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **unified_mode** | [**\GateApi\Model\UnifiedMode**](../Model/UnifiedMode.md)|  |
-
-### Return type
-
-**map[string,bool]**
-
-### Authorization
-
-[apiv4](../../README.md#apiv4)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -717,7 +597,7 @@ This endpoint does not need any parameter.
 
 Set mode of the unified account
 
-每种账户模式的切换只需要传对应账户模式的参数，同时支持在切换账户模式时打开或关闭对应账户模式下的配置开关   - 开通经典账户模式时，mode=classic ```     PUT /unified/unified_mode     {       \"mode\": \"classic\"     } ``` - 开通跨币种保证金模式，mode=multi_currency ```     PUT /unified/unified_mode     {       \"mode\": \"multi_currency\",       \"settings\": {          \"usdt_futures\": true       }     } ``` - 开通组合保证金模式时，mode=portfolio ```     PUT /unified/unified_mode     {       \"mode\": \"portfolio\",       \"settings\": {          \"spot_hedge\": true       }     } ``` - 开通组合保证金模式时，mode=single_currency ```     PUT /unified/unified_mode     {       \"mode\": \"single_currency\"     } ```
+Switching each account mode only requires passing the parameters of the corresponding account mode, and supports turning on or off the configuration switch in the corresponding account mode when switching the account mode  - When opening the classic account mode, mode=classic ```  PUT /unified/unified_mode  {  \"mode\": \"classic\"  } ``` - Open the cross-currency margin mode, mode=multi_currency ```  PUT /unified/unified_mode  {  \"mode\": \"multi_currency\",  \"settings\": {  \"usdt_futures\": true  }  } ``` - When the portfolio margin mode is enabled, mode=portfolio ```  PUT /unified/unified_mode  {  \"mode\": \"portfolio\",  \"settings\": {  \"spot_hedge\": true  }  } ``` - When the portfolio margin mode is enabled, mode=single_currency ```  PUT /unified/unified_mode  {  \"mode\": \"single_currency\"  } ```
 
 ### Example
 

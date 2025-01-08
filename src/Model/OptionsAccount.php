@@ -371,7 +371,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param string|null $total 账户余额
+     * @param string|null $total Account balance
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets position_value
      *
-     * @param string|null $position_value 仓位价值，做多仓位价值为正，做空仓位价值为负
+     * @param string|null $position_value Position value, long position value is positive, short position value is negative
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets equity
      *
-     * @param string|null $equity 账户权益，账户余额与仓位价值的和
+     * @param string|null $equity Account equity, the sum of account balance and position value
      *
      * @return $this
      */
@@ -467,7 +467,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets mmp_enabled
      *
-     * @param bool|null $mmp_enabled 是否启用MMP
+     * @param bool|null $mmp_enabled Whether to enable MMP
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets liq_triggered
      *
-     * @param bool|null $liq_triggered 是否触发仓位强平
+     * @param bool|null $liq_triggered Whether to trigger position liquidation
      *
      * @return $this
      */
@@ -644,7 +644,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets ask_order_margin
      *
-     * @param string|null $ask_order_margin 未完成卖单的保证金
+     * @param string|null $ask_order_margin Margin for outstanding sell orders
      *
      * @return $this
      */
@@ -668,7 +668,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets bid_order_margin
      *
-     * @param string|null $bid_order_margin 未完成买单的保证金
+     * @param string|null $bid_order_margin Margin for outstanding buy orders
      *
      * @return $this
      */
@@ -764,7 +764,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets orders_limit
      *
-     * @param int|null $orders_limit 未完成订单数量上限
+     * @param int|null $orders_limit Maximum number of outstanding orders
      *
      * @return $this
      */
@@ -788,7 +788,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets position_notional_limit
      *
-     * @param int|null $position_notional_limit 名义价值上限，包含仓位以及未完成订单的名义价值
+     * @param int|null $position_notional_limit Notional value upper limit, including the nominal value of positions and outstanding orders
      *
      * @return $this
      */

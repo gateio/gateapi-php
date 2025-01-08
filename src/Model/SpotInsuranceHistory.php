@@ -250,7 +250,7 @@ class SpotInsuranceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets balance
      *
-     * @param string|null $balance 余额
+     * @param string|null $balance balance
      *
      * @return $this
      */

@@ -290,7 +290,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets window
      *
-     * @param int $window 时间窗口（毫秒），1-5000之间，0表示停用MMP
+     * @param int $window Time window (milliseconds), between 1-5000, 0 means disabling MMP
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets frozen_period
      *
-     * @param int $frozen_period 冻结时长（毫秒），0表示一直冻结，需要调用重置API解冻
+     * @param int $frozen_period Freeze duration (milliseconds), 0 means always frozen, need to call reset API to unfreeze
      *
      * @return $this
      */
@@ -338,7 +338,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets qty_limit
      *
-     * @param string $qty_limit 成交量上限（正数，至多2位小数）
+     * @param string $qty_limit Trading volume upper limit (positive number, up to 2 decimal places)
      *
      * @return $this
      */
@@ -362,7 +362,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets delta_limit
      *
-     * @param string $delta_limit 净delta值上限（正数，至多2位小数）
+     * @param string $delta_limit Upper limit of net delta value (positive number, up to 2 decimal places)
      *
      * @return $this
      */
@@ -386,7 +386,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets trigger_time_ms
      *
-     * @param int|null $trigger_time_ms 触发冻结时间（毫秒），0表示没有触发冻结
+     * @param int|null $trigger_time_ms Trigger freeze time (milliseconds), 0 means no freeze is triggered
      *
      * @return $this
      */
@@ -410,7 +410,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets frozen_until_ms
      *
-     * @param int|null $frozen_until_ms 解冻时间（毫秒），如果未配置冻结时长，触发冻结后无解冻时间
+     * @param int|null $frozen_until_ms Unfreeze time (milliseconds). If the freeze duration is not configured, there will be no unfreeze time after the freeze is triggered.
      *
      * @return $this
      */

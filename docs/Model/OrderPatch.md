@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency_pair** | **string** | Currency pair | [optional] 
-**account** | **string** | 指定查询账户。 | [optional] 
+**account** | **string** | Specify query account. | [optional] 
 **amount** | **string** | New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them | [optional] 
 **price** | **string** | New order price. &#x60;amount&#x60; and &#x60;Price&#x60; must specify one of them\&quot; | [optional] 
 **amend_text** | **string** | Custom info during amending order | [optional] 

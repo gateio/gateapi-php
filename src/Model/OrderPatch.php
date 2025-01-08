@@ -273,7 +273,7 @@ class OrderPatch implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account 指定查询账户。
+     * @param string|null $account Specify query account.
      *
      * @return $this
      */

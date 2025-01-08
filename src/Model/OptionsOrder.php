@@ -546,7 +546,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_as
      *
-     * @param string|null $finish_as 结束方式，包括：  - filled: 完全成交 - cancelled: 用户撤销 - liquidated: 强制平仓撤销 - ioc: 未立即完全成交，因为tif设置为ioc - auto_deleveraged: 自动减仓撤销 - reduce_only: 增持仓位撤销，因为设置reduce_only或平仓 - position_closed: 因为仓位平掉了，所以挂单被撤掉 - reduce_out: 只减仓被排除的不容易成交的挂单 - mmp_cancelled: MMP撤销
+     * @param string|null $finish_as Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, because reduce_only is set or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
      *
      * @return $this
      */
@@ -828,7 +828,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets mmp
      *
-     * @param bool|null $mmp 设置为 true 的时候，为MMP委托
+     * @param bool|null $mmp When set to true, delegate to MMP
      *
      * @return $this
      */
@@ -852,7 +852,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_mmp
      *
-     * @param bool|null $is_mmp 是否为MMP委托。对应请求中的`mmp`。
+     * @param bool|null $is_mmp Whether it is MMP delegation. Corresponds to `mmp` in the request.
      *
      * @return $this
      */
