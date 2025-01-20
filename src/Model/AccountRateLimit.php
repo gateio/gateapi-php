@@ -232,7 +232,7 @@ class AccountRateLimit implements ModelInterface, ArrayAccess
     /**
      * Sets tier
      *
-     * @param string|null $tier Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#成交比率限频))
+     * @param string|null $tier Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#rate-limit-based-on-fill-ratio))
      *
      * @return $this
      */

@@ -61,7 +61,8 @@ class UidPushOrder implements ModelInterface, ArrayAccess
         'amount' => 'string',
         'create_time' => 'int',
         'status' => 'string',
-        'message' => 'string'
+        'message' => 'string',
+        'transaction_type' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class UidPushOrder implements ModelInterface, ArrayAccess
         'amount' => null,
         'create_time' => 'int64',
         'status' => null,
-        'message' => null
+        'message' => null,
+        'transaction_type' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class UidPushOrder implements ModelInterface, ArrayAccess
         'amount' => 'amount',
         'create_time' => 'create_time',
         'status' => 'status',
-        'message' => 'message'
+        'message' => 'message',
+        'transaction_type' => 'transaction_type'
     ];
 
     /**
@@ -130,7 +133,8 @@ class UidPushOrder implements ModelInterface, ArrayAccess
         'amount' => 'setAmount',
         'create_time' => 'setCreateTime',
         'status' => 'setStatus',
-        'message' => 'setMessage'
+        'message' => 'setMessage',
+        'transaction_type' => 'setTransactionType'
     ];
 
     /**
@@ -146,7 +150,8 @@ class UidPushOrder implements ModelInterface, ArrayAccess
         'amount' => 'getAmount',
         'create_time' => 'getCreateTime',
         'status' => 'getStatus',
-        'message' => 'getMessage'
+        'message' => 'getMessage',
+        'transaction_type' => 'getTransactionType'
     ];
 
     /**
@@ -217,6 +222,7 @@ class UidPushOrder implements ModelInterface, ArrayAccess
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['transaction_type'] = isset($data['transaction_type']) ? $data['transaction_type'] : null;
     }
 
     /**
@@ -431,6 +437,30 @@ class UidPushOrder implements ModelInterface, ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_type
+     *
+     * @return string|null
+     */
+    public function getTransactionType()
+    {
+        return $this->container['transaction_type'];
+    }
+
+    /**
+     * Sets transaction_type
+     *
+     * @param string|null $transaction_type Order Type
+     *
+     * @return $this
+     */
+    public function setTransactionType($transaction_type)
+    {
+        $this->container['transaction_type'] = $transaction_type;
 
         return $this;
     }

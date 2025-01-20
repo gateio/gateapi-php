@@ -1,6 +1,6 @@
 <?php
 /**
- * UnifiedLeverageConfig
+ * UserSub
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * UnifiedLeverageConfig Class Doc Comment
+ * UserSub Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
+class UserSub implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UnifiedLeverageConfig';
+    protected static $openAPIModelName = 'UserSub';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,13 +54,10 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'current_leverage' => 'string',
-        'min_leverage' => 'string',
-        'max_leverage' => 'string',
-        'debit' => 'string',
-        'available_margin' => 'string',
-        'borrowable' => 'string',
-        'except_leverage_borrowable' => 'string'
+        'uid' => 'int',
+        'belong' => 'string',
+        'type' => 'int',
+        'ref_uid' => 'int'
     ];
 
     /**
@@ -69,13 +66,10 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'current_leverage' => null,
-        'min_leverage' => null,
-        'max_leverage' => null,
-        'debit' => null,
-        'available_margin' => null,
-        'borrowable' => null,
-        'except_leverage_borrowable' => null
+        'uid' => 'int64',
+        'belong' => null,
+        'type' => 'int64',
+        'ref_uid' => 'int64'
     ];
 
     /**
@@ -105,13 +99,10 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_leverage' => 'current_leverage',
-        'min_leverage' => 'min_leverage',
-        'max_leverage' => 'max_leverage',
-        'debit' => 'debit',
-        'available_margin' => 'available_margin',
-        'borrowable' => 'borrowable',
-        'except_leverage_borrowable' => 'except_leverage_borrowable'
+        'uid' => 'uid',
+        'belong' => 'belong',
+        'type' => 'type',
+        'ref_uid' => 'ref_uid'
     ];
 
     /**
@@ -120,13 +111,10 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_leverage' => 'setCurrentLeverage',
-        'min_leverage' => 'setMinLeverage',
-        'max_leverage' => 'setMaxLeverage',
-        'debit' => 'setDebit',
-        'available_margin' => 'setAvailableMargin',
-        'borrowable' => 'setBorrowable',
-        'except_leverage_borrowable' => 'setExceptLeverageBorrowable'
+        'uid' => 'setUid',
+        'belong' => 'setBelong',
+        'type' => 'setType',
+        'ref_uid' => 'setRefUid'
     ];
 
     /**
@@ -135,13 +123,10 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_leverage' => 'getCurrentLeverage',
-        'min_leverage' => 'getMinLeverage',
-        'max_leverage' => 'getMaxLeverage',
-        'debit' => 'getDebit',
-        'available_margin' => 'getAvailableMargin',
-        'borrowable' => 'getBorrowable',
-        'except_leverage_borrowable' => 'getExceptLeverageBorrowable'
+        'uid' => 'getUid',
+        'belong' => 'getBelong',
+        'type' => 'getType',
+        'ref_uid' => 'getRefUid'
     ];
 
     /**
@@ -204,13 +189,10 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_leverage'] = isset($data['current_leverage']) ? $data['current_leverage'] : null;
-        $this->container['min_leverage'] = isset($data['min_leverage']) ? $data['min_leverage'] : null;
-        $this->container['max_leverage'] = isset($data['max_leverage']) ? $data['max_leverage'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['available_margin'] = isset($data['available_margin']) ? $data['available_margin'] : null;
-        $this->container['borrowable'] = isset($data['borrowable']) ? $data['borrowable'] : null;
-        $this->container['except_leverage_borrowable'] = isset($data['except_leverage_borrowable']) ? $data['except_leverage_borrowable'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['belong'] = isset($data['belong']) ? $data['belong'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['ref_uid'] = isset($data['ref_uid']) ? $data['ref_uid'] : null;
     }
 
     /**
@@ -238,169 +220,97 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets current_leverage
+     * Gets uid
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getCurrentLeverage()
+    public function getUid()
     {
-        return $this->container['current_leverage'];
+        return $this->container['uid'];
     }
 
     /**
-     * Sets current_leverage
+     * Sets uid
      *
-     * @param string|null $current_leverage Current leverage ratio
+     * @param int|null $uid User ID
      *
      * @return $this
      */
-    public function setCurrentLeverage($current_leverage)
+    public function setUid($uid)
     {
-        $this->container['current_leverage'] = $current_leverage;
+        $this->container['uid'] = $uid;
 
         return $this;
     }
 
     /**
-     * Gets min_leverage
+     * Gets belong
      *
      * @return string|null
      */
-    public function getMinLeverage()
+    public function getBelong()
     {
-        return $this->container['min_leverage'];
+        return $this->container['belong'];
     }
 
     /**
-     * Sets min_leverage
+     * Sets belong
      *
-     * @param string|null $min_leverage Minimum adjustable leverage ratio
+     * @param string|null $belong The system to which the user belongs (partner referral). If empty, it means not belonging to any system.
      *
      * @return $this
      */
-    public function setMinLeverage($min_leverage)
+    public function setBelong($belong)
     {
-        $this->container['min_leverage'] = $min_leverage;
+        $this->container['belong'] = $belong;
 
         return $this;
     }
 
     /**
-     * Gets max_leverage
+     * Gets type
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getMaxLeverage()
+    public function getType()
     {
-        return $this->container['max_leverage'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets max_leverage
+     * Sets type
      *
-     * @param string|null $max_leverage Maximum adjustable leverage ratio
+     * @param int|null $type Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct direct customer 4-indirect direct customer 5-ordinary user)
      *
      * @return $this
      */
-    public function setMaxLeverage($max_leverage)
+    public function setType($type)
     {
-        $this->container['max_leverage'] = $max_leverage;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets debit
+     * Gets ref_uid
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getDebit()
+    public function getRefUid()
     {
-        return $this->container['debit'];
+        return $this->container['ref_uid'];
     }
 
     /**
-     * Sets debit
+     * Sets ref_uid
      *
-     * @param string|null $debit Current liabilities
+     * @param int|null $ref_uid Inviter user ID
      *
      * @return $this
      */
-    public function setDebit($debit)
+    public function setRefUid($ref_uid)
     {
-        $this->container['debit'] = $debit;
-
-        return $this;
-    }
-
-    /**
-     * Gets available_margin
-     *
-     * @return string|null
-     */
-    public function getAvailableMargin()
-    {
-        return $this->container['available_margin'];
-    }
-
-    /**
-     * Sets available_margin
-     *
-     * @param string|null $available_margin Available Margin
-     *
-     * @return $this
-     */
-    public function setAvailableMargin($available_margin)
-    {
-        $this->container['available_margin'] = $available_margin;
-
-        return $this;
-    }
-
-    /**
-     * Gets borrowable
-     *
-     * @return string|null
-     */
-    public function getBorrowable()
-    {
-        return $this->container['borrowable'];
-    }
-
-    /**
-     * Sets borrowable
-     *
-     * @param string|null $borrowable The current leverage you can choose is
-     *
-     * @return $this
-     */
-    public function setBorrowable($borrowable)
-    {
-        $this->container['borrowable'] = $borrowable;
-
-        return $this;
-    }
-
-    /**
-     * Gets except_leverage_borrowable
-     *
-     * @return string|null
-     */
-    public function getExceptLeverageBorrowable()
-    {
-        return $this->container['except_leverage_borrowable'];
-    }
-
-    /**
-     * Sets except_leverage_borrowable
-     *
-     * @param string|null $except_leverage_borrowable The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller
-     *
-     * @return $this
-     */
-    public function setExceptLeverageBorrowable($except_leverage_borrowable)
-    {
-        $this->container['except_leverage_borrowable'] = $except_leverage_borrowable;
+        $this->container['ref_uid'] = $ref_uid;
 
         return $this;
     }

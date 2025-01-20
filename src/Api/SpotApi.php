@@ -7652,9 +7652,6 @@ class SpotApi
             }
         }
 
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

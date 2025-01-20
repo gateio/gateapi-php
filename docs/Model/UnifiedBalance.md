@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **total_freeze** | **string** | Total occupancy (discarded, to be offline field) | [optional] 
 **total_liab** | **string** | Total borrowing, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode | [optional] 
 **spot_in_use** | **string** | The amount of spot hedging is valid in the combined margin mode, and is 0 in other margin modes such as single currency and cross-currency margin modes | [optional] 
-**funding** | **string** | Yubibao financial management amount, effective when Yubibao financial management is turned on as a unified account margin switch | [optional] 
+**funding** | **string** | Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch | [optional] 
 **funding_version** | **string** | Funding version | [optional] 
 **cross_balance** | **string** | Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode | [optional] 
 **iso_balance** | **string** | Isolated margin balance is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode | [optional] 

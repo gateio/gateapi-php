@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**rebateBrokerCommissionHistory**](RebateApi.md#rebateBrokerCommissionHistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records
 [**rebateBrokerTransactionHistory**](RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history
 [**rebateUserInfo**](RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User retrieves rebate information
+[**userSubRelation**](RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User-subordinate relationship
 
 
 ## agencyTransactionHistory
@@ -563,6 +564,68 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\GateApi\Model\RebateUserInfo[]**](../Model/RebateUserInfo.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## userSubRelation
+
+> \GateApi\Model\UserSubRelation userSubRelation($user_id_list)
+
+User-subordinate relationship
+
+Query whether the specified user is in the system
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\RebateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$user_id_list = '1, 2, 3'; // string | Query the user's ID list, split by,, if there are more than 100, take 100
+
+try {
+    $result = $apiInstance->userSubRelation($user_id_list);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling RebateApi->userSubRelation: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id_list** | **string**| Query the user&#39;s ID list, split by,, if there are more than 100, take 100 |
+
+### Return type
+
+[**\GateApi\Model\UserSubRelation**](../Model/UserSubRelation.md)
 
 ### Authorization
 

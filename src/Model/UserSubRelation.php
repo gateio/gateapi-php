@@ -1,6 +1,6 @@
 <?php
 /**
- * FuturesLiqOrder
+ * UserSubRelation
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * FuturesLiqOrder Class Doc Comment
+ * UserSubRelation Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class FuturesLiqOrder implements ModelInterface, ArrayAccess
+class UserSubRelation implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class FuturesLiqOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FuturesLiqOrder';
+    protected static $openAPIModelName = 'UserSubRelation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,13 +54,7 @@ class FuturesLiqOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'time' => 'int',
-        'contract' => 'string',
-        'size' => 'int',
-        'order_size' => 'int',
-        'order_price' => 'string',
-        'fill_price' => 'string',
-        'left' => 'int'
+        'list' => '\GateApi\Model\UserSub[]'
     ];
 
     /**
@@ -69,13 +63,7 @@ class FuturesLiqOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'time' => 'int64',
-        'contract' => null,
-        'size' => 'int64',
-        'order_size' => 'int64',
-        'order_price' => null,
-        'fill_price' => null,
-        'left' => 'int64'
+        'list' => null
     ];
 
     /**
@@ -105,13 +93,7 @@ class FuturesLiqOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'time' => 'time',
-        'contract' => 'contract',
-        'size' => 'size',
-        'order_size' => 'order_size',
-        'order_price' => 'order_price',
-        'fill_price' => 'fill_price',
-        'left' => 'left'
+        'list' => 'list'
     ];
 
     /**
@@ -120,13 +102,7 @@ class FuturesLiqOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'time' => 'setTime',
-        'contract' => 'setContract',
-        'size' => 'setSize',
-        'order_size' => 'setOrderSize',
-        'order_price' => 'setOrderPrice',
-        'fill_price' => 'setFillPrice',
-        'left' => 'setLeft'
+        'list' => 'setList'
     ];
 
     /**
@@ -135,13 +111,7 @@ class FuturesLiqOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'time' => 'getTime',
-        'contract' => 'getContract',
-        'size' => 'getSize',
-        'order_size' => 'getOrderSize',
-        'order_price' => 'getOrderPrice',
-        'fill_price' => 'getFillPrice',
-        'left' => 'getLeft'
+        'list' => 'getList'
     ];
 
     /**
@@ -204,13 +174,7 @@ class FuturesLiqOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
-        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['order_size'] = isset($data['order_size']) ? $data['order_size'] : null;
-        $this->container['order_price'] = isset($data['order_price']) ? $data['order_price'] : null;
-        $this->container['fill_price'] = isset($data['fill_price']) ? $data['fill_price'] : null;
-        $this->container['left'] = isset($data['left']) ? $data['left'] : null;
+        $this->container['list'] = isset($data['list']) ? $data['list'] : null;
     }
 
     /**
@@ -238,169 +202,25 @@ class FuturesLiqOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets time
+     * Gets list
      *
-     * @return int|null
+     * @return \GateApi\Model\UserSub[]|null
      */
-    public function getTime()
+    public function getList()
     {
-        return $this->container['time'];
+        return $this->container['list'];
     }
 
     /**
-     * Sets time
+     * Sets list
      *
-     * @param int|null $time Liquidation time
+     * @param \GateApi\Model\UserSub[]|null $list Subordinate relationship list
      *
      * @return $this
      */
-    public function setTime($time)
+    public function setList($list)
     {
-        $this->container['time'] = $time;
-
-        return $this;
-    }
-
-    /**
-     * Gets contract
-     *
-     * @return string|null
-     */
-    public function getContract()
-    {
-        return $this->container['contract'];
-    }
-
-    /**
-     * Sets contract
-     *
-     * @param string|null $contract Futures contract
-     *
-     * @return $this
-     */
-    public function setContract($contract)
-    {
-        $this->container['contract'] = $contract;
-
-        return $this;
-    }
-
-    /**
-     * Gets size
-     *
-     * @return int|null
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     *
-     * @param int|null $size User position size
-     *
-     * @return $this
-     */
-    public function setSize($size)
-    {
-        $this->container['size'] = $size;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_size
-     *
-     * @return int|null
-     */
-    public function getOrderSize()
-    {
-        return $this->container['order_size'];
-    }
-
-    /**
-     * Sets order_size
-     *
-     * @param int|null $order_size Number of forced liquidation orders
-     *
-     * @return $this
-     */
-    public function setOrderSize($order_size)
-    {
-        $this->container['order_size'] = $order_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_price
-     *
-     * @return string|null
-     */
-    public function getOrderPrice()
-    {
-        return $this->container['order_price'];
-    }
-
-    /**
-     * Sets order_price
-     *
-     * @param string|null $order_price Liquidation order price
-     *
-     * @return $this
-     */
-    public function setOrderPrice($order_price)
-    {
-        $this->container['order_price'] = $order_price;
-
-        return $this;
-    }
-
-    /**
-     * Gets fill_price
-     *
-     * @return string|null
-     */
-    public function getFillPrice()
-    {
-        return $this->container['fill_price'];
-    }
-
-    /**
-     * Sets fill_price
-     *
-     * @param string|null $fill_price Liquidation order average taker price
-     *
-     * @return $this
-     */
-    public function setFillPrice($fill_price)
-    {
-        $this->container['fill_price'] = $fill_price;
-
-        return $this;
-    }
-
-    /**
-     * Gets left
-     *
-     * @return int|null
-     */
-    public function getLeft()
-    {
-        return $this->container['left'];
-    }
-
-    /**
-     * Sets left
-     *
-     * @param int|null $left System liquidation order maker size
-     *
-     * @return $this
-     */
-    public function setLeft($left)
-    {
-        $this->container['left'] = $left;
+        $this->container['list'] = $list;
 
         return $this;
     }

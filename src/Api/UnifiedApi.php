@@ -3608,7 +3608,7 @@ class UnifiedApi
     /**
      * Operation getUserLeverageCurrencyConfig
      *
-     * The maximum and minimum leverage multiples that users can set for a currency type are:
+     * Minimum currency leverage that can be set
      *
      * @param  string $currency Currency (required)
      *
@@ -3625,7 +3625,7 @@ class UnifiedApi
     /**
      * Operation getUserLeverageCurrencyConfigWithHttpInfo
      *
-     * The maximum and minimum leverage multiples that users can set for a currency type are:
+     * Minimum currency leverage that can be set
      *
      * @param  string $currency Currency (required)
      *
@@ -3679,7 +3679,7 @@ class UnifiedApi
     /**
      * Operation getUserLeverageCurrencyConfigAsync
      *
-     * The maximum and minimum leverage multiples that users can set for a currency type are:
+     * Minimum currency leverage that can be set
      *
      * @param  string $currency Currency (required)
      *
@@ -3699,7 +3699,7 @@ class UnifiedApi
     /**
      * Operation getUserLeverageCurrencyConfigAsyncWithHttpInfo
      *
-     * The maximum and minimum leverage multiples that users can set for a currency type are:
+     * Minimum currency leverage that can be set
      *
      * @param  string $currency Currency (required)
      *

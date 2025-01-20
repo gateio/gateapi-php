@@ -67,7 +67,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'precision' => 'int',
         'trade_status' => 'string',
         'sell_start' => 'int',
-        'buy_start' => 'int'
+        'buy_start' => 'int',
+        'type' => 'string'
     ];
 
     /**
@@ -88,7 +89,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'precision' => null,
         'trade_status' => null,
         'sell_start' => 'int64',
-        'buy_start' => 'int64'
+        'buy_start' => 'int64',
+        'type' => null
     ];
 
     /**
@@ -130,7 +132,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'precision' => 'precision',
         'trade_status' => 'trade_status',
         'sell_start' => 'sell_start',
-        'buy_start' => 'buy_start'
+        'buy_start' => 'buy_start',
+        'type' => 'type'
     ];
 
     /**
@@ -151,7 +154,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'precision' => 'setPrecision',
         'trade_status' => 'setTradeStatus',
         'sell_start' => 'setSellStart',
-        'buy_start' => 'setBuyStart'
+        'buy_start' => 'setBuyStart',
+        'type' => 'setType'
     ];
 
     /**
@@ -172,7 +176,8 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'precision' => 'getPrecision',
         'trade_status' => 'getTradeStatus',
         'sell_start' => 'getSellStart',
-        'buy_start' => 'getBuyStart'
+        'buy_start' => 'getBuyStart',
+        'type' => 'getType'
     ];
 
     /**
@@ -267,6 +272,7 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         $this->container['trade_status'] = isset($data['trade_status']) ? $data['trade_status'] : null;
         $this->container['sell_start'] = isset($data['sell_start']) ? $data['sell_start'] : null;
         $this->container['buy_start'] = isset($data['buy_start']) ? $data['buy_start'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -618,6 +624,30 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     public function setBuyStart($buy_start)
     {
         $this->container['buy_start'] = $buy_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Trading pair type, normal: normal, premarket: pre-market
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

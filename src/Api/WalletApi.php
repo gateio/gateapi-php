@@ -5404,6 +5404,7 @@ class WalletApi
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
      * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5427,6 +5428,7 @@ class WalletApi
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
      * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5487,6 +5489,7 @@ class WalletApi
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
      * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5513,6 +5516,7 @@ class WalletApi
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
      * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5566,6 +5570,7 @@ class WalletApi
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
      * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5578,6 +5583,7 @@ class WalletApi
         $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
         $offset = array_key_exists('offset', $associative_array) ? $associative_array['offset'] : 0;
+        $transaction_type = array_key_exists('transaction_type', $associative_array) ? $associative_array['transaction_type'] : 'withdraw';
 
         if ($limit !== null && $limit < 1) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling WalletApi.listPushOrders, must be bigger than or equal to 1.');
@@ -5652,6 +5658,18 @@ class WalletApi
             }
             else {
                 $queryParams['offset'] = $offset;
+            }
+        }
+
+        // query params
+        if ($transaction_type !== null) {
+            if('form' === 'form' && is_array($transaction_type)) {
+                foreach($transaction_type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['transaction_type'] = $transaction_type;
             }
         }
 

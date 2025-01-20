@@ -280,7 +280,7 @@ class UnifiedSettings implements ModelInterface, ArrayAccess
     /**
      * Sets use_funding
      *
-     * @param bool|null $use_funding When the mode is set to combined margin mode, will funds be used as margin
+     * @param bool|null $use_funding switch, when the mode is cross-currency margin mode, whether to use Uniloan financial funds as margin
      *
      * @return $this
      */

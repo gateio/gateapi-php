@@ -1726,15 +1726,11 @@ Query spot insurance fund historical data
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure Gate APIv4 authorization: apiv4
-$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
-
 
 $apiInstance = new GateApi\Api\SpotApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $associate_array['business'] = 'margin'; // string | Leverage business, margin - position by position; unified - unified account
 $associate_array['currency'] = 'BTC'; // string | Currency
@@ -1774,7 +1770,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiv4](../../README.md#apiv4)
+No authorization required
 
 ### HTTP request headers
 

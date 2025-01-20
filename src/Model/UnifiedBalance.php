@@ -538,7 +538,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets funding
      *
-     * @param string|null $funding Yubibao financial management amount, effective when Yubibao financial management is turned on as a unified account margin switch
+     * @param string|null $funding Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch
      *
      * @return $this
      */

@@ -1302,7 +1302,7 @@ Name | Type | Description  | Notes
 
 ## listPushOrders
 
-> \GateApi\Model\UidPushOrder[] listPushOrders($id, $from, $to, $limit, $offset)
+> \GateApi\Model\UidPushOrder[] listPushOrders($id, $from, $to, $limit, $offset, $transaction_type)
 
 Retrieve the UID transfer history
 
@@ -1327,6 +1327,7 @@ $associate_array['from'] = 56; // int | The start time of the query record. If n
 $associate_array['to'] = 56; // int | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds.
 $associate_array['limit'] = 100; // int | The maximum number of items returned in the list, the default value is 100
 $associate_array['offset'] = 0; // int | List offset, starting from 0
+$associate_array['transaction_type'] = 'withdraw'; // string | The list returns the order type `withdraw`, `deposit`, the default is `withdraw`.
 
 try {
     $result = $apiInstance->listPushOrders($associate_array);
@@ -1351,6 +1352,7 @@ Name | Type | Description  | Notes
  **to** | **int**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional]
  **limit** | **int**| The maximum number of items returned in the list, the default value is 100 | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **transaction_type** | **string**| The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. | [optional] [default to &#39;withdraw&#39;]
 
 ### Return type
 
