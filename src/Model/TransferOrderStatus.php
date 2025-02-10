@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2001
+ * TransferOrderStatus
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * InlineResponse2001 Class Doc Comment
+ * TransferOrderStatus Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class InlineResponse2001 implements ModelInterface, ArrayAccess
+class TransferOrderStatus implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_1';
+    protected static $openAPIModelName = 'TransferOrderStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,7 +54,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'enabled' => 'bool'
+        'tx_id' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -63,7 +64,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'enabled' => null
+        'tx_id' => null,
+        'status' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'enabled'
+        'tx_id' => 'tx_id',
+        'status' => 'status'
     ];
 
     /**
@@ -102,7 +105,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled'
+        'tx_id' => 'setTxId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -111,7 +115,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled'
+        'tx_id' => 'getTxId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -174,7 +179,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['tx_id'] = isset($data['tx_id']) ? $data['tx_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -202,25 +208,49 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets enabled
+     * Gets tx_id
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getEnabled()
+    public function getTxId()
     {
-        return $this->container['enabled'];
+        return $this->container['tx_id'];
     }
 
     /**
-     * Sets enabled
+     * Sets tx_id
      *
-     * @param bool|null $enabled Whether GT fee discount is used
+     * @param string|null $tx_id Order id
      *
      * @return $this
      */
-    public function setEnabled($enabled)
+    public function setTxId($tx_id)
     {
-        $this->container['enabled'] = $enabled;
+        $this->container['tx_id'] = $tx_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status Transfer status, PENDING - in process, SUCCESS - successful transfer, FAIL - failed transfer, PARTIAL_SUCCESS - Partially successful (this status will appear when transferring between sub-subs)
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

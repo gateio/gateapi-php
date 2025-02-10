@@ -682,7 +682,7 @@ class FuturesTicker implements ModelInterface, ArrayAccess
     /**
      * Sets funding_rate_indicative
      *
-     * @param string|null $funding_rate_indicative Indicative Funding rate in next period
+     * @param string|null $funding_rate_indicative Indicative Funding rate in next period. (deprecated. use `funding_rate`)
      *
      * @return $this
      */

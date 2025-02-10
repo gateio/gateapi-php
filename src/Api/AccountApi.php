@@ -1802,7 +1802,7 @@ class AccountApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\InlineResponse2001
+     * @return \GateApi\Model\DebitFee
      */
     public function getDebitFee()
     {
@@ -1818,7 +1818,7 @@ class AccountApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\DebitFee, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDebitFeeWithHttpInfo()
     {
@@ -1848,7 +1848,7 @@ class AccountApi
             );
         }
 
-        $returnType = '\GateApi\Model\InlineResponse2001';
+        $returnType = '\GateApi\Model\DebitFee';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -1893,7 +1893,7 @@ class AccountApi
      */
     public function getDebitFeeAsyncWithHttpInfo()
     {
-        $returnType = '\GateApi\Model\InlineResponse2001';
+        $returnType = '\GateApi\Model\DebitFee';
         $request = $this->getDebitFeeRequest();
 
         return $this->client
@@ -2019,15 +2019,15 @@ class AccountApi
      *
      * Set GT deduction.
      *
-     * @param  \GateApi\Model\InlineObject $inline_object inline_object (required)
+     * @param  \GateApi\Model\DebitFee $debit_fee debit_fee (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function setDebitFee($inline_object)
+    public function setDebitFee($debit_fee)
     {
-        $this->setDebitFeeWithHttpInfo($inline_object);
+        $this->setDebitFeeWithHttpInfo($debit_fee);
     }
 
     /**
@@ -2035,15 +2035,15 @@ class AccountApi
      *
      * Set GT deduction.
      *
-     * @param  \GateApi\Model\InlineObject $inline_object (required)
+     * @param  \GateApi\Model\DebitFee $debit_fee (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setDebitFeeWithHttpInfo($inline_object)
+    public function setDebitFeeWithHttpInfo($debit_fee)
     {
-        $request = $this->setDebitFeeRequest($inline_object);
+        $request = $this->setDebitFeeRequest($debit_fee);
 
         $options = $this->createHttpClientOption();
         try {
@@ -2077,14 +2077,14 @@ class AccountApi
      *
      * Set GT deduction.
      *
-     * @param  \GateApi\Model\InlineObject $inline_object (required)
+     * @param  \GateApi\Model\DebitFee $debit_fee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setDebitFeeAsync($inline_object)
+    public function setDebitFeeAsync($debit_fee)
     {
-        return $this->setDebitFeeAsyncWithHttpInfo($inline_object)
+        return $this->setDebitFeeAsyncWithHttpInfo($debit_fee)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2097,15 +2097,15 @@ class AccountApi
      *
      * Set GT deduction.
      *
-     * @param  \GateApi\Model\InlineObject $inline_object (required)
+     * @param  \GateApi\Model\DebitFee $debit_fee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setDebitFeeAsyncWithHttpInfo($inline_object)
+    public function setDebitFeeAsyncWithHttpInfo($debit_fee)
     {
         $returnType = '';
-        $request = $this->setDebitFeeRequest($inline_object);
+        $request = $this->setDebitFeeRequest($debit_fee);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2133,17 +2133,17 @@ class AccountApi
     /**
      * Create request for operation 'setDebitFee'
      *
-     * @param  \GateApi\Model\InlineObject $inline_object (required)
+     * @param  \GateApi\Model\DebitFee $debit_fee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function setDebitFeeRequest($inline_object)
+    protected function setDebitFeeRequest($debit_fee)
     {
-        // verify the required parameter 'inline_object' is set
-        if ($inline_object === null || (is_array($inline_object) && count($inline_object) === 0)) {
+        // verify the required parameter 'debit_fee' is set
+        if ($debit_fee === null || (is_array($debit_fee) && count($debit_fee) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object when calling setDebitFee'
+                'Missing the required parameter $debit_fee when calling setDebitFee'
             );
         }
 
@@ -2156,8 +2156,8 @@ class AccountApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object)) {
-            $_tempBody = $inline_object;
+        if (isset($debit_fee)) {
+            $_tempBody = $debit_fee;
         }
 
         if ($multipart) {

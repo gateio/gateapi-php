@@ -2043,7 +2043,7 @@ class UnifiedApi
     /**
      * Operation getUnifiedRiskUnits
      *
-     * Retrieve user risk unit details, only valid in portfolio margin mode
+     * Get user risk unit details
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2059,7 +2059,7 @@ class UnifiedApi
     /**
      * Operation getUnifiedRiskUnitsWithHttpInfo
      *
-     * Retrieve user risk unit details, only valid in portfolio margin mode
+     * Get user risk unit details
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2112,7 +2112,7 @@ class UnifiedApi
     /**
      * Operation getUnifiedRiskUnitsAsync
      *
-     * Retrieve user risk unit details, only valid in portfolio margin mode
+     * Get user risk unit details
      *
      *
      * @throws \InvalidArgumentException
@@ -2131,7 +2131,7 @@ class UnifiedApi
     /**
      * Operation getUnifiedRiskUnitsAsyncWithHttpInfo
      *
-     * Retrieve user risk unit details, only valid in portfolio margin mode
+     * Get user risk unit details
      *
      *
      * @throws \InvalidArgumentException
@@ -3851,7 +3851,7 @@ class UnifiedApi
     /**
      * Operation getUserLeverageCurrencySetting
      *
-     * Get the user's currency leverage. If currency is not passed, query all currencies.
+     * Get the leverage multiple of the user currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3870,7 +3870,7 @@ class UnifiedApi
     /**
      * Operation getUserLeverageCurrencySettingWithHttpInfo
      *
-     * Get the user's currency leverage. If currency is not passed, query all currencies.
+     * Get the leverage multiple of the user currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3926,7 +3926,7 @@ class UnifiedApi
     /**
      * Operation getUserLeverageCurrencySettingAsync
      *
-     * Get the user's currency leverage. If currency is not passed, query all currencies.
+     * Get the leverage multiple of the user currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3948,7 +3948,7 @@ class UnifiedApi
     /**
      * Operation getUserLeverageCurrencySettingAsyncWithHttpInfo
      *
-     * Get the user's currency leverage. If currency is not passed, query all currencies.
+     * Get the leverage multiple of the user currency
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4103,13 +4103,13 @@ class UnifiedApi
      *
      * Set the loan currency leverage
      *
-     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting unified_leverage_setting (optional)
+     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting unified_leverage_setting (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function setUserLeverageCurrencySetting($unified_leverage_setting = null)
+    public function setUserLeverageCurrencySetting($unified_leverage_setting)
     {
         $this->setUserLeverageCurrencySettingWithHttpInfo($unified_leverage_setting);
     }
@@ -4119,13 +4119,13 @@ class UnifiedApi
      *
      * Set the loan currency leverage
      *
-     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (optional)
+     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setUserLeverageCurrencySettingWithHttpInfo($unified_leverage_setting = null)
+    public function setUserLeverageCurrencySettingWithHttpInfo($unified_leverage_setting)
     {
         $request = $this->setUserLeverageCurrencySettingRequest($unified_leverage_setting);
 
@@ -4161,12 +4161,12 @@ class UnifiedApi
      *
      * Set the loan currency leverage
      *
-     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (optional)
+     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setUserLeverageCurrencySettingAsync($unified_leverage_setting = null)
+    public function setUserLeverageCurrencySettingAsync($unified_leverage_setting)
     {
         return $this->setUserLeverageCurrencySettingAsyncWithHttpInfo($unified_leverage_setting)
             ->then(
@@ -4181,12 +4181,12 @@ class UnifiedApi
      *
      * Set the loan currency leverage
      *
-     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (optional)
+     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setUserLeverageCurrencySettingAsyncWithHttpInfo($unified_leverage_setting = null)
+    public function setUserLeverageCurrencySettingAsyncWithHttpInfo($unified_leverage_setting)
     {
         $returnType = '';
         $request = $this->setUserLeverageCurrencySettingRequest($unified_leverage_setting);
@@ -4217,13 +4217,19 @@ class UnifiedApi
     /**
      * Create request for operation 'setUserLeverageCurrencySetting'
      *
-     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (optional)
+     * @param  \GateApi\Model\UnifiedLeverageSetting $unified_leverage_setting (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function setUserLeverageCurrencySettingRequest($unified_leverage_setting = null)
+    protected function setUserLeverageCurrencySettingRequest($unified_leverage_setting)
     {
+        // verify the required parameter 'unified_leverage_setting' is set
+        if ($unified_leverage_setting === null || (is_array($unified_leverage_setting) && count($unified_leverage_setting) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $unified_leverage_setting when calling setUserLeverageCurrencySetting'
+            );
+        }
 
         $resourcePath = '/unified/leverage/user_currency_setting';
         $formParams = [];

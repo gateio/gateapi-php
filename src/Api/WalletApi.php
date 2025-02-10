@@ -2309,7 +2309,7 @@ class WalletApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\InlineResponse200
+     * @return \GateApi\Model\TransferOrderStatus
      */
     public function getTransferOrderStatus($associative_array)
     {
@@ -2329,7 +2329,7 @@ class WalletApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\TransferOrderStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTransferOrderStatusWithHttpInfo($associative_array)
     {
@@ -2359,7 +2359,7 @@ class WalletApi
             );
         }
 
-        $returnType = '\GateApi\Model\InlineResponse200';
+        $returnType = '\GateApi\Model\TransferOrderStatus';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -2412,7 +2412,7 @@ class WalletApi
      */
     public function getTransferOrderStatusAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\InlineResponse200';
+        $returnType = '\GateApi\Model\TransferOrderStatus';
         $request = $this->getTransferOrderStatusRequest($associative_array);
 
         return $this->client

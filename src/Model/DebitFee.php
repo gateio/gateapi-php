@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineObject
+ * DebitFee
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * InlineObject Class Doc Comment
+ * DebitFee Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class InlineObject implements ModelInterface, ArrayAccess
+class DebitFee implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class InlineObject implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_object';
+    protected static $openAPIModelName = 'DebitFee';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -33,6 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedLeverageSetting Class Doc Comment
  *
  * @category Class
+ * @description Loan currency leverage
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
@@ -192,6 +193,12 @@ class UnifiedLeverageSetting implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
+        if ($this->container['leverage'] === null) {
+            $invalidProperties[] = "'leverage' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -210,7 +217,7 @@ class UnifiedLeverageSetting implements ModelInterface, ArrayAccess
     /**
      * Gets currency
      *
-     * @return string|null
+     * @return string
      */
     public function getCurrency()
     {
@@ -220,7 +227,7 @@ class UnifiedLeverageSetting implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string $currency Currency name
      *
      * @return $this
      */
@@ -234,7 +241,7 @@ class UnifiedLeverageSetting implements ModelInterface, ArrayAccess
     /**
      * Gets leverage
      *
-     * @return string|null
+     * @return string
      */
     public function getLeverage()
     {
@@ -244,7 +251,7 @@ class UnifiedLeverageSetting implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage multiple
+     * @param string $leverage multiple
      *
      * @return $this
      */

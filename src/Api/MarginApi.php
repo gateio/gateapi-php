@@ -1722,7 +1722,7 @@ class MarginApi
     /**
      * Operation listCrossMarginCurrencies
      *
-     * Currencies supported by cross margin.
+     * Currencies supported by cross margin.(deprecated)
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1738,7 +1738,7 @@ class MarginApi
     /**
      * Operation listCrossMarginCurrenciesWithHttpInfo
      *
-     * Currencies supported by cross margin.
+     * Currencies supported by cross margin.(deprecated)
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1791,7 +1791,7 @@ class MarginApi
     /**
      * Operation listCrossMarginCurrenciesAsync
      *
-     * Currencies supported by cross margin.
+     * Currencies supported by cross margin.(deprecated)
      *
      *
      * @throws \InvalidArgumentException
@@ -1810,7 +1810,7 @@ class MarginApi
     /**
      * Operation listCrossMarginCurrenciesAsyncWithHttpInfo
      *
-     * Currencies supported by cross margin.
+     * Currencies supported by cross margin.(deprecated)
      *
      *
      * @throws \InvalidArgumentException
@@ -1939,7 +1939,7 @@ class MarginApi
     /**
      * Operation getCrossMarginCurrency
      *
-     * Retrieve detail of one single currency supported by cross margin
+     * Retrieve detail of one single currency supported by cross margin. (deprecated)
      *
      * @param  string $currency Currency name (required)
      *
@@ -1956,7 +1956,7 @@ class MarginApi
     /**
      * Operation getCrossMarginCurrencyWithHttpInfo
      *
-     * Retrieve detail of one single currency supported by cross margin
+     * Retrieve detail of one single currency supported by cross margin. (deprecated)
      *
      * @param  string $currency Currency name (required)
      *
@@ -2010,7 +2010,7 @@ class MarginApi
     /**
      * Operation getCrossMarginCurrencyAsync
      *
-     * Retrieve detail of one single currency supported by cross margin
+     * Retrieve detail of one single currency supported by cross margin. (deprecated)
      *
      * @param  string $currency Currency name (required)
      *
@@ -2030,7 +2030,7 @@ class MarginApi
     /**
      * Operation getCrossMarginCurrencyAsyncWithHttpInfo
      *
-     * Retrieve detail of one single currency supported by cross margin
+     * Retrieve detail of one single currency supported by cross margin. (deprecated)
      *
      * @param  string $currency Currency name (required)
      *
@@ -2176,7 +2176,7 @@ class MarginApi
     /**
      * Operation getCrossMarginAccount
      *
-     * Retrieve cross margin account
+     * Retrieve cross margin account. (deprecated)
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2192,7 +2192,7 @@ class MarginApi
     /**
      * Operation getCrossMarginAccountWithHttpInfo
      *
-     * Retrieve cross margin account
+     * Retrieve cross margin account. (deprecated)
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2245,7 +2245,7 @@ class MarginApi
     /**
      * Operation getCrossMarginAccountAsync
      *
-     * Retrieve cross margin account
+     * Retrieve cross margin account. (deprecated)
      *
      *
      * @throws \InvalidArgumentException
@@ -2264,7 +2264,7 @@ class MarginApi
     /**
      * Operation getCrossMarginAccountAsyncWithHttpInfo
      *
-     * Retrieve cross margin account
+     * Retrieve cross margin account. (deprecated)
      *
      *
      * @throws \InvalidArgumentException
@@ -2396,7 +2396,7 @@ class MarginApi
     /**
      * Operation listCrossMarginAccountBook
      *
-     * Retrieve cross margin account change history
+     * Retrieve cross margin account change history. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2420,7 +2420,7 @@ class MarginApi
     /**
      * Operation listCrossMarginAccountBookWithHttpInfo
      *
-     * Retrieve cross margin account change history
+     * Retrieve cross margin account change history. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2481,7 +2481,7 @@ class MarginApi
     /**
      * Operation listCrossMarginAccountBookAsync
      *
-     * Retrieve cross margin account change history
+     * Retrieve cross margin account change history. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2508,7 +2508,7 @@ class MarginApi
     /**
      * Operation listCrossMarginAccountBookAsyncWithHttpInfo
      *
-     * Retrieve cross margin account change history
+     * Retrieve cross margin account change history. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2747,7 +2747,7 @@ class MarginApi
     /**
      * Operation listCrossMarginLoans
      *
-     * List cross margin borrow history
+     * List cross margin borrow history. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2770,7 +2770,7 @@ class MarginApi
     /**
      * Operation listCrossMarginLoansWithHttpInfo
      *
-     * List cross margin borrow history
+     * List cross margin borrow history. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2830,7 +2830,7 @@ class MarginApi
     /**
      * Operation listCrossMarginLoansAsync
      *
-     * List cross margin borrow history
+     * List cross margin borrow history. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2856,7 +2856,7 @@ class MarginApi
     /**
      * Operation listCrossMarginLoansAsyncWithHttpInfo
      *
-     * List cross margin borrow history
+     * List cross margin borrow history. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3086,7 +3086,7 @@ class MarginApi
     /**
      * Operation createCrossMarginLoan
      *
-     * Create a cross margin borrow loan
+     * Create a cross margin borrow loan. (deprecated)
      *
      * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan cross_margin_loan (required)
      *
@@ -3103,7 +3103,7 @@ class MarginApi
     /**
      * Operation createCrossMarginLoanWithHttpInfo
      *
-     * Create a cross margin borrow loan
+     * Create a cross margin borrow loan. (deprecated)
      *
      * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
      *
@@ -3157,7 +3157,7 @@ class MarginApi
     /**
      * Operation createCrossMarginLoanAsync
      *
-     * Create a cross margin borrow loan
+     * Create a cross margin borrow loan. (deprecated)
      *
      * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
      *
@@ -3177,7 +3177,7 @@ class MarginApi
     /**
      * Operation createCrossMarginLoanAsyncWithHttpInfo
      *
-     * Create a cross margin borrow loan
+     * Create a cross margin borrow loan. (deprecated)
      *
      * @param  \GateApi\Model\CrossMarginLoan $cross_margin_loan (required)
      *
@@ -3320,7 +3320,7 @@ class MarginApi
     /**
      * Operation getCrossMarginLoan
      *
-     * Retrieve single borrow loan detail
+     * Retrieve single borrow loan detail. (deprecated)
      *
      * @param  string $loan_id Borrow loan ID (required)
      *
@@ -3337,7 +3337,7 @@ class MarginApi
     /**
      * Operation getCrossMarginLoanWithHttpInfo
      *
-     * Retrieve single borrow loan detail
+     * Retrieve single borrow loan detail. (deprecated)
      *
      * @param  string $loan_id Borrow loan ID (required)
      *
@@ -3391,7 +3391,7 @@ class MarginApi
     /**
      * Operation getCrossMarginLoanAsync
      *
-     * Retrieve single borrow loan detail
+     * Retrieve single borrow loan detail. (deprecated)
      *
      * @param  string $loan_id Borrow loan ID (required)
      *
@@ -3411,7 +3411,7 @@ class MarginApi
     /**
      * Operation getCrossMarginLoanAsyncWithHttpInfo
      *
-     * Retrieve single borrow loan detail
+     * Retrieve single borrow loan detail. (deprecated)
      *
      * @param  string $loan_id Borrow loan ID (required)
      *
@@ -3560,7 +3560,7 @@ class MarginApi
     /**
      * Operation listCrossMarginRepayments
      *
-     * Retrieve cross margin repayments
+     * Retrieve cross margin repayments. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3583,7 +3583,7 @@ class MarginApi
     /**
      * Operation listCrossMarginRepaymentsWithHttpInfo
      *
-     * Retrieve cross margin repayments
+     * Retrieve cross margin repayments. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3643,7 +3643,7 @@ class MarginApi
     /**
      * Operation listCrossMarginRepaymentsAsync
      *
-     * Retrieve cross margin repayments
+     * Retrieve cross margin repayments. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3669,7 +3669,7 @@ class MarginApi
     /**
      * Operation listCrossMarginRepaymentsAsyncWithHttpInfo
      *
-     * Retrieve cross margin repayments
+     * Retrieve cross margin repayments. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3893,7 +3893,7 @@ class MarginApi
     /**
      * Operation repayCrossMarginLoan
      *
-     * Cross margin repayments
+     * Cross margin repayments. (deprecated)
      *
      * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request cross_margin_repay_request (required)
      *
@@ -3910,7 +3910,7 @@ class MarginApi
     /**
      * Operation repayCrossMarginLoanWithHttpInfo
      *
-     * Cross margin repayments
+     * Cross margin repayments. (deprecated)
      *
      * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
@@ -3964,7 +3964,7 @@ class MarginApi
     /**
      * Operation repayCrossMarginLoanAsync
      *
-     * Cross margin repayments
+     * Cross margin repayments. (deprecated)
      *
      * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
@@ -3984,7 +3984,7 @@ class MarginApi
     /**
      * Operation repayCrossMarginLoanAsyncWithHttpInfo
      *
-     * Cross margin repayments
+     * Cross margin repayments. (deprecated)
      *
      * @param  \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
@@ -4127,7 +4127,7 @@ class MarginApi
     /**
      * Operation getCrossMarginInterestRecords
      *
-     * Interest records for the cross margin account
+     * Interest records for the cross margin account. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4150,7 +4150,7 @@ class MarginApi
     /**
      * Operation getCrossMarginInterestRecordsWithHttpInfo
      *
-     * Interest records for the cross margin account
+     * Interest records for the cross margin account. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4210,7 +4210,7 @@ class MarginApi
     /**
      * Operation getCrossMarginInterestRecordsAsync
      *
-     * Interest records for the cross margin account
+     * Interest records for the cross margin account. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4236,7 +4236,7 @@ class MarginApi
     /**
      * Operation getCrossMarginInterestRecordsAsyncWithHttpInfo
      *
-     * Interest records for the cross margin account
+     * Interest records for the cross margin account. (deprecated)
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4460,7 +4460,7 @@ class MarginApi
     /**
      * Operation getCrossMarginTransferable
      *
-     * Get the max transferable amount for a specific cross margin currency
+     * Get the max transferable amount for a specific cross margin currency. (deprecated)
      *
      * @param  string $currency Retrieve data of the specified currency (required)
      *
@@ -4477,7 +4477,7 @@ class MarginApi
     /**
      * Operation getCrossMarginTransferableWithHttpInfo
      *
-     * Get the max transferable amount for a specific cross margin currency
+     * Get the max transferable amount for a specific cross margin currency. (deprecated)
      *
      * @param  string $currency Retrieve data of the specified currency (required)
      *
@@ -4531,7 +4531,7 @@ class MarginApi
     /**
      * Operation getCrossMarginTransferableAsync
      *
-     * Get the max transferable amount for a specific cross margin currency
+     * Get the max transferable amount for a specific cross margin currency. (deprecated)
      *
      * @param  string $currency Retrieve data of the specified currency (required)
      *
@@ -4551,7 +4551,7 @@ class MarginApi
     /**
      * Operation getCrossMarginTransferableAsyncWithHttpInfo
      *
-     * Get the max transferable amount for a specific cross margin currency
+     * Get the max transferable amount for a specific cross margin currency. (deprecated)
      *
      * @param  string $currency Retrieve data of the specified currency (required)
      *
@@ -4703,7 +4703,7 @@ class MarginApi
     /**
      * Operation getCrossMarginEstimateRate
      *
-     * Estimated interest rates
+     * Estimated interest rates. (deprecated)
      *
      * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
      *
@@ -4720,7 +4720,7 @@ class MarginApi
     /**
      * Operation getCrossMarginEstimateRateWithHttpInfo
      *
-     * Estimated interest rates
+     * Estimated interest rates. (deprecated)
      *
      * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
      *
@@ -4774,7 +4774,7 @@ class MarginApi
     /**
      * Operation getCrossMarginEstimateRateAsync
      *
-     * Estimated interest rates
+     * Estimated interest rates. (deprecated)
      *
      * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
      *
@@ -4794,7 +4794,7 @@ class MarginApi
     /**
      * Operation getCrossMarginEstimateRateAsyncWithHttpInfo
      *
-     * Estimated interest rates
+     * Estimated interest rates. (deprecated)
      *
      * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
      *
@@ -4953,7 +4953,7 @@ class MarginApi
     /**
      * Operation getCrossMarginBorrowable
      *
-     * Get the max borrowable amount for a specific cross margin currency
+     * Get the max borrowable amount for a specific cross margin currency. (deprecated)
      *
      * @param  string $currency Retrieve data of the specified currency (required)
      *
@@ -4970,7 +4970,7 @@ class MarginApi
     /**
      * Operation getCrossMarginBorrowableWithHttpInfo
      *
-     * Get the max borrowable amount for a specific cross margin currency
+     * Get the max borrowable amount for a specific cross margin currency. (deprecated)
      *
      * @param  string $currency Retrieve data of the specified currency (required)
      *
@@ -5024,7 +5024,7 @@ class MarginApi
     /**
      * Operation getCrossMarginBorrowableAsync
      *
-     * Get the max borrowable amount for a specific cross margin currency
+     * Get the max borrowable amount for a specific cross margin currency. (deprecated)
      *
      * @param  string $currency Retrieve data of the specified currency (required)
      *
@@ -5044,7 +5044,7 @@ class MarginApi
     /**
      * Operation getCrossMarginBorrowableAsyncWithHttpInfo
      *
-     * Get the max borrowable amount for a specific cross margin currency
+     * Get the max borrowable amount for a specific cross margin currency. (deprecated)
      *
      * @param  string $currency Retrieve data of the specified currency (required)
      *

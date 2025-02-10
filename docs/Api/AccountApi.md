@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 ## getDebitFee
 
-> \GateApi\Model\InlineResponse2001 getDebitFee()
+> \GateApi\Model\DebitFee getDebitFee()
 
 Query GT deduction configuration.
 
@@ -485,7 +485,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\GateApi\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\GateApi\Model\DebitFee**](../Model/DebitFee.md)
 
 ### Authorization
 
@@ -503,7 +503,7 @@ This endpoint does not need any parameter.
 
 ## setDebitFee
 
-> setDebitFee($inline_object)
+> setDebitFee($debit_fee)
 
 Set GT deduction.
 
@@ -525,10 +525,10 @@ $apiInstance = new GateApi\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$inline_object = new \GateApi\Model\InlineObject(); // \GateApi\Model\InlineObject | 
+$debit_fee = new \GateApi\Model\DebitFee(); // \GateApi\Model\DebitFee | 
 
 try {
-    $apiInstance->setDebitFee($inline_object);
+    $apiInstance->setDebitFee($debit_fee);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
@@ -542,7 +542,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**\GateApi\Model\InlineObject**](../Model/InlineObject.md)|  |
+ **debit_fee** | [**\GateApi\Model\DebitFee**](../Model/DebitFee.md)|  |
 
 ### Return type
 

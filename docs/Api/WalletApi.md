@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 
 ## getTransferOrderStatus
 
-> \GateApi\Model\InlineResponse200 getTransferOrderStatus($client_order_id, $tx_id)
+> \GateApi\Model\TransferOrderStatus getTransferOrderStatus($client_order_id, $tx_id)
 
 Transfer status query
 
@@ -595,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\GateApi\Model\TransferOrderStatus**](../Model/TransferOrderStatus.md)
 
 ### Authorization
 
