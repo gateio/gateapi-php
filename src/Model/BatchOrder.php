@@ -966,7 +966,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, unified - unified account
+     * @param string|null $account Account type, spot - spot account, margin - leveraged account, unified - unified account
      *
      * @return $this
      */

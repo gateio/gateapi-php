@@ -60,6 +60,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         'amount' => 'string',
         'account' => 'string',
         'time_in_force' => 'string',
+        'auto_borrow' => 'bool',
+        'auto_repay' => 'bool',
         'text' => 'string'
     ];
 
@@ -75,6 +77,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         'amount' => null,
         'account' => null,
         'time_in_force' => null,
+        'auto_borrow' => null,
+        'auto_repay' => null,
         'text' => null
     ];
 
@@ -111,6 +115,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         'amount' => 'amount',
         'account' => 'account',
         'time_in_force' => 'time_in_force',
+        'auto_borrow' => 'auto_borrow',
+        'auto_repay' => 'auto_repay',
         'text' => 'text'
     ];
 
@@ -126,6 +132,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         'amount' => 'setAmount',
         'account' => 'setAccount',
         'time_in_force' => 'setTimeInForce',
+        'auto_borrow' => 'setAutoBorrow',
+        'auto_repay' => 'setAutoRepay',
         'text' => 'setText'
     ];
 
@@ -141,6 +149,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         'amount' => 'getAmount',
         'account' => 'getAccount',
         'time_in_force' => 'getTimeInForce',
+        'auto_borrow' => 'getAutoBorrow',
+        'auto_repay' => 'getAutoRepay',
         'text' => 'getText'
     ];
 
@@ -191,7 +201,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     const SIDE_SELL = 'sell';
     const ACCOUNT_NORMAL = 'normal';
     const ACCOUNT_MARGIN = 'margin';
-    const ACCOUNT_CROSS_MARGIN = 'cross_margin';
+    const ACCOUNT_UNIFIED = 'unified';
     const TIME_IN_FORCE_GTC = 'gtc';
     const TIME_IN_FORCE_IOC = 'ioc';
     
@@ -233,7 +243,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         return [
             self::ACCOUNT_NORMAL,
             self::ACCOUNT_MARGIN,
-            self::ACCOUNT_CROSS_MARGIN,
+            self::ACCOUNT_UNIFIED,
         ];
     }
     
@@ -272,6 +282,8 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : 'normal';
         $this->container['time_in_force'] = isset($data['time_in_force']) ? $data['time_in_force'] : 'gtc';
+        $this->container['auto_borrow'] = isset($data['auto_borrow']) ? $data['auto_borrow'] : false;
+        $this->container['auto_repay'] = isset($data['auto_repay']) ? $data['auto_repay'] : false;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
@@ -470,7 +482,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string $account Trading account type.  Portfolio margin account must set to `cross_margin`  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading
+     * @param string $account Trading account type.  Portfolio margin account must set to `unified`  - normal: spot trading - margin: margin trading - unified: unified trading
      *
      * @return $this
      */
@@ -519,6 +531,54 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
             );
         }
         $this->container['time_in_force'] = $time_in_force;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_borrow
+     *
+     * @return bool|null
+     */
+    public function getAutoBorrow()
+    {
+        return $this->container['auto_borrow'];
+    }
+
+    /**
+     * Sets auto_borrow
+     *
+     * @param bool|null $auto_borrow Whether to borrow coins automatically
+     *
+     * @return $this
+     */
+    public function setAutoBorrow($auto_borrow)
+    {
+        $this->container['auto_borrow'] = $auto_borrow;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_repay
+     *
+     * @return bool|null
+     */
+    public function getAutoRepay()
+    {
+        return $this->container['auto_repay'];
+    }
+
+    /**
+     * Sets auto_repay
+     *
+     * @param bool|null $auto_repay Whether to repay the loan automatically
+     *
+     * @return $this
+     */
+    public function setAutoRepay($auto_repay)
+    {
+        $this->container['auto_repay'] = $auto_repay;
 
         return $this;
     }

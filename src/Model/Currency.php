@@ -55,6 +55,7 @@ class Currency implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'currency' => 'string',
+        'name' => 'string',
         'delisted' => 'bool',
         'withdraw_disabled' => 'bool',
         'withdraw_delayed' => 'bool',
@@ -71,6 +72,7 @@ class Currency implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'currency' => null,
+        'name' => null,
         'delisted' => null,
         'withdraw_disabled' => null,
         'withdraw_delayed' => null,
@@ -108,6 +110,7 @@ class Currency implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'currency' => 'currency',
+        'name' => 'name',
         'delisted' => 'delisted',
         'withdraw_disabled' => 'withdraw_disabled',
         'withdraw_delayed' => 'withdraw_delayed',
@@ -124,6 +127,7 @@ class Currency implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'currency' => 'setCurrency',
+        'name' => 'setName',
         'delisted' => 'setDelisted',
         'withdraw_disabled' => 'setWithdrawDisabled',
         'withdraw_delayed' => 'setWithdrawDelayed',
@@ -140,6 +144,7 @@ class Currency implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'currency' => 'getCurrency',
+        'name' => 'getName',
         'delisted' => 'getDelisted',
         'withdraw_disabled' => 'getWithdrawDisabled',
         'withdraw_delayed' => 'getWithdrawDelayed',
@@ -210,6 +215,7 @@ class Currency implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['delisted'] = isset($data['delisted']) ? $data['delisted'] : null;
         $this->container['withdraw_disabled'] = isset($data['withdraw_disabled']) ? $data['withdraw_disabled'] : null;
         $this->container['withdraw_delayed'] = isset($data['withdraw_delayed']) ? $data['withdraw_delayed'] : null;
@@ -256,13 +262,37 @@ class Currency implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency symbol
      *
      * @return $this
      */
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Currency name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

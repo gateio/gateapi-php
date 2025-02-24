@@ -309,7 +309,7 @@ class BatchAmendItem implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Default to spot, portfolio, and margin accounts if not specified. Use 'cross_margin' to query cross margin accounts. Only 'cross_margin' can be specified for portfolio margin accounts.
+     * @param string|null $account Default spot, unified account and warehouse-by-store leverage account.
      *
      * @return $this
      */

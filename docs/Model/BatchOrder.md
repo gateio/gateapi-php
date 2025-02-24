@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **status** | **string** | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled | [optional] [readonly] 
 **currency_pair** | **string** | Currency pair | [optional] 
 **type** | **string** | Order Type    - limit : Limit Order - market : Market Order | [optional] [default to 'limit']
-**account** | **string** | Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, unified - unified account | [optional] [default to 'spot']
+**account** | **string** | Account type, spot - spot account, margin - leveraged account, unified - unified account | [optional] [default to 'spot']
 **side** | **string** | Order side | [optional] 
 **amount** | **string** | Trade amount | [optional] 
 **price** | **string** | Order price | [optional] 

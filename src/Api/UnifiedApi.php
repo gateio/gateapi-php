@@ -121,6 +121,7 @@ class UnifiedApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $sub_uid Sub account user ID (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -140,6 +141,7 @@ class UnifiedApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $sub_uid Sub account user ID (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -196,6 +198,7 @@ class UnifiedApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $sub_uid Sub account user ID (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -218,6 +221,7 @@ class UnifiedApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $sub_uid Sub account user ID (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -267,6 +271,7 @@ class UnifiedApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $sub_uid Sub account user ID (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -275,6 +280,7 @@ class UnifiedApi
     {
         // unbox the parameters from the associative array
         $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $sub_uid = array_key_exists('sub_uid', $associative_array) ? $associative_array['sub_uid'] : null;
 
 
         $resourcePath = '/unified/accounts';
@@ -293,6 +299,18 @@ class UnifiedApi
             }
             else {
                 $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($sub_uid !== null) {
+            if('form' === 'form' && is_array($sub_uid)) {
+                foreach($sub_uid as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sub_uid'] = $sub_uid;
             }
         }
 

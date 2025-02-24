@@ -57,7 +57,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'base' => 'string',
+        'base_name' => 'string',
         'quote' => 'string',
+        'quote_name' => 'string',
         'fee' => 'string',
         'min_base_amount' => 'string',
         'min_quote_amount' => 'string',
@@ -79,7 +81,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'base' => null,
+        'base_name' => null,
         'quote' => null,
+        'quote_name' => null,
         'fee' => null,
         'min_base_amount' => null,
         'min_quote_amount' => null,
@@ -122,7 +126,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'base' => 'base',
+        'base_name' => 'base_name',
         'quote' => 'quote',
+        'quote_name' => 'quote_name',
         'fee' => 'fee',
         'min_base_amount' => 'min_base_amount',
         'min_quote_amount' => 'min_quote_amount',
@@ -144,7 +150,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'base' => 'setBase',
+        'base_name' => 'setBaseName',
         'quote' => 'setQuote',
+        'quote_name' => 'setQuoteName',
         'fee' => 'setFee',
         'min_base_amount' => 'setMinBaseAmount',
         'min_quote_amount' => 'setMinQuoteAmount',
@@ -166,7 +174,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'base' => 'getBase',
+        'base_name' => 'getBaseName',
         'quote' => 'getQuote',
+        'quote_name' => 'getQuoteName',
         'fee' => 'getFee',
         'min_base_amount' => 'getMinBaseAmount',
         'min_quote_amount' => 'getMinQuoteAmount',
@@ -261,7 +271,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['base'] = isset($data['base']) ? $data['base'] : null;
+        $this->container['base_name'] = isset($data['base_name']) ? $data['base_name'] : null;
         $this->container['quote'] = isset($data['quote']) ? $data['quote'] : null;
+        $this->container['quote_name'] = isset($data['quote_name']) ? $data['quote_name'] : null;
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
         $this->container['min_base_amount'] = isset($data['min_base_amount']) ? $data['min_base_amount'] : null;
         $this->container['min_quote_amount'] = isset($data['min_quote_amount']) ? $data['min_quote_amount'] : null;
@@ -356,6 +368,30 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets base_name
+     *
+     * @return string|null
+     */
+    public function getBaseName()
+    {
+        return $this->container['base_name'];
+    }
+
+    /**
+     * Sets base_name
+     *
+     * @param string|null $base_name Transaction currency name
+     *
+     * @return $this
+     */
+    public function setBaseName($base_name)
+    {
+        $this->container['base_name'] = $base_name;
+
+        return $this;
+    }
+
+    /**
      * Gets quote
      *
      * @return string|null
@@ -375,6 +411,30 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     public function setQuote($quote)
     {
         $this->container['quote'] = $quote;
+
+        return $this;
+    }
+
+    /**
+     * Gets quote_name
+     *
+     * @return string|null
+     */
+    public function getQuoteName()
+    {
+        return $this->container['quote_name'];
+    }
+
+    /**
+     * Sets quote_name
+     *
+     * @param string|null $quote_name Name of the denominated currency
+     *
+     * @return $this
+     */
+    public function setQuoteName($quote_name)
+    {
+        $this->container['quote_name'] = $quote_name;
 
         return $this;
     }

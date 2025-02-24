@@ -69,7 +69,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
         'currency' => null,
         'available' => null,
         'locked' => null,
-        'update_id' => null
+        'update_id' => 'int64'
     ];
 
     /**

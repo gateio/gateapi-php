@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **order_id** | **string** | The order ID returned upon successful creation or the custom ID specified by the user during creation (i.e., the &#39;text&#39; field). | 
 **currency_pair** | **string** | Currency pair | 
-**account** | **string** | Default to spot, portfolio, and margin accounts if not specified. Use &#39;cross_margin&#39; to query cross margin accounts. Only &#39;cross_margin&#39; can be specified for portfolio margin accounts. | [optional] 
+**account** | **string** | Default spot, unified account and warehouse-by-store leverage account. | [optional] 
 **amount** | **string** | trade amount, only one of amount and price can be specified | [optional] 
 **price** | **string** | trade price, only one of amount and price can be specified | [optional] 
 **amend_text** | **string** | Custom info during amending order | [optional] 

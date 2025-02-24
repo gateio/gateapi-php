@@ -395,7 +395,7 @@ class CancelOrderResult implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Empty by default. If cancelled order is cross margin order, this field is set to `cross_margin`
+     * @param string|null $account Default is empty (deprecated)
      *
      * @return $this
      */

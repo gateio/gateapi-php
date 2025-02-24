@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 ## listUnifiedAccounts
 
-> \GateApi\Model\UnifiedAccount listUnifiedAccounts($currency)
+> \GateApi\Model\UnifiedAccount listUnifiedAccounts($currency, $sub_uid)
 
 Get unified account information
 
@@ -49,6 +49,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     $config
 );
 $associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
+$associate_array['sub_uid'] = '10001'; // string | Sub account user ID
 
 try {
     $result = $apiInstance->listUnifiedAccounts($associate_array);
@@ -69,6 +70,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| Retrieve data of the specified currency | [optional]
+ **sub_uid** | **string**| Sub account user ID | [optional]
 
 ### Return type
 

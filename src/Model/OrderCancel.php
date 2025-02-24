@@ -936,7 +936,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string|null $account Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.  Portfolio margin accounts can only be set to `cross_margin`
+     * @param string|null $account Account type, spot - spot account, margin - leveraged account, unified - unified account
      *
      * @return $this
      */

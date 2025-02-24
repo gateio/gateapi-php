@@ -3645,7 +3645,7 @@ class SpotApi
      *
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3666,7 +3666,7 @@ class SpotApi
      *
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3724,7 +3724,7 @@ class SpotApi
      *
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3748,7 +3748,7 @@ class SpotApi
      *
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3799,7 +3799,7 @@ class SpotApi
      *
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4178,7 +4178,7 @@ class SpotApi
      * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
@@ -4204,7 +4204,7 @@ class SpotApi
      * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
@@ -4267,7 +4267,7 @@ class SpotApi
      * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
@@ -4296,7 +4296,7 @@ class SpotApi
      * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
@@ -4352,7 +4352,7 @@ class SpotApi
      * @param  string $status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled (required)
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
@@ -4817,7 +4817,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
-     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -4838,7 +4838,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
-     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -4896,7 +4896,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
-     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -4920,7 +4920,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
-     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -4971,7 +4971,7 @@ class SpotApi
      *
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $side All bids or asks. Both included if not specified (optional)
-     * @param  string $account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -5357,9 +5357,9 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5376,9 +5376,9 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5432,9 +5432,9 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5454,9 +5454,9 @@ class SpotApi
      *
      * Get a single order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5503,9 +5503,9 @@ class SpotApi
     /**
      * Create request for operation 'getOrder'
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5637,9 +5637,9 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Currency pair (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -5658,9 +5658,9 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Currency pair (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -5716,9 +5716,9 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Currency pair (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -5740,9 +5740,9 @@ class SpotApi
      *
      * Cancel a single order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Currency pair (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -5791,9 +5791,9 @@ class SpotApi
     /**
      * Create request for operation 'cancelOrder'
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  string $currency_pair Currency pair (required)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
@@ -5944,10 +5944,10 @@ class SpotApi
      *
      * Amend an order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  \GateApi\Model\OrderPatch $order_patch order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5965,10 +5965,10 @@ class SpotApi
      *
      * Amend an order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  \GateApi\Model\OrderPatch $order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -6023,10 +6023,10 @@ class SpotApi
      *
      * Amend an order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  \GateApi\Model\OrderPatch $order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
@@ -6047,10 +6047,10 @@ class SpotApi
      *
      * Amend an order
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  \GateApi\Model\OrderPatch $order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
@@ -6098,10 +6098,10 @@ class SpotApi
     /**
      * Create request for operation 'amendOrder'
      *
-     * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param  string $order_id The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param  \GateApi\Model\OrderPatch $order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
@@ -6248,7 +6248,7 @@ class SpotApi
      * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
      * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      *
@@ -6273,7 +6273,7 @@ class SpotApi
      * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
      * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      *
@@ -6335,7 +6335,7 @@ class SpotApi
      * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
      * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      *
@@ -6363,7 +6363,7 @@ class SpotApi
      * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
      * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      *
@@ -6418,7 +6418,7 @@ class SpotApi
      * @param  int $limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
      * @param  string $order_id Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
-     * @param  string $account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param  string $account Specify query account. (optional)
      * @param  int $from Start timestamp of the query (optional)
      * @param  int $to Time range ending, default to current time (optional)
      *
@@ -7682,7 +7682,7 @@ class SpotApi
      *
      * @param  string $status Only list the orders with this status (required)
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
@@ -7705,7 +7705,7 @@ class SpotApi
      *
      * @param  string $status Only list the orders with this status (required)
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
@@ -7765,7 +7765,7 @@ class SpotApi
      *
      * @param  string $status Only list the orders with this status (required)
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
@@ -7791,7 +7791,7 @@ class SpotApi
      *
      * @param  string $status Only list the orders with this status (required)
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
@@ -7844,7 +7844,7 @@ class SpotApi
      *
      * @param  string $status Only list the orders with this status (required)
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  int $offset List offset, starting from 0 (optional, default to 0)
      *
@@ -8252,7 +8252,7 @@ class SpotApi
      * Cancel all open orders
      *
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8270,7 +8270,7 @@ class SpotApi
      * Cancel all open orders
      *
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8325,7 +8325,7 @@ class SpotApi
      * Cancel all open orders
      *
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8346,7 +8346,7 @@ class SpotApi
      * Cancel all open orders
      *
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8394,7 +8394,7 @@ class SpotApi
      * Create request for operation 'cancelSpotPriceTriggeredOrderList'
      *
      * @param  string $market Currency pair (optional)
-     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **string** | Currency name | [optional] 
+**currency** | **string** | Currency symbol | [optional] 
+**name** | **string** | Currency name | [optional] 
 **delisted** | **bool** | Whether currency is de-listed | [optional] 
 **withdraw_disabled** | **bool** | Whether currency&#39;s withdrawal is disabled | [optional] 
 **withdraw_delayed** | **bool** | Whether currency&#39;s withdrawal is delayed | [optional] 
