@@ -69,7 +69,8 @@ class DualGetOrders implements ModelInterface, ArrayAccess
         'settlement_currency' => 'string',
         'apy_display' => 'string',
         'apy_settlement' => 'string',
-        'delivery_time' => 'int'
+        'delivery_time' => 'int',
+        'text' => 'string'
     ];
 
     /**
@@ -93,7 +94,8 @@ class DualGetOrders implements ModelInterface, ArrayAccess
         'settlement_currency' => null,
         'apy_display' => null,
         'apy_settlement' => null,
-        'delivery_time' => 'int32'
+        'delivery_time' => 'int32',
+        'text' => null
     ];
 
     /**
@@ -138,7 +140,8 @@ class DualGetOrders implements ModelInterface, ArrayAccess
         'settlement_currency' => 'settlement_currency',
         'apy_display' => 'apy_display',
         'apy_settlement' => 'apy_settlement',
-        'delivery_time' => 'delivery_time'
+        'delivery_time' => 'delivery_time',
+        'text' => 'text'
     ];
 
     /**
@@ -162,7 +165,8 @@ class DualGetOrders implements ModelInterface, ArrayAccess
         'settlement_currency' => 'setSettlementCurrency',
         'apy_display' => 'setApyDisplay',
         'apy_settlement' => 'setApySettlement',
-        'delivery_time' => 'setDeliveryTime'
+        'delivery_time' => 'setDeliveryTime',
+        'text' => 'setText'
     ];
 
     /**
@@ -186,7 +190,8 @@ class DualGetOrders implements ModelInterface, ArrayAccess
         'settlement_currency' => 'getSettlementCurrency',
         'apy_display' => 'getApyDisplay',
         'apy_settlement' => 'getApySettlement',
-        'delivery_time' => 'getDeliveryTime'
+        'delivery_time' => 'getDeliveryTime',
+        'text' => 'getText'
     ];
 
     /**
@@ -265,6 +270,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
         $this->container['apy_display'] = isset($data['apy_display']) ? $data['apy_display'] : null;
         $this->container['apy_settlement'] = isset($data['apy_settlement']) ? $data['apy_settlement'] : null;
         $this->container['delivery_time'] = isset($data['delivery_time']) ? $data['delivery_time'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
     /**
@@ -671,6 +677,30 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     public function setDeliveryTime($delivery_time)
     {
         $this->container['delivery_time'] = $delivery_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text Custom order information
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
 
         return $this;
     }

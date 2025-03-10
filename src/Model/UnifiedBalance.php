@@ -658,7 +658,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets mm
      *
-     * @param string|null $mm Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     * @param string|null $mm The full position maintains margin, which is valid in the single currency margin mode, and other cross-currency margin combination margin mode is 0.
      *
      * @return $this
      */

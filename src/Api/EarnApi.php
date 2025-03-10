@@ -324,18 +324,241 @@ class EarnApi
     }
 
     /**
+     * Operation rateListETH2
+     *
+     * ETH2 historical rate of return query
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Eth2RateList[]
+     */
+    public function rateListETH2()
+    {
+        list($response) = $this->rateListETH2WithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation rateListETH2WithHttpInfo
+     *
+     * ETH2 historical rate of return query
+     *
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Eth2RateList[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rateListETH2WithHttpInfo()
+    {
+        $request = $this->rateListETH2Request();
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\Eth2RateList[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation rateListETH2Async
+     *
+     * ETH2 historical rate of return query
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rateListETH2Async()
+    {
+        return $this->rateListETH2AsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rateListETH2AsyncWithHttpInfo
+     *
+     * ETH2 historical rate of return query
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rateListETH2AsyncWithHttpInfo()
+    {
+        $returnType = '\GateApi\Model\Eth2RateList[]';
+        $request = $this->rateListETH2Request();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rateListETH2'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function rateListETH2Request()
+    {
+
+        $resourcePath = '/earn/staking/eth2/rate_records';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listDualInvestmentPlans
      *
      * Dual Investment product list
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $plan_id Financial project id (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\DualGetPlans[]
      */
-    public function listDualInvestmentPlans()
+    public function listDualInvestmentPlans($associative_array)
     {
-        list($response) = $this->listDualInvestmentPlansWithHttpInfo();
+        list($response) = $this->listDualInvestmentPlansWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -344,14 +567,17 @@ class EarnApi
      *
      * Dual Investment product list
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $plan_id Financial project id (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\DualGetPlans[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDualInvestmentPlansWithHttpInfo()
+    public function listDualInvestmentPlansWithHttpInfo($associative_array)
     {
-        $request = $this->listDualInvestmentPlansRequest();
+        $request = $this->listDualInvestmentPlansRequest($associative_array);
 
         $options = $this->createHttpClientOption();
         try {
@@ -397,13 +623,16 @@ class EarnApi
      *
      * Dual Investment product list
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $plan_id Financial project id (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDualInvestmentPlansAsync()
+    public function listDualInvestmentPlansAsync($associative_array)
     {
-        return $this->listDualInvestmentPlansAsyncWithHttpInfo()
+        return $this->listDualInvestmentPlansAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -416,14 +645,17 @@ class EarnApi
      *
      * Dual Investment product list
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $plan_id Financial project id (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDualInvestmentPlansAsyncWithHttpInfo()
+    public function listDualInvestmentPlansAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\GateApi\Model\DualGetPlans[]';
-        $request = $this->listDualInvestmentPlansRequest();
+        $request = $this->listDualInvestmentPlansRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -462,12 +694,18 @@ class EarnApi
     /**
      * Create request for operation 'listDualInvestmentPlans'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $plan_id Financial project id (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listDualInvestmentPlansRequest()
+    protected function listDualInvestmentPlansRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $plan_id = array_key_exists('plan_id', $associative_array) ? $associative_array['plan_id'] : null;
+
 
         $resourcePath = '/earn/dual/investment_plan';
         $formParams = [];
@@ -475,6 +713,18 @@ class EarnApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // query params
+        if ($plan_id !== null) {
+            if('form' === 'form' && is_array($plan_id)) {
+                foreach($plan_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['plan_id'] = $plan_id;
+            }
+        }
 
         // body params
         $_tempBody = null;
@@ -545,14 +795,20 @@ class EarnApi
      *
      * Dual Investment order list
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $from Start checkout time (optional)
+     * @param  int $to End settlement time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\DualGetOrders[]
      */
-    public function listDualOrders()
+    public function listDualOrders($associative_array)
     {
-        list($response) = $this->listDualOrdersWithHttpInfo();
+        list($response) = $this->listDualOrdersWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -561,14 +817,20 @@ class EarnApi
      *
      * Dual Investment order list
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $from Start checkout time (optional)
+     * @param  int $to End settlement time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\DualGetOrders[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDualOrdersWithHttpInfo()
+    public function listDualOrdersWithHttpInfo($associative_array)
     {
-        $request = $this->listDualOrdersRequest();
+        $request = $this->listDualOrdersRequest($associative_array);
 
         $options = $this->createHttpClientOption();
         try {
@@ -614,13 +876,19 @@ class EarnApi
      *
      * Dual Investment order list
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $from Start checkout time (optional)
+     * @param  int $to End settlement time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDualOrdersAsync()
+    public function listDualOrdersAsync($associative_array)
     {
-        return $this->listDualOrdersAsyncWithHttpInfo()
+        return $this->listDualOrdersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -633,14 +901,20 @@ class EarnApi
      *
      * Dual Investment order list
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $from Start checkout time (optional)
+     * @param  int $to End settlement time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDualOrdersAsyncWithHttpInfo()
+    public function listDualOrdersAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\GateApi\Model\DualGetOrders[]';
-        $request = $this->listDualOrdersRequest();
+        $request = $this->listDualOrdersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -679,12 +953,35 @@ class EarnApi
     /**
      * Create request for operation 'listDualOrders'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  int $from Start checkout time (optional)
+     * @param  int $to End settlement time (optional)
+     * @param  int $page Page number (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listDualOrdersRequest()
+    protected function listDualOrdersRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling EarnApi.listDualOrders, must be bigger than or equal to 1.');
+        }
+
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling EarnApi.listDualOrders, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling EarnApi.listDualOrders, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/earn/dual/orders';
         $formParams = [];
@@ -692,6 +989,54 @@ class EarnApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // query params
+        if ($from !== null) {
+            if('form' === 'form' && is_array($from)) {
+                foreach($from as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['from'] = $from;
+            }
+        }
+
+        // query params
+        if ($to !== null) {
+            if('form' === 'form' && is_array($to)) {
+                foreach($to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['to'] = $to;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
 
         // body params
         $_tempBody = null;

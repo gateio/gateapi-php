@@ -210,45 +210,8 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_DONE = 'DONE';
-    const STATUS_CANCEL = 'CANCEL';
-    const STATUS_REQUEST = 'REQUEST';
-    const STATUS_MANUAL = 'MANUAL';
-    const STATUS_BCODE = 'BCODE';
-    const STATUS_EXTPEND = 'EXTPEND';
-    const STATUS_FAIL = 'FAIL';
-    const STATUS_INVALID = 'INVALID';
-    const STATUS_VERIFY = 'VERIFY';
-    const STATUS_PROCES = 'PROCES';
-    const STATUS_PEND = 'PEND';
-    const STATUS_DMOVE = 'DMOVE';
-    const STATUS_SPLITPEND = 'SPLITPEND';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_DONE,
-            self::STATUS_CANCEL,
-            self::STATUS_REQUEST,
-            self::STATUS_MANUAL,
-            self::STATUS_BCODE,
-            self::STATUS_EXTPEND,
-            self::STATUS_FAIL,
-            self::STATUS_INVALID,
-            self::STATUS_VERIFY,
-            self::STATUS_PROCES,
-            self::STATUS_PEND,
-            self::STATUS_DMOVE,
-            self::STATUS_SPLITPEND,
-        ];
-    }
     
 
     /**
@@ -295,14 +258,6 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['chain'] === null) {
             $invalidProperties[] = "'chain' can't be null";
         }
@@ -574,21 +529,12 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Transaction status  - DONE: Completed (block_number > 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - SPLITPEND: cny withdrawal is greater than 50,000, orders will be split automatically
+     * @param string|null $status Transaction status  - DONE: Completed (block_number > 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review
      *
      * @return $this
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

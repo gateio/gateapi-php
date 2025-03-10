@@ -1,6 +1,6 @@
 <?php
 /**
- * PlaceDualInvestmentOrder
+ * Eth2RateList
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * PlaceDualInvestmentOrder Class Doc Comment
+ * Eth2RateList Class Doc Comment
  *
  * @category Class
- * @description Dual Investment order
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
+class Eth2RateList implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PlaceDualInvestmentOrder';
+    protected static $openAPIModelName = 'Eth2RateList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,11 +54,9 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'plan_id' => 'string',
-        'copies' => 'string',
-        'is_max' => 'int',
-        'amount' => 'string',
-        'text' => 'string'
+        'date_time' => 'int',
+        'date' => 'string',
+        'rate' => 'string'
     ];
 
     /**
@@ -68,11 +65,9 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'plan_id' => null,
-        'copies' => null,
-        'is_max' => 'int32',
-        'amount' => null,
-        'text' => null
+        'date_time' => 'int64',
+        'date' => null,
+        'rate' => null
     ];
 
     /**
@@ -102,11 +97,9 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'plan_id' => 'plan_id',
-        'copies' => 'copies',
-        'is_max' => 'is_max',
-        'amount' => 'amount',
-        'text' => 'text'
+        'date_time' => 'date_time',
+        'date' => 'date',
+        'rate' => 'rate'
     ];
 
     /**
@@ -115,11 +108,9 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'plan_id' => 'setPlanId',
-        'copies' => 'setCopies',
-        'is_max' => 'setIsMax',
-        'amount' => 'setAmount',
-        'text' => 'setText'
+        'date_time' => 'setDateTime',
+        'date' => 'setDate',
+        'rate' => 'setRate'
     ];
 
     /**
@@ -128,11 +119,9 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'plan_id' => 'getPlanId',
-        'copies' => 'getCopies',
-        'is_max' => 'getIsMax',
-        'amount' => 'getAmount',
-        'text' => 'getText'
+        'date_time' => 'getDateTime',
+        'date' => 'getDate',
+        'rate' => 'getRate'
     ];
 
     /**
@@ -195,11 +184,9 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['plan_id'] = isset($data['plan_id']) ? $data['plan_id'] : null;
-        $this->container['copies'] = isset($data['copies']) ? $data['copies'] : null;
-        $this->container['is_max'] = isset($data['is_max']) ? $data['is_max'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['date_time'] = isset($data['date_time']) ? $data['date_time'] : null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
+        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
     }
 
     /**
@@ -211,12 +198,6 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['plan_id'] === null) {
-            $invalidProperties[] = "'plan_id' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -233,121 +214,73 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets plan_id
-     *
-     * @return string
-     */
-    public function getPlanId()
-    {
-        return $this->container['plan_id'];
-    }
-
-    /**
-     * Sets plan_id
-     *
-     * @param string $plan_id Plan ID
-     *
-     * @return $this
-     */
-    public function setPlanId($plan_id)
-    {
-        $this->container['plan_id'] = $plan_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets copies
-     *
-     * @return string|null
-     */
-    public function getCopies()
-    {
-        return $this->container['copies'];
-    }
-
-    /**
-     * Sets copies
-     *
-     * @param string|null $copies The number of copies is mutually exclusive with the amount field and will be deprecated soon. It is recommended to use the amount parameter.
-     *
-     * @return $this
-     */
-    public function setCopies($copies)
-    {
-        $this->container['copies'] = $copies;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_max
+     * Gets date_time
      *
      * @return int|null
      */
-    public function getIsMax()
+    public function getDateTime()
     {
-        return $this->container['is_max'];
+        return $this->container['date_time'];
     }
 
     /**
-     * Sets is_max
+     * Sets date_time
      *
-     * @param int|null $is_max Whether to purchase at the maximum. Mutually exclusive with the amount field. Will be deprecated soon. It is recommended to use the amount parameter.
+     * @param int|null $date_time Date and Time Stamp
      *
      * @return $this
      */
-    public function setIsMax($is_max)
+    public function setDateTime($date_time)
     {
-        $this->container['is_max'] = $is_max;
+        $this->container['date_time'] = $date_time;
 
         return $this;
     }
 
     /**
-     * Gets amount
-     *
-     * @return string
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param string $amount Subscription amount, mutually exclusive with the copies field
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets text
+     * Gets date
      *
      * @return string|null
      */
-    public function getText()
+    public function getDate()
     {
-        return $this->container['text'];
+        return $this->container['date'];
     }
 
     /**
-     * Sets text
+     * Sets date
      *
-     * @param string|null $text User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)
+     * @param string|null $date Date
      *
      * @return $this
      */
-    public function setText($text)
+    public function setDate($date)
     {
-        $this->container['text'] = $text;
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
+     * Gets rate
+     *
+     * @return string|null
+     */
+    public function getRate()
+    {
+        return $this->container['rate'];
+    }
+
+    /**
+     * Sets rate
+     *
+     * @param string|null $rate percentage
+     *
+     * @return $this
+     */
+    public function setRate($rate)
+    {
+        $this->container['rate'] = $rate;
 
         return $this;
     }

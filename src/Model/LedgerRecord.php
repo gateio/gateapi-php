@@ -200,45 +200,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_DONE = 'DONE';
-    const STATUS_CANCEL = 'CANCEL';
-    const STATUS_REQUEST = 'REQUEST';
-    const STATUS_MANUAL = 'MANUAL';
-    const STATUS_BCODE = 'BCODE';
-    const STATUS_EXTPEND = 'EXTPEND';
-    const STATUS_FAIL = 'FAIL';
-    const STATUS_INVALID = 'INVALID';
-    const STATUS_VERIFY = 'VERIFY';
-    const STATUS_PROCES = 'PROCES';
-    const STATUS_PEND = 'PEND';
-    const STATUS_DMOVE = 'DMOVE';
-    const STATUS_SPLITPEND = 'SPLITPEND';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_DONE,
-            self::STATUS_CANCEL,
-            self::STATUS_REQUEST,
-            self::STATUS_MANUAL,
-            self::STATUS_BCODE,
-            self::STATUS_EXTPEND,
-            self::STATUS_FAIL,
-            self::STATUS_INVALID,
-            self::STATUS_VERIFY,
-            self::STATUS_PROCES,
-            self::STATUS_PEND,
-            self::STATUS_DMOVE,
-            self::STATUS_SPLITPEND,
-        ];
-    }
     
 
     /**
@@ -283,14 +246,6 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['chain'] === null) {
             $invalidProperties[] = "'chain' can't be null";
         }
@@ -514,21 +469,12 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
+     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval
      *
      * @return $this
      */
     public function setStatus($status)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**swapETH2**](EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap
+[**rateListETH2**](EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query
 [**listDualInvestmentPlans**](EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 [**listDualOrders**](EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
 [**placeDualOrder**](EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
@@ -72,9 +73,67 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
+## rateListETH2
+
+> \GateApi\Model\Eth2RateList[] rateListETH2()
+
+ETH2 historical rate of return query
+
+Check the ETH earnings rate record for the last 31 days
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\EarnApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->rateListETH2();
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling EarnApi->rateListETH2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\GateApi\Model\Eth2RateList[]**](../Model/Eth2RateList.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## listDualInvestmentPlans
 
-> \GateApi\Model\DualGetPlans[] listDualInvestmentPlans()
+> \GateApi\Model\DualGetPlans[] listDualInvestmentPlans($plan_id)
 
 Dual Investment product list
 
@@ -90,9 +149,10 @@ $apiInstance = new GateApi\Api\EarnApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$associate_array['plan_id'] = 1; // int | Financial project id
 
 try {
-    $result = $apiInstance->listDualInvestmentPlans();
+    $result = $apiInstance->listDualInvestmentPlans($associate_array);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -104,7 +164,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **plan_id** | **int**| Financial project id | [optional]
 
 ### Return type
 
@@ -126,7 +191,7 @@ No authorization required
 
 ## listDualOrders
 
-> \GateApi\Model\DualGetOrders[] listDualOrders()
+> \GateApi\Model\DualGetOrders[] listDualOrders($from, $to, $page, $limit)
 
 Dual Investment order list
 
@@ -146,9 +211,13 @@ $apiInstance = new GateApi\Api\EarnApi(
     new GuzzleHttp\Client(),
     $config
 );
+$associate_array['from'] = 1740727000; // int | Start checkout time
+$associate_array['to'] = 1740729000; // int | End settlement time
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
 try {
-    $result = $apiInstance->listDualOrders();
+    $result = $apiInstance->listDualOrders($associate_array);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -160,7 +229,15 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **from** | **int**| Start checkout time | [optional]
+ **to** | **int**| End settlement time | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 

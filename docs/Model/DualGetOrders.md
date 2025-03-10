@@ -20,5 +20,6 @@ Name | Type | Description | Notes
 **apy_display** | **string** | APY | [optional] 
 **apy_settlement** | **string** | Settlement APY | [optional] 
 **delivery_time** | **int** | Settlement time | [optional] 
+**text** | **string** | Custom order information | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
