@@ -12833,7 +12833,7 @@ class FuturesApi
     /**
      * Operation listPriceTriggeredOrders
      *
-     * List all auto orders
+     * List All Price-triggered Orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -12856,7 +12856,7 @@ class FuturesApi
     /**
      * Operation listPriceTriggeredOrdersWithHttpInfo
      *
-     * List all auto orders
+     * List All Price-triggered Orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -12916,7 +12916,7 @@ class FuturesApi
     /**
      * Operation listPriceTriggeredOrdersAsync
      *
-     * List all auto orders
+     * List All Price-triggered Orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -12942,7 +12942,7 @@ class FuturesApi
     /**
      * Operation listPriceTriggeredOrdersAsyncWithHttpInfo
      *
-     * List all auto orders
+     * List All Price-triggered Orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -13429,7 +13429,7 @@ class FuturesApi
     /**
      * Operation cancelPriceTriggeredOrderList
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract, return related data only if specified (optional)
@@ -13447,7 +13447,7 @@ class FuturesApi
     /**
      * Operation cancelPriceTriggeredOrderListWithHttpInfo
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract, return related data only if specified (optional)
@@ -13502,7 +13502,7 @@ class FuturesApi
     /**
      * Operation cancelPriceTriggeredOrderListAsync
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract, return related data only if specified (optional)
@@ -13523,7 +13523,7 @@ class FuturesApi
     /**
      * Operation cancelPriceTriggeredOrderListAsyncWithHttpInfo
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract, return related data only if specified (optional)

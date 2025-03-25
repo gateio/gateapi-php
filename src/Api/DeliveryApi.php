@@ -7155,7 +7155,7 @@ class DeliveryApi
     /**
      * Operation listPriceTriggeredDeliveryOrders
      *
-     * List all auto orders
+     * List All Price-triggered Orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -7178,7 +7178,7 @@ class DeliveryApi
     /**
      * Operation listPriceTriggeredDeliveryOrdersWithHttpInfo
      *
-     * List all auto orders
+     * List All Price-triggered Orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -7238,7 +7238,7 @@ class DeliveryApi
     /**
      * Operation listPriceTriggeredDeliveryOrdersAsync
      *
-     * List all auto orders
+     * List All Price-triggered Orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -7264,7 +7264,7 @@ class DeliveryApi
     /**
      * Operation listPriceTriggeredDeliveryOrdersAsyncWithHttpInfo
      *
-     * List all auto orders
+     * List All Price-triggered Orders
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -7751,7 +7751,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderList
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -7769,7 +7769,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderListWithHttpInfo
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -7824,7 +7824,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderListAsync
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
@@ -7845,7 +7845,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderListAsyncWithHttpInfo
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)

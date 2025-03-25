@@ -8249,7 +8249,7 @@ class SpotApi
     /**
      * Operation cancelSpotPriceTriggeredOrderList
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $market Currency pair (optional)
      * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
@@ -8267,7 +8267,7 @@ class SpotApi
     /**
      * Operation cancelSpotPriceTriggeredOrderListWithHttpInfo
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $market Currency pair (optional)
      * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
@@ -8322,7 +8322,7 @@ class SpotApi
     /**
      * Operation cancelSpotPriceTriggeredOrderListAsync
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $market Currency pair (optional)
      * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
@@ -8343,7 +8343,7 @@ class SpotApi
     /**
      * Operation cancelSpotPriceTriggeredOrderListAsyncWithHttpInfo
      *
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      *
      * @param  string $market Currency pair (optional)
      * @param  string $account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
