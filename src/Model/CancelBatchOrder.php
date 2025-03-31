@@ -57,6 +57,7 @@ class CancelBatchOrder implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'currency_pair' => 'string',
         'id' => 'string',
+        'account' => 'string',
         'action_mode' => 'string'
     ];
 
@@ -68,6 +69,7 @@ class CancelBatchOrder implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'currency_pair' => null,
         'id' => null,
+        'account' => null,
         'action_mode' => null
     ];
 
@@ -100,6 +102,7 @@ class CancelBatchOrder implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'currency_pair' => 'currency_pair',
         'id' => 'id',
+        'account' => 'account',
         'action_mode' => 'action_mode'
     ];
 
@@ -111,6 +114,7 @@ class CancelBatchOrder implements ModelInterface, ArrayAccess
     protected static $setters = [
         'currency_pair' => 'setCurrencyPair',
         'id' => 'setId',
+        'account' => 'setAccount',
         'action_mode' => 'setActionMode'
     ];
 
@@ -122,6 +126,7 @@ class CancelBatchOrder implements ModelInterface, ArrayAccess
     protected static $getters = [
         'currency_pair' => 'getCurrencyPair',
         'id' => 'getId',
+        'account' => 'getAccount',
         'action_mode' => 'getActionMode'
     ];
 
@@ -187,6 +192,7 @@ class CancelBatchOrder implements ModelInterface, ArrayAccess
     {
         $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['action_mode'] = isset($data['action_mode']) ? $data['action_mode'] : null;
     }
 
@@ -264,6 +270,30 @@ class CancelBatchOrder implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return string|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param string|null $account If the canceled order is a unified account apikey, this field must be specified and set to `unified`
+     *
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
 
         return $this;
     }

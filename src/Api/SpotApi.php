@@ -3054,6 +3054,7 @@ class SpotApi
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $code Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3078,6 +3079,7 @@ class SpotApi
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $code Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3139,6 +3141,7 @@ class SpotApi
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $code Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3166,6 +3169,7 @@ class SpotApi
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $code Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3220,6 +3224,7 @@ class SpotApi
      * @param  int $page Page number (optional, default to 1)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      * @param  string $type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+     * @param  string $code Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3233,6 +3238,7 @@ class SpotApi
         $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
         $type = array_key_exists('type', $associative_array) ? $associative_array['type'] : null;
+        $code = array_key_exists('code', $associative_array) ? $associative_array['code'] : null;
 
         if ($page !== null && $page < 1) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling SpotApi.listSpotAccountBook, must be bigger than or equal to 1.');
@@ -3322,6 +3328,18 @@ class SpotApi
             }
             else {
                 $queryParams['type'] = $type;
+            }
+        }
+
+        // query params
+        if ($code !== null) {
+            if('form' === 'form' && is_array($code)) {
+                foreach($code as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['code'] = $code;
             }
         }
 

@@ -712,7 +712,7 @@ Name | Type | Description  | Notes
 
 ## listSpotAccountBook
 
-> \GateApi\Model\SpotAccountBook[] listSpotAccountBook($currency, $from, $to, $page, $limit, $type)
+> \GateApi\Model\SpotAccountBook[] listSpotAccountBook($currency, $from, $to, $page, $limit, $type, $code)
 
 Query account book
 
@@ -740,6 +740,7 @@ $associate_array['to'] = 1635329650; // int | Time range ending, default to curr
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['type'] = 'lend'; // string | Only retrieve changes of the specified type. All types will be returned if not specified.
+$associate_array['code'] = 'code_example'; // string | Specify account change code query, if not specified, all change types are included, and the priority is higher than `type`
 
 try {
     $result = $apiInstance->listSpotAccountBook($associate_array);
@@ -765,6 +766,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
+ **code** | **string**| Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; | [optional]
 
 ### Return type
 

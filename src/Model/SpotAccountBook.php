@@ -60,6 +60,7 @@ class SpotAccountBook implements ModelInterface, ArrayAccess
         'change' => 'string',
         'balance' => 'string',
         'type' => 'string',
+        'code' => 'string',
         'text' => 'string'
     ];
 
@@ -75,6 +76,7 @@ class SpotAccountBook implements ModelInterface, ArrayAccess
         'change' => null,
         'balance' => null,
         'type' => null,
+        'code' => null,
         'text' => null
     ];
 
@@ -111,6 +113,7 @@ class SpotAccountBook implements ModelInterface, ArrayAccess
         'change' => 'change',
         'balance' => 'balance',
         'type' => 'type',
+        'code' => 'code',
         'text' => 'text'
     ];
 
@@ -126,6 +129,7 @@ class SpotAccountBook implements ModelInterface, ArrayAccess
         'change' => 'setChange',
         'balance' => 'setBalance',
         'type' => 'setType',
+        'code' => 'setCode',
         'text' => 'setText'
     ];
 
@@ -141,6 +145,7 @@ class SpotAccountBook implements ModelInterface, ArrayAccess
         'change' => 'getChange',
         'balance' => 'getBalance',
         'type' => 'getType',
+        'code' => 'getCode',
         'text' => 'getText'
     ];
 
@@ -210,6 +215,7 @@ class SpotAccountBook implements ModelInterface, ArrayAccess
         $this->container['change'] = isset($data['change']) ? $data['change'] : null;
         $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
@@ -377,6 +383,30 @@ class SpotAccountBook implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets code
+     *
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string|null $code Account change code, see [Asset Record Code] (Asset Record Code)
+     *
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->container['code'] = $code;
 
         return $this;
     }

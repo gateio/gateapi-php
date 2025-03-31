@@ -1,6 +1,6 @@
 <?php
 /**
- * MarginAccount
+ * TransferablesResult
  *
  * PHP version 7
  *
@@ -30,15 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * MarginAccount Class Doc Comment
+ * TransferablesResult Class Doc Comment
  *
  * @category Class
- * @description Margin account detail. &#x60;base&#x60; refers to base currency, while &#x60;quotes to quote currency
+ * @description Batch query unified account can be transferred up to a maximum of results
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class MarginAccount implements ModelInterface, ArrayAccess
+class TransferablesResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class MarginAccount implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MarginAccount';
+    protected static $openAPIModelName = 'TransferablesResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,14 +55,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency_pair' => 'string',
-        'account_type' => 'string',
-        'leverage' => 'string',
-        'locked' => 'bool',
-        'risk' => 'string',
-        'mmr' => 'string',
-        'base' => '\GateApi\Model\MarginAccountCurrency',
-        'quote' => '\GateApi\Model\MarginAccountCurrency'
+        'currency' => 'string',
+        'amount' => 'string'
     ];
 
     /**
@@ -71,14 +65,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency_pair' => null,
-        'account_type' => null,
-        'leverage' => null,
-        'locked' => null,
-        'risk' => null,
-        'mmr' => null,
-        'base' => null,
-        'quote' => null
+        'currency' => null,
+        'amount' => null
     ];
 
     /**
@@ -108,14 +96,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_pair' => 'currency_pair',
-        'account_type' => 'account_type',
-        'leverage' => 'leverage',
-        'locked' => 'locked',
-        'risk' => 'risk',
-        'mmr' => 'mmr',
-        'base' => 'base',
-        'quote' => 'quote'
+        'currency' => 'currency',
+        'amount' => 'amount'
     ];
 
     /**
@@ -124,14 +106,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency_pair' => 'setCurrencyPair',
-        'account_type' => 'setAccountType',
-        'leverage' => 'setLeverage',
-        'locked' => 'setLocked',
-        'risk' => 'setRisk',
-        'mmr' => 'setMmr',
-        'base' => 'setBase',
-        'quote' => 'setQuote'
+        'currency' => 'setCurrency',
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -140,14 +116,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency_pair' => 'getCurrencyPair',
-        'account_type' => 'getAccountType',
-        'leverage' => 'getLeverage',
-        'locked' => 'getLocked',
-        'risk' => 'getRisk',
-        'mmr' => 'getMmr',
-        'base' => 'getBase',
-        'quote' => 'getQuote'
+        'currency' => 'getCurrency',
+        'amount' => 'getAmount'
     ];
 
     /**
@@ -210,14 +180,8 @@ class MarginAccount implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['account_type'] = isset($data['account_type']) ? $data['account_type'] : null;
-        $this->container['leverage'] = isset($data['leverage']) ? $data['leverage'] : null;
-        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
-        $this->container['risk'] = isset($data['risk']) ? $data['risk'] : null;
-        $this->container['mmr'] = isset($data['mmr']) ? $data['mmr'] : null;
-        $this->container['base'] = isset($data['base']) ? $data['base'] : null;
-        $this->container['quote'] = isset($data['quote']) ? $data['quote'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
     }
 
     /**
@@ -245,193 +209,49 @@ class MarginAccount implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency_pair
+     * Gets currency
      *
      * @return string|null
      */
-    public function getCurrencyPair()
+    public function getCurrency()
     {
-        return $this->container['currency_pair'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets currency
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency Currency detail
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setCurrency($currency)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets account_type
+     * Gets amount
      *
      * @return string|null
      */
-    public function getAccountType()
+    public function getAmount()
     {
-        return $this->container['account_type'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets account_type
+     * Sets amount
      *
-     * @param string|null $account_type Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated
+     * @param string|null $amount The maximum amount that can be transferred out
      *
      * @return $this
      */
-    public function setAccountType($account_type)
+    public function setAmount($amount)
     {
-        $this->container['account_type'] = $account_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets leverage
-     *
-     * @return string|null
-     */
-    public function getLeverage()
-    {
-        return $this->container['leverage'];
-    }
-
-    /**
-     * Sets leverage
-     *
-     * @param string|null $leverage User current market leverage multiple
-     *
-     * @return $this
-     */
-    public function setLeverage($leverage)
-    {
-        $this->container['leverage'] = $leverage;
-
-        return $this;
-    }
-
-    /**
-     * Gets locked
-     *
-     * @return bool|null
-     */
-    public function getLocked()
-    {
-        return $this->container['locked'];
-    }
-
-    /**
-     * Sets locked
-     *
-     * @param bool|null $locked Whether account is locked
-     *
-     * @return $this
-     */
-    public function setLocked($locked)
-    {
-        $this->container['locked'] = $locked;
-
-        return $this;
-    }
-
-    /**
-     * Gets risk
-     *
-     * @return string|null
-     */
-    public function getRisk()
-    {
-        return $this->container['risk'];
-    }
-
-    /**
-     * Sets risk
-     *
-     * @param string|null $risk Leveraged Account Current Risk Rate (Returned when the Account is a Risk Rate Account)
-     *
-     * @return $this
-     */
-    public function setRisk($risk)
-    {
-        $this->container['risk'] = $risk;
-
-        return $this;
-    }
-
-    /**
-     * Gets mmr
-     *
-     * @return string|null
-     */
-    public function getMmr()
-    {
-        return $this->container['mmr'];
-    }
-
-    /**
-     * Sets mmr
-     *
-     * @param string|null $mmr Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account)
-     *
-     * @return $this
-     */
-    public function setMmr($mmr)
-    {
-        $this->container['mmr'] = $mmr;
-
-        return $this;
-    }
-
-    /**
-     * Gets base
-     *
-     * @return \GateApi\Model\MarginAccountCurrency|null
-     */
-    public function getBase()
-    {
-        return $this->container['base'];
-    }
-
-    /**
-     * Sets base
-     *
-     * @param \GateApi\Model\MarginAccountCurrency|null $base base
-     *
-     * @return $this
-     */
-    public function setBase($base)
-    {
-        $this->container['base'] = $base;
-
-        return $this;
-    }
-
-    /**
-     * Gets quote
-     *
-     * @return \GateApi\Model\MarginAccountCurrency|null
-     */
-    public function getQuote()
-    {
-        return $this->container['quote'];
-    }
-
-    /**
-     * Sets quote
-     *
-     * @param \GateApi\Model\MarginAccountCurrency|null $quote quote
-     *
-     * @return $this
-     */
-    public function setQuote($quote)
-    {
-        $this->container['quote'] = $quote;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
