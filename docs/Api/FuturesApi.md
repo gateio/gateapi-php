@@ -1781,7 +1781,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $futures_order = new \GateApi\Model\FuturesOrder(); // \GateApi\Model\FuturesOrder | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->createFuturesOrder($settle, $futures_order, $x_gate_exptime);
@@ -1801,7 +1801,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **futures_order** | [**\GateApi\Model\FuturesOrder**](../Model/FuturesOrder.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1847,8 +1847,8 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $contract = 'BTC_USDT'; // string | Futures contract
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
-$side = 'ask'; // string | All bids or asks. Both included if not specified
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$side = 'ask'; // string | Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask
 
 try {
     $result = $apiInstance->cancelFuturesOrders($settle, $contract, $x_gate_exptime, $side);
@@ -1868,8 +1868,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **contract** | **string**| Futures contract |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
- **side** | **string**| All bids or asks. Both included if not specified | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **side** | **string**| Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask | [optional]
 
 ### Return type
 
@@ -1987,7 +1987,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $futures_order = array(new \GateApi\Model\FuturesOrder()); // \GateApi\Model\FuturesOrder[] | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->createBatchFuturesOrder($settle, $futures_order, $x_gate_exptime);
@@ -2007,7 +2007,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **futures_order** | [**\GateApi\Model\FuturesOrder[]**](../Model/FuturesOrder.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -2116,7 +2116,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $settle = 'usdt'; // string | Settle currency
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
 $futures_order_amendment = new \GateApi\Model\FuturesOrderAmendment(); // \GateApi\Model\FuturesOrderAmendment | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->amendFuturesOrder($settle, $order_id, $futures_order_amendment, $x_gate_exptime);
@@ -2137,7 +2137,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency |
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. |
  **futures_order_amendment** | [**\GateApi\Model\FuturesOrderAmendment**](../Model/FuturesOrderAmendment.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -2181,7 +2181,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $order_id = '12345'; // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->cancelFuturesOrder($settle, $order_id, $x_gate_exptime);
@@ -2201,7 +2201,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **order_id** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -2735,7 +2735,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $request_body = array('request_body_example'); // string[] | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->cancelBatchFutureOrders($settle, $request_body, $x_gate_exptime);
@@ -2755,7 +2755,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **request_body** | [**string[]**](../Model/string.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -2801,7 +2801,7 @@ $apiInstance = new GateApi\Api\FuturesApi(
 );
 $settle = 'usdt'; // string | Settle currency
 $batch_amend_order_req = array(new \GateApi\Model\BatchAmendOrderReq()); // \GateApi\Model\BatchAmendOrderReq[] | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->amendBatchFutureOrders($settle, $batch_amend_order_req, $x_gate_exptime);
@@ -2821,7 +2821,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
  **batch_amend_order_req** | [**\GateApi\Model\BatchAmendOrderReq[]**](../Model/BatchAmendOrderReq.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 

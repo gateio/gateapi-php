@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ## createUnifiedLoan
 
-> createUnifiedLoan($unified_loan)
+> \GateApi\Model\UnifiedLoanResult createUnifiedLoan($unified_loan)
 
 Borrow or repay
 
@@ -367,7 +367,8 @@ $apiInstance = new GateApi\Api\UnifiedApi(
 $unified_loan = new \GateApi\Model\UnifiedLoan(); // \GateApi\Model\UnifiedLoan | 
 
 try {
-    $apiInstance->createUnifiedLoan($unified_loan);
+    $result = $apiInstance->createUnifiedLoan($unified_loan);
+    print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
@@ -385,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\GateApi\Model\UnifiedLoanResult**](../Model/UnifiedLoanResult.md)
 
 ### Authorization
 
@@ -394,7 +395,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

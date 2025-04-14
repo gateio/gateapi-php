@@ -3416,7 +3416,7 @@ class SpotApi
      * Create a batch of orders
      *
      * @param  \GateApi\Model\Order[] $order order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3434,7 +3434,7 @@ class SpotApi
      * Create a batch of orders
      *
      * @param  \GateApi\Model\Order[] $order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3489,7 +3489,7 @@ class SpotApi
      * Create a batch of orders
      *
      * @param  \GateApi\Model\Order[] $order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3510,7 +3510,7 @@ class SpotApi
      * Create a batch of orders
      *
      * @param  \GateApi\Model\Order[] $order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3558,7 +3558,7 @@ class SpotApi
      * Create request for operation 'createBatchOrders'
      *
      * @param  \GateApi\Model\Order[] $order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4590,7 +4590,7 @@ class SpotApi
      * Create an order
      *
      * @param  \GateApi\Model\Order $order order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4608,7 +4608,7 @@ class SpotApi
      * Create an order
      *
      * @param  \GateApi\Model\Order $order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4663,7 +4663,7 @@ class SpotApi
      * Create an order
      *
      * @param  \GateApi\Model\Order $order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4684,7 +4684,7 @@ class SpotApi
      * Create an order
      *
      * @param  \GateApi\Model\Order $order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4732,7 +4732,7 @@ class SpotApi
      * Create request for operation 'createOrder'
      *
      * @param  \GateApi\Model\Order $order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4837,7 +4837,7 @@ class SpotApi
      * @param  string $side All bids or asks. Both included if not specified (optional)
      * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4858,7 +4858,7 @@ class SpotApi
      * @param  string $side All bids or asks. Both included if not specified (optional)
      * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4916,7 +4916,7 @@ class SpotApi
      * @param  string $side All bids or asks. Both included if not specified (optional)
      * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4940,7 +4940,7 @@ class SpotApi
      * @param  string $side All bids or asks. Both included if not specified (optional)
      * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4991,7 +4991,7 @@ class SpotApi
      * @param  string $side All bids or asks. Both included if not specified (optional)
      * @param  string $account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5132,7 +5132,7 @@ class SpotApi
      * Cancel a batch of orders with an ID list
      *
      * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order cancel_batch_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5150,7 +5150,7 @@ class SpotApi
      * Cancel a batch of orders with an ID list
      *
      * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5205,7 +5205,7 @@ class SpotApi
      * Cancel a batch of orders with an ID list
      *
      * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5226,7 +5226,7 @@ class SpotApi
      * Cancel a batch of orders with an ID list
      *
      * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5274,7 +5274,7 @@ class SpotApi
      * Create request for operation 'cancelBatchOrders'
      *
      * @param  \GateApi\Model\CancelBatchOrder[] $cancel_batch_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5659,7 +5659,7 @@ class SpotApi
      * @param  string $currency_pair Currency pair (required)
      * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5680,7 +5680,7 @@ class SpotApi
      * @param  string $currency_pair Currency pair (required)
      * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5738,7 +5738,7 @@ class SpotApi
      * @param  string $currency_pair Currency pair (required)
      * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5762,7 +5762,7 @@ class SpotApi
      * @param  string $currency_pair Currency pair (required)
      * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5813,7 +5813,7 @@ class SpotApi
      * @param  string $currency_pair Currency pair (required)
      * @param  string $account Specify query account. (optional)
      * @param  string $action_mode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5966,7 +5966,7 @@ class SpotApi
      * @param  \GateApi\Model\OrderPatch $order_patch order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $account Specify query account. (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5987,7 +5987,7 @@ class SpotApi
      * @param  \GateApi\Model\OrderPatch $order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $account Specify query account. (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6045,7 +6045,7 @@ class SpotApi
      * @param  \GateApi\Model\OrderPatch $order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $account Specify query account. (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6069,7 +6069,7 @@ class SpotApi
      * @param  \GateApi\Model\OrderPatch $order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $account Specify query account. (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6120,7 +6120,7 @@ class SpotApi
      * @param  \GateApi\Model\OrderPatch $order_patch (required)
      * @param  string $currency_pair Currency pair (optional)
      * @param  string $account Specify query account. (optional)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7081,7 +7081,7 @@ class SpotApi
      * Batch modification of orders
      *
      * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item batch_amend_item (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7099,7 +7099,7 @@ class SpotApi
      * Batch modification of orders
      *
      * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7154,7 +7154,7 @@ class SpotApi
      * Batch modification of orders
      *
      * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7175,7 +7175,7 @@ class SpotApi
      * Batch modification of orders
      *
      * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7223,7 +7223,7 @@ class SpotApi
      * Create request for operation 'amendBatchOrders'
      *
      * @param  \GateApi\Model\BatchAmendItem[] $batch_amend_item (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

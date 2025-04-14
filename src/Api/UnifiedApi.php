@@ -1434,11 +1434,12 @@ class UnifiedApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \GateApi\Model\UnifiedLoanResult
      */
     public function createUnifiedLoan($unified_loan)
     {
-        $this->createUnifiedLoanWithHttpInfo($unified_loan);
+        list($response) = $this->createUnifiedLoanWithHttpInfo($unified_loan);
+        return $response;
     }
 
     /**
@@ -1450,7 +1451,7 @@ class UnifiedApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\UnifiedLoanResult, HTTP status code, HTTP response headers (array of strings)
      */
     public function createUnifiedLoanWithHttpInfo($unified_loan)
     {
@@ -1480,7 +1481,19 @@ class UnifiedApi
             );
         }
 
-        return [null, $statusCode, $response->getHeaders()];
+        $returnType = '\GateApi\Model\UnifiedLoanResult';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /**
@@ -1515,14 +1528,25 @@ class UnifiedApi
      */
     public function createUnifiedLoanAsyncWithHttpInfo($unified_loan)
     {
-        $returnType = '';
+        $returnType = '\GateApi\Model\UnifiedLoanResult';
         $request = $this->createUnifiedLoanRequest($unified_loan);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1573,11 +1597,11 @@ class UnifiedApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }

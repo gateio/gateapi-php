@@ -8054,7 +8054,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder $futures_order futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8073,7 +8073,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder $futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8129,7 +8129,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder $futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8151,7 +8151,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder $futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8200,7 +8200,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder $futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8318,8 +8318,8 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8338,8 +8338,8 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8395,8 +8395,8 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8418,8 +8418,8 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8468,8 +8468,8 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $contract Futures contract (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8962,7 +8962,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder[] $futures_order futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8981,7 +8981,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder[] $futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9037,7 +9037,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder[] $futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9059,7 +9059,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder[] $futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9108,7 +9108,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\FuturesOrder[] $futures_order (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9487,7 +9487,7 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
      * @param  \GateApi\Model\FuturesOrderAmendment $futures_order_amendment futures_order_amendment (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9507,7 +9507,7 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
      * @param  \GateApi\Model\FuturesOrderAmendment $futures_order_amendment (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9564,7 +9564,7 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
      * @param  \GateApi\Model\FuturesOrderAmendment $futures_order_amendment (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9587,7 +9587,7 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
      * @param  \GateApi\Model\FuturesOrderAmendment $futures_order_amendment (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9637,7 +9637,7 @@ class FuturesApi
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
      * @param  \GateApi\Model\FuturesOrderAmendment $futures_order_amendment (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9770,7 +9770,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9789,7 +9789,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9845,7 +9845,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9867,7 +9867,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9916,7 +9916,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string $order_id Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12309,7 +12309,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string[] $request_body request_body (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12328,7 +12328,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string[] $request_body (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12384,7 +12384,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string[] $request_body (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12406,7 +12406,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string[] $request_body (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12455,7 +12455,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  string[] $request_body (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12573,7 +12573,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\BatchAmendOrderReq[] $batch_amend_order_req batch_amend_order_req (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12592,7 +12592,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\BatchAmendOrderReq[] $batch_amend_order_req (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12648,7 +12648,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\BatchAmendOrderReq[] $batch_amend_order_req (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12670,7 +12670,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\BatchAmendOrderReq[] $batch_amend_order_req (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12719,7 +12719,7 @@ class FuturesApi
      *
      * @param  string $settle Settle currency (required)
      * @param  \GateApi\Model\BatchAmendOrderReq[] $batch_amend_order_req (required)
-     * @param  int $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param  string $x_gate_exptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -811,7 +811,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $order = array(new \GateApi\Model\Order()); // \GateApi\Model\Order[] | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->createBatchOrders($order, $x_gate_exptime);
@@ -830,7 +830,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**\GateApi\Model\Order[]**](../Model/Order.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1083,7 +1083,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $order = new \GateApi\Model\Order(); // \GateApi\Model\Order | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->createOrder($order, $x_gate_exptime);
@@ -1102,7 +1102,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**\GateApi\Model\Order**](../Model/Order.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1150,7 +1150,7 @@ $currency_pair = 'BTC_USDT'; // string | Currency pair
 $side = 'sell'; // string | All bids or asks. Both included if not specified
 $account = 'spot'; // string | Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify `unified`
 $action_mode = 'ACK'; // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->cancelOrders($currency_pair, $side, $account, $action_mode, $x_gate_exptime);
@@ -1172,7 +1172,7 @@ Name | Type | Description  | Notes
  **side** | **string**| All bids or asks. Both included if not specified | [optional]
  **account** | **string**| Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; | [optional]
  **action_mode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1217,7 +1217,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $cancel_batch_order = array(new \GateApi\Model\CancelBatchOrder()); // \GateApi\Model\CancelBatchOrder[] | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->cancelBatchOrders($cancel_batch_order, $x_gate_exptime);
@@ -1236,7 +1236,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cancel_batch_order** | [**\GateApi\Model\CancelBatchOrder[]**](../Model/CancelBatchOrder.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1350,7 +1350,7 @@ $order_id = '12345'; // string | The order ID returned when the order was succes
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $account = 'spot'; // string | Specify query account.
 $action_mode = 'ACK'; // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->cancelOrder($order_id, $currency_pair, $account, $action_mode, $x_gate_exptime);
@@ -1372,7 +1372,7 @@ Name | Type | Description  | Notes
  **currency_pair** | **string**| Currency pair |
  **account** | **string**| Specify query account. | [optional]
  **action_mode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1420,7 +1420,7 @@ $order_id = '12345'; // string | The order ID returned when the order was succes
 $order_patch = new \GateApi\Model\OrderPatch(); // \GateApi\Model\OrderPatch | 
 $currency_pair = 'BTC_USDT'; // string | Currency pair
 $account = 'spot'; // string | Specify query account.
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->amendOrder($order_id, $order_patch, $currency_pair, $account, $x_gate_exptime);
@@ -1442,7 +1442,7 @@ Name | Type | Description  | Notes
  **order_patch** | [**\GateApi\Model\OrderPatch**](../Model/OrderPatch.md)|  |
  **currency_pair** | **string**| Currency pair | [optional]
  **account** | **string**| Specify query account. | [optional]
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1677,7 +1677,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $batch_amend_item = array(new \GateApi\Model\BatchAmendItem()); // \GateApi\Model\BatchAmendItem[] | 
-$x_gate_exptime = 1689560679123; // int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+$x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
     $result = $apiInstance->amendBatchOrders($batch_amend_item, $x_gate_exptime);
@@ -1696,7 +1696,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_amend_item** | [**\GateApi\Model\BatchAmendItem[]**](../Model/BatchAmendItem.md)|  |
- **x_gate_exptime** | **int**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 

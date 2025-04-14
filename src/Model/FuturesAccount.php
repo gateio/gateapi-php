@@ -72,6 +72,9 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'cross_maintenance_margin' => 'string',
         'cross_unrealised_pnl' => 'string',
         'cross_available' => 'string',
+        'cross_margin_balance' => 'string',
+        'cross_mmr' => 'string',
+        'cross_imr' => 'string',
         'isolated_position_margin' => 'string',
         'enable_new_dual_mode' => 'bool',
         'margin_mode' => 'int',
@@ -102,6 +105,9 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'cross_maintenance_margin' => null,
         'cross_unrealised_pnl' => null,
         'cross_available' => null,
+        'cross_margin_balance' => null,
+        'cross_mmr' => null,
+        'cross_imr' => null,
         'isolated_position_margin' => null,
         'enable_new_dual_mode' => null,
         'margin_mode' => null,
@@ -153,6 +159,9 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'cross_maintenance_margin' => 'cross_maintenance_margin',
         'cross_unrealised_pnl' => 'cross_unrealised_pnl',
         'cross_available' => 'cross_available',
+        'cross_margin_balance' => 'cross_margin_balance',
+        'cross_mmr' => 'cross_mmr',
+        'cross_imr' => 'cross_imr',
         'isolated_position_margin' => 'isolated_position_margin',
         'enable_new_dual_mode' => 'enable_new_dual_mode',
         'margin_mode' => 'margin_mode',
@@ -183,6 +192,9 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'cross_maintenance_margin' => 'setCrossMaintenanceMargin',
         'cross_unrealised_pnl' => 'setCrossUnrealisedPnl',
         'cross_available' => 'setCrossAvailable',
+        'cross_margin_balance' => 'setCrossMarginBalance',
+        'cross_mmr' => 'setCrossMmr',
+        'cross_imr' => 'setCrossImr',
         'isolated_position_margin' => 'setIsolatedPositionMargin',
         'enable_new_dual_mode' => 'setEnableNewDualMode',
         'margin_mode' => 'setMarginMode',
@@ -213,6 +225,9 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'cross_maintenance_margin' => 'getCrossMaintenanceMargin',
         'cross_unrealised_pnl' => 'getCrossUnrealisedPnl',
         'cross_available' => 'getCrossAvailable',
+        'cross_margin_balance' => 'getCrossMarginBalance',
+        'cross_mmr' => 'getCrossMmr',
+        'cross_imr' => 'getCrossImr',
         'isolated_position_margin' => 'getIsolatedPositionMargin',
         'enable_new_dual_mode' => 'getEnableNewDualMode',
         'margin_mode' => 'getMarginMode',
@@ -297,6 +312,9 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         $this->container['cross_maintenance_margin'] = isset($data['cross_maintenance_margin']) ? $data['cross_maintenance_margin'] : null;
         $this->container['cross_unrealised_pnl'] = isset($data['cross_unrealised_pnl']) ? $data['cross_unrealised_pnl'] : null;
         $this->container['cross_available'] = isset($data['cross_available']) ? $data['cross_available'] : null;
+        $this->container['cross_margin_balance'] = isset($data['cross_margin_balance']) ? $data['cross_margin_balance'] : null;
+        $this->container['cross_mmr'] = isset($data['cross_mmr']) ? $data['cross_mmr'] : null;
+        $this->container['cross_imr'] = isset($data['cross_imr']) ? $data['cross_imr'] : null;
         $this->container['isolated_position_margin'] = isset($data['isolated_position_margin']) ? $data['isolated_position_margin'] : null;
         $this->container['enable_new_dual_mode'] = isset($data['enable_new_dual_mode']) ? $data['enable_new_dual_mode'] : null;
         $this->container['margin_mode'] = isset($data['margin_mode']) ? $data['margin_mode'] : null;
@@ -755,6 +773,78 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     public function setCrossAvailable($cross_available)
     {
         $this->container['cross_available'] = $cross_available;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_margin_balance
+     *
+     * @return string|null
+     */
+    public function getCrossMarginBalance()
+    {
+        return $this->container['cross_margin_balance'];
+    }
+
+    /**
+     * Sets cross_margin_balance
+     *
+     * @param string|null $cross_margin_balance Full margin balance, suitable for the new classic account margin model
+     *
+     * @return $this
+     */
+    public function setCrossMarginBalance($cross_margin_balance)
+    {
+        $this->container['cross_margin_balance'] = $cross_margin_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_mmr
+     *
+     * @return string|null
+     */
+    public function getCrossMmr()
+    {
+        return $this->container['cross_mmr'];
+    }
+
+    /**
+     * Sets cross_mmr
+     *
+     * @param string|null $cross_mmr Maintain margin ratio for the full position, suitable for the new classic account margin model
+     *
+     * @return $this
+     */
+    public function setCrossMmr($cross_mmr)
+    {
+        $this->container['cross_mmr'] = $cross_mmr;
+
+        return $this;
+    }
+
+    /**
+     * Gets cross_imr
+     *
+     * @return string|null
+     */
+    public function getCrossImr()
+    {
+        return $this->container['cross_imr'];
+    }
+
+    /**
+     * Sets cross_imr
+     *
+     * @param string|null $cross_imr The initial margin rate of the full position is suitable for the new classic account margin model
+     *
+     * @return $this
+     */
+    public function setCrossImr($cross_imr)
+    {
+        $this->container['cross_imr'] = $cross_imr;
 
         return $this;
     }
