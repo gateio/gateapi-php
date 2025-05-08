@@ -1,6 +1,6 @@
 <?php
 /**
- * SpotAccount
+ * DepositRecord
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * SpotAccount Class Doc Comment
+ * DepositRecord Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class SpotAccount implements ModelInterface, ArrayAccess
+class DepositRecord implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SpotAccount';
+    protected static $openAPIModelName = 'DepositRecord';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +54,16 @@ class SpotAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'txid' => 'string',
+        'withdraw_order_id' => 'string',
+        'timestamp' => 'string',
+        'amount' => 'string',
         'currency' => 'string',
-        'available' => 'string',
-        'locked' => 'string',
-        'update_id' => 'int',
-        'refresh_time' => 'int'
+        'address' => 'string',
+        'memo' => 'string',
+        'status' => 'string',
+        'chain' => 'string'
     ];
 
     /**
@@ -67,11 +72,16 @@ class SpotAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'txid' => null,
+        'withdraw_order_id' => null,
+        'timestamp' => null,
+        'amount' => null,
         'currency' => null,
-        'available' => null,
-        'locked' => null,
-        'update_id' => 'int64',
-        'refresh_time' => 'int64'
+        'address' => null,
+        'memo' => null,
+        'status' => null,
+        'chain' => null
     ];
 
     /**
@@ -101,11 +111,16 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'txid' => 'txid',
+        'withdraw_order_id' => 'withdraw_order_id',
+        'timestamp' => 'timestamp',
+        'amount' => 'amount',
         'currency' => 'currency',
-        'available' => 'available',
-        'locked' => 'locked',
-        'update_id' => 'update_id',
-        'refresh_time' => 'refresh_time'
+        'address' => 'address',
+        'memo' => 'memo',
+        'status' => 'status',
+        'chain' => 'chain'
     ];
 
     /**
@@ -114,11 +129,16 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'txid' => 'setTxid',
+        'withdraw_order_id' => 'setWithdrawOrderId',
+        'timestamp' => 'setTimestamp',
+        'amount' => 'setAmount',
         'currency' => 'setCurrency',
-        'available' => 'setAvailable',
-        'locked' => 'setLocked',
-        'update_id' => 'setUpdateId',
-        'refresh_time' => 'setRefreshTime'
+        'address' => 'setAddress',
+        'memo' => 'setMemo',
+        'status' => 'setStatus',
+        'chain' => 'setChain'
     ];
 
     /**
@@ -127,11 +147,16 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'txid' => 'getTxid',
+        'withdraw_order_id' => 'getWithdrawOrderId',
+        'timestamp' => 'getTimestamp',
+        'amount' => 'getAmount',
         'currency' => 'getCurrency',
-        'available' => 'getAvailable',
-        'locked' => 'getLocked',
-        'update_id' => 'getUpdateId',
-        'refresh_time' => 'getRefreshTime'
+        'address' => 'getAddress',
+        'memo' => 'getMemo',
+        'status' => 'getStatus',
+        'chain' => 'getChain'
     ];
 
     /**
@@ -194,11 +219,16 @@ class SpotAccount implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['txid'] = isset($data['txid']) ? $data['txid'] : null;
+        $this->container['withdraw_order_id'] = isset($data['withdraw_order_id']) ? $data['withdraw_order_id'] : null;
+        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
-        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
-        $this->container['update_id'] = isset($data['update_id']) ? $data['update_id'] : null;
-        $this->container['refresh_time'] = isset($data['refresh_time']) ? $data['refresh_time'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
     }
 
     /**
@@ -210,6 +240,15 @@ class SpotAccount implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
+        if ($this->container['chain'] === null) {
+            $invalidProperties[] = "'chain' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -226,9 +265,129 @@ class SpotAccount implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
+     * Gets id
      *
      * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Record ID
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets txid
+     *
+     * @return string|null
+     */
+    public function getTxid()
+    {
+        return $this->container['txid'];
+    }
+
+    /**
+     * Sets txid
+     *
+     * @param string|null $txid Hash record of the withdrawal
+     *
+     * @return $this
+     */
+    public function setTxid($txid)
+    {
+        $this->container['txid'] = $txid;
+
+        return $this;
+    }
+
+    /**
+     * Gets withdraw_order_id
+     *
+     * @return string|null
+     */
+    public function getWithdrawOrderId()
+    {
+        return $this->container['withdraw_order_id'];
+    }
+
+    /**
+     * Sets withdraw_order_id
+     *
+     * @param string|null $withdraw_order_id Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)
+     *
+     * @return $this
+     */
+    public function setWithdrawOrderId($withdraw_order_id)
+    {
+        $this->container['withdraw_order_id'] = $withdraw_order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return string|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param string|null $timestamp Operation time
+     *
+     * @return $this
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount
+     *
+     * @return string
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param string $amount Currency amount
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
      */
     public function getCurrency()
     {
@@ -238,7 +397,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency detail
+     * @param string $currency Currency name
      *
      * @return $this
      */
@@ -250,97 +409,97 @@ class SpotAccount implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets available
+     * Gets address
      *
      * @return string|null
      */
-    public function getAvailable()
+    public function getAddress()
     {
-        return $this->container['available'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets available
+     * Sets address
      *
-     * @param string|null $available Available amount
+     * @param string|null $address Withdrawal address. Required for withdrawals
      *
      * @return $this
      */
-    public function setAvailable($available)
+    public function setAddress($address)
     {
-        $this->container['available'] = $available;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets locked
+     * Gets memo
      *
      * @return string|null
      */
-    public function getLocked()
+    public function getMemo()
     {
-        return $this->container['locked'];
+        return $this->container['memo'];
     }
 
     /**
-     * Sets locked
+     * Sets memo
      *
-     * @param string|null $locked Locked amount, used in trading
+     * @param string|null $memo Additional remarks with regards to the withdrawal
      *
      * @return $this
      */
-    public function setLocked($locked)
+    public function setMemo($memo)
     {
-        $this->container['locked'] = $locked;
+        $this->container['memo'] = $memo;
 
         return $this;
     }
 
     /**
-     * Gets update_id
+     * Gets status
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getUpdateId()
+    public function getStatus()
     {
-        return $this->container['update_id'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets update_id
+     * Sets status
      *
-     * @param int|null $update_id Version number
+     * @param string|null $status Trading Status  - REVIEW: Recharge review (compliance review) - PEND: Processing - DONE: Waiting for funds to be unlocked - INVALID: Invalid data - TRACK: Track the number of confirmations, waiting to add funds to the user (spot) - BLOCKED: Rejected Recharge - DEP_CREDITED: Recharge to account, withdrawal is not unlocked
      *
      * @return $this
      */
-    public function setUpdateId($update_id)
+    public function setStatus($status)
     {
-        $this->container['update_id'] = $update_id;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets refresh_time
+     * Gets chain
      *
-     * @return int|null
+     * @return string
      */
-    public function getRefreshTime()
+    public function getChain()
     {
-        return $this->container['refresh_time'];
+        return $this->container['chain'];
     }
 
     /**
-     * Sets refresh_time
+     * Sets chain
      *
-     * @param int|null $refresh_time Asset Refresh Time (ms)
+     * @param string $chain Name of the chain used in withdrawals
      *
      * @return $this
      */
-    public function setRefreshTime($refresh_time)
+    public function setChain($chain)
     {
-        $this->container['refresh_time'] = $refresh_time;
+        $this->container['chain'] = $chain;
 
         return $this;
     }

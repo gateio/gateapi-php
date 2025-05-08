@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## listWithdrawals
 
-> \GateApi\Model\WithdrawalRecord[] listWithdrawals($currency, $from, $to, $limit, $offset)
+> \GateApi\Model\WithdrawalRecord[] listWithdrawals($currency, $withdraw_id, $asset_class, $withdraw_order_id, $from, $to, $limit, $offset)
 
 Retrieve withdrawal records
 
@@ -168,6 +168,9 @@ $apiInstance = new GateApi\Api\WalletApi(
     $config
 );
 $associate_array['currency'] = 'BTC'; // string | Filter by currency. Return all currency records if not specified
+$associate_array['withdraw_id'] = 'withdraw_id_example'; // string | The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time
+$associate_array['asset_class'] = 'asset_class_example'; // string | The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone
+$associate_array['withdraw_order_id'] = 'withdraw_order_id_example'; // string | User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried
 $associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time
 $associate_array['to'] = 1602123600; // int | Time range ending, default to current time
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
@@ -192,6 +195,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional]
+ **withdraw_id** | **string**| The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time | [optional]
+ **asset_class** | **string**| The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone | [optional]
+ **withdraw_order_id** | **string**| User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried | [optional]
  **from** | **int**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **int**| Time range ending, default to current time | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -217,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## listDeposits
 
-> \GateApi\Model\LedgerRecord[] listDeposits($currency, $from, $to, $limit, $offset)
+> \GateApi\Model\DepositRecord[] listDeposits($currency, $from, $to, $limit, $offset)
 
 Retrieve deposit records
 
@@ -271,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\LedgerRecord[]**](../Model/LedgerRecord.md)
+[**\GateApi\Model\DepositRecord[]**](../Model/DepositRecord.md)
 
 ### Authorization
 

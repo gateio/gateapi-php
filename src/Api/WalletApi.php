@@ -604,6 +604,9 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
+     * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
+     * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
@@ -627,6 +630,9 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
+     * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
+     * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
@@ -687,6 +693,9 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
+     * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
+     * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
@@ -713,6 +722,9 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
+     * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
+     * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
@@ -766,6 +778,9 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
+     * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
+     * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
      * @param  int $from Time range beginning, default to 7 days before current time (optional)
      * @param  int $to Time range ending, default to current time (optional)
      * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
@@ -778,6 +793,9 @@ class WalletApi
     {
         // unbox the parameters from the associative array
         $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $withdraw_id = array_key_exists('withdraw_id', $associative_array) ? $associative_array['withdraw_id'] : null;
+        $asset_class = array_key_exists('asset_class', $associative_array) ? $associative_array['asset_class'] : null;
+        $withdraw_order_id = array_key_exists('withdraw_order_id', $associative_array) ? $associative_array['withdraw_order_id'] : null;
         $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
         $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
@@ -811,6 +829,42 @@ class WalletApi
             }
             else {
                 $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($withdraw_id !== null) {
+            if('form' === 'form' && is_array($withdraw_id)) {
+                foreach($withdraw_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['withdraw_id'] = $withdraw_id;
+            }
+        }
+
+        // query params
+        if ($asset_class !== null) {
+            if('form' === 'form' && is_array($asset_class)) {
+                foreach($asset_class as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['asset_class'] = $asset_class;
+            }
+        }
+
+        // query params
+        if ($withdraw_order_id !== null) {
+            if('form' === 'form' && is_array($withdraw_order_id)) {
+                foreach($withdraw_order_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['withdraw_order_id'] = $withdraw_order_id;
             }
         }
 
@@ -944,7 +998,7 @@ class WalletApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\LedgerRecord[]
+     * @return \GateApi\Model\DepositRecord[]
      */
     public function listDeposits($associative_array)
     {
@@ -967,7 +1021,7 @@ class WalletApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\LedgerRecord[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\DepositRecord[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listDepositsWithHttpInfo($associative_array)
     {
@@ -997,7 +1051,7 @@ class WalletApi
             );
         }
 
-        $returnType = '\GateApi\Model\LedgerRecord[]';
+        $returnType = '\GateApi\Model\DepositRecord[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -1056,7 +1110,7 @@ class WalletApi
      */
     public function listDepositsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\LedgerRecord[]';
+        $returnType = '\GateApi\Model\DepositRecord[]';
         $request = $this->listDepositsRequest($associative_array);
 
         return $this->client

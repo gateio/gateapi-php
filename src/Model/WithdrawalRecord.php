@@ -62,7 +62,8 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
         'amount' => 'string',
         'fee' => 'string',
         'currency' => 'string',
-        'address' => 'string',
+        'fail_reason' => 'string',
+        'timestamp2' => 'string',
         'memo' => 'string',
         'status' => 'string',
         'chain' => 'string'
@@ -82,7 +83,8 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
         'amount' => null,
         'fee' => null,
         'currency' => null,
-        'address' => null,
+        'fail_reason' => null,
+        'timestamp2' => null,
         'memo' => null,
         'status' => null,
         'chain' => null
@@ -123,7 +125,8 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
         'amount' => 'amount',
         'fee' => 'fee',
         'currency' => 'currency',
-        'address' => 'address',
+        'fail_reason' => 'fail_reason',
+        'timestamp2' => 'timestamp2',
         'memo' => 'memo',
         'status' => 'status',
         'chain' => 'chain'
@@ -143,7 +146,8 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
         'amount' => 'setAmount',
         'fee' => 'setFee',
         'currency' => 'setCurrency',
-        'address' => 'setAddress',
+        'fail_reason' => 'setFailReason',
+        'timestamp2' => 'setTimestamp2',
         'memo' => 'setMemo',
         'status' => 'setStatus',
         'chain' => 'setChain'
@@ -163,7 +167,8 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
         'amount' => 'getAmount',
         'fee' => 'getFee',
         'currency' => 'getCurrency',
-        'address' => 'getAddress',
+        'fail_reason' => 'getFailReason',
+        'timestamp2' => 'getTimestamp2',
         'memo' => 'getMemo',
         'status' => 'getStatus',
         'chain' => 'getChain'
@@ -237,7 +242,8 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['fail_reason'] = isset($data['fail_reason']) ? $data['fail_reason'] : null;
+        $this->container['timestamp2'] = isset($data['timestamp2']) ? $data['timestamp2'] : null;
         $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
@@ -469,25 +475,49 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets address
+     * Gets fail_reason
      *
      * @return string|null
      */
-    public function getAddress()
+    public function getFailReason()
     {
-        return $this->container['address'];
+        return $this->container['fail_reason'];
     }
 
     /**
-     * Sets address
+     * Sets fail_reason
      *
-     * @param string|null $address Withdrawal address. Required for withdrawals
+     * @param string|null $fail_reason The reason for withdrawal failure is that there is a value when status = CANCEL, and the rest of the state is empty
      *
      * @return $this
      */
-    public function setAddress($address)
+    public function setFailReason($fail_reason)
     {
-        $this->container['address'] = $address;
+        $this->container['fail_reason'] = $fail_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp2
+     *
+     * @return string|null
+     */
+    public function getTimestamp2()
+    {
+        return $this->container['timestamp2'];
+    }
+
+    /**
+     * Sets timestamp2
+     *
+     * @param string|null $timestamp2 The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status = CANCEL, the corresponding cancel time When status = DONE and block_number > 0, it is the time to withdrawal success
+     *
+     * @return $this
+     */
+    public function setTimestamp2($timestamp2)
+    {
+        $this->container['timestamp2'] = $timestamp2;
 
         return $this;
     }
@@ -529,7 +559,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Transaction status  - DONE: Completed (block_number > 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review
+     * @param string|null $status Transaction status  - DONE: Completed (block_number > 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - REVIEW: Under review
      *
      * @return $this
      */

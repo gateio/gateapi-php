@@ -1,6 +1,6 @@
 <?php
 /**
- * SpotAccount
+ * UnifiedBorrowable1
  *
  * PHP version 7
  *
@@ -30,14 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * SpotAccount Class Doc Comment
+ * UnifiedBorrowable1 Class Doc Comment
  *
  * @category Class
+ * @description Batch query unified account can be borrowed up to a maximum of results
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class SpotAccount implements ModelInterface, ArrayAccess
+class UnifiedBorrowable1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SpotAccount';
+    protected static $openAPIModelName = 'UnifiedBorrowable_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,10 +56,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'currency' => 'string',
-        'available' => 'string',
-        'locked' => 'string',
-        'update_id' => 'int',
-        'refresh_time' => 'int'
+        'amount' => 'string'
     ];
 
     /**
@@ -68,10 +66,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'currency' => null,
-        'available' => null,
-        'locked' => null,
-        'update_id' => 'int64',
-        'refresh_time' => 'int64'
+        'amount' => null
     ];
 
     /**
@@ -102,10 +97,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'currency' => 'currency',
-        'available' => 'available',
-        'locked' => 'locked',
-        'update_id' => 'update_id',
-        'refresh_time' => 'refresh_time'
+        'amount' => 'amount'
     ];
 
     /**
@@ -115,10 +107,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'currency' => 'setCurrency',
-        'available' => 'setAvailable',
-        'locked' => 'setLocked',
-        'update_id' => 'setUpdateId',
-        'refresh_time' => 'setRefreshTime'
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -128,10 +117,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'currency' => 'getCurrency',
-        'available' => 'getAvailable',
-        'locked' => 'getLocked',
-        'update_id' => 'getUpdateId',
-        'refresh_time' => 'getRefreshTime'
+        'amount' => 'getAmount'
     ];
 
     /**
@@ -195,10 +181,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
-        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
-        $this->container['update_id'] = isset($data['update_id']) ? $data['update_id'] : null;
-        $this->container['refresh_time'] = isset($data['refresh_time']) ? $data['refresh_time'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
     }
 
     /**
@@ -250,97 +233,25 @@ class SpotAccount implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets available
+     * Gets amount
      *
      * @return string|null
      */
-    public function getAvailable()
+    public function getAmount()
     {
-        return $this->container['available'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets available
+     * Sets amount
      *
-     * @param string|null $available Available amount
+     * @param string|null $amount The maximum amount to borrow
      *
      * @return $this
      */
-    public function setAvailable($available)
+    public function setAmount($amount)
     {
-        $this->container['available'] = $available;
-
-        return $this;
-    }
-
-    /**
-     * Gets locked
-     *
-     * @return string|null
-     */
-    public function getLocked()
-    {
-        return $this->container['locked'];
-    }
-
-    /**
-     * Sets locked
-     *
-     * @param string|null $locked Locked amount, used in trading
-     *
-     * @return $this
-     */
-    public function setLocked($locked)
-    {
-        $this->container['locked'] = $locked;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_id
-     *
-     * @return int|null
-     */
-    public function getUpdateId()
-    {
-        return $this->container['update_id'];
-    }
-
-    /**
-     * Sets update_id
-     *
-     * @param int|null $update_id Version number
-     *
-     * @return $this
-     */
-    public function setUpdateId($update_id)
-    {
-        $this->container['update_id'] = $update_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets refresh_time
-     *
-     * @return int|null
-     */
-    public function getRefreshTime()
-    {
-        return $this->container['refresh_time'];
-    }
-
-    /**
-     * Sets refresh_time
-     *
-     * @param int|null $refresh_time Asset Refresh Time (ms)
-     *
-     * @return $this
-     */
-    public function setRefreshTime($refresh_time)
-    {
-        $this->container['refresh_time'] = $refresh_time;
+        $this->container['amount'] = $amount;
 
         return $this;
     }

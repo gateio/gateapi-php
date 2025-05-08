@@ -1,6 +1,6 @@
 <?php
 /**
- * SpotAccount
+ * InlineObject
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * SpotAccount Class Doc Comment
+ * InlineObject Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class SpotAccount implements ModelInterface, ArrayAccess
+class InlineObject implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SpotAccount';
+    protected static $openAPIModelName = 'inline_object';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +54,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'available' => 'string',
-        'locked' => 'string',
-        'update_id' => 'int',
-        'refresh_time' => 'int'
+        'mode' => 'string',
+        'contract' => 'string'
     ];
 
     /**
@@ -67,11 +64,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'available' => null,
-        'locked' => null,
-        'update_id' => 'int64',
-        'refresh_time' => 'int64'
+        'mode' => null,
+        'contract' => null
     ];
 
     /**
@@ -101,11 +95,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'available' => 'available',
-        'locked' => 'locked',
-        'update_id' => 'update_id',
-        'refresh_time' => 'refresh_time'
+        'mode' => 'mode',
+        'contract' => 'contract'
     ];
 
     /**
@@ -114,11 +105,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'available' => 'setAvailable',
-        'locked' => 'setLocked',
-        'update_id' => 'setUpdateId',
-        'refresh_time' => 'setRefreshTime'
+        'mode' => 'setMode',
+        'contract' => 'setContract'
     ];
 
     /**
@@ -127,11 +115,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'available' => 'getAvailable',
-        'locked' => 'getLocked',
-        'update_id' => 'getUpdateId',
-        'refresh_time' => 'getRefreshTime'
+        'mode' => 'getMode',
+        'contract' => 'getContract'
     ];
 
     /**
@@ -194,11 +179,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
-        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
-        $this->container['update_id'] = isset($data['update_id']) ? $data['update_id'] : null;
-        $this->container['refresh_time'] = isset($data['refresh_time']) ? $data['refresh_time'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
     }
 
     /**
@@ -210,6 +192,12 @@ class SpotAccount implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['mode'] === null) {
+            $invalidProperties[] = "'mode' can't be null";
+        }
+        if ($this->container['contract'] === null) {
+            $invalidProperties[] = "'contract' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -226,121 +214,49 @@ class SpotAccount implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
+     * Gets mode
      *
-     * @return string|null
+     * @return string
      */
-    public function getCurrency()
+    public function getMode()
     {
-        return $this->container['currency'];
+        return $this->container['mode'];
     }
 
     /**
-     * Sets currency
+     * Sets mode
      *
-     * @param string|null $currency Currency detail
+     * @param string $mode Full position-by-position model, ISOLATED-by-position, CROSS-full position
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setMode($mode)
     {
-        $this->container['currency'] = $currency;
+        $this->container['mode'] = $mode;
 
         return $this;
     }
 
     /**
-     * Gets available
+     * Gets contract
      *
-     * @return string|null
+     * @return string
      */
-    public function getAvailable()
+    public function getContract()
     {
-        return $this->container['available'];
+        return $this->container['contract'];
     }
 
     /**
-     * Sets available
+     * Sets contract
      *
-     * @param string|null $available Available amount
+     * @param string $contract Contract Market
      *
      * @return $this
      */
-    public function setAvailable($available)
+    public function setContract($contract)
     {
-        $this->container['available'] = $available;
-
-        return $this;
-    }
-
-    /**
-     * Gets locked
-     *
-     * @return string|null
-     */
-    public function getLocked()
-    {
-        return $this->container['locked'];
-    }
-
-    /**
-     * Sets locked
-     *
-     * @param string|null $locked Locked amount, used in trading
-     *
-     * @return $this
-     */
-    public function setLocked($locked)
-    {
-        $this->container['locked'] = $locked;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_id
-     *
-     * @return int|null
-     */
-    public function getUpdateId()
-    {
-        return $this->container['update_id'];
-    }
-
-    /**
-     * Sets update_id
-     *
-     * @param int|null $update_id Version number
-     *
-     * @return $this
-     */
-    public function setUpdateId($update_id)
-    {
-        $this->container['update_id'] = $update_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets refresh_time
-     *
-     * @return int|null
-     */
-    public function getRefreshTime()
-    {
-        return $this->container['refresh_time'];
-    }
-
-    /**
-     * Sets refresh_time
-     *
-     * @param int|null $refresh_time Asset Refresh Time (ms)
-     *
-     * @return $this
-     */
-    public function setRefreshTime($refresh_time)
-    {
-        $this->container['refresh_time'] = $refresh_time;
+        $this->container['contract'] = $contract;
 
         return $this;
     }

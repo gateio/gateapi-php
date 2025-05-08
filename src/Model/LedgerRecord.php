@@ -62,6 +62,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'address' => 'string',
         'memo' => 'string',
+        'withdraw_id' => 'string',
+        'asset_class' => 'string',
         'status' => 'string',
         'chain' => 'string'
     ];
@@ -80,6 +82,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => null,
         'address' => null,
         'memo' => null,
+        'withdraw_id' => null,
+        'asset_class' => null,
         'status' => null,
         'chain' => null
     ];
@@ -119,6 +123,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => 'currency',
         'address' => 'address',
         'memo' => 'memo',
+        'withdraw_id' => 'withdraw_id',
+        'asset_class' => 'asset_class',
         'status' => 'status',
         'chain' => 'chain'
     ];
@@ -137,6 +143,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'address' => 'setAddress',
         'memo' => 'setMemo',
+        'withdraw_id' => 'setWithdrawId',
+        'asset_class' => 'setAssetClass',
         'status' => 'setStatus',
         'chain' => 'setChain'
     ];
@@ -155,6 +163,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'address' => 'getAddress',
         'memo' => 'getMemo',
+        'withdraw_id' => 'getWithdrawId',
+        'asset_class' => 'getAssetClass',
         'status' => 'getStatus',
         'chain' => 'getChain'
     ];
@@ -227,6 +237,8 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
+        $this->container['withdraw_id'] = isset($data['withdraw_id']) ? $data['withdraw_id'] : null;
+        $this->container['asset_class'] = isset($data['asset_class']) ? $data['asset_class'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
     }
@@ -325,7 +337,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets withdraw_order_id
      *
-     * @param string|null $withdraw_order_id Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)
+     * @param string|null $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried
      *
      * @return $this
      */
@@ -457,6 +469,54 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets withdraw_id
+     *
+     * @return string|null
+     */
+    public function getWithdrawId()
+    {
+        return $this->container['withdraw_id'];
+    }
+
+    /**
+     * Sets withdraw_id
+     *
+     * @param string|null $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time
+     *
+     * @return $this
+     */
+    public function setWithdrawId($withdraw_id)
+    {
+        $this->container['withdraw_id'] = $withdraw_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets asset_class
+     *
+     * @return string|null
+     */
+    public function getAssetClass()
+    {
+        return $this->container['asset_class'];
+    }
+
+    /**
+     * Sets asset_class
+     *
+     * @param string|null $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone
+     *
+     * @return $this
+     */
+    public function setAssetClass($asset_class)
+    {
+        $this->container['asset_class'] = $asset_class;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string|null
@@ -469,7 +529,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval
+     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - REVIEW: Under review
      *
      * @return $this
      */

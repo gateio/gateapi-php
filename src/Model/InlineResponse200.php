@@ -1,6 +1,6 @@
 <?php
 /**
- * SpotAccount
+ * InlineResponse200
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * SpotAccount Class Doc Comment
+ * InlineResponse200 Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   GateIO
  * @link     https://www.gate.io
  */
-class SpotAccount implements ModelInterface, ArrayAccess
+class InlineResponse200 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SpotAccount';
+    protected static $openAPIModelName = 'inline_response_200';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,11 +54,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'available' => 'string',
-        'locked' => 'string',
-        'update_id' => 'int',
-        'refresh_time' => 'int'
+        'time' => 'int',
+        'vaule' => 'string'
     ];
 
     /**
@@ -67,11 +64,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'available' => null,
-        'locked' => null,
-        'update_id' => 'int64',
-        'refresh_time' => 'int64'
+        'time' => 'int64',
+        'vaule' => null
     ];
 
     /**
@@ -101,11 +95,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'available' => 'available',
-        'locked' => 'locked',
-        'update_id' => 'update_id',
-        'refresh_time' => 'refresh_time'
+        'time' => 'time',
+        'vaule' => 'vaule'
     ];
 
     /**
@@ -114,11 +105,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'available' => 'setAvailable',
-        'locked' => 'setLocked',
-        'update_id' => 'setUpdateId',
-        'refresh_time' => 'setRefreshTime'
+        'time' => 'setTime',
+        'vaule' => 'setVaule'
     ];
 
     /**
@@ -127,11 +115,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'available' => 'getAvailable',
-        'locked' => 'getLocked',
-        'update_id' => 'getUpdateId',
-        'refresh_time' => 'getRefreshTime'
+        'time' => 'getTime',
+        'vaule' => 'getVaule'
     ];
 
     /**
@@ -194,11 +179,8 @@ class SpotAccount implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
-        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
-        $this->container['update_id'] = isset($data['update_id']) ? $data['update_id'] : null;
-        $this->container['refresh_time'] = isset($data['refresh_time']) ? $data['refresh_time'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
+        $this->container['vaule'] = isset($data['vaule']) ? $data['vaule'] : null;
     }
 
     /**
@@ -226,121 +208,49 @@ class SpotAccount implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency Currency detail
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets available
-     *
-     * @return string|null
-     */
-    public function getAvailable()
-    {
-        return $this->container['available'];
-    }
-
-    /**
-     * Sets available
-     *
-     * @param string|null $available Available amount
-     *
-     * @return $this
-     */
-    public function setAvailable($available)
-    {
-        $this->container['available'] = $available;
-
-        return $this;
-    }
-
-    /**
-     * Gets locked
-     *
-     * @return string|null
-     */
-    public function getLocked()
-    {
-        return $this->container['locked'];
-    }
-
-    /**
-     * Sets locked
-     *
-     * @param string|null $locked Locked amount, used in trading
-     *
-     * @return $this
-     */
-    public function setLocked($locked)
-    {
-        $this->container['locked'] = $locked;
-
-        return $this;
-    }
-
-    /**
-     * Gets update_id
+     * Gets time
      *
      * @return int|null
      */
-    public function getUpdateId()
+    public function getTime()
     {
-        return $this->container['update_id'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets update_id
+     * Sets time
      *
-     * @param int|null $update_id Version number
+     * @param int|null $time time
      *
      * @return $this
      */
-    public function setUpdateId($update_id)
+    public function setTime($time)
     {
-        $this->container['update_id'] = $update_id;
+        $this->container['time'] = $time;
 
         return $this;
     }
 
     /**
-     * Gets refresh_time
+     * Gets vaule
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getRefreshTime()
+    public function getVaule()
     {
-        return $this->container['refresh_time'];
+        return $this->container['vaule'];
     }
 
     /**
-     * Sets refresh_time
+     * Sets vaule
      *
-     * @param int|null $refresh_time Asset Refresh Time (ms)
+     * @param string|null $vaule vaule
      *
      * @return $this
      */
-    public function setRefreshTime($refresh_time)
+    public function setVaule($vaule)
     {
-        $this->container['refresh_time'] = $refresh_time;
+        $this->container['vaule'] = $vaule;
 
         return $this;
     }

@@ -1111,6 +1111,256 @@ class UnifiedApi
     }
 
     /**
+     * Operation getUnifiedBorrowableList
+     *
+     * Batch query unified account can be borrowed up to a maximum
+     *
+     * @param  string[] $currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\UnifiedBorrowable1[]
+     */
+    public function getUnifiedBorrowableList($currencies)
+    {
+        list($response) = $this->getUnifiedBorrowableListWithHttpInfo($currencies);
+        return $response;
+    }
+
+    /**
+     * Operation getUnifiedBorrowableListWithHttpInfo
+     *
+     * Batch query unified account can be borrowed up to a maximum
+     *
+     * @param  string[] $currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\UnifiedBorrowable1[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUnifiedBorrowableListWithHttpInfo($currencies)
+    {
+        $request = $this->getUnifiedBorrowableListRequest($currencies);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\UnifiedBorrowable1[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getUnifiedBorrowableListAsync
+     *
+     * Batch query unified account can be borrowed up to a maximum
+     *
+     * @param  string[] $currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUnifiedBorrowableListAsync($currencies)
+    {
+        return $this->getUnifiedBorrowableListAsyncWithHttpInfo($currencies)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getUnifiedBorrowableListAsyncWithHttpInfo
+     *
+     * Batch query unified account can be borrowed up to a maximum
+     *
+     * @param  string[] $currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUnifiedBorrowableListAsyncWithHttpInfo($currencies)
+    {
+        $returnType = '\GateApi\Model\UnifiedBorrowable1[]';
+        $request = $this->getUnifiedBorrowableListRequest($currencies);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getUnifiedBorrowableList'
+     *
+     * @param  string[] $currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getUnifiedBorrowableListRequest($currencies)
+    {
+        // verify the required parameter 'currencies' is set
+        if ($currencies === null || (is_array($currencies) && count($currencies) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currencies when calling getUnifiedBorrowableList'
+            );
+        }
+        if (count($currencies) > 10) {
+            throw new \InvalidArgumentException('invalid value for "$currencies" when calling UnifiedApi.getUnifiedBorrowableList, number of items must be less than or equal to 10.');
+        }
+        if (count($currencies) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$currencies" when calling UnifiedApi.getUnifiedBorrowableList, number of items must be greater than or equal to 1.');
+        }
+
+
+        $resourcePath = '/unified/batch_borrowable';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currencies !== null) {
+            if('form' === 'form' && is_array($currencies)) {
+                foreach($currencies as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currencies'] = $currencies;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listUnifiedLoans
      *
      * List loans
