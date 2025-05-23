@@ -1,7 +1,7 @@
 {
     "name": "gateio/gateapi-php",
-    "version": "6.97.2",
-    "description": "Welcome to Gate.io API  APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.",
+    "version": "6.97.4",
+    "description": "Welcome to Gate API  APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.",
     "keywords": [
         "gate",
         "openapitools",
@@ -16,7 +16,7 @@
     "license": "unlicense",
     "authors": [
         {
-            "name": "GateIO",
+            "name": "Gate",
             "homepage": "https://www.gate.io"
         }
     ],

@@ -1,6 +1,6 @@
 <?php
 /**
- * FuturesTicker
+ * DeliveryTicker
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * FuturesTicker Class Doc Comment
+ * DeliveryTicker Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class FuturesTicker implements ModelInterface, ArrayAccess
+class DeliveryTicker implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class FuturesTicker implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FuturesTicker';
+    protected static $openAPIModelName = 'DeliveryTicker';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,6 +71,8 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate_indicative' => 'string',
         'index_price' => 'string',
         'quanto_base_rate' => 'string',
+        'basis_rate' => 'string',
+        'basis_value' => 'string',
         'lowest_ask' => 'string',
         'lowest_size' => 'string',
         'highest_bid' => 'string',
@@ -100,6 +102,8 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate_indicative' => null,
         'index_price' => null,
         'quanto_base_rate' => null,
+        'basis_rate' => null,
+        'basis_value' => null,
         'lowest_ask' => null,
         'lowest_size' => null,
         'highest_bid' => null,
@@ -150,6 +154,8 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate_indicative' => 'funding_rate_indicative',
         'index_price' => 'index_price',
         'quanto_base_rate' => 'quanto_base_rate',
+        'basis_rate' => 'basis_rate',
+        'basis_value' => 'basis_value',
         'lowest_ask' => 'lowest_ask',
         'lowest_size' => 'lowest_size',
         'highest_bid' => 'highest_bid',
@@ -179,6 +185,8 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate_indicative' => 'setFundingRateIndicative',
         'index_price' => 'setIndexPrice',
         'quanto_base_rate' => 'setQuantoBaseRate',
+        'basis_rate' => 'setBasisRate',
+        'basis_value' => 'setBasisValue',
         'lowest_ask' => 'setLowestAsk',
         'lowest_size' => 'setLowestSize',
         'highest_bid' => 'setHighestBid',
@@ -208,6 +216,8 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         'funding_rate_indicative' => 'getFundingRateIndicative',
         'index_price' => 'getIndexPrice',
         'quanto_base_rate' => 'getQuantoBaseRate',
+        'basis_rate' => 'getBasisRate',
+        'basis_value' => 'getBasisValue',
         'lowest_ask' => 'getLowestAsk',
         'lowest_size' => 'getLowestSize',
         'highest_bid' => 'getHighestBid',
@@ -291,6 +301,8 @@ class FuturesTicker implements ModelInterface, ArrayAccess
         $this->container['funding_rate_indicative'] = isset($data['funding_rate_indicative']) ? $data['funding_rate_indicative'] : null;
         $this->container['index_price'] = isset($data['index_price']) ? $data['index_price'] : null;
         $this->container['quanto_base_rate'] = isset($data['quanto_base_rate']) ? $data['quanto_base_rate'] : null;
+        $this->container['basis_rate'] = isset($data['basis_rate']) ? $data['basis_rate'] : null;
+        $this->container['basis_value'] = isset($data['basis_value']) ? $data['basis_value'] : null;
         $this->container['lowest_ask'] = isset($data['lowest_ask']) ? $data['lowest_ask'] : null;
         $this->container['lowest_size'] = isset($data['lowest_size']) ? $data['lowest_size'] : null;
         $this->container['highest_bid'] = isset($data['highest_bid']) ? $data['highest_bid'] : null;
@@ -725,6 +737,54 @@ class FuturesTicker implements ModelInterface, ArrayAccess
     public function setQuantoBaseRate($quanto_base_rate)
     {
         $this->container['quanto_base_rate'] = $quanto_base_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets basis_rate
+     *
+     * @return string|null
+     */
+    public function getBasisRate()
+    {
+        return $this->container['basis_rate'];
+    }
+
+    /**
+     * Sets basis_rate
+     *
+     * @param string|null $basis_rate Basis rate
+     *
+     * @return $this
+     */
+    public function setBasisRate($basis_rate)
+    {
+        $this->container['basis_rate'] = $basis_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets basis_value
+     *
+     * @return string|null
+     */
+    public function getBasisValue()
+    {
+        return $this->container['basis_value'];
+    }
+
+    /**
+     * Sets basis_value
+     *
+     * @param string|null $basis_value Basis value
+     *
+     * @return $this
+     */
+    public function setBasisValue($basis_value)
+    {
+        $this->container['basis_value'] = $basis_value;
 
         return $this;
     }

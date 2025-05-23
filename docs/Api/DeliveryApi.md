@@ -357,7 +357,7 @@ No authorization required
 
 ## listDeliveryTickers
 
-> \GateApi\Model\FuturesTicker[] listDeliveryTickers($settle, $contract)
+> \GateApi\Model\DeliveryTicker[] listDeliveryTickers($settle, $contract)
 
 List futures tickers
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\FuturesTicker[]**](../Model/FuturesTicker.md)
+[**\GateApi\Model\DeliveryTicker[]**](../Model/DeliveryTicker.md)
 
 ### Authorization
 
