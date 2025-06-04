@@ -1257,15 +1257,11 @@ get historical lending rates
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure Gate APIv4 authorization: apiv4
-$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
-
 
 $apiInstance = new GateApi\Api\UnifiedApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $associate_array['currency'] = 'USDT'; // string | Currency
 $associate_array['tier'] = '1'; // string | The VIP level of the floating rate that needs to be queried
@@ -1301,7 +1297,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiv4](../../README.md#apiv4)
+No authorization required
 
 ### HTTP request headers
 

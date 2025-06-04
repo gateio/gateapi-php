@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * InlineResponse2001
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * InlineResponse2001 Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess
+class InlineResponse2001 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200';
+    protected static $openAPIModelName = 'inline_response_200_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,8 +54,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'time' => 'int',
-        'value' => 'string'
+        'currency' => 'string',
+        'est_rate' => 'string'
     ];
 
     /**
@@ -64,8 +64,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'time' => 'int64',
-        'value' => null
+        'currency' => null,
+        'est_rate' => null
     ];
 
     /**
@@ -95,8 +95,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'time' => 'time',
-        'value' => 'value'
+        'currency' => 'currency',
+        'est_rate' => 'est_rate'
     ];
 
     /**
@@ -105,8 +105,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'time' => 'setTime',
-        'value' => 'setValue'
+        'currency' => 'setCurrency',
+        'est_rate' => 'setEstRate'
     ];
 
     /**
@@ -115,8 +115,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'time' => 'getTime',
-        'value' => 'getValue'
+        'currency' => 'getCurrency',
+        'est_rate' => 'getEstRate'
     ];
 
     /**
@@ -179,8 +179,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['est_rate'] = isset($data['est_rate']) ? $data['est_rate'] : null;
     }
 
     /**
@@ -208,49 +208,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets time
+     * Gets currency
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getTime()
+    public function getCurrency()
     {
-        return $this->container['time'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets time
+     * Sets currency
      *
-     * @param int|null $time time
+     * @param string|null $currency currency
      *
      * @return $this
      */
-    public function setTime($time)
+    public function setCurrency($currency)
     {
-        $this->container['time'] = $time;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets est_rate
      *
      * @return string|null
      */
-    public function getValue()
+    public function getEstRate()
     {
-        return $this->container['value'];
+        return $this->container['est_rate'];
     }
 
     /**
-     * Sets value
+     * Sets est_rate
      *
-     * @param string|null $value value
+     * @param string|null $est_rate Unconverted percentage
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setEstRate($est_rate)
     {
-        $this->container['value'] = $value;
+        $this->container['est_rate'] = $est_rate;
 
         return $this;
     }

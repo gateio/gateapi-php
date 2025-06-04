@@ -493,7 +493,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param string|null $address 提现地址
+     * @param string|null $address Withdrawal address
      *
      * @return $this
      */

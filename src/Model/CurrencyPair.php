@@ -70,7 +70,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'trade_status' => 'string',
         'sell_start' => 'int',
         'buy_start' => 'int',
-        'type' => 'string'
+        'delisting_time' => 'int',
+        'type' => 'string',
+        'trade_url' => 'string'
     ];
 
     /**
@@ -94,7 +96,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'trade_status' => null,
         'sell_start' => 'int64',
         'buy_start' => 'int64',
-        'type' => null
+        'delisting_time' => 'int64',
+        'type' => null,
+        'trade_url' => null
     ];
 
     /**
@@ -139,7 +143,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'trade_status' => 'trade_status',
         'sell_start' => 'sell_start',
         'buy_start' => 'buy_start',
-        'type' => 'type'
+        'delisting_time' => 'delisting_time',
+        'type' => 'type',
+        'trade_url' => 'trade_url'
     ];
 
     /**
@@ -163,7 +169,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'trade_status' => 'setTradeStatus',
         'sell_start' => 'setSellStart',
         'buy_start' => 'setBuyStart',
-        'type' => 'setType'
+        'delisting_time' => 'setDelistingTime',
+        'type' => 'setType',
+        'trade_url' => 'setTradeUrl'
     ];
 
     /**
@@ -187,7 +195,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         'trade_status' => 'getTradeStatus',
         'sell_start' => 'getSellStart',
         'buy_start' => 'getBuyStart',
-        'type' => 'getType'
+        'delisting_time' => 'getDelistingTime',
+        'type' => 'getType',
+        'trade_url' => 'getTradeUrl'
     ];
 
     /**
@@ -284,7 +294,9 @@ class CurrencyPair implements ModelInterface, ArrayAccess
         $this->container['trade_status'] = isset($data['trade_status']) ? $data['trade_status'] : null;
         $this->container['sell_start'] = isset($data['sell_start']) ? $data['sell_start'] : null;
         $this->container['buy_start'] = isset($data['buy_start']) ? $data['buy_start'] : null;
+        $this->container['delisting_time'] = isset($data['delisting_time']) ? $data['delisting_time'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['trade_url'] = isset($data['trade_url']) ? $data['trade_url'] : null;
     }
 
     /**
@@ -689,6 +701,30 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets delisting_time
+     *
+     * @return int|null
+     */
+    public function getDelistingTime()
+    {
+        return $this->container['delisting_time'];
+    }
+
+    /**
+     * Sets delisting_time
+     *
+     * @param int|null $delisting_time Expected time to remove the shelves, Unix timestamp in seconds
+     *
+     * @return $this
+     */
+    public function setDelistingTime($delisting_time)
+    {
+        $this->container['delisting_time'] = $delisting_time;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string|null
@@ -708,6 +744,30 @@ class CurrencyPair implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets trade_url
+     *
+     * @return string|null
+     */
+    public function getTradeUrl()
+    {
+        return $this->container['trade_url'];
+    }
+
+    /**
+     * Sets trade_url
+     *
+     * @param string|null $trade_url Transaction link
+     *
+     * @return $this
+     */
+    public function setTradeUrl($trade_url)
+    {
+        $this->container['trade_url'] = $trade_url;
 
         return $this;
     }
