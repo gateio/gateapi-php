@@ -12,7 +12,6 @@ Method | HTTP request | Description
 [**listUniLendRecords**](EarnUniApi.md#listUniLendRecords) | **GET** /earn/uni/lend_records | List records of lending
 [**getUniInterest**](EarnUniApi.md#getUniInterest) | **GET** /earn/uni/interests/{currency} | Get the user&#39;s total interest income of specified currency
 [**listUniInterestRecords**](EarnUniApi.md#listUniInterestRecords) | **GET** /earn/uni/interest_records | List interest records
-[**switchInterestReinvest**](EarnUniApi.md#switchInterestReinvest) | **PUT** /earn/uni/interest_reinvest | Set interest reinvestment toggle
 [**getUniInterestStatus**](EarnUniApi.md#getUniInterestStatus) | **GET** /earn/uni/interest_status/{currency} | query currency interest compounding status
 [**listUniChart**](EarnUniApi.md#listUniChart) | **GET** /earn/uni/chart | UniLoan currency annualized trend chart
 [**listUniRate**](EarnUniApi.md#listUniRate) | **GET** /earn/uni/rate | Currency estimate annualized interest rate
@@ -516,65 +515,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## switchInterestReinvest
-
-> switchInterestReinvest($uni_interest_mode)
-
-Set interest reinvestment toggle
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure Gate APIv4 authorization: apiv4
-$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
-
-
-$apiInstance = new GateApi\Api\EarnUniApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$uni_interest_mode = new \GateApi\Model\UniInterestMode(); // \GateApi\Model\UniInterestMode | 
-
-try {
-    $apiInstance->switchInterestReinvest($uni_interest_mode);
-} catch (GateApi\GateApiException $e) {
-    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
-} catch (Exception $e) {
-    echo 'Exception when calling EarnUniApi->switchInterestReinvest: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uni_interest_mode** | [**\GateApi\Model\UniInterestMode**](../Model/UniInterestMode.md)|  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiv4](../../README.md#apiv4)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
 ## getUniInterestStatus
 
 > \GateApi\Model\UniCurrencyInterest getUniInterestStatus($currency)
@@ -641,7 +581,7 @@ Name | Type | Description  | Notes
 
 UniLoan currency annualized trend chart
 
-Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:37+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <LL@li.org> Plural-Forms: nplurals=2; plural=(n != 1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0
+Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:56+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <LL@li.org> Plural-Forms: nplurals=2; plural=(n != 1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0
 
 ### Example
 
@@ -707,7 +647,7 @@ Name | Type | Description  | Notes
 
 Currency estimate annualized interest rate
 
-Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:37+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <LL@li.org> Plural-Forms: nplurals=2; plural=(n != 1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0
+Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:56+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <LL@li.org> Plural-Forms: nplurals=2; plural=(n != 1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0
 
 ### Example
 
