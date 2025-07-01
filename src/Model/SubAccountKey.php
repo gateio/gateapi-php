@@ -54,7 +54,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_id' => 'string',
+        'user_id' => 'int',
         'mode' => 'int',
         'name' => 'string',
         'perms' => '\GateApi\Model\SubAccountKeyPerms[]',
@@ -72,7 +72,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'user_id' => null,
+        'user_id' => 'int64',
         'mode' => 'int32',
         'name' => null,
         'perms' => null,
@@ -258,7 +258,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Gets user_id
      *
-     * @return string|null
+     * @return int|null
      */
     public function getUserId()
     {
@@ -268,7 +268,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param string|null $user_id User ID
+     * @param int|null $user_id User ID
      *
      * @return $this
      */

@@ -1296,7 +1296,7 @@ Name | Type | Description  | Notes
 
 ## updatePositionCrossMode
 
-> \GateApi\Model\Position updatePositionCrossMode($settle, $inline_object)
+> \GateApi\Model\Position updatePositionCrossMode($settle, $futures_position_cross_mode)
 
 Switch to the full position-by-store mode
 
@@ -1317,10 +1317,10 @@ $apiInstance = new GateApi\Api\FuturesApi(
     $config
 );
 $settle = 'usdt'; // string | Settle currency
-$inline_object = new \GateApi\Model\InlineObject(); // \GateApi\Model\InlineObject | 
+$futures_position_cross_mode = new \GateApi\Model\FuturesPositionCrossMode(); // \GateApi\Model\FuturesPositionCrossMode | 
 
 try {
-    $result = $apiInstance->updatePositionCrossMode($settle, $inline_object);
+    $result = $apiInstance->updatePositionCrossMode($settle, $futures_position_cross_mode);
     print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
@@ -1336,7 +1336,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency |
- **inline_object** | [**\GateApi\Model\InlineObject**](../Model/InlineObject.md)|  |
+ **futures_position_cross_mode** | [**\GateApi\Model\FuturesPositionCrossMode**](../Model/FuturesPositionCrossMode.md)|  |
 
 ### Return type
 

@@ -90,7 +90,9 @@ class Contract implements ModelInterface, ArrayAccess
         'enable_bonus' => 'bool',
         'enable_credit' => 'bool',
         'create_time' => 'double',
-        'funding_cap_ratio' => 'string'
+        'funding_cap_ratio' => 'string',
+        'status' => 'string',
+        'launch_time' => 'int'
     ];
 
     /**
@@ -134,7 +136,9 @@ class Contract implements ModelInterface, ArrayAccess
         'enable_bonus' => null,
         'enable_credit' => null,
         'create_time' => 'double',
-        'funding_cap_ratio' => null
+        'funding_cap_ratio' => null,
+        'status' => null,
+        'launch_time' => 'int64'
     ];
 
     /**
@@ -199,7 +203,9 @@ class Contract implements ModelInterface, ArrayAccess
         'enable_bonus' => 'enable_bonus',
         'enable_credit' => 'enable_credit',
         'create_time' => 'create_time',
-        'funding_cap_ratio' => 'funding_cap_ratio'
+        'funding_cap_ratio' => 'funding_cap_ratio',
+        'status' => 'status',
+        'launch_time' => 'launch_time'
     ];
 
     /**
@@ -243,7 +249,9 @@ class Contract implements ModelInterface, ArrayAccess
         'enable_bonus' => 'setEnableBonus',
         'enable_credit' => 'setEnableCredit',
         'create_time' => 'setCreateTime',
-        'funding_cap_ratio' => 'setFundingCapRatio'
+        'funding_cap_ratio' => 'setFundingCapRatio',
+        'status' => 'setStatus',
+        'launch_time' => 'setLaunchTime'
     ];
 
     /**
@@ -287,7 +295,9 @@ class Contract implements ModelInterface, ArrayAccess
         'enable_bonus' => 'getEnableBonus',
         'enable_credit' => 'getEnableCredit',
         'create_time' => 'getCreateTime',
-        'funding_cap_ratio' => 'getFundingCapRatio'
+        'funding_cap_ratio' => 'getFundingCapRatio',
+        'status' => 'getStatus',
+        'launch_time' => 'getLaunchTime'
     ];
 
     /**
@@ -416,6 +426,8 @@ class Contract implements ModelInterface, ArrayAccess
         $this->container['enable_credit'] = isset($data['enable_credit']) ? $data['enable_credit'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['funding_cap_ratio'] = isset($data['funding_cap_ratio']) ? $data['funding_cap_ratio'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['launch_time'] = isset($data['launch_time']) ? $data['launch_time'] : null;
     }
 
     /**
@@ -1336,6 +1348,54 @@ class Contract implements ModelInterface, ArrayAccess
     public function setFundingCapRatio($funding_cap_ratio)
     {
         $this->container['funding_cap_ratio'] = $funding_cap_ratio;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status Contract Status Types include:  prelaunch,  trading, delisting,  delisted
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets launch_time
+     *
+     * @return int|null
+     */
+    public function getLaunchTime()
+    {
+        return $this->container['launch_time'];
+    }
+
+    /**
+     * Sets launch_time
+     *
+     * @param int|null $launch_time 合约开盘时间
+     *
+     * @return $this
+     */
+    public function setLaunchTime($launch_time)
+    {
+        $this->container['launch_time'] = $launch_time;
 
         return $this;
     }

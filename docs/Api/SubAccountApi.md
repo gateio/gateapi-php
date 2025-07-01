@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ## createSubAccountKeys
 
-> \GateApi\Model\SubAccountKey[] createSubAccountKeys($user_id, $sub_account_key)
+> \GateApi\Model\SubAccountKey createSubAccountKeys($user_id, $sub_account_key)
 
 Create API Key of the sub-account
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\SubAccountKey[]**](../Model/SubAccountKey.md)
+[**\GateApi\Model\SubAccountKey**](../Model/SubAccountKey.md)
 
 ### Authorization
 

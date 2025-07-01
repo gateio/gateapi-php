@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ## listSubAccountTransfers
 
-> \GateApi\Model\SubAccountTransfer[] listSubAccountTransfers($sub_uid, $from, $to, $limit, $offset)
+> \GateApi\Model\SubAccountTransferRecordItem[] listSubAccountTransfers($sub_uid, $from, $to, $limit, $offset)
 
 Retrieve transfer records between main and sub accounts
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\GateApi\Model\SubAccountTransfer[]**](../Model/SubAccountTransfer.md)
+[**\GateApi\Model\SubAccountTransferRecordItem[]**](../Model/SubAccountTransferRecordItem.md)
 
 ### Authorization
 

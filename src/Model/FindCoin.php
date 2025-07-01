@@ -1,6 +1,6 @@
 <?php
 /**
- * SubAccountTransfer
+ * FindCoin
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * SubAccountTransfer Class Doc Comment
+ * FindCoin Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class SubAccountTransfer implements ModelInterface, ArrayAccess
+class FindCoin implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SubAccountTransfer';
+    protected static $openAPIModelName = 'FindCoin';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,12 +54,8 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sub_account' => 'string',
-        'sub_account_type' => 'string',
-        'currency' => 'string',
-        'amount' => 'string',
-        'direction' => 'string',
-        'client_order_id' => 'string'
+        'coin' => 'string',
+        'cointype' => 'string'
     ];
 
     /**
@@ -68,12 +64,8 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'sub_account' => null,
-        'sub_account_type' => null,
-        'currency' => null,
-        'amount' => null,
-        'direction' => null,
-        'client_order_id' => null
+        'coin' => null,
+        'cointype' => null
     ];
 
     /**
@@ -103,12 +95,8 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sub_account' => 'sub_account',
-        'sub_account_type' => 'sub_account_type',
-        'currency' => 'currency',
-        'amount' => 'amount',
-        'direction' => 'direction',
-        'client_order_id' => 'client_order_id'
+        'coin' => 'coin',
+        'cointype' => 'cointype'
     ];
 
     /**
@@ -117,12 +105,8 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sub_account' => 'setSubAccount',
-        'sub_account_type' => 'setSubAccountType',
-        'currency' => 'setCurrency',
-        'amount' => 'setAmount',
-        'direction' => 'setDirection',
-        'client_order_id' => 'setClientOrderId'
+        'coin' => 'setCoin',
+        'cointype' => 'setCointype'
     ];
 
     /**
@@ -131,12 +115,8 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sub_account' => 'getSubAccount',
-        'sub_account_type' => 'getSubAccountType',
-        'currency' => 'getCurrency',
-        'amount' => 'getAmount',
-        'direction' => 'getDirection',
-        'client_order_id' => 'getClientOrderId'
+        'coin' => 'getCoin',
+        'cointype' => 'getCointype'
     ];
 
     /**
@@ -199,12 +179,8 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sub_account'] = isset($data['sub_account']) ? $data['sub_account'] : null;
-        $this->container['sub_account_type'] = isset($data['sub_account_type']) ? $data['sub_account_type'] : 'spot';
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
-        $this->container['client_order_id'] = isset($data['client_order_id']) ? $data['client_order_id'] : null;
+        $this->container['coin'] = isset($data['coin']) ? $data['coin'] : null;
+        $this->container['cointype'] = isset($data['cointype']) ? $data['cointype'] : null;
     }
 
     /**
@@ -216,18 +192,6 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['sub_account'] === null) {
-            $invalidProperties[] = "'sub_account' can't be null";
-        }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['direction'] === null) {
-            $invalidProperties[] = "'direction' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -244,145 +208,49 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sub_account
-     *
-     * @return string
-     */
-    public function getSubAccount()
-    {
-        return $this->container['sub_account'];
-    }
-
-    /**
-     * Sets sub_account
-     *
-     * @param string $sub_account Sub account user ID
-     *
-     * @return $this
-     */
-    public function setSubAccount($sub_account)
-    {
-        $this->container['sub_account'] = $sub_account;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_account_type
+     * Gets coin
      *
      * @return string|null
      */
-    public function getSubAccountType()
+    public function getCoin()
     {
-        return $this->container['sub_account_type'];
+        return $this->container['coin'];
     }
 
     /**
-     * Sets sub_account_type
+     * Sets coin
      *
-     * @param string|null $sub_account_type 操作的子账号交易账户， spot - 现货账户， futures - 永续合约账户， delivery - 交割合约账户, options - 期权账户
+     * @param string|null $coin Currency
      *
      * @return $this
      */
-    public function setSubAccountType($sub_account_type)
+    public function setCoin($coin)
     {
-        $this->container['sub_account_type'] = $sub_account_type;
+        $this->container['coin'] = $coin;
 
         return $this;
     }
 
     /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency Transfer currency name
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return string
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param string $amount Transfer amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets direction
-     *
-     * @return string
-     */
-    public function getDirection()
-    {
-        return $this->container['direction'];
-    }
-
-    /**
-     * Sets direction
-     *
-     * @param string $direction Transfer direction. to - transfer into sub account; from - transfer out from sub account
-     *
-     * @return $this
-     */
-    public function setDirection($direction)
-    {
-        $this->container['direction'] = $direction;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_order_id
+     * Gets cointype
      *
      * @return string|null
      */
-    public function getClientOrderId()
+    public function getCointype()
     {
-        return $this->container['client_order_id'];
+        return $this->container['cointype'];
     }
 
     /**
-     * Sets client_order_id
+     * Sets cointype
      *
-     * @param string|null $client_order_id The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens '-', and underscores '_', with a length ranging from 1 to 64 characters.
+     * @param string|null $cointype Coin Type  swap-Voucher  lock-Locked
      *
      * @return $this
      */
-    public function setClientOrderId($client_order_id)
+    public function setCointype($cointype)
     {
-        $this->container['client_order_id'] = $client_order_id;
+        $this->container['cointype'] = $cointype;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * BrokerCommission1
+ * PlaceOrderRequest
  *
  * PHP version 7
  *
@@ -30,14 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * BrokerCommission1 Class Doc Comment
+ * PlaceOrderRequest Class Doc Comment
  *
  * @category Class
+ * @description 下单请求
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class BrokerCommission1 implements ModelInterface, ArrayAccess
+class PlaceOrderRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BrokerCommission_1';
+    protected static $openAPIModelName = 'PlaceOrderRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,16 +55,12 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'commission_time' => 'int',
-        'user_id' => 'int',
-        'group_name' => 'string',
+        'currency' => 'string',
+        'side' => 'string',
         'amount' => 'string',
-        'fee' => 'string',
-        'fee_asset' => 'string',
-        'rebate_fee' => 'string',
-        'source' => 'string',
-        'currency_pair' => 'string',
-        'sub_broker_info' => '\GateApi\Model\BrokerCommissionSubBrokerInfo'
+        'gas_mode' => 'string',
+        'slippage' => 'string',
+        'quote_id' => 'string'
     ];
 
     /**
@@ -72,16 +69,12 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'commission_time' => 'int64',
-        'user_id' => 'int64',
-        'group_name' => null,
+        'currency' => null,
+        'side' => null,
         'amount' => null,
-        'fee' => null,
-        'fee_asset' => null,
-        'rebate_fee' => null,
-        'source' => null,
-        'currency_pair' => null,
-        'sub_broker_info' => null
+        'gas_mode' => null,
+        'slippage' => null,
+        'quote_id' => null
     ];
 
     /**
@@ -111,16 +104,12 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'commission_time' => 'commission_time',
-        'user_id' => 'user_id',
-        'group_name' => 'group_name',
+        'currency' => 'currency',
+        'side' => 'side',
         'amount' => 'amount',
-        'fee' => 'fee',
-        'fee_asset' => 'fee_asset',
-        'rebate_fee' => 'rebate_fee',
-        'source' => 'source',
-        'currency_pair' => 'currency_pair',
-        'sub_broker_info' => 'sub_broker_info'
+        'gas_mode' => 'gas_mode',
+        'slippage' => 'slippage',
+        'quote_id' => 'quote_id'
     ];
 
     /**
@@ -129,16 +118,12 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'commission_time' => 'setCommissionTime',
-        'user_id' => 'setUserId',
-        'group_name' => 'setGroupName',
+        'currency' => 'setCurrency',
+        'side' => 'setSide',
         'amount' => 'setAmount',
-        'fee' => 'setFee',
-        'fee_asset' => 'setFeeAsset',
-        'rebate_fee' => 'setRebateFee',
-        'source' => 'setSource',
-        'currency_pair' => 'setCurrencyPair',
-        'sub_broker_info' => 'setSubBrokerInfo'
+        'gas_mode' => 'setGasMode',
+        'slippage' => 'setSlippage',
+        'quote_id' => 'setQuoteId'
     ];
 
     /**
@@ -147,16 +132,12 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'commission_time' => 'getCommissionTime',
-        'user_id' => 'getUserId',
-        'group_name' => 'getGroupName',
+        'currency' => 'getCurrency',
+        'side' => 'getSide',
         'amount' => 'getAmount',
-        'fee' => 'getFee',
-        'fee_asset' => 'getFeeAsset',
-        'rebate_fee' => 'getRebateFee',
-        'source' => 'getSource',
-        'currency_pair' => 'getCurrencyPair',
-        'sub_broker_info' => 'getSubBrokerInfo'
+        'gas_mode' => 'getGasMode',
+        'slippage' => 'getSlippage',
+        'quote_id' => 'getQuoteId'
     ];
 
     /**
@@ -219,16 +200,12 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['commission_time'] = isset($data['commission_time']) ? $data['commission_time'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['group_name'] = isset($data['group_name']) ? $data['group_name'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['side'] = isset($data['side']) ? $data['side'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
-        $this->container['fee_asset'] = isset($data['fee_asset']) ? $data['fee_asset'] : null;
-        $this->container['rebate_fee'] = isset($data['rebate_fee']) ? $data['rebate_fee'] : null;
-        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['sub_broker_info'] = isset($data['sub_broker_info']) ? $data['sub_broker_info'] : null;
+        $this->container['gas_mode'] = isset($data['gas_mode']) ? $data['gas_mode'] : null;
+        $this->container['slippage'] = isset($data['slippage']) ? $data['slippage'] : null;
+        $this->container['quote_id'] = isset($data['quote_id']) ? $data['quote_id'] : null;
     }
 
     /**
@@ -240,6 +217,21 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
+        if ($this->container['side'] === null) {
+            $invalidProperties[] = "'side' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['gas_mode'] === null) {
+            $invalidProperties[] = "'gas_mode' can't be null";
+        }
+        if ($this->container['quote_id'] === null) {
+            $invalidProperties[] = "'quote_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -256,73 +248,49 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets commission_time
+     * Gets currency
      *
-     * @return int|null
+     * @return string
      */
-    public function getCommissionTime()
+    public function getCurrency()
     {
-        return $this->container['commission_time'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets commission_time
+     * Sets currency
      *
-     * @param int|null $commission_time Commission Time. (unix timestamp)
+     * @param string $currency Trading Symbol
      *
      * @return $this
      */
-    public function setCommissionTime($commission_time)
+    public function setCurrency($currency)
     {
-        $this->container['commission_time'] = $commission_time;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets user_id
+     * Gets side
      *
-     * @return int|null
+     * @return string
      */
-    public function getUserId()
+    public function getSide()
     {
-        return $this->container['user_id'];
+        return $this->container['side'];
     }
 
     /**
-     * Sets user_id
+     * Sets side
      *
-     * @param int|null $user_id User ID
+     * @param string $side 买单或者卖单 - buy - sell
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setSide($side)
     {
-        $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_name
-     *
-     * @return string|null
-     */
-    public function getGroupName()
-    {
-        return $this->container['group_name'];
-    }
-
-    /**
-     * Sets group_name
-     *
-     * @param string|null $group_name Group name
-     *
-     * @return $this
-     */
-    public function setGroupName($group_name)
-    {
-        $this->container['group_name'] = $group_name;
+        $this->container['side'] = $side;
 
         return $this;
     }
@@ -330,7 +298,7 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     /**
      * Gets amount
      *
-     * @return string|null
+     * @return string
      */
     public function getAmount()
     {
@@ -340,7 +308,7 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount The amount of commission rebates
+     * @param string $amount Trade Quantity - `side` : `buy` refers to the quote currency, i.e., `USDT` - `side` : `sell` refers to the base currency
      *
      * @return $this
      */
@@ -352,145 +320,73 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets fee
+     * Gets gas_mode
      *
-     * @return string|null
+     * @return string
      */
-    public function getFee()
+    public function getGasMode()
     {
-        return $this->container['fee'];
+        return $this->container['gas_mode'];
     }
 
     /**
-     * Sets fee
+     * Sets gas_mode
      *
-     * @param string|null $fee Fee
+     * @param string $gas_mode Trading mode affects slippage selection - `speed` : Smart mode - `custom` : Custom mode, uses `slippage` parameter
      *
      * @return $this
      */
-    public function setFee($fee)
+    public function setGasMode($gas_mode)
     {
-        $this->container['fee'] = $fee;
+        $this->container['gas_mode'] = $gas_mode;
 
         return $this;
     }
 
     /**
-     * Gets fee_asset
+     * Gets slippage
      *
      * @return string|null
      */
-    public function getFeeAsset()
+    public function getSlippage()
     {
-        return $this->container['fee_asset'];
+        return $this->container['slippage'];
     }
 
     /**
-     * Sets fee_asset
+     * Sets slippage
      *
-     * @param string|null $fee_asset Fee currency
+     * @param string|null $slippage Slippage value of 10 represents a 10% tolerance
      *
      * @return $this
      */
-    public function setFeeAsset($fee_asset)
+    public function setSlippage($slippage)
     {
-        $this->container['fee_asset'] = $fee_asset;
+        $this->container['slippage'] = $slippage;
 
         return $this;
     }
 
     /**
-     * Gets rebate_fee
+     * Gets quote_id
      *
-     * @return string|null
+     * @return string
      */
-    public function getRebateFee()
+    public function getQuoteId()
     {
-        return $this->container['rebate_fee'];
+        return $this->container['quote_id'];
     }
 
     /**
-     * Sets rebate_fee
+     * Sets quote_id
      *
-     * @param string|null $rebate_fee The income from rebates, converted to USDT
+     * @param string $quote_id The quote_id returned by the quotation API
      *
      * @return $this
      */
-    public function setRebateFee($rebate_fee)
+    public function setQuoteId($quote_id)
     {
-        $this->container['rebate_fee'] = $rebate_fee;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source Rebate Type: Spot、Futures、Options
-     *
-     * @return $this
-     */
-    public function setSource($source)
-    {
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency_pair
-     *
-     * @return string|null
-     */
-    public function getCurrencyPair()
-    {
-        return $this->container['currency_pair'];
-    }
-
-    /**
-     * Sets currency_pair
-     *
-     * @param string|null $currency_pair Currency pair
-     *
-     * @return $this
-     */
-    public function setCurrencyPair($currency_pair)
-    {
-        $this->container['currency_pair'] = $currency_pair;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_broker_info
-     *
-     * @return \GateApi\Model\BrokerCommissionSubBrokerInfo|null
-     */
-    public function getSubBrokerInfo()
-    {
-        return $this->container['sub_broker_info'];
-    }
-
-    /**
-     * Sets sub_broker_info
-     *
-     * @param \GateApi\Model\BrokerCommissionSubBrokerInfo|null $sub_broker_info sub_broker_info
-     *
-     * @return $this
-     */
-    public function setSubBrokerInfo($sub_broker_info)
-    {
-        $this->container['sub_broker_info'] = $sub_broker_info;
+        $this->container['quote_id'] = $quote_id;
 
         return $this;
     }

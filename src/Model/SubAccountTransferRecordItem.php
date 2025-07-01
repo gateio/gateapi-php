@@ -1,6 +1,6 @@
 <?php
 /**
- * BrokerCommission1
+ * SubAccountTransferRecordItem
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * BrokerCommission1 Class Doc Comment
+ * SubAccountTransferRecordItem Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class BrokerCommission1 implements ModelInterface, ArrayAccess
+class SubAccountTransferRecordItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BrokerCommission_1';
+    protected static $openAPIModelName = 'SubAccountTransferRecordItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,16 +54,16 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'commission_time' => 'int',
-        'user_id' => 'int',
-        'group_name' => 'string',
+        'timest' => 'string',
+        'uid' => 'string',
+        'sub_account' => 'string',
+        'sub_account_type' => 'string',
+        'currency' => 'string',
         'amount' => 'string',
-        'fee' => 'string',
-        'fee_asset' => 'string',
-        'rebate_fee' => 'string',
+        'direction' => 'string',
         'source' => 'string',
-        'currency_pair' => 'string',
-        'sub_broker_info' => '\GateApi\Model\BrokerCommissionSubBrokerInfo'
+        'client_order_id' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -72,16 +72,16 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'commission_time' => 'int64',
-        'user_id' => 'int64',
-        'group_name' => null,
+        'timest' => null,
+        'uid' => null,
+        'sub_account' => null,
+        'sub_account_type' => null,
+        'currency' => null,
         'amount' => null,
-        'fee' => null,
-        'fee_asset' => null,
-        'rebate_fee' => null,
+        'direction' => null,
         'source' => null,
-        'currency_pair' => null,
-        'sub_broker_info' => null
+        'client_order_id' => null,
+        'status' => null
     ];
 
     /**
@@ -111,16 +111,16 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'commission_time' => 'commission_time',
-        'user_id' => 'user_id',
-        'group_name' => 'group_name',
+        'timest' => 'timest',
+        'uid' => 'uid',
+        'sub_account' => 'sub_account',
+        'sub_account_type' => 'sub_account_type',
+        'currency' => 'currency',
         'amount' => 'amount',
-        'fee' => 'fee',
-        'fee_asset' => 'fee_asset',
-        'rebate_fee' => 'rebate_fee',
+        'direction' => 'direction',
         'source' => 'source',
-        'currency_pair' => 'currency_pair',
-        'sub_broker_info' => 'sub_broker_info'
+        'client_order_id' => 'client_order_id',
+        'status' => 'status'
     ];
 
     /**
@@ -129,16 +129,16 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'commission_time' => 'setCommissionTime',
-        'user_id' => 'setUserId',
-        'group_name' => 'setGroupName',
+        'timest' => 'setTimest',
+        'uid' => 'setUid',
+        'sub_account' => 'setSubAccount',
+        'sub_account_type' => 'setSubAccountType',
+        'currency' => 'setCurrency',
         'amount' => 'setAmount',
-        'fee' => 'setFee',
-        'fee_asset' => 'setFeeAsset',
-        'rebate_fee' => 'setRebateFee',
+        'direction' => 'setDirection',
         'source' => 'setSource',
-        'currency_pair' => 'setCurrencyPair',
-        'sub_broker_info' => 'setSubBrokerInfo'
+        'client_order_id' => 'setClientOrderId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -147,16 +147,16 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'commission_time' => 'getCommissionTime',
-        'user_id' => 'getUserId',
-        'group_name' => 'getGroupName',
+        'timest' => 'getTimest',
+        'uid' => 'getUid',
+        'sub_account' => 'getSubAccount',
+        'sub_account_type' => 'getSubAccountType',
+        'currency' => 'getCurrency',
         'amount' => 'getAmount',
-        'fee' => 'getFee',
-        'fee_asset' => 'getFeeAsset',
-        'rebate_fee' => 'getRebateFee',
+        'direction' => 'getDirection',
         'source' => 'getSource',
-        'currency_pair' => 'getCurrencyPair',
-        'sub_broker_info' => 'getSubBrokerInfo'
+        'client_order_id' => 'getClientOrderId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -219,16 +219,16 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['commission_time'] = isset($data['commission_time']) ? $data['commission_time'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['group_name'] = isset($data['group_name']) ? $data['group_name'] : null;
+        $this->container['timest'] = isset($data['timest']) ? $data['timest'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['sub_account'] = isset($data['sub_account']) ? $data['sub_account'] : null;
+        $this->container['sub_account_type'] = isset($data['sub_account_type']) ? $data['sub_account_type'] : 'spot';
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
-        $this->container['fee_asset'] = isset($data['fee_asset']) ? $data['fee_asset'] : null;
-        $this->container['rebate_fee'] = isset($data['rebate_fee']) ? $data['rebate_fee'] : null;
+        $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['sub_broker_info'] = isset($data['sub_broker_info']) ? $data['sub_broker_info'] : null;
+        $this->container['client_order_id'] = isset($data['client_order_id']) ? $data['client_order_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -240,6 +240,18 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['sub_account'] === null) {
+            $invalidProperties[] = "'sub_account' can't be null";
+        }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['direction'] === null) {
+            $invalidProperties[] = "'direction' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -256,73 +268,121 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets commission_time
-     *
-     * @return int|null
-     */
-    public function getCommissionTime()
-    {
-        return $this->container['commission_time'];
-    }
-
-    /**
-     * Sets commission_time
-     *
-     * @param int|null $commission_time Commission Time. (unix timestamp)
-     *
-     * @return $this
-     */
-    public function setCommissionTime($commission_time)
-    {
-        $this->container['commission_time'] = $commission_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return int|null
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param int|null $user_id User ID
-     *
-     * @return $this
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_name
+     * Gets timest
      *
      * @return string|null
      */
-    public function getGroupName()
+    public function getTimest()
     {
-        return $this->container['group_name'];
+        return $this->container['timest'];
     }
 
     /**
-     * Sets group_name
+     * Sets timest
      *
-     * @param string|null $group_name Group name
+     * @param string|null $timest Transfer timestamp
      *
      * @return $this
      */
-    public function setGroupName($group_name)
+    public function setTimest($timest)
     {
-        $this->container['group_name'] = $group_name;
+        $this->container['timest'] = $timest;
+
+        return $this;
+    }
+
+    /**
+     * Gets uid
+     *
+     * @return string|null
+     */
+    public function getUid()
+    {
+        return $this->container['uid'];
+    }
+
+    /**
+     * Sets uid
+     *
+     * @param string|null $uid Main account user ID
+     *
+     * @return $this
+     */
+    public function setUid($uid)
+    {
+        $this->container['uid'] = $uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_account
+     *
+     * @return string
+     */
+    public function getSubAccount()
+    {
+        return $this->container['sub_account'];
+    }
+
+    /**
+     * Sets sub_account
+     *
+     * @param string $sub_account Sub account user ID
+     *
+     * @return $this
+     */
+    public function setSubAccount($sub_account)
+    {
+        $this->container['sub_account'] = $sub_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_account_type
+     *
+     * @return string|null
+     */
+    public function getSubAccountType()
+    {
+        return $this->container['sub_account_type'];
+    }
+
+    /**
+     * Sets sub_account_type
+     *
+     * @param string|null $sub_account_type 操作的子账号交易账户， spot - 现货账户， futures - 永续合约账户， delivery - 交割合约账户, options - 期权账户
+     *
+     * @return $this
+     */
+    public function setSubAccountType($sub_account_type)
+    {
+        $this->container['sub_account_type'] = $sub_account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency Transfer currency name
+     *
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
 
         return $this;
     }
@@ -330,7 +390,7 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     /**
      * Gets amount
      *
-     * @return string|null
+     * @return string
      */
     public function getAmount()
     {
@@ -340,7 +400,7 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount The amount of commission rebates
+     * @param string $amount Transfer amount
      *
      * @return $this
      */
@@ -352,73 +412,25 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets fee
+     * Gets direction
      *
-     * @return string|null
+     * @return string
      */
-    public function getFee()
+    public function getDirection()
     {
-        return $this->container['fee'];
+        return $this->container['direction'];
     }
 
     /**
-     * Sets fee
+     * Sets direction
      *
-     * @param string|null $fee Fee
+     * @param string $direction Transfer direction. to - transfer into sub account; from - transfer out from sub account
      *
      * @return $this
      */
-    public function setFee($fee)
+    public function setDirection($direction)
     {
-        $this->container['fee'] = $fee;
-
-        return $this;
-    }
-
-    /**
-     * Gets fee_asset
-     *
-     * @return string|null
-     */
-    public function getFeeAsset()
-    {
-        return $this->container['fee_asset'];
-    }
-
-    /**
-     * Sets fee_asset
-     *
-     * @param string|null $fee_asset Fee currency
-     *
-     * @return $this
-     */
-    public function setFeeAsset($fee_asset)
-    {
-        $this->container['fee_asset'] = $fee_asset;
-
-        return $this;
-    }
-
-    /**
-     * Gets rebate_fee
-     *
-     * @return string|null
-     */
-    public function getRebateFee()
-    {
-        return $this->container['rebate_fee'];
-    }
-
-    /**
-     * Sets rebate_fee
-     *
-     * @param string|null $rebate_fee The income from rebates, converted to USDT
-     *
-     * @return $this
-     */
-    public function setRebateFee($rebate_fee)
-    {
-        $this->container['rebate_fee'] = $rebate_fee;
+        $this->container['direction'] = $direction;
 
         return $this;
     }
@@ -436,7 +448,7 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     /**
      * Sets source
      *
-     * @param string|null $source Rebate Type: Spot、Futures、Options
+     * @param string|null $source Where the operation is initiated from
      *
      * @return $this
      */
@@ -448,49 +460,49 @@ class BrokerCommission1 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets currency_pair
+     * Gets client_order_id
      *
      * @return string|null
      */
-    public function getCurrencyPair()
+    public function getClientOrderId()
     {
-        return $this->container['currency_pair'];
+        return $this->container['client_order_id'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets client_order_id
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $client_order_id The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens '-', and underscores '_', with a length ranging from 1 to 64 characters.
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setClientOrderId($client_order_id)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['client_order_id'] = $client_order_id;
 
         return $this;
     }
 
     /**
-     * Gets sub_broker_info
+     * Gets status
      *
-     * @return \GateApi\Model\BrokerCommissionSubBrokerInfo|null
+     * @return string|null
      */
-    public function getSubBrokerInfo()
+    public function getStatus()
     {
-        return $this->container['sub_broker_info'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets sub_broker_info
+     * Sets status
      *
-     * @param \GateApi\Model\BrokerCommissionSubBrokerInfo|null $sub_broker_info sub_broker_info
+     * @param string|null $status Sub-account transfer record status, currently only success
      *
      * @return $this
      */
-    public function setSubBrokerInfo($sub_broker_info)
+    public function setStatus($status)
     {
-        $this->container['sub_broker_info'] = $sub_broker_info;
+        $this->container['status'] = $status;
 
         return $this;
     }

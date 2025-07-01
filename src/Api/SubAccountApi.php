@@ -1087,7 +1087,7 @@ class SubAccountApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\SubAccountKey[]
+     * @return \GateApi\Model\SubAccountKey
      */
     public function createSubAccountKeys($user_id, $sub_account_key)
     {
@@ -1105,7 +1105,7 @@ class SubAccountApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\SubAccountKey[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\SubAccountKey, HTTP status code, HTTP response headers (array of strings)
      */
     public function createSubAccountKeysWithHttpInfo($user_id, $sub_account_key)
     {
@@ -1135,7 +1135,7 @@ class SubAccountApi
             );
         }
 
-        $returnType = '\GateApi\Model\SubAccountKey[]';
+        $returnType = '\GateApi\Model\SubAccountKey';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -1184,7 +1184,7 @@ class SubAccountApi
      */
     public function createSubAccountKeysAsyncWithHttpInfo($user_id, $sub_account_key)
     {
-        $returnType = '\GateApi\Model\SubAccountKey[]';
+        $returnType = '\GateApi\Model\SubAccountKey';
         $request = $this->createSubAccountKeysRequest($user_id, $sub_account_key);
 
         return $this->client

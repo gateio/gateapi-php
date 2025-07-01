@@ -364,949 +364,6 @@ class MarginApi
     }
 
     /**
-     * Operation getUserMarginTier
-     *
-     * Check the user's own leverage lending gradient in the current market
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\MarginLeverageTier[]
-     */
-    public function getUserMarginTier($currency_pair)
-    {
-        list($response) = $this->getUserMarginTierWithHttpInfo($currency_pair);
-        return $response;
-    }
-
-    /**
-     * Operation getUserMarginTierWithHttpInfo
-     *
-     * Check the user's own leverage lending gradient in the current market
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\MarginLeverageTier[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getUserMarginTierWithHttpInfo($currency_pair)
-    {
-        $request = $this->getUserMarginTierRequest($currency_pair);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody != null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\MarginLeverageTier[]';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation getUserMarginTierAsync
-     *
-     * Check the user's own leverage lending gradient in the current market
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getUserMarginTierAsync($currency_pair)
-    {
-        return $this->getUserMarginTierAsyncWithHttpInfo($currency_pair)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getUserMarginTierAsyncWithHttpInfo
-     *
-     * Check the user's own leverage lending gradient in the current market
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getUserMarginTierAsyncWithHttpInfo($currency_pair)
-    {
-        $returnType = '\GateApi\Model\MarginLeverageTier[]';
-        $request = $this->getUserMarginTierRequest($currency_pair);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getUserMarginTier'
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getUserMarginTierRequest($currency_pair)
-    {
-        // verify the required parameter 'currency_pair' is set
-        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $currency_pair when calling getUserMarginTier'
-            );
-        }
-
-        $resourcePath = '/margin/user/loan_margin_tiers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($currency_pair !== null) {
-            if('form' === 'form' && is_array($currency_pair)) {
-                foreach($currency_pair as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['currency_pair'] = $currency_pair;
-            }
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getMarketMarginTier
-     *
-     * Query the current market leverage lending gradient
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\MarginLeverageTier[]
-     */
-    public function getMarketMarginTier($currency_pair)
-    {
-        list($response) = $this->getMarketMarginTierWithHttpInfo($currency_pair);
-        return $response;
-    }
-
-    /**
-     * Operation getMarketMarginTierWithHttpInfo
-     *
-     * Query the current market leverage lending gradient
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\MarginLeverageTier[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getMarketMarginTierWithHttpInfo($currency_pair)
-    {
-        $request = $this->getMarketMarginTierRequest($currency_pair);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody != null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\MarginLeverageTier[]';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation getMarketMarginTierAsync
-     *
-     * Query the current market leverage lending gradient
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMarketMarginTierAsync($currency_pair)
-    {
-        return $this->getMarketMarginTierAsyncWithHttpInfo($currency_pair)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getMarketMarginTierAsyncWithHttpInfo
-     *
-     * Query the current market leverage lending gradient
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMarketMarginTierAsyncWithHttpInfo($currency_pair)
-    {
-        $returnType = '\GateApi\Model\MarginLeverageTier[]';
-        $request = $this->getMarketMarginTierRequest($currency_pair);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getMarketMarginTier'
-     *
-     * @param  string $currency_pair Currency pair (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getMarketMarginTierRequest($currency_pair)
-    {
-        // verify the required parameter 'currency_pair' is set
-        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $currency_pair when calling getMarketMarginTier'
-            );
-        }
-
-        $resourcePath = '/margin/loan_margin_tiers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($currency_pair !== null) {
-            if('form' === 'form' && is_array($currency_pair)) {
-                foreach($currency_pair as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['currency_pair'] = $currency_pair;
-            }
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation setUserMarketLeverage
-     *
-     * Set the user market leverage multiple
-     *
-     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage margin_market_leverage (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function setUserMarketLeverage($margin_market_leverage)
-    {
-        $this->setUserMarketLeverageWithHttpInfo($margin_market_leverage);
-    }
-
-    /**
-     * Operation setUserMarketLeverageWithHttpInfo
-     *
-     * Set the user market leverage multiple
-     *
-     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function setUserMarketLeverageWithHttpInfo($margin_market_leverage)
-    {
-        $request = $this->setUserMarketLeverageRequest($margin_market_leverage);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody != null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        return [null, $statusCode, $response->getHeaders()];
-    }
-
-    /**
-     * Operation setUserMarketLeverageAsync
-     *
-     * Set the user market leverage multiple
-     *
-     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function setUserMarketLeverageAsync($margin_market_leverage)
-    {
-        return $this->setUserMarketLeverageAsyncWithHttpInfo($margin_market_leverage)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation setUserMarketLeverageAsyncWithHttpInfo
-     *
-     * Set the user market leverage multiple
-     *
-     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function setUserMarketLeverageAsyncWithHttpInfo($margin_market_leverage)
-    {
-        $returnType = '';
-        $request = $this->setUserMarketLeverageRequest($margin_market_leverage);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'setUserMarketLeverage'
-     *
-     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function setUserMarketLeverageRequest($margin_market_leverage)
-    {
-        // verify the required parameter 'margin_market_leverage' is set
-        if ($margin_market_leverage === null || (is_array($margin_market_leverage) && count($margin_market_leverage) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $margin_market_leverage when calling setUserMarketLeverage'
-            );
-        }
-
-        $resourcePath = '/margin/leverage/user_market_setting';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // body params
-        $_tempBody = null;
-        if (isset($margin_market_leverage)) {
-            $_tempBody = $margin_market_leverage;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listMarginUserAccount
-     *
-     * Query the user's leverage account list
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $currency_pair Currency pair (optional)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\MarginAccount[]
-     */
-    public function listMarginUserAccount($associative_array)
-    {
-        list($response) = $this->listMarginUserAccountWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation listMarginUserAccountWithHttpInfo
-     *
-     * Query the user's leverage account list
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $currency_pair Currency pair (optional)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\MarginAccount[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listMarginUserAccountWithHttpInfo($associative_array)
-    {
-        $request = $this->listMarginUserAccountRequest($associative_array);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody != null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\MarginAccount[]';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation listMarginUserAccountAsync
-     *
-     * Query the user's leverage account list
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $currency_pair Currency pair (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listMarginUserAccountAsync($associative_array)
-    {
-        return $this->listMarginUserAccountAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listMarginUserAccountAsyncWithHttpInfo
-     *
-     * Query the user's leverage account list
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $currency_pair Currency pair (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listMarginUserAccountAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\GateApi\Model\MarginAccount[]';
-        $request = $this->listMarginUserAccountRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listMarginUserAccount'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $currency_pair Currency pair (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listMarginUserAccountRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
-
-
-        $resourcePath = '/margin/user/account';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($currency_pair !== null) {
-            if('form' === 'form' && is_array($currency_pair)) {
-                foreach($currency_pair as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['currency_pair'] = $currency_pair;
-            }
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation listMarginAccountBook
      *
      * List margin account balance change history
@@ -2582,6 +1639,949 @@ class MarginApi
                 $queryParams['currency'] = $currency;
             }
         }
+
+        // query params
+        if ($currency_pair !== null) {
+            if('form' === 'form' && is_array($currency_pair)) {
+                foreach($currency_pair as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getUserMarginTier
+     *
+     * Check the user's own leverage lending gradient in the current market
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\MarginLeverageTier[]
+     */
+    public function getUserMarginTier($currency_pair)
+    {
+        list($response) = $this->getUserMarginTierWithHttpInfo($currency_pair);
+        return $response;
+    }
+
+    /**
+     * Operation getUserMarginTierWithHttpInfo
+     *
+     * Check the user's own leverage lending gradient in the current market
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\MarginLeverageTier[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUserMarginTierWithHttpInfo($currency_pair)
+    {
+        $request = $this->getUserMarginTierRequest($currency_pair);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\MarginLeverageTier[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getUserMarginTierAsync
+     *
+     * Check the user's own leverage lending gradient in the current market
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUserMarginTierAsync($currency_pair)
+    {
+        return $this->getUserMarginTierAsyncWithHttpInfo($currency_pair)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getUserMarginTierAsyncWithHttpInfo
+     *
+     * Check the user's own leverage lending gradient in the current market
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUserMarginTierAsyncWithHttpInfo($currency_pair)
+    {
+        $returnType = '\GateApi\Model\MarginLeverageTier[]';
+        $request = $this->getUserMarginTierRequest($currency_pair);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getUserMarginTier'
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getUserMarginTierRequest($currency_pair)
+    {
+        // verify the required parameter 'currency_pair' is set
+        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency_pair when calling getUserMarginTier'
+            );
+        }
+
+        $resourcePath = '/margin/user/loan_margin_tiers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency_pair !== null) {
+            if('form' === 'form' && is_array($currency_pair)) {
+                foreach($currency_pair as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('GET', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMarketMarginTier
+     *
+     * Query the current market leverage lending gradient
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\MarginLeverageTier[]
+     */
+    public function getMarketMarginTier($currency_pair)
+    {
+        list($response) = $this->getMarketMarginTierWithHttpInfo($currency_pair);
+        return $response;
+    }
+
+    /**
+     * Operation getMarketMarginTierWithHttpInfo
+     *
+     * Query the current market leverage lending gradient
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\MarginLeverageTier[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMarketMarginTierWithHttpInfo($currency_pair)
+    {
+        $request = $this->getMarketMarginTierRequest($currency_pair);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\MarginLeverageTier[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getMarketMarginTierAsync
+     *
+     * Query the current market leverage lending gradient
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketMarginTierAsync($currency_pair)
+    {
+        return $this->getMarketMarginTierAsyncWithHttpInfo($currency_pair)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMarketMarginTierAsyncWithHttpInfo
+     *
+     * Query the current market leverage lending gradient
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMarketMarginTierAsyncWithHttpInfo($currency_pair)
+    {
+        $returnType = '\GateApi\Model\MarginLeverageTier[]';
+        $request = $this->getMarketMarginTierRequest($currency_pair);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMarketMarginTier'
+     *
+     * @param  string $currency_pair Currency pair (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMarketMarginTierRequest($currency_pair)
+    {
+        // verify the required parameter 'currency_pair' is set
+        if ($currency_pair === null || (is_array($currency_pair) && count($currency_pair) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency_pair when calling getMarketMarginTier'
+            );
+        }
+
+        $resourcePath = '/margin/loan_margin_tiers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency_pair !== null) {
+            if('form' === 'form' && is_array($currency_pair)) {
+                foreach($currency_pair as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency_pair'] = $currency_pair;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setUserMarketLeverage
+     *
+     * Set the user market leverage multiple
+     *
+     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage margin_market_leverage (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function setUserMarketLeverage($margin_market_leverage)
+    {
+        $this->setUserMarketLeverageWithHttpInfo($margin_market_leverage);
+    }
+
+    /**
+     * Operation setUserMarketLeverageWithHttpInfo
+     *
+     * Set the user market leverage multiple
+     *
+     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setUserMarketLeverageWithHttpInfo($margin_market_leverage)
+    {
+        $request = $this->setUserMarketLeverageRequest($margin_market_leverage);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        return [null, $statusCode, $response->getHeaders()];
+    }
+
+    /**
+     * Operation setUserMarketLeverageAsync
+     *
+     * Set the user market leverage multiple
+     *
+     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setUserMarketLeverageAsync($margin_market_leverage)
+    {
+        return $this->setUserMarketLeverageAsyncWithHttpInfo($margin_market_leverage)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setUserMarketLeverageAsyncWithHttpInfo
+     *
+     * Set the user market leverage multiple
+     *
+     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setUserMarketLeverageAsyncWithHttpInfo($margin_market_leverage)
+    {
+        $returnType = '';
+        $request = $this->setUserMarketLeverageRequest($margin_market_leverage);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setUserMarketLeverage'
+     *
+     * @param  \GateApi\Model\MarginMarketLeverage $margin_market_leverage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function setUserMarketLeverageRequest($margin_market_leverage)
+    {
+        // verify the required parameter 'margin_market_leverage' is set
+        if ($margin_market_leverage === null || (is_array($margin_market_leverage) && count($margin_market_leverage) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $margin_market_leverage when calling setUserMarketLeverage'
+            );
+        }
+
+        $resourcePath = '/margin/leverage/user_market_setting';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // body params
+        $_tempBody = null;
+        if (isset($margin_market_leverage)) {
+            $_tempBody = $margin_market_leverage;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listMarginUserAccount
+     *
+     * Query the user's leverage account list
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\MarginAccount[]
+     */
+    public function listMarginUserAccount($associative_array)
+    {
+        list($response) = $this->listMarginUserAccountWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listMarginUserAccountWithHttpInfo
+     *
+     * Query the user's leverage account list
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\MarginAccount[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listMarginUserAccountWithHttpInfo($associative_array)
+    {
+        $request = $this->listMarginUserAccountRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\MarginAccount[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listMarginUserAccountAsync
+     *
+     * Query the user's leverage account list
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listMarginUserAccountAsync($associative_array)
+    {
+        return $this->listMarginUserAccountAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listMarginUserAccountAsyncWithHttpInfo
+     *
+     * Query the user's leverage account list
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listMarginUserAccountAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\MarginAccount[]';
+        $request = $this->listMarginUserAccountRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listMarginUserAccount'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency_pair Currency pair (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listMarginUserAccountRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency_pair = array_key_exists('currency_pair', $associative_array) ? $associative_array['currency_pair'] : null;
+
+
+        $resourcePath = '/margin/user/account';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
 
         // query params
         if ($currency_pair !== null) {

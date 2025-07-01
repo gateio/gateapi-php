@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **amount** | **string** | Commission Amount | [optional] 
 **fee_asset** | **string** | Fee currency | [optional] 
 **source** | **string** | Rebate Type: Spot、Futures、Options | [optional] 
+**sub_broker_info** | [**\GateApi\Model\BrokerCommissionSubBrokerInfo**](BrokerCommissionSubBrokerInfo.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

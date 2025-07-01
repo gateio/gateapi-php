@@ -1,10 +1,10 @@
-# # InlineObject
+# # FindCoin
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mode** | **string** | Full position-by-position model, ISOLATED-by-position, CROSS-full position | 
-**contract** | **string** | Contract Market | 
+**coin** | **string** | Currency | [optional] 
+**cointype** | **string** | Coin Type  swap-Voucher  lock-Locked | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

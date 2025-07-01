@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineObject
+ * BrokerCommissionSubBrokerInfo
  *
  * PHP version 7
  *
@@ -30,14 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * InlineObject Class Doc Comment
+ * BrokerCommissionSubBrokerInfo Class Doc Comment
  *
  * @category Class
+ * @description The sub broker info
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class InlineObject implements ModelInterface, ArrayAccess
+class BrokerCommissionSubBrokerInfo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class InlineObject implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_object';
+    protected static $openAPIModelName = 'BrokerCommission_sub_broker_info';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,8 +55,10 @@ class InlineObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'mode' => 'string',
-        'contract' => 'string'
+        'user_id' => 'int',
+        'original_commission_rate' => 'string',
+        'relative_commission_rate' => 'string',
+        'commission_rate' => 'string'
     ];
 
     /**
@@ -64,8 +67,10 @@ class InlineObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'mode' => null,
-        'contract' => null
+        'user_id' => 'int64',
+        'original_commission_rate' => null,
+        'relative_commission_rate' => null,
+        'commission_rate' => null
     ];
 
     /**
@@ -95,8 +100,10 @@ class InlineObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'mode' => 'mode',
-        'contract' => 'contract'
+        'user_id' => 'user_id',
+        'original_commission_rate' => 'original_commission_rate',
+        'relative_commission_rate' => 'relative_commission_rate',
+        'commission_rate' => 'commission_rate'
     ];
 
     /**
@@ -105,8 +112,10 @@ class InlineObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'mode' => 'setMode',
-        'contract' => 'setContract'
+        'user_id' => 'setUserId',
+        'original_commission_rate' => 'setOriginalCommissionRate',
+        'relative_commission_rate' => 'setRelativeCommissionRate',
+        'commission_rate' => 'setCommissionRate'
     ];
 
     /**
@@ -115,8 +124,10 @@ class InlineObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'mode' => 'getMode',
-        'contract' => 'getContract'
+        'user_id' => 'getUserId',
+        'original_commission_rate' => 'getOriginalCommissionRate',
+        'relative_commission_rate' => 'getRelativeCommissionRate',
+        'commission_rate' => 'getCommissionRate'
     ];
 
     /**
@@ -179,8 +190,10 @@ class InlineObject implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['original_commission_rate'] = isset($data['original_commission_rate']) ? $data['original_commission_rate'] : null;
+        $this->container['relative_commission_rate'] = isset($data['relative_commission_rate']) ? $data['relative_commission_rate'] : null;
+        $this->container['commission_rate'] = isset($data['commission_rate']) ? $data['commission_rate'] : null;
     }
 
     /**
@@ -192,12 +205,6 @@ class InlineObject implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['mode'] === null) {
-            $invalidProperties[] = "'mode' can't be null";
-        }
-        if ($this->container['contract'] === null) {
-            $invalidProperties[] = "'contract' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -214,49 +221,97 @@ class InlineObject implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets mode
+     * Gets user_id
      *
-     * @return string
+     * @return int|null
      */
-    public function getMode()
+    public function getUserId()
     {
-        return $this->container['mode'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets mode
+     * Sets user_id
      *
-     * @param string $mode Full position-by-position model, ISOLATED-by-position, CROSS-full position
+     * @param int|null $user_id The sub broker user ID
      *
      * @return $this
      */
-    public function setMode($mode)
+    public function setUserId($user_id)
     {
-        $this->container['mode'] = $mode;
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
 
     /**
-     * Gets contract
+     * Gets original_commission_rate
      *
-     * @return string
+     * @return string|null
      */
-    public function getContract()
+    public function getOriginalCommissionRate()
     {
-        return $this->container['contract'];
+        return $this->container['original_commission_rate'];
     }
 
     /**
-     * Sets contract
+     * Sets original_commission_rate
      *
-     * @param string $contract Contract Market
+     * @param string|null $original_commission_rate The sub broker original commission rate
      *
      * @return $this
      */
-    public function setContract($contract)
+    public function setOriginalCommissionRate($original_commission_rate)
     {
-        $this->container['contract'] = $contract;
+        $this->container['original_commission_rate'] = $original_commission_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets relative_commission_rate
+     *
+     * @return string|null
+     */
+    public function getRelativeCommissionRate()
+    {
+        return $this->container['relative_commission_rate'];
+    }
+
+    /**
+     * Sets relative_commission_rate
+     *
+     * @param string|null $relative_commission_rate The sub broker relative commission rate
+     *
+     * @return $this
+     */
+    public function setRelativeCommissionRate($relative_commission_rate)
+    {
+        $this->container['relative_commission_rate'] = $relative_commission_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets commission_rate
+     *
+     * @return string|null
+     */
+    public function getCommissionRate()
+    {
+        return $this->container['commission_rate'];
+    }
+
+    /**
+     * Sets commission_rate
+     *
+     * @param string|null $commission_rate The sub broker actual commission rate
+     *
+     * @return $this
+     */
+    public function setCommissionRate($commission_rate)
+    {
+        $this->container['commission_rate'] = $commission_rate;
 
         return $this;
     }

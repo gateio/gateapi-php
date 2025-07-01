@@ -5984,15 +5984,15 @@ class FuturesApi
      * Switch to the full position-by-store mode
      *
      * @param  string $settle Settle currency (required)
-     * @param  \GateApi\Model\InlineObject $inline_object inline_object (required)
+     * @param  \GateApi\Model\FuturesPositionCrossMode $futures_position_cross_mode futures_position_cross_mode (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \GateApi\Model\Position
      */
-    public function updatePositionCrossMode($settle, $inline_object)
+    public function updatePositionCrossMode($settle, $futures_position_cross_mode)
     {
-        list($response) = $this->updatePositionCrossModeWithHttpInfo($settle, $inline_object);
+        list($response) = $this->updatePositionCrossModeWithHttpInfo($settle, $futures_position_cross_mode);
         return $response;
     }
 
@@ -6002,15 +6002,15 @@ class FuturesApi
      * Switch to the full position-by-store mode
      *
      * @param  string $settle Settle currency (required)
-     * @param  \GateApi\Model\InlineObject $inline_object (required)
+     * @param  \GateApi\Model\FuturesPositionCrossMode $futures_position_cross_mode (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \GateApi\Model\Position, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePositionCrossModeWithHttpInfo($settle, $inline_object)
+    public function updatePositionCrossModeWithHttpInfo($settle, $futures_position_cross_mode)
     {
-        $request = $this->updatePositionCrossModeRequest($settle, $inline_object);
+        $request = $this->updatePositionCrossModeRequest($settle, $futures_position_cross_mode);
 
         $options = $this->createHttpClientOption();
         try {
@@ -6057,14 +6057,14 @@ class FuturesApi
      * Switch to the full position-by-store mode
      *
      * @param  string $settle Settle currency (required)
-     * @param  \GateApi\Model\InlineObject $inline_object (required)
+     * @param  \GateApi\Model\FuturesPositionCrossMode $futures_position_cross_mode (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionCrossModeAsync($settle, $inline_object)
+    public function updatePositionCrossModeAsync($settle, $futures_position_cross_mode)
     {
-        return $this->updatePositionCrossModeAsyncWithHttpInfo($settle, $inline_object)
+        return $this->updatePositionCrossModeAsyncWithHttpInfo($settle, $futures_position_cross_mode)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6078,15 +6078,15 @@ class FuturesApi
      * Switch to the full position-by-store mode
      *
      * @param  string $settle Settle currency (required)
-     * @param  \GateApi\Model\InlineObject $inline_object (required)
+     * @param  \GateApi\Model\FuturesPositionCrossMode $futures_position_cross_mode (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePositionCrossModeAsyncWithHttpInfo($settle, $inline_object)
+    public function updatePositionCrossModeAsyncWithHttpInfo($settle, $futures_position_cross_mode)
     {
         $returnType = '\GateApi\Model\Position';
-        $request = $this->updatePositionCrossModeRequest($settle, $inline_object);
+        $request = $this->updatePositionCrossModeRequest($settle, $futures_position_cross_mode);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6126,12 +6126,12 @@ class FuturesApi
      * Create request for operation 'updatePositionCrossMode'
      *
      * @param  string $settle Settle currency (required)
-     * @param  \GateApi\Model\InlineObject $inline_object (required)
+     * @param  \GateApi\Model\FuturesPositionCrossMode $futures_position_cross_mode (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updatePositionCrossModeRequest($settle, $inline_object)
+    protected function updatePositionCrossModeRequest($settle, $futures_position_cross_mode)
     {
         // verify the required parameter 'settle' is set
         if ($settle === null || (is_array($settle) && count($settle) === 0)) {
@@ -6139,10 +6139,10 @@ class FuturesApi
                 'Missing the required parameter $settle when calling updatePositionCrossMode'
             );
         }
-        // verify the required parameter 'inline_object' is set
-        if ($inline_object === null || (is_array($inline_object) && count($inline_object) === 0)) {
+        // verify the required parameter 'futures_position_cross_mode' is set
+        if ($futures_position_cross_mode === null || (is_array($futures_position_cross_mode) && count($futures_position_cross_mode) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_object when calling updatePositionCrossMode'
+                'Missing the required parameter $futures_position_cross_mode when calling updatePositionCrossMode'
             );
         }
 
@@ -6164,8 +6164,8 @@ class FuturesApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_object)) {
-            $_tempBody = $inline_object;
+        if (isset($futures_position_cross_mode)) {
+            $_tempBody = $futures_position_cross_mode;
         }
 
         if ($multipart) {

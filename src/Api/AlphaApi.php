@@ -1,6 +1,6 @@
 <?php
 /**
- * EarnApi
+ * AlphaApi
  * PHP version 7
  *
  * @category Class
@@ -38,14 +38,14 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 
 /**
- * EarnApi Class Doc Comment
+ * AlphaApi Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class EarnApi
+class AlphaApi
 {
     /**
      * @var ClientInterface
@@ -114,244 +114,34 @@ class EarnApi
     }
 
     /**
-     * Operation swapETH2
+     * Operation listAlphaAccounts
      *
-     * ETH2 swap
-     *
-     * @param  \GateApi\Model\Eth2Swap $eth2_swap eth2_swap (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function swapETH2($eth2_swap)
-    {
-        $this->swapETH2WithHttpInfo($eth2_swap);
-    }
-
-    /**
-     * Operation swapETH2WithHttpInfo
-     *
-     * ETH2 swap
-     *
-     * @param  \GateApi\Model\Eth2Swap $eth2_swap (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function swapETH2WithHttpInfo($eth2_swap)
-    {
-        $request = $this->swapETH2Request($eth2_swap);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody != null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        return [null, $statusCode, $response->getHeaders()];
-    }
-
-    /**
-     * Operation swapETH2Async
-     *
-     * ETH2 swap
-     *
-     * @param  \GateApi\Model\Eth2Swap $eth2_swap (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function swapETH2Async($eth2_swap)
-    {
-        return $this->swapETH2AsyncWithHttpInfo($eth2_swap)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation swapETH2AsyncWithHttpInfo
-     *
-     * ETH2 swap
-     *
-     * @param  \GateApi\Model\Eth2Swap $eth2_swap (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function swapETH2AsyncWithHttpInfo($eth2_swap)
-    {
-        $returnType = '';
-        $request = $this->swapETH2Request($eth2_swap);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'swapETH2'
-     *
-     * @param  \GateApi\Model\Eth2Swap $eth2_swap (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function swapETH2Request($eth2_swap)
-    {
-        // verify the required parameter 'eth2_swap' is set
-        if ($eth2_swap === null || (is_array($eth2_swap) && count($eth2_swap) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $eth2_swap when calling swapETH2'
-            );
-        }
-
-        $resourcePath = '/earn/staking/eth2/swap';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // body params
-        $_tempBody = null;
-        if (isset($eth2_swap)) {
-            $_tempBody = $eth2_swap;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation rateListETH2
-     *
-     * ETH2 historical rate of return query
+     * API for Alpha Accounts
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\Eth2RateList[]
+     * @return \GateApi\Model\AccountsResponse[]
      */
-    public function rateListETH2()
+    public function listAlphaAccounts()
     {
-        list($response) = $this->rateListETH2WithHttpInfo();
+        list($response) = $this->listAlphaAccountsWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation rateListETH2WithHttpInfo
+     * Operation listAlphaAccountsWithHttpInfo
      *
-     * ETH2 historical rate of return query
+     * API for Alpha Accounts
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\Eth2RateList[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\AccountsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function rateListETH2WithHttpInfo()
+    public function listAlphaAccountsWithHttpInfo()
     {
-        $request = $this->rateListETH2Request();
+        $request = $this->listAlphaAccountsRequest();
 
         $options = $this->createHttpClientOption();
         try {
@@ -377,7 +167,7 @@ class EarnApi
             );
         }
 
-        $returnType = '\GateApi\Model\Eth2RateList[]';
+        $returnType = '\GateApi\Model\AccountsResponse[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -393,17 +183,17 @@ class EarnApi
     }
 
     /**
-     * Operation rateListETH2Async
+     * Operation listAlphaAccountsAsync
      *
-     * ETH2 historical rate of return query
+     * API for Alpha Accounts
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rateListETH2Async()
+    public function listAlphaAccountsAsync()
     {
-        return $this->rateListETH2AsyncWithHttpInfo()
+        return $this->listAlphaAccountsAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -412,18 +202,18 @@ class EarnApi
     }
 
     /**
-     * Operation rateListETH2AsyncWithHttpInfo
+     * Operation listAlphaAccountsAsyncWithHttpInfo
      *
-     * ETH2 historical rate of return query
+     * API for Alpha Accounts
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rateListETH2AsyncWithHttpInfo()
+    public function listAlphaAccountsAsyncWithHttpInfo()
     {
-        $returnType = '\GateApi\Model\Eth2RateList[]';
-        $request = $this->rateListETH2Request();
+        $returnType = '\GateApi\Model\AccountsResponse[]';
+        $request = $this->listAlphaAccountsRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -460,16 +250,16 @@ class EarnApi
     }
 
     /**
-     * Create request for operation 'rateListETH2'
+     * Create request for operation 'listAlphaAccounts'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function rateListETH2Request()
+    protected function listAlphaAccountsRequest()
     {
 
-        $resourcePath = '/earn/staking/eth2/rate_records';
+        $resourcePath = '/alpha/accounts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -544,40 +334,46 @@ class EarnApi
     }
 
     /**
-     * Operation listDualInvestmentPlans
+     * Operation listAlphaAccountBook
      *
-     * Dual Investment product list
+     * Alpha Asset Transaction API
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $plan_id Financial project id (optional)
+     * @param  int $from Start timestamp of the query (required)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $limit The maximum number of items per page is 100 (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\DualGetPlans[]
+     * @return \GateApi\Model\AccountBookResponse[]
      */
-    public function listDualInvestmentPlans($associative_array)
+    public function listAlphaAccountBook($associative_array)
     {
-        list($response) = $this->listDualInvestmentPlansWithHttpInfo($associative_array);
+        list($response) = $this->listAlphaAccountBookWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation listDualInvestmentPlansWithHttpInfo
+     * Operation listAlphaAccountBookWithHttpInfo
      *
-     * Dual Investment product list
+     * Alpha Asset Transaction API
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $plan_id Financial project id (optional)
+     * @param  int $from Start timestamp of the query (required)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $limit The maximum number of items per page is 100 (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\DualGetPlans[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\AccountBookResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDualInvestmentPlansWithHttpInfo($associative_array)
+    public function listAlphaAccountBookWithHttpInfo($associative_array)
     {
-        $request = $this->listDualInvestmentPlansRequest($associative_array);
+        $request = $this->listAlphaAccountBookRequest($associative_array);
 
         $options = $this->createHttpClientOption();
         try {
@@ -603,7 +399,7 @@ class EarnApi
             );
         }
 
-        $returnType = '\GateApi\Model\DualGetPlans[]';
+        $returnType = '\GateApi\Model\AccountBookResponse[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -619,20 +415,23 @@ class EarnApi
     }
 
     /**
-     * Operation listDualInvestmentPlansAsync
+     * Operation listAlphaAccountBookAsync
      *
-     * Dual Investment product list
+     * Alpha Asset Transaction API
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $plan_id Financial project id (optional)
+     * @param  int $from Start timestamp of the query (required)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $limit The maximum number of items per page is 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDualInvestmentPlansAsync($associative_array)
+    public function listAlphaAccountBookAsync($associative_array)
     {
-        return $this->listDualInvestmentPlansAsyncWithHttpInfo($associative_array)
+        return $this->listAlphaAccountBookAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -641,21 +440,24 @@ class EarnApi
     }
 
     /**
-     * Operation listDualInvestmentPlansAsyncWithHttpInfo
+     * Operation listAlphaAccountBookAsyncWithHttpInfo
      *
-     * Dual Investment product list
+     * Alpha Asset Transaction API
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $plan_id Financial project id (optional)
+     * @param  int $from Start timestamp of the query (required)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $limit The maximum number of items per page is 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDualInvestmentPlansAsyncWithHttpInfo($associative_array)
+    public function listAlphaAccountBookAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\DualGetPlans[]';
-        $request = $this->listDualInvestmentPlansRequest($associative_array);
+        $returnType = '\GateApi\Model\AccountBookResponse[]';
+        $request = $this->listAlphaAccountBookRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -692,298 +494,34 @@ class EarnApi
     }
 
     /**
-     * Create request for operation 'listDualInvestmentPlans'
+     * Create request for operation 'listAlphaAccountBook'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $plan_id Financial project id (optional)
+     * @param  int $from Start timestamp of the query (required)
+     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $limit The maximum number of items per page is 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listDualInvestmentPlansRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $plan_id = array_key_exists('plan_id', $associative_array) ? $associative_array['plan_id'] : null;
-
-
-        $resourcePath = '/earn/dual/investment_plan';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($plan_id !== null) {
-            if('form' === 'form' && is_array($plan_id)) {
-                foreach($plan_id as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['plan_id'] = $plan_id;
-            }
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listDualOrders
-     *
-     * Dual Investment order list
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start checkout time (optional)
-     * @param  int $to End settlement time (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\DualGetOrders[]
-     */
-    public function listDualOrders($associative_array)
-    {
-        list($response) = $this->listDualOrdersWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation listDualOrdersWithHttpInfo
-     *
-     * Dual Investment order list
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start checkout time (optional)
-     * @param  int $to End settlement time (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\DualGetOrders[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listDualOrdersWithHttpInfo($associative_array)
-    {
-        $request = $this->listDualOrdersRequest($associative_array);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody != null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\DualGetOrders[]';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation listDualOrdersAsync
-     *
-     * Dual Investment order list
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start checkout time (optional)
-     * @param  int $to End settlement time (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listDualOrdersAsync($associative_array)
-    {
-        return $this->listDualOrdersAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listDualOrdersAsyncWithHttpInfo
-     *
-     * Dual Investment order list
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start checkout time (optional)
-     * @param  int $to End settlement time (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listDualOrdersAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\GateApi\Model\DualGetOrders[]';
-        $request = $this->listDualOrdersRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listDualOrders'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start checkout time (optional)
-     * @param  int $to End settlement time (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listDualOrdersRequest($associative_array)
+    protected function listAlphaAccountBookRequest($associative_array)
     {
         // unbox the parameters from the associative array
         $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
         $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
-        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
-        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
 
-        if ($page !== null && $page < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page" when calling EarnApi.listDualOrders, must be bigger than or equal to 1.');
+        // verify the required parameter 'from' is set
+        if ($from === null || (is_array($from) && count($from) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $from when calling listAlphaAccountBook'
+            );
         }
 
-        if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling EarnApi.listDualOrders, must be smaller than or equal to 1000.');
-        }
-        if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling EarnApi.listDualOrders, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/earn/dual/orders';
+        $resourcePath = '/alpha/account_book';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1106,35 +644,36 @@ class EarnApi
     }
 
     /**
-     * Operation placeDualOrder
+     * Operation quoteAlphaOrder
      *
-     * Place Dual Investment order
+     * Alpha Quotation API
      *
-     * @param  \GateApi\Model\PlaceDualInvestmentOrder $place_dual_investment_order place_dual_investment_order (required)
+     * @param  \GateApi\Model\QuoteRequest $quote_request quote_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \GateApi\Model\QuoteResponse
      */
-    public function placeDualOrder($place_dual_investment_order)
+    public function quoteAlphaOrder($quote_request)
     {
-        $this->placeDualOrderWithHttpInfo($place_dual_investment_order);
+        list($response) = $this->quoteAlphaOrderWithHttpInfo($quote_request);
+        return $response;
     }
 
     /**
-     * Operation placeDualOrderWithHttpInfo
+     * Operation quoteAlphaOrderWithHttpInfo
      *
-     * Place Dual Investment order
+     * Alpha Quotation API
      *
-     * @param  \GateApi\Model\PlaceDualInvestmentOrder $place_dual_investment_order (required)
+     * @param  \GateApi\Model\QuoteRequest $quote_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\QuoteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function placeDualOrderWithHttpInfo($place_dual_investment_order)
+    public function quoteAlphaOrderWithHttpInfo($quote_request)
     {
-        $request = $this->placeDualOrderRequest($place_dual_investment_order);
+        $request = $this->quoteAlphaOrderRequest($quote_request);
 
         $options = $this->createHttpClientOption();
         try {
@@ -1160,22 +699,34 @@ class EarnApi
             );
         }
 
-        return [null, $statusCode, $response->getHeaders()];
+        $returnType = '\GateApi\Model\QuoteResponse';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /**
-     * Operation placeDualOrderAsync
+     * Operation quoteAlphaOrderAsync
      *
-     * Place Dual Investment order
+     * Alpha Quotation API
      *
-     * @param  \GateApi\Model\PlaceDualInvestmentOrder $place_dual_investment_order (required)
+     * @param  \GateApi\Model\QuoteRequest $quote_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function placeDualOrderAsync($place_dual_investment_order)
+    public function quoteAlphaOrderAsync($quote_request)
     {
-        return $this->placeDualOrderAsyncWithHttpInfo($place_dual_investment_order)
+        return $this->quoteAlphaOrderAsyncWithHttpInfo($quote_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1184,25 +735,36 @@ class EarnApi
     }
 
     /**
-     * Operation placeDualOrderAsyncWithHttpInfo
+     * Operation quoteAlphaOrderAsyncWithHttpInfo
      *
-     * Place Dual Investment order
+     * Alpha Quotation API
      *
-     * @param  \GateApi\Model\PlaceDualInvestmentOrder $place_dual_investment_order (required)
+     * @param  \GateApi\Model\QuoteRequest $quote_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function placeDualOrderAsyncWithHttpInfo($place_dual_investment_order)
+    public function quoteAlphaOrderAsyncWithHttpInfo($quote_request)
     {
-        $returnType = '';
-        $request = $this->placeDualOrderRequest($place_dual_investment_order);
+        $returnType = '\GateApi\Model\QuoteResponse';
+        $request = $this->quoteAlphaOrderRequest($quote_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1222,23 +784,23 @@ class EarnApi
     }
 
     /**
-     * Create request for operation 'placeDualOrder'
+     * Create request for operation 'quoteAlphaOrder'
      *
-     * @param  \GateApi\Model\PlaceDualInvestmentOrder $place_dual_investment_order (required)
+     * @param  \GateApi\Model\QuoteRequest $quote_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function placeDualOrderRequest($place_dual_investment_order)
+    protected function quoteAlphaOrderRequest($quote_request)
     {
-        // verify the required parameter 'place_dual_investment_order' is set
-        if ($place_dual_investment_order === null || (is_array($place_dual_investment_order) && count($place_dual_investment_order) === 0)) {
+        // verify the required parameter 'quote_request' is set
+        if ($quote_request === null || (is_array($quote_request) && count($quote_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $place_dual_investment_order when calling placeDualOrder'
+                'Missing the required parameter $quote_request when calling quoteAlphaOrder'
             );
         }
 
-        $resourcePath = '/earn/dual/orders';
+        $resourcePath = '/alpha/quote';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1247,17 +809,17 @@ class EarnApi
 
         // body params
         $_tempBody = null;
-        if (isset($place_dual_investment_order)) {
-            $_tempBody = $place_dual_investment_order;
+        if (isset($quote_request)) {
+            $_tempBody = $quote_request;
         }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -1316,46 +878,52 @@ class EarnApi
     }
 
     /**
-     * Operation listStructuredProducts
+     * Operation listAlphaOrder
      *
-     * Structured Product List
+     * Alpha 查询订单列表接口
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish (required)
-     * @param  string $type Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall (optional)
+     * @param  string $currency Trading Symbol (required)
+     * @param  string $side 买单或者卖单 - buy - sell (required)
+     * @param  int $status Order Status - &#x60;0&#x60; : All - &#x60;1&#x60; : Processing - &#x60;2&#x60; : Successful - &#x60;3&#x60; : Failed - &#x60;4&#x60; : Canceled - &#x60;5&#x60; : Buy order placed but transfer not completed - &#x60;6&#x60; : Cancelled order with transfer not complete (required)
+     * @param  int $from 查询订单的起始时间 (optional)
+     * @param  int $to 查询订单的结束时间，不指定则默认为当前时间 (optional)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\StructuredGetProjectList[]
+     * @return \GateApi\Model\OrderResponse[]
      */
-    public function listStructuredProducts($associative_array)
+    public function listAlphaOrder($associative_array)
     {
-        list($response) = $this->listStructuredProductsWithHttpInfo($associative_array);
+        list($response) = $this->listAlphaOrderWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation listStructuredProductsWithHttpInfo
+     * Operation listAlphaOrderWithHttpInfo
      *
-     * Structured Product List
+     * Alpha 查询订单列表接口
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish (required)
-     * @param  string $type Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall (optional)
+     * @param  string $currency Trading Symbol (required)
+     * @param  string $side 买单或者卖单 - buy - sell (required)
+     * @param  int $status Order Status - &#x60;0&#x60; : All - &#x60;1&#x60; : Processing - &#x60;2&#x60; : Successful - &#x60;3&#x60; : Failed - &#x60;4&#x60; : Canceled - &#x60;5&#x60; : Buy order placed but transfer not completed - &#x60;6&#x60; : Cancelled order with transfer not complete (required)
+     * @param  int $from 查询订单的起始时间 (optional)
+     * @param  int $to 查询订单的结束时间，不指定则默认为当前时间 (optional)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\StructuredGetProjectList[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\OrderResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listStructuredProductsWithHttpInfo($associative_array)
+    public function listAlphaOrderWithHttpInfo($associative_array)
     {
-        $request = $this->listStructuredProductsRequest($associative_array);
+        $request = $this->listAlphaOrderRequest($associative_array);
 
         $options = $this->createHttpClientOption();
         try {
@@ -1381,7 +949,7 @@ class EarnApi
             );
         }
 
-        $returnType = '\GateApi\Model\StructuredGetProjectList[]';
+        $returnType = '\GateApi\Model\OrderResponse[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -1397,23 +965,26 @@ class EarnApi
     }
 
     /**
-     * Operation listStructuredProductsAsync
+     * Operation listAlphaOrderAsync
      *
-     * Structured Product List
+     * Alpha 查询订单列表接口
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish (required)
-     * @param  string $type Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall (optional)
+     * @param  string $currency Trading Symbol (required)
+     * @param  string $side 买单或者卖单 - buy - sell (required)
+     * @param  int $status Order Status - &#x60;0&#x60; : All - &#x60;1&#x60; : Processing - &#x60;2&#x60; : Successful - &#x60;3&#x60; : Failed - &#x60;4&#x60; : Canceled - &#x60;5&#x60; : Buy order placed but transfer not completed - &#x60;6&#x60; : Cancelled order with transfer not complete (required)
+     * @param  int $from 查询订单的起始时间 (optional)
+     * @param  int $to 查询订单的结束时间，不指定则默认为当前时间 (optional)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listStructuredProductsAsync($associative_array)
+    public function listAlphaOrderAsync($associative_array)
     {
-        return $this->listStructuredProductsAsyncWithHttpInfo($associative_array)
+        return $this->listAlphaOrderAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1422,24 +993,27 @@ class EarnApi
     }
 
     /**
-     * Operation listStructuredProductsAsyncWithHttpInfo
+     * Operation listAlphaOrderAsyncWithHttpInfo
      *
-     * Structured Product List
+     * Alpha 查询订单列表接口
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish (required)
-     * @param  string $type Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall (optional)
+     * @param  string $currency Trading Symbol (required)
+     * @param  string $side 买单或者卖单 - buy - sell (required)
+     * @param  int $status Order Status - &#x60;0&#x60; : All - &#x60;1&#x60; : Processing - &#x60;2&#x60; : Successful - &#x60;3&#x60; : Failed - &#x60;4&#x60; : Canceled - &#x60;5&#x60; : Buy order placed but transfer not completed - &#x60;6&#x60; : Cancelled order with transfer not complete (required)
+     * @param  int $from 查询订单的起始时间 (optional)
+     * @param  int $to 查询订单的结束时间，不指定则默认为当前时间 (optional)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listStructuredProductsAsyncWithHttpInfo($associative_array)
+    public function listAlphaOrderAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\StructuredGetProjectList[]';
-        $request = $this->listStructuredProductsRequest($associative_array);
+        $returnType = '\GateApi\Model\OrderResponse[]';
+        $request = $this->listAlphaOrderRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1476,45 +1050,63 @@ class EarnApi
     }
 
     /**
-     * Create request for operation 'listStructuredProducts'
+     * Create request for operation 'listAlphaOrder'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish (required)
-     * @param  string $type Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall (optional)
+     * @param  string $currency Trading Symbol (required)
+     * @param  string $side 买单或者卖单 - buy - sell (required)
+     * @param  int $status Order Status - &#x60;0&#x60; : All - &#x60;1&#x60; : Processing - &#x60;2&#x60; : Successful - &#x60;3&#x60; : Failed - &#x60;4&#x60; : Canceled - &#x60;5&#x60; : Buy order placed but transfer not completed - &#x60;6&#x60; : Cancelled order with transfer not complete (required)
+     * @param  int $from 查询订单的起始时间 (optional)
+     * @param  int $to 查询订单的结束时间，不指定则默认为当前时间 (optional)
+     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
      * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listStructuredProductsRequest($associative_array)
+    protected function listAlphaOrderRequest($associative_array)
     {
         // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $side = array_key_exists('side', $associative_array) ? $associative_array['side'] : null;
         $status = array_key_exists('status', $associative_array) ? $associative_array['status'] : null;
-        $type = array_key_exists('type', $associative_array) ? $associative_array['type'] : null;
-        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
+        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
+        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
 
+        // verify the required parameter 'currency' is set
+        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $currency when calling listAlphaOrder'
+            );
+        }
+        // verify the required parameter 'side' is set
+        if ($side === null || (is_array($side) && count($side) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $side when calling listAlphaOrder'
+            );
+        }
         // verify the required parameter 'status' is set
         if ($status === null || (is_array($status) && count($status) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling listStructuredProducts'
+                'Missing the required parameter $status when calling listAlphaOrder'
             );
         }
-        if ($page !== null && $page < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page" when calling EarnApi.listStructuredProducts, must be bigger than or equal to 1.');
-        }
-
-        if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling EarnApi.listStructuredProducts, must be smaller than or equal to 1000.');
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling AlphaApi.listAlphaOrder, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling EarnApi.listStructuredProducts, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling AlphaApi.listAlphaOrder, must be bigger than or equal to 1.');
+        }
+
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling AlphaApi.listAlphaOrder, must be bigger than or equal to 1.');
         }
 
 
-        $resourcePath = '/earn/structured/products';
+        $resourcePath = '/alpha/orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1522,14 +1114,26 @@ class EarnApi
         $multipart = false;
 
         // query params
-        if ($type !== null) {
-            if('form' === 'form' && is_array($type)) {
-                foreach($type as $key => $value) {
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
                     $queryParams[$key] = $value;
                 }
             }
             else {
-                $queryParams['type'] = $type;
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($side !== null) {
+            if('form' === 'form' && is_array($side)) {
+                foreach($side as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['side'] = $side;
             }
         }
 
@@ -1546,294 +1150,6 @@ class EarnApi
         }
 
         // query params
-        if ($page !== null) {
-            if('form' === 'form' && is_array($page)) {
-                foreach($page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['page'] = $page;
-            }
-        }
-
-        // query params
-        if ($limit !== null) {
-            if('form' === 'form' && is_array($limit)) {
-                foreach($limit as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['limit'] = $limit;
-            }
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listStructuredOrders
-     *
-     * Structured Product Order List
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start timestamp (optional)
-     * @param  int $to End timestamp (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \GateApi\Model\StructuredOrderList[]
-     */
-    public function listStructuredOrders($associative_array)
-    {
-        list($response) = $this->listStructuredOrdersWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation listStructuredOrdersWithHttpInfo
-     *
-     * Structured Product Order List
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start timestamp (optional)
-     * @param  int $to End timestamp (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\StructuredOrderList[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listStructuredOrdersWithHttpInfo($associative_array)
-    {
-        $request = $this->listStructuredOrdersRequest($associative_array);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody != null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        $returnType = '\GateApi\Model\StructuredOrderList[]';
-        $responseBody = $response->getBody();
-        if ($returnType === '\SplFileObject') {
-            $content = $responseBody; //stream goes to serializer
-        } else {
-            $content = (string) $responseBody;
-        }
-
-        return [
-            ObjectSerializer::deserialize($content, $returnType, []),
-            $response->getStatusCode(),
-            $response->getHeaders()
-        ];
-    }
-
-    /**
-     * Operation listStructuredOrdersAsync
-     *
-     * Structured Product Order List
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start timestamp (optional)
-     * @param  int $to End timestamp (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listStructuredOrdersAsync($associative_array)
-    {
-        return $this->listStructuredOrdersAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listStructuredOrdersAsyncWithHttpInfo
-     *
-     * Structured Product Order List
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start timestamp (optional)
-     * @param  int $to End timestamp (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listStructuredOrdersAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\GateApi\Model\StructuredOrderList[]';
-        $request = $this->listStructuredOrdersRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listStructuredOrders'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  int $from Start timestamp (optional)
-     * @param  int $to End timestamp (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function listStructuredOrdersRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $from = array_key_exists('from', $associative_array) ? $associative_array['from'] : null;
-        $to = array_key_exists('to', $associative_array) ? $associative_array['to'] : null;
-        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
-        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
-
-        if ($page !== null && $page < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page" when calling EarnApi.listStructuredOrders, must be bigger than or equal to 1.');
-        }
-
-        if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling EarnApi.listStructuredOrders, must be smaller than or equal to 1000.');
-        }
-        if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling EarnApi.listStructuredOrders, must be bigger than or equal to 1.');
-        }
-
-
-        $resourcePath = '/earn/structured/orders';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
         if ($from !== null) {
             if('form' === 'form' && is_array($from)) {
                 foreach($from as $key => $value) {
@@ -1858,18 +1174,6 @@ class EarnApi
         }
 
         // query params
-        if ($page !== null) {
-            if('form' === 'form' && is_array($page)) {
-                foreach($page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['page'] = $page;
-            }
-        }
-
-        // query params
         if ($limit !== null) {
             if('form' === 'form' && is_array($limit)) {
                 foreach($limit as $key => $value) {
@@ -1878,6 +1182,18 @@ class EarnApi
             }
             else {
                 $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
             }
         }
 
@@ -1949,246 +1265,36 @@ class EarnApi
     }
 
     /**
-     * Operation placeStructuredOrder
+     * Operation placeAlphaOrder
      *
-     * Place Structured Product Order
+     * Alpha Order Placement API
      *
-     * @param  \GateApi\Model\StructuredBuy $structured_buy structured_buy (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function placeStructuredOrder($structured_buy)
-    {
-        $this->placeStructuredOrderWithHttpInfo($structured_buy);
-    }
-
-    /**
-     * Operation placeStructuredOrderWithHttpInfo
-     *
-     * Place Structured Product Order
-     *
-     * @param  \GateApi\Model\StructuredBuy $structured_buy (required)
+     * @param  \GateApi\Model\PlaceOrderRequest $place_order_request place_order_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return \GateApi\Model\PlaceOrderResponse
      */
-    public function placeStructuredOrderWithHttpInfo($structured_buy)
+    public function placeAlphaOrder($place_order_request)
     {
-        $request = $this->placeStructuredOrderRequest($structured_buy);
-
-        $options = $this->createHttpClientOption();
-        try {
-            $response = $this->client->send($request, $options);
-        } catch (RequestException $e) {
-            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
-            if ($responseBody != null) {
-                $gateError = json_decode($responseBody, true);
-                if ($gateError !== null && isset($gateError['label'])) {
-                    throw new GateApiException(
-                        $gateError,
-                        $e->getCode(),
-                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                        $responseBody
-                    );
-                }
-            }
-            throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
-                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                $responseBody
-            );
-        }
-
-        return [null, $statusCode, $response->getHeaders()];
-    }
-
-    /**
-     * Operation placeStructuredOrderAsync
-     *
-     * Place Structured Product Order
-     *
-     * @param  \GateApi\Model\StructuredBuy $structured_buy (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function placeStructuredOrderAsync($structured_buy)
-    {
-        return $this->placeStructuredOrderAsyncWithHttpInfo($structured_buy)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation placeStructuredOrderAsyncWithHttpInfo
-     *
-     * Place Structured Product Order
-     *
-     * @param  \GateApi\Model\StructuredBuy $structured_buy (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function placeStructuredOrderAsyncWithHttpInfo($structured_buy)
-    {
-        $returnType = '';
-        $request = $this->placeStructuredOrderRequest($structured_buy);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'placeStructuredOrder'
-     *
-     * @param  \GateApi\Model\StructuredBuy $structured_buy (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function placeStructuredOrderRequest($structured_buy)
-    {
-        // verify the required parameter 'structured_buy' is set
-        if ($structured_buy === null || (is_array($structured_buy) && count($structured_buy) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $structured_buy when calling placeStructuredOrder'
-            );
-        }
-
-        $resourcePath = '/earn/structured/orders';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // body params
-        $_tempBody = null;
-        if (isset($structured_buy)) {
-            $_tempBody = $structured_buy;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation findCoin
-     *
-     * 链上赚币币种
-     *
-     * @param  \GateApi\Model\FindCoin $find_coin find_coin (required)
-     *
-     * @throws \GateApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string[]
-     */
-    public function findCoin($find_coin)
-    {
-        list($response) = $this->findCoinWithHttpInfo($find_coin);
+        list($response) = $this->placeAlphaOrderWithHttpInfo($place_order_request);
         return $response;
     }
 
     /**
-     * Operation findCoinWithHttpInfo
+     * Operation placeAlphaOrderWithHttpInfo
      *
-     * 链上赚币币种
+     * Alpha Order Placement API
      *
-     * @param  \GateApi\Model\FindCoin $find_coin (required)
+     * @param  \GateApi\Model\PlaceOrderRequest $place_order_request (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\PlaceOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function findCoinWithHttpInfo($find_coin)
+    public function placeAlphaOrderWithHttpInfo($place_order_request)
     {
-        $request = $this->findCoinRequest($find_coin);
+        $request = $this->placeAlphaOrderRequest($place_order_request);
 
         $options = $this->createHttpClientOption();
         try {
@@ -2214,7 +1320,7 @@ class EarnApi
             );
         }
 
-        $returnType = 'string[]';
+        $returnType = '\GateApi\Model\PlaceOrderResponse';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -2230,18 +1336,18 @@ class EarnApi
     }
 
     /**
-     * Operation findCoinAsync
+     * Operation placeAlphaOrderAsync
      *
-     * 链上赚币币种
+     * Alpha Order Placement API
      *
-     * @param  \GateApi\Model\FindCoin $find_coin (required)
+     * @param  \GateApi\Model\PlaceOrderRequest $place_order_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function findCoinAsync($find_coin)
+    public function placeAlphaOrderAsync($place_order_request)
     {
-        return $this->findCoinAsyncWithHttpInfo($find_coin)
+        return $this->placeAlphaOrderAsyncWithHttpInfo($place_order_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2250,19 +1356,19 @@ class EarnApi
     }
 
     /**
-     * Operation findCoinAsyncWithHttpInfo
+     * Operation placeAlphaOrderAsyncWithHttpInfo
      *
-     * 链上赚币币种
+     * Alpha Order Placement API
      *
-     * @param  \GateApi\Model\FindCoin $find_coin (required)
+     * @param  \GateApi\Model\PlaceOrderRequest $place_order_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function findCoinAsyncWithHttpInfo($find_coin)
+    public function placeAlphaOrderAsyncWithHttpInfo($place_order_request)
     {
-        $returnType = 'string[]';
-        $request = $this->findCoinRequest($find_coin);
+        $returnType = '\GateApi\Model\PlaceOrderResponse';
+        $request = $this->placeAlphaOrderRequest($place_order_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2299,23 +1405,23 @@ class EarnApi
     }
 
     /**
-     * Create request for operation 'findCoin'
+     * Create request for operation 'placeAlphaOrder'
      *
-     * @param  \GateApi\Model\FindCoin $find_coin (required)
+     * @param  \GateApi\Model\PlaceOrderRequest $place_order_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function findCoinRequest($find_coin)
+    protected function placeAlphaOrderRequest($place_order_request)
     {
-        // verify the required parameter 'find_coin' is set
-        if ($find_coin === null || (is_array($find_coin) && count($find_coin) === 0)) {
+        // verify the required parameter 'place_order_request' is set
+        if ($place_order_request === null || (is_array($place_order_request) && count($place_order_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $find_coin when calling findCoin'
+                'Missing the required parameter $place_order_request when calling placeAlphaOrder'
             );
         }
 
-        $resourcePath = '/earn/staking/coins';
+        $resourcePath = '/alpha/orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2324,8 +1430,8 @@ class EarnApi
 
         // body params
         $_tempBody = null;
-        if (isset($find_coin)) {
-            $_tempBody = $find_coin;
+        if (isset($place_order_request)) {
+            $_tempBody = $place_order_request;
         }
 
         if ($multipart) {
@@ -2336,6 +1442,249 @@ class EarnApi
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
                 ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires Gate APIv4 authentication
+        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
+        $headers = array_merge($headers, $signHeaders);
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAlphaOrder
+     *
+     * Alpha 查询单个订单接口
+     *
+     * @param  string $order_id Order ID (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\OrderResponse
+     */
+    public function getAlphaOrder($order_id)
+    {
+        list($response) = $this->getAlphaOrderWithHttpInfo($order_id);
+        return $response;
+    }
+
+    /**
+     * Operation getAlphaOrderWithHttpInfo
+     *
+     * Alpha 查询单个订单接口
+     *
+     * @param  string $order_id Order ID (required)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAlphaOrderWithHttpInfo($order_id)
+    {
+        $request = $this->getAlphaOrderRequest($order_id);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\OrderResponse';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation getAlphaOrderAsync
+     *
+     * Alpha 查询单个订单接口
+     *
+     * @param  string $order_id Order ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAlphaOrderAsync($order_id)
+    {
+        return $this->getAlphaOrderAsyncWithHttpInfo($order_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAlphaOrderAsyncWithHttpInfo
+     *
+     * Alpha 查询单个订单接口
+     *
+     * @param  string $order_id Order ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAlphaOrderAsyncWithHttpInfo($order_id)
+    {
+        $returnType = '\GateApi\Model\OrderResponse';
+        $request = $this->getAlphaOrderRequest($order_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAlphaOrder'
+     *
+     * @param  string $order_id Order ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAlphaOrderRequest($order_id)
+    {
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling getAlphaOrder'
+            );
+        }
+
+        $resourcePath = '/alpha/order';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($order_id !== null) {
+            if('form' === 'form' && is_array($order_id)) {
+                foreach($order_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['order_id'] = $order_id;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
             );
         }
 
@@ -2393,35 +1742,44 @@ class EarnApi
     }
 
     /**
-     * Operation swapStakingCoin
+     * Operation listAlphaCurrencies
      *
-     * On-chain Token Swap for Earned Coins
+     * 查询币种信息
      *
-     * @param  \GateApi\Model\SwapCoin $swap_coin swap_coin (required)
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency 根据币种符号查询币种信息 (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \GateApi\Model\Currency2[]
      */
-    public function swapStakingCoin($swap_coin)
+    public function listAlphaCurrencies($associative_array)
     {
-        $this->swapStakingCoinWithHttpInfo($swap_coin);
+        list($response) = $this->listAlphaCurrenciesWithHttpInfo($associative_array);
+        return $response;
     }
 
     /**
-     * Operation swapStakingCoinWithHttpInfo
+     * Operation listAlphaCurrenciesWithHttpInfo
      *
-     * On-chain Token Swap for Earned Coins
+     * 查询币种信息
      *
-     * @param  \GateApi\Model\SwapCoin $swap_coin (required)
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency 根据币种符号查询币种信息 (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\Currency2[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function swapStakingCoinWithHttpInfo($swap_coin)
+    public function listAlphaCurrenciesWithHttpInfo($associative_array)
     {
-        $request = $this->swapStakingCoinRequest($swap_coin);
+        $request = $this->listAlphaCurrenciesRequest($associative_array);
 
         $options = $this->createHttpClientOption();
         try {
@@ -2447,22 +1805,38 @@ class EarnApi
             );
         }
 
-        return [null, $statusCode, $response->getHeaders()];
+        $returnType = '\GateApi\Model\Currency2[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
     }
 
     /**
-     * Operation swapStakingCoinAsync
+     * Operation listAlphaCurrenciesAsync
      *
-     * On-chain Token Swap for Earned Coins
+     * 查询币种信息
      *
-     * @param  \GateApi\Model\SwapCoin $swap_coin (required)
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency 根据币种符号查询币种信息 (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function swapStakingCoinAsync($swap_coin)
+    public function listAlphaCurrenciesAsync($associative_array)
     {
-        return $this->swapStakingCoinAsyncWithHttpInfo($swap_coin)
+        return $this->listAlphaCurrenciesAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2471,25 +1845,40 @@ class EarnApi
     }
 
     /**
-     * Operation swapStakingCoinAsyncWithHttpInfo
+     * Operation listAlphaCurrenciesAsyncWithHttpInfo
      *
-     * On-chain Token Swap for Earned Coins
+     * 查询币种信息
      *
-     * @param  \GateApi\Model\SwapCoin $swap_coin (required)
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency 根据币种符号查询币种信息 (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function swapStakingCoinAsyncWithHttpInfo($swap_coin)
+    public function listAlphaCurrenciesAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '';
-        $request = $this->swapStakingCoinRequest($swap_coin);
+        $returnType = '\GateApi\Model\Currency2[]';
+        $request = $this->listAlphaCurrenciesRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -2509,43 +1898,90 @@ class EarnApi
     }
 
     /**
-     * Create request for operation 'swapStakingCoin'
+     * Create request for operation 'listAlphaCurrencies'
      *
-     * @param  \GateApi\Model\SwapCoin $swap_coin (required)
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency 根据币种符号查询币种信息 (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function swapStakingCoinRequest($swap_coin)
+    protected function listAlphaCurrenciesRequest($associative_array)
     {
-        // verify the required parameter 'swap_coin' is set
-        if ($swap_coin === null || (is_array($swap_coin) && count($swap_coin) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $swap_coin when calling swapStakingCoin'
-            );
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling AlphaApi.listAlphaCurrencies, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling AlphaApi.listAlphaCurrencies, must be bigger than or equal to 1.');
         }
 
-        $resourcePath = '/earn/staking/swap';
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling AlphaApi.listAlphaCurrencies, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/alpha/currencies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+
         // body params
         $_tempBody = null;
-        if (isset($swap_coin)) {
-            $_tempBody = $swap_coin;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
-                ['application/json']
+                ['application/json'],
+                []
             );
         }
 
@@ -2578,9 +2014,6 @@ class EarnApi
             }
         }
 
-        // this endpoint requires Gate APIv4 authentication
-        $signHeaders = $this->config->buildSignHeaders('POST', $resourcePath, $queryParams, $httpBody);
-        $headers = array_merge($headers, $signHeaders);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2595,7 +2028,301 @@ class EarnApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'POST',
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listAlphaTickers
+     *
+     * 查询币种ticker
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \GateApi\Model\Ticker2[]
+     */
+    public function listAlphaTickers($associative_array)
+    {
+        list($response) = $this->listAlphaTickersWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listAlphaTickersWithHttpInfo
+     *
+     * 查询币种ticker
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     *
+     * @throws \GateApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \GateApi\Model\Ticker2[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listAlphaTickersWithHttpInfo($associative_array)
+    {
+        $request = $this->listAlphaTickersRequest($associative_array);
+
+        $options = $this->createHttpClientOption();
+        try {
+            $response = $this->client->send($request, $options);
+        } catch (RequestException $e) {
+            $responseBody = $e->getResponse() ? (string) $e->getResponse()->getBody() : null;
+            if ($responseBody != null) {
+                $gateError = json_decode($responseBody, true);
+                if ($gateError !== null && isset($gateError['label'])) {
+                    throw new GateApiException(
+                        $gateError,
+                        $e->getCode(),
+                        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                        $responseBody
+                    );
+                }
+            }
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                $e->getCode(),
+                $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                $responseBody
+            );
+        }
+
+        $returnType = '\GateApi\Model\Ticker2[]';
+        $responseBody = $response->getBody();
+        if ($returnType === '\SplFileObject') {
+            $content = $responseBody; //stream goes to serializer
+        } else {
+            $content = (string) $responseBody;
+        }
+
+        return [
+            ObjectSerializer::deserialize($content, $returnType, []),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        ];
+    }
+
+    /**
+     * Operation listAlphaTickersAsync
+     *
+     * 查询币种ticker
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listAlphaTickersAsync($associative_array)
+    {
+        return $this->listAlphaTickersAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listAlphaTickersAsyncWithHttpInfo
+     *
+     * 查询币种ticker
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listAlphaTickersAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\GateApi\Model\Ticker2[]';
+        $request = $this->listAlphaTickersRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listAlphaTickers'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  int $page Page number (optional, default to 1)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listAlphaTickersRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $currency = array_key_exists('currency', $associative_array) ? $associative_array['currency'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : 100;
+        $page = array_key_exists('page', $associative_array) ? $associative_array['page'] : 1;
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling AlphaApi.listAlphaTickers, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling AlphaApi.listAlphaTickers, must be bigger than or equal to 1.');
+        }
+
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling AlphaApi.listAlphaTickers, must be bigger than or equal to 1.');
+        }
+
+
+        $resourcePath = '/alpha/tickers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($currency !== null) {
+            if('form' === 'form' && is_array($currency)) {
+                foreach($currency as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['currency'] = $currency;
+            }
+        }
+
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

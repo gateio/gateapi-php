@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_id** | **string** | User ID | [optional] [readonly] 
+**user_id** | **int** | User ID | [optional] [readonly] 
 **mode** | **int** | Mode: 1 - classic 2 - portfolio account | [optional] 
 **name** | **string** | API key name | [optional] 
 **perms** | [**\GateApi\Model\SubAccountKeyPerms[]**](SubAccountKeyPerms.md) |  | [optional] 

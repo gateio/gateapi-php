@@ -1,6 +1,6 @@
 <?php
 /**
- * BrokerTransaction1
+ * AccountsResponse
  *
  * PHP version 7
  *
@@ -30,14 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * BrokerTransaction1 Class Doc Comment
+ * AccountsResponse Class Doc Comment
  *
  * @category Class
+ * @description Quotation Response
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class BrokerTransaction1 implements ModelInterface, ArrayAccess
+class AccountsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BrokerTransaction_1';
+    protected static $openAPIModelName = 'AccountsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,15 +55,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'transaction_time' => 'int',
-        'user_id' => 'int',
-        'group_name' => 'string',
-        'fee' => 'string',
-        'currency_pair' => 'string',
-        'amount' => 'string',
-        'fee_asset' => 'string',
-        'source' => 'string',
-        'sub_broker_info' => '\GateApi\Model\BrokerCommissionSubBrokerInfo'
+        'currency' => 'string',
+        'available' => 'string',
+        'locked' => 'string',
+        'token_address' => 'string',
+        'chain' => 'string'
     ];
 
     /**
@@ -71,15 +68,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'transaction_time' => 'int64',
-        'user_id' => 'int64',
-        'group_name' => null,
-        'fee' => null,
-        'currency_pair' => null,
-        'amount' => null,
-        'fee_asset' => null,
-        'source' => null,
-        'sub_broker_info' => null
+        'currency' => null,
+        'available' => null,
+        'locked' => null,
+        'token_address' => null,
+        'chain' => null
     ];
 
     /**
@@ -109,15 +102,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'transaction_time' => 'transaction_time',
-        'user_id' => 'user_id',
-        'group_name' => 'group_name',
-        'fee' => 'fee',
-        'currency_pair' => 'currency_pair',
-        'amount' => 'amount',
-        'fee_asset' => 'fee_asset',
-        'source' => 'source',
-        'sub_broker_info' => 'sub_broker_info'
+        'currency' => 'currency',
+        'available' => 'available',
+        'locked' => 'locked',
+        'token_address' => 'token_address',
+        'chain' => 'chain'
     ];
 
     /**
@@ -126,15 +115,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'transaction_time' => 'setTransactionTime',
-        'user_id' => 'setUserId',
-        'group_name' => 'setGroupName',
-        'fee' => 'setFee',
-        'currency_pair' => 'setCurrencyPair',
-        'amount' => 'setAmount',
-        'fee_asset' => 'setFeeAsset',
-        'source' => 'setSource',
-        'sub_broker_info' => 'setSubBrokerInfo'
+        'currency' => 'setCurrency',
+        'available' => 'setAvailable',
+        'locked' => 'setLocked',
+        'token_address' => 'setTokenAddress',
+        'chain' => 'setChain'
     ];
 
     /**
@@ -143,15 +128,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'transaction_time' => 'getTransactionTime',
-        'user_id' => 'getUserId',
-        'group_name' => 'getGroupName',
-        'fee' => 'getFee',
-        'currency_pair' => 'getCurrencyPair',
-        'amount' => 'getAmount',
-        'fee_asset' => 'getFeeAsset',
-        'source' => 'getSource',
-        'sub_broker_info' => 'getSubBrokerInfo'
+        'currency' => 'getCurrency',
+        'available' => 'getAvailable',
+        'locked' => 'getLocked',
+        'token_address' => 'getTokenAddress',
+        'chain' => 'getChain'
     ];
 
     /**
@@ -214,15 +195,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['transaction_time'] = isset($data['transaction_time']) ? $data['transaction_time'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['group_name'] = isset($data['group_name']) ? $data['group_name'] : null;
-        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['fee_asset'] = isset($data['fee_asset']) ? $data['fee_asset'] : null;
-        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
-        $this->container['sub_broker_info'] = isset($data['sub_broker_info']) ? $data['sub_broker_info'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
+        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
+        $this->container['token_address'] = isset($data['token_address']) ? $data['token_address'] : null;
+        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
     }
 
     /**
@@ -250,217 +227,121 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets transaction_time
-     *
-     * @return int|null
-     */
-    public function getTransactionTime()
-    {
-        return $this->container['transaction_time'];
-    }
-
-    /**
-     * Sets transaction_time
-     *
-     * @param int|null $transaction_time Transaction Time. (unix timestamp)
-     *
-     * @return $this
-     */
-    public function setTransactionTime($transaction_time)
-    {
-        $this->container['transaction_time'] = $transaction_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return int|null
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param int|null $user_id User ID
-     *
-     * @return $this
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_name
+     * Gets currency
      *
      * @return string|null
      */
-    public function getGroupName()
+    public function getCurrency()
     {
-        return $this->container['group_name'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets group_name
+     * Sets currency
      *
-     * @param string|null $group_name Group name
+     * @param string|null $currency Currency name
      *
      * @return $this
      */
-    public function setGroupName($group_name)
+    public function setCurrency($currency)
     {
-        $this->container['group_name'] = $group_name;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets fee
+     * Gets available
      *
      * @return string|null
      */
-    public function getFee()
+    public function getAvailable()
     {
-        return $this->container['fee'];
+        return $this->container['available'];
     }
 
     /**
-     * Sets fee
+     * Sets available
      *
-     * @param string|null $fee fee (usdt)
+     * @param string|null $available Available Balance
      *
      * @return $this
      */
-    public function setFee($fee)
+    public function setAvailable($available)
     {
-        $this->container['fee'] = $fee;
+        $this->container['available'] = $available;
 
         return $this;
     }
 
     /**
-     * Gets currency_pair
+     * Gets locked
      *
      * @return string|null
      */
-    public function getCurrencyPair()
+    public function getLocked()
     {
-        return $this->container['currency_pair'];
+        return $this->container['locked'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets locked
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $locked 锁定余额
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setLocked($locked)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['locked'] = $locked;
 
         return $this;
     }
 
     /**
-     * Gets amount
+     * Gets token_address
      *
      * @return string|null
      */
-    public function getAmount()
+    public function getTokenAddress()
     {
-        return $this->container['amount'];
+        return $this->container['token_address'];
     }
 
     /**
-     * Sets amount
+     * Sets token_address
      *
-     * @param string|null $amount Commission Amount
+     * @param string|null $token_address token 地址
      *
      * @return $this
      */
-    public function setAmount($amount)
+    public function setTokenAddress($token_address)
     {
-        $this->container['amount'] = $amount;
+        $this->container['token_address'] = $token_address;
 
         return $this;
     }
 
     /**
-     * Gets fee_asset
+     * Gets chain
      *
      * @return string|null
      */
-    public function getFeeAsset()
+    public function getChain()
     {
-        return $this->container['fee_asset'];
+        return $this->container['chain'];
     }
 
     /**
-     * Sets fee_asset
+     * Sets chain
      *
-     * @param string|null $fee_asset Fee currency
+     * @param string|null $chain 区块链名称
      *
      * @return $this
      */
-    public function setFeeAsset($fee_asset)
+    public function setChain($chain)
     {
-        $this->container['fee_asset'] = $fee_asset;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source Rebate Type: Spot、Futures、Options
-     *
-     * @return $this
-     */
-    public function setSource($source)
-    {
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_broker_info
-     *
-     * @return \GateApi\Model\BrokerCommissionSubBrokerInfo|null
-     */
-    public function getSubBrokerInfo()
-    {
-        return $this->container['sub_broker_info'];
-    }
-
-    /**
-     * Sets sub_broker_info
-     *
-     * @param \GateApi\Model\BrokerCommissionSubBrokerInfo|null $sub_broker_info sub_broker_info
-     *
-     * @return $this
-     */
-    public function setSubBrokerInfo($sub_broker_info)
-    {
-        $this->container['sub_broker_info'] = $sub_broker_info;
+        $this->container['chain'] = $chain;
 
         return $this;
     }

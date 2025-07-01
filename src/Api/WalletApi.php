@@ -1565,7 +1565,7 @@ class WalletApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \GateApi\Model\SubAccountTransfer[]
+     * @return \GateApi\Model\SubAccountTransferRecordItem[]
      */
     public function listSubAccountTransfers($associative_array)
     {
@@ -1588,7 +1588,7 @@ class WalletApi
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \GateApi\Model\SubAccountTransfer[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \GateApi\Model\SubAccountTransferRecordItem[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listSubAccountTransfersWithHttpInfo($associative_array)
     {
@@ -1618,7 +1618,7 @@ class WalletApi
             );
         }
 
-        $returnType = '\GateApi\Model\SubAccountTransfer[]';
+        $returnType = '\GateApi\Model\SubAccountTransferRecordItem[]';
         $responseBody = $response->getBody();
         if ($returnType === '\SplFileObject') {
             $content = $responseBody; //stream goes to serializer
@@ -1677,7 +1677,7 @@ class WalletApi
      */
     public function listSubAccountTransfersAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\GateApi\Model\SubAccountTransfer[]';
+        $returnType = '\GateApi\Model\SubAccountTransferRecordItem[]';
         $request = $this->listSubAccountTransfersRequest($associative_array);
 
         return $this->client

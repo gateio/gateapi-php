@@ -1,6 +1,6 @@
 <?php
 /**
- * BrokerTransaction1
+ * Ticker2
  *
  * PHP version 7
  *
@@ -30,14 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * BrokerTransaction1 Class Doc Comment
+ * Ticker2 Class Doc Comment
  *
  * @category Class
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class BrokerTransaction1 implements ModelInterface, ArrayAccess
+class Ticker2 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +46,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BrokerTransaction_1';
+    protected static $openAPIModelName = 'Ticker_2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,15 +54,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'transaction_time' => 'int',
-        'user_id' => 'int',
-        'group_name' => 'string',
-        'fee' => 'string',
-        'currency_pair' => 'string',
-        'amount' => 'string',
-        'fee_asset' => 'string',
-        'source' => 'string',
-        'sub_broker_info' => '\GateApi\Model\BrokerCommissionSubBrokerInfo'
+        'currency' => 'string',
+        'last' => 'string',
+        'change' => 'string',
+        'volume' => 'string',
+        'market_cap' => 'string'
     ];
 
     /**
@@ -71,15 +67,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'transaction_time' => 'int64',
-        'user_id' => 'int64',
-        'group_name' => null,
-        'fee' => null,
-        'currency_pair' => null,
-        'amount' => null,
-        'fee_asset' => null,
-        'source' => null,
-        'sub_broker_info' => null
+        'currency' => null,
+        'last' => null,
+        'change' => null,
+        'volume' => null,
+        'market_cap' => null
     ];
 
     /**
@@ -109,15 +101,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'transaction_time' => 'transaction_time',
-        'user_id' => 'user_id',
-        'group_name' => 'group_name',
-        'fee' => 'fee',
-        'currency_pair' => 'currency_pair',
-        'amount' => 'amount',
-        'fee_asset' => 'fee_asset',
-        'source' => 'source',
-        'sub_broker_info' => 'sub_broker_info'
+        'currency' => 'currency',
+        'last' => 'last',
+        'change' => 'change',
+        'volume' => 'volume',
+        'market_cap' => 'market_cap'
     ];
 
     /**
@@ -126,15 +114,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'transaction_time' => 'setTransactionTime',
-        'user_id' => 'setUserId',
-        'group_name' => 'setGroupName',
-        'fee' => 'setFee',
-        'currency_pair' => 'setCurrencyPair',
-        'amount' => 'setAmount',
-        'fee_asset' => 'setFeeAsset',
-        'source' => 'setSource',
-        'sub_broker_info' => 'setSubBrokerInfo'
+        'currency' => 'setCurrency',
+        'last' => 'setLast',
+        'change' => 'setChange',
+        'volume' => 'setVolume',
+        'market_cap' => 'setMarketCap'
     ];
 
     /**
@@ -143,15 +127,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'transaction_time' => 'getTransactionTime',
-        'user_id' => 'getUserId',
-        'group_name' => 'getGroupName',
-        'fee' => 'getFee',
-        'currency_pair' => 'getCurrencyPair',
-        'amount' => 'getAmount',
-        'fee_asset' => 'getFeeAsset',
-        'source' => 'getSource',
-        'sub_broker_info' => 'getSubBrokerInfo'
+        'currency' => 'getCurrency',
+        'last' => 'getLast',
+        'change' => 'getChange',
+        'volume' => 'getVolume',
+        'market_cap' => 'getMarketCap'
     ];
 
     /**
@@ -214,15 +194,11 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['transaction_time'] = isset($data['transaction_time']) ? $data['transaction_time'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['group_name'] = isset($data['group_name']) ? $data['group_name'] : null;
-        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
-        $this->container['currency_pair'] = isset($data['currency_pair']) ? $data['currency_pair'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['fee_asset'] = isset($data['fee_asset']) ? $data['fee_asset'] : null;
-        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
-        $this->container['sub_broker_info'] = isset($data['sub_broker_info']) ? $data['sub_broker_info'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['last'] = isset($data['last']) ? $data['last'] : null;
+        $this->container['change'] = isset($data['change']) ? $data['change'] : null;
+        $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
+        $this->container['market_cap'] = isset($data['market_cap']) ? $data['market_cap'] : null;
     }
 
     /**
@@ -250,217 +226,121 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets transaction_time
-     *
-     * @return int|null
-     */
-    public function getTransactionTime()
-    {
-        return $this->container['transaction_time'];
-    }
-
-    /**
-     * Sets transaction_time
-     *
-     * @param int|null $transaction_time Transaction Time. (unix timestamp)
-     *
-     * @return $this
-     */
-    public function setTransactionTime($transaction_time)
-    {
-        $this->container['transaction_time'] = $transaction_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return int|null
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param int|null $user_id User ID
-     *
-     * @return $this
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_name
+     * Gets currency
      *
      * @return string|null
      */
-    public function getGroupName()
+    public function getCurrency()
     {
-        return $this->container['group_name'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets group_name
+     * Sets currency
      *
-     * @param string|null $group_name Group name
+     * @param string|null $currency Currency symbol
      *
      * @return $this
      */
-    public function setGroupName($group_name)
+    public function setCurrency($currency)
     {
-        $this->container['group_name'] = $group_name;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets fee
+     * Gets last
      *
      * @return string|null
      */
-    public function getFee()
+    public function getLast()
     {
-        return $this->container['fee'];
+        return $this->container['last'];
     }
 
     /**
-     * Sets fee
+     * Sets last
      *
-     * @param string|null $fee fee (usdt)
+     * @param string|null $last Last trading price
      *
      * @return $this
      */
-    public function setFee($fee)
+    public function setLast($last)
     {
-        $this->container['fee'] = $fee;
+        $this->container['last'] = $last;
 
         return $this;
     }
 
     /**
-     * Gets currency_pair
+     * Gets change
      *
      * @return string|null
      */
-    public function getCurrencyPair()
+    public function getChange()
     {
-        return $this->container['currency_pair'];
+        return $this->container['change'];
     }
 
     /**
-     * Sets currency_pair
+     * Sets change
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $change Change percentage in the last 24h
      *
      * @return $this
      */
-    public function setCurrencyPair($currency_pair)
+    public function setChange($change)
     {
-        $this->container['currency_pair'] = $currency_pair;
+        $this->container['change'] = $change;
 
         return $this;
     }
 
     /**
-     * Gets amount
+     * Gets volume
      *
      * @return string|null
      */
-    public function getAmount()
+    public function getVolume()
     {
-        return $this->container['amount'];
+        return $this->container['volume'];
     }
 
     /**
-     * Sets amount
+     * Sets volume
      *
-     * @param string|null $amount Commission Amount
+     * @param string|null $volume 24h Trading Volume (USDT)
      *
      * @return $this
      */
-    public function setAmount($amount)
+    public function setVolume($volume)
     {
-        $this->container['amount'] = $amount;
+        $this->container['volume'] = $volume;
 
         return $this;
     }
 
     /**
-     * Gets fee_asset
+     * Gets market_cap
      *
      * @return string|null
      */
-    public function getFeeAsset()
+    public function getMarketCap()
     {
-        return $this->container['fee_asset'];
+        return $this->container['market_cap'];
     }
 
     /**
-     * Sets fee_asset
+     * Sets market_cap
      *
-     * @param string|null $fee_asset Fee currency
+     * @param string|null $market_cap Current Coin Market Value
      *
      * @return $this
      */
-    public function setFeeAsset($fee_asset)
+    public function setMarketCap($market_cap)
     {
-        $this->container['fee_asset'] = $fee_asset;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source Rebate Type: Spot、Futures、Options
-     *
-     * @return $this
-     */
-    public function setSource($source)
-    {
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets sub_broker_info
-     *
-     * @return \GateApi\Model\BrokerCommissionSubBrokerInfo|null
-     */
-    public function getSubBrokerInfo()
-    {
-        return $this->container['sub_broker_info'];
-    }
-
-    /**
-     * Sets sub_broker_info
-     *
-     * @param \GateApi\Model\BrokerCommissionSubBrokerInfo|null $sub_broker_info sub_broker_info
-     *
-     * @return $this
-     */
-    public function setSubBrokerInfo($sub_broker_info)
-    {
-        $this->container['sub_broker_info'] = $sub_broker_info;
+        $this->container['market_cap'] = $market_cap;
 
         return $this;
     }
