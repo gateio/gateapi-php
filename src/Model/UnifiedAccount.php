@@ -72,7 +72,8 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
         'leverage' => 'string',
         'spot_order_loss' => 'string',
         'spot_hedge' => 'bool',
-        'use_funding' => 'bool'
+        'use_funding' => 'bool',
+        'is_all_collateral' => 'bool'
     ];
 
     /**
@@ -99,7 +100,8 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
         'leverage' => null,
         'spot_order_loss' => null,
         'spot_hedge' => null,
-        'use_funding' => null
+        'use_funding' => null,
+        'is_all_collateral' => null
     ];
 
     /**
@@ -147,7 +149,8 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
         'leverage' => 'leverage',
         'spot_order_loss' => 'spot_order_loss',
         'spot_hedge' => 'spot_hedge',
-        'use_funding' => 'use_funding'
+        'use_funding' => 'use_funding',
+        'is_all_collateral' => 'is_all_collateral'
     ];
 
     /**
@@ -174,7 +177,8 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
         'leverage' => 'setLeverage',
         'spot_order_loss' => 'setSpotOrderLoss',
         'spot_hedge' => 'setSpotHedge',
-        'use_funding' => 'setUseFunding'
+        'use_funding' => 'setUseFunding',
+        'is_all_collateral' => 'setIsAllCollateral'
     ];
 
     /**
@@ -201,7 +205,8 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
         'leverage' => 'getLeverage',
         'spot_order_loss' => 'getSpotOrderLoss',
         'spot_hedge' => 'getSpotHedge',
-        'use_funding' => 'getUseFunding'
+        'use_funding' => 'getUseFunding',
+        'is_all_collateral' => 'getIsAllCollateral'
     ];
 
     /**
@@ -283,6 +288,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
         $this->container['spot_order_loss'] = isset($data['spot_order_loss']) ? $data['spot_order_loss'] : null;
         $this->container['spot_hedge'] = isset($data['spot_hedge']) ? $data['spot_hedge'] : null;
         $this->container['use_funding'] = isset($data['use_funding']) ? $data['use_funding'] : null;
+        $this->container['is_all_collateral'] = isset($data['is_all_collateral']) ? $data['is_all_collateral'] : null;
     }
 
     /**
@@ -761,6 +767,30 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     public function setUseFunding($use_funding)
     {
         $this->container['use_funding'] = $use_funding;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_all_collateral
+     *
+     * @return bool|null
+     */
+    public function getIsAllCollateral()
+    {
+        return $this->container['is_all_collateral'];
+    }
+
+    /**
+     * Sets is_all_collateral
+     *
+     * @param bool|null $is_all_collateral 是否所有币种均作为保证金，true - 所有币种作为保证金，false - 否
+     *
+     * @return $this
+     */
+    public function setIsAllCollateral($is_all_collateral)
+    {
+        $this->container['is_all_collateral'] = $is_all_collateral;
 
         return $this;
     }

@@ -57,8 +57,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'available' => 'string',
         'locked' => 'string',
-        'update_id' => 'int',
-        'refresh_time' => 'int'
+        'update_id' => 'int'
     ];
 
     /**
@@ -70,8 +69,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
         'currency' => null,
         'available' => null,
         'locked' => null,
-        'update_id' => 'int64',
-        'refresh_time' => 'int64'
+        'update_id' => 'int64'
     ];
 
     /**
@@ -104,8 +102,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
         'currency' => 'currency',
         'available' => 'available',
         'locked' => 'locked',
-        'update_id' => 'update_id',
-        'refresh_time' => 'refresh_time'
+        'update_id' => 'update_id'
     ];
 
     /**
@@ -117,8 +114,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'available' => 'setAvailable',
         'locked' => 'setLocked',
-        'update_id' => 'setUpdateId',
-        'refresh_time' => 'setRefreshTime'
+        'update_id' => 'setUpdateId'
     ];
 
     /**
@@ -130,8 +126,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'available' => 'getAvailable',
         'locked' => 'getLocked',
-        'update_id' => 'getUpdateId',
-        'refresh_time' => 'getRefreshTime'
+        'update_id' => 'getUpdateId'
     ];
 
     /**
@@ -198,7 +193,6 @@ class SpotAccount implements ModelInterface, ArrayAccess
         $this->container['available'] = isset($data['available']) ? $data['available'] : null;
         $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
         $this->container['update_id'] = isset($data['update_id']) ? $data['update_id'] : null;
-        $this->container['refresh_time'] = isset($data['refresh_time']) ? $data['refresh_time'] : null;
     }
 
     /**
@@ -317,30 +311,6 @@ class SpotAccount implements ModelInterface, ArrayAccess
     public function setUpdateId($update_id)
     {
         $this->container['update_id'] = $update_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets refresh_time
-     *
-     * @return int|null
-     */
-    public function getRefreshTime()
-    {
-        return $this->container['refresh_time'];
-    }
-
-    /**
-     * Sets refresh_time
-     *
-     * @param int|null $refresh_time Asset Refresh Time (ms)
-     *
-     * @return $this
-     */
-    public function setRefreshTime($refresh_time)
-    {
-        $this->container['refresh_time'] = $refresh_time;
 
         return $this;
     }

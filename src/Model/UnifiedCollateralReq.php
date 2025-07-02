@@ -1,6 +1,6 @@
 <?php
 /**
- * QuoteRequest
+ * UnifiedCollateralReq
  *
  * PHP version 7
  *
@@ -30,15 +30,14 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * QuoteRequest Class Doc Comment
+ * UnifiedCollateralReq Class Doc Comment
  *
  * @category Class
- * @description Quotation Request
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class QuoteRequest implements ModelInterface, ArrayAccess
+class UnifiedCollateralReq implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class QuoteRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'QuoteRequest';
+    protected static $openAPIModelName = 'UnifiedCollateralReq';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,11 +54,9 @@ class QuoteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'side' => 'string',
-        'amount' => 'string',
-        'gas_mode' => 'string',
-        'slippage' => 'string'
+        'collateral_type' => 'int',
+        'enable_list' => 'string[]',
+        'disable_list' => 'string[]'
     ];
 
     /**
@@ -68,11 +65,9 @@ class QuoteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'side' => null,
-        'amount' => null,
-        'gas_mode' => null,
-        'slippage' => null
+        'collateral_type' => null,
+        'enable_list' => null,
+        'disable_list' => null
     ];
 
     /**
@@ -102,11 +97,9 @@ class QuoteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'side' => 'side',
-        'amount' => 'amount',
-        'gas_mode' => 'gas_mode',
-        'slippage' => 'slippage'
+        'collateral_type' => 'collateral_type',
+        'enable_list' => 'enable_list',
+        'disable_list' => 'disable_list'
     ];
 
     /**
@@ -115,11 +108,9 @@ class QuoteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'side' => 'setSide',
-        'amount' => 'setAmount',
-        'gas_mode' => 'setGasMode',
-        'slippage' => 'setSlippage'
+        'collateral_type' => 'setCollateralType',
+        'enable_list' => 'setEnableList',
+        'disable_list' => 'setDisableList'
     ];
 
     /**
@@ -128,11 +119,9 @@ class QuoteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'side' => 'getSide',
-        'amount' => 'getAmount',
-        'gas_mode' => 'getGasMode',
-        'slippage' => 'getSlippage'
+        'collateral_type' => 'getCollateralType',
+        'enable_list' => 'getEnableList',
+        'disable_list' => 'getDisableList'
     ];
 
     /**
@@ -176,8 +165,23 @@ class QuoteRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const COLLATERAL_TYPE_0 = 0;
+    const COLLATERAL_TYPE_1 = 1;
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCollateralTypeAllowableValues()
+    {
+        return [
+            self::COLLATERAL_TYPE_0,
+            self::COLLATERAL_TYPE_1,
+        ];
+    }
     
 
     /**
@@ -195,11 +199,9 @@ class QuoteRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['side'] = isset($data['side']) ? $data['side'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['gas_mode'] = isset($data['gas_mode']) ? $data['gas_mode'] : null;
-        $this->container['slippage'] = isset($data['slippage']) ? $data['slippage'] : null;
+        $this->container['collateral_type'] = isset($data['collateral_type']) ? $data['collateral_type'] : null;
+        $this->container['enable_list'] = isset($data['enable_list']) ? $data['enable_list'] : null;
+        $this->container['disable_list'] = isset($data['disable_list']) ? $data['disable_list'] : null;
     }
 
     /**
@@ -211,18 +213,14 @@ class QuoteRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
+        $allowedValues = $this->getCollateralTypeAllowableValues();
+        if (!is_null($this->container['collateral_type']) && !in_array($this->container['collateral_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'collateral_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['side'] === null) {
-            $invalidProperties[] = "'side' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['gas_mode'] === null) {
-            $invalidProperties[] = "'gas_mode' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -239,121 +237,82 @@ class QuoteRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
+     * Gets collateral_type
      *
-     * @return string
+     * @return int|null
      */
-    public function getCurrency()
+    public function getCollateralType()
     {
-        return $this->container['currency'];
+        return $this->container['collateral_type'];
     }
 
     /**
-     * Sets currency
+     * Sets collateral_type
      *
-     * @param string $currency Trading Symbol
+     * @param int|null $collateral_type 用户设置抵押物模式 0(all)-全部币种作为抵押物,1(custom)-自定义币种作为抵押物,collateral_type为0(all)时，enable_list与disable_list参数无效
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setCollateralType($collateral_type)
     {
-        $this->container['currency'] = $currency;
+        $allowedValues = $this->getCollateralTypeAllowableValues();
+        if (!is_null($collateral_type) && !in_array($collateral_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'collateral_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['collateral_type'] = $collateral_type;
 
         return $this;
     }
 
     /**
-     * Gets side
+     * Gets enable_list
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getSide()
+    public function getEnableList()
     {
-        return $this->container['side'];
+        return $this->container['enable_list'];
     }
 
     /**
-     * Sets side
+     * Sets enable_list
      *
-     * @param string $side 买单或者卖单 - buy - sell
+     * @param string[]|null $enable_list 币种列表，collateral_type=1(custom)表示追加的逻辑
      *
      * @return $this
      */
-    public function setSide($side)
+    public function setEnableList($enable_list)
     {
-        $this->container['side'] = $side;
+        $this->container['enable_list'] = $enable_list;
 
         return $this;
     }
 
     /**
-     * Gets amount
+     * Gets disable_list
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getAmount()
+    public function getDisableList()
     {
-        return $this->container['amount'];
+        return $this->container['disable_list'];
     }
 
     /**
-     * Sets amount
+     * Sets disable_list
      *
-     * @param string $amount Trade Quantity - `side` : `buy` refers to the quote currency, i.e., `USDT` - `side` : `sell` refers to the base currency
+     * @param string[]|null $disable_list 取消列表，表示取消的逻辑
      *
      * @return $this
      */
-    public function setAmount($amount)
+    public function setDisableList($disable_list)
     {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets gas_mode
-     *
-     * @return string
-     */
-    public function getGasMode()
-    {
-        return $this->container['gas_mode'];
-    }
-
-    /**
-     * Sets gas_mode
-     *
-     * @param string $gas_mode Trading mode affects slippage selection - `speed` : Smart mode - `custom` : Custom mode, uses `slippage` parameter
-     *
-     * @return $this
-     */
-    public function setGasMode($gas_mode)
-    {
-        $this->container['gas_mode'] = $gas_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets slippage
-     *
-     * @return string|null
-     */
-    public function getSlippage()
-    {
-        return $this->container['slippage'];
-    }
-
-    /**
-     * Sets slippage
-     *
-     * @param string|null $slippage Slippage value of 10 represents a 10% tolerance
-     *
-     * @return $this
-     */
-    public function setSlippage($slippage)
-    {
-        $this->container['slippage'] = $slippage;
+        $this->container['disable_list'] = $disable_list;
 
         return $this;
     }

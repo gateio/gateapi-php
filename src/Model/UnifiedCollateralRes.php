@@ -1,6 +1,6 @@
 <?php
 /**
- * PlaceOrderRequest
+ * UnifiedCollateralRes
  *
  * PHP version 7
  *
@@ -30,15 +30,15 @@ use \ArrayAccess;
 use \GateApi\ObjectSerializer;
 
 /**
- * PlaceOrderRequest Class Doc Comment
+ * UnifiedCollateralRes Class Doc Comment
  *
  * @category Class
- * @description 下单请求
+ * @description 统一账户抵押模式设置返回
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.io
  */
-class PlaceOrderRequest implements ModelInterface, ArrayAccess
+class UnifiedCollateralRes implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PlaceOrderRequest';
+    protected static $openAPIModelName = 'UnifiedCollateralRes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,12 +55,7 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'side' => 'string',
-        'amount' => 'string',
-        'gas_mode' => 'string',
-        'slippage' => 'string',
-        'quote_id' => 'string'
+        'is_success' => 'bool'
     ];
 
     /**
@@ -69,12 +64,7 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'side' => null,
-        'amount' => null,
-        'gas_mode' => null,
-        'slippage' => null,
-        'quote_id' => null
+        'is_success' => null
     ];
 
     /**
@@ -104,12 +94,7 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'side' => 'side',
-        'amount' => 'amount',
-        'gas_mode' => 'gas_mode',
-        'slippage' => 'slippage',
-        'quote_id' => 'quote_id'
+        'is_success' => 'is_success'
     ];
 
     /**
@@ -118,12 +103,7 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'side' => 'setSide',
-        'amount' => 'setAmount',
-        'gas_mode' => 'setGasMode',
-        'slippage' => 'setSlippage',
-        'quote_id' => 'setQuoteId'
+        'is_success' => 'setIsSuccess'
     ];
 
     /**
@@ -132,12 +112,7 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'side' => 'getSide',
-        'amount' => 'getAmount',
-        'gas_mode' => 'getGasMode',
-        'slippage' => 'getSlippage',
-        'quote_id' => 'getQuoteId'
+        'is_success' => 'getIsSuccess'
     ];
 
     /**
@@ -200,12 +175,7 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['side'] = isset($data['side']) ? $data['side'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['gas_mode'] = isset($data['gas_mode']) ? $data['gas_mode'] : null;
-        $this->container['slippage'] = isset($data['slippage']) ? $data['slippage'] : null;
-        $this->container['quote_id'] = isset($data['quote_id']) ? $data['quote_id'] : null;
+        $this->container['is_success'] = isset($data['is_success']) ? $data['is_success'] : null;
     }
 
     /**
@@ -217,21 +187,6 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['side'] === null) {
-            $invalidProperties[] = "'side' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['gas_mode'] === null) {
-            $invalidProperties[] = "'gas_mode' can't be null";
-        }
-        if ($this->container['quote_id'] === null) {
-            $invalidProperties[] = "'quote_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -248,145 +203,25 @@ class PlaceOrderRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
+     * Gets is_success
      *
-     * @return string
+     * @return bool|null
      */
-    public function getCurrency()
+    public function getIsSuccess()
     {
-        return $this->container['currency'];
+        return $this->container['is_success'];
     }
 
     /**
-     * Sets currency
+     * Sets is_success
      *
-     * @param string $currency Trading Symbol
+     * @param bool|null $is_success 是否设置成功
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setIsSuccess($is_success)
     {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets side
-     *
-     * @return string
-     */
-    public function getSide()
-    {
-        return $this->container['side'];
-    }
-
-    /**
-     * Sets side
-     *
-     * @param string $side 买单或者卖单 - buy - sell
-     *
-     * @return $this
-     */
-    public function setSide($side)
-    {
-        $this->container['side'] = $side;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return string
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param string $amount Trade Quantity - `side` : `buy` refers to the quote currency, i.e., `USDT` - `side` : `sell` refers to the base currency
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets gas_mode
-     *
-     * @return string
-     */
-    public function getGasMode()
-    {
-        return $this->container['gas_mode'];
-    }
-
-    /**
-     * Sets gas_mode
-     *
-     * @param string $gas_mode Trading mode affects slippage selection - `speed` : Smart mode - `custom` : Custom mode, uses `slippage` parameter
-     *
-     * @return $this
-     */
-    public function setGasMode($gas_mode)
-    {
-        $this->container['gas_mode'] = $gas_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets slippage
-     *
-     * @return string|null
-     */
-    public function getSlippage()
-    {
-        return $this->container['slippage'];
-    }
-
-    /**
-     * Sets slippage
-     *
-     * @param string|null $slippage Slippage value of 10 represents a 10% tolerance
-     *
-     * @return $this
-     */
-    public function setSlippage($slippage)
-    {
-        $this->container['slippage'] = $slippage;
-
-        return $this;
-    }
-
-    /**
-     * Gets quote_id
-     *
-     * @return string
-     */
-    public function getQuoteId()
-    {
-        return $this->container['quote_id'];
-    }
-
-    /**
-     * Sets quote_id
-     *
-     * @param string $quote_id The quote_id returned by the quotation API
-     *
-     * @return $this
-     */
-    public function setQuoteId($quote_id)
-    {
-        $this->container['quote_id'] = $quote_id;
+        $this->container['is_success'] = $is_success;
 
         return $this;
     }

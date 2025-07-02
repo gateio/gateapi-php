@@ -72,7 +72,8 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'imr' => 'string',
         'mmr' => 'string',
         'margin_balance' => 'string',
-        'available_margin' => 'string'
+        'available_margin' => 'string',
+        'enabled_collateral' => 'bool'
     ];
 
     /**
@@ -99,7 +100,8 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'imr' => null,
         'mmr' => null,
         'margin_balance' => null,
-        'available_margin' => null
+        'available_margin' => null,
+        'enabled_collateral' => null
     ];
 
     /**
@@ -147,7 +149,8 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'imr' => 'imr',
         'mmr' => 'mmr',
         'margin_balance' => 'margin_balance',
-        'available_margin' => 'available_margin'
+        'available_margin' => 'available_margin',
+        'enabled_collateral' => 'enabled_collateral'
     ];
 
     /**
@@ -174,7 +177,8 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'imr' => 'setImr',
         'mmr' => 'setMmr',
         'margin_balance' => 'setMarginBalance',
-        'available_margin' => 'setAvailableMargin'
+        'available_margin' => 'setAvailableMargin',
+        'enabled_collateral' => 'setEnabledCollateral'
     ];
 
     /**
@@ -201,7 +205,8 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         'imr' => 'getImr',
         'mmr' => 'getMmr',
         'margin_balance' => 'getMarginBalance',
-        'available_margin' => 'getAvailableMargin'
+        'available_margin' => 'getAvailableMargin',
+        'enabled_collateral' => 'getEnabledCollateral'
     ];
 
     /**
@@ -283,6 +288,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
         $this->container['mmr'] = isset($data['mmr']) ? $data['mmr'] : null;
         $this->container['margin_balance'] = isset($data['margin_balance']) ? $data['margin_balance'] : null;
         $this->container['available_margin'] = isset($data['available_margin']) ? $data['available_margin'] : null;
+        $this->container['enabled_collateral'] = isset($data['enabled_collateral']) ? $data['enabled_collateral'] : null;
     }
 
     /**
@@ -761,6 +767,30 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     public function setAvailableMargin($available_margin)
     {
         $this->container['available_margin'] = $available_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled_collateral
+     *
+     * @return bool|null
+     */
+    public function getEnabledCollateral()
+    {
+        return $this->container['enabled_collateral'];
+    }
+
+    /**
+     * Sets enabled_collateral
+     *
+     * @param bool|null $enabled_collateral 币种开启作为保证金，true - 启用，false - 未启用
+     *
+     * @return $this
+     */
+    public function setEnabledCollateral($enabled_collateral)
+    {
+        $this->container['enabled_collateral'] = $enabled_collateral;
 
         return $this;
     }
