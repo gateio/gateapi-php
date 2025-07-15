@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**listStructuredProducts**](EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List
 [**listStructuredOrders**](EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List
 [**placeStructuredOrder**](EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
-[**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | 链上赚币币种
+[**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking Coins
 [**swapStakingCoin**](EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain Token Swap for Earned Coins
 
 
@@ -336,8 +336,8 @@ $apiInstance = new GateApi\Api\EarnApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['status'] = 'in_process'; // string | Status (default: all)  `in_process`-processing  `will_begin`-unstarted  `wait_settlement`-unsettled  `done`-finish
-$associate_array['type'] = 'BullishSharkFin'; // string | Product Type (default all)  `SharkFin2.0`-SharkFin  `BullishSharkFin`-BullishSharkFin  `BearishSharkFin`-BearishSharkFin `DoubleNoTouch`-DoubleNoTouch `RangeAccrual`-RangeAccrual `SnowBall`-SnowBall
+$associate_array['status'] = 'in_process'; // string | Status (Default empty to query all)  `in_process`-In progress `will_begin`-Not started `wait_settlement`-Pending settlement `done`-Completed
+$associate_array['type'] = 'BullishSharkFin'; // string | Product Type (Default empty to query all)  `SharkFin2.0`-Shark Fin `BullishSharkFin`-Bullish Treasure `BearishSharkFin`-Bearish Treasure `DoubleNoTouch`-Volatility Treasure `RangeAccrual`-Range Smart Yield `SnowBall`-Snowball
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
@@ -359,8 +359,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **string**| Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish |
- **type** | **string**| Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall | [optional]
+ **status** | **string**| Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed |
+ **type** | **string**| Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
@@ -404,8 +404,8 @@ $apiInstance = new GateApi\Api\EarnApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 
@@ -427,8 +427,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
@@ -513,7 +513,7 @@ void (empty response body)
 
 > string[] findCoin($find_coin)
 
-链上赚币币种
+Staking Coins
 
 ### Example
 
@@ -571,7 +571,7 @@ Name | Type | Description  | Notes
 
 ## swapStakingCoin
 
-> swapStakingCoin($swap_coin)
+> \GateApi\Model\SwapCoinStruct swapStakingCoin($swap_coin)
 
 On-chain Token Swap for Earned Coins
 
@@ -594,7 +594,8 @@ $apiInstance = new GateApi\Api\EarnApi(
 $swap_coin = new \GateApi\Model\SwapCoin(); // \GateApi\Model\SwapCoin | 
 
 try {
-    $apiInstance->swapStakingCoin($swap_coin);
+    $result = $apiInstance->swapStakingCoin($swap_coin);
+    print_r($result);
 } catch (GateApi\GateApiException $e) {
     echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
 } catch (Exception $e) {
@@ -612,7 +613,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\GateApi\Model\SwapCoinStruct**](../Model/SwapCoinStruct.md)
 
 ### Authorization
 
@@ -621,7 +622,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

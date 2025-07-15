@@ -42,8 +42,8 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
 );
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 10; // int | Maximum number of records to be returned in a single list
-$associate_array['sort'] = 'ltv_asc'; // string | Sort types: time_desc - default sorting by creation time in descending order, ltv_asc - ascending order of ltv, ltv_desc - descending order of ltv.
-$associate_array['order_type'] = 'current'; // string | Order type, current - query current orders, fixed - query fixed orders. If not specified, default to querying current orders
+$associate_array['sort'] = 'ltv_asc'; // string | Query the current interest rate of the currency in the previous hour
+$associate_array['order_type'] = 'current'; // string | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
 
 try {
     $result = $apiInstance->listMultiCollateralOrders($associate_array);
@@ -65,8 +65,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 10]
- **sort** | **string**| Sort types: time_desc - default sorting by creation time in descending order, ltv_asc - ascending order of ltv, ltv_desc - descending order of ltv. | [optional]
- **order_type** | **string**| Order type, current - query current orders, fixed - query fixed orders. If not specified, default to querying current orders | [optional]
+ **sort** | **string**| Query the current interest rate of the currency in the previous hour | [optional]
+ **order_type** | **string**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
 
 ### Return type
 
@@ -490,8 +490,8 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$type = 'collateral'; // string | Currency types: collateral - collateral currency, borrow - borrowing currency.
-$currency = 'BTC'; // string | When specifying collateral currencies, you can use commas to separate multiple currencies; for borrowing currencies, only one currency can be provided.
+$type = 'collateral'; // string | Currency type: collateral - Collateral currency, borrow - Borrowing
+$currency = 'BTC'; // string | When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc
 
 try {
     $result = $apiInstance->listUserCurrencyQuota($type, $currency);
@@ -509,8 +509,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| Currency types: collateral - collateral currency, borrow - borrowing currency. |
- **currency** | **string**| When specifying collateral currencies, you can use commas to separate multiple currencies; for borrowing currencies, only one currency can be provided. |
+ **type** | **string**| Currency type: collateral - Collateral currency, borrow - Borrowing |
+ **currency** | **string**| When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc |
 
 ### Return type
 
@@ -694,7 +694,7 @@ No authorization required
 
 Query the current interest rate of the currency
 
-Query the current interest rate of the currency in the last hour. The current interest rate is updated every hour.
+Query the current interest rate of the currency in the previous hour.
 
 ### Example
 
@@ -708,7 +708,7 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currencies'] = array('[\"BTC\",\"GT\"]'); // string[] | Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items.
+$associate_array['currencies'] = array('[\"BTC\",\"GT\"]'); // string[] | Specify currency name query array, separated by commas, maximum 100items.
 $associate_array['vip_level'] = '0'; // string | VIP level, defaults to 0 if not transferred
 
 try {
@@ -729,7 +729,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**string[]**](../Model/string.md)| Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items. |
+ **currencies** | [**string[]**](../Model/string.md)| Specify currency name query array, separated by commas, maximum 100items. |
  **vip_level** | **string**| VIP level, defaults to 0 if not transferred | [optional] [default to &#39;0&#39;]
 
 ### Return type

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**timeout** | **int** | Countdown time, in seconds  At least 5 seconds, 0 means cancel the countdown | 
+**timeout** | **int** | Countdown time in seconds At least 5 seconds, 0 means cancel countdown | 
 **contract** | **string** | Options contract name | [optional] 
 **underlying** | **string** | Underlying | [optional] 
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **create_time** | **string** | Trading time | [optional] 
 **create_time_ms** | **string** | Trading time, with millisecond precision | [optional] 
 **currency_pair** | **string** | Currency pair | [optional] 
-**side** | **string** | Order side | [optional] 
+**side** | **string** | Buy or sell order | [optional] 
 **role** | **string** | Trade role. No value in public endpoints | [optional] 
 **amount** | **string** | Trade amount | [optional] 
 **price** | **string** | Order price | [optional] 

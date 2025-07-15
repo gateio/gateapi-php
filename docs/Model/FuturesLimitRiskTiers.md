@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **maintenance_rate** | **string** | Maintenance margin rate | [optional] 
 **leverage_max** | **string** | Maximum leverage | [optional] 
 **contract** | **string** | Markets, visible only during market pagination requests | [optional] 
+**deduction** | **string** | Maintenance margin quick calculation deduction | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

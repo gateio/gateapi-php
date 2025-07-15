@@ -407,8 +407,8 @@ $associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 $associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
 $associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
 try {
     $result = $apiInstance->listUniLoanInterestRecords($associate_array);
@@ -432,8 +432,8 @@ Name | Type | Description  | Notes
  **currency** | **string**| Retrieve data of the specified currency | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 

@@ -279,8 +279,8 @@ $apiInstance = new GateApi\Api\OptionsApi(
 $associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
 try {
     $result = $apiInstance->listOptionsSettlements($associate_array);
@@ -303,8 +303,8 @@ Name | Type | Description  | Notes
  **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -410,8 +410,8 @@ $associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by
 $associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
 try {
     $result = $apiInstance->listMyOptionsSettlements($associate_array);
@@ -435,8 +435,8 @@ Name | Type | Description  | Notes
  **contract** | **string**| Options contract name | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -479,7 +479,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
 $associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
 $associate_array['interval'] = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0
 $associate_array['limit'] = 10; // int | Maximum number of order depth data in asks or bids
-$associate_array['with_id'] = false; // bool | Whether the order book update ID will be returned. This ID increases by 1 on every order book update
+$associate_array['with_id'] = false; // bool | Whether to return depth update ID. This ID increments by 1 each time.
 
 try {
     $result = $apiInstance->listOptionsOrderBook($associate_array);
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Options contract name |
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
- **with_id** | **bool**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
+ **with_id** | **bool**| Whether to return depth update ID. This ID increments by 1 each time. | [optional] [default to false]
 
 ### Return type
 
@@ -654,8 +654,8 @@ $apiInstance = new GateApi\Api\OptionsApi(
 );
 $associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 $associate_array['interval'] = '5m'; // string | Interval time between data points
 
 try {
@@ -678,8 +678,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contract** | **string**| Options contract name |
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **interval** | **string**| Interval time between data points | [optional] [default to &#39;5m&#39;]
 
 ### Return type
@@ -720,8 +720,8 @@ $apiInstance = new GateApi\Api\OptionsApi(
 );
 $associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 $associate_array['interval'] = '5m'; // string | Interval time between data points
 
 try {
@@ -744,8 +744,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **interval** | **string**| Interval time between data points | [optional] [default to &#39;5m&#39;]
 
 ### Return type
@@ -788,8 +788,8 @@ $associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options c
 $associate_array['type'] = '1546935600'; // string | `C` is call, while `P` is put
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
 try {
     $result = $apiInstance->listOptionsTrades($associate_array);
@@ -813,8 +813,8 @@ Name | Type | Description  | Notes
  **type** | **string**| &#x60;C&#x60; is call, while &#x60;P&#x60; is put | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -914,8 +914,8 @@ $apiInstance = new GateApi\Api\OptionsApi(
 );
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 $associate_array['type'] = 'dnw'; // string | Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL
 
 try {
@@ -938,8 +938,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL | [optional]
 
 ### Return type
@@ -1173,8 +1173,8 @@ $associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options c
 $associate_array['underlying'] = 'BTC_USDT'; // string | Underlying
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
 try {
     $result = $apiInstance->listOptionsOrders($associate_array);
@@ -1199,8 +1199,8 @@ Name | Type | Description  | Notes
  **underlying** | **string**| Underlying | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -1552,8 +1552,8 @@ $associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by
 $associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
 $associate_array['offset'] = 0; // int | List offset, starting from 0
-$associate_array['from'] = 1547706332; // int | Start timestamp
-$associate_array['to'] = 1547706332; // int | End timestamp
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
 try {
     $result = $apiInstance->listMyOptionsTrades($associate_array);
@@ -1577,8 +1577,8 @@ Name | Type | Description  | Notes
  **contract** | **string**| Options contract name | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **int**| Start timestamp | [optional]
- **to** | **int**| End timestamp | [optional]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 

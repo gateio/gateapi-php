@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Record ID | [optional] [readonly] 
 **txid** | **string** | Hash record of the withdrawal | [optional] [readonly] 
-**block_number** | **string** | 区块编号 | [optional] [readonly] 
+**block_number** | **string** | Block Number | [optional] [readonly] 
 **withdraw_order_id** | **string** | Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) | [optional] 
 **timestamp** | **string** | Operation time | [optional] [readonly] 
 **amount** | **string** | Currency amount | 

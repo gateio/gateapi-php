@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **delisting_time** | **int** | Expected time to remove the shelves, Unix timestamp in seconds | [optional] 
 **type** | **string** | Trading pair type, normal: normal, premarket: pre-market | [optional] 
 **trade_url** | **string** | Transaction link | [optional] 
+**st_tag** | **bool** | Whether the trading pair is in ST risk assessment, false - No, true - Yes | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
