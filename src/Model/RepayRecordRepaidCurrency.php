@@ -244,7 +244,7 @@ class RepayRecordRepaidCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Repayment currency
+     * @param string|null $currency Repayment currency.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class RepayRecordRepaidCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Currency Index Price
+     * @param string|null $index_price Currency Index Price.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class RepayRecordRepaidCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_amount
      *
-     * @param string|null $repaid_amount Repayment amount
+     * @param string|null $repaid_amount Repayment amount.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class RepayRecordRepaidCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_principal
      *
-     * @param string|null $repaid_principal Principal
+     * @param string|null $repaid_principal Principal.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class RepayRecordRepaidCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_interest
      *
-     * @param string|null $repaid_interest Interest
+     * @param string|null $repaid_interest Interest.
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class RepayRecordRepaidCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_amount_usdt
      *
-     * @param string|null $repaid_amount_usdt Value of the repayment amount in USDT
+     * @param string|null $repaid_amount_usdt Value of the repayment amount in USDT.
      *
      * @return $this
      */

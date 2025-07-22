@@ -220,7 +220,7 @@ class UniLendInterest implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class UniLendInterest implements ModelInterface, ArrayAccess
     /**
      * Sets interest
      *
-     * @param string|null $interest Interest
+     * @param string|null $interest Interest.
      *
      * @return $this
      */

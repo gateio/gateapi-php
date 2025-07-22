@@ -434,7 +434,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string $price Order price
+     * @param string $price Order price.
      *
      * @return $this
      */
@@ -458,7 +458,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount When `type` is limit, it refers to base currency.  For instance, `BTC_USDT` means `BTC`  When `type` is `market`, it refers to different currency according to `side`  - `side` : `buy` means quote currency, `BTC_USDT` means `USDT` - `side` : `sell` means base currency，`BTC_USDT` means `BTC`
+     * @param string $amount When `type` is limit, it refers to base currency. For instance, `BTC_USDT` means `BTC`  When different currency according to `side`  - `side` : `buy` means quote currency, `BTC_USDT` means `USDT` - `side` : `sell` means base currency，`BTC_USDT` means `BTC`
      *
      * @return $this
      */
@@ -548,7 +548,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_borrow
      *
-     * @param bool|null $auto_borrow Whether to borrow coins automatically
+     * @param bool|null $auto_borrow Whether to borrow coins automatically.
      *
      * @return $this
      */
@@ -572,7 +572,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_repay
      *
-     * @param bool|null $auto_repay Whether to repay the loan automatically
+     * @param bool|null $auto_repay Whether to repay the loan automatically.
      *
      * @return $this
      */

@@ -388,7 +388,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets unrealised_pnl
      *
-     * @param string|null $unrealised_pnl Unrealized PNL
+     * @param string|null $unrealised_pnl Unrealized PNL.
      *
      * @return $this
      */
@@ -412,7 +412,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets position_margin
      *
-     * @param string|null $position_margin Position margin
+     * @param string|null $position_margin Position margin.
      *
      * @return $this
      */
@@ -436,7 +436,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets order_margin
      *
-     * @param string|null $order_margin Order margin of unfinished orders
+     * @param string|null $order_margin Order margin of unfinished orders.
      *
      * @return $this
      */
@@ -460,7 +460,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param string|null $available The available balance for transferring or trading(including bonus.  Bonus can't be be withdrawn. The transfer amount needs to deduct the bonus)
+     * @param string|null $available The available balance for transferring or trading(including bonus. Bonus can't be withdrawn. The transfer amount needs to deduct the bonus)
      *
      * @return $this
      */
@@ -484,7 +484,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets point
      *
-     * @param string|null $point POINT amount
+     * @param string|null $point POINT amount.
      *
      * @return $this
      */
@@ -508,7 +508,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Settle currency
+     * @param string|null $currency Settle currency.
      *
      * @return $this
      */
@@ -532,7 +532,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets in_dual_mode
      *
-     * @param bool|null $in_dual_mode Whether dual mode is enabled
+     * @param bool|null $in_dual_mode Whether dual mode is enabled.
      *
      * @return $this
      */
@@ -556,7 +556,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets enable_credit
      *
-     * @param bool|null $enable_credit Whether portfolio margin account mode is enabled
+     * @param bool|null $enable_credit Whether portfolio margin account mode is enabled.
      *
      * @return $this
      */
@@ -580,7 +580,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets position_initial_margin
      *
-     * @param string|null $position_initial_margin Initial margin position, applicable to the portfolio margin account model
+     * @param string|null $position_initial_margin Initial margin position, applicable to the portfolio margin account model.
      *
      * @return $this
      */
@@ -628,7 +628,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets bonus
      *
-     * @param string|null $bonus Perpetual Contract Bonus
+     * @param string|null $bonus Perpetual Contract Bonus.
      *
      * @return $this
      */
@@ -652,7 +652,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets enable_evolved_classic
      *
-     * @param bool|null $enable_evolved_classic Classic account margin mode, true-new mode, false-old mode
+     * @param bool|null $enable_evolved_classic Classic account margin mode, true-new mode, false-old mode.
      *
      * @return $this
      */
@@ -796,7 +796,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets cross_margin_balance
      *
-     * @param string|null $cross_margin_balance Full margin balance, suitable for the new classic account margin model
+     * @param string|null $cross_margin_balance Full margin balance, suitable for the new classic account margin model.
      *
      * @return $this
      */
@@ -868,7 +868,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets isolated_position_margin
      *
-     * @param string|null $isolated_position_margin Ware -position margin, suitable for the new classic account margin model
+     * @param string|null $isolated_position_margin Ware -position margin, suitable for the new classic account margin model.
      *
      * @return $this
      */
@@ -892,7 +892,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets enable_new_dual_mode
      *
-     * @param bool|null $enable_new_dual_mode Whether to open a new two-way position mode
+     * @param bool|null $enable_new_dual_mode Whether to open a new two-way position mode.
      *
      * @return $this
      */
@@ -940,7 +940,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets enable_tiered_mm
      *
-     * @param bool|null $enable_tiered_mm Whether to enable tiered maintenance margin calculation
+     * @param bool|null $enable_tiered_mm Whether to enable tiered maintenance margin calculation.
      *
      * @return $this
      */

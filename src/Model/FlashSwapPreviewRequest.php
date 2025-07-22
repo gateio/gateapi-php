@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FlashSwapPreviewRequest Class Doc Comment
  *
  * @category Class
- * @description Parameters of flash swap order creation
+ * @description Parameters of flash swap order creation.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com

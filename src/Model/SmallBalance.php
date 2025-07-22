@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * SmallBalance Class Doc Comment
  *
  * @category Class
- * @description Convert Small Balance
+ * @description Convert Small Balance.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -233,7 +233,7 @@ class SmallBalance implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -257,7 +257,7 @@ class SmallBalance implements ModelInterface, ArrayAccess
     /**
      * Sets available_balance
      *
-     * @param string|null $available_balance Available balance
+     * @param string|null $available_balance Available balance.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class SmallBalance implements ModelInterface, ArrayAccess
     /**
      * Sets estimated_as_btc
      *
-     * @param string|null $estimated_as_btc Estimated as BTC
+     * @param string|null $estimated_as_btc Estimated as BTC.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class SmallBalance implements ModelInterface, ArrayAccess
     /**
      * Sets convertible_to_gt
      *
-     * @param string|null $convertible_to_gt Estimated conversion to GT
+     * @param string|null $convertible_to_gt Estimated conversion to GT.
      *
      * @return $this
      */

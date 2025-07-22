@@ -238,7 +238,7 @@ class MarginTiers implements ModelInterface, ArrayAccess
     /**
      * Sets tier
      *
-     * @param string|null $tier Tier
+     * @param string|null $tier Tier.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class MarginTiers implements ModelInterface, ArrayAccess
     /**
      * Sets margin_rate
      *
-     * @param string|null $margin_rate Discount
+     * @param string|null $margin_rate Discount.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class MarginTiers implements ModelInterface, ArrayAccess
     /**
      * Sets lower_limit
      *
-     * @param string|null $lower_limit Lower limit
+     * @param string|null $lower_limit Lower limit.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class MarginTiers implements ModelInterface, ArrayAccess
     /**
      * Sets upper_limit
      *
-     * @param string|null $upper_limit Upper limit, \"\" indicates greater than (the last tier)
+     * @param string|null $upper_limit Upper limit, \"\" indicates greater than (the last tier).
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class MarginTiers implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage Position leverage
+     * @param string|null $leverage Position leverage.
      *
      * @return $this
      */

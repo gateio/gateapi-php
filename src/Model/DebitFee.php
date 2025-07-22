@@ -217,7 +217,7 @@ class DebitFee implements ModelInterface, ArrayAccess
     /**
      * Sets enabled
      *
-     * @param bool $enabled Whether GT fee discount is used
+     * @param bool $enabled Whether GT fee discount is used.
      *
      * @return $this
      */

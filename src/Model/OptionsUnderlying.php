@@ -220,7 +220,7 @@ class OptionsUnderlying implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Underlying name
+     * @param string|null $name Underlying name.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class OptionsUnderlying implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Spot index price (quote currency)
+     * @param string|null $index_price Spot index price (quote currency).
      *
      * @return $this
      */

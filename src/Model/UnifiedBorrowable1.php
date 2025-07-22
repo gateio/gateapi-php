@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedBorrowable1 Class Doc Comment
  *
  * @category Class
- * @description Batch query unified account can be borrowed up to a maximum of results
+ * @description Batch query unified account can be borrowed up to a maximum of results.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class UnifiedBorrowable1 implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency detail
+     * @param string|null $currency Currency detail.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class UnifiedBorrowable1 implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount The maximum amount to borrow
+     * @param string|null $amount The maximum amount to borrow.
      *
      * @return $this
      */

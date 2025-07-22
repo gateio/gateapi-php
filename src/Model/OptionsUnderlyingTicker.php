@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * OptionsUnderlyingTicker Class Doc Comment
  *
  * @category Class
- * @description Options underlying detail
+ * @description Options underlying detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -227,7 +227,7 @@ class OptionsUnderlyingTicker implements ModelInterface, ArrayAccess
     /**
      * Sets trade_put
      *
-     * @param int|null $trade_put Total put options trades amount in last 24h
+     * @param int|null $trade_put Total put options trades amount in last 24h.
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class OptionsUnderlyingTicker implements ModelInterface, ArrayAccess
     /**
      * Sets trade_call
      *
-     * @param int|null $trade_call Total call options trades amount in last 24h
+     * @param int|null $trade_call Total call options trades amount in last 24h.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class OptionsUnderlyingTicker implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Index price (quote currency)
+     * @param string|null $index_price Index price (quote currency).
      *
      * @return $this
      */

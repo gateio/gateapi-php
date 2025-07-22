@@ -232,7 +232,7 @@ class DepositAddress implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency detail
+     * @param string $currency Currency detail.
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class DepositAddress implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param string $address Deposit address
+     * @param string $address Deposit address.
      *
      * @return $this
      */

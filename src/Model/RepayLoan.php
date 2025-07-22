@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * RepayLoan Class Doc Comment
  *
  * @category Class
- * @description Repay
+ * @description Repay.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -236,7 +236,7 @@ class RepayLoan implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int $order_id Order ID
+     * @param int $order_id Order ID.
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class RepayLoan implements ModelInterface, ArrayAccess
     /**
      * Sets repay_amount
      *
-     * @param string $repay_amount Repayment amount, it is mandatory when making partial repayments
+     * @param string $repay_amount Repayment amount, it is mandatory when making partial repayments.
      *
      * @return $this
      */
@@ -284,7 +284,7 @@ class RepayLoan implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_all
      *
-     * @param bool $repaid_all Repayment method, set to `true` for full repayment, and `false` for partial repayment; When set to false for partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user.
+     * @param bool $repaid_all Repayment method, set to `true` for full repayment, and `false` for partial repayment; When partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user.
      *
      * @return $this
      */

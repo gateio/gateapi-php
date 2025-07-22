@@ -226,7 +226,7 @@ class MultiLoanRepayItem implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Repayment currency
+     * @param string|null $currency Repayment currency.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class MultiLoanRepayItem implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Size
+     * @param string|null $amount Size.
      *
      * @return $this
      */

@@ -238,7 +238,7 @@ class SpotCurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Chain name
+     * @param string|null $name Chain name.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class SpotCurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets addr
      *
-     * @param string|null $addr token address
+     * @param string|null $addr token address.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class SpotCurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets withdraw_disabled
      *
-     * @param bool|null $withdraw_disabled Whether currency's withdrawal is disabled
+     * @param bool|null $withdraw_disabled Whether currency's withdrawal is disabled.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class SpotCurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets withdraw_delayed
      *
-     * @param bool|null $withdraw_delayed Whether currency's withdrawal is delayed
+     * @param bool|null $withdraw_delayed Whether currency's withdrawal is delayed.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class SpotCurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets deposit_disabled
      *
-     * @param bool|null $deposit_disabled Whether currency's deposit is disabled
+     * @param bool|null $deposit_disabled Whether currency's deposit is disabled.
      *
      * @return $this
      */

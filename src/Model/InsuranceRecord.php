@@ -220,7 +220,7 @@ class InsuranceRecord implements ModelInterface, ArrayAccess
     /**
      * Sets t
      *
-     * @param int|null $t Unix timestamp in seconds
+     * @param int|null $t Unix timestamp in seconds.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class InsuranceRecord implements ModelInterface, ArrayAccess
     /**
      * Sets b
      *
-     * @param string|null $b Insurance balance
+     * @param string|null $b Insurance balance.
      *
      * @return $this
      */

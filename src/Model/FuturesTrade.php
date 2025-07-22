@@ -250,7 +250,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Trade ID
+     * @param int|null $id Trade ID.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param double|null $create_time Trading time
+     * @param double|null $create_time Trading time.
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Futures contract.
      *
      * @return $this
      */
@@ -346,7 +346,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Trading size
+     * @param int|null $size Trading size.
      *
      * @return $this
      */
@@ -370,7 +370,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Trading price (quote currency)
+     * @param string|null $price Trading price (quote currency).
      *
      * @return $this
      */
@@ -394,7 +394,7 @@ class FuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets is_internal
      *
-     * @param bool|null $is_internal Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned.
+     * @param bool|null $is_internal Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. an internal trade, this field will not be returned.
      *
      * @return $this
      */

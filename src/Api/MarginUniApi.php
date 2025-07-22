@@ -116,7 +116,7 @@ class MarginUniApi
     /**
      * Operation listUniCurrencyPairs
      *
-     * List lending markets
+     * List lending markets.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -132,7 +132,7 @@ class MarginUniApi
     /**
      * Operation listUniCurrencyPairsWithHttpInfo
      *
-     * List lending markets
+     * List lending markets.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -185,7 +185,7 @@ class MarginUniApi
     /**
      * Operation listUniCurrencyPairsAsync
      *
-     * List lending markets
+     * List lending markets.
      *
      *
      * @throws \InvalidArgumentException
@@ -204,7 +204,7 @@ class MarginUniApi
     /**
      * Operation listUniCurrencyPairsAsyncWithHttpInfo
      *
-     * List lending markets
+     * List lending markets.
      *
      *
      * @throws \InvalidArgumentException
@@ -333,9 +333,9 @@ class MarginUniApi
     /**
      * Operation getUniCurrencyPair
      *
-     * Get detail of lending market
+     * Get detail of lending market.
      *
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -350,9 +350,9 @@ class MarginUniApi
     /**
      * Operation getUniCurrencyPairWithHttpInfo
      *
-     * Get detail of lending market
+     * Get detail of lending market.
      *
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -404,9 +404,9 @@ class MarginUniApi
     /**
      * Operation getUniCurrencyPairAsync
      *
-     * Get detail of lending market
+     * Get detail of lending market.
      *
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -424,9 +424,9 @@ class MarginUniApi
     /**
      * Operation getUniCurrencyPairAsyncWithHttpInfo
      *
-     * Get detail of lending market
+     * Get detail of lending market.
      *
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -473,7 +473,7 @@ class MarginUniApi
     /**
      * Create request for operation 'getUniCurrencyPair'
      *
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -570,9 +570,9 @@ class MarginUniApi
     /**
      * Operation getMarginUniEstimateRate
      *
-     * Estimate interest Rate
+     * Estimate interest Rate.
      *
-     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
+     * @param  string[] $currencies An array of up to 10 specifying the currency name. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -587,9 +587,9 @@ class MarginUniApi
     /**
      * Operation getMarginUniEstimateRateWithHttpInfo
      *
-     * Estimate interest Rate
+     * Estimate interest Rate.
      *
-     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
+     * @param  string[] $currencies An array of up to 10 specifying the currency name. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -641,9 +641,9 @@ class MarginUniApi
     /**
      * Operation getMarginUniEstimateRateAsync
      *
-     * Estimate interest Rate
+     * Estimate interest Rate.
      *
-     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
+     * @param  string[] $currencies An array of up to 10 specifying the currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -661,9 +661,9 @@ class MarginUniApi
     /**
      * Operation getMarginUniEstimateRateAsyncWithHttpInfo
      *
-     * Estimate interest Rate
+     * Estimate interest Rate.
      *
-     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
+     * @param  string[] $currencies An array of up to 10 specifying the currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -710,7 +710,7 @@ class MarginUniApi
     /**
      * Create request for operation 'getMarginUniEstimateRate'
      *
-     * @param  string[] $currencies An array of up to 10 specifying the currency name (required)
+     * @param  string[] $currencies An array of up to 10 specifying the currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -820,14 +820,14 @@ class MarginUniApi
     /**
      * Operation listUniLoans
      *
-     * List loans
+     * List loans.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -842,14 +842,14 @@ class MarginUniApi
     /**
      * Operation listUniLoansWithHttpInfo
      *
-     * List loans
+     * List loans.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -901,14 +901,14 @@ class MarginUniApi
     /**
      * Operation listUniLoansAsync
      *
-     * List loans
+     * List loans.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -926,14 +926,14 @@ class MarginUniApi
     /**
      * Operation listUniLoansAsyncWithHttpInfo
      *
-     * List loans
+     * List loans.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -982,10 +982,10 @@ class MarginUniApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1135,7 +1135,7 @@ class MarginUniApi
     /**
      * Operation createUniLoan
      *
-     * Borrow or repay
+     * Borrow or repay.
      *
      * @param  \GateApi\Model\CreateUniLoan $create_uni_loan create_uni_loan (required)
      *
@@ -1151,7 +1151,7 @@ class MarginUniApi
     /**
      * Operation createUniLoanWithHttpInfo
      *
-     * Borrow or repay
+     * Borrow or repay.
      *
      * @param  \GateApi\Model\CreateUniLoan $create_uni_loan (required)
      *
@@ -1193,7 +1193,7 @@ class MarginUniApi
     /**
      * Operation createUniLoanAsync
      *
-     * Borrow or repay
+     * Borrow or repay.
      *
      * @param  \GateApi\Model\CreateUniLoan $create_uni_loan (required)
      *
@@ -1213,7 +1213,7 @@ class MarginUniApi
     /**
      * Operation createUniLoanAsyncWithHttpInfo
      *
-     * Borrow or repay
+     * Borrow or repay.
      *
      * @param  \GateApi\Model\CreateUniLoan $create_uni_loan (required)
      *
@@ -1345,15 +1345,15 @@ class MarginUniApi
     /**
      * Operation listUniLoanRecords
      *
-     * Get load records
+     * Get load records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $type type: borrow - borrow, repay - repay (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $type type: borrow - borrow, repay - repay. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1368,15 +1368,15 @@ class MarginUniApi
     /**
      * Operation listUniLoanRecordsWithHttpInfo
      *
-     * Get load records
+     * Get load records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $type type: borrow - borrow, repay - repay (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $type type: borrow - borrow, repay - repay. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1428,15 +1428,15 @@ class MarginUniApi
     /**
      * Operation listUniLoanRecordsAsync
      *
-     * Get load records
+     * Get load records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $type type: borrow - borrow, repay - repay (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $type type: borrow - borrow, repay - repay. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1454,15 +1454,15 @@ class MarginUniApi
     /**
      * Operation listUniLoanRecordsAsyncWithHttpInfo
      *
-     * Get load records
+     * Get load records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $type type: borrow - borrow, repay - repay (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $type type: borrow - borrow, repay - repay. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1511,11 +1511,11 @@ class MarginUniApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $type type: borrow - borrow, repay - repay (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $type type: borrow - borrow, repay - repay. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1678,14 +1678,14 @@ class MarginUniApi
     /**
      * Operation listUniLoanInterestRecords
      *
-     * List interest records
+     * List interest records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1702,14 +1702,14 @@ class MarginUniApi
     /**
      * Operation listUniLoanInterestRecordsWithHttpInfo
      *
-     * List interest records
+     * List interest records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1763,14 +1763,14 @@ class MarginUniApi
     /**
      * Operation listUniLoanInterestRecordsAsync
      *
-     * List interest records
+     * List interest records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1790,14 +1790,14 @@ class MarginUniApi
     /**
      * Operation listUniLoanInterestRecordsAsyncWithHttpInfo
      *
-     * List interest records
+     * List interest records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1848,10 +1848,10 @@ class MarginUniApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Currency pair (optional)
-     * @param  string $currency Retrieve data of the specified currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $currency_pair Currency pair. (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -2029,10 +2029,10 @@ class MarginUniApi
     /**
      * Operation getUniBorrowable
      *
-     * Get maximum borrowable
+     * Get maximum borrowable.
      *
-     * @param  string $currency Retrieve data of the specified currency (required)
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency Retrieve data of the specified currency. (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2047,10 +2047,10 @@ class MarginUniApi
     /**
      * Operation getUniBorrowableWithHttpInfo
      *
-     * Get maximum borrowable
+     * Get maximum borrowable.
      *
-     * @param  string $currency Retrieve data of the specified currency (required)
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency Retrieve data of the specified currency. (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2102,10 +2102,10 @@ class MarginUniApi
     /**
      * Operation getUniBorrowableAsync
      *
-     * Get maximum borrowable
+     * Get maximum borrowable.
      *
-     * @param  string $currency Retrieve data of the specified currency (required)
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency Retrieve data of the specified currency. (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2123,10 +2123,10 @@ class MarginUniApi
     /**
      * Operation getUniBorrowableAsyncWithHttpInfo
      *
-     * Get maximum borrowable
+     * Get maximum borrowable.
      *
-     * @param  string $currency Retrieve data of the specified currency (required)
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency Retrieve data of the specified currency. (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2173,8 +2173,8 @@ class MarginUniApi
     /**
      * Create request for operation 'getUniBorrowable'
      *
-     * @param  string $currency Retrieve data of the specified currency (required)
-     * @param  string $currency_pair Currency pair (required)
+     * @param  string $currency Retrieve data of the specified currency. (required)
+     * @param  string $currency_pair Currency pair. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

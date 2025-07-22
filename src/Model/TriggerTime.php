@@ -214,7 +214,7 @@ class TriggerTime implements ModelInterface, ArrayAccess
     /**
      * Sets trigger_time
      *
-     * @param int|null $trigger_time Timestamp of the end of the countdown, in milliseconds
+     * @param int|null $trigger_time Timestamp of the end of the countdown, in milliseconds.
      *
      * @return $this
      */

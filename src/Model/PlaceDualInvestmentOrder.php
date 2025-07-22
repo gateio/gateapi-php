@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * PlaceDualInvestmentOrder Class Doc Comment
  *
  * @category Class
- * @description Dual Investment order
+ * @description Dual Investment order.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -233,7 +233,7 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets plan_id
      *
-     * @param string $plan_id Plan ID
+     * @param string $plan_id Plan ID.
      *
      * @return $this
      */
@@ -257,7 +257,7 @@ class PlaceDualInvestmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Subscription amount, mutually exclusive with the copies field
+     * @param string $amount Subscription amount, mutually exclusive with the copies field.
      *
      * @return $this
      */

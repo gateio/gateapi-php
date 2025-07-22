@@ -232,7 +232,7 @@ class UserSub implements ModelInterface, ArrayAccess
     /**
      * Sets uid
      *
-     * @param int|null $uid User ID
+     * @param int|null $uid User ID.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class UserSub implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param int|null $type Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct direct customer 4-indirect direct customer 5-ordinary user)
+     * @param int|null $type Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct customer 4-indirect direct customer 5-ordinary user)
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class UserSub implements ModelInterface, ArrayAccess
     /**
      * Sets ref_uid
      *
-     * @param int|null $ref_uid Inviter user ID
+     * @param int|null $ref_uid Inviter user ID.
      *
      * @return $this
      */

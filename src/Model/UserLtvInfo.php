@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UserLtvInfo Class Doc Comment
  *
  * @category Class
- * @description User&#39;s currency statistics data
+ * @description User&#39;s currency statistics data.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -251,7 +251,7 @@ class UserLtvInfo implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currency
      *
-     * @param string|null $collateral_currency Collateral
+     * @param string|null $collateral_currency Collateral.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class UserLtvInfo implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_currency
      *
-     * @param string|null $borrow_currency Borrowed currency
+     * @param string|null $borrow_currency Borrowed currency.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class UserLtvInfo implements ModelInterface, ArrayAccess
     /**
      * Sets init_ltv
      *
-     * @param string|null $init_ltv The initial collateralization rate
+     * @param string|null $init_ltv The initial collateralization rate.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class UserLtvInfo implements ModelInterface, ArrayAccess
     /**
      * Sets alert_ltv
      *
-     * @param string|null $alert_ltv Warning collateralization ratio
+     * @param string|null $alert_ltv Warning collateralization ratio.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class UserLtvInfo implements ModelInterface, ArrayAccess
     /**
      * Sets liquidate_ltv
      *
-     * @param string|null $liquidate_ltv The liquidation collateralization rate
+     * @param string|null $liquidate_ltv The liquidation collateralization rate.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class UserLtvInfo implements ModelInterface, ArrayAccess
     /**
      * Sets min_borrow_amount
      *
-     * @param string|null $min_borrow_amount Minimum borrowable amount for the loan currency
+     * @param string|null $min_borrow_amount Minimum borrowable amount for the loan currency.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class UserLtvInfo implements ModelInterface, ArrayAccess
     /**
      * Sets left_borrowable_amount
      *
-     * @param string|null $left_borrowable_amount Remaining borrowable amount for the loan currency
+     * @param string|null $left_borrowable_amount Remaining borrowable amount for the loan currency.
      *
      * @return $this
      */

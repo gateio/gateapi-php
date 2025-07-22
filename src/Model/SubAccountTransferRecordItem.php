@@ -280,7 +280,7 @@ class SubAccountTransferRecordItem implements ModelInterface, ArrayAccess
     /**
      * Sets timest
      *
-     * @param string|null $timest Transfer timestamp
+     * @param string|null $timest Transfer timestamp.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class SubAccountTransferRecordItem implements ModelInterface, ArrayAccess
     /**
      * Sets uid
      *
-     * @param string|null $uid Main account user ID
+     * @param string|null $uid Main account user ID.
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class SubAccountTransferRecordItem implements ModelInterface, ArrayAccess
     /**
      * Sets sub_account
      *
-     * @param string $sub_account Sub account user ID
+     * @param string $sub_account Sub account user ID.
      *
      * @return $this
      */
@@ -376,7 +376,7 @@ class SubAccountTransferRecordItem implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Transfer currency name
+     * @param string $currency Transfer currency name.
      *
      * @return $this
      */
@@ -400,7 +400,7 @@ class SubAccountTransferRecordItem implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Transfer amount
+     * @param string $amount Transfer amount.
      *
      * @return $this
      */
@@ -448,7 +448,7 @@ class SubAccountTransferRecordItem implements ModelInterface, ArrayAccess
     /**
      * Sets source
      *
-     * @param string|null $source Where the operation is initiated from
+     * @param string|null $source Where the operation is initiated from.
      *
      * @return $this
      */
@@ -496,7 +496,7 @@ class SubAccountTransferRecordItem implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Sub-account transfer record status, currently only success
+     * @param string|null $status Sub-account transfer record status, currently only success.
      *
      * @return $this
      */

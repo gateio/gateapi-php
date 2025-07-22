@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MultiCollateralOrder Class Doc Comment
  *
  * @category Class
- * @description Multi-Collateral Order
+ * @description Multi-Collateral Order.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -293,7 +293,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param string|null $order_id Order ID
+     * @param string|null $order_id Order ID.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets order_type
      *
-     * @param string|null $order_type current - current, fixed - fixed
+     * @param string|null $order_type current - current, fixed - fixed.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets fixed_rate
      *
-     * @param string|null $fixed_rate Fixed interest rate
+     * @param string|null $fixed_rate Fixed interest rate.
      *
      * @return $this
      */
@@ -413,7 +413,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_renew
      *
-     * @param bool|null $auto_renew Fixed interest rate, automatic renewal
+     * @param bool|null $auto_renew Fixed interest rate, automatic renewal.
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_repay
      *
-     * @param bool|null $auto_repay Fixed interest rate, automatic repayment
+     * @param bool|null $auto_repay Fixed interest rate, automatic repayment.
      *
      * @return $this
      */
@@ -461,7 +461,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets current_ltv
      *
-     * @param string|null $current_ltv The current collateralization rate
+     * @param string|null $current_ltv The current collateralization rate.
      *
      * @return $this
      */
@@ -509,7 +509,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_time
      *
-     * @param int|null $borrow_time Borrowing time, timestamp in seconds
+     * @param int|null $borrow_time Borrowing time, timestamp in seconds.
      *
      * @return $this
      */
@@ -533,7 +533,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets total_left_repay_usdt
      *
-     * @param string|null $total_left_repay_usdt Value of Left repay amount converted in USDT
+     * @param string|null $total_left_repay_usdt Value of Left repay amount converted in USDT.
      *
      * @return $this
      */
@@ -557,7 +557,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets total_left_collateral_usdt
      *
-     * @param string|null $total_left_collateral_usdt Value of Collateral amount in USDT
+     * @param string|null $total_left_collateral_usdt Value of Collateral amount in USDT.
      *
      * @return $this
      */
@@ -581,7 +581,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_currencies
      *
-     * @param \GateApi\Model\BorrowCurrencyInfo[]|null $borrow_currencies Borrowing Currency List
+     * @param \GateApi\Model\BorrowCurrencyInfo[]|null $borrow_currencies Borrowing Currency List.
      *
      * @return $this
      */
@@ -605,7 +605,7 @@ class MultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currencies
      *
-     * @param \GateApi\Model\CollateralCurrencyInfo[]|null $collateral_currencies Collateral Currency List
+     * @param \GateApi\Model\CollateralCurrencyInfo[]|null $collateral_currencies Collateral Currency List.
      *
      * @return $this
      */

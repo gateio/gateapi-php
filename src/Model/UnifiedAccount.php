@@ -328,7 +328,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets refresh_time
      *
-     * @param int|null $refresh_time Time of the most recent refresh
+     * @param int|null $refresh_time Time of the most recent refresh.
      *
      * @return $this
      */
@@ -424,7 +424,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param string|null $total Total account assets converted to USD, i.e. the sum of `(available + freeze) * price`  in all currencies (deprecated, to be deprecated, replaced by unified_account_total)
+     * @param string|null $total Total account assets converted to USD, i.e. the sum of `(available + freeze) * price` in all currencies (deprecated, to be deprecated, replaced by unified_account_total)
      *
      * @return $this
      */
@@ -688,7 +688,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage Actual leverage, valid in cross-currency margin/combined margin mode
+     * @param string|null $leverage Actual leverage, valid in cross-currency margin/combined margin mode.
      *
      * @return $this
      */
@@ -760,7 +760,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets use_funding
      *
-     * @param bool|null $use_funding Whether to use funds as margin
+     * @param bool|null $use_funding Whether to use funds as margin.
      *
      * @return $this
      */
@@ -784,7 +784,7 @@ class UnifiedAccount implements ModelInterface, ArrayAccess
     /**
      * Sets is_all_collateral
      *
-     * @param bool|null $is_all_collateral Whether all currencies are used as margin, true - All currencies are used as margin, false - No
+     * @param bool|null $is_all_collateral Whether all currencies are used as margin, true - false - No
      *
      * @return $this
      */

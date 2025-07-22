@@ -226,7 +226,7 @@ class SpotInsuranceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class SpotInsuranceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets balance
      *
-     * @param string|null $balance balance
+     * @param string|null $balance balance.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class SpotInsuranceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param int|null $time Creation time, timestamp, milliseconds
+     * @param int|null $time Creation time, timestamp, milliseconds.
      *
      * @return $this
      */

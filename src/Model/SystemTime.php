@@ -214,7 +214,7 @@ class SystemTime implements ModelInterface, ArrayAccess
     /**
      * Sets server_time
      *
-     * @param int|null $server_time Server current time(ms)
+     * @param int|null $server_time Server current time(ms).
      *
      * @return $this
      */

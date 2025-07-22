@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MockRiskUnit Class Doc Comment
  *
  * @category Class
- * @description Risk unit
+ * @description Risk unit.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -263,7 +263,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets symbol
      *
-     * @param string|null $symbol Risk unit name
+     * @param string|null $symbol Risk unit name.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets spot_in_use
      *
-     * @param string|null $spot_in_use Spot usage
+     * @param string|null $spot_in_use Spot usage.
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets maintain_margin
      *
-     * @param string|null $maintain_margin Maintenance margin
+     * @param string|null $maintain_margin Maintenance margin.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets initial_margin
      *
-     * @param string|null $initial_margin Initial margin
+     * @param string|null $initial_margin Initial margin.
      *
      * @return $this
      */
@@ -359,7 +359,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets margin_result
      *
-     * @param \GateApi\Model\MockMarginResult[]|null $margin_result Margin result
+     * @param \GateApi\Model\MockMarginResult[]|null $margin_result Margin result.
      *
      * @return $this
      */
@@ -383,7 +383,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets delta
      *
-     * @param string|null $delta Total Delta of risk unit
+     * @param string|null $delta Total Delta of risk unit.
      *
      * @return $this
      */
@@ -407,7 +407,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets gamma
      *
-     * @param string|null $gamma Total Gamma of risk unit
+     * @param string|null $gamma Total Gamma of risk unit.
      *
      * @return $this
      */
@@ -431,7 +431,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets theta
      *
-     * @param string|null $theta Total Theta of risk unit
+     * @param string|null $theta Total Theta of risk unit.
      *
      * @return $this
      */
@@ -455,7 +455,7 @@ class MockRiskUnit implements ModelInterface, ArrayAccess
     /**
      * Sets vega
      *
-     * @param string|null $vega Total Vega of risk unit
+     * @param string|null $vega Total Vega of risk unit.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CollateralAdjustRes Class Doc Comment
  *
  * @category Class
- * @description Result of multi-collateral adjustment
+ * @description Result of multi-collateral adjustment.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class CollateralAdjustRes implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Order ID
+     * @param int|null $order_id Order ID.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class CollateralAdjustRes implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currencies
      *
-     * @param \GateApi\Model\CollateralCurrencyRes[]|null $collateral_currencies Collateral Currency Information
+     * @param \GateApi\Model\CollateralCurrencyRes[]|null $collateral_currencies Collateral Currency Information.
      *
      * @return $this
      */

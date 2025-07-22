@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MockSpotOrder Class Doc Comment
  *
  * @category Class
- * @description Spot orders
+ * @description Spot orders.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -251,7 +251,7 @@ class MockSpotOrder implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pairs
      *
-     * @param string $currency_pairs Currency pair
+     * @param string $currency_pairs Currency pair.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class MockSpotOrder implements ModelInterface, ArrayAccess
     /**
      * Sets order_price
      *
-     * @param string $order_price Price
+     * @param string $order_price Price.
      *
      * @return $this
      */

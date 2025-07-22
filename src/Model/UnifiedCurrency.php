@@ -244,7 +244,7 @@ class UnifiedCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Currency name
+     * @param string|null $name Currency name.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class UnifiedCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets prec
      *
-     * @param string|null $prec Currency precision
+     * @param string|null $prec Currency precision.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class UnifiedCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets min_borrow_amount
      *
-     * @param string|null $min_borrow_amount The minimum debit limit is the unit of currency
+     * @param string|null $min_borrow_amount The minimum debit limit is the unit of currency.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class UnifiedCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets user_max_borrow_amount
      *
-     * @param string|null $user_max_borrow_amount The minimum debit limit is the unit of currency
+     * @param string|null $user_max_borrow_amount The minimum debit limit is the unit of currency.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class UnifiedCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets total_max_borrow_amount
      *
-     * @param string|null $total_max_borrow_amount The maximum debit limit for the platform is USDT
+     * @param string|null $total_max_borrow_amount The maximum debit limit for the platform is USDT.
      *
      * @return $this
      */

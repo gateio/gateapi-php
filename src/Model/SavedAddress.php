@@ -244,7 +244,7 @@ class SavedAddress implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class SavedAddress implements ModelInterface, ArrayAccess
     /**
      * Sets chain
      *
-     * @param string|null $chain Chain name
+     * @param string|null $chain Chain name.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class SavedAddress implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param string|null $address Address
+     * @param string|null $address Address.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class SavedAddress implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name
+     * @param string|null $name Name.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class SavedAddress implements ModelInterface, ArrayAccess
     /**
      * Sets tag
      *
-     * @param string|null $tag Tag
+     * @param string|null $tag Tag.
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class SavedAddress implements ModelInterface, ArrayAccess
     /**
      * Sets verified
      *
-     * @param string|null $verified Whether to pass the verification 0-unverified, 1-verified
+     * @param string|null $verified Whether to pass the verification 0-unverified, 1-verified.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * RebateUserInfo Class Doc Comment
  *
  * @category Class
- * @description Retrieve user rebate information
+ * @description Retrieve user rebate information.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -215,7 +215,7 @@ class RebateUserInfo implements ModelInterface, ArrayAccess
     /**
      * Sets invite_uid
      *
-     * @param int|null $invite_uid My inviter's UID
+     * @param int|null $invite_uid My inviter's UID.
      *
      * @return $this
      */

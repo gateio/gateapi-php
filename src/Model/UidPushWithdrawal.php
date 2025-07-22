@@ -235,7 +235,7 @@ class UidPushWithdrawal implements ModelInterface, ArrayAccess
     /**
      * Sets receive_uid
      *
-     * @param int $receive_uid Recipient UID
+     * @param int $receive_uid Recipient UID.
      *
      * @return $this
      */
@@ -259,7 +259,7 @@ class UidPushWithdrawal implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency name
+     * @param string $currency Currency name.
      *
      * @return $this
      */
@@ -283,7 +283,7 @@ class UidPushWithdrawal implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Transfer amount
+     * @param string $amount Transfer amount.
      *
      * @return $this
      */

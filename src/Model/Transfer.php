@@ -339,7 +339,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets from
      *
-     * @param string $from Account to transfer from
+     * @param string $from Account to transfer from.
      *
      * @return $this
      */
@@ -372,7 +372,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets to
      *
-     * @param string $to Account to transfer to
+     * @param string $to Account to transfer to.
      *
      * @return $this
      */
@@ -405,7 +405,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Transfer amount
+     * @param string $amount Transfer amount.
      *
      * @return $this
      */
@@ -429,7 +429,7 @@ class Transfer implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Margin currency pair. Required if transfer from or to margin account
+     * @param string|null $currency_pair Margin currency pair. Required if transfer from or to margin account.
      *
      * @return $this
      */

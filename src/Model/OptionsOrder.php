@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * OptionsOrder Class Doc Comment
  *
  * @category Class
- * @description Options order detail
+ * @description Options order detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -450,7 +450,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Options order ID
+     * @param int|null $id Options order ID.
      *
      * @return $this
      */
@@ -474,7 +474,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param int|null $user User ID
+     * @param int|null $user User ID.
      *
      * @return $this
      */
@@ -498,7 +498,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param double|null $create_time Creation time of order
+     * @param double|null $create_time Creation time of order.
      *
      * @return $this
      */
@@ -522,7 +522,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_time
      *
-     * @param double|null $finish_time Order finished time. Not returned if order is open
+     * @param double|null $finish_time Order finished time. Not returned if order is open.
      *
      * @return $this
      */
@@ -546,7 +546,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_as
      *
-     * @param string|null $finish_as Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, because reduce_only is set or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
+     * @param string|null $finish_as Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
      *
      * @return $this
      */
@@ -612,7 +612,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string $contract Contract name
+     * @param string $contract Contract name.
      *
      * @return $this
      */
@@ -684,7 +684,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Order price. 0 for market order with `tif` set as `ioc` (USDT)
+     * @param string|null $price Order price. 0 for market order with `tif` set as `ioc` (USDT).
      *
      * @return $this
      */
@@ -708,7 +708,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets close
      *
-     * @param bool|null $close Set as `true` to close the position, with `size` set to 0
+     * @param bool|null $close Set as `true` to close the position, with `size` set to 0.
      *
      * @return $this
      */
@@ -732,7 +732,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_close
      *
-     * @param bool|null $is_close Is the order to close position
+     * @param bool|null $is_close Is the order to close position.
      *
      * @return $this
      */
@@ -756,7 +756,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets reduce_only
      *
-     * @param bool|null $reduce_only Set as `true` to be reduce-only order
+     * @param bool|null $reduce_only Set as `true` to be reduce-only order.
      *
      * @return $this
      */
@@ -780,7 +780,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_reduce_only
      *
-     * @param bool|null $is_reduce_only Is the order reduce-only
+     * @param bool|null $is_reduce_only Is the order reduce-only.
      *
      * @return $this
      */
@@ -804,7 +804,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_liq
      *
-     * @param bool|null $is_liq Is the order for liquidation
+     * @param bool|null $is_liq Is the order for liquidation.
      *
      * @return $this
      */
@@ -828,7 +828,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets mmp
      *
-     * @param bool|null $mmp When set to true, delegate to MMP
+     * @param bool|null $mmp When set to true, delegate to MMP.
      *
      * @return $this
      */
@@ -909,7 +909,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets left
      *
-     * @param int|null $left Size left to be traded
+     * @param int|null $left Size left to be traded.
      *
      * @return $this
      */
@@ -933,7 +933,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets fill_price
      *
-     * @param string|null $fill_price Fill price of the order
+     * @param string|null $fill_price Fill price of the order.
      *
      * @return $this
      */
@@ -981,7 +981,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets tkfr
      *
-     * @param string|null $tkfr Taker fee
+     * @param string|null $tkfr Taker fee.
      *
      * @return $this
      */
@@ -1005,7 +1005,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets mkfr
      *
-     * @param string|null $mkfr Maker fee
+     * @param string|null $mkfr Maker fee.
      *
      * @return $this
      */
@@ -1029,7 +1029,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets refu
      *
-     * @param int|null $refu Reference user ID
+     * @param int|null $refu Reference user ID.
      *
      * @return $this
      */
@@ -1053,7 +1053,7 @@ class OptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets refr
      *
-     * @param string|null $refr Referrer rebate
+     * @param string|null $refr Referrer rebate.
      *
      * @return $this
      */

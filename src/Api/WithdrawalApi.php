@@ -116,7 +116,7 @@ class WithdrawalApi
     /**
      * Operation withdraw
      *
-     * Withdraw
+     * Withdraw.
      *
      * @param  \GateApi\Model\LedgerRecord $ledger_record ledger_record (required)
      *
@@ -133,7 +133,7 @@ class WithdrawalApi
     /**
      * Operation withdrawWithHttpInfo
      *
-     * Withdraw
+     * Withdraw.
      *
      * @param  \GateApi\Model\LedgerRecord $ledger_record (required)
      *
@@ -187,7 +187,7 @@ class WithdrawalApi
     /**
      * Operation withdrawAsync
      *
-     * Withdraw
+     * Withdraw.
      *
      * @param  \GateApi\Model\LedgerRecord $ledger_record (required)
      *
@@ -207,7 +207,7 @@ class WithdrawalApi
     /**
      * Operation withdrawAsyncWithHttpInfo
      *
-     * Withdraw
+     * Withdraw.
      *
      * @param  \GateApi\Model\LedgerRecord $ledger_record (required)
      *
@@ -350,7 +350,7 @@ class WithdrawalApi
     /**
      * Operation withdrawPushOrder
      *
-     * UID transfer
+     * UID transfer.
      *
      * @param  \GateApi\Model\UidPushWithdrawal $uid_push_withdrawal uid_push_withdrawal (required)
      *
@@ -367,7 +367,7 @@ class WithdrawalApi
     /**
      * Operation withdrawPushOrderWithHttpInfo
      *
-     * UID transfer
+     * UID transfer.
      *
      * @param  \GateApi\Model\UidPushWithdrawal $uid_push_withdrawal (required)
      *
@@ -421,7 +421,7 @@ class WithdrawalApi
     /**
      * Operation withdrawPushOrderAsync
      *
-     * UID transfer
+     * UID transfer.
      *
      * @param  \GateApi\Model\UidPushWithdrawal $uid_push_withdrawal (required)
      *
@@ -441,7 +441,7 @@ class WithdrawalApi
     /**
      * Operation withdrawPushOrderAsyncWithHttpInfo
      *
-     * UID transfer
+     * UID transfer.
      *
      * @param  \GateApi\Model\UidPushWithdrawal $uid_push_withdrawal (required)
      *
@@ -584,7 +584,7 @@ class WithdrawalApi
     /**
      * Operation cancelWithdrawal
      *
-     * Cancel withdrawal with specified ID
+     * Cancel withdrawal with specified ID.
      *
      * @param  string $withdrawal_id withdrawal_id (required)
      *
@@ -601,7 +601,7 @@ class WithdrawalApi
     /**
      * Operation cancelWithdrawalWithHttpInfo
      *
-     * Cancel withdrawal with specified ID
+     * Cancel withdrawal with specified ID.
      *
      * @param  string $withdrawal_id (required)
      *
@@ -655,7 +655,7 @@ class WithdrawalApi
     /**
      * Operation cancelWithdrawalAsync
      *
-     * Cancel withdrawal with specified ID
+     * Cancel withdrawal with specified ID.
      *
      * @param  string $withdrawal_id (required)
      *
@@ -675,7 +675,7 @@ class WithdrawalApi
     /**
      * Operation cancelWithdrawalAsyncWithHttpInfo
      *
-     * Cancel withdrawal with specified ID
+     * Cancel withdrawal with specified ID.
      *
      * @param  string $withdrawal_id (required)
      *

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FlashSwapCurrencyPair Class Doc Comment
  *
  * @category Class
- * @description List all supported currencies in flash swap
+ * @description List all supported currencies in flash swap.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -275,7 +275,7 @@ class FlashSwapCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets sell_currency
      *
-     * @param string|null $sell_currency The currency to be sold
+     * @param string|null $sell_currency The currency to be sold.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class FlashSwapCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets buy_currency
      *
-     * @param string|null $buy_currency The currency to be bought
+     * @param string|null $buy_currency The currency to be bought.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class FlashSwapCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets sell_min_amount
      *
-     * @param string|null $sell_min_amount The minimum quantity required for selling
+     * @param string|null $sell_min_amount The minimum quantity required for selling.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class FlashSwapCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets sell_max_amount
      *
-     * @param string|null $sell_max_amount The maximum quantity allowed for selling
+     * @param string|null $sell_max_amount The maximum quantity allowed for selling.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class FlashSwapCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets buy_min_amount
      *
-     * @param string|null $buy_min_amount The minimum quantity required for buying
+     * @param string|null $buy_min_amount The minimum quantity required for buying.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class FlashSwapCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets buy_max_amount
      *
-     * @param string|null $buy_max_amount The maximum quantity allowed for buying
+     * @param string|null $buy_max_amount The maximum quantity allowed for buying.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MarginLeverageTier Class Doc Comment
  *
  * @category Class
- * @description Market gradient information
+ * @description Market gradient information.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -227,7 +227,7 @@ class MarginLeverageTier implements ModelInterface, ArrayAccess
     /**
      * Sets upper_limit
      *
-     * @param string|null $upper_limit Maximum loan limit
+     * @param string|null $upper_limit Maximum loan limit.
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class MarginLeverageTier implements ModelInterface, ArrayAccess
     /**
      * Sets mmr
      *
-     * @param string|null $mmr Maintenance margin rate
+     * @param string|null $mmr Maintenance margin rate.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class MarginLeverageTier implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage Maximum leverage multiple
+     * @param string|null $leverage Maximum leverage multiple.
      *
      * @return $this
      */

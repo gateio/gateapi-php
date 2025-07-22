@@ -220,7 +220,7 @@ class SubAccountFuturesBalance implements ModelInterface, ArrayAccess
     /**
      * Sets uid
      *
-     * @param string|null $uid User ID
+     * @param string|null $uid User ID.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class SubAccountFuturesBalance implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param map[string,\GateApi\Model\FuturesAccount]|null $available Futures account balances
+     * @param map[string,\GateApi\Model\FuturesAccount]|null $available Futures account balances.
      *
      * @return $this
      */

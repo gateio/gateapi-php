@@ -220,7 +220,7 @@ class PatchUniLend implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class PatchUniLend implements ModelInterface, ArrayAccess
     /**
      * Sets min_rate
      *
-     * @param string|null $min_rate Minimum interest rate
+     * @param string|null $min_rate Minimum interest rate.
      *
      * @return $this
      */

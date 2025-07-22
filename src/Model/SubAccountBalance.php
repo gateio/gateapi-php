@@ -220,7 +220,7 @@ class SubAccountBalance implements ModelInterface, ArrayAccess
     /**
      * Sets uid
      *
-     * @param string|null $uid User ID
+     * @param string|null $uid User ID.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class SubAccountBalance implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param map[string,string]|null $available Available balances of currencies
+     * @param map[string,string]|null $available Available balances of currencies.
      *
      * @return $this
      */

@@ -342,7 +342,7 @@ class FuturesPriceTrigger implements ModelInterface, ArrayAccess
     /**
      * Sets price_type
      *
-     * @param int|null $price_type Price type. 0 - latest deal price, 1 - mark price, 2 - index price
+     * @param int|null $price_type Price type. 0 - latest deal price, 1 - mark price, 2 - index price.
      *
      * @return $this
      */
@@ -375,7 +375,7 @@ class FuturesPriceTrigger implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Value of price on price triggered, or price gap on price gap triggered
+     * @param string|null $price Value of price on price triggered, or price gap on price gap triggered.
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class FuturesPriceTrigger implements ModelInterface, ArrayAccess
     /**
      * Sets rule
      *
-     * @param int|null $rule Price Condition Type  - 1: Indicates that the price calculated based on `strategy_type` and `price_type` is greater than or equal to `Trigger.Price` Trigger, while Trigger.Price must > last_price - 2: Indicates that the price calculated based on `strategy_type` and `price_type` is less than or equal to `Trigger.Price` Trigger, and Trigger.Price must < last_price
+     * @param int|null $rule Price Condition Type  - 1: Indicates that the price calculated based on `strategy_type` and `price_type` is greater than or equal to `Trigger.Price` Trigger, while Trigger.Price must > last_price - based on `strategy_type` and `price_type` is less than or equal to `Trigger.Price` Trigger, and Trigger.Price must < last_price
      *
      * @return $this
      */

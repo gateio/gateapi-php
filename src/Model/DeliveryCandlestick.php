@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * DeliveryCandlestick Class Doc Comment
  *
  * @category Class
- * @description data point in every timestamp
+ * @description data point in every timestamp.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -245,7 +245,7 @@ class DeliveryCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets t
      *
-     * @param double|null $t Unix timestamp in seconds
+     * @param double|null $t Unix timestamp in seconds.
      *
      * @return $this
      */
@@ -269,7 +269,7 @@ class DeliveryCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets v
      *
-     * @param int|null $v size volume (contract size). Only returned if `contract` is not prefixed
+     * @param int|null $v size volume (contract size). Only returned if `contract` is not prefixed.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class DeliveryCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets c
      *
-     * @param string|null $c Close price (quote currency)
+     * @param string|null $c Close price (quote currency).
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class DeliveryCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets h
      *
-     * @param string|null $h Highest price (quote currency)
+     * @param string|null $h Highest price (quote currency).
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class DeliveryCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets l
      *
-     * @param string|null $l Lowest price (quote currency)
+     * @param string|null $l Lowest price (quote currency).
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class DeliveryCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets o
      *
-     * @param string|null $o Open price (quote currency)
+     * @param string|null $o Open price (quote currency).
      *
      * @return $this
      */

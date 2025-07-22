@@ -237,7 +237,7 @@ class AutoRepaySetting implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Auto repayment status. `on` - enabled, `off` - disabled
+     * @param string|null $status Auto repayment status. `on` - enabled, `off` - disabled.
      *
      * @return $this
      */

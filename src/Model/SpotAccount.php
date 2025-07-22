@@ -232,7 +232,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency detail
+     * @param string|null $currency Currency detail.
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param string|null $available Available amount
+     * @param string|null $available Available amount.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
     /**
      * Sets locked
      *
-     * @param string|null $locked Locked amount, used in trading
+     * @param string|null $locked Locked amount, used in trading.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class SpotAccount implements ModelInterface, ArrayAccess
     /**
      * Sets update_id
      *
-     * @param int|null $update_id Version number
+     * @param int|null $update_id Version number.
      *
      * @return $this
      */

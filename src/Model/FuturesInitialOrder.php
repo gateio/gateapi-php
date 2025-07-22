@@ -297,7 +297,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string $contract Futures contract
+     * @param string $contract Futures contract.
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string $price Order price. Set to 0 to use market price
+     * @param string $price Order price. Set to 0 to use market price.
      *
      * @return $this
      */
@@ -393,7 +393,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets tif
      *
-     * @param string|null $tif Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+     * @param string|null $tif Time in force strategy, default is gtc, market order currently only supports ioc mode mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
      *
      * @return $this
      */
@@ -498,7 +498,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_reduce_only
      *
-     * @param bool|null $is_reduce_only Is the order reduce-only
+     * @param bool|null $is_reduce_only Is the order reduce-only.
      *
      * @return $this
      */
@@ -522,7 +522,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_close
      *
-     * @param bool|null $is_close Is the order to close position
+     * @param bool|null $is_close Is the order to close position.
      *
      * @return $this
      */

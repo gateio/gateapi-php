@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CreateUniLoan Class Doc Comment
  *
  * @category Class
- * @description Borrow or repay
+ * @description Borrow or repay.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -274,7 +274,7 @@ class CreateUniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency
+     * @param string $currency Currency.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class CreateUniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type: borrow - borrow, repay - repay
+     * @param string $type type: borrow - borrow, repay - repay.
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class CreateUniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount The amount of lending or repaying
+     * @param string $amount The amount of lending or repaying.
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class CreateUniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_all
      *
-     * @param bool|null $repaid_all Full repayment.  Repay operation only.  If the value is `true`, the amount will be ignored and the loan will be repaid in full.
+     * @param bool|null $repaid_all Full repayment. Repay operation only. If the value is `true`, the amount will be ignored and repaid in full.
      *
      * @return $this
      */
@@ -379,7 +379,7 @@ class CreateUniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string $currency_pair Currency pair
+     * @param string $currency_pair Currency pair.
      *
      * @return $this
      */

@@ -268,7 +268,7 @@ class OrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets current
      *
-     * @param int|null $current The timestamp of the response data being generated (in milliseconds)
+     * @param int|null $current The timestamp of the response data being generated (in milliseconds).
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class OrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets update
      *
-     * @param int|null $update The timestamp of when the orderbook last changed (in milliseconds)
+     * @param int|null $update The timestamp of when the orderbook last changed (in milliseconds).
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class OrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets asks
      *
-     * @param string[][] $asks Asks order depth
+     * @param string[][] $asks Asks order depth.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class OrderBook implements ModelInterface, ArrayAccess
     /**
      * Sets bids
      *
-     * @param string[][] $bids Bids order depth
+     * @param string[][] $bids Bids order depth.
      *
      * @return $this
      */

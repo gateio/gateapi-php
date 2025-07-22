@@ -116,7 +116,7 @@ class SubAccountApi
     /**
      * Operation listSubAccounts
      *
-     * List sub-accounts
+     * List sub-accounts.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -135,7 +135,7 @@ class SubAccountApi
     /**
      * Operation listSubAccountsWithHttpInfo
      *
-     * List sub-accounts
+     * List sub-accounts.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -191,7 +191,7 @@ class SubAccountApi
     /**
      * Operation listSubAccountsAsync
      *
-     * List sub-accounts
+     * List sub-accounts.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -213,7 +213,7 @@ class SubAccountApi
     /**
      * Operation listSubAccountsAsyncWithHttpInfo
      *
-     * List sub-accounts
+     * List sub-accounts.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -366,7 +366,7 @@ class SubAccountApi
     /**
      * Operation createSubAccounts
      *
-     * Create a new sub-account
+     * Create a new sub-account.
      *
      * @param  \GateApi\Model\SubAccount $sub_account sub_account (required)
      *
@@ -383,7 +383,7 @@ class SubAccountApi
     /**
      * Operation createSubAccountsWithHttpInfo
      *
-     * Create a new sub-account
+     * Create a new sub-account.
      *
      * @param  \GateApi\Model\SubAccount $sub_account (required)
      *
@@ -437,7 +437,7 @@ class SubAccountApi
     /**
      * Operation createSubAccountsAsync
      *
-     * Create a new sub-account
+     * Create a new sub-account.
      *
      * @param  \GateApi\Model\SubAccount $sub_account (required)
      *
@@ -457,7 +457,7 @@ class SubAccountApi
     /**
      * Operation createSubAccountsAsyncWithHttpInfo
      *
-     * Create a new sub-account
+     * Create a new sub-account.
      *
      * @param  \GateApi\Model\SubAccount $sub_account (required)
      *
@@ -600,9 +600,9 @@ class SubAccountApi
     /**
      * Operation getSubAccount
      *
-     * Get the sub-account
+     * Get the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -617,9 +617,9 @@ class SubAccountApi
     /**
      * Operation getSubAccountWithHttpInfo
      *
-     * Get the sub-account
+     * Get the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -671,9 +671,9 @@ class SubAccountApi
     /**
      * Operation getSubAccountAsync
      *
-     * Get the sub-account
+     * Get the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -691,9 +691,9 @@ class SubAccountApi
     /**
      * Operation getSubAccountAsyncWithHttpInfo
      *
-     * Get the sub-account
+     * Get the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -740,7 +740,7 @@ class SubAccountApi
     /**
      * Create request for operation 'getSubAccount'
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -840,9 +840,9 @@ class SubAccountApi
     /**
      * Operation listSubAccountKeys
      *
-     * List all API Key of the sub-account
+     * List all API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -857,9 +857,9 @@ class SubAccountApi
     /**
      * Operation listSubAccountKeysWithHttpInfo
      *
-     * List all API Key of the sub-account
+     * List all API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -911,9 +911,9 @@ class SubAccountApi
     /**
      * Operation listSubAccountKeysAsync
      *
-     * List all API Key of the sub-account
+     * List all API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -931,9 +931,9 @@ class SubAccountApi
     /**
      * Operation listSubAccountKeysAsyncWithHttpInfo
      *
-     * List all API Key of the sub-account
+     * List all API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -980,7 +980,7 @@ class SubAccountApi
     /**
      * Create request for operation 'listSubAccountKeys'
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1080,9 +1080,9 @@ class SubAccountApi
     /**
      * Operation createSubAccountKeys
      *
-     * Create API Key of the sub-account
+     * Create API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key sub_account_key (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1098,9 +1098,9 @@ class SubAccountApi
     /**
      * Operation createSubAccountKeysWithHttpInfo
      *
-     * Create API Key of the sub-account
+     * Create API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1153,9 +1153,9 @@ class SubAccountApi
     /**
      * Operation createSubAccountKeysAsync
      *
-     * Create API Key of the sub-account
+     * Create API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
@@ -1174,9 +1174,9 @@ class SubAccountApi
     /**
      * Operation createSubAccountKeysAsyncWithHttpInfo
      *
-     * Create API Key of the sub-account
+     * Create API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
@@ -1224,7 +1224,7 @@ class SubAccountApi
     /**
      * Create request for operation 'createSubAccountKeys'
      *
-     * @param  int $user_id Sub-account user id (required)
+     * @param  int $user_id Sub-account user id. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
@@ -1334,10 +1334,10 @@ class SubAccountApi
     /**
      * Operation getSubAccountKey
      *
-     * Get the API Key of the sub-account
+     * Get the API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1352,10 +1352,10 @@ class SubAccountApi
     /**
      * Operation getSubAccountKeyWithHttpInfo
      *
-     * Get the API Key of the sub-account
+     * Get the API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1407,10 +1407,10 @@ class SubAccountApi
     /**
      * Operation getSubAccountKeyAsync
      *
-     * Get the API Key of the sub-account
+     * Get the API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1428,10 +1428,10 @@ class SubAccountApi
     /**
      * Operation getSubAccountKeyAsyncWithHttpInfo
      *
-     * Get the API Key of the sub-account
+     * Get the API Key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1478,8 +1478,8 @@ class SubAccountApi
     /**
      * Create request for operation 'getSubAccountKey'
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1594,10 +1594,10 @@ class SubAccountApi
     /**
      * Operation updateSubAccountKeys
      *
-     * Update API key of the sub-account
+     * Update API key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key sub_account_key (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1612,10 +1612,10 @@ class SubAccountApi
     /**
      * Operation updateSubAccountKeysWithHttpInfo
      *
-     * Update API key of the sub-account
+     * Update API key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1656,10 +1656,10 @@ class SubAccountApi
     /**
      * Operation updateSubAccountKeysAsync
      *
-     * Update API key of the sub-account
+     * Update API key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
@@ -1678,10 +1678,10 @@ class SubAccountApi
     /**
      * Operation updateSubAccountKeysAsyncWithHttpInfo
      *
-     * Update API key of the sub-account
+     * Update API key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
@@ -1718,8 +1718,8 @@ class SubAccountApi
     /**
      * Create request for operation 'updateSubAccountKeys'
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      * @param  \GateApi\Model\SubAccountKey $sub_account_key (required)
      *
      * @throws \InvalidArgumentException
@@ -1844,10 +1844,10 @@ class SubAccountApi
     /**
      * Operation deleteSubAccountKeys
      *
-     * Delete API key of the sub-account
+     * Delete API key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1861,10 +1861,10 @@ class SubAccountApi
     /**
      * Operation deleteSubAccountKeysWithHttpInfo
      *
-     * Delete API key of the sub-account
+     * Delete API key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1904,10 +1904,10 @@ class SubAccountApi
     /**
      * Operation deleteSubAccountKeysAsync
      *
-     * Delete API key of the sub-account
+     * Delete API key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1925,10 +1925,10 @@ class SubAccountApi
     /**
      * Operation deleteSubAccountKeysAsyncWithHttpInfo
      *
-     * Delete API key of the sub-account
+     * Delete API key of the sub-account.
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1964,8 +1964,8 @@ class SubAccountApi
     /**
      * Create request for operation 'deleteSubAccountKeys'
      *
-     * @param  int $user_id Sub-account user id (required)
-     * @param  string $key The API Key of the sub-account (required)
+     * @param  int $user_id Sub-account user id. (required)
+     * @param  string $key The API Key of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2080,9 +2080,9 @@ class SubAccountApi
     /**
      * Operation lockSubAccount
      *
-     * Lock the sub-account
+     * Lock the sub-account.
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2096,9 +2096,9 @@ class SubAccountApi
     /**
      * Operation lockSubAccountWithHttpInfo
      *
-     * Lock the sub-account
+     * Lock the sub-account.
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2138,9 +2138,9 @@ class SubAccountApi
     /**
      * Operation lockSubAccountAsync
      *
-     * Lock the sub-account
+     * Lock the sub-account.
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2158,9 +2158,9 @@ class SubAccountApi
     /**
      * Operation lockSubAccountAsyncWithHttpInfo
      *
-     * Lock the sub-account
+     * Lock the sub-account.
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2196,7 +2196,7 @@ class SubAccountApi
     /**
      * Create request for operation 'lockSubAccount'
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2296,9 +2296,9 @@ class SubAccountApi
     /**
      * Operation unlockSubAccount
      *
-     * Unlock the sub-account
+     * Unlock the sub-account.
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2312,9 +2312,9 @@ class SubAccountApi
     /**
      * Operation unlockSubAccountWithHttpInfo
      *
-     * Unlock the sub-account
+     * Unlock the sub-account.
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2354,9 +2354,9 @@ class SubAccountApi
     /**
      * Operation unlockSubAccountAsync
      *
-     * Unlock the sub-account
+     * Unlock the sub-account.
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2374,9 +2374,9 @@ class SubAccountApi
     /**
      * Operation unlockSubAccountAsyncWithHttpInfo
      *
-     * Unlock the sub-account
+     * Unlock the sub-account.
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2412,7 +2412,7 @@ class SubAccountApi
     /**
      * Create request for operation 'unlockSubAccount'
      *
-     * @param  int $user_id The user id of the sub-account (required)
+     * @param  int $user_id The user id of the sub-account. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2512,7 +2512,7 @@ class SubAccountApi
     /**
      * Operation listUnifiedMode
      *
-     * Get sub-account mode
+     * Get sub-account mode.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2528,7 +2528,7 @@ class SubAccountApi
     /**
      * Operation listUnifiedModeWithHttpInfo
      *
-     * Get sub-account mode
+     * Get sub-account mode.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2581,7 +2581,7 @@ class SubAccountApi
     /**
      * Operation listUnifiedModeAsync
      *
-     * Get sub-account mode
+     * Get sub-account mode.
      *
      *
      * @throws \InvalidArgumentException
@@ -2600,7 +2600,7 @@ class SubAccountApi
     /**
      * Operation listUnifiedModeAsyncWithHttpInfo
      *
-     * Get sub-account mode
+     * Get sub-account mode.
      *
      *
      * @throws \InvalidArgumentException

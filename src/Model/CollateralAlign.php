@@ -244,7 +244,7 @@ class CollateralAlign implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int $order_id Order ID
+     * @param int $order_id Order ID.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class CollateralAlign implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currency
      *
-     * @param string $collateral_currency Collateral
+     * @param string $collateral_currency Collateral.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class CollateralAlign implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_amount
      *
-     * @param string $collateral_amount Collateral amount
+     * @param string $collateral_amount Collateral amount.
      *
      * @return $this
      */

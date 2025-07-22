@@ -220,7 +220,7 @@ class IndexConstituent implements ModelInterface, ArrayAccess
     /**
      * Sets exchange
      *
-     * @param string|null $exchange Exchange
+     * @param string|null $exchange Exchange.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class IndexConstituent implements ModelInterface, ArrayAccess
     /**
      * Sets symbols
      *
-     * @param string[]|null $symbols Symbol list
+     * @param string[]|null $symbols Symbol list.
      *
      * @return $this
      */

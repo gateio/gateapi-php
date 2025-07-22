@@ -293,7 +293,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param double|null $time Change time
+     * @param double|null $time Change time.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets change
      *
-     * @param string|null $change Change amount
+     * @param string|null $change Change amount.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets balance
      *
-     * @param string|null $balance Balance after change
+     * @param string|null $balance Balance after change.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
+     * @param string|null $type Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
      *
      * @return $this
      */
@@ -398,7 +398,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text Comment
+     * @param string|null $text Comment.
      *
      * @return $this
      */
@@ -446,7 +446,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets trade_id
      *
-     * @param string|null $trade_id trade id
+     * @param string|null $trade_id trade id.
      *
      * @return $this
      */
@@ -470,7 +470,7 @@ class FuturesAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Account change record ID
+     * @param string|null $id Account change record ID.
      *
      * @return $this
      */

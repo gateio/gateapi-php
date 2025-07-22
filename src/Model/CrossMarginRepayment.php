@@ -250,7 +250,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Loan record ID
+     * @param string|null $id Loan record ID.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Repayment time
+     * @param int|null $create_time Repayment time.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     /**
      * Sets loan_id
      *
-     * @param string|null $loan_id Loan record ID
+     * @param string|null $loan_id Loan record ID.
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -346,7 +346,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     /**
      * Sets principal
      *
-     * @param string|null $principal Repaid principal
+     * @param string|null $principal Repaid principal.
      *
      * @return $this
      */
@@ -370,7 +370,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     /**
      * Sets interest
      *
-     * @param string|null $interest Repaid interest
+     * @param string|null $interest Repaid interest.
      *
      * @return $this
      */
@@ -394,7 +394,7 @@ class CrossMarginRepayment implements ModelInterface, ArrayAccess
     /**
      * Sets repayment_type
      *
-     * @param string|null $repayment_type Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation
+     * @param string|null $repayment_type Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment after cancellation
      *
      * @return $this
      */

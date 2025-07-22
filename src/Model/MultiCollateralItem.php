@@ -226,7 +226,7 @@ class MultiCollateralItem implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class MultiCollateralItem implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Currency Index Price
+     * @param string|null $index_price Currency Index Price.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class MultiCollateralItem implements ModelInterface, ArrayAccess
     /**
      * Sets discount
      *
-     * @param string|null $discount Discount
+     * @param string|null $discount Discount.
      *
      * @return $this
      */

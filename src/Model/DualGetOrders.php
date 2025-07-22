@@ -310,7 +310,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Order ID
+     * @param int|null $id Order ID.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets plan_id
      *
-     * @param int|null $plan_id Plan ID
+     * @param int|null $plan_id Plan ID.
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets copies
      *
-     * @param string|null $copies Copies
+     * @param string|null $copies Copies.
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets invest_amount
      *
-     * @param string|null $invest_amount Investment Amount
+     * @param string|null $invest_amount Investment Amount.
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets settlement_amount
      *
-     * @param string|null $settlement_amount Settlement Amount
+     * @param string|null $settlement_amount Settlement Amount.
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Creation time
+     * @param int|null $create_time Creation time.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets complete_time
      *
-     * @param int|null $complete_time Completion Time
+     * @param int|null $complete_time Completion Time.
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets invest_currency
      *
-     * @param string|null $invest_currency Investment Currency
+     * @param string|null $invest_currency Investment Currency.
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets exercise_currency
      *
-     * @param string|null $exercise_currency Strike Currency
+     * @param string|null $exercise_currency Strike Currency.
      *
      * @return $this
      */
@@ -550,7 +550,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets exercise_price
      *
-     * @param string|null $exercise_price Strike price
+     * @param string|null $exercise_price Strike price.
      *
      * @return $this
      */
@@ -574,7 +574,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets settlement_price
      *
-     * @param string|null $settlement_price settlement price
+     * @param string|null $settlement_price settlement price.
      *
      * @return $this
      */
@@ -598,7 +598,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets settlement_currency
      *
-     * @param string|null $settlement_currency Settle currency
+     * @param string|null $settlement_currency Settle currency.
      *
      * @return $this
      */
@@ -622,7 +622,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets apy_display
      *
-     * @param string|null $apy_display APY
+     * @param string|null $apy_display APY.
      *
      * @return $this
      */
@@ -646,7 +646,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets apy_settlement
      *
-     * @param string|null $apy_settlement Settlement APY
+     * @param string|null $apy_settlement Settlement APY.
      *
      * @return $this
      */
@@ -670,7 +670,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets delivery_time
      *
-     * @param int|null $delivery_time Settlement time
+     * @param int|null $delivery_time Settlement time.
      *
      * @return $this
      */
@@ -694,7 +694,7 @@ class DualGetOrders implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text Custom order information
+     * @param string|null $text Custom order information.
      *
      * @return $this
      */

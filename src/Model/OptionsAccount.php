@@ -347,7 +347,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param int|null $user User ID
+     * @param int|null $user User ID.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param string|null $total Account balance
+     * @param string|null $total Account balance.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets equity
      *
-     * @param string|null $equity Account equity, the sum of account balance and position value
+     * @param string|null $equity Account equity, the sum of account balance and position value.
      *
      * @return $this
      */
@@ -443,7 +443,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets short_enabled
      *
-     * @param bool|null $short_enabled If the account is allowed to short
+     * @param bool|null $short_enabled If the account is allowed to short.
      *
      * @return $this
      */
@@ -467,7 +467,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets mmp_enabled
      *
-     * @param bool|null $mmp_enabled Whether to enable MMP
+     * @param bool|null $mmp_enabled Whether to enable MMP.
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets liq_triggered
      *
-     * @param bool|null $liq_triggered Whether to trigger position liquidation
+     * @param bool|null $liq_triggered Whether to trigger position liquidation.
      *
      * @return $this
      */
@@ -548,7 +548,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets unrealised_pnl
      *
-     * @param string|null $unrealised_pnl Unrealized PNL
+     * @param string|null $unrealised_pnl Unrealized PNL.
      *
      * @return $this
      */
@@ -572,7 +572,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets init_margin
      *
-     * @param string|null $init_margin Initial position margin
+     * @param string|null $init_margin Initial position margin.
      *
      * @return $this
      */
@@ -596,7 +596,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets maint_margin
      *
-     * @param string|null $maint_margin Position maintenance margin
+     * @param string|null $maint_margin Position maintenance margin.
      *
      * @return $this
      */
@@ -620,7 +620,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets order_margin
      *
-     * @param string|null $order_margin Order margin of unfinished orders
+     * @param string|null $order_margin Order margin of unfinished orders.
      *
      * @return $this
      */
@@ -644,7 +644,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets ask_order_margin
      *
-     * @param string|null $ask_order_margin Margin for outstanding sell orders
+     * @param string|null $ask_order_margin Margin for outstanding sell orders.
      *
      * @return $this
      */
@@ -668,7 +668,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets bid_order_margin
      *
-     * @param string|null $bid_order_margin Margin for outstanding buy orders
+     * @param string|null $bid_order_margin Margin for outstanding buy orders.
      *
      * @return $this
      */
@@ -692,7 +692,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param string|null $available Available balance to transfer out or trade
+     * @param string|null $available Available balance to transfer out or trade.
      *
      * @return $this
      */
@@ -716,7 +716,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets point
      *
-     * @param string|null $point POINT amount
+     * @param string|null $point POINT amount.
      *
      * @return $this
      */
@@ -740,7 +740,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Settle currency
+     * @param string|null $currency Settle currency.
      *
      * @return $this
      */
@@ -764,7 +764,7 @@ class OptionsAccount implements ModelInterface, ArrayAccess
     /**
      * Sets orders_limit
      *
-     * @param int|null $orders_limit Maximum number of outstanding orders
+     * @param int|null $orders_limit Maximum number of outstanding orders.
      *
      * @return $this
      */

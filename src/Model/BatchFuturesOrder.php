@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * BatchFuturesOrder Class Doc Comment
  *
  * @category Class
- * @description Futures order details
+ * @description Futures order details.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -514,7 +514,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets succeeded
      *
-     * @param bool|null $succeeded Whether the batch of orders succeeded
+     * @param bool|null $succeeded Whether the batch of orders succeeded.
      *
      * @return $this
      */
@@ -538,7 +538,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets label
      *
-     * @param string|null $label Error label, only exists if execution fails
+     * @param string|null $label Error label, only exists if execution fails.
      *
      * @return $this
      */
@@ -586,7 +586,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Futures order ID
+     * @param int|null $id Futures order ID.
      *
      * @return $this
      */
@@ -610,7 +610,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param int|null $user User ID
+     * @param int|null $user User ID.
      *
      * @return $this
      */
@@ -634,7 +634,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param double|null $create_time Creation time of order
+     * @param double|null $create_time Creation time of order.
      *
      * @return $this
      */
@@ -658,7 +658,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_time
      *
-     * @param double|null $finish_time Order finished time. Not returned if order is open
+     * @param double|null $finish_time Order finished time. Not returned if order is open.
      *
      * @return $this
      */
@@ -682,7 +682,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets finish_as
      *
-     * @param string|null $finish_as How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention
+     * @param string|null $finish_as How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - increasing position while `reduce-only` set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention
      *
      * @return $this
      */
@@ -748,7 +748,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Futures contract.
      *
      * @return $this
      */
@@ -820,7 +820,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Order price. 0 for market order with `tif` set as `ioc`
+     * @param string|null $price Order price. 0 for market order with `tif` set as `ioc`.
      *
      * @return $this
      */
@@ -844,7 +844,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets close
      *
-     * @param bool|null $close Set as `true` to close the position, with `size` set to 0
+     * @param bool|null $close Set as `true` to close the position, with `size` set to 0.
      *
      * @return $this
      */
@@ -868,7 +868,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_close
      *
-     * @param bool|null $is_close Is the order to close position
+     * @param bool|null $is_close Is the order to close position.
      *
      * @return $this
      */
@@ -892,7 +892,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets reduce_only
      *
-     * @param bool|null $reduce_only Set as `true` to be reduce-only order
+     * @param bool|null $reduce_only Set as `true` to be reduce-only order.
      *
      * @return $this
      */
@@ -916,7 +916,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_reduce_only
      *
-     * @param bool|null $is_reduce_only Is the order reduce-only
+     * @param bool|null $is_reduce_only Is the order reduce-only.
      *
      * @return $this
      */
@@ -940,7 +940,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_liq
      *
-     * @param bool|null $is_liq Is the order for liquidation
+     * @param bool|null $is_liq Is the order for liquidation.
      *
      * @return $this
      */
@@ -997,7 +997,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets left
      *
-     * @param int|null $left Size left to be traded
+     * @param int|null $left Size left to be traded.
      *
      * @return $this
      */
@@ -1021,7 +1021,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets fill_price
      *
-     * @param string|null $fill_price Fill price of the order
+     * @param string|null $fill_price Fill price of the order.
      *
      * @return $this
      */
@@ -1069,7 +1069,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets tkfr
      *
-     * @param string|null $tkfr Taker fee
+     * @param string|null $tkfr Taker fee.
      *
      * @return $this
      */
@@ -1093,7 +1093,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets mkfr
      *
-     * @param string|null $mkfr Maker fee
+     * @param string|null $mkfr Maker fee.
      *
      * @return $this
      */
@@ -1117,7 +1117,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets refu
      *
-     * @param int|null $refu Reference user ID
+     * @param int|null $refu Reference user ID.
      *
      * @return $this
      */
@@ -1174,7 +1174,7 @@ class BatchFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets stp_act
      *
-     * @param string|null $stp_act Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the `STP Group`, he can pass `stp_act` to limit the user's self-trade prevetion strategy. If `stp_act` is not passed, the default is `cn` strategy。 2. When the user does not join the `STP group`, an error will be returned when passing the `stp_act` parameter。 3. If the user did not use 'stp_act' when placing the order, 'stp_act' will return '-'  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * @param string|null $stp_act Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the `STP Group`, he can pass `stp_act` to limit the user's self-trade prevetion strategy. If `stp_act` is not passed, the default is `cn` strategy。 2. When the user does not join the `STP group`, an error will be returned when passing the `stp_act` parameter。 3. If the user did not use 'stp_act' when placing the order, 'stp_act' will return '-'  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      *
      * @return $this
      */

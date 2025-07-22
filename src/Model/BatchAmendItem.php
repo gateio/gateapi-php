@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * BatchAmendItem Class Doc Comment
  *
  * @category Class
- * @description Order information that needs to be modified
+ * @description Order information that needs to be modified.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -285,7 +285,7 @@ class BatchAmendItem implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string $currency_pair Currency pair
+     * @param string $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -381,7 +381,7 @@ class BatchAmendItem implements ModelInterface, ArrayAccess
     /**
      * Sets amend_text
      *
-     * @param string|null $amend_text Custom info during amending order
+     * @param string|null $amend_text Custom info during amending order.
      *
      * @return $this
      */

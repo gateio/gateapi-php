@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * ConvertSmallBalance Class Doc Comment
  *
  * @category Class
- * @description Convert Small Balance
+ * @description Convert Small Balance.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class ConvertSmallBalance implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string[]|null $currency Currency
+     * @param string[]|null $currency Currency.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class ConvertSmallBalance implements ModelInterface, ArrayAccess
     /**
      * Sets is_all
      *
-     * @param bool|null $is_all Whether to exchange all
+     * @param bool|null $is_all Whether to exchange all.
      *
      * @return $this
      */

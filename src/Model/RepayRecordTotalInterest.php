@@ -232,7 +232,7 @@ class RepayRecordTotalInterest implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class RepayRecordTotalInterest implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Currency Index Price
+     * @param string|null $index_price Currency Index Price.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class RepayRecordTotalInterest implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Interest Amount
+     * @param string|null $amount Interest Amount.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class RepayRecordTotalInterest implements ModelInterface, ArrayAccess
     /**
      * Sets amount_usdt
      *
-     * @param string|null $amount_usdt Interest amount converted to USDT
+     * @param string|null $amount_usdt Interest amount converted to USDT.
      *
      * @return $this
      */

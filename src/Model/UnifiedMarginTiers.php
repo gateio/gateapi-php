@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedMarginTiers Class Doc Comment
  *
  * @category Class
- * @description Unified margin tiers
+ * @description Unified margin tiers.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class UnifiedMarginTiers implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class UnifiedMarginTiers implements ModelInterface, ArrayAccess
     /**
      * Sets margin_tiers
      *
-     * @param \GateApi\Model\MarginTiers[]|null $margin_tiers Margin tiers
+     * @param \GateApi\Model\MarginTiers[]|null $margin_tiers Margin tiers.
      *
      * @return $this
      */

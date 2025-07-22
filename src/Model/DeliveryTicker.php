@@ -346,7 +346,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Futures contract.
      *
      * @return $this
      */
@@ -370,7 +370,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets last
      *
-     * @param string|null $last Last trading price
+     * @param string|null $last Last trading price.
      *
      * @return $this
      */
@@ -418,7 +418,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets total_size
      *
-     * @param string|null $total_size Contract total size
+     * @param string|null $total_size Contract total size.
      *
      * @return $this
      */
@@ -442,7 +442,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets low_24h
      *
-     * @param string|null $low_24h Lowest trading price in recent 24h
+     * @param string|null $low_24h Lowest trading price in recent 24h.
      *
      * @return $this
      */
@@ -466,7 +466,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets high_24h
      *
-     * @param string|null $high_24h Highest trading price in recent 24h
+     * @param string|null $high_24h Highest trading price in recent 24h.
      *
      * @return $this
      */
@@ -490,7 +490,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets volume_24h
      *
-     * @param string|null $volume_24h Trade size in recent 24h
+     * @param string|null $volume_24h Trade size in recent 24h.
      *
      * @return $this
      */
@@ -562,7 +562,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets volume_24h_base
      *
-     * @param string|null $volume_24h_base Trade volume in recent 24h, in base currency
+     * @param string|null $volume_24h_base Trade volume in recent 24h, in base currency.
      *
      * @return $this
      */
@@ -586,7 +586,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets volume_24h_quote
      *
-     * @param string|null $volume_24h_quote Trade volume in recent 24h, in quote currency
+     * @param string|null $volume_24h_quote Trade volume in recent 24h, in quote currency.
      *
      * @return $this
      */
@@ -610,7 +610,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets volume_24h_settle
      *
-     * @param string|null $volume_24h_settle Trade volume in recent 24h, in settle currency
+     * @param string|null $volume_24h_settle Trade volume in recent 24h, in settle currency.
      *
      * @return $this
      */
@@ -634,7 +634,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price
      *
-     * @param string|null $mark_price Recent mark price
+     * @param string|null $mark_price Recent mark price.
      *
      * @return $this
      */
@@ -658,7 +658,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets funding_rate
      *
-     * @param string|null $funding_rate Funding rate
+     * @param string|null $funding_rate Funding rate.
      *
      * @return $this
      */
@@ -682,7 +682,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets funding_rate_indicative
      *
-     * @param string|null $funding_rate_indicative Indicative Funding rate in next period. (deprecated. use `funding_rate`)
+     * @param string|null $funding_rate_indicative Indicative Funding rate in next period. (deprecated. use `funding_rate`).
      *
      * @return $this
      */
@@ -706,7 +706,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Index price
+     * @param string|null $index_price Index price.
      *
      * @return $this
      */
@@ -754,7 +754,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets basis_rate
      *
-     * @param string|null $basis_rate Basis rate
+     * @param string|null $basis_rate Basis rate.
      *
      * @return $this
      */
@@ -778,7 +778,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets basis_value
      *
-     * @param string|null $basis_value Basis value
+     * @param string|null $basis_value Basis value.
      *
      * @return $this
      */
@@ -802,7 +802,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets lowest_ask
      *
-     * @param string|null $lowest_ask Recent lowest ask
+     * @param string|null $lowest_ask Recent lowest ask.
      *
      * @return $this
      */
@@ -826,7 +826,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets lowest_size
      *
-     * @param string|null $lowest_size The latest seller's lowest price order quantity
+     * @param string|null $lowest_size The latest seller's lowest price order quantity.
      *
      * @return $this
      */
@@ -850,7 +850,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets highest_bid
      *
-     * @param string|null $highest_bid Recent highest bid
+     * @param string|null $highest_bid Recent highest bid.
      *
      * @return $this
      */
@@ -874,7 +874,7 @@ class DeliveryTicker implements ModelInterface, ArrayAccess
     /**
      * Sets highest_size
      *
-     * @param string|null $highest_size The latest buyer's highest price order volume
+     * @param string|null $highest_size The latest buyer's highest price order volume.
      *
      * @return $this
      */

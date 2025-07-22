@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FuturesFee Class Doc Comment
  *
  * @category Class
- * @description The returned result is a map type, where the key represents the market and the value represents the taker and maker fee rates.
+ * @description The returned result is a map type, where the key represents the market and taker and maker fee rates.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class FuturesFee implements ModelInterface, ArrayAccess
     /**
      * Sets taker_fee
      *
-     * @param string|null $taker_fee Taker fee
+     * @param string|null $taker_fee Taker fee.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class FuturesFee implements ModelInterface, ArrayAccess
     /**
      * Sets maker_fee
      *
-     * @param string|null $maker_fee maker fee
+     * @param string|null $maker_fee maker fee.
      *
      * @return $this
      */

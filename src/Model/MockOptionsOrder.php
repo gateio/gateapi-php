@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MockOptionsOrder Class Doc Comment
  *
  * @category Class
- * @description Option orders
+ * @description Option orders.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -260,7 +260,7 @@ class MockOptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param string $size Initial order quantity, not involved in actual calculation
+     * @param string $size Initial order quantity, not involved in actual calculation.
      *
      * @return $this
      */
@@ -284,7 +284,7 @@ class MockOptionsOrder implements ModelInterface, ArrayAccess
     /**
      * Sets left
      *
-     * @param string $left Unfilled contract quantity, involved in actual calculation
+     * @param string $left Unfilled contract quantity, involved in actual calculation.
      *
      * @return $this
      */

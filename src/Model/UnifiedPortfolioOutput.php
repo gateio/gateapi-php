@@ -257,7 +257,7 @@ class UnifiedPortfolioOutput implements ModelInterface, ArrayAccess
     /**
      * Sets initial_margin_total
      *
-     * @param string|null $initial_margin_total Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, position + negative delta orders.
+     * @param string|null $initial_margin_total Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, orders.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class UnifiedPortfolioOutput implements ModelInterface, ArrayAccess
     /**
      * Sets calculate_time
      *
-     * @param int|null $calculate_time Calculate time
+     * @param int|null $calculate_time Calculate time.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class UnifiedPortfolioOutput implements ModelInterface, ArrayAccess
     /**
      * Sets risk_unit
      *
-     * @param \GateApi\Model\MockRiskUnit[]|null $risk_unit Risk unit
+     * @param \GateApi\Model\MockRiskUnit[]|null $risk_unit Risk unit.
      *
      * @return $this
      */

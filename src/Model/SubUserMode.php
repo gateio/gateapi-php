@@ -226,7 +226,7 @@ class SubUserMode implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class SubUserMode implements ModelInterface, ArrayAccess
     /**
      * Sets is_unified
      *
-     * @param bool|null $is_unified Is it a unified account?
+     * @param bool|null $is_unified Is it a unified account?.
      *
      * @return $this
      */

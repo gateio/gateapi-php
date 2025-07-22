@@ -214,7 +214,7 @@ class TriggerOrderResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Auto order ID
+     * @param int|null $id Auto order ID.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UniLendRecord Class Doc Comment
  *
  * @category Class
- * @description Interest Record
+ * @description Interest Record.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -251,7 +251,7 @@ class UniLendRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class UniLendRecord implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount current amount
+     * @param string|null $amount current amount.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class UniLendRecord implements ModelInterface, ArrayAccess
     /**
      * Sets last_wallet_amount
      *
-     * @param string|null $last_wallet_amount Last wallet amount
+     * @param string|null $last_wallet_amount Last wallet amount.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class UniLendRecord implements ModelInterface, ArrayAccess
     /**
      * Sets last_lent_amount
      *
-     * @param string|null $last_lent_amount Last lent amount
+     * @param string|null $last_lent_amount Last lent amount.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class UniLendRecord implements ModelInterface, ArrayAccess
     /**
      * Sets last_frozen_amount
      *
-     * @param string|null $last_frozen_amount Last frozen amount
+     * @param string|null $last_frozen_amount Last frozen amount.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class UniLendRecord implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Record type: lend - lend, redeem - redeem
+     * @param string|null $type Record type: lend - lend, redeem - redeem.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class UniLendRecord implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Created time
+     * @param int|null $create_time Created time.
      *
      * @return $this
      */

@@ -220,7 +220,7 @@ class MultiLoanItem implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class MultiLoanItem implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Latest price of the currency
+     * @param string|null $price Latest price of the currency.
      *
      * @return $this
      */

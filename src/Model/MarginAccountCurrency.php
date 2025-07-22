@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MarginAccountCurrency Class Doc Comment
  *
  * @category Class
- * @description Account currency details
+ * @description Account currency details.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -239,7 +239,7 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets locked
      *
-     * @param string|null $locked Locked amount, used in margin trading
+     * @param string|null $locked Locked amount, used in margin trading.
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets borrowed
      *
-     * @param string|null $borrowed Borrowed amount
+     * @param string|null $borrowed Borrowed amount.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class MarginAccountCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets interest
      *
-     * @param string|null $interest Unpaid interests
+     * @param string|null $interest Unpaid interests.
      *
      * @return $this
      */

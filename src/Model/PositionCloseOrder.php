@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * PositionCloseOrder Class Doc Comment
  *
  * @category Class
- * @description Current close order if any, or &#x60;null&#x60;
+ * @description Current close order if any, or &#x60;null&#x60;.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -227,7 +227,7 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Close order ID
+     * @param int|null $id Close order ID.
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Close order price
+     * @param string|null $price Close order price.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class PositionCloseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets is_liq
      *
-     * @param bool|null $is_liq Is the close order from liquidation
+     * @param bool|null $is_liq Is the close order from liquidation.
      *
      * @return $this
      */

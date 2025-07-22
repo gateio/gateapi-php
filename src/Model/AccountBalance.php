@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * AccountBalance Class Doc Comment
  *
  * @category Class
- * @description Total balances calculated with specified currency unit
+ * @description Total balances calculated with specified currency unit.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -260,7 +260,7 @@ class AccountBalance implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Account total balance amount
+     * @param string|null $amount Account total balance amount.
      *
      * @return $this
      */
@@ -284,7 +284,7 @@ class AccountBalance implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class AccountBalance implements ModelInterface, ArrayAccess
     /**
      * Sets borrowed
      *
-     * @param string|null $borrowed Borrowed，this field will only appear in margin and cross_margin accounts
+     * @param string|null $borrowed Borrowed，this field will only appear in margin and cross_margin accounts.
      *
      * @return $this
      */

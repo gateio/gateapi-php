@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * StructuredGetProjectList Class Doc Comment
  *
  * @category Class
- * @description Structured Products
+ * @description Structured Products.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -281,7 +281,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Plan ID
+     * @param int|null $id Plan ID.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets name_en
      *
-     * @param string|null $name_en name
+     * @param string|null $name_en name.
      *
      * @return $this
      */
@@ -353,7 +353,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets investment_coin
      *
-     * @param string|null $investment_coin Investment Currency
+     * @param string|null $investment_coin Investment Currency.
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets investment_period
      *
-     * @param string|null $investment_period Investment term
+     * @param string|null $investment_period Investment term.
      *
      * @return $this
      */
@@ -401,7 +401,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets min_annual_rate
      *
-     * @param string|null $min_annual_rate Minimum annual rate
+     * @param string|null $min_annual_rate Minimum annual rate.
      *
      * @return $this
      */
@@ -425,7 +425,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets mid_annual_rate
      *
-     * @param string|null $mid_annual_rate Intermediate annual rate
+     * @param string|null $mid_annual_rate Intermediate annual rate.
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets max_annual_rate
      *
-     * @param string|null $max_annual_rate Maximum annual rate
+     * @param string|null $max_annual_rate Maximum annual rate.
      *
      * @return $this
      */
@@ -473,7 +473,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets watch_market
      *
-     * @param string|null $watch_market Watch market
+     * @param string|null $watch_market Watch market.
      *
      * @return $this
      */
@@ -497,7 +497,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets start_time
      *
-     * @param int|null $start_time start time
+     * @param int|null $start_time start time.
      *
      * @return $this
      */
@@ -521,7 +521,7 @@ class StructuredGetProjectList implements ModelInterface, ArrayAccess
     /**
      * Sets end_time
      *
-     * @param int|null $end_time Finished time
+     * @param int|null $end_time Finished time.
      *
      * @return $this
      */

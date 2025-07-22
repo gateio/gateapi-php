@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * RepayResp Class Doc Comment
  *
  * @category Class
- * @description Repay
+ * @description Repay.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class RepayResp implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_principal
      *
-     * @param string|null $repaid_principal Principal
+     * @param string|null $repaid_principal Principal.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class RepayResp implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_interest
      *
-     * @param string|null $repaid_interest Interest
+     * @param string|null $repaid_interest Interest.
      *
      * @return $this
      */

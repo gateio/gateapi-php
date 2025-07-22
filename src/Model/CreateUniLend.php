@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CreateUniLend Class Doc Comment
  *
  * @category Class
- * @description Lend or redeem
+ * @description Lend or redeem.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -265,7 +265,7 @@ class CreateUniLend implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency name
+     * @param string $currency Currency name.
      *
      * @return $this
      */
@@ -289,7 +289,7 @@ class CreateUniLend implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount The amount of currency could be lent
+     * @param string $amount The amount of currency could be lent.
      *
      * @return $this
      */
@@ -313,7 +313,7 @@ class CreateUniLend implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type: lend - lend, redeem - redeem
+     * @param string $type type: lend - lend, redeem - redeem.
      *
      * @return $this
      */

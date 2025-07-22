@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * SpotPriceTriggeredOrder Class Doc Comment
  *
  * @category Class
- * @description Spot order detail
+ * @description Spot order detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -326,7 +326,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Auto order ID
+     * @param int|null $id Auto order ID.
      *
      * @return $this
      */
@@ -350,7 +350,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param int|null $user User ID
+     * @param int|null $user User ID.
      *
      * @return $this
      */
@@ -374,7 +374,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets market
      *
-     * @param string $market Currency pair
+     * @param string $market Currency pair.
      *
      * @return $this
      */
@@ -398,7 +398,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets ctime
      *
-     * @param int|null $ctime Creation time
+     * @param int|null $ctime Creation time.
      *
      * @return $this
      */
@@ -422,7 +422,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets ftime
      *
-     * @param int|null $ftime Finished time
+     * @param int|null $ftime Finished time.
      *
      * @return $this
      */
@@ -446,7 +446,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets fired_order_id
      *
-     * @param int|null $fired_order_id ID of the newly created order on condition triggered
+     * @param int|null $fired_order_id ID of the newly created order on condition triggered.
      *
      * @return $this
      */
@@ -494,7 +494,7 @@ class SpotPriceTriggeredOrder implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string|null $reason Additional remarks on how the order was finished
+     * @param string|null $reason Additional remarks on how the order was finished.
      *
      * @return $this
      */

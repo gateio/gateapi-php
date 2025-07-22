@@ -116,7 +116,7 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyings
      *
-     * List all underlyings
+     * List all underlyings.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -132,7 +132,7 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingsWithHttpInfo
      *
-     * List all underlyings
+     * List all underlyings.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -185,7 +185,7 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingsAsync
      *
-     * List all underlyings
+     * List all underlyings.
      *
      *
      * @throws \InvalidArgumentException
@@ -204,7 +204,7 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingsAsyncWithHttpInfo
      *
-     * List all underlyings
+     * List all underlyings.
      *
      *
      * @throws \InvalidArgumentException
@@ -333,9 +333,9 @@ class OptionsApi
     /**
      * Operation listOptionsExpirations
      *
-     * List all expiration times
+     * List all expiration times.
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -350,9 +350,9 @@ class OptionsApi
     /**
      * Operation listOptionsExpirationsWithHttpInfo
      *
-     * List all expiration times
+     * List all expiration times.
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -404,9 +404,9 @@ class OptionsApi
     /**
      * Operation listOptionsExpirationsAsync
      *
-     * List all expiration times
+     * List all expiration times.
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -424,9 +424,9 @@ class OptionsApi
     /**
      * Operation listOptionsExpirationsAsyncWithHttpInfo
      *
-     * List all expiration times
+     * List all expiration times.
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -473,7 +473,7 @@ class OptionsApi
     /**
      * Create request for operation 'listOptionsExpirations'
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -573,12 +573,12 @@ class OptionsApi
     /**
      * Operation listOptionsContracts
      *
-     * List all the contracts with specified underlying and expiration time
+     * List all the contracts with specified underlying and expiration time.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $expiration Unix timestamp of the expiration time. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -593,12 +593,12 @@ class OptionsApi
     /**
      * Operation listOptionsContractsWithHttpInfo
      *
-     * List all the contracts with specified underlying and expiration time
+     * List all the contracts with specified underlying and expiration time.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $expiration Unix timestamp of the expiration time. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -650,12 +650,12 @@ class OptionsApi
     /**
      * Operation listOptionsContractsAsync
      *
-     * List all the contracts with specified underlying and expiration time
+     * List all the contracts with specified underlying and expiration time.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $expiration Unix timestamp of the expiration time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -673,12 +673,12 @@ class OptionsApi
     /**
      * Operation listOptionsContractsAsyncWithHttpInfo
      *
-     * List all the contracts with specified underlying and expiration time
+     * List all the contracts with specified underlying and expiration time.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $expiration Unix timestamp of the expiration time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -727,8 +727,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $expiration Unix timestamp of the expiration time (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $expiration Unix timestamp of the expiration time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -844,7 +844,7 @@ class OptionsApi
     /**
      * Operation getOptionsContract
      *
-     * Query specified contract detail
+     * Query specified contract detail.
      *
      * @param  string $contract contract (required)
      *
@@ -861,7 +861,7 @@ class OptionsApi
     /**
      * Operation getOptionsContractWithHttpInfo
      *
-     * Query specified contract detail
+     * Query specified contract detail.
      *
      * @param  string $contract (required)
      *
@@ -915,7 +915,7 @@ class OptionsApi
     /**
      * Operation getOptionsContractAsync
      *
-     * Query specified contract detail
+     * Query specified contract detail.
      *
      * @param  string $contract (required)
      *
@@ -935,7 +935,7 @@ class OptionsApi
     /**
      * Operation getOptionsContractAsyncWithHttpInfo
      *
-     * Query specified contract detail
+     * Query specified contract detail.
      *
      * @param  string $contract (required)
      *
@@ -1081,13 +1081,13 @@ class OptionsApi
     /**
      * Operation listOptionsSettlements
      *
-     * List settlement history
+     * List settlement history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1104,13 +1104,13 @@ class OptionsApi
     /**
      * Operation listOptionsSettlementsWithHttpInfo
      *
-     * List settlement history
+     * List settlement history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1164,13 +1164,13 @@ class OptionsApi
     /**
      * Operation listOptionsSettlementsAsync
      *
-     * List settlement history
+     * List settlement history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1190,13 +1190,13 @@ class OptionsApi
     /**
      * Operation listOptionsSettlementsAsyncWithHttpInfo
      *
-     * List settlement history
+     * List settlement history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1247,9 +1247,9 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1417,10 +1417,10 @@ class OptionsApi
     /**
      * Operation getOptionsSettlement
      *
-     * Get specified contract's settlement
+     * Get specified contract's settlement.
      *
      * @param  string $contract contract (required)
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      * @param  int $at at (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1436,10 +1436,10 @@ class OptionsApi
     /**
      * Operation getOptionsSettlementWithHttpInfo
      *
-     * Get specified contract's settlement
+     * Get specified contract's settlement.
      *
      * @param  string $contract (required)
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      * @param  int $at (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -1492,10 +1492,10 @@ class OptionsApi
     /**
      * Operation getOptionsSettlementAsync
      *
-     * Get specified contract's settlement
+     * Get specified contract's settlement.
      *
      * @param  string $contract (required)
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      * @param  int $at (required)
      *
      * @throws \InvalidArgumentException
@@ -1514,10 +1514,10 @@ class OptionsApi
     /**
      * Operation getOptionsSettlementAsyncWithHttpInfo
      *
-     * Get specified contract's settlement
+     * Get specified contract's settlement.
      *
      * @param  string $contract (required)
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      * @param  int $at (required)
      *
      * @throws \InvalidArgumentException
@@ -1566,7 +1566,7 @@ class OptionsApi
      * Create request for operation 'getOptionsSettlement'
      *
      * @param  string $contract (required)
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      * @param  int $at (required)
      *
      * @throws \InvalidArgumentException
@@ -1700,14 +1700,14 @@ class OptionsApi
     /**
      * Operation listMyOptionsSettlements
      *
-     * List my options settlements
+     * List my options settlements.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1724,14 +1724,14 @@ class OptionsApi
     /**
      * Operation listMyOptionsSettlementsWithHttpInfo
      *
-     * List my options settlements
+     * List my options settlements.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1785,14 +1785,14 @@ class OptionsApi
     /**
      * Operation listMyOptionsSettlementsAsync
      *
-     * List my options settlements
+     * List my options settlements.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1812,14 +1812,14 @@ class OptionsApi
     /**
      * Operation listMyOptionsSettlementsAsyncWithHttpInfo
      *
-     * List my options settlements
+     * List my options settlements.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -1870,10 +1870,10 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -2057,13 +2057,13 @@ class OptionsApi
     /**
      * Operation listOptionsOrderBook
      *
-     * Options order book
+     * Options order book.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  string $contract Options contract name. (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0. (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids. (optional, default to 10)
      * @param  bool $with_id Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2079,13 +2079,13 @@ class OptionsApi
     /**
      * Operation listOptionsOrderBookWithHttpInfo
      *
-     * Options order book
+     * Options order book.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  string $contract Options contract name. (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0. (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids. (optional, default to 10)
      * @param  bool $with_id Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2138,13 +2138,13 @@ class OptionsApi
     /**
      * Operation listOptionsOrderBookAsync
      *
-     * Options order book
+     * Options order book.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  string $contract Options contract name. (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0. (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids. (optional, default to 10)
      * @param  bool $with_id Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)
      *
      * @throws \InvalidArgumentException
@@ -2163,13 +2163,13 @@ class OptionsApi
     /**
      * Operation listOptionsOrderBookAsyncWithHttpInfo
      *
-     * Options order book
+     * Options order book.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  string $contract Options contract name. (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0. (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids. (optional, default to 10)
      * @param  bool $with_id Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)
      *
      * @throws \InvalidArgumentException
@@ -2219,9 +2219,9 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to '0')
-     * @param  int $limit Maximum number of order depth data in asks or bids (optional, default to 10)
+     * @param  string $contract Options contract name. (required)
+     * @param  string $interval Order depth. 0 means no aggregation is applied. default to 0. (optional, default to '0')
+     * @param  int $limit Maximum number of order depth data in asks or bids. (optional, default to 10)
      * @param  bool $with_id Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)
      *
      * @throws \InvalidArgumentException
@@ -2371,9 +2371,9 @@ class OptionsApi
     /**
      * Operation listOptionsTickers
      *
-     * List tickers of options contracts
+     * List tickers of options contracts.
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2388,9 +2388,9 @@ class OptionsApi
     /**
      * Operation listOptionsTickersWithHttpInfo
      *
-     * List tickers of options contracts
+     * List tickers of options contracts.
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2442,9 +2442,9 @@ class OptionsApi
     /**
      * Operation listOptionsTickersAsync
      *
-     * List tickers of options contracts
+     * List tickers of options contracts.
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2462,9 +2462,9 @@ class OptionsApi
     /**
      * Operation listOptionsTickersAsyncWithHttpInfo
      *
-     * List tickers of options contracts
+     * List tickers of options contracts.
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2511,7 +2511,7 @@ class OptionsApi
     /**
      * Create request for operation 'listOptionsTickers'
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2611,9 +2611,9 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingTickers
      *
-     * Get underlying ticker
+     * Get underlying ticker.
      *
-     * @param  string $underlying Underlying (required)
+     * @param  string $underlying Underlying. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2628,9 +2628,9 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingTickersWithHttpInfo
      *
-     * Get underlying ticker
+     * Get underlying ticker.
      *
-     * @param  string $underlying Underlying (required)
+     * @param  string $underlying Underlying. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2682,9 +2682,9 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingTickersAsync
      *
-     * Get underlying ticker
+     * Get underlying ticker.
      *
-     * @param  string $underlying Underlying (required)
+     * @param  string $underlying Underlying. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2702,9 +2702,9 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingTickersAsyncWithHttpInfo
      *
-     * Get underlying ticker
+     * Get underlying ticker.
      *
-     * @param  string $underlying Underlying (required)
+     * @param  string $underlying Underlying. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2751,7 +2751,7 @@ class OptionsApi
     /**
      * Create request for operation 'listOptionsUnderlyingTickers'
      *
-     * @param  string $underlying Underlying (required)
+     * @param  string $underlying Underlying. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2848,15 +2848,15 @@ class OptionsApi
     /**
      * Operation listOptionsCandlesticks
      *
-     * Get options candlesticks
+     * Get options candlesticks.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $contract Options contract name. (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2871,15 +2871,15 @@ class OptionsApi
     /**
      * Operation listOptionsCandlesticksWithHttpInfo
      *
-     * Get options candlesticks
+     * Get options candlesticks.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $contract Options contract name. (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2931,15 +2931,15 @@ class OptionsApi
     /**
      * Operation listOptionsCandlesticksAsync
      *
-     * Get options candlesticks
+     * Get options candlesticks.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $contract Options contract name. (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2957,15 +2957,15 @@ class OptionsApi
     /**
      * Operation listOptionsCandlesticksAsyncWithHttpInfo
      *
-     * Get options candlesticks
+     * Get options candlesticks.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $contract Options contract name. (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3014,11 +3014,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $contract Options contract name. (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3180,15 +3180,15 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingCandlesticks
      *
-     * Mark price candlesticks of an underlying
+     * Mark price candlesticks of an underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3203,15 +3203,15 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingCandlesticksWithHttpInfo
      *
-     * Mark price candlesticks of an underlying
+     * Mark price candlesticks of an underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3263,15 +3263,15 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingCandlesticksAsync
      *
-     * Mark price candlesticks of an underlying
+     * Mark price candlesticks of an underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3289,15 +3289,15 @@ class OptionsApi
     /**
      * Operation listOptionsUnderlyingCandlesticksAsyncWithHttpInfo
      *
-     * Mark price candlesticks of an underlying
+     * Mark price candlesticks of an underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3346,11 +3346,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-     * @param  string $interval Interval time between data points (optional, default to '5m')
+     * @param  string $interval Interval time between data points. (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3512,14 +3512,14 @@ class OptionsApi
     /**
      * Operation listOptionsTrades
      *
-     * Options trade history
+     * Options trade history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -3536,14 +3536,14 @@ class OptionsApi
     /**
      * Operation listOptionsTradesWithHttpInfo
      *
-     * Options trade history
+     * Options trade history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -3597,14 +3597,14 @@ class OptionsApi
     /**
      * Operation listOptionsTradesAsync
      *
-     * Options trade history
+     * Options trade history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -3624,14 +3624,14 @@ class OptionsApi
     /**
      * Operation listOptionsTradesAsyncWithHttpInfo
      *
-     * Options trade history
+     * Options trade history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -3682,10 +3682,10 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $type &#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -3860,7 +3860,7 @@ class OptionsApi
     /**
      * Operation listOptionsAccount
      *
-     * List options account
+     * List options account.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -3876,7 +3876,7 @@ class OptionsApi
     /**
      * Operation listOptionsAccountWithHttpInfo
      *
-     * List options account
+     * List options account.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -3929,7 +3929,7 @@ class OptionsApi
     /**
      * Operation listOptionsAccountAsync
      *
-     * List options account
+     * List options account.
      *
      *
      * @throws \InvalidArgumentException
@@ -3948,7 +3948,7 @@ class OptionsApi
     /**
      * Operation listOptionsAccountAsyncWithHttpInfo
      *
-     * List options account
+     * List options account.
      *
      *
      * @throws \InvalidArgumentException
@@ -4080,12 +4080,12 @@ class OptionsApi
     /**
      * Operation listOptionsAccountBook
      *
-     * List account changing history
+     * List account changing history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
@@ -4103,12 +4103,12 @@ class OptionsApi
     /**
      * Operation listOptionsAccountBookWithHttpInfo
      *
-     * List account changing history
+     * List account changing history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
@@ -4163,12 +4163,12 @@ class OptionsApi
     /**
      * Operation listOptionsAccountBookAsync
      *
-     * List account changing history
+     * List account changing history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
@@ -4189,12 +4189,12 @@ class OptionsApi
     /**
      * Operation listOptionsAccountBookAsyncWithHttpInfo
      *
-     * List account changing history
+     * List account changing history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
@@ -4246,8 +4246,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      * @param  string $type Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL (optional)
@@ -4413,11 +4413,11 @@ class OptionsApi
     /**
      * Operation listOptionsPositions
      *
-     * List user's positions of specified underlying
+     * List user's positions of specified underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4432,11 +4432,11 @@ class OptionsApi
     /**
      * Operation listOptionsPositionsWithHttpInfo
      *
-     * List user's positions of specified underlying
+     * List user's positions of specified underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4488,11 +4488,11 @@ class OptionsApi
     /**
      * Operation listOptionsPositionsAsync
      *
-     * List user's positions of specified underlying
+     * List user's positions of specified underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4510,11 +4510,11 @@ class OptionsApi
     /**
      * Operation listOptionsPositionsAsyncWithHttpInfo
      *
-     * List user's positions of specified underlying
+     * List user's positions of specified underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4563,7 +4563,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4663,7 +4663,7 @@ class OptionsApi
     /**
      * Operation getOptionsPosition
      *
-     * Get specified contract position
+     * Get specified contract position.
      *
      * @param  string $contract contract (required)
      *
@@ -4680,7 +4680,7 @@ class OptionsApi
     /**
      * Operation getOptionsPositionWithHttpInfo
      *
-     * Get specified contract position
+     * Get specified contract position.
      *
      * @param  string $contract (required)
      *
@@ -4734,7 +4734,7 @@ class OptionsApi
     /**
      * Operation getOptionsPositionAsync
      *
-     * Get specified contract position
+     * Get specified contract position.
      *
      * @param  string $contract (required)
      *
@@ -4754,7 +4754,7 @@ class OptionsApi
     /**
      * Operation getOptionsPositionAsyncWithHttpInfo
      *
-     * Get specified contract position
+     * Get specified contract position.
      *
      * @param  string $contract (required)
      *
@@ -4903,12 +4903,12 @@ class OptionsApi
     /**
      * Operation listOptionsPositionClose
      *
-     * List user's liquidation history of specified underlying
+     * List user's liquidation history of specified underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4923,12 +4923,12 @@ class OptionsApi
     /**
      * Operation listOptionsPositionCloseWithHttpInfo
      *
-     * List user's liquidation history of specified underlying
+     * List user's liquidation history of specified underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4980,12 +4980,12 @@ class OptionsApi
     /**
      * Operation listOptionsPositionCloseAsync
      *
-     * List user's liquidation history of specified underlying
+     * List user's liquidation history of specified underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5003,12 +5003,12 @@ class OptionsApi
     /**
      * Operation listOptionsPositionCloseAsyncWithHttpInfo
      *
-     * List user's liquidation history of specified underlying
+     * List user's liquidation history of specified underlying.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5057,8 +5057,8 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5177,15 +5177,15 @@ class OptionsApi
     /**
      * Operation listOptionsOrders
      *
-     * List options orders
+     * List options orders.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Only list the orders with this status (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status. (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -5202,15 +5202,15 @@ class OptionsApi
     /**
      * Operation listOptionsOrdersWithHttpInfo
      *
-     * List options orders
+     * List options orders.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Only list the orders with this status (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status. (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -5264,15 +5264,15 @@ class OptionsApi
     /**
      * Operation listOptionsOrdersAsync
      *
-     * List options orders
+     * List options orders.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Only list the orders with this status (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status. (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -5292,15 +5292,15 @@ class OptionsApi
     /**
      * Operation listOptionsOrdersAsyncWithHttpInfo
      *
-     * List options orders
+     * List options orders.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Only list the orders with this status (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status. (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -5351,11 +5351,11 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $status Only list the orders with this status (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $status Only list the orders with this status. (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -5552,7 +5552,7 @@ class OptionsApi
     /**
      * Operation createOptionsOrder
      *
-     * Create an options order
+     * Create an options order.
      *
      * @param  \GateApi\Model\OptionsOrder $options_order options_order (required)
      *
@@ -5569,7 +5569,7 @@ class OptionsApi
     /**
      * Operation createOptionsOrderWithHttpInfo
      *
-     * Create an options order
+     * Create an options order.
      *
      * @param  \GateApi\Model\OptionsOrder $options_order (required)
      *
@@ -5623,7 +5623,7 @@ class OptionsApi
     /**
      * Operation createOptionsOrderAsync
      *
-     * Create an options order
+     * Create an options order.
      *
      * @param  \GateApi\Model\OptionsOrder $options_order (required)
      *
@@ -5643,7 +5643,7 @@ class OptionsApi
     /**
      * Operation createOptionsOrderAsyncWithHttpInfo
      *
-     * Create an options order
+     * Create an options order.
      *
      * @param  \GateApi\Model\OptionsOrder $options_order (required)
      *
@@ -5786,11 +5786,11 @@ class OptionsApi
     /**
      * Operation cancelOptionsOrders
      *
-     * Cancel all `open` orders matched
+     * Cancel all `open` orders matched.
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  string $side All bids or asks. Both included if not specified. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5805,11 +5805,11 @@ class OptionsApi
     /**
      * Operation cancelOptionsOrdersWithHttpInfo
      *
-     * Cancel all `open` orders matched
+     * Cancel all `open` orders matched.
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  string $side All bids or asks. Both included if not specified. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5861,11 +5861,11 @@ class OptionsApi
     /**
      * Operation cancelOptionsOrdersAsync
      *
-     * Cancel all `open` orders matched
+     * Cancel all `open` orders matched.
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  string $side All bids or asks. Both included if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5883,11 +5883,11 @@ class OptionsApi
     /**
      * Operation cancelOptionsOrdersAsyncWithHttpInfo
      *
-     * Cancel all `open` orders matched
+     * Cancel all `open` orders matched.
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  string $side All bids or asks. Both included if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5934,9 +5934,9 @@ class OptionsApi
     /**
      * Create request for operation 'cancelOptionsOrders'
      *
-     * @param  string $contract Options contract name (optional)
-     * @param  string $underlying Underlying (optional)
-     * @param  string $side All bids or asks. Both included if not specified (optional)
+     * @param  string $contract Options contract name. (optional)
+     * @param  string $underlying Underlying. (optional)
+     * @param  string $side All bids or asks. Both included if not specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6057,9 +6057,9 @@ class OptionsApi
     /**
      * Operation getOptionsOrder
      *
-     * Get a single order
+     * Get a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6074,9 +6074,9 @@ class OptionsApi
     /**
      * Operation getOptionsOrderWithHttpInfo
      *
-     * Get a single order
+     * Get a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6128,9 +6128,9 @@ class OptionsApi
     /**
      * Operation getOptionsOrderAsync
      *
-     * Get a single order
+     * Get a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6148,9 +6148,9 @@ class OptionsApi
     /**
      * Operation getOptionsOrderAsyncWithHttpInfo
      *
-     * Get a single order
+     * Get a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6197,7 +6197,7 @@ class OptionsApi
     /**
      * Create request for operation 'getOptionsOrder'
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6297,9 +6297,9 @@ class OptionsApi
     /**
      * Operation cancelOptionsOrder
      *
-     * Cancel a single order
+     * Cancel a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6314,9 +6314,9 @@ class OptionsApi
     /**
      * Operation cancelOptionsOrderWithHttpInfo
      *
-     * Cancel a single order
+     * Cancel a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6368,9 +6368,9 @@ class OptionsApi
     /**
      * Operation cancelOptionsOrderAsync
      *
-     * Cancel a single order
+     * Cancel a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6388,9 +6388,9 @@ class OptionsApi
     /**
      * Operation cancelOptionsOrderAsyncWithHttpInfo
      *
-     * Cancel a single order
+     * Cancel a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6437,7 +6437,7 @@ class OptionsApi
     /**
      * Create request for operation 'cancelOptionsOrder'
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6537,7 +6537,7 @@ class OptionsApi
     /**
      * Operation countdownCancelAllOptions
      *
-     * Countdown cancel orders
+     * Countdown cancel orders.
      *
      * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task countdown_cancel_all_options_task (required)
      *
@@ -6554,7 +6554,7 @@ class OptionsApi
     /**
      * Operation countdownCancelAllOptionsWithHttpInfo
      *
-     * Countdown cancel orders
+     * Countdown cancel orders.
      *
      * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task (required)
      *
@@ -6608,7 +6608,7 @@ class OptionsApi
     /**
      * Operation countdownCancelAllOptionsAsync
      *
-     * Countdown cancel orders
+     * Countdown cancel orders.
      *
      * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task (required)
      *
@@ -6628,7 +6628,7 @@ class OptionsApi
     /**
      * Operation countdownCancelAllOptionsAsyncWithHttpInfo
      *
-     * Countdown cancel orders
+     * Countdown cancel orders.
      *
      * @param  \GateApi\Model\CountdownCancelAllOptionsTask $countdown_cancel_all_options_task (required)
      *
@@ -6771,14 +6771,14 @@ class OptionsApi
     /**
      * Operation listMyOptionsTrades
      *
-     * List personal trading history
+     * List personal trading history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -6795,14 +6795,14 @@ class OptionsApi
     /**
      * Operation listMyOptionsTradesWithHttpInfo
      *
-     * List personal trading history
+     * List personal trading history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -6856,14 +6856,14 @@ class OptionsApi
     /**
      * Operation listMyOptionsTradesAsync
      *
-     * List personal trading history
+     * List personal trading history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -6883,14 +6883,14 @@ class OptionsApi
     /**
      * Operation listMyOptionsTradesAsyncWithHttpInfo
      *
-     * List personal trading history
+     * List personal trading history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -6941,10 +6941,10 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (Obtained by listing underlying endpoint) (required)
-     * @param  string $contract Options contract name (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $underlying Underlying (Obtained by listing underlying endpoint). (required)
+     * @param  string $contract Options contract name. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  int $from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
      * @param  int $to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
      *
@@ -7128,11 +7128,11 @@ class OptionsApi
     /**
      * Operation getOptionsMMP
      *
-     * MMP Query
+     * MMP Query.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7147,11 +7147,11 @@ class OptionsApi
     /**
      * Operation getOptionsMMPWithHttpInfo
      *
-     * MMP Query
+     * MMP Query.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7203,11 +7203,11 @@ class OptionsApi
     /**
      * Operation getOptionsMMPAsync
      *
-     * MMP Query
+     * MMP Query.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7225,11 +7225,11 @@ class OptionsApi
     /**
      * Operation getOptionsMMPAsyncWithHttpInfo
      *
-     * MMP Query
+     * MMP Query.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7278,7 +7278,7 @@ class OptionsApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $underlying Underlying (optional)
+     * @param  string $underlying Underlying. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

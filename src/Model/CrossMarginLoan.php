@@ -299,7 +299,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Loan record ID
+     * @param string|null $id Loan record ID.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Creation timestamp, in milliseconds
+     * @param int|null $create_time Creation timestamp, in milliseconds.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets update_time
      *
-     * @param int|null $update_time Update timestamp, in milliseconds
+     * @param int|null $update_time Update timestamp, in milliseconds.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency name
+     * @param string $currency Currency name.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Borrowed amount
+     * @param string $amount Borrowed amount.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text User defined custom ID
+     * @param string|null $text User defined custom ID.
      *
      * @return $this
      */
@@ -476,7 +476,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets repaid
      *
-     * @param string|null $repaid Repaid amount
+     * @param string|null $repaid Repaid amount.
      *
      * @return $this
      */
@@ -500,7 +500,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_interest
      *
-     * @param string|null $repaid_interest Repaid interest
+     * @param string|null $repaid_interest Repaid interest.
      *
      * @return $this
      */
@@ -524,7 +524,7 @@ class CrossMarginLoan implements ModelInterface, ArrayAccess
     /**
      * Sets unpaid_interest
      *
-     * @param string|null $unpaid_interest Outstanding interest yet to be paid
+     * @param string|null $unpaid_interest Outstanding interest yet to be paid.
      *
      * @return $this
      */

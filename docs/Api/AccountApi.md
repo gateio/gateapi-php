@@ -4,13 +4,13 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAccountDetail**](AccountApi.md#getAccountDetail) | **GET** /account/detail | Get account detail
-[**getAccountRateLimit**](AccountApi.md#getAccountRateLimit) | **GET** /account/rate_limit | Get user transaction rate limit information
-[**listSTPGroups**](AccountApi.md#listSTPGroups) | **GET** /account/stp_groups | List STP Groups
-[**createSTPGroup**](AccountApi.md#createSTPGroup) | **POST** /account/stp_groups | Create STP Group
-[**listSTPGroupsUsers**](AccountApi.md#listSTPGroupsUsers) | **GET** /account/stp_groups/{stp_id}/users | List users of the STP group
-[**addSTPGroupUsers**](AccountApi.md#addSTPGroupUsers) | **POST** /account/stp_groups/{stp_id}/users | Add users to the STP group
-[**deleteSTPGroupUsers**](AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete the user in the STP group
+[**getAccountDetail**](AccountApi.md#getAccountDetail) | **GET** /account/detail | Get account detail.
+[**getAccountRateLimit**](AccountApi.md#getAccountRateLimit) | **GET** /account/rate_limit | Get user transaction rate limit information.
+[**listSTPGroups**](AccountApi.md#listSTPGroups) | **GET** /account/stp_groups | List STP Groups.
+[**createSTPGroup**](AccountApi.md#createSTPGroup) | **POST** /account/stp_groups | Create STP Group.
+[**listSTPGroupsUsers**](AccountApi.md#listSTPGroupsUsers) | **GET** /account/stp_groups/{stp_id}/users | List users of the STP group.
+[**addSTPGroupUsers**](AccountApi.md#addSTPGroupUsers) | **POST** /account/stp_groups/{stp_id}/users | Add users to the STP group.
+[**deleteSTPGroupUsers**](AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete the user in the STP group.
 [**getDebitFee**](AccountApi.md#getDebitFee) | **GET** /account/debit_fee | Query GT deduction configuration.
 [**setDebitFee**](AccountApi.md#setDebitFee) | **POST** /account/debit_fee | Set GT deduction.
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 > \GateApi\Model\AccountDetail getAccountDetail()
 
-Get account detail
+Get account detail.
 
 ### Example
 
@@ -75,7 +75,7 @@ This endpoint does not need any parameter.
 
 > \GateApi\Model\AccountRateLimit[] getAccountRateLimit()
 
-Get user transaction rate limit information
+Get user transaction rate limit information.
 
 ### Example
 
@@ -131,9 +131,9 @@ This endpoint does not need any parameter.
 
 > \GateApi\Model\StpGroup[] listSTPGroups($name)
 
-List STP Groups
+List STP Groups.
 
-Retrieve the list of STP groups created by the main account user only
+Retrieve the list of STP groups created by the main account user only.
 
 ### Example
 
@@ -151,7 +151,7 @@ $apiInstance = new GateApi\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['name'] = 'group'; // string | Perform a fuzzy search based on the name
+$associate_array['name'] = 'group'; // string | Perform a fuzzy search based on the name.
 
 try {
     $result = $apiInstance->listSTPGroups($associate_array);
@@ -171,7 +171,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**| Perform a fuzzy search based on the name | [optional]
+ **name** | **string**| Perform a fuzzy search based on the name. | [optional]
 
 ### Return type
 
@@ -195,9 +195,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\StpGroup createSTPGroup($stp_group)
 
-Create STP Group
+Create STP Group.
 
-Only the main account is allowed to create a new STP user group
+Only the main account is allowed to create a new STP user group.
 
 ### Example
 
@@ -257,9 +257,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\StpGroupUser[] listSTPGroupsUsers($stp_id)
 
-List users of the STP group
+List users of the STP group.
 
-Only the main account that created this STP group can query the account
+Only the main account that created this STP group can query the account.
 
 ### Example
 
@@ -277,7 +277,7 @@ $apiInstance = new GateApi\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$stp_id = 1; // int | STP Group ID
+$stp_id = 1; // int | STP Group ID.
 
 try {
     $result = $apiInstance->listSTPGroupsUsers($stp_id);
@@ -295,7 +295,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stp_id** | **int**| STP Group ID |
+ **stp_id** | **int**| STP Group ID. |
 
 ### Return type
 
@@ -319,9 +319,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\StpGroupUser[] addSTPGroupUsers($stp_id, $request_body)
 
-Add users to the STP group
+Add users to the STP group.
 
-- Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+- Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
 
 ### Example
 
@@ -339,8 +339,8 @@ $apiInstance = new GateApi\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$stp_id = 1; // int | STP Group ID
-$request_body = array([1,2,3]); // int[] | User ID
+$stp_id = 1; // int | STP Group ID.
+$request_body = array([1,2,3]); // int[] | User ID.
 
 try {
     $result = $apiInstance->addSTPGroupUsers($stp_id, $request_body);
@@ -358,8 +358,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stp_id** | **int**| STP Group ID |
- **request_body** | [**int[]**](../Model/int.md)| User ID |
+ **stp_id** | **int**| STP Group ID. |
+ **request_body** | [**int[]**](../Model/int.md)| User ID. |
 
 ### Return type
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\StpGroupUser[] deleteSTPGroupUsers($stp_id, $user_id)
 
-Delete the user in the STP group
+Delete the user in the STP group.
 
 - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
 
@@ -403,8 +403,8 @@ $apiInstance = new GateApi\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$stp_id = 1; // int | STP Group ID
-$user_id = 1; // int | STP user ID, multiple can be separated by commas
+$stp_id = 1; // int | STP Group ID.
+$user_id = 1; // int | STP user ID, multiple can be separated by commas.
 
 try {
     $result = $apiInstance->deleteSTPGroupUsers($stp_id, $user_id);
@@ -422,8 +422,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stp_id** | **int**| STP Group ID |
- **user_id** | **int**| STP user ID, multiple can be separated by commas |
+ **stp_id** | **int**| STP Group ID. |
+ **user_id** | **int**| STP user ID, multiple can be separated by commas. |
 
 ### Return type
 

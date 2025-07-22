@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UniLoan Class Doc Comment
  *
  * @category Class
- * @description Loan
+ * @description Loan.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -245,7 +245,7 @@ class UniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -269,7 +269,7 @@ class UniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class UniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount amount
+     * @param string|null $amount amount.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class UniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Loan type, platform - platform, margin - margin
+     * @param string|null $type Loan type, platform - platform, margin - margin.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class UniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Created time
+     * @param int|null $create_time Created time.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class UniLoan implements ModelInterface, ArrayAccess
     /**
      * Sets update_time
      *
-     * @param int|null $update_time Updated time
+     * @param int|null $update_time Updated time.
      *
      * @return $this
      */

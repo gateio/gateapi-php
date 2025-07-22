@@ -4,23 +4,23 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listCollateralLoanOrders**](CollateralLoanApi.md#listCollateralLoanOrders) | **GET** /loan/collateral/orders | List Orders
-[**createCollateralLoan**](CollateralLoanApi.md#createCollateralLoan) | **POST** /loan/collateral/orders | Place order
-[**getCollateralLoanOrderDetail**](CollateralLoanApi.md#getCollateralLoanOrderDetail) | **GET** /loan/collateral/orders/{order_id} | Get a single order
-[**repayCollateralLoan**](CollateralLoanApi.md#repayCollateralLoan) | **POST** /loan/collateral/repay | Repayment
-[**listRepayRecords**](CollateralLoanApi.md#listRepayRecords) | **GET** /loan/collateral/repay_records | Repayment history
-[**listCollateralRecords**](CollateralLoanApi.md#listCollateralRecords) | **GET** /loan/collateral/collaterals | Query collateral adjustment records
-[**operateCollateral**](CollateralLoanApi.md#operateCollateral) | **POST** /loan/collateral/collaterals | Increase or redeem collateral
-[**getUserTotalAmount**](CollateralLoanApi.md#getUserTotalAmount) | **GET** /loan/collateral/total_amount | Query the total borrowing and collateral amount for the user
-[**getUserLtvInfo**](CollateralLoanApi.md#getUserLtvInfo) | **GET** /loan/collateral/ltv | Query user&#39;s collateralization ratio
-[**listCollateralCurrencies**](CollateralLoanApi.md#listCollateralCurrencies) | **GET** /loan/collateral/currencies | Query supported borrowing and collateral currencies
+[**listCollateralLoanOrders**](CollateralLoanApi.md#listCollateralLoanOrders) | **GET** /loan/collateral/orders | List Orders.
+[**createCollateralLoan**](CollateralLoanApi.md#createCollateralLoan) | **POST** /loan/collateral/orders | Place order.
+[**getCollateralLoanOrderDetail**](CollateralLoanApi.md#getCollateralLoanOrderDetail) | **GET** /loan/collateral/orders/{order_id} | Get a single order.
+[**repayCollateralLoan**](CollateralLoanApi.md#repayCollateralLoan) | **POST** /loan/collateral/repay | Repayment.
+[**listRepayRecords**](CollateralLoanApi.md#listRepayRecords) | **GET** /loan/collateral/repay_records | Repayment history.
+[**listCollateralRecords**](CollateralLoanApi.md#listCollateralRecords) | **GET** /loan/collateral/collaterals | Query collateral adjustment records.
+[**operateCollateral**](CollateralLoanApi.md#operateCollateral) | **POST** /loan/collateral/collaterals | Increase or redeem collateral.
+[**getUserTotalAmount**](CollateralLoanApi.md#getUserTotalAmount) | **GET** /loan/collateral/total_amount | Query the total borrowing and collateral amount for the user.
+[**getUserLtvInfo**](CollateralLoanApi.md#getUserLtvInfo) | **GET** /loan/collateral/ltv | Query user&#39;s collateralization ratio.
+[**listCollateralCurrencies**](CollateralLoanApi.md#listCollateralCurrencies) | **GET** /loan/collateral/currencies | Query supported borrowing and collateral currencies.
 
 
 ## listCollateralLoanOrders
 
 > \GateApi\Model\CollateralOrder[] listCollateralLoanOrders($page, $limit, $collateral_currency, $borrow_currency)
 
-List Orders
+List Orders.
 
 ### Example
 
@@ -38,10 +38,10 @@ $apiInstance = new GateApi\Api\CollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
-$associate_array['collateral_currency'] = 'BTC'; // string | Collateral
-$associate_array['borrow_currency'] = 'USDT'; // string | Borrowed currency
+$associate_array['page'] = 1; // int | Page number.
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['collateral_currency'] = 'BTC'; // string | Collateral.
+$associate_array['borrow_currency'] = 'USDT'; // string | Borrowed currency.
 
 try {
     $result = $apiInstance->listCollateralLoanOrders($associate_array);
@@ -61,10 +61,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **collateral_currency** | **string**| Collateral | [optional]
- **borrow_currency** | **string**| Borrowed currency | [optional]
+ **page** | **int**| Page number. | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **collateral_currency** | **string**| Collateral. | [optional]
+ **borrow_currency** | **string**| Borrowed currency. | [optional]
 
 ### Return type
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OrderResp createCollateralLoan($create_collateral_order)
 
-Place order
+Place order.
 
 ### Example
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CollateralOrder getCollateralLoanOrderDetail($order_id)
 
-Get a single order
+Get a single order.
 
 ### Example
 
@@ -166,7 +166,7 @@ $apiInstance = new GateApi\Api\CollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 100001; // int | Order ID returned on successful order creation
+$order_id = 100001; // int | Order ID returned on successful order creation.
 
 try {
     $result = $apiInstance->getCollateralLoanOrderDetail($order_id);
@@ -184,7 +184,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **int**| Order ID returned on successful order creation |
+ **order_id** | **int**| Order ID returned on successful order creation. |
 
 ### Return type
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\RepayResp repayCollateralLoan($repay_loan)
 
-Repayment
+Repayment.
 
 ### Example
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\RepayRecord[] listRepayRecords($source, $borrow_currency, $collateral_currency, $page, $limit, $from, $to)
 
-Repayment history
+Repayment history.
 
 ### Example
 
@@ -286,13 +286,13 @@ $apiInstance = new GateApi\Api\CollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['source'] = 'repay'; // string | Operation type: repay - Regular repayment, liquidate - Liquidation
-$associate_array['borrow_currency'] = 'USDT'; // string | Borrowed currency
-$associate_array['collateral_currency'] = 'BTC'; // string | Collateral
-$associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
-$associate_array['from'] = 1609459200; // int | Start timestamp of the query
-$associate_array['to'] = 1609459200; // int | Time range ending, default to current time
+$associate_array['source'] = 'repay'; // string | Operation type: repay - Regular repayment, liquidate - Liquidation.
+$associate_array['borrow_currency'] = 'USDT'; // string | Borrowed currency.
+$associate_array['collateral_currency'] = 'BTC'; // string | Collateral.
+$associate_array['page'] = 1; // int | Page number.
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['from'] = 1609459200; // int | Start timestamp of the query.
+$associate_array['to'] = 1609459200; // int | Time range ending, default to current time.
 
 try {
     $result = $apiInstance->listRepayRecords($associate_array);
@@ -312,13 +312,13 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source** | **string**| Operation type: repay - Regular repayment, liquidate - Liquidation |
- **borrow_currency** | **string**| Borrowed currency | [optional]
- **collateral_currency** | **string**| Collateral | [optional]
- **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **int**| Start timestamp of the query | [optional]
- **to** | **int**| Time range ending, default to current time | [optional]
+ **source** | **string**| Operation type: repay - Regular repayment, liquidate - Liquidation. |
+ **borrow_currency** | **string**| Borrowed currency. | [optional]
+ **collateral_currency** | **string**| Collateral. | [optional]
+ **page** | **int**| Page number. | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **from** | **int**| Start timestamp of the query. | [optional]
+ **to** | **int**| Time range ending, default to current time. | [optional]
 
 ### Return type
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CollateralRecord[] listCollateralRecords($page, $limit, $from, $to, $borrow_currency, $collateral_currency)
 
-Query collateral adjustment records
+Query collateral adjustment records.
 
 ### Example
 
@@ -360,12 +360,12 @@ $apiInstance = new GateApi\Api\CollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
-$associate_array['from'] = 1609459200; // int | Start timestamp of the query
-$associate_array['to'] = 1609459200; // int | Time range ending, default to current time
-$associate_array['borrow_currency'] = 'USDT'; // string | Borrowed currency
-$associate_array['collateral_currency'] = 'BTC'; // string | Collateral
+$associate_array['page'] = 1; // int | Page number.
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['from'] = 1609459200; // int | Start timestamp of the query.
+$associate_array['to'] = 1609459200; // int | Time range ending, default to current time.
+$associate_array['borrow_currency'] = 'USDT'; // string | Borrowed currency.
+$associate_array['collateral_currency'] = 'BTC'; // string | Collateral.
 
 try {
     $result = $apiInstance->listCollateralRecords($associate_array);
@@ -385,12 +385,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **int**| Start timestamp of the query | [optional]
- **to** | **int**| Time range ending, default to current time | [optional]
- **borrow_currency** | **string**| Borrowed currency | [optional]
- **collateral_currency** | **string**| Collateral | [optional]
+ **page** | **int**| Page number. | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **from** | **int**| Start timestamp of the query. | [optional]
+ **to** | **int**| Time range ending, default to current time. | [optional]
+ **borrow_currency** | **string**| Borrowed currency. | [optional]
+ **collateral_currency** | **string**| Collateral. | [optional]
 
 ### Return type
 
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 > operateCollateral($collateral_align)
 
-Increase or redeem collateral
+Increase or redeem collateral.
 
 ### Example
 
@@ -473,7 +473,7 @@ void (empty response body)
 
 > \GateApi\Model\UserTotalAmount getUserTotalAmount()
 
-Query the total borrowing and collateral amount for the user
+Query the total borrowing and collateral amount for the user.
 
 ### Example
 
@@ -529,7 +529,7 @@ This endpoint does not need any parameter.
 
 > \GateApi\Model\UserLtvInfo getUserLtvInfo($collateral_currency, $borrow_currency)
 
-Query user's collateralization ratio
+Query user's collateralization ratio.
 
 ### Example
 
@@ -547,8 +547,8 @@ $apiInstance = new GateApi\Api\CollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$collateral_currency = 'BTC'; // string | Collateral
-$borrow_currency = 'USDT'; // string | Borrowed currency
+$collateral_currency = 'BTC'; // string | Collateral.
+$borrow_currency = 'USDT'; // string | Borrowed currency.
 
 try {
     $result = $apiInstance->getUserLtvInfo($collateral_currency, $borrow_currency);
@@ -566,8 +566,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collateral_currency** | **string**| Collateral |
- **borrow_currency** | **string**| Borrowed currency |
+ **collateral_currency** | **string**| Collateral. |
+ **borrow_currency** | **string**| Borrowed currency. |
 
 ### Return type
 
@@ -591,7 +591,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CollateralLoanCurrency[] listCollateralCurrencies($loan_currency)
 
-Query supported borrowing and collateral currencies
+Query supported borrowing and collateral currencies.
 
 ### Example
 

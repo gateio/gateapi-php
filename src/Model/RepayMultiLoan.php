@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * RepayMultiLoan Class Doc Comment
  *
  * @category Class
- * @description Repay Multi-Collateral Loan
+ * @description Repay Multi-Collateral Loan.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -227,7 +227,7 @@ class RepayMultiLoan implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int $order_id Order ID
+     * @param int $order_id Order ID.
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class RepayMultiLoan implements ModelInterface, ArrayAccess
     /**
      * Sets repay_items
      *
-     * @param \GateApi\Model\MultiLoanRepayItem[] $repay_items Repay Currency Item
+     * @param \GateApi\Model\MultiLoanRepayItem[] $repay_items Repay Currency Item.
      *
      * @return $this
      */

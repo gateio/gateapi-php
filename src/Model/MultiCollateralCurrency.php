@@ -221,7 +221,7 @@ class MultiCollateralCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets loan_currencies
      *
-     * @param \GateApi\Model\MultiLoanItem[]|null $loan_currencies List of supported borrowing currencies
+     * @param \GateApi\Model\MultiLoanItem[]|null $loan_currencies List of supported borrowing currencies.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class MultiCollateralCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currencies
      *
-     * @param \GateApi\Model\MultiCollateralItem[]|null $collateral_currencies List of supported collateral currencies
+     * @param \GateApi\Model\MultiCollateralItem[]|null $collateral_currencies List of supported collateral currencies.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FutureCancelOrderResult Class Doc Comment
  *
  * @category Class
- * @description Order cancellation result
+ * @description Order cancellation result.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -233,7 +233,7 @@ class FutureCancelOrderResult implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Order ID
+     * @param string|null $id Order ID.
      *
      * @return $this
      */
@@ -257,7 +257,7 @@ class FutureCancelOrderResult implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class FutureCancelOrderResult implements ModelInterface, ArrayAccess
     /**
      * Sets succeeded
      *
-     * @param bool|null $succeeded Whether cancellation succeeded
+     * @param bool|null $succeeded Whether cancellation succeeded.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class FutureCancelOrderResult implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string|null $message Error message when failed to cancel the order; empty if succeeded
+     * @param string|null $message Error message when failed to cancel the order; empty if succeeded.
      *
      * @return $this
      */

@@ -259,7 +259,7 @@ class SubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets remark
      *
-     * @param string|null $remark custom text
+     * @param string|null $remark custom text.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class SubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets password
      *
-     * @param string|null $password The sub-account's password. (Default: the same as main account's password)
+     * @param string|null $password The sub-account's password. (Default: the same as main account's password).
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class SubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param int|null $state State: 1-normal, 2-locked\"
+     * @param int|null $state State: 1-normal, 2-locked\".
      *
      * @return $this
      */
@@ -379,7 +379,7 @@ class SubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param int|null $type \"Sub-account type: 1 - sub-account, 3 - cross margin account
+     * @param int|null $type \"Sub-account type: 1 - sub-account, 3 - cross margin account.
      *
      * @return $this
      */
@@ -403,7 +403,7 @@ class SubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id The user id of the sub-account
+     * @param int|null $user_id The user id of the sub-account.
      *
      * @return $this
      */
@@ -427,7 +427,7 @@ class SubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Created time
+     * @param int|null $create_time Created time.
      *
      * @return $this
      */

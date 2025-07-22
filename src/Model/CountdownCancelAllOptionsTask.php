@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CountdownCancelAllOptionsTask Class Doc Comment
  *
  * @category Class
- * @description Countdown cancel task detail
+ * @description Countdown cancel task detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -254,7 +254,7 @@ class CountdownCancelAllOptionsTask implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Options contract name
+     * @param string|null $contract Options contract name.
      *
      * @return $this
      */
@@ -278,7 +278,7 @@ class CountdownCancelAllOptionsTask implements ModelInterface, ArrayAccess
     /**
      * Sets underlying
      *
-     * @param string|null $underlying Underlying
+     * @param string|null $underlying Underlying.
      *
      * @return $this
      */

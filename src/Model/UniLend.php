@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UniLend Class Doc Comment
  *
  * @category Class
- * @description Loan record
+ * @description Loan record.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -269,7 +269,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets current_amount
      *
-     * @param string|null $current_amount Current amount
+     * @param string|null $current_amount Current amount.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Total amount
+     * @param string|null $amount Total amount.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets lent_amount
      *
-     * @param string|null $lent_amount Lent amount
+     * @param string|null $lent_amount Lent amount.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets frozen_amount
      *
-     * @param string|null $frozen_amount Frozen amount
+     * @param string|null $frozen_amount Frozen amount.
      *
      * @return $this
      */
@@ -389,7 +389,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets min_rate
      *
-     * @param string|null $min_rate Minimum interest rate
+     * @param string|null $min_rate Minimum interest rate.
      *
      * @return $this
      */
@@ -413,7 +413,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets interest_status
      *
-     * @param string|null $interest_status Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+     * @param string|null $interest_status Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets reinvest_left_amount
      *
-     * @param string|null $reinvest_left_amount Amount not reinvested
+     * @param string|null $reinvest_left_amount Amount not reinvested.
      *
      * @return $this
      */
@@ -461,7 +461,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Created time of the lending order
+     * @param int|null $create_time Created time of the lending order.
      *
      * @return $this
      */
@@ -485,7 +485,7 @@ class UniLend implements ModelInterface, ArrayAccess
     /**
      * Sets update_time
      *
-     * @param int|null $update_time Upated time of the lending order
+     * @param int|null $update_time Upated time of the lending order.
      *
      * @return $this
      */

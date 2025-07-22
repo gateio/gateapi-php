@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * OptionsPosition Class Doc Comment
  *
  * @category Class
- * @description Options position information
+ * @description Options position information.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -305,7 +305,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param int|null $user User ID
+     * @param int|null $user User ID.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets underlying
      *
-     * @param string|null $underlying Underlying
+     * @param string|null $underlying Underlying.
      *
      * @return $this
      */
@@ -353,7 +353,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets underlying_price
      *
-     * @param string|null $underlying_price Underlying price (quote currency)
+     * @param string|null $underlying_price Underlying price (quote currency).
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Options contract name
+     * @param string|null $contract Options contract name.
      *
      * @return $this
      */
@@ -401,7 +401,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Position size (contract size)
+     * @param int|null $size Position size (contract size).
      *
      * @return $this
      */
@@ -425,7 +425,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets entry_price
      *
-     * @param string|null $entry_price Entry size (quote currency)
+     * @param string|null $entry_price Entry size (quote currency).
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price
      *
-     * @param string|null $mark_price Current mark price (quote currency)
+     * @param string|null $mark_price Current mark price (quote currency).
      *
      * @return $this
      */
@@ -473,7 +473,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets mark_iv
      *
-     * @param string|null $mark_iv Implied volatility
+     * @param string|null $mark_iv Implied volatility.
      *
      * @return $this
      */
@@ -497,7 +497,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets realised_pnl
      *
-     * @param string|null $realised_pnl Realized PNL
+     * @param string|null $realised_pnl Realized PNL.
      *
      * @return $this
      */
@@ -521,7 +521,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets unrealised_pnl
      *
-     * @param string|null $unrealised_pnl Unrealized PNL
+     * @param string|null $unrealised_pnl Unrealized PNL.
      *
      * @return $this
      */
@@ -545,7 +545,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets pending_orders
      *
-     * @param int|null $pending_orders Current open orders
+     * @param int|null $pending_orders Current open orders.
      *
      * @return $this
      */
@@ -593,7 +593,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets delta
      *
-     * @param string|null $delta Delta
+     * @param string|null $delta Delta.
      *
      * @return $this
      */
@@ -617,7 +617,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets gamma
      *
-     * @param string|null $gamma Gamma
+     * @param string|null $gamma Gamma.
      *
      * @return $this
      */
@@ -641,7 +641,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets vega
      *
-     * @param string|null $vega Vega
+     * @param string|null $vega Vega.
      *
      * @return $this
      */
@@ -665,7 +665,7 @@ class OptionsPosition implements ModelInterface, ArrayAccess
     /**
      * Sets theta
      *
-     * @param string|null $theta Theta
+     * @param string|null $theta Theta.
      *
      * @return $this
      */

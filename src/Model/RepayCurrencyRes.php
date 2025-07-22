@@ -244,7 +244,7 @@ class RepayCurrencyRes implements ModelInterface, ArrayAccess
     /**
      * Sets succeeded
      *
-     * @param bool|null $succeeded Has the repayment been successful
+     * @param bool|null $succeeded Has the repayment been successful.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class RepayCurrencyRes implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Repayment currency
+     * @param string|null $currency Repayment currency.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class RepayCurrencyRes implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_principal
      *
-     * @param string|null $repaid_principal Principal
+     * @param string|null $repaid_principal Principal.
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class RepayCurrencyRes implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_interest
      *
-     * @param string|null $repaid_interest Principal
+     * @param string|null $repaid_interest Principal.
      *
      * @return $this
      */

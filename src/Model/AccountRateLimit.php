@@ -256,7 +256,7 @@ class AccountRateLimit implements ModelInterface, ArrayAccess
     /**
      * Sets ratio
      *
-     * @param string|null $ratio Transaction rate
+     * @param string|null $ratio Transaction rate.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class AccountRateLimit implements ModelInterface, ArrayAccess
     /**
      * Sets main_ratio
      *
-     * @param string|null $main_ratio Total transaction ratio of main account
+     * @param string|null $main_ratio Total transaction ratio of main account.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class AccountRateLimit implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param string|null $updated_at Update time
+     * @param string|null $updated_at Update time.
      *
      * @return $this
      */

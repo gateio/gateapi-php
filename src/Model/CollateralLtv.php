@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CollateralLtv Class Doc Comment
  *
  * @category Class
- * @description Collateral Ratio
+ * @description Collateral Ratio.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -227,7 +227,7 @@ class CollateralLtv implements ModelInterface, ArrayAccess
     /**
      * Sets init_ltv
      *
-     * @param string|null $init_ltv The initial collateralization rate
+     * @param string|null $init_ltv The initial collateralization rate.
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class CollateralLtv implements ModelInterface, ArrayAccess
     /**
      * Sets alert_ltv
      *
-     * @param string|null $alert_ltv Warning collateralization ratio
+     * @param string|null $alert_ltv Warning collateralization ratio.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class CollateralLtv implements ModelInterface, ArrayAccess
     /**
      * Sets liquidate_ltv
      *
-     * @param string|null $liquidate_ltv The liquidation collateralization rate
+     * @param string|null $liquidate_ltv The liquidation collateralization rate.
      *
      * @return $this
      */

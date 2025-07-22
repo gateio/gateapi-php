@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CountdownCancelAllSpotTask Class Doc Comment
  *
  * @category Class
- * @description Countdown cancel task detail
+ * @description Countdown cancel task detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -248,7 +248,7 @@ class CountdownCancelAllSpotTask implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */

@@ -220,7 +220,7 @@ class FindCoin implements ModelInterface, ArrayAccess
     /**
      * Sets coin
      *
-     * @param string|null $coin Currency
+     * @param string|null $coin Currency.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class FindCoin implements ModelInterface, ArrayAccess
     /**
      * Sets cointype
      *
-     * @param string|null $cointype Coin Type  swap-Voucher  lock-Locked
+     * @param string|null $cointype Coin Type swap-Voucher lock-Locked.
      *
      * @return $this
      */

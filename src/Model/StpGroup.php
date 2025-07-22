@@ -235,7 +235,7 @@ class StpGroup implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id STP Group ID
+     * @param int|null $id STP Group ID.
      *
      * @return $this
      */
@@ -259,7 +259,7 @@ class StpGroup implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name STP Group name
+     * @param string $name STP Group name.
      *
      * @return $this
      */
@@ -283,7 +283,7 @@ class StpGroup implements ModelInterface, ArrayAccess
     /**
      * Sets creator_id
      *
-     * @param int|null $creator_id Creator ID
+     * @param int|null $creator_id Creator ID.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class StpGroup implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Creation time
+     * @param int|null $create_time Creation time.
      *
      * @return $this
      */

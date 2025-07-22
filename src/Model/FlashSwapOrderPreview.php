@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FlashSwapOrderPreview Class Doc Comment
  *
  * @category Class
- * @description Initiate a flash swap order preview
+ * @description Initiate a flash swap order preview.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -245,7 +245,7 @@ class FlashSwapOrderPreview implements ModelInterface, ArrayAccess
     /**
      * Sets preview_id
      *
-     * @param string|null $preview_id Preview result ID
+     * @param string|null $preview_id Preview result ID.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class FlashSwapOrderPreview implements ModelInterface, ArrayAccess
     /**
      * Sets sell_amount
      *
-     * @param string|null $sell_amount Amount to sell
+     * @param string|null $sell_amount Amount to sell.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class FlashSwapOrderPreview implements ModelInterface, ArrayAccess
     /**
      * Sets buy_amount
      *
-     * @param string|null $buy_amount Amount to buy
+     * @param string|null $buy_amount Amount to buy.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class FlashSwapOrderPreview implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Price
+     * @param string|null $price Price.
      *
      * @return $this
      */

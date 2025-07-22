@@ -267,7 +267,7 @@ class OptionsPositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param double|null $time Position close time
+     * @param double|null $time Position close time.
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class OptionsPositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Options contract name
+     * @param string|null $contract Options contract name.
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class OptionsPositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets side
      *
-     * @param string|null $side Position side, long or short
+     * @param string|null $side Position side, long or short.
      *
      * @return $this
      */
@@ -348,7 +348,7 @@ class OptionsPositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets pnl
      *
-     * @param string|null $pnl PNL
+     * @param string|null $pnl PNL.
      *
      * @return $this
      */
@@ -372,7 +372,7 @@ class OptionsPositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text Text of close order
+     * @param string|null $text Text of close order.
      *
      * @return $this
      */
@@ -396,7 +396,7 @@ class OptionsPositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets settle_size
      *
-     * @param string|null $settle_size settlement size
+     * @param string|null $settle_size settlement size.
      *
      * @return $this
      */

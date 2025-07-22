@@ -214,7 +214,7 @@ class UserSubRelation implements ModelInterface, ArrayAccess
     /**
      * Sets list
      *
-     * @param \GateApi\Model\UserSub[]|null $list Subordinate relationship list
+     * @param \GateApi\Model\UserSub[]|null $list Subordinate relationship list.
      *
      * @return $this
      */

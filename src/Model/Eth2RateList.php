@@ -226,7 +226,7 @@ class Eth2RateList implements ModelInterface, ArrayAccess
     /**
      * Sets date_time
      *
-     * @param int|null $date_time Date and Time Stamp
+     * @param int|null $date_time Date and Time Stamp.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class Eth2RateList implements ModelInterface, ArrayAccess
     /**
      * Sets date
      *
-     * @param string|null $date Date
+     * @param string|null $date Date.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class Eth2RateList implements ModelInterface, ArrayAccess
     /**
      * Sets rate
      *
-     * @param string|null $rate percentage
+     * @param string|null $rate percentage.
      *
      * @return $this
      */

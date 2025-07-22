@@ -238,7 +238,7 @@ class BorrowCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class BorrowCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Currency Index Price
+     * @param string|null $index_price Currency Index Price.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class BorrowCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets left_repay_principal
      *
-     * @param string|null $left_repay_principal outstanding principal
+     * @param string|null $left_repay_principal outstanding principal.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class BorrowCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets left_repay_interest
      *
-     * @param string|null $left_repay_interest outstanding interest
+     * @param string|null $left_repay_interest outstanding interest.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class BorrowCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets left_repay_usdt
      *
-     * @param string|null $left_repay_usdt Value of left total repayments amount in USDT
+     * @param string|null $left_repay_usdt Value of left total repayments amount in USDT.
      *
      * @return $this
      */

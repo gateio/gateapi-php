@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * BrokerCommissionSubBrokerInfo Class Doc Comment
  *
  * @category Class
- * @description The sub broker info
+ * @description The sub broker info.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -233,7 +233,7 @@ class BrokerCommissionSubBrokerInfo implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id The sub broker user ID
+     * @param int|null $user_id The sub broker user ID.
      *
      * @return $this
      */
@@ -257,7 +257,7 @@ class BrokerCommissionSubBrokerInfo implements ModelInterface, ArrayAccess
     /**
      * Sets original_commission_rate
      *
-     * @param string|null $original_commission_rate The sub broker original commission rate
+     * @param string|null $original_commission_rate The sub broker original commission rate.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class BrokerCommissionSubBrokerInfo implements ModelInterface, ArrayAccess
     /**
      * Sets relative_commission_rate
      *
-     * @param string|null $relative_commission_rate The sub broker relative commission rate
+     * @param string|null $relative_commission_rate The sub broker relative commission rate.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class BrokerCommissionSubBrokerInfo implements ModelInterface, ArrayAccess
     /**
      * Sets commission_rate
      *
-     * @param string|null $commission_rate The sub broker actual commission rate
+     * @param string|null $commission_rate The sub broker actual commission rate.
      *
      * @return $this
      */

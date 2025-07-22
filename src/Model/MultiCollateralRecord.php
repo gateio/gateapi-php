@@ -251,7 +251,7 @@ class MultiCollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Order ID
+     * @param int|null $order_id Order ID.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class MultiCollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets record_id
      *
-     * @param int|null $record_id Collateral record ID
+     * @param int|null $record_id Collateral record ID.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class MultiCollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets before_ltv
      *
-     * @param string|null $before_ltv The collateral ratio before adjustment
+     * @param string|null $before_ltv The collateral ratio before adjustment.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class MultiCollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets after_ltv
      *
-     * @param string|null $after_ltv The collateral ratio before adjustment
+     * @param string|null $after_ltv The collateral ratio before adjustment.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class MultiCollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_currencies
      *
-     * @param \GateApi\Model\MultiCollateralRecordCurrency[]|null $borrow_currencies Borrowing Currency List
+     * @param \GateApi\Model\MultiCollateralRecordCurrency[]|null $borrow_currencies Borrowing Currency List.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class MultiCollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currencies
      *
-     * @param \GateApi\Model\MultiCollateralRecordCurrency[]|null $collateral_currencies Collateral Currency List
+     * @param \GateApi\Model\MultiCollateralRecordCurrency[]|null $collateral_currencies Collateral Currency List.
      *
      * @return $this
      */

@@ -286,7 +286,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param int|null $time Stat timestamp
+     * @param int|null $time Stat timestamp.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets lsr_taker
      *
-     * @param float|null $lsr_taker Long/short account number ratio
+     * @param float|null $lsr_taker Long/short account number ratio.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets lsr_account
      *
-     * @param float|null $lsr_account Long/short taker size ratio
+     * @param float|null $lsr_account Long/short taker size ratio.
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets long_liq_size
      *
-     * @param int|null $long_liq_size Long liquidation size
+     * @param int|null $long_liq_size Long liquidation size.
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets long_liq_amount
      *
-     * @param double|null $long_liq_amount Long liquidation amount(base currency)
+     * @param double|null $long_liq_amount Long liquidation amount(base currency).
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets long_liq_usd
      *
-     * @param double|null $long_liq_usd Long liquidation volume(quote currency)
+     * @param double|null $long_liq_usd Long liquidation volume(quote currency).
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets short_liq_size
      *
-     * @param int|null $short_liq_size Short liquidation size
+     * @param int|null $short_liq_size Short liquidation size.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets short_liq_amount
      *
-     * @param double|null $short_liq_amount Short liquidation amount(base currency)
+     * @param double|null $short_liq_amount Short liquidation amount(base currency).
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets short_liq_usd
      *
-     * @param double|null $short_liq_usd Short liquidation volume(quote currency)
+     * @param double|null $short_liq_usd Short liquidation volume(quote currency).
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets open_interest
      *
-     * @param int|null $open_interest Open interest size
+     * @param int|null $open_interest Open interest size.
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets open_interest_usd
      *
-     * @param double|null $open_interest_usd Open interest volume(quote currency)
+     * @param double|null $open_interest_usd Open interest volume(quote currency).
      *
      * @return $this
      */
@@ -550,7 +550,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets top_lsr_account
      *
-     * @param double|null $top_lsr_account Top trader long/short account ratio
+     * @param double|null $top_lsr_account Top trader long/short account ratio.
      *
      * @return $this
      */
@@ -574,7 +574,7 @@ class ContractStat implements ModelInterface, ArrayAccess
     /**
      * Sets top_lsr_size
      *
-     * @param double|null $top_lsr_size Top trader long/short position ratio
+     * @param double|null $top_lsr_size Top trader long/short position ratio.
      *
      * @return $this
      */

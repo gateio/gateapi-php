@@ -226,7 +226,7 @@ class UnifiedRiskUnits implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class UnifiedRiskUnits implements ModelInterface, ArrayAccess
     /**
      * Sets risk_units
      *
-     * @param \GateApi\Model\RiskUnits[]|null $risk_units Risk unit
+     * @param \GateApi\Model\RiskUnits[]|null $risk_units Risk unit.
      *
      * @return $this
      */

@@ -226,7 +226,7 @@ class AgencyTransactionHistory implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class AgencyTransactionHistory implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param int|null $total Total
+     * @param int|null $total Total.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class AgencyTransactionHistory implements ModelInterface, ArrayAccess
     /**
      * Sets list
      *
-     * @param \GateApi\Model\AgencyTransaction[]|null $list List of transaction history
+     * @param \GateApi\Model\AgencyTransaction[]|null $list List of transaction history.
      *
      * @return $this
      */

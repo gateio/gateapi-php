@@ -279,7 +279,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Trade ID
+     * @param int|null $id Trade ID.
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param double|null $create_time Trading time
+     * @param double|null $create_time Trading time.
      *
      * @return $this
      */
@@ -327,7 +327,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Options contract name
+     * @param string|null $contract Options contract name.
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Order ID related
+     * @param int|null $order_id Order ID related.
      *
      * @return $this
      */
@@ -375,7 +375,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Trading size
+     * @param int|null $size Trading size.
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Trading price (quote currency)
+     * @param string|null $price Trading price (quote currency).
      *
      * @return $this
      */
@@ -423,7 +423,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets underlying_price
      *
-     * @param string|null $underlying_price Underlying price (quote currency)
+     * @param string|null $underlying_price Underlying price (quote currency).
      *
      * @return $this
      */
@@ -447,7 +447,7 @@ class OptionsMyTrade implements ModelInterface, ArrayAccess
     /**
      * Sets role
      *
-     * @param string|null $role Trade role. Available values are `taker` and `maker`
+     * @param string|null $role Trade role. Available values are `taker` and `maker`.
      *
      * @return $this
      */

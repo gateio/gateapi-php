@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UniCurrency Class Doc Comment
  *
  * @category Class
- * @description Currency detail
+ * @description Currency detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -239,7 +239,7 @@ class UniCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class UniCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets max_lend_amount
      *
-     * @param string|null $max_lend_amount The total maximum lending amount, in USDT
+     * @param string|null $max_lend_amount The total maximum lending amount, in USDT.
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class UniCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets max_rate
      *
-     * @param string|null $max_rate Maximum rate (Hourly)
+     * @param string|null $max_rate Maximum rate (Hourly).
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class UniCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets min_rate
      *
-     * @param string|null $min_rate Minimum rate (Hourly)
+     * @param string|null $min_rate Minimum rate (Hourly).
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UniCurrencyPair Class Doc Comment
  *
  * @category Class
- * @description Currency pair of the loan
+ * @description Currency pair of the loan.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -233,7 +233,7 @@ class UniCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -257,7 +257,7 @@ class UniCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets base_min_borrow_amount
      *
-     * @param string|null $base_min_borrow_amount Minimum borrow amount of base currency
+     * @param string|null $base_min_borrow_amount Minimum borrow amount of base currency.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class UniCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets quote_min_borrow_amount
      *
-     * @param string|null $quote_min_borrow_amount Minimum borrow amount of quote currency
+     * @param string|null $quote_min_borrow_amount Minimum borrow amount of quote currency.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class UniCurrencyPair implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage Position leverage
+     * @param string|null $leverage Position leverage.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * LiquidateOrder Class Doc Comment
  *
  * @category Class
- * @description Liquidate Order detail
+ * @description Liquidate Order detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -272,7 +272,7 @@ class LiquidateOrder implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string $currency_pair Currency pair
+     * @param string $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -296,7 +296,7 @@ class LiquidateOrder implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Trade amount
+     * @param string $amount Trade amount.
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class LiquidateOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string $price Order price
+     * @param string $price Order price.
      *
      * @return $this
      */

@@ -250,7 +250,7 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
     /**
      * Sets current_leverage
      *
-     * @param string|null $current_leverage Current leverage ratio
+     * @param string|null $current_leverage Current leverage ratio.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
     /**
      * Sets min_leverage
      *
-     * @param string|null $min_leverage Minimum adjustable leverage ratio
+     * @param string|null $min_leverage Minimum adjustable leverage ratio.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
     /**
      * Sets max_leverage
      *
-     * @param string|null $max_leverage Maximum adjustable leverage ratio
+     * @param string|null $max_leverage Maximum adjustable leverage ratio.
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
     /**
      * Sets debit
      *
-     * @param string|null $debit Current liabilities
+     * @param string|null $debit Current liabilities.
      *
      * @return $this
      */
@@ -346,7 +346,7 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
     /**
      * Sets available_margin
      *
-     * @param string|null $available_margin Available Margin
+     * @param string|null $available_margin Available Margin.
      *
      * @return $this
      */
@@ -370,7 +370,7 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
     /**
      * Sets borrowable
      *
-     * @param string|null $borrowable The current leverage you can choose is
+     * @param string|null $borrowable The current leverage you can choose is.
      *
      * @return $this
      */
@@ -394,7 +394,7 @@ class UnifiedLeverageConfig implements ModelInterface, ArrayAccess
     /**
      * Sets except_leverage_borrowable
      *
-     * @param string|null $except_leverage_borrowable The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller
+     * @param string|null $except_leverage_borrowable The maximum amount of margin that can be borrowed and the be borrowed, whichever is smaller
      *
      * @return $this
      */

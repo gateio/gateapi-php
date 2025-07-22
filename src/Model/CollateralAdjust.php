@@ -232,7 +232,7 @@ class CollateralAdjust implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int $order_id Order ID
+     * @param int $order_id Order ID.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class CollateralAdjust implements ModelInterface, ArrayAccess
     /**
      * Sets collaterals
      *
-     * @param \GateApi\Model\CollateralCurrency[]|null $collaterals Collateral Currency List
+     * @param \GateApi\Model\CollateralCurrency[]|null $collaterals Collateral Currency List.
      *
      * @return $this
      */

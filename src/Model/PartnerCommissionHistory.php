@@ -220,7 +220,7 @@ class PartnerCommissionHistory implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param int|null $total Total
+     * @param int|null $total Total.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class PartnerCommissionHistory implements ModelInterface, ArrayAccess
     /**
      * Sets list
      *
-     * @param \GateApi\Model\AgencyCommission[]|null $list List of comission history
+     * @param \GateApi\Model\AgencyCommission[]|null $list List of comission history.
      *
      * @return $this
      */

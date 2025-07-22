@@ -220,7 +220,7 @@ class SubAccountMarginBalance implements ModelInterface, ArrayAccess
     /**
      * Sets uid
      *
-     * @param string|null $uid User ID
+     * @param string|null $uid User ID.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class SubAccountMarginBalance implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param \GateApi\Model\MarginAccount[]|null $available Margin account balances
+     * @param \GateApi\Model\MarginAccount[]|null $available Margin account balances.
      *
      * @return $this
      */

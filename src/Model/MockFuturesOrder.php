@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MockFuturesOrder Class Doc Comment
  *
  * @category Class
- * @description Futures order
+ * @description Futures order.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -284,7 +284,7 @@ class MockFuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets left
      *
-     * @param string $left Unfilled contract quantity, involved in actual calculation
+     * @param string $left Unfilled contract quantity, involved in actual calculation.
      *
      * @return $this
      */

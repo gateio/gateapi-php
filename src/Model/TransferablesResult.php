@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * TransferablesResult Class Doc Comment
  *
  * @category Class
- * @description Batch query unified account can be transferred up to a maximum of results
+ * @description Batch query unified account can be transferred up to a maximum of results.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class TransferablesResult implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency detail
+     * @param string|null $currency Currency detail.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class TransferablesResult implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount The maximum amount that can be transferred out
+     * @param string|null $amount The maximum amount that can be transferred out.
      *
      * @return $this
      */

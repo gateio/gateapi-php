@@ -238,7 +238,7 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
     /**
      * Sets chain
      *
-     * @param string|null $chain Name of the chain
+     * @param string|null $chain Name of the chain.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param string|null $address Deposit address
+     * @param string|null $address Deposit address.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
     /**
      * Sets payment_id
      *
-     * @param string|null $payment_id Notes that some currencies required(e.g., Tag, Memo) when depositing
+     * @param string|null $payment_id Notes that some currencies required(e.g., Tag, Memo) when depositing.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class MultiChainAddressItem implements ModelInterface, ArrayAccess
     /**
      * Sets payment_name
      *
-     * @param string|null $payment_name Note type, `Tag` or `Memo`
+     * @param string|null $payment_name Note type, `Tag` or `Memo`.
      *
      * @return $this
      */

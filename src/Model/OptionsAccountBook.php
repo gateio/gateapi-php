@@ -238,7 +238,7 @@ class OptionsAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param double|null $time Change time
+     * @param double|null $time Change time.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class OptionsAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets change
      *
-     * @param string|null $change Amount changed (USDT)
+     * @param string|null $change Amount changed (USDT).
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class OptionsAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets balance
      *
-     * @param string|null $balance Account total balance after change (USDT)
+     * @param string|null $balance Account total balance after change (USDT).
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class OptionsAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+     * @param string|null $type Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class OptionsAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text custom text
+     * @param string|null $text custom text.
      *
      * @return $this
      */

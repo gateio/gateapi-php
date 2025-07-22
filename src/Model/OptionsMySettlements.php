@@ -262,7 +262,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param double|null $time Settlement time
+     * @param double|null $time Settlement time.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets underlying
      *
-     * @param string|null $underlying Underlying
+     * @param string|null $underlying Underlying.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Options contract name
+     * @param string|null $contract Options contract name.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets strike_price
      *
-     * @param string|null $strike_price Strike price (quote currency)
+     * @param string|null $strike_price Strike price (quote currency).
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets settle_price
      *
-     * @param string|null $settle_price Settlement price (quote currency)
+     * @param string|null $settle_price Settlement price (quote currency).
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Size
+     * @param int|null $size Size.
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets settle_profit
      *
-     * @param string|null $settle_profit Settlement profit (quote currency)
+     * @param string|null $settle_profit Settlement profit (quote currency).
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class OptionsMySettlements implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee Fee (quote currency)
+     * @param string|null $fee Fee (quote currency).
      *
      * @return $this
      */

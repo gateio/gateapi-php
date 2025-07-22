@@ -258,7 +258,7 @@ class SpotPriceTrigger implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string $price Trigger price
+     * @param string $price Trigger price.
      *
      * @return $this
      */
@@ -282,7 +282,7 @@ class SpotPriceTrigger implements ModelInterface, ArrayAccess
     /**
      * Sets rule
      *
-     * @param string $rule Price trigger condition  - `>=`: triggered when market price larger than or equal to `price` field - `<=`: triggered when market price less than or equal to `price` field
+     * @param string $rule Price trigger condition  - `>=`: triggered when market price larger than or equal to `price` field - `<=`: or equal to `price` field
      *
      * @return $this
      */

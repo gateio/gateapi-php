@@ -220,7 +220,7 @@ class CollateralCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class CollateralCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Size
+     * @param string|null $amount Size.
      *
      * @return $this
      */

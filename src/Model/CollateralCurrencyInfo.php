@@ -232,7 +232,7 @@ class CollateralCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class CollateralCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Currency Index Price
+     * @param string|null $index_price Currency Index Price.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class CollateralCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets left_collateral
      *
-     * @param string|null $left_collateral Left Collateral Amount
+     * @param string|null $left_collateral Left Collateral Amount.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class CollateralCurrencyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets left_collateral_usdt
      *
-     * @param string|null $left_collateral_usdt Value of left collateral amount in USDT
+     * @param string|null $left_collateral_usdt Value of left collateral amount in USDT.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UniLoanInterestRecord Class Doc Comment
  *
  * @category Class
- * @description Interest record
+ * @description Interest record.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -251,7 +251,7 @@ class UniLoanInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class UniLoanInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class UniLoanInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets actual_rate
      *
-     * @param string|null $actual_rate Actual rate
+     * @param string|null $actual_rate Actual rate.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class UniLoanInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets interest
      *
-     * @param string|null $interest Interest
+     * @param string|null $interest Interest.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class UniLoanInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int|null $status Status: 0 - fail, 1 - success
+     * @param int|null $status Status: 0 - fail, 1 - success.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class UniLoanInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Type, platform - platform，margin - margin
+     * @param string|null $type Type, platform - platform，margin - margin.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class UniLoanInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Created time
+     * @param int|null $create_time Created time.
      *
      * @return $this
      */

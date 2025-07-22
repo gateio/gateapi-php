@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UniInterestRecord Class Doc Comment
  *
  * @category Class
- * @description Interest Record
+ * @description Interest Record.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -245,7 +245,7 @@ class UniInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int|null $status Status: 0 - fail, 1 - success
+     * @param int|null $status Status: 0 - fail, 1 - success.
      *
      * @return $this
      */
@@ -269,7 +269,7 @@ class UniInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class UniInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets actual_rate
      *
-     * @param string|null $actual_rate Actual Rate
+     * @param string|null $actual_rate Actual Rate.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class UniInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets interest
      *
-     * @param string|null $interest Interest
+     * @param string|null $interest Interest.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class UniInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets interest_status
      *
-     * @param string|null $interest_status Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+     * @param string|null $interest_status Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class UniInterestRecord implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Created time
+     * @param int|null $create_time Created time.
      *
      * @return $this
      */

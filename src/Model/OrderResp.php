@@ -214,7 +214,7 @@ class OrderResp implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Order ID
+     * @param int|null $order_id Order ID.
      *
      * @return $this
      */

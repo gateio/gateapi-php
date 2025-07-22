@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedLoan Class Doc Comment
  *
  * @category Class
- * @description Borrow or repay
+ * @description Borrow or repay.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -271,7 +271,7 @@ class UnifiedLoan implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency
+     * @param string $currency Currency.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class UnifiedLoan implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type type: borrow - borrow, repay - repay
+     * @param string $type type: borrow - borrow, repay - repay.
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class UnifiedLoan implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount The amount of lending or repaying
+     * @param string $amount The amount of lending or repaying.
      *
      * @return $this
      */
@@ -376,7 +376,7 @@ class UnifiedLoan implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text User defined custom ID
+     * @param string|null $text User defined custom ID.
      *
      * @return $this
      */

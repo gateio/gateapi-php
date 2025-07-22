@@ -262,7 +262,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_time
      *
-     * @param int|null $transaction_time Transaction Time. (unix timestamp)
+     * @param int|null $transaction_time Transaction Time. (unix timestamp).
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets group_name
      *
-     * @param string|null $group_name Group name
+     * @param string|null $group_name Group name.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee Fee
+     * @param string|null $fee Fee.
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets fee_asset
      *
-     * @param string|null $fee_asset Fee currency
+     * @param string|null $fee_asset Fee currency.
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Commission Amount
+     * @param string|null $amount Commission Amount.
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets amount_asset
      *
-     * @param string|null $amount_asset Commission Asset
+     * @param string|null $amount_asset Commission Asset.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class AgencyTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets source
      *
-     * @param string|null $source Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate
+     * @param string|null $source Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate.
      *
      * @return $this
      */

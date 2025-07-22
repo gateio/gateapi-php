@@ -256,7 +256,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets chain
      *
-     * @param string|null $chain Chain name
+     * @param string|null $chain Chain name.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets name_cn
      *
-     * @param string|null $name_cn Chain name in Chinese
+     * @param string|null $name_cn Chain name in Chinese.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets name_en
      *
-     * @param string|null $name_en Chain name in English
+     * @param string|null $name_en Chain name in English.
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets is_disabled
      *
-     * @param int|null $is_disabled If it is disabled. 0 means NOT being disabled
+     * @param int|null $is_disabled If it is disabled. 0 means NOT being disabled.
      *
      * @return $this
      */
@@ -376,7 +376,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets is_deposit_disabled
      *
-     * @param int|null $is_deposit_disabled Is deposit disabled. 0 means not
+     * @param int|null $is_deposit_disabled Is deposit disabled. 0 means not.
      *
      * @return $this
      */
@@ -400,7 +400,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets is_withdraw_disabled
      *
-     * @param int|null $is_withdraw_disabled Is withdrawal disabled. 0 means not
+     * @param int|null $is_withdraw_disabled Is withdrawal disabled. 0 means not.
      *
      * @return $this
      */
@@ -424,7 +424,7 @@ class CurrencyChain implements ModelInterface, ArrayAccess
     /**
      * Sets decimal
      *
-     * @param string|null $decimal Withdrawal precision
+     * @param string|null $decimal Withdrawal precision.
      *
      * @return $this
      */

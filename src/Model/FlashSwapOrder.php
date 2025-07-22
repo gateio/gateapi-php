@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FlashSwapOrder Class Doc Comment
  *
  * @category Class
- * @description Flash swap order
+ * @description Flash swap order.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -263,7 +263,7 @@ class FlashSwapOrder implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Flash swap order ID
+     * @param int|null $id Flash swap order ID.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class FlashSwapOrder implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Creation time of order (in milliseconds)
+     * @param int|null $create_time Creation time of order (in milliseconds).
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class FlashSwapOrder implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class FlashSwapOrder implements ModelInterface, ArrayAccess
     /**
      * Sets sell_currency
      *
-     * @param string|null $sell_currency Currency to sell
+     * @param string|null $sell_currency Currency to sell.
      *
      * @return $this
      */
@@ -359,7 +359,7 @@ class FlashSwapOrder implements ModelInterface, ArrayAccess
     /**
      * Sets sell_amount
      *
-     * @param string|null $sell_amount Amount to sell
+     * @param string|null $sell_amount Amount to sell.
      *
      * @return $this
      */
@@ -383,7 +383,7 @@ class FlashSwapOrder implements ModelInterface, ArrayAccess
     /**
      * Sets buy_currency
      *
-     * @param string|null $buy_currency Currency to buy
+     * @param string|null $buy_currency Currency to buy.
      *
      * @return $this
      */
@@ -407,7 +407,7 @@ class FlashSwapOrder implements ModelInterface, ArrayAccess
     /**
      * Sets buy_amount
      *
-     * @param string|null $buy_amount Amount to buy
+     * @param string|null $buy_amount Amount to buy.
      *
      * @return $this
      */
@@ -431,7 +431,7 @@ class FlashSwapOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Price
+     * @param string|null $price Price.
      *
      * @return $this
      */

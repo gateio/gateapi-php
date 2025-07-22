@@ -310,7 +310,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets last
      *
-     * @param string|null $last Last trading price
+     * @param string|null $last Last trading price.
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets lowest_ask
      *
-     * @param string|null $lowest_ask Recent lowest ask
+     * @param string|null $lowest_ask Recent lowest ask.
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets highest_bid
      *
-     * @param string|null $highest_bid Recent highest bid
+     * @param string|null $highest_bid Recent highest bid.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets change_percentage
      *
-     * @param string|null $change_percentage Change percentage in the last 24h
+     * @param string|null $change_percentage Change percentage in the last 24h.
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets change_utc0
      *
-     * @param string|null $change_utc0 utc0 timezone, the percentage change in the last 24 hours
+     * @param string|null $change_utc0 utc0 timezone, the percentage change in the last 24 hours.
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets change_utc8
      *
-     * @param string|null $change_utc8 utc8 timezone, the percentage change in the last 24 hours
+     * @param string|null $change_utc8 utc8 timezone, the percentage change in the last 24 hours.
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets base_volume
      *
-     * @param string|null $base_volume Base currency trade volume in the last 24h
+     * @param string|null $base_volume Base currency trade volume in the last 24h.
      *
      * @return $this
      */
@@ -550,7 +550,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets quote_volume
      *
-     * @param string|null $quote_volume Quote currency trade volume in the last 24h
+     * @param string|null $quote_volume Quote currency trade volume in the last 24h.
      *
      * @return $this
      */
@@ -574,7 +574,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets high_24h
      *
-     * @param string|null $high_24h Highest price in 24h
+     * @param string|null $high_24h Highest price in 24h.
      *
      * @return $this
      */
@@ -598,7 +598,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets low_24h
      *
-     * @param string|null $low_24h Lowest price in 24h
+     * @param string|null $low_24h Lowest price in 24h.
      *
      * @return $this
      */
@@ -622,7 +622,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets etf_net_value
      *
-     * @param string|null $etf_net_value ETF net value
+     * @param string|null $etf_net_value ETF net value.
      *
      * @return $this
      */
@@ -646,7 +646,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets etf_pre_net_value
      *
-     * @param string|null $etf_pre_net_value ETF previous net value at re-balancing time
+     * @param string|null $etf_pre_net_value ETF previous net value at re-balancing time.
      *
      * @return $this
      */
@@ -670,7 +670,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets etf_pre_timestamp
      *
-     * @param int|null $etf_pre_timestamp ETF previous re-balancing time
+     * @param int|null $etf_pre_timestamp ETF previous re-balancing time.
      *
      * @return $this
      */
@@ -694,7 +694,7 @@ class Ticker implements ModelInterface, ArrayAccess
     /**
      * Sets etf_leverage
      *
-     * @param string|null $etf_leverage ETF current leverage
+     * @param string|null $etf_leverage ETF current leverage.
      *
      * @return $this
      */

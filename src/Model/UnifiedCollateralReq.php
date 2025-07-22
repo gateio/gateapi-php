@@ -249,7 +249,7 @@ class UnifiedCollateralReq implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_type
      *
-     * @param int|null $collateral_type User-set collateral mode0(all)-All currencies used as collateral, 1(custom)-Custom currencies used as collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid
+     * @param int|null $collateral_type User-set collateral mode0(all)-All currencies used as collateral, collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid
      *
      * @return $this
      */
@@ -306,7 +306,7 @@ class UnifiedCollateralReq implements ModelInterface, ArrayAccess
     /**
      * Sets disable_list
      *
-     * @param string[]|null $disable_list Cancellation list, indicating the logic of cancellation
+     * @param string[]|null $disable_list Cancellation list, indicating the logic of cancellation.
      *
      * @return $this
      */

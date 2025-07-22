@@ -55,14 +55,20 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
+        'pid' => 'int',
         'uid' => 'int',
         'coin' => 'string',
         'type' => 'int',
+        'subtype' => 'string',
         'amount' => 'string',
         'exchange_rate' => 'string',
-        'pid' => 'int',
+        'exchange_amount' => 'string',
+        'update_stamp' => 'int',
+        'create_stamp' => 'int',
         'status' => 'int',
-        'create_stamp' => 'int'
+        'protocol_type' => 'int',
+        'client_order_id' => 'string',
+        'source' => 'string'
     ];
 
     /**
@@ -72,14 +78,20 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'pid' => null,
         'uid' => null,
         'coin' => null,
         'type' => null,
+        'subtype' => null,
         'amount' => null,
         'exchange_rate' => null,
-        'pid' => null,
+        'exchange_amount' => null,
+        'update_stamp' => null,
+        'create_stamp' => null,
         'status' => null,
-        'create_stamp' => null
+        'protocol_type' => null,
+        'client_order_id' => null,
+        'source' => null
     ];
 
     /**
@@ -110,14 +122,20 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'pid' => 'pid',
         'uid' => 'uid',
         'coin' => 'coin',
         'type' => 'type',
+        'subtype' => 'subtype',
         'amount' => 'amount',
         'exchange_rate' => 'exchange_rate',
-        'pid' => 'pid',
+        'exchange_amount' => 'exchange_amount',
+        'update_stamp' => 'updateStamp',
+        'create_stamp' => 'createStamp',
         'status' => 'status',
-        'create_stamp' => 'createStamp'
+        'protocol_type' => 'protocol_type',
+        'client_order_id' => 'client_order_id',
+        'source' => 'source'
     ];
 
     /**
@@ -127,14 +145,20 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'pid' => 'setPid',
         'uid' => 'setUid',
         'coin' => 'setCoin',
         'type' => 'setType',
+        'subtype' => 'setSubtype',
         'amount' => 'setAmount',
         'exchange_rate' => 'setExchangeRate',
-        'pid' => 'setPid',
+        'exchange_amount' => 'setExchangeAmount',
+        'update_stamp' => 'setUpdateStamp',
+        'create_stamp' => 'setCreateStamp',
         'status' => 'setStatus',
-        'create_stamp' => 'setCreateStamp'
+        'protocol_type' => 'setProtocolType',
+        'client_order_id' => 'setClientOrderId',
+        'source' => 'setSource'
     ];
 
     /**
@@ -144,14 +168,20 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'pid' => 'getPid',
         'uid' => 'getUid',
         'coin' => 'getCoin',
         'type' => 'getType',
+        'subtype' => 'getSubtype',
         'amount' => 'getAmount',
         'exchange_rate' => 'getExchangeRate',
-        'pid' => 'getPid',
+        'exchange_amount' => 'getExchangeAmount',
+        'update_stamp' => 'getUpdateStamp',
+        'create_stamp' => 'getCreateStamp',
         'status' => 'getStatus',
-        'create_stamp' => 'getCreateStamp'
+        'protocol_type' => 'getProtocolType',
+        'client_order_id' => 'getClientOrderId',
+        'source' => 'getSource'
     ];
 
     /**
@@ -215,14 +245,20 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['pid'] = isset($data['pid']) ? $data['pid'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['coin'] = isset($data['coin']) ? $data['coin'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['subtype'] = isset($data['subtype']) ? $data['subtype'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
-        $this->container['pid'] = isset($data['pid']) ? $data['pid'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['exchange_amount'] = isset($data['exchange_amount']) ? $data['exchange_amount'] : null;
+        $this->container['update_stamp'] = isset($data['update_stamp']) ? $data['update_stamp'] : null;
         $this->container['create_stamp'] = isset($data['create_stamp']) ? $data['create_stamp'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['protocol_type'] = isset($data['protocol_type']) ? $data['protocol_type'] : null;
+        $this->container['client_order_id'] = isset($data['client_order_id']) ? $data['client_order_id'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
     }
 
     /**
@@ -262,13 +298,37 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Order ID
+     * @param int|null $id Order ID.
      *
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pid
+     *
+     * @return int|null
+     */
+    public function getPid()
+    {
+        return $this->container['pid'];
+    }
+
+    /**
+     * Sets pid
+     *
+     * @param int|null $pid Plan ID.
+     *
+     * @return $this
+     */
+    public function setPid($pid)
+    {
+        $this->container['pid'] = $pid;
 
         return $this;
     }
@@ -286,7 +346,7 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     /**
      * Sets uid
      *
-     * @param int|null $uid User ID
+     * @param int|null $uid User ID.
      *
      * @return $this
      */
@@ -310,7 +370,7 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     /**
      * Sets coin
      *
-     * @param string|null $coin Currency
+     * @param string|null $coin Currency.
      *
      * @return $this
      */
@@ -334,13 +394,37 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param int|null $type Type: 0-Lock, 1-Certificate
+     * @param int|null $type 类型 0-质押 1-赎回
      *
      * @return $this
      */
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets subtype
+     *
+     * @return string|null
+     */
+    public function getSubtype()
+    {
+        return $this->container['subtype'];
+    }
+
+    /**
+     * Sets subtype
+     *
+     * @param string|null $subtype 子类型
+     *
+     * @return $this
+     */
+    public function setSubtype($subtype)
+    {
+        $this->container['subtype'] = $subtype;
 
         return $this;
     }
@@ -358,7 +442,7 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Amount
+     * @param string|null $amount Amount.
      *
      * @return $this
      */
@@ -382,7 +466,7 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_rate
      *
-     * @param string|null $exchange_rate Exchange Ratio
+     * @param string|null $exchange_rate Exchange Ratio.
      *
      * @return $this
      */
@@ -394,49 +478,49 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets pid
+     * Gets exchange_amount
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getPid()
+    public function getExchangeAmount()
     {
-        return $this->container['pid'];
+        return $this->container['exchange_amount'];
     }
 
     /**
-     * Sets pid
+     * Sets exchange_amount
      *
-     * @param int|null $pid Plan ID
+     * @param string|null $exchange_amount 兑换金额
      *
      * @return $this
      */
-    public function setPid($pid)
+    public function setExchangeAmount($exchange_amount)
     {
-        $this->container['pid'] = $pid;
+        $this->container['exchange_amount'] = $exchange_amount;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets update_stamp
      *
      * @return int|null
      */
-    public function getStatus()
+    public function getUpdateStamp()
     {
-        return $this->container['status'];
+        return $this->container['update_stamp'];
     }
 
     /**
-     * Sets status
+     * Sets update_stamp
      *
-     * @param int|null $status status 1-success
+     * @param int|null $update_stamp 更新时间戳
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setUpdateStamp($update_stamp)
     {
-        $this->container['status'] = $status;
+        $this->container['update_stamp'] = $update_stamp;
 
         return $this;
     }
@@ -454,13 +538,109 @@ class SwapCoinStruct implements ModelInterface, ArrayAccess
     /**
      * Sets create_stamp
      *
-     * @param int|null $create_stamp Transaction timestamp
+     * @param int|null $create_stamp Transaction timestamp.
      *
      * @return $this
      */
     public function setCreateStamp($create_stamp)
     {
         $this->container['create_stamp'] = $create_stamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int|null $status status 1-success.
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol_type
+     *
+     * @return int|null
+     */
+    public function getProtocolType()
+    {
+        return $this->container['protocol_type'];
+    }
+
+    /**
+     * Sets protocol_type
+     *
+     * @param int|null $protocol_type DEFI协议类型
+     *
+     * @return $this
+     */
+    public function setProtocolType($protocol_type)
+    {
+        $this->container['protocol_type'] = $protocol_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_order_id
+     *
+     * @return string|null
+     */
+    public function getClientOrderId()
+    {
+        return $this->container['client_order_id'];
+    }
+
+    /**
+     * Sets client_order_id
+     *
+     * @param string|null $client_order_id 参考ID
+     *
+     * @return $this
+     */
+    public function setClientOrderId($client_order_id)
+    {
+        $this->container['client_order_id'] = $client_order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source Order source.
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
 
         return $this;
     }

@@ -220,7 +220,7 @@ class UnifiedTransferable implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency detail
+     * @param string|null $currency Currency detail.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class UnifiedTransferable implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount The maximum amount that can be transferred out
+     * @param string|null $amount The maximum amount that can be transferred out.
      *
      * @return $this
      */

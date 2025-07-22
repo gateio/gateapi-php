@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FuturesAccountHistory Class Doc Comment
  *
  * @category Class
- * @description Statistical data
+ * @description Statistical data.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -269,7 +269,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets dnw
      *
-     * @param string|null $dnw total amount of deposit and withdraw
+     * @param string|null $dnw total amount of deposit and withdraw.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets pnl
      *
-     * @param string|null $pnl total amount of trading profit and loss
+     * @param string|null $pnl total amount of trading profit and loss.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee total amount of fee
+     * @param string|null $fee total amount of fee.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets refr
      *
-     * @param string|null $refr total amount of referrer rebates
+     * @param string|null $refr total amount of referrer rebates.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets fund
      *
-     * @param string|null $fund total amount of funding costs
+     * @param string|null $fund total amount of funding costs.
      *
      * @return $this
      */
@@ -389,7 +389,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets point_dnw
      *
-     * @param string|null $point_dnw total amount of point deposit and withdraw
+     * @param string|null $point_dnw total amount of point deposit and withdraw.
      *
      * @return $this
      */
@@ -413,7 +413,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets point_fee
      *
-     * @param string|null $point_fee total amount of point fee
+     * @param string|null $point_fee total amount of point fee.
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets point_refr
      *
-     * @param string|null $point_refr total amount of referrer rebates of point fee
+     * @param string|null $point_refr total amount of referrer rebates of point fee.
      *
      * @return $this
      */
@@ -461,7 +461,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets bonus_dnw
      *
-     * @param string|null $bonus_dnw total amount of perpetual contract bonus transfer
+     * @param string|null $bonus_dnw total amount of perpetual contract bonus transfer.
      *
      * @return $this
      */
@@ -485,7 +485,7 @@ class FuturesAccountHistory implements ModelInterface, ArrayAccess
     /**
      * Sets bonus_offset
      *
-     * @param string|null $bonus_offset total amount of perpetual contract bonus deduction
+     * @param string|null $bonus_offset total amount of perpetual contract bonus deduction.
      *
      * @return $this
      */

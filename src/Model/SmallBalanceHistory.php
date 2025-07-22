@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * SmallBalanceHistory Class Doc Comment
  *
  * @category Class
- * @description Convert Small Balance
+ * @description Convert Small Balance.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -239,7 +239,7 @@ class SmallBalanceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Order ID
+     * @param string|null $id Order ID.
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class SmallBalanceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class SmallBalanceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount amount
+     * @param string|null $amount amount.
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class SmallBalanceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets gt_amount
      *
-     * @param string|null $gt_amount GT amount
+     * @param string|null $gt_amount GT amount.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class SmallBalanceHistory implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Exchange time (in seconds)
+     * @param int|null $create_time Exchange time (in seconds).
      *
      * @return $this
      */

@@ -116,16 +116,16 @@ class RebateApi
     /**
      * Operation agencyTransactionHistory
      *
-     * The agency obtains the transaction history of the recommended user
+     * The agency obtains the transaction history of the recommended user.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -140,16 +140,16 @@ class RebateApi
     /**
      * Operation agencyTransactionHistoryWithHttpInfo
      *
-     * The agency obtains the transaction history of the recommended user
+     * The agency obtains the transaction history of the recommended user.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -201,16 +201,16 @@ class RebateApi
     /**
      * Operation agencyTransactionHistoryAsync
      *
-     * The agency obtains the transaction history of the recommended user
+     * The agency obtains the transaction history of the recommended user.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -228,16 +228,16 @@ class RebateApi
     /**
      * Operation agencyTransactionHistoryAsyncWithHttpInfo
      *
-     * The agency obtains the transaction history of the recommended user
+     * The agency obtains the transaction history of the recommended user.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -286,12 +286,12 @@ class RebateApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -467,16 +467,16 @@ class RebateApi
     /**
      * Operation agencyCommissionsHistory
      *
-     * The agency obtains the commission history of the recommended user
+     * The agency obtains the commission history of the recommended user.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -491,16 +491,16 @@ class RebateApi
     /**
      * Operation agencyCommissionsHistoryWithHttpInfo
      *
-     * The agency obtains the commission history of the recommended user
+     * The agency obtains the commission history of the recommended user.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -552,16 +552,16 @@ class RebateApi
     /**
      * Operation agencyCommissionsHistoryAsync
      *
-     * The agency obtains the commission history of the recommended user
+     * The agency obtains the commission history of the recommended user.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -579,16 +579,16 @@ class RebateApi
     /**
      * Operation agencyCommissionsHistoryAsyncWithHttpInfo
      *
-     * The agency obtains the commission history of the recommended user
+     * The agency obtains the commission history of the recommended user.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -637,12 +637,12 @@ class RebateApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -818,16 +818,16 @@ class RebateApi
     /**
      * Operation partnerTransactionHistory
      *
-     * Partner obtains transaction records of recommended users
+     * Partner obtains transaction records of recommended users.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -842,16 +842,16 @@ class RebateApi
     /**
      * Operation partnerTransactionHistoryWithHttpInfo
      *
-     * Partner obtains transaction records of recommended users
+     * Partner obtains transaction records of recommended users.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -903,16 +903,16 @@ class RebateApi
     /**
      * Operation partnerTransactionHistoryAsync
      *
-     * Partner obtains transaction records of recommended users
+     * Partner obtains transaction records of recommended users.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -930,16 +930,16 @@ class RebateApi
     /**
      * Operation partnerTransactionHistoryAsyncWithHttpInfo
      *
-     * Partner obtains transaction records of recommended users
+     * Partner obtains transaction records of recommended users.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -988,12 +988,12 @@ class RebateApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency_pair Specify the currency pair, if not specified, return all currency pairs. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1169,16 +1169,16 @@ class RebateApi
     /**
      * Operation partnerCommissionsHistory
      *
-     * Partner obtains commission records of recommended users
+     * Partner obtains commission records of recommended users.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1193,16 +1193,16 @@ class RebateApi
     /**
      * Operation partnerCommissionsHistoryWithHttpInfo
      *
-     * Partner obtains commission records of recommended users
+     * Partner obtains commission records of recommended users.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1254,16 +1254,16 @@ class RebateApi
     /**
      * Operation partnerCommissionsHistoryAsync
      *
-     * Partner obtains commission records of recommended users
+     * Partner obtains commission records of recommended users.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1281,16 +1281,16 @@ class RebateApi
     /**
      * Operation partnerCommissionsHistoryAsyncWithHttpInfo
      *
-     * Partner obtains commission records of recommended users
+     * Partner obtains commission records of recommended users.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1339,12 +1339,12 @@ class RebateApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1520,13 +1520,13 @@ class RebateApi
     /**
      * Operation partnerSubList
      *
-     * Partner subordinate list
+     * Partner subordinate list.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1541,13 +1541,13 @@ class RebateApi
     /**
      * Operation partnerSubListWithHttpInfo
      *
-     * Partner subordinate list
+     * Partner subordinate list.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1599,13 +1599,13 @@ class RebateApi
     /**
      * Operation partnerSubListAsync
      *
-     * Partner subordinate list
+     * Partner subordinate list.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1623,13 +1623,13 @@ class RebateApi
     /**
      * Operation partnerSubListAsyncWithHttpInfo
      *
-     * Partner subordinate list
+     * Partner subordinate list.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1678,9 +1678,9 @@ class RebateApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1817,15 +1817,15 @@ class RebateApi
     /**
      * Operation rebateBrokerCommissionHistory
      *
-     * The broker obtains the user's commission rebate records
+     * The broker obtains the user's commission rebate records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1840,15 +1840,15 @@ class RebateApi
     /**
      * Operation rebateBrokerCommissionHistoryWithHttpInfo
      *
-     * The broker obtains the user's commission rebate records
+     * The broker obtains the user's commission rebate records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1900,15 +1900,15 @@ class RebateApi
     /**
      * Operation rebateBrokerCommissionHistoryAsync
      *
-     * The broker obtains the user's commission rebate records
+     * The broker obtains the user's commission rebate records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1926,15 +1926,15 @@ class RebateApi
     /**
      * Operation rebateBrokerCommissionHistoryAsyncWithHttpInfo
      *
-     * The broker obtains the user's commission rebate records
+     * The broker obtains the user's commission rebate records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1983,11 +1983,11 @@ class RebateApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2150,15 +2150,15 @@ class RebateApi
     /**
      * Operation rebateBrokerTransactionHistory
      *
-     * The broker obtains the user's trading history
+     * The broker obtains the user's trading history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2173,15 +2173,15 @@ class RebateApi
     /**
      * Operation rebateBrokerTransactionHistoryWithHttpInfo
      *
-     * The broker obtains the user's trading history
+     * The broker obtains the user's trading history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2233,15 +2233,15 @@ class RebateApi
     /**
      * Operation rebateBrokerTransactionHistoryAsync
      *
-     * The broker obtains the user's trading history
+     * The broker obtains the user's trading history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2259,15 +2259,15 @@ class RebateApi
     /**
      * Operation rebateBrokerTransactionHistoryAsyncWithHttpInfo
      *
-     * The broker obtains the user's trading history
+     * The broker obtains the user's trading history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2316,11 +2316,11 @@ class RebateApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
-     * @param  int $user_id User ID. If not specified, all user records will be returned (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
+     * @param  int $user_id User ID. If not specified, all user records will be returned. (optional)
      * @param  int $from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2483,7 +2483,7 @@ class RebateApi
     /**
      * Operation rebateUserInfo
      *
-     * User retrieves rebate information
+     * User retrieves rebate information.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2499,7 +2499,7 @@ class RebateApi
     /**
      * Operation rebateUserInfoWithHttpInfo
      *
-     * User retrieves rebate information
+     * User retrieves rebate information.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2552,7 +2552,7 @@ class RebateApi
     /**
      * Operation rebateUserInfoAsync
      *
-     * User retrieves rebate information
+     * User retrieves rebate information.
      *
      *
      * @throws \InvalidArgumentException
@@ -2571,7 +2571,7 @@ class RebateApi
     /**
      * Operation rebateUserInfoAsyncWithHttpInfo
      *
-     * User retrieves rebate information
+     * User retrieves rebate information.
      *
      *
      * @throws \InvalidArgumentException
@@ -2703,9 +2703,9 @@ class RebateApi
     /**
      * Operation userSubRelation
      *
-     * User-subordinate relationship
+     * User-subordinate relationship.
      *
-     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2720,9 +2720,9 @@ class RebateApi
     /**
      * Operation userSubRelationWithHttpInfo
      *
-     * User-subordinate relationship
+     * User-subordinate relationship.
      *
-     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2774,9 +2774,9 @@ class RebateApi
     /**
      * Operation userSubRelationAsync
      *
-     * User-subordinate relationship
+     * User-subordinate relationship.
      *
-     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2794,9 +2794,9 @@ class RebateApi
     /**
      * Operation userSubRelationAsyncWithHttpInfo
      *
-     * User-subordinate relationship
+     * User-subordinate relationship.
      *
-     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2843,7 +2843,7 @@ class RebateApi
     /**
      * Create request for operation 'userSubRelation'
      *
-     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @param  string $user_id_list Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

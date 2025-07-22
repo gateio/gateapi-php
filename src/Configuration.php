@@ -71,7 +71,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/6.102.1/PHP';
+    protected $userAgent = 'OpenAPI-Generator/6.102.6/PHP';
 
     /**
      * Debug switch (default set to false)
@@ -387,8 +387,8 @@ class Configuration
         $report  = 'PHP SDK (GateApi) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    The version of the OpenAPI document: v4.102.1' . PHP_EOL;
-        $report .= '    SDK Package Version: 6.102.1' . PHP_EOL;
+        $report .= '    The version of the OpenAPI document: v4.102.6' . PHP_EOL;
+        $report .= '    SDK Package Version: 6.102.6' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
@@ -428,11 +428,11 @@ class Configuration
         return array(
           array(
             "url" => "https://api.gateio.ws/api/v4",
-            "description" => "Real Trading",
+            "description" => "Real Trading.",
           ),
           array(
             "url" => "https://fx-api-testnet.gateio.ws/api/v4",
-            "description" => "TestNet Trading",
+            "description" => "TestNet Trading.",
           )
         );
     }

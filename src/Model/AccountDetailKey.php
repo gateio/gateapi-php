@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * AccountDetailKey Class Doc Comment
  *
  * @category Class
- * @description API Key detail
+ * @description API Key detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -215,7 +215,7 @@ class AccountDetailKey implements ModelInterface, ArrayAccess
     /**
      * Sets mode
      *
-     * @param int|null $mode mode: 1 - classic account 2 - portfolio margin account
+     * @param int|null $mode mode: 1 - classic account 2 - portfolio margin account.
      *
      * @return $this
      */

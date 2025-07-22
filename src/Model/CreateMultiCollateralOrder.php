@@ -268,7 +268,7 @@ class CreateMultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param string|null $order_id Order ID
+     * @param string|null $order_id Order ID.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class CreateMultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets order_type
      *
-     * @param string|null $order_type current - current, fixed - fixed, if not specified, default to current
+     * @param string|null $order_type current - current, fixed - fixed, if not specified, default to current.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class CreateMultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets fixed_rate
      *
-     * @param string|null $fixed_rate Fixed interest rate, must be specified for fixed
+     * @param string|null $fixed_rate Fixed interest rate, must be specified for fixed.
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class CreateMultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_renew
      *
-     * @param bool|null $auto_renew Fixed interest rate, automatic renewal
+     * @param bool|null $auto_renew Fixed interest rate, automatic renewal.
      *
      * @return $this
      */
@@ -388,7 +388,7 @@ class CreateMultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_repay
      *
-     * @param bool|null $auto_repay Fixed interest rate, automatic repayment
+     * @param bool|null $auto_repay Fixed interest rate, automatic repayment.
      *
      * @return $this
      */
@@ -412,7 +412,7 @@ class CreateMultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_currency
      *
-     * @param string $borrow_currency Borrowed currency
+     * @param string $borrow_currency Borrowed currency.
      *
      * @return $this
      */
@@ -436,7 +436,7 @@ class CreateMultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_amount
      *
-     * @param string $borrow_amount Borrowing amount
+     * @param string $borrow_amount Borrowing amount.
      *
      * @return $this
      */
@@ -460,7 +460,7 @@ class CreateMultiCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currencies
      *
-     * @param \GateApi\Model\CollateralCurrency[]|null $collateral_currencies Collateral currency and amount
+     * @param \GateApi\Model\CollateralCurrency[]|null $collateral_currencies Collateral currency and amount.
      *
      * @return $this
      */

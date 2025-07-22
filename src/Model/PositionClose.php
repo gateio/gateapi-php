@@ -309,7 +309,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param double|null $time Position close time
+     * @param double|null $time Position close time.
      *
      * @return $this
      */
@@ -333,7 +333,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Futures contract.
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets side
      *
-     * @param string|null $side Position side, long or short
+     * @param string|null $side Position side, long or short.
      *
      * @return $this
      */
@@ -390,7 +390,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets pnl
      *
-     * @param string|null $pnl PNL
+     * @param string|null $pnl PNL.
      *
      * @return $this
      */
@@ -414,7 +414,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets pnl_pnl
      *
-     * @param string|null $pnl_pnl PNL - Position P/L
+     * @param string|null $pnl_pnl PNL - Position P/L.
      *
      * @return $this
      */
@@ -438,7 +438,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets pnl_fund
      *
-     * @param string|null $pnl_fund PNL - Funding Fees
+     * @param string|null $pnl_fund PNL - Funding Fees.
      *
      * @return $this
      */
@@ -462,7 +462,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets pnl_fee
      *
-     * @param string|null $pnl_fee PNL - Transaction Fees
+     * @param string|null $pnl_fee PNL - Transaction Fees.
      *
      * @return $this
      */
@@ -486,7 +486,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text Text of close order
+     * @param string|null $text Text of close order.
      *
      * @return $this
      */
@@ -510,7 +510,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets max_size
      *
-     * @param string|null $max_size Max Trade Size
+     * @param string|null $max_size Max Trade Size.
      *
      * @return $this
      */
@@ -534,7 +534,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets accum_size
      *
-     * @param string|null $accum_size Cumulative closed position volume
+     * @param string|null $accum_size Cumulative closed position volume.
      *
      * @return $this
      */
@@ -558,7 +558,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets first_open_time
      *
-     * @param int|null $first_open_time First Open Time
+     * @param int|null $first_open_time First Open Time.
      *
      * @return $this
      */
@@ -582,7 +582,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets long_price
      *
-     * @param string|null $long_price When 'side' is 'long,' it indicates the opening average price; when 'side' is 'short,' it indicates the closing average price.
+     * @param string|null $long_price When 'side' is 'long,' it indicates the opening average price; when closing average price.
      *
      * @return $this
      */
@@ -606,7 +606,7 @@ class PositionClose implements ModelInterface, ArrayAccess
     /**
      * Sets short_price
      *
-     * @param string|null $short_price When 'side' is 'long,' it indicates the opening average price; when 'side' is 'short,' it indicates the closing average price
+     * @param string|null $short_price When 'side' is 'long,' it indicates the opening average price; when closing average price
      *
      * @return $this
      */

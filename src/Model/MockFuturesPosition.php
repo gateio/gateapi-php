@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MockFuturesPosition Class Doc Comment
  *
  * @category Class
- * @description Futures positions
+ * @description Futures positions.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com

@@ -472,7 +472,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets total_freeze
      *
-     * @param string|null $total_freeze Total occupancy (discarded, to be offline field)
+     * @param string|null $total_freeze Total occupancy (discarded, to be offline field).
      *
      * @return $this
      */
@@ -544,7 +544,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets funding
      *
-     * @param string|null $funding Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch
+     * @param string|null $funding Uniloan financial management amount, effective when turned on as a unified account margin switch
      *
      * @return $this
      */
@@ -568,7 +568,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets funding_version
      *
-     * @param string|null $funding_version Funding version
+     * @param string|null $funding_version Funding version.
      *
      * @return $this
      */
@@ -784,7 +784,7 @@ class UnifiedBalance implements ModelInterface, ArrayAccess
     /**
      * Sets enabled_collateral
      *
-     * @param bool|null $enabled_collateral Currency enabled as margin: true - Enabled, false - Disabled
+     * @param bool|null $enabled_collateral Currency enabled as margin: true - Enabled, false - Disabled.
      *
      * @return $this
      */

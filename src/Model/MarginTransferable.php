@@ -226,7 +226,7 @@ class MarginTransferable implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency detail
+     * @param string|null $currency Currency detail.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class MarginTransferable implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class MarginTransferable implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Max transferable amount
+     * @param string|null $amount Max transferable amount.
      *
      * @return $this
      */

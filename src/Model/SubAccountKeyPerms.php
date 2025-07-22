@@ -244,7 +244,7 @@ class SubAccountKeyPerms implements ModelInterface, ArrayAccess
     /**
      * Sets read_only
      *
-     * @param bool|null $read_only read only
+     * @param bool|null $read_only read only.
      *
      * @return $this
      */

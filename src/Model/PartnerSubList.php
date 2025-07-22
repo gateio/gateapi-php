@@ -220,7 +220,7 @@ class PartnerSubList implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param int|null $total Total
+     * @param int|null $total Total.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class PartnerSubList implements ModelInterface, ArrayAccess
     /**
      * Sets list
      *
-     * @param \GateApi\Model\PartnerSub[]|null $list Subordinate list
+     * @param \GateApi\Model\PartnerSub[]|null $list Subordinate list.
      *
      * @return $this
      */

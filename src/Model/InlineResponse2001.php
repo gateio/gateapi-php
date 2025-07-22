@@ -244,7 +244,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
     /**
      * Sets est_rate
      *
-     * @param string|null $est_rate Unconverted percentage
+     * @param string|null $est_rate Unconverted percentage.
      *
      * @return $this
      */

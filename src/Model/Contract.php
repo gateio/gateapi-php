@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * Contract Class Doc Comment
  *
  * @category Class
- * @description Futures contract details
+ * @description Futures contract details.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -483,7 +483,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Futures contract
+     * @param string|null $name Futures contract.
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Futures contract type
+     * @param string|null $type Futures contract type.
      *
      * @return $this
      */
@@ -540,7 +540,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets quanto_multiplier
      *
-     * @param string|null $quanto_multiplier Multiplier used in converting from invoicing to settlement currency
+     * @param string|null $quanto_multiplier Multiplier used in converting from invoicing to settlement currency.
      *
      * @return $this
      */
@@ -564,7 +564,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets leverage_min
      *
-     * @param string|null $leverage_min Minimum leverage
+     * @param string|null $leverage_min Minimum leverage.
      *
      * @return $this
      */
@@ -588,7 +588,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets leverage_max
      *
-     * @param string|null $leverage_max Maximum leverage
+     * @param string|null $leverage_max Maximum leverage.
      *
      * @return $this
      */
@@ -612,7 +612,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets maintenance_rate
      *
-     * @param string|null $maintenance_rate Maintenance rate of margin
+     * @param string|null $maintenance_rate Maintenance rate of margin.
      *
      * @return $this
      */
@@ -636,7 +636,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets mark_type
      *
-     * @param string|null $mark_type Mark price type, internal - based on internal trading, index - based on external index price
+     * @param string|null $mark_type Mark price type, internal - based on internal trading, external index price
      *
      * @return $this
      */
@@ -669,7 +669,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price
      *
-     * @param string|null $mark_price Current mark price
+     * @param string|null $mark_price Current mark price.
      *
      * @return $this
      */
@@ -693,7 +693,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Current index price
+     * @param string|null $index_price Current index price.
      *
      * @return $this
      */
@@ -717,7 +717,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets last_price
      *
-     * @param string|null $last_price Last trading price
+     * @param string|null $last_price Last trading price.
      *
      * @return $this
      */
@@ -741,7 +741,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets maker_fee_rate
      *
-     * @param string|null $maker_fee_rate Maker fee rate, where negative means rebate
+     * @param string|null $maker_fee_rate Maker fee rate, where negative means rebate.
      *
      * @return $this
      */
@@ -765,7 +765,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets taker_fee_rate
      *
-     * @param string|null $taker_fee_rate Taker fee rate
+     * @param string|null $taker_fee_rate Taker fee rate.
      *
      * @return $this
      */
@@ -789,7 +789,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets order_price_round
      *
-     * @param string|null $order_price_round Minimum order price increment
+     * @param string|null $order_price_round Minimum order price increment.
      *
      * @return $this
      */
@@ -813,7 +813,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price_round
      *
-     * @param string|null $mark_price_round Minimum mark price increment
+     * @param string|null $mark_price_round Minimum mark price increment.
      *
      * @return $this
      */
@@ -837,7 +837,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets funding_rate
      *
-     * @param string|null $funding_rate Current funding rate
+     * @param string|null $funding_rate Current funding rate.
      *
      * @return $this
      */
@@ -861,7 +861,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets funding_interval
      *
-     * @param int|null $funding_interval Funding application interval, unit in seconds
+     * @param int|null $funding_interval Funding application interval, unit in seconds.
      *
      * @return $this
      */
@@ -885,7 +885,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets funding_next_apply
      *
-     * @param double|null $funding_next_apply Next funding time
+     * @param double|null $funding_next_apply Next funding time.
      *
      * @return $this
      */
@@ -909,7 +909,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets risk_limit_base
      *
-     * @param string|null $risk_limit_base Risk limit base,deprecated
+     * @param string|null $risk_limit_base Risk limit base,deprecated.
      *
      * @return $this
      */
@@ -933,7 +933,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets risk_limit_step
      *
-     * @param string|null $risk_limit_step Step of adjusting risk limit,deprecated
+     * @param string|null $risk_limit_step Step of adjusting risk limit,deprecated.
      *
      * @return $this
      */
@@ -981,7 +981,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets order_size_min
      *
-     * @param int|null $order_size_min Minimum order size the contract allowed
+     * @param int|null $order_size_min Minimum order size the contract allowed.
      *
      * @return $this
      */
@@ -1005,7 +1005,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets order_size_max
      *
-     * @param int|null $order_size_max Maximum order size the contract allowed
+     * @param int|null $order_size_max Maximum order size the contract allowed.
      *
      * @return $this
      */
@@ -1053,7 +1053,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets ref_discount_rate
      *
-     * @param string|null $ref_discount_rate Referral fee rate discount
+     * @param string|null $ref_discount_rate Referral fee rate discount.
      *
      * @return $this
      */
@@ -1077,7 +1077,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets ref_rebate_rate
      *
-     * @param string|null $ref_rebate_rate Referrer commission rate
+     * @param string|null $ref_rebate_rate Referrer commission rate.
      *
      * @return $this
      */
@@ -1101,7 +1101,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets orderbook_id
      *
-     * @param int|null $orderbook_id Current orderbook ID
+     * @param int|null $orderbook_id Current orderbook ID.
      *
      * @return $this
      */
@@ -1125,7 +1125,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets trade_id
      *
-     * @param int|null $trade_id Current trade ID
+     * @param int|null $trade_id Current trade ID.
      *
      * @return $this
      */
@@ -1149,7 +1149,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets trade_size
      *
-     * @param int|null $trade_size Historical accumulated trade size
+     * @param int|null $trade_size Historical accumulated trade size.
      *
      * @return $this
      */
@@ -1173,7 +1173,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets position_size
      *
-     * @param int|null $position_size Current total long position size
+     * @param int|null $position_size Current total long position size.
      *
      * @return $this
      */
@@ -1197,7 +1197,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets config_change_time
      *
-     * @param double|null $config_change_time Last changed time of configuration
+     * @param double|null $config_change_time Last changed time of configuration.
      *
      * @return $this
      */
@@ -1221,7 +1221,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets in_delisting
      *
-     * @param bool|null $in_delisting `in_delisting=true` And when position_size>0, it means the contract is in the offline transition period `in_delisting=true` And when position_size=0, it means the contract is offline
+     * @param bool|null $in_delisting `in_delisting=true` And when position_size>0, it means the contract is in the offline transition period `in_delisting=true` contract is offline
      *
      * @return $this
      */
@@ -1245,7 +1245,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets orders_limit
      *
-     * @param int|null $orders_limit Maximum number of open orders
+     * @param int|null $orders_limit Maximum number of open orders.
      *
      * @return $this
      */
@@ -1269,7 +1269,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets enable_bonus
      *
-     * @param bool|null $enable_bonus Whether bouns is enabled
+     * @param bool|null $enable_bonus Whether bouns is enabled.
      *
      * @return $this
      */
@@ -1293,7 +1293,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets enable_credit
      *
-     * @param bool|null $enable_credit Whether portfolio margin account is enabled
+     * @param bool|null $enable_credit Whether portfolio margin account is enabled.
      *
      * @return $this
      */
@@ -1317,7 +1317,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param double|null $create_time Created time of the contract
+     * @param double|null $create_time Created time of the contract.
      *
      * @return $this
      */
@@ -1365,7 +1365,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Contract Status Types include:  prelaunch,  trading, delisting,  delisted
+     * @param string|null $status Contract Status Types include: prelaunch, trading, delisting, delisted.
      *
      * @return $this
      */
@@ -1389,7 +1389,7 @@ class Contract implements ModelInterface, ArrayAccess
     /**
      * Sets launch_time
      *
-     * @param int|null $launch_time Contract expiry timestamp
+     * @param int|null $launch_time Contract expiry timestamp.
      *
      * @return $this
      */

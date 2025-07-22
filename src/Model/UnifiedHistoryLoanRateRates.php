@@ -220,7 +220,7 @@ class UnifiedHistoryLoanRateRates implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param int|null $time The hourly timestamp corresponding to the interest rate, in milliseconds
+     * @param int|null $time The hourly timestamp corresponding to the interest rate, in milliseconds.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class UnifiedHistoryLoanRateRates implements ModelInterface, ArrayAccess
     /**
      * Sets rate
      *
-     * @param string|null $rate Historical interest rates for this hour
+     * @param string|null $rate Historical interest rates for this hour.
      *
      * @return $this
      */

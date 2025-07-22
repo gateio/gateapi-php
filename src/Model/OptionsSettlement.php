@@ -244,7 +244,7 @@ class OptionsSettlement implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param double|null $time Last changed time of configuration
+     * @param double|null $time Last changed time of configuration.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class OptionsSettlement implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Options contract name
+     * @param string|null $contract Options contract name.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class OptionsSettlement implements ModelInterface, ArrayAccess
     /**
      * Sets profit
      *
-     * @param string|null $profit Settlement profit per size (quote currency)
+     * @param string|null $profit Settlement profit per size (quote currency).
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class OptionsSettlement implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee Settlement fee per size (quote currency)
+     * @param string|null $fee Settlement fee per size (quote currency).
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class OptionsSettlement implements ModelInterface, ArrayAccess
     /**
      * Sets strike_price
      *
-     * @param string|null $strike_price Strike price (quote currency)
+     * @param string|null $strike_price Strike price (quote currency).
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class OptionsSettlement implements ModelInterface, ArrayAccess
     /**
      * Sets settle_price
      *
-     * @param string|null $settle_price Settlement price (quote currency)
+     * @param string|null $settle_price Settlement price (quote currency).
      *
      * @return $this
      */

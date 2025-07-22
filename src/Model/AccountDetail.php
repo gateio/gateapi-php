@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * AccountDetail Class Doc Comment
  *
  * @category Class
- * @description Account detail
+ * @description Account detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -245,7 +245,7 @@ class AccountDetail implements ModelInterface, ArrayAccess
     /**
      * Sets ip_whitelist
      *
-     * @param string[]|null $ip_whitelist IP whitelist
+     * @param string[]|null $ip_whitelist IP whitelist.
      *
      * @return $this
      */
@@ -269,7 +269,7 @@ class AccountDetail implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pairs
      *
-     * @param string[]|null $currency_pairs CurrencyPair whitelisting
+     * @param string[]|null $currency_pairs CurrencyPair whitelisting.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class AccountDetail implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class AccountDetail implements ModelInterface, ArrayAccess
     /**
      * Sets tier
      *
-     * @param int|null $tier User VIP level
+     * @param int|null $tier User VIP level.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class AccountDetail implements ModelInterface, ArrayAccess
     /**
      * Sets copy_trading_role
      *
-     * @param int|null $copy_trading_role User role: 0 - Normal user 1 - Copy trading leader 2 - Copy trading follower 3 - Both leader and follower
+     * @param int|null $copy_trading_role User role: 0 - Normal user, 1 - Copy trading leader, follower, 3 - Both leader and follower
      *
      * @return $this
      */

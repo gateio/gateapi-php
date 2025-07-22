@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * BatchAmendOrderReq Class Doc Comment
  *
  * @category Class
- * @description Modify contract order parameters
+ * @description Modify contract order parameters.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -239,7 +239,7 @@ class BatchAmendOrderReq implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Order id, order_id and text must contain at least one
+     * @param int|null $order_id Order id, order_id and text must contain at least one.
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class BatchAmendOrderReq implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text User-defined order text, at least one of order_id and text must be passed
+     * @param string|null $text User-defined order text, at least one of order_id and text must be passed.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class BatchAmendOrderReq implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size The new order size, including the executed order size. - If it is less than or equal to the executed quantity, the order will be cancelled. - The new order direction must be consistent with the original one. - The size of the closing order cannot be modified. - For orders that only reduce positions, if the size is increased, other orders that only reduce positions may be kicked out. - If the price is not modified, reducing the size will not affect the depth of the queue, and increasing the size will place it at the end of the current price.
+     * @param int|null $size The new order size, including the executed order size. - If it is less than or equal to the executed quantity, the order will be cancelled. - The new order direction must be consistent with the original one. - The size of the closing order cannot be modified. - For orders that only reduce positions, if the size is increased, positions may be kicked out. - If the price is not modified, reducing the size will not affect the depth of the queue, and increasing the size will place it at the end of the current price.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class BatchAmendOrderReq implements ModelInterface, ArrayAccess
     /**
      * Sets amend_text
      *
-     * @param string|null $amend_text Custom info during amending order
+     * @param string|null $amend_text Custom info during amending order.
      *
      * @return $this
      */

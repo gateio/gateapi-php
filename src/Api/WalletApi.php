@@ -116,9 +116,9 @@ class WalletApi
     /**
      * Operation listCurrencyChains
      *
-     * List chains supported for specified currency
+     * List chains supported for specified currency.
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -133,9 +133,9 @@ class WalletApi
     /**
      * Operation listCurrencyChainsWithHttpInfo
      *
-     * List chains supported for specified currency
+     * List chains supported for specified currency.
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -187,9 +187,9 @@ class WalletApi
     /**
      * Operation listCurrencyChainsAsync
      *
-     * List chains supported for specified currency
+     * List chains supported for specified currency.
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -207,9 +207,9 @@ class WalletApi
     /**
      * Operation listCurrencyChainsAsyncWithHttpInfo
      *
-     * List chains supported for specified currency
+     * List chains supported for specified currency.
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -256,7 +256,7 @@ class WalletApi
     /**
      * Create request for operation 'listCurrencyChains'
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -356,9 +356,9 @@ class WalletApi
     /**
      * Operation getDepositAddress
      *
-     * Generate currency deposit address
+     * Generate currency deposit address.
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -373,9 +373,9 @@ class WalletApi
     /**
      * Operation getDepositAddressWithHttpInfo
      *
-     * Generate currency deposit address
+     * Generate currency deposit address.
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -427,9 +427,9 @@ class WalletApi
     /**
      * Operation getDepositAddressAsync
      *
-     * Generate currency deposit address
+     * Generate currency deposit address.
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -447,9 +447,9 @@ class WalletApi
     /**
      * Operation getDepositAddressAsyncWithHttpInfo
      *
-     * Generate currency deposit address
+     * Generate currency deposit address.
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -496,7 +496,7 @@ class WalletApi
     /**
      * Create request for operation 'getDepositAddress'
      *
-     * @param  string $currency Currency name (required)
+     * @param  string $currency Currency name. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -599,18 +599,18 @@ class WalletApi
     /**
      * Operation listWithdrawals
      *
-     * Retrieve withdrawal records
+     * Retrieve withdrawal records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
      * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
      * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
      * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -625,18 +625,18 @@ class WalletApi
     /**
      * Operation listWithdrawalsWithHttpInfo
      *
-     * Retrieve withdrawal records
+     * Retrieve withdrawal records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
      * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
      * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
      * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -688,18 +688,18 @@ class WalletApi
     /**
      * Operation listWithdrawalsAsync
      *
-     * Retrieve withdrawal records
+     * Retrieve withdrawal records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
      * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
      * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
      * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -717,18 +717,18 @@ class WalletApi
     /**
      * Operation listWithdrawalsAsyncWithHttpInfo
      *
-     * Retrieve withdrawal records
+     * Retrieve withdrawal records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
      * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
      * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
      * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -777,14 +777,14 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
      * @param  string $withdraw_id The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional)
      * @param  string $asset_class The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional)
      * @param  string $withdraw_order_id User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -986,15 +986,15 @@ class WalletApi
     /**
      * Operation listDeposits
      *
-     * Retrieve deposit records
+     * Retrieve deposit records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1009,15 +1009,15 @@ class WalletApi
     /**
      * Operation listDepositsWithHttpInfo
      *
-     * Retrieve deposit records
+     * Retrieve deposit records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1069,15 +1069,15 @@ class WalletApi
     /**
      * Operation listDepositsAsync
      *
-     * Retrieve deposit records
+     * Retrieve deposit records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1095,15 +1095,15 @@ class WalletApi
     /**
      * Operation listDepositsAsyncWithHttpInfo
      *
-     * Retrieve deposit records
+     * Retrieve deposit records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1152,11 +1152,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Filter by currency. Return all currency records if not specified (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $currency Filter by currency. Return all currency records if not specified. (optional)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      * @param  int $limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1319,7 +1319,7 @@ class WalletApi
     /**
      * Operation transfer
      *
-     * Transfer between trading accounts
+     * Transfer between trading accounts.
      *
      * @param  \GateApi\Model\Transfer $transfer transfer (required)
      *
@@ -1336,7 +1336,7 @@ class WalletApi
     /**
      * Operation transferWithHttpInfo
      *
-     * Transfer between trading accounts
+     * Transfer between trading accounts.
      *
      * @param  \GateApi\Model\Transfer $transfer (required)
      *
@@ -1390,7 +1390,7 @@ class WalletApi
     /**
      * Operation transferAsync
      *
-     * Transfer between trading accounts
+     * Transfer between trading accounts.
      *
      * @param  \GateApi\Model\Transfer $transfer (required)
      *
@@ -1410,7 +1410,7 @@ class WalletApi
     /**
      * Operation transferAsyncWithHttpInfo
      *
-     * Transfer between trading accounts
+     * Transfer between trading accounts.
      *
      * @param  \GateApi\Model\Transfer $transfer (required)
      *
@@ -1553,15 +1553,15 @@ class WalletApi
     /**
      * Operation listSubAccountTransfers
      *
-     * Retrieve transfer records between main and sub accounts
+     * Retrieve transfer records between main and sub accounts.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1576,15 +1576,15 @@ class WalletApi
     /**
      * Operation listSubAccountTransfersWithHttpInfo
      *
-     * Retrieve transfer records between main and sub accounts
+     * Retrieve transfer records between main and sub accounts.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1636,15 +1636,15 @@ class WalletApi
     /**
      * Operation listSubAccountTransfersAsync
      *
-     * Retrieve transfer records between main and sub accounts
+     * Retrieve transfer records between main and sub accounts.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1662,15 +1662,15 @@ class WalletApi
     /**
      * Operation listSubAccountTransfersAsyncWithHttpInfo
      *
-     * Retrieve transfer records between main and sub accounts
+     * Retrieve transfer records between main and sub accounts.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1720,10 +1720,10 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  int $from Time range beginning, default to 7 days before current time (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $from Time range beginning, default to 7 days before current time. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1886,7 +1886,7 @@ class WalletApi
     /**
      * Operation transferWithSubAccount
      *
-     * Transfer between main and sub accounts
+     * Transfer between main and sub accounts.
      *
      * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer sub_account_transfer (required)
      *
@@ -1903,7 +1903,7 @@ class WalletApi
     /**
      * Operation transferWithSubAccountWithHttpInfo
      *
-     * Transfer between main and sub accounts
+     * Transfer between main and sub accounts.
      *
      * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
      *
@@ -1957,7 +1957,7 @@ class WalletApi
     /**
      * Operation transferWithSubAccountAsync
      *
-     * Transfer between main and sub accounts
+     * Transfer between main and sub accounts.
      *
      * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
      *
@@ -1977,7 +1977,7 @@ class WalletApi
     /**
      * Operation transferWithSubAccountAsyncWithHttpInfo
      *
-     * Transfer between main and sub accounts
+     * Transfer between main and sub accounts.
      *
      * @param  \GateApi\Model\SubAccountTransfer $sub_account_transfer (required)
      *
@@ -2120,7 +2120,7 @@ class WalletApi
     /**
      * Operation subAccountToSubAccount
      *
-     * Sub-account transfers to sub-account
+     * Sub-account transfers to sub-account.
      *
      * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account sub_account_to_sub_account (required)
      *
@@ -2137,7 +2137,7 @@ class WalletApi
     /**
      * Operation subAccountToSubAccountWithHttpInfo
      *
-     * Sub-account transfers to sub-account
+     * Sub-account transfers to sub-account.
      *
      * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
      *
@@ -2191,7 +2191,7 @@ class WalletApi
     /**
      * Operation subAccountToSubAccountAsync
      *
-     * Sub-account transfers to sub-account
+     * Sub-account transfers to sub-account.
      *
      * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
      *
@@ -2211,7 +2211,7 @@ class WalletApi
     /**
      * Operation subAccountToSubAccountAsyncWithHttpInfo
      *
-     * Sub-account transfers to sub-account
+     * Sub-account transfers to sub-account.
      *
      * @param  \GateApi\Model\SubAccountToSubAccount $sub_account_to_sub_account (required)
      *
@@ -2354,7 +2354,7 @@ class WalletApi
     /**
      * Operation getTransferOrderStatus
      *
-     * Transfer status query
+     * Transfer status query.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2374,7 +2374,7 @@ class WalletApi
     /**
      * Operation getTransferOrderStatusWithHttpInfo
      *
-     * Transfer status query
+     * Transfer status query.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2431,7 +2431,7 @@ class WalletApi
     /**
      * Operation getTransferOrderStatusAsync
      *
-     * Transfer status query
+     * Transfer status query.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2454,7 +2454,7 @@ class WalletApi
     /**
      * Operation getTransferOrderStatusAsyncWithHttpInfo
      *
-     * Transfer status query
+     * Transfer status query.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2622,11 +2622,11 @@ class WalletApi
     /**
      * Operation listWithdrawStatus
      *
-     * Retrieve withdrawal status
+     * Retrieve withdrawal status.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2641,11 +2641,11 @@ class WalletApi
     /**
      * Operation listWithdrawStatusWithHttpInfo
      *
-     * Retrieve withdrawal status
+     * Retrieve withdrawal status.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2697,11 +2697,11 @@ class WalletApi
     /**
      * Operation listWithdrawStatusAsync
      *
-     * Retrieve withdrawal status
+     * Retrieve withdrawal status.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2719,11 +2719,11 @@ class WalletApi
     /**
      * Operation listWithdrawStatusAsyncWithHttpInfo
      *
-     * Retrieve withdrawal status
+     * Retrieve withdrawal status.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2772,7 +2772,7 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Retrieve data of the specified currency (optional)
+     * @param  string $currency Retrieve data of the specified currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2872,7 +2872,7 @@ class WalletApi
     /**
      * Operation listSubAccountBalances
      *
-     * Retrieve sub account balances
+     * Retrieve sub account balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2891,7 +2891,7 @@ class WalletApi
     /**
      * Operation listSubAccountBalancesWithHttpInfo
      *
-     * Retrieve sub account balances
+     * Retrieve sub account balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2947,7 +2947,7 @@ class WalletApi
     /**
      * Operation listSubAccountBalancesAsync
      *
-     * Retrieve sub account balances
+     * Retrieve sub account balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2969,7 +2969,7 @@ class WalletApi
     /**
      * Operation listSubAccountBalancesAsyncWithHttpInfo
      *
-     * Retrieve sub account balances
+     * Retrieve sub account balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3122,7 +3122,7 @@ class WalletApi
     /**
      * Operation listSubAccountMarginBalances
      *
-     * Query sub accounts' margin balances
+     * Query sub accounts' margin balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3141,7 +3141,7 @@ class WalletApi
     /**
      * Operation listSubAccountMarginBalancesWithHttpInfo
      *
-     * Query sub accounts' margin balances
+     * Query sub accounts' margin balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3197,7 +3197,7 @@ class WalletApi
     /**
      * Operation listSubAccountMarginBalancesAsync
      *
-     * Query sub accounts' margin balances
+     * Query sub accounts' margin balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3219,7 +3219,7 @@ class WalletApi
     /**
      * Operation listSubAccountMarginBalancesAsyncWithHttpInfo
      *
-     * Query sub accounts' margin balances
+     * Query sub accounts' margin balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3372,12 +3372,12 @@ class WalletApi
     /**
      * Operation listSubAccountFuturesBalances
      *
-     * Query sub accounts' futures account balances
+     * Query sub accounts' futures account balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  string $settle Query only balances of specified settle currency (optional)
+     * @param  string $settle Query only balances of specified settle currency. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3392,12 +3392,12 @@ class WalletApi
     /**
      * Operation listSubAccountFuturesBalancesWithHttpInfo
      *
-     * Query sub accounts' futures account balances
+     * Query sub accounts' futures account balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  string $settle Query only balances of specified settle currency (optional)
+     * @param  string $settle Query only balances of specified settle currency. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3449,12 +3449,12 @@ class WalletApi
     /**
      * Operation listSubAccountFuturesBalancesAsync
      *
-     * Query sub accounts' futures account balances
+     * Query sub accounts' futures account balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  string $settle Query only balances of specified settle currency (optional)
+     * @param  string $settle Query only balances of specified settle currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3472,12 +3472,12 @@ class WalletApi
     /**
      * Operation listSubAccountFuturesBalancesAsyncWithHttpInfo
      *
-     * Query sub accounts' futures account balances
+     * Query sub accounts' futures account balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  string $settle Query only balances of specified settle currency (optional)
+     * @param  string $settle Query only balances of specified settle currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3527,7 +3527,7 @@ class WalletApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $sub_uid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
-     * @param  string $settle Query only balances of specified settle currency (optional)
+     * @param  string $settle Query only balances of specified settle currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3640,7 +3640,7 @@ class WalletApi
     /**
      * Operation listSubAccountCrossMarginBalances
      *
-     * Query subaccount's cross_margin account info
+     * Query subaccount's cross_margin account info.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3659,7 +3659,7 @@ class WalletApi
     /**
      * Operation listSubAccountCrossMarginBalancesWithHttpInfo
      *
-     * Query subaccount's cross_margin account info
+     * Query subaccount's cross_margin account info.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3715,7 +3715,7 @@ class WalletApi
     /**
      * Operation listSubAccountCrossMarginBalancesAsync
      *
-     * Query subaccount's cross_margin account info
+     * Query subaccount's cross_margin account info.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3737,7 +3737,7 @@ class WalletApi
     /**
      * Operation listSubAccountCrossMarginBalancesAsyncWithHttpInfo
      *
-     * Query subaccount's cross_margin account info
+     * Query subaccount's cross_margin account info.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -3890,14 +3890,14 @@ class WalletApi
     /**
      * Operation listSavedAddress
      *
-     * Query saved address
+     * Query saved address.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (required)
-     * @param  string $chain Chain name (optional, default to '')
-     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
-     * @param  int $page Page number (optional, default to 1)
+     * @param  string $currency Currency. (required)
+     * @param  string $chain Chain name. (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most. (optional, default to '50')
+     * @param  int $page Page number. (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3912,14 +3912,14 @@ class WalletApi
     /**
      * Operation listSavedAddressWithHttpInfo
      *
-     * Query saved address
+     * Query saved address.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (required)
-     * @param  string $chain Chain name (optional, default to '')
-     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
-     * @param  int $page Page number (optional, default to 1)
+     * @param  string $currency Currency. (required)
+     * @param  string $chain Chain name. (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most. (optional, default to '50')
+     * @param  int $page Page number. (optional, default to 1)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3971,14 +3971,14 @@ class WalletApi
     /**
      * Operation listSavedAddressAsync
      *
-     * Query saved address
+     * Query saved address.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (required)
-     * @param  string $chain Chain name (optional, default to '')
-     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
-     * @param  int $page Page number (optional, default to 1)
+     * @param  string $currency Currency. (required)
+     * @param  string $chain Chain name. (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most. (optional, default to '50')
+     * @param  int $page Page number. (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3996,14 +3996,14 @@ class WalletApi
     /**
      * Operation listSavedAddressAsyncWithHttpInfo
      *
-     * Query saved address
+     * Query saved address.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (required)
-     * @param  string $chain Chain name (optional, default to '')
-     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
-     * @param  int $page Page number (optional, default to 1)
+     * @param  string $currency Currency. (required)
+     * @param  string $chain Chain name. (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most. (optional, default to '50')
+     * @param  int $page Page number. (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4052,10 +4052,10 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (required)
-     * @param  string $chain Chain name (optional, default to '')
-     * @param  string $limit Maximum number returned, 100 at most (optional, default to '50')
-     * @param  int $page Page number (optional, default to 1)
+     * @param  string $currency Currency. (required)
+     * @param  string $chain Chain name. (optional, default to '')
+     * @param  string $limit Maximum number returned, 100 at most. (optional, default to '50')
+     * @param  int $page Page number. (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4204,7 +4204,7 @@ class WalletApi
     /**
      * Operation getTradeFee
      *
-     * Retrieve personal trading fee
+     * Retrieve personal trading fee.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4224,7 +4224,7 @@ class WalletApi
     /**
      * Operation getTradeFeeWithHttpInfo
      *
-     * Retrieve personal trading fee
+     * Retrieve personal trading fee.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4281,7 +4281,7 @@ class WalletApi
     /**
      * Operation getTradeFeeAsync
      *
-     * Retrieve personal trading fee
+     * Retrieve personal trading fee.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4304,7 +4304,7 @@ class WalletApi
     /**
      * Operation getTradeFeeAsyncWithHttpInfo
      *
-     * Retrieve personal trading fee
+     * Retrieve personal trading fee.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4472,7 +4472,7 @@ class WalletApi
     /**
      * Operation getTotalBalance
      *
-     * Retrieve user's total balances
+     * Retrieve user's total balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4491,7 +4491,7 @@ class WalletApi
     /**
      * Operation getTotalBalanceWithHttpInfo
      *
-     * Retrieve user's total balances
+     * Retrieve user's total balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4547,7 +4547,7 @@ class WalletApi
     /**
      * Operation getTotalBalanceAsync
      *
-     * Retrieve user's total balances
+     * Retrieve user's total balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4569,7 +4569,7 @@ class WalletApi
     /**
      * Operation getTotalBalanceAsyncWithHttpInfo
      *
-     * Retrieve user's total balances
+     * Retrieve user's total balances.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -4722,7 +4722,7 @@ class WalletApi
     /**
      * Operation listSmallBalance
      *
-     * List small balance
+     * List small balance.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -4738,7 +4738,7 @@ class WalletApi
     /**
      * Operation listSmallBalanceWithHttpInfo
      *
-     * List small balance
+     * List small balance.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -4791,7 +4791,7 @@ class WalletApi
     /**
      * Operation listSmallBalanceAsync
      *
-     * List small balance
+     * List small balance.
      *
      *
      * @throws \InvalidArgumentException
@@ -4810,7 +4810,7 @@ class WalletApi
     /**
      * Operation listSmallBalanceAsyncWithHttpInfo
      *
-     * List small balance
+     * List small balance.
      *
      *
      * @throws \InvalidArgumentException
@@ -4942,7 +4942,7 @@ class WalletApi
     /**
      * Operation convertSmallBalance
      *
-     * Convert small balance
+     * Convert small balance.
      *
      * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance convert_small_balance (required)
      *
@@ -4958,7 +4958,7 @@ class WalletApi
     /**
      * Operation convertSmallBalanceWithHttpInfo
      *
-     * Convert small balance
+     * Convert small balance.
      *
      * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance (required)
      *
@@ -5000,7 +5000,7 @@ class WalletApi
     /**
      * Operation convertSmallBalanceAsync
      *
-     * Convert small balance
+     * Convert small balance.
      *
      * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance (required)
      *
@@ -5020,7 +5020,7 @@ class WalletApi
     /**
      * Operation convertSmallBalanceAsyncWithHttpInfo
      *
-     * Convert small balance
+     * Convert small balance.
      *
      * @param  \GateApi\Model\ConvertSmallBalance $convert_small_balance (required)
      *
@@ -5152,13 +5152,13 @@ class WalletApi
     /**
      * Operation listSmallBalanceHistory
      *
-     * List small balance history
+     * List small balance history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency Currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5173,13 +5173,13 @@ class WalletApi
     /**
      * Operation listSmallBalanceHistoryWithHttpInfo
      *
-     * List small balance history
+     * List small balance history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency Currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5231,13 +5231,13 @@ class WalletApi
     /**
      * Operation listSmallBalanceHistoryAsync
      *
-     * List small balance history
+     * List small balance history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency Currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5255,13 +5255,13 @@ class WalletApi
     /**
      * Operation listSmallBalanceHistoryAsyncWithHttpInfo
      *
-     * List small balance history
+     * List small balance history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency Currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5310,9 +5310,9 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $currency Currency (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+     * @param  string $currency Currency. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5449,15 +5449,15 @@ class WalletApi
     /**
      * Operation listPushOrders
      *
-     * Retrieve the UID transfer history
+     * Retrieve the UID transfer history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $id Order ID (optional)
+     * @param  int $id Order ID. (optional)
      * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
-     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5473,15 +5473,15 @@ class WalletApi
     /**
      * Operation listPushOrdersWithHttpInfo
      *
-     * Retrieve the UID transfer history
+     * Retrieve the UID transfer history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $id Order ID (optional)
+     * @param  int $id Order ID. (optional)
      * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
-     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -5534,15 +5534,15 @@ class WalletApi
     /**
      * Operation listPushOrdersAsync
      *
-     * Retrieve the UID transfer history
+     * Retrieve the UID transfer history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $id Order ID (optional)
+     * @param  int $id Order ID. (optional)
      * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
-     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \InvalidArgumentException
@@ -5561,15 +5561,15 @@ class WalletApi
     /**
      * Operation listPushOrdersAsyncWithHttpInfo
      *
-     * Retrieve the UID transfer history
+     * Retrieve the UID transfer history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $id Order ID (optional)
+     * @param  int $id Order ID. (optional)
      * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
-     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \InvalidArgumentException
@@ -5619,11 +5619,11 @@ class WalletApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $id Order ID (optional)
+     * @param  int $id Order ID. (optional)
      * @param  int $from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
      * @param  int $to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
-     * @param  int $limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
-     * @param  int $offset List offset, starting from 0 (optional, default to 0)
+     * @param  int $limit The maximum number of items returned in the list, the default value is 100. (optional, default to 100)
+     * @param  int $offset List offset, starting from 0. (optional, default to 0)
      * @param  string $transaction_type The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to 'withdraw')
      *
      * @throws \InvalidArgumentException

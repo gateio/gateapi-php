@@ -116,7 +116,7 @@ class AccountApi
     /**
      * Operation getAccountDetail
      *
-     * Get account detail
+     * Get account detail.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -132,7 +132,7 @@ class AccountApi
     /**
      * Operation getAccountDetailWithHttpInfo
      *
-     * Get account detail
+     * Get account detail.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -185,7 +185,7 @@ class AccountApi
     /**
      * Operation getAccountDetailAsync
      *
-     * Get account detail
+     * Get account detail.
      *
      *
      * @throws \InvalidArgumentException
@@ -204,7 +204,7 @@ class AccountApi
     /**
      * Operation getAccountDetailAsyncWithHttpInfo
      *
-     * Get account detail
+     * Get account detail.
      *
      *
      * @throws \InvalidArgumentException
@@ -336,7 +336,7 @@ class AccountApi
     /**
      * Operation getAccountRateLimit
      *
-     * Get user transaction rate limit information
+     * Get user transaction rate limit information.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -352,7 +352,7 @@ class AccountApi
     /**
      * Operation getAccountRateLimitWithHttpInfo
      *
-     * Get user transaction rate limit information
+     * Get user transaction rate limit information.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -405,7 +405,7 @@ class AccountApi
     /**
      * Operation getAccountRateLimitAsync
      *
-     * Get user transaction rate limit information
+     * Get user transaction rate limit information.
      *
      *
      * @throws \InvalidArgumentException
@@ -424,7 +424,7 @@ class AccountApi
     /**
      * Operation getAccountRateLimitAsyncWithHttpInfo
      *
-     * Get user transaction rate limit information
+     * Get user transaction rate limit information.
      *
      *
      * @throws \InvalidArgumentException
@@ -556,11 +556,11 @@ class AccountApi
     /**
      * Operation listSTPGroups
      *
-     * List STP Groups
+     * List STP Groups.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $name Perform a fuzzy search based on the name (optional)
+     * @param  string $name Perform a fuzzy search based on the name. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -575,11 +575,11 @@ class AccountApi
     /**
      * Operation listSTPGroupsWithHttpInfo
      *
-     * List STP Groups
+     * List STP Groups.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $name Perform a fuzzy search based on the name (optional)
+     * @param  string $name Perform a fuzzy search based on the name. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -631,11 +631,11 @@ class AccountApi
     /**
      * Operation listSTPGroupsAsync
      *
-     * List STP Groups
+     * List STP Groups.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $name Perform a fuzzy search based on the name (optional)
+     * @param  string $name Perform a fuzzy search based on the name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -653,11 +653,11 @@ class AccountApi
     /**
      * Operation listSTPGroupsAsyncWithHttpInfo
      *
-     * List STP Groups
+     * List STP Groups.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $name Perform a fuzzy search based on the name (optional)
+     * @param  string $name Perform a fuzzy search based on the name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -706,7 +706,7 @@ class AccountApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $name Perform a fuzzy search based on the name (optional)
+     * @param  string $name Perform a fuzzy search based on the name. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -806,7 +806,7 @@ class AccountApi
     /**
      * Operation createSTPGroup
      *
-     * Create STP Group
+     * Create STP Group.
      *
      * @param  \GateApi\Model\StpGroup $stp_group stp_group (required)
      *
@@ -823,7 +823,7 @@ class AccountApi
     /**
      * Operation createSTPGroupWithHttpInfo
      *
-     * Create STP Group
+     * Create STP Group.
      *
      * @param  \GateApi\Model\StpGroup $stp_group (required)
      *
@@ -877,7 +877,7 @@ class AccountApi
     /**
      * Operation createSTPGroupAsync
      *
-     * Create STP Group
+     * Create STP Group.
      *
      * @param  \GateApi\Model\StpGroup $stp_group (required)
      *
@@ -897,7 +897,7 @@ class AccountApi
     /**
      * Operation createSTPGroupAsyncWithHttpInfo
      *
-     * Create STP Group
+     * Create STP Group.
      *
      * @param  \GateApi\Model\StpGroup $stp_group (required)
      *
@@ -1040,9 +1040,9 @@ class AccountApi
     /**
      * Operation listSTPGroupsUsers
      *
-     * List users of the STP group
+     * List users of the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
+     * @param  int $stp_id STP Group ID. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1057,9 +1057,9 @@ class AccountApi
     /**
      * Operation listSTPGroupsUsersWithHttpInfo
      *
-     * List users of the STP group
+     * List users of the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
+     * @param  int $stp_id STP Group ID. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1111,9 +1111,9 @@ class AccountApi
     /**
      * Operation listSTPGroupsUsersAsync
      *
-     * List users of the STP group
+     * List users of the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
+     * @param  int $stp_id STP Group ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1131,9 +1131,9 @@ class AccountApi
     /**
      * Operation listSTPGroupsUsersAsyncWithHttpInfo
      *
-     * List users of the STP group
+     * List users of the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
+     * @param  int $stp_id STP Group ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1180,7 +1180,7 @@ class AccountApi
     /**
      * Create request for operation 'listSTPGroupsUsers'
      *
-     * @param  int $stp_id STP Group ID (required)
+     * @param  int $stp_id STP Group ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1280,10 +1280,10 @@ class AccountApi
     /**
      * Operation addSTPGroupUsers
      *
-     * Add users to the STP group
+     * Add users to the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int[] $request_body User ID (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int[] $request_body User ID. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1298,10 +1298,10 @@ class AccountApi
     /**
      * Operation addSTPGroupUsersWithHttpInfo
      *
-     * Add users to the STP group
+     * Add users to the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int[] $request_body User ID (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int[] $request_body User ID. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1353,10 +1353,10 @@ class AccountApi
     /**
      * Operation addSTPGroupUsersAsync
      *
-     * Add users to the STP group
+     * Add users to the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int[] $request_body User ID (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int[] $request_body User ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1374,10 +1374,10 @@ class AccountApi
     /**
      * Operation addSTPGroupUsersAsyncWithHttpInfo
      *
-     * Add users to the STP group
+     * Add users to the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int[] $request_body User ID (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int[] $request_body User ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1424,8 +1424,8 @@ class AccountApi
     /**
      * Create request for operation 'addSTPGroupUsers'
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int[] $request_body User ID (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int[] $request_body User ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1534,10 +1534,10 @@ class AccountApi
     /**
      * Operation deleteSTPGroupUsers
      *
-     * Delete the user in the STP group
+     * Delete the user in the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int $user_id STP user ID, multiple can be separated by commas (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int $user_id STP user ID, multiple can be separated by commas. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1552,10 +1552,10 @@ class AccountApi
     /**
      * Operation deleteSTPGroupUsersWithHttpInfo
      *
-     * Delete the user in the STP group
+     * Delete the user in the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int $user_id STP user ID, multiple can be separated by commas (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int $user_id STP user ID, multiple can be separated by commas. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1607,10 +1607,10 @@ class AccountApi
     /**
      * Operation deleteSTPGroupUsersAsync
      *
-     * Delete the user in the STP group
+     * Delete the user in the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int $user_id STP user ID, multiple can be separated by commas (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int $user_id STP user ID, multiple can be separated by commas. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1628,10 +1628,10 @@ class AccountApi
     /**
      * Operation deleteSTPGroupUsersAsyncWithHttpInfo
      *
-     * Delete the user in the STP group
+     * Delete the user in the STP group.
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int $user_id STP user ID, multiple can be separated by commas (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int $user_id STP user ID, multiple can be separated by commas. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1678,8 +1678,8 @@ class AccountApi
     /**
      * Create request for operation 'deleteSTPGroupUsers'
      *
-     * @param  int $stp_id STP Group ID (required)
-     * @param  int $user_id STP user ID, multiple can be separated by commas (required)
+     * @param  int $stp_id STP Group ID. (required)
+     * @param  int $user_id STP user ID, multiple can be separated by commas. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

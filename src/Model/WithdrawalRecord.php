@@ -301,7 +301,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Record ID
+     * @param string|null $id Record ID.
      *
      * @return $this
      */
@@ -325,7 +325,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets txid
      *
-     * @param string|null $txid Hash record of the withdrawal
+     * @param string|null $txid Hash record of the withdrawal.
      *
      * @return $this
      */
@@ -349,7 +349,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets block_number
      *
-     * @param string|null $block_number Block Number
+     * @param string|null $block_number Block Number.
      *
      * @return $this
      */
@@ -397,7 +397,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets timestamp
      *
-     * @param string|null $timestamp Operation time
+     * @param string|null $timestamp Operation time.
      *
      * @return $this
      */
@@ -421,7 +421,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Currency amount
+     * @param string $amount Currency amount.
      *
      * @return $this
      */
@@ -445,7 +445,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee fee
+     * @param string|null $fee fee.
      *
      * @return $this
      */
@@ -469,7 +469,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency name
+     * @param string $currency Currency name.
      *
      * @return $this
      */
@@ -493,7 +493,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param string|null $address Withdrawal address
+     * @param string|null $address Withdrawal address.
      *
      * @return $this
      */
@@ -541,7 +541,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets timestamp2
      *
-     * @param string|null $timestamp2 The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status = CANCEL, the corresponding cancel time When status = DONE and block_number > 0, it is the time to withdrawal success
+     * @param string|null $timestamp2 The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status = CANCEL, the corresponding cancel time When status = DONE and block_number > 0, it is the
      *
      * @return $this
      */
@@ -565,7 +565,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets memo
      *
-     * @param string|null $memo Additional remarks with regards to the withdrawal
+     * @param string|null $memo Additional remarks with regards to the withdrawal.
      *
      * @return $this
      */
@@ -613,7 +613,7 @@ class WithdrawalRecord implements ModelInterface, ArrayAccess
     /**
      * Sets chain
      *
-     * @param string $chain Name of the chain used in withdrawals
+     * @param string $chain Name of the chain used in withdrawals.
      *
      * @return $this
      */

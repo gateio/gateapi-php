@@ -268,7 +268,7 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Transfer currency name
+     * @param string $currency Transfer currency name.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets sub_account_from
      *
-     * @param string $sub_account_from Transfer from the user id of the sub-account
+     * @param string $sub_account_from Transfer from the user id of the sub-account.
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets sub_account_to
      *
-     * @param string $sub_account_to Transfer to the user id of the sub-account
+     * @param string $sub_account_to Transfer to the user id of the sub-account.
      *
      * @return $this
      */
@@ -412,7 +412,7 @@ class SubAccountToSubAccount implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Transfer amount
+     * @param string $amount Transfer amount.
      *
      * @return $this
      */

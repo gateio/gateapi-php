@@ -280,7 +280,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param int|null $time Liquidation time
+     * @param int|null $time Liquidation time.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Futures contract.
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Position size
+     * @param int|null $size Position size.
      *
      * @return $this
      */
@@ -496,7 +496,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets order_price
      *
-     * @param string|null $order_price Liquidation order price
+     * @param string|null $order_price Liquidation order price.
      *
      * @return $this
      */
@@ -520,7 +520,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets fill_price
      *
-     * @param string|null $fill_price Liquidation order average taker price
+     * @param string|null $fill_price Liquidation order average taker price.
      *
      * @return $this
      */
@@ -544,7 +544,7 @@ class FuturesLiquidate implements ModelInterface, ArrayAccess
     /**
      * Sets left
      *
-     * @param int|null $left Liquidation order maker size
+     * @param int|null $left Liquidation order maker size.
      *
      * @return $this
      */

@@ -4,24 +4,24 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listSubAccounts**](SubAccountApi.md#listSubAccounts) | **GET** /sub_accounts | List sub-accounts
-[**createSubAccounts**](SubAccountApi.md#createSubAccounts) | **POST** /sub_accounts | Create a new sub-account
-[**getSubAccount**](SubAccountApi.md#getSubAccount) | **GET** /sub_accounts/{user_id} | Get the sub-account
-[**listSubAccountKeys**](SubAccountApi.md#listSubAccountKeys) | **GET** /sub_accounts/{user_id}/keys | List all API Key of the sub-account
-[**createSubAccountKeys**](SubAccountApi.md#createSubAccountKeys) | **POST** /sub_accounts/{user_id}/keys | Create API Key of the sub-account
-[**getSubAccountKey**](SubAccountApi.md#getSubAccountKey) | **GET** /sub_accounts/{user_id}/keys/{key} | Get the API Key of the sub-account
-[**updateSubAccountKeys**](SubAccountApi.md#updateSubAccountKeys) | **PUT** /sub_accounts/{user_id}/keys/{key} | Update API key of the sub-account
-[**deleteSubAccountKeys**](SubAccountApi.md#deleteSubAccountKeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account
-[**lockSubAccount**](SubAccountApi.md#lockSubAccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account
-[**unlockSubAccount**](SubAccountApi.md#unlockSubAccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account
-[**listUnifiedMode**](SubAccountApi.md#listUnifiedMode) | **GET** /sub_accounts/unified_mode | Get sub-account mode
+[**listSubAccounts**](SubAccountApi.md#listSubAccounts) | **GET** /sub_accounts | List sub-accounts.
+[**createSubAccounts**](SubAccountApi.md#createSubAccounts) | **POST** /sub_accounts | Create a new sub-account.
+[**getSubAccount**](SubAccountApi.md#getSubAccount) | **GET** /sub_accounts/{user_id} | Get the sub-account.
+[**listSubAccountKeys**](SubAccountApi.md#listSubAccountKeys) | **GET** /sub_accounts/{user_id}/keys | List all API Key of the sub-account.
+[**createSubAccountKeys**](SubAccountApi.md#createSubAccountKeys) | **POST** /sub_accounts/{user_id}/keys | Create API Key of the sub-account.
+[**getSubAccountKey**](SubAccountApi.md#getSubAccountKey) | **GET** /sub_accounts/{user_id}/keys/{key} | Get the API Key of the sub-account.
+[**updateSubAccountKeys**](SubAccountApi.md#updateSubAccountKeys) | **PUT** /sub_accounts/{user_id}/keys/{key} | Update API key of the sub-account.
+[**deleteSubAccountKeys**](SubAccountApi.md#deleteSubAccountKeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account.
+[**lockSubAccount**](SubAccountApi.md#lockSubAccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account.
+[**unlockSubAccount**](SubAccountApi.md#unlockSubAccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account.
+[**listUnifiedMode**](SubAccountApi.md#listUnifiedMode) | **GET** /sub_accounts/unified_mode | Get sub-account mode.
 
 
 ## listSubAccounts
 
 > \GateApi\Model\SubAccount[] listSubAccounts($type)
 
-List sub-accounts
+List sub-accounts.
 
 ### Example
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccount createSubAccounts($sub_account)
 
-Create a new sub-account
+Create a new sub-account.
 
 ### Example
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccount getSubAccount($user_id)
 
-Get the sub-account
+Get the sub-account.
 
 ### Example
 
@@ -161,7 +161,7 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | Sub-account user id
+$user_id = 56; // int | Sub-account user id.
 
 try {
     $result = $apiInstance->getSubAccount($user_id);
@@ -179,7 +179,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Sub-account user id |
+ **user_id** | **int**| Sub-account user id. |
 
 ### Return type
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccountKey[] listSubAccountKeys($user_id)
 
-List all API Key of the sub-account
+List all API Key of the sub-account.
 
 ### Example
 
@@ -221,7 +221,7 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | Sub-account user id
+$user_id = 56; // int | Sub-account user id.
 
 try {
     $result = $apiInstance->listSubAccountKeys($user_id);
@@ -239,7 +239,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Sub-account user id |
+ **user_id** | **int**| Sub-account user id. |
 
 ### Return type
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccountKey createSubAccountKeys($user_id, $sub_account_key)
 
-Create API Key of the sub-account
+Create API Key of the sub-account.
 
 ### Example
 
@@ -281,7 +281,7 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | Sub-account user id
+$user_id = 56; // int | Sub-account user id.
 $sub_account_key = new \GateApi\Model\SubAccountKey(); // \GateApi\Model\SubAccountKey | 
 
 try {
@@ -300,7 +300,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Sub-account user id |
+ **user_id** | **int**| Sub-account user id. |
  **sub_account_key** | [**\GateApi\Model\SubAccountKey**](../Model/SubAccountKey.md)|  |
 
 ### Return type
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccountKey getSubAccountKey($user_id, $key)
 
-Get the API Key of the sub-account
+Get the API Key of the sub-account.
 
 ### Example
 
@@ -343,8 +343,8 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | Sub-account user id
-$key = 'key_example'; // string | The API Key of the sub-account
+$user_id = 56; // int | Sub-account user id.
+$key = 'key_example'; // string | The API Key of the sub-account.
 
 try {
     $result = $apiInstance->getSubAccountKey($user_id, $key);
@@ -362,8 +362,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Sub-account user id |
- **key** | **string**| The API Key of the sub-account |
+ **user_id** | **int**| Sub-account user id. |
+ **key** | **string**| The API Key of the sub-account. |
 
 ### Return type
 
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 > updateSubAccountKeys($user_id, $key, $sub_account_key)
 
-Update API key of the sub-account
+Update API key of the sub-account.
 
 ### Example
 
@@ -405,8 +405,8 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | Sub-account user id
-$key = 'key_example'; // string | The API Key of the sub-account
+$user_id = 56; // int | Sub-account user id.
+$key = 'key_example'; // string | The API Key of the sub-account.
 $sub_account_key = new \GateApi\Model\SubAccountKey(); // \GateApi\Model\SubAccountKey | 
 
 try {
@@ -424,8 +424,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Sub-account user id |
- **key** | **string**| The API Key of the sub-account |
+ **user_id** | **int**| Sub-account user id. |
+ **key** | **string**| The API Key of the sub-account. |
  **sub_account_key** | [**\GateApi\Model\SubAccountKey**](../Model/SubAccountKey.md)|  |
 
 ### Return type
@@ -450,7 +450,7 @@ void (empty response body)
 
 > deleteSubAccountKeys($user_id, $key)
 
-Delete API key of the sub-account
+Delete API key of the sub-account.
 
 ### Example
 
@@ -468,8 +468,8 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | Sub-account user id
-$key = 'key_example'; // string | The API Key of the sub-account
+$user_id = 56; // int | Sub-account user id.
+$key = 'key_example'; // string | The API Key of the sub-account.
 
 try {
     $apiInstance->deleteSubAccountKeys($user_id, $key);
@@ -486,8 +486,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Sub-account user id |
- **key** | **string**| The API Key of the sub-account |
+ **user_id** | **int**| Sub-account user id. |
+ **key** | **string**| The API Key of the sub-account. |
 
 ### Return type
 
@@ -511,7 +511,7 @@ void (empty response body)
 
 > lockSubAccount($user_id)
 
-Lock the sub-account
+Lock the sub-account.
 
 ### Example
 
@@ -529,7 +529,7 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | The user id of the sub-account
+$user_id = 56; // int | The user id of the sub-account.
 
 try {
     $apiInstance->lockSubAccount($user_id);
@@ -546,7 +546,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The user id of the sub-account |
+ **user_id** | **int**| The user id of the sub-account. |
 
 ### Return type
 
@@ -570,7 +570,7 @@ void (empty response body)
 
 > unlockSubAccount($user_id)
 
-Unlock the sub-account
+Unlock the sub-account.
 
 ### Example
 
@@ -588,7 +588,7 @@ $apiInstance = new GateApi\Api\SubAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id = 56; // int | The user id of the sub-account
+$user_id = 56; // int | The user id of the sub-account.
 
 try {
     $apiInstance->unlockSubAccount($user_id);
@@ -605,7 +605,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The user id of the sub-account |
+ **user_id** | **int**| The user id of the sub-account. |
 
 ### Return type
 
@@ -629,7 +629,7 @@ void (empty response body)
 
 > \GateApi\Model\SubUserMode[] listUnifiedMode()
 
-Get sub-account mode
+Get sub-account mode.
 
 Unified account mode： - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode
 

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * StructuredOrderList Class Doc Comment
  *
  * @category Class
- * @description Structured order
+ * @description Structured order.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -251,7 +251,7 @@ class StructuredOrderList implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Order ID
+     * @param int|null $id Order ID.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class StructuredOrderList implements ModelInterface, ArrayAccess
     /**
      * Sets pid
      *
-     * @param string|null $pid Plan ID
+     * @param string|null $pid Plan ID.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class StructuredOrderList implements ModelInterface, ArrayAccess
     /**
      * Sets lock_coin
      *
-     * @param string|null $lock_coin Locked coin
+     * @param string|null $lock_coin Locked coin.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class StructuredOrderList implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Locked amount
+     * @param string|null $amount Locked amount.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class StructuredOrderList implements ModelInterface, ArrayAccess
     /**
      * Sets income
      *
-     * @param string|null $income Income
+     * @param string|null $income Income.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class StructuredOrderList implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Created time
+     * @param int|null $create_time Created time.
      *
      * @return $this
      */

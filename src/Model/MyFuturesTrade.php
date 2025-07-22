@@ -297,7 +297,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Trade ID
+     * @param int|null $id Trade ID.
      *
      * @return $this
      */
@@ -321,7 +321,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param double|null $create_time Trading time
+     * @param double|null $create_time Trading time.
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Futures contract
+     * @param string|null $contract Futures contract.
      *
      * @return $this
      */
@@ -369,7 +369,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param string|null $order_id Order ID related
+     * @param string|null $order_id Order ID related.
      *
      * @return $this
      */
@@ -393,7 +393,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param int|null $size Trading size
+     * @param int|null $size Trading size.
      *
      * @return $this
      */
@@ -417,7 +417,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets close_size
      *
-     * @param int|null $close_size Number of closed positions:  close_size=0 && size＞0       Open long position close_size=0 && size＜0       Open short position close_size>0 && size>0 && size <= close_size Close short postion close_size>0 && size>0 && size > close_size Close short position and open long position close_size<0 && size<0 && size >= close_size Close long postion close_size<0 && size<0 && size < close_size Close long position and open short position
+     * @param int|null $close_size Number of closed positions:  close_size=0 && size＞0 Open long position close_size=0 && size＜0 Open short position close_size>0 && size>0 && size <= close_size Close > close_size Close short position and open long position close_size<0 && size<0 && size >= close_size Close long postion close_size<0 && size<0 && size < close_size Close long position and open short position
      *
      * @return $this
      */
@@ -441,7 +441,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Trading price
+     * @param string|null $price Trading price.
      *
      * @return $this
      */
@@ -465,7 +465,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets role
      *
-     * @param string|null $role Trade role. Available values are `taker` and `maker`
+     * @param string|null $role Trade role. Available values are `taker` and `maker`.
      *
      * @return $this
      */
@@ -498,7 +498,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text User defined information
+     * @param string|null $text User defined information.
      *
      * @return $this
      */
@@ -522,7 +522,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee Fee deducted
+     * @param string|null $fee Fee deducted.
      *
      * @return $this
      */
@@ -546,7 +546,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     /**
      * Sets point_fee
      *
-     * @param string|null $point_fee Points used to deduct fee
+     * @param string|null $point_fee Points used to deduct fee.
      *
      * @return $this
      */

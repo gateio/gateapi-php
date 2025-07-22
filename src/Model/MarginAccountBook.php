@@ -256,7 +256,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Balance change record ID
+     * @param string|null $id Balance change record ID.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets time
      *
-     * @param string|null $time Balance changed timestamp
+     * @param string|null $time Balance changed timestamp.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets time_ms
      *
-     * @param int|null $time_ms The timestamp of the change (in milliseconds)
+     * @param int|null $time_ms The timestamp of the change (in milliseconds).
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency changed
+     * @param string|null $currency Currency changed.
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Account currency pair
+     * @param string|null $currency_pair Account currency pair.
      *
      * @return $this
      */
@@ -376,7 +376,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets change
      *
-     * @param string|null $change Amount changed. Positive value means transferring in, while negative out
+     * @param string|null $change Amount changed. Positive value means transferring in, while negative out.
      *
      * @return $this
      */
@@ -400,7 +400,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets balance
      *
-     * @param string|null $balance Balance after change
+     * @param string|null $balance Balance after change.
      *
      * @return $this
      */
@@ -424,7 +424,7 @@ class MarginAccountBook implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Account book type.  Please refer to [account book type](#accountbook-type) for more detail
+     * @param string|null $type Account book type. Please refer to [account book type](#accountbook-type) for more detail
      *
      * @return $this
      */

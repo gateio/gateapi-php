@@ -226,7 +226,7 @@ class PartnerSub implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class PartnerSub implements ModelInterface, ArrayAccess
     /**
      * Sets user_join_time
      *
-     * @param int|null $user_join_time The time when the user joined the system, in seconds Unix timestamp
+     * @param int|null $user_join_time The time when the user joined the system, in seconds Unix timestamp.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class PartnerSub implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param int|null $type Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer)
+     * @param int|null $type Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer).
      *
      * @return $this
      */

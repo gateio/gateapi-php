@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * OptionsTicker Class Doc Comment
  *
  * @category Class
- * @description Options contract detail
+ * @description Options contract detail.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -317,7 +317,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Options contract name
+     * @param string|null $name Options contract name.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets last_price
      *
-     * @param string|null $last_price Last trading price (quote currency)
+     * @param string|null $last_price Last trading price (quote currency).
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets mark_price
      *
-     * @param string|null $mark_price Current mark price (quote currency)
+     * @param string|null $mark_price Current mark price (quote currency).
      *
      * @return $this
      */
@@ -389,7 +389,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Current index price (quote currency)
+     * @param string|null $index_price Current index price (quote currency).
      *
      * @return $this
      */
@@ -413,7 +413,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets ask1_size
      *
-     * @param int|null $ask1_size Best ask size
+     * @param int|null $ask1_size Best ask size.
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets ask1_price
      *
-     * @param string|null $ask1_price Best ask price
+     * @param string|null $ask1_price Best ask price.
      *
      * @return $this
      */
@@ -461,7 +461,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets bid1_size
      *
-     * @param int|null $bid1_size Best bid size
+     * @param int|null $bid1_size Best bid size.
      *
      * @return $this
      */
@@ -485,7 +485,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets bid1_price
      *
-     * @param string|null $bid1_price Best bid price
+     * @param string|null $bid1_price Best bid price.
      *
      * @return $this
      */
@@ -509,7 +509,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets position_size
      *
-     * @param int|null $position_size Current total long position size
+     * @param int|null $position_size Current total long position size.
      *
      * @return $this
      */
@@ -533,7 +533,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets mark_iv
      *
-     * @param string|null $mark_iv Implied volatility
+     * @param string|null $mark_iv Implied volatility.
      *
      * @return $this
      */
@@ -557,7 +557,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets bid_iv
      *
-     * @param string|null $bid_iv Bid side implied volatility
+     * @param string|null $bid_iv Bid side implied volatility.
      *
      * @return $this
      */
@@ -581,7 +581,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets ask_iv
      *
-     * @param string|null $ask_iv Ask side implied volatility
+     * @param string|null $ask_iv Ask side implied volatility.
      *
      * @return $this
      */
@@ -605,7 +605,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage Current leverage. Formula: underlying_price / mark_price * delta
+     * @param string|null $leverage Current leverage. Formula: underlying_price / mark_price * delta.
      *
      * @return $this
      */
@@ -629,7 +629,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets delta
      *
-     * @param string|null $delta Delta
+     * @param string|null $delta Delta.
      *
      * @return $this
      */
@@ -653,7 +653,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets gamma
      *
-     * @param string|null $gamma Gamma
+     * @param string|null $gamma Gamma.
      *
      * @return $this
      */
@@ -677,7 +677,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets vega
      *
-     * @param string|null $vega Vega
+     * @param string|null $vega Vega.
      *
      * @return $this
      */
@@ -701,7 +701,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets theta
      *
-     * @param string|null $theta Theta
+     * @param string|null $theta Theta.
      *
      * @return $this
      */
@@ -725,7 +725,7 @@ class OptionsTicker implements ModelInterface, ArrayAccess
     /**
      * Sets rho
      *
-     * @param string|null $rho Rho
+     * @param string|null $rho Rho.
      *
      * @return $this
      */

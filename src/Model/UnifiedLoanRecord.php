@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedLoanRecord Class Doc Comment
  *
  * @category Class
- * @description Loan records
+ * @description Loan records.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -257,7 +257,7 @@ class UnifiedLoanRecord implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id ID
+     * @param int|null $id ID.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class UnifiedLoanRecord implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type type: borrow - borrow, repay - repay
+     * @param string|null $type type: borrow - borrow, repay - repay.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class UnifiedLoanRecord implements ModelInterface, ArrayAccess
     /**
      * Sets repayment_type
      *
-     * @param string|null $repayment_type Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment
+     * @param string|null $repayment_type Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment
      *
      * @return $this
      */
@@ -353,7 +353,7 @@ class UnifiedLoanRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class UnifiedLoanRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -401,7 +401,7 @@ class UnifiedLoanRecord implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount The amount of lending or repaying
+     * @param string|null $amount The amount of lending or repaying.
      *
      * @return $this
      */
@@ -425,7 +425,7 @@ class UnifiedLoanRecord implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param int|null $create_time Created time
+     * @param int|null $create_time Created time.
      *
      * @return $this
      */

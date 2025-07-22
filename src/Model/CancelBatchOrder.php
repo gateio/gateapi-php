@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CancelBatchOrder Class Doc Comment
  *
  * @category Class
- * @description Info of order to be cancelled
+ * @description Info of order to be cancelled.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -239,7 +239,7 @@ class CancelBatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string $currency_pair Order currency pair
+     * @param string $currency_pair Order currency pair.
      *
      * @return $this
      */

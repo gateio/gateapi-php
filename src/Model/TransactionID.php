@@ -214,7 +214,7 @@ class TransactionID implements ModelInterface, ArrayAccess
     /**
      * Sets tx_id
      *
-     * @param int|null $tx_id Order id
+     * @param int|null $tx_id Order id.
      *
      * @return $this
      */

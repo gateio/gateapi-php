@@ -244,7 +244,7 @@ class CreateCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_amount
      *
-     * @param string $collateral_amount Collateral amount
+     * @param string $collateral_amount Collateral amount.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class CreateCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currency
      *
-     * @param string $collateral_currency Collateral
+     * @param string $collateral_currency Collateral.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class CreateCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_amount
      *
-     * @param string $borrow_amount Borrowing amount
+     * @param string $borrow_amount Borrowing amount.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class CreateCollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_currency
      *
-     * @param string $borrow_currency Borrowed currency
+     * @param string $borrow_currency Borrowed currency.
      *
      * @return $this
      */

@@ -277,7 +277,7 @@ class DepositRecord implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Record ID
+     * @param string|null $id Record ID.
      *
      * @return $this
      */
@@ -301,7 +301,7 @@ class DepositRecord implements ModelInterface, ArrayAccess
     /**
      * Sets txid
      *
-     * @param string|null $txid Hash record of the withdrawal
+     * @param string|null $txid Hash record of the withdrawal.
      *
      * @return $this
      */
@@ -349,7 +349,7 @@ class DepositRecord implements ModelInterface, ArrayAccess
     /**
      * Sets timestamp
      *
-     * @param string|null $timestamp Operation time
+     * @param string|null $timestamp Operation time.
      *
      * @return $this
      */
@@ -373,7 +373,7 @@ class DepositRecord implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Currency amount
+     * @param string $amount Currency amount.
      *
      * @return $this
      */
@@ -397,7 +397,7 @@ class DepositRecord implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency name
+     * @param string $currency Currency name.
      *
      * @return $this
      */
@@ -421,7 +421,7 @@ class DepositRecord implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param string|null $address Withdrawal address. Required for withdrawals
+     * @param string|null $address Withdrawal address. Required for withdrawals.
      *
      * @return $this
      */
@@ -445,7 +445,7 @@ class DepositRecord implements ModelInterface, ArrayAccess
     /**
      * Sets memo
      *
-     * @param string|null $memo Additional remarks with regards to the withdrawal
+     * @param string|null $memo Additional remarks with regards to the withdrawal.
      *
      * @return $this
      */
@@ -493,7 +493,7 @@ class DepositRecord implements ModelInterface, ArrayAccess
     /**
      * Sets chain
      *
-     * @param string $chain Name of the chain used in withdrawals
+     * @param string $chain Name of the chain used in withdrawals.
      *
      * @return $this
      */

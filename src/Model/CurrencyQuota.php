@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CurrencyQuota Class Doc Comment
  *
  * @category Class
- * @description Currency Quota
+ * @description Currency Quota.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -239,7 +239,7 @@ class CurrencyQuota implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class CurrencyQuota implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Currency Index Price
+     * @param string|null $index_price Currency Index Price.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class CurrencyQuota implements ModelInterface, ArrayAccess
     /**
      * Sets min_quota
      *
-     * @param string|null $min_quota Minimum borrowing/collateral quota for the currency
+     * @param string|null $min_quota Minimum borrowing/collateral quota for the currency.
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class CurrencyQuota implements ModelInterface, ArrayAccess
     /**
      * Sets left_quota
      *
-     * @param string|null $left_quota Remaining borrowing/collateral limit for the currency
+     * @param string|null $left_quota Remaining borrowing/collateral limit for the currency.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class CurrencyQuota implements ModelInterface, ArrayAccess
     /**
      * Sets left_quote_usdt
      *
-     * @param string|null $left_quote_usdt Remaining currency limit converted to USDT
+     * @param string|null $left_quote_usdt Remaining currency limit converted to USDT.
      *
      * @return $this
      */

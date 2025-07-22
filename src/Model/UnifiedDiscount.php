@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedDiscount Class Doc Comment
  *
  * @category Class
- * @description Currency discount tiers
+ * @description Currency discount tiers.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class UnifiedDiscount implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class UnifiedDiscount implements ModelInterface, ArrayAccess
     /**
      * Sets discount_tiers
      *
-     * @param \GateApi\Model\UnifiedDiscountTiers[]|null $discount_tiers Tiered discount
+     * @param \GateApi\Model\UnifiedDiscountTiers[]|null $discount_tiers Tiered discount.
      *
      * @return $this
      */

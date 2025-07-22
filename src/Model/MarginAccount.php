@@ -257,7 +257,7 @@ class MarginAccount implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class MarginAccount implements ModelInterface, ArrayAccess
     /**
      * Sets account_type
      *
-     * @param string|null $account_type Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated
+     * @param string|null $account_type Account type, risk - risk rate account, mmr - maintenance margin market not activated
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class MarginAccount implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string|null $leverage User current market leverage multiple
+     * @param string|null $leverage User current market leverage multiple.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class MarginAccount implements ModelInterface, ArrayAccess
     /**
      * Sets locked
      *
-     * @param bool|null $locked Whether account is locked
+     * @param bool|null $locked Whether account is locked.
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class MarginAccount implements ModelInterface, ArrayAccess
     /**
      * Sets mmr
      *
-     * @param string|null $mmr Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account)
+     * @param string|null $mmr Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account)
      *
      * @return $this
      */

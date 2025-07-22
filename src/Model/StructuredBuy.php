@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * StructuredBuy Class Doc Comment
  *
  * @category Class
- * @description Dual Investment Purchase
+ * @description Dual Investment Purchase.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class StructuredBuy implements ModelInterface, ArrayAccess
     /**
      * Sets pid
      *
-     * @param string|null $pid Plan ID
+     * @param string|null $pid Plan ID.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class StructuredBuy implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Purchase Amount
+     * @param string|null $amount Purchase Amount.
      *
      * @return $this
      */

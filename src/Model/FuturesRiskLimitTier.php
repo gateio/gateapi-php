@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FuturesRiskLimitTier Class Doc Comment
  *
  * @category Class
- * @description Information for each tier of the risk limit ladder
+ * @description Information for each tier of the risk limit ladder.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -245,7 +245,7 @@ class FuturesRiskLimitTier implements ModelInterface, ArrayAccess
     /**
      * Sets tier
      *
-     * @param int|null $tier Tier
+     * @param int|null $tier Tier.
      *
      * @return $this
      */
@@ -269,7 +269,7 @@ class FuturesRiskLimitTier implements ModelInterface, ArrayAccess
     /**
      * Sets risk_limit
      *
-     * @param string|null $risk_limit Position risk limit
+     * @param string|null $risk_limit Position risk limit.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class FuturesRiskLimitTier implements ModelInterface, ArrayAccess
     /**
      * Sets initial_rate
      *
-     * @param string|null $initial_rate Initial margin rate
+     * @param string|null $initial_rate Initial margin rate.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class FuturesRiskLimitTier implements ModelInterface, ArrayAccess
     /**
      * Sets maintenance_rate
      *
-     * @param string|null $maintenance_rate Maintenance margin rate
+     * @param string|null $maintenance_rate Maintenance margin rate.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class FuturesRiskLimitTier implements ModelInterface, ArrayAccess
     /**
      * Sets leverage_max
      *
-     * @param string|null $leverage_max Maximum leverage
+     * @param string|null $leverage_max Maximum leverage.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class FuturesRiskLimitTier implements ModelInterface, ArrayAccess
     /**
      * Sets deduction
      *
-     * @param string|null $deduction Maintenance margin quick calculation deduction
+     * @param string|null $deduction Maintenance margin quick calculation deduction.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedCollateralRes Class Doc Comment
  *
  * @category Class
- * @description Return of unified account collateral mode settings
+ * @description Return of unified account collateral mode settings.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -215,7 +215,7 @@ class UnifiedCollateralRes implements ModelInterface, ArrayAccess
     /**
      * Sets is_success
      *
-     * @param bool|null $is_success Whether the setting was successful
+     * @param bool|null $is_success Whether the setting was successful.
      *
      * @return $this
      */

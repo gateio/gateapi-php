@@ -56,9 +56,7 @@ class FuturesOrderAmendment implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'size' => 'int',
         'price' => 'string',
-        'amend_text' => 'string',
-        'biz_info' => 'string',
-        'bbo' => 'string'
+        'amend_text' => 'string'
     ];
 
     /**
@@ -69,9 +67,7 @@ class FuturesOrderAmendment implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'size' => 'int64',
         'price' => null,
-        'amend_text' => null,
-        'biz_info' => null,
-        'bbo' => null
+        'amend_text' => null
     ];
 
     /**
@@ -103,9 +99,7 @@ class FuturesOrderAmendment implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'size' => 'size',
         'price' => 'price',
-        'amend_text' => 'amend_text',
-        'biz_info' => 'biz_info',
-        'bbo' => 'bbo'
+        'amend_text' => 'amend_text'
     ];
 
     /**
@@ -116,9 +110,7 @@ class FuturesOrderAmendment implements ModelInterface, ArrayAccess
     protected static $setters = [
         'size' => 'setSize',
         'price' => 'setPrice',
-        'amend_text' => 'setAmendText',
-        'biz_info' => 'setBizInfo',
-        'bbo' => 'setBbo'
+        'amend_text' => 'setAmendText'
     ];
 
     /**
@@ -129,9 +121,7 @@ class FuturesOrderAmendment implements ModelInterface, ArrayAccess
     protected static $getters = [
         'size' => 'getSize',
         'price' => 'getPrice',
-        'amend_text' => 'getAmendText',
-        'biz_info' => 'getBizInfo',
-        'bbo' => 'getBbo'
+        'amend_text' => 'getAmendText'
     ];
 
     /**
@@ -197,8 +187,6 @@ class FuturesOrderAmendment implements ModelInterface, ArrayAccess
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['amend_text'] = isset($data['amend_text']) ? $data['amend_text'] : null;
-        $this->container['biz_info'] = isset($data['biz_info']) ? $data['biz_info'] : null;
-        $this->container['bbo'] = isset($data['bbo']) ? $data['bbo'] : null;
     }
 
     /**
@@ -286,61 +274,13 @@ class FuturesOrderAmendment implements ModelInterface, ArrayAccess
     /**
      * Sets amend_text
      *
-     * @param string|null $amend_text Custom info during amending order
+     * @param string|null $amend_text Custom info during amending order.
      *
      * @return $this
      */
     public function setAmendText($amend_text)
     {
         $this->container['amend_text'] = $amend_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets biz_info
-     *
-     * @return string|null
-     */
-    public function getBizInfo()
-    {
-        return $this->container['biz_info'];
-    }
-
-    /**
-     * Sets biz_info
-     *
-     * @param string|null $biz_info Users can annotate this modification with information.
-     *
-     * @return $this
-     */
-    public function setBizInfo($biz_info)
-    {
-        $this->container['biz_info'] = $biz_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets bbo
-     *
-     * @return string|null
-     */
-    public function getBbo()
-    {
-        return $this->container['bbo'];
-    }
-
-    /**
-     * Sets bbo
-     *
-     * @param string|null $bbo Users are able to modify the offer price manually.
-     *
-     * @return $this
-     */
-    public function setBbo($bbo)
-    {
-        $this->container['bbo'] = $bbo;
 
         return $this;
     }

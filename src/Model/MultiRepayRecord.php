@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MultiRepayRecord Class Doc Comment
  *
  * @category Class
- * @description Mult Repay Record
+ * @description Mult Repay Record.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -281,7 +281,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Order ID
+     * @param int|null $order_id Order ID.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets record_id
      *
-     * @param int|null $record_id Repayment record ID
+     * @param int|null $record_id Repayment record ID.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets init_ltv
      *
-     * @param string|null $init_ltv The initial collateralization rate
+     * @param string|null $init_ltv The initial collateralization rate.
      *
      * @return $this
      */
@@ -353,7 +353,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets before_ltv
      *
-     * @param string|null $before_ltv Ltv before the operation
+     * @param string|null $before_ltv Ltv before the operation.
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets after_ltv
      *
-     * @param string|null $after_ltv Ltv after the operation
+     * @param string|null $after_ltv Ltv after the operation.
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_currencies
      *
-     * @param \GateApi\Model\RepayRecordCurrency[]|null $borrow_currencies List of borrowing information
+     * @param \GateApi\Model\RepayRecordCurrency[]|null $borrow_currencies List of borrowing information.
      *
      * @return $this
      */
@@ -473,7 +473,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currencies
      *
-     * @param \GateApi\Model\RepayRecordCurrency[]|null $collateral_currencies List of collateral information
+     * @param \GateApi\Model\RepayRecordCurrency[]|null $collateral_currencies List of collateral information.
      *
      * @return $this
      */
@@ -497,7 +497,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_currencies
      *
-     * @param \GateApi\Model\RepayRecordRepaidCurrency[]|null $repaid_currencies Repay Currency List
+     * @param \GateApi\Model\RepayRecordRepaidCurrency[]|null $repaid_currencies Repay Currency List.
      *
      * @return $this
      */
@@ -521,7 +521,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets total_interest_list
      *
-     * @param \GateApi\Model\RepayRecordTotalInterest[]|null $total_interest_list Total Interest List
+     * @param \GateApi\Model\RepayRecordTotalInterest[]|null $total_interest_list Total Interest List.
      *
      * @return $this
      */
@@ -545,7 +545,7 @@ class MultiRepayRecord implements ModelInterface, ArrayAccess
     /**
      * Sets left_repay_interest_list
      *
-     * @param \GateApi\Model\RepayRecordLeftInterest[]|null $left_repay_interest_list List of left repay interest
+     * @param \GateApi\Model\RepayRecordLeftInterest[]|null $left_repay_interest_list List of left repay interest.
      *
      * @return $this
      */

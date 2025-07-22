@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * OrderPatch Class Doc Comment
  *
  * @category Class
- * @description Spot order details
+ * @description Spot order details.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -249,7 +249,7 @@ class OrderPatch implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class OrderPatch implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Trading Quantity. Either amountor pricemust be specified
+     * @param string|null $amount Trading Quantity. Either amountor pricemust be specified.
      *
      * @return $this
      */
@@ -321,7 +321,7 @@ class OrderPatch implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Trading Price. Either amountor pricemust be specified
+     * @param string|null $price Trading Price. Either amountor pricemust be specified.
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class OrderPatch implements ModelInterface, ArrayAccess
     /**
      * Sets amend_text
      *
-     * @param string|null $amend_text Custom info during amending order
+     * @param string|null $amend_text Custom info during amending order.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MockSpotBalance Class Doc Comment
  *
  * @category Class
- * @description Spot
+ * @description Spot.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -227,7 +227,7 @@ class MockSpotBalance implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency name
+     * @param string $currency Currency name.
      *
      * @return $this
      */

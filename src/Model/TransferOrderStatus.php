@@ -220,7 +220,7 @@ class TransferOrderStatus implements ModelInterface, ArrayAccess
     /**
      * Sets tx_id
      *
-     * @param string|null $tx_id Order id
+     * @param string|null $tx_id Order id.
      *
      * @return $this
      */

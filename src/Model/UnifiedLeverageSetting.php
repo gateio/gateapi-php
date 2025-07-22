@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedLeverageSetting Class Doc Comment
  *
  * @category Class
- * @description Loan currency leverage
+ * @description Loan currency leverage.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -227,7 +227,7 @@ class UnifiedLeverageSetting implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Currency name
+     * @param string $currency Currency name.
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class UnifiedLeverageSetting implements ModelInterface, ArrayAccess
     /**
      * Sets leverage
      *
-     * @param string $leverage multiple
+     * @param string $leverage multiple.
      *
      * @return $this
      */

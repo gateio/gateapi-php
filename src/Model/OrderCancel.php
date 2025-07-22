@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * OrderCancel Class Doc Comment
  *
  * @category Class
- * @description Spot order details
+ * @description Spot order details.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -606,7 +606,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Order ID
+     * @param string|null $id Order ID.
      *
      * @return $this
      */
@@ -654,7 +654,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets amend_text
      *
-     * @param string|null $amend_text The custom data that the user remarked when amending the order
+     * @param string|null $amend_text The custom data that the user remarked when amending the order.
      *
      * @return $this
      */
@@ -678,7 +678,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets succeeded
      *
-     * @param bool|null $succeeded Whether the batch of orders succeeded
+     * @param bool|null $succeeded Whether the batch of orders succeeded.
      *
      * @return $this
      */
@@ -702,7 +702,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets label
      *
-     * @param string|null $label Error label, if any, otherwise an empty string
+     * @param string|null $label Error label, if any, otherwise an empty string.
      *
      * @return $this
      */
@@ -726,7 +726,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string|null $message Detailed error message, if any, otherwise an empty string
+     * @param string|null $message Detailed error message, if any, otherwise an empty string.
      *
      * @return $this
      */
@@ -750,7 +750,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param string|null $create_time Creation time of order
+     * @param string|null $create_time Creation time of order.
      *
      * @return $this
      */
@@ -774,7 +774,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets update_time
      *
-     * @param string|null $update_time Last modification time of order
+     * @param string|null $update_time Last modification time of order.
      *
      * @return $this
      */
@@ -798,7 +798,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets create_time_ms
      *
-     * @param int|null $create_time_ms Creation time of order (in milliseconds)
+     * @param int|null $create_time_ms Creation time of order (in milliseconds).
      *
      * @return $this
      */
@@ -822,7 +822,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets update_time_ms
      *
-     * @param int|null $update_time_ms Last modification time of order (in milliseconds)
+     * @param int|null $update_time_ms Last modification time of order (in milliseconds).
      *
      * @return $this
      */
@@ -879,7 +879,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string $currency_pair Currency pair
+     * @param string $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -960,7 +960,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets side
      *
-     * @param string $side Buy or sell order
+     * @param string $side Buy or sell order.
      *
      * @return $this
      */
@@ -993,7 +993,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount When `type` is limit, it refers to base currency.  For instance, `BTC_USDT` means `BTC`  When `type` is `market`, it refers to different currency according to `side`  - `side` : `buy` means quote currency, `BTC_USDT` means `USDT` - `side` : `sell` means base currency，`BTC_USDT` means `BTC`
+     * @param string $amount When `type` is limit, it refers to base currency. For instance, `BTC_USDT` means `BTC`  When different currency according to `side`  - `side` : `buy` means quote currency, `BTC_USDT` means `USDT` - `side` : `sell` means base currency，`BTC_USDT` means `BTC`
      *
      * @return $this
      */
@@ -1017,7 +1017,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Price can't be empty when `type`= `limit`
+     * @param string|null $price Price can't be empty when `type`= `limit`.
      *
      * @return $this
      */
@@ -1074,7 +1074,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets iceberg
      *
-     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
+     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported.
      *
      * @return $this
      */
@@ -1146,7 +1146,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets left
      *
-     * @param string|null $left Amount left to fill
+     * @param string|null $left Amount left to fill.
      *
      * @return $this
      */
@@ -1170,7 +1170,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets filled_amount
      *
-     * @param string|null $filled_amount Amount traded to fill
+     * @param string|null $filled_amount Amount traded to fill.
      *
      * @return $this
      */
@@ -1194,7 +1194,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets fill_price
      *
-     * @param string|null $fill_price Total filled in quote currency. Deprecated in favor of `filled_total`
+     * @param string|null $fill_price Total filled in quote currency. Deprecated in favor of `filled_total`.
      *
      * @return $this
      */
@@ -1218,7 +1218,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets filled_total
      *
-     * @param string|null $filled_total Total filled in quote currency
+     * @param string|null $filled_total Total filled in quote currency.
      *
      * @return $this
      */
@@ -1242,7 +1242,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets avg_deal_price
      *
-     * @param string|null $avg_deal_price Average fill price
+     * @param string|null $avg_deal_price Average fill price.
      *
      * @return $this
      */
@@ -1266,7 +1266,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee Fee deducted
+     * @param string|null $fee Fee deducted.
      *
      * @return $this
      */
@@ -1290,7 +1290,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets fee_currency
      *
-     * @param string|null $fee_currency Fee currency unit
+     * @param string|null $fee_currency Fee currency unit.
      *
      * @return $this
      */
@@ -1314,7 +1314,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets point_fee
      *
-     * @param string|null $point_fee Points used to deduct fee
+     * @param string|null $point_fee Points used to deduct fee.
      *
      * @return $this
      */
@@ -1338,7 +1338,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets gt_fee
      *
-     * @param string|null $gt_fee GT used to deduct fee
+     * @param string|null $gt_fee GT used to deduct fee.
      *
      * @return $this
      */
@@ -1362,7 +1362,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets gt_maker_fee
      *
-     * @param string|null $gt_maker_fee GT used to deduct maker fee
+     * @param string|null $gt_maker_fee GT used to deduct maker fee.
      *
      * @return $this
      */
@@ -1386,7 +1386,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets gt_taker_fee
      *
-     * @param string|null $gt_taker_fee GT used to deduct taker fee
+     * @param string|null $gt_taker_fee GT used to deduct taker fee.
      *
      * @return $this
      */
@@ -1410,7 +1410,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets gt_discount
      *
-     * @param bool|null $gt_discount Whether GT fee discount is used
+     * @param bool|null $gt_discount Whether GT fee discount is used.
      *
      * @return $this
      */
@@ -1434,7 +1434,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets rebated_fee
      *
-     * @param string|null $rebated_fee Rebated fee
+     * @param string|null $rebated_fee Rebated fee.
      *
      * @return $this
      */
@@ -1458,7 +1458,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets rebated_fee_currency
      *
-     * @param string|null $rebated_fee_currency Rebated fee currency unit
+     * @param string|null $rebated_fee_currency Rebated fee currency unit.
      *
      * @return $this
      */
@@ -1506,7 +1506,7 @@ class OrderCancel implements ModelInterface, ArrayAccess
     /**
      * Sets stp_act
      *
-     * @param string|null $stp_act Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the `STP Group`, he can pass `stp_act` to limit the user's self-trade prevetion strategy. If `stp_act` is not passed, the default is `cn` strategy。 2. When the user does not join the `STP group`, an error will be returned when passing the `stp_act` parameter。 3. If the user did not use 'stp_act' when placing the order, 'stp_act' will return '-'  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * @param string|null $stp_act Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the `STP Group`, he can pass `stp_act` to limit the user's self-trade prevetion strategy. If `stp_act` is not passed, the default is `cn` strategy。 2. When the user does not join the `STP group`, an error will be returned when passing the `stp_act` parameter。 3. If the user did not use 'stp_act' when placing the order, 'stp_act' will return '-'  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      *
      * @return $this
      */

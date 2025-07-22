@@ -286,7 +286,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets taker_fee
      *
-     * @param string|null $taker_fee taker fee rate
+     * @param string|null $taker_fee taker fee rate.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets maker_fee
      *
-     * @param string|null $maker_fee maker fee rate
+     * @param string|null $maker_fee maker fee rate.
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets gt_discount
      *
-     * @param bool|null $gt_discount If GT deduction is enabled
+     * @param bool|null $gt_discount If GT deduction is enabled.
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets loan_fee
      *
-     * @param string|null $loan_fee Loan fee rate of margin lending
+     * @param string|null $loan_fee Loan fee rate of margin lending.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets point_type
      *
-     * @param string|null $point_type Point type. 0 - Initial version. 1 - new version since 202009
+     * @param string|null $point_type Point type. 0 - Initial version. 1 - new version since 202009.
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets futures_taker_fee
      *
-     * @param string|null $futures_taker_fee Futures trading taker fee
+     * @param string|null $futures_taker_fee Futures trading taker fee.
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets futures_maker_fee
      *
-     * @param string|null $futures_maker_fee Future trading maker fee
+     * @param string|null $futures_maker_fee Future trading maker fee.
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets delivery_taker_fee
      *
-     * @param string|null $delivery_taker_fee Delivery trading taker fee
+     * @param string|null $delivery_taker_fee Delivery trading taker fee.
      *
      * @return $this
      */
@@ -550,7 +550,7 @@ class TradeFee implements ModelInterface, ArrayAccess
     /**
      * Sets delivery_maker_fee
      *
-     * @param string|null $delivery_maker_fee Delivery trading maker fee
+     * @param string|null $delivery_maker_fee Delivery trading maker fee.
      *
      * @return $this
      */

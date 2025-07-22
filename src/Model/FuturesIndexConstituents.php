@@ -220,7 +220,7 @@ class FuturesIndexConstituents implements ModelInterface, ArrayAccess
     /**
      * Sets index
      *
-     * @param string|null $index Index name
+     * @param string|null $index Index name.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class FuturesIndexConstituents implements ModelInterface, ArrayAccess
     /**
      * Sets constituents
      *
-     * @param \GateApi\Model\IndexConstituent[]|null $constituents Constituents
+     * @param \GateApi\Model\IndexConstituent[]|null $constituents Constituents.
      *
      * @return $this
      */

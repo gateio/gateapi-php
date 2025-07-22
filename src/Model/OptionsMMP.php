@@ -266,7 +266,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets underlying
      *
-     * @param string $underlying Underlying
+     * @param string $underlying Underlying.
      *
      * @return $this
      */
@@ -290,7 +290,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets window
      *
-     * @param int $window Time window (milliseconds), between 1-5000, 0 means disabling MMP
+     * @param int $window Time window (milliseconds), between 1-5000, 0 means disabling MMP.
      *
      * @return $this
      */
@@ -338,7 +338,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets qty_limit
      *
-     * @param string $qty_limit Trading volume upper limit (positive number, up to 2 decimal places)
+     * @param string $qty_limit Trading volume upper limit (positive number, up to 2 decimal places).
      *
      * @return $this
      */
@@ -362,7 +362,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets delta_limit
      *
-     * @param string $delta_limit Upper limit of net delta value (positive number, up to 2 decimal places)
+     * @param string $delta_limit Upper limit of net delta value (positive number, up to 2 decimal places).
      *
      * @return $this
      */
@@ -386,7 +386,7 @@ class OptionsMMP implements ModelInterface, ArrayAccess
     /**
      * Sets trigger_time_ms
      *
-     * @param int|null $trigger_time_ms Trigger freeze time (milliseconds), 0 means no freeze is triggered
+     * @param int|null $trigger_time_ms Trigger freeze time (milliseconds), 0 means no freeze is triggered.
      *
      * @return $this
      */

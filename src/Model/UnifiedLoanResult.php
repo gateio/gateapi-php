@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UnifiedLoanResult Class Doc Comment
  *
  * @category Class
- * @description Unified account loan and repayment response results
+ * @description Unified account loan and repayment response results.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -215,7 +215,7 @@ class UnifiedLoanResult implements ModelInterface, ArrayAccess
     /**
      * Sets tran_id
      *
-     * @param int|null $tran_id Transaction id
+     * @param int|null $tran_id Transaction id.
      *
      * @return $this
      */

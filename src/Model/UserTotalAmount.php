@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * UserTotalAmount Class Doc Comment
  *
  * @category Class
- * @description Total borrowed amount and pledged collateral amount by the user
+ * @description Total borrowed amount and pledged collateral amount by the user.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class UserTotalAmount implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_amount
      *
-     * @param string|null $borrow_amount Total borrowing amount, calculated in USDT
+     * @param string|null $borrow_amount Total borrowing amount, calculated in USDT.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class UserTotalAmount implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_amount
      *
-     * @param string|null $collateral_amount Total collateral amount, calculated in USDT
+     * @param string|null $collateral_amount Total collateral amount, calculated in USDT.
      *
      * @return $this
      */

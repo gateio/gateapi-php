@@ -251,7 +251,7 @@ class UnifiedPortfolioInput implements ModelInterface, ArrayAccess
     /**
      * Sets spot_balances
      *
-     * @param \GateApi\Model\MockSpotBalance[]|null $spot_balances Spot
+     * @param \GateApi\Model\MockSpotBalance[]|null $spot_balances Spot.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class UnifiedPortfolioInput implements ModelInterface, ArrayAccess
     /**
      * Sets spot_orders
      *
-     * @param \GateApi\Model\MockSpotOrder[]|null $spot_orders Spot orders
+     * @param \GateApi\Model\MockSpotOrder[]|null $spot_orders Spot orders.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class UnifiedPortfolioInput implements ModelInterface, ArrayAccess
     /**
      * Sets futures_positions
      *
-     * @param \GateApi\Model\MockFuturesPosition[]|null $futures_positions Futures positions
+     * @param \GateApi\Model\MockFuturesPosition[]|null $futures_positions Futures positions.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class UnifiedPortfolioInput implements ModelInterface, ArrayAccess
     /**
      * Sets futures_orders
      *
-     * @param \GateApi\Model\MockFuturesOrder[]|null $futures_orders Futures order
+     * @param \GateApi\Model\MockFuturesOrder[]|null $futures_orders Futures order.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class UnifiedPortfolioInput implements ModelInterface, ArrayAccess
     /**
      * Sets options_positions
      *
-     * @param \GateApi\Model\MockOptionsPosition[]|null $options_positions Options positions
+     * @param \GateApi\Model\MockOptionsPosition[]|null $options_positions Options positions.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class UnifiedPortfolioInput implements ModelInterface, ArrayAccess
     /**
      * Sets options_orders
      *
-     * @param \GateApi\Model\MockOptionsOrder[]|null $options_orders Option orders
+     * @param \GateApi\Model\MockOptionsOrder[]|null $options_orders Option orders.
      *
      * @return $this
      */

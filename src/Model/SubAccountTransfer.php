@@ -256,7 +256,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets sub_account
      *
-     * @param string $sub_account Sub account user ID
+     * @param string $sub_account Sub account user ID.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Transfer currency name
+     * @param string $currency Transfer currency name.
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class SubAccountTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount Transfer amount
+     * @param string $amount Transfer amount.
      *
      * @return $this
      */

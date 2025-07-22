@@ -251,7 +251,7 @@ class FuturesLimitRiskTiers implements ModelInterface, ArrayAccess
     /**
      * Sets tier
      *
-     * @param int|null $tier Tier
+     * @param int|null $tier Tier.
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class FuturesLimitRiskTiers implements ModelInterface, ArrayAccess
     /**
      * Sets risk_limit
      *
-     * @param string|null $risk_limit Position risk limit
+     * @param string|null $risk_limit Position risk limit.
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class FuturesLimitRiskTiers implements ModelInterface, ArrayAccess
     /**
      * Sets initial_rate
      *
-     * @param string|null $initial_rate Initial margin rate
+     * @param string|null $initial_rate Initial margin rate.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class FuturesLimitRiskTiers implements ModelInterface, ArrayAccess
     /**
      * Sets maintenance_rate
      *
-     * @param string|null $maintenance_rate Maintenance margin rate
+     * @param string|null $maintenance_rate Maintenance margin rate.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class FuturesLimitRiskTiers implements ModelInterface, ArrayAccess
     /**
      * Sets leverage_max
      *
-     * @param string|null $leverage_max Maximum leverage
+     * @param string|null $leverage_max Maximum leverage.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class FuturesLimitRiskTiers implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string|null $contract Markets, visible only during market pagination requests
+     * @param string|null $contract Markets, visible only during market pagination requests.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class FuturesLimitRiskTiers implements ModelInterface, ArrayAccess
     /**
      * Sets deduction
      *
-     * @param string|null $deduction Maintenance margin quick calculation deduction
+     * @param string|null $deduction Maintenance margin quick calculation deduction.
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MockOptionsPosition Class Doc Comment
  *
  * @category Class
- * @description Options positions
+ * @description Options positions.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com

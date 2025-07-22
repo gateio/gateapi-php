@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * FuturesPremiumIndex Class Doc Comment
  *
  * @category Class
- * @description data point in every timestamp
+ * @description data point in every timestamp.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -239,7 +239,7 @@ class FuturesPremiumIndex implements ModelInterface, ArrayAccess
     /**
      * Sets t
      *
-     * @param double|null $t Unix timestamp in seconds
+     * @param double|null $t Unix timestamp in seconds.
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class FuturesPremiumIndex implements ModelInterface, ArrayAccess
     /**
      * Sets c
      *
-     * @param string|null $c Close price
+     * @param string|null $c Close price.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class FuturesPremiumIndex implements ModelInterface, ArrayAccess
     /**
      * Sets h
      *
-     * @param string|null $h Highest price
+     * @param string|null $h Highest price.
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class FuturesPremiumIndex implements ModelInterface, ArrayAccess
     /**
      * Sets l
      *
-     * @param string|null $l Lowest price`
+     * @param string|null $l Lowest price`.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class FuturesPremiumIndex implements ModelInterface, ArrayAccess
     /**
      * Sets o
      *
-     * @param string|null $o Open price
+     * @param string|null $o Open price.
      *
      * @return $this
      */

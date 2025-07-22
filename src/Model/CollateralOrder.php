@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CollateralOrder Class Doc Comment
  *
  * @category Class
- * @description Collateral Order
+ * @description Collateral Order.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -305,7 +305,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Order ID
+     * @param int|null $order_id Order ID.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currency
      *
-     * @param string|null $collateral_currency Collateral
+     * @param string|null $collateral_currency Collateral.
      *
      * @return $this
      */
@@ -353,7 +353,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_amount
      *
-     * @param string|null $collateral_amount Collateral amount
+     * @param string|null $collateral_amount Collateral amount.
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_currency
      *
-     * @param string|null $borrow_currency Borrowed currency
+     * @param string|null $borrow_currency Borrowed currency.
      *
      * @return $this
      */
@@ -401,7 +401,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_amount
      *
-     * @param string|null $borrow_amount Borrowing amount
+     * @param string|null $borrow_amount Borrowing amount.
      *
      * @return $this
      */
@@ -425,7 +425,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_amount
      *
-     * @param string|null $repaid_amount Repaid amount
+     * @param string|null $repaid_amount Repaid amount.
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_principal
      *
-     * @param string|null $repaid_principal Repaid principal
+     * @param string|null $repaid_principal Repaid principal.
      *
      * @return $this
      */
@@ -473,7 +473,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets repaid_interest
      *
-     * @param string|null $repaid_interest Repaid interest
+     * @param string|null $repaid_interest Repaid interest.
      *
      * @return $this
      */
@@ -497,7 +497,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets init_ltv
      *
-     * @param string|null $init_ltv The initial collateralization rate
+     * @param string|null $init_ltv The initial collateralization rate.
      *
      * @return $this
      */
@@ -521,7 +521,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets current_ltv
      *
-     * @param string|null $current_ltv The current collateralization rate
+     * @param string|null $current_ltv The current collateralization rate.
      *
      * @return $this
      */
@@ -545,7 +545,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets liquidate_ltv
      *
-     * @param string|null $liquidate_ltv The liquidation collateralization rate
+     * @param string|null $liquidate_ltv The liquidation collateralization rate.
      *
      * @return $this
      */
@@ -593,7 +593,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_time
      *
-     * @param int|null $borrow_time Borrowing time, timestamp in seconds
+     * @param int|null $borrow_time Borrowing time, timestamp in seconds.
      *
      * @return $this
      */
@@ -641,7 +641,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets left_repay_principal
      *
-     * @param string|null $left_repay_principal outstanding principal
+     * @param string|null $left_repay_principal outstanding principal.
      *
      * @return $this
      */
@@ -665,7 +665,7 @@ class CollateralOrder implements ModelInterface, ArrayAccess
     /**
      * Sets left_repay_interest
      *
-     * @param string|null $left_repay_interest outstanding interest
+     * @param string|null $left_repay_interest outstanding interest.
      *
      * @return $this
      */

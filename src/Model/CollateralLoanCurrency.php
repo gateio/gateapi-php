@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CollateralLoanCurrency Class Doc Comment
  *
  * @category Class
- * @description Supported borrowing and collateral currencies
+ * @description Supported borrowing and collateral currencies.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -221,7 +221,7 @@ class CollateralLoanCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets loan_currency
      *
-     * @param string|null $loan_currency Borrowed currency
+     * @param string|null $loan_currency Borrowed currency.
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class CollateralLoanCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currency
      *
-     * @param string[]|null $collateral_currency List of supported collateral currencies
+     * @param string[]|null $collateral_currency List of supported collateral currencies.
      *
      * @return $this
      */

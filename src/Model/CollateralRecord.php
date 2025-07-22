@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CollateralRecord Class Doc Comment
  *
  * @category Class
- * @description Collateral record
+ * @description Collateral record.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -269,7 +269,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Order ID
+     * @param int|null $order_id Order ID.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets record_id
      *
-     * @param int|null $record_id Collateral record ID
+     * @param int|null $record_id Collateral record ID.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_currency
      *
-     * @param string|null $borrow_currency Borrowed currency
+     * @param string|null $borrow_currency Borrowed currency.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets borrow_amount
      *
-     * @param string|null $borrow_amount Borrowing amount
+     * @param string|null $borrow_amount Borrowing amount.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets collateral_currency
      *
-     * @param string|null $collateral_currency Collateral
+     * @param string|null $collateral_currency Collateral.
      *
      * @return $this
      */
@@ -389,7 +389,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets before_collateral
      *
-     * @param string|null $before_collateral The collateral amount before adjustment
+     * @param string|null $before_collateral The collateral amount before adjustment.
      *
      * @return $this
      */
@@ -413,7 +413,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets after_collateral
      *
-     * @param string|null $after_collateral The collateral amount after adjustment
+     * @param string|null $after_collateral The collateral amount after adjustment.
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets before_ltv
      *
-     * @param string|null $before_ltv The collateral ratio before adjustment
+     * @param string|null $before_ltv The collateral ratio before adjustment.
      *
      * @return $this
      */
@@ -461,7 +461,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets after_ltv
      *
-     * @param string|null $after_ltv The collateral ratio after adjustment
+     * @param string|null $after_ltv The collateral ratio after adjustment.
      *
      * @return $this
      */
@@ -485,7 +485,7 @@ class CollateralRecord implements ModelInterface, ArrayAccess
     /**
      * Sets operate_time
      *
-     * @param int|null $operate_time Timestamp of the operation, in seconds
+     * @param int|null $operate_time Timestamp of the operation, in seconds.
      *
      * @return $this
      */

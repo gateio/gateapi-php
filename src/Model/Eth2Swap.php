@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * Eth2Swap Class Doc Comment
  *
  * @category Class
- * @description ETH2 Staking
+ * @description ETH2 Staking.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -227,7 +227,7 @@ class Eth2Swap implements ModelInterface, ArrayAccess
     /**
      * Sets side
      *
-     * @param string $side 1-Forward Swap（ETH -> ETH2）, 2-Reverse Swap（ETH2 -> ETH）
+     * @param string $side 1-Forward Swap（ETH -> ETH2）, 2-Reverse Swap（ETH2 -> ETH）.
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class Eth2Swap implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string $amount amount
+     * @param string $amount amount.
      *
      * @return $this
      */

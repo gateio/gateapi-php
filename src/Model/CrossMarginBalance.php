@@ -232,7 +232,7 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param string|null $available Available amount
+     * @param string|null $available Available amount.
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
     /**
      * Sets freeze
      *
-     * @param string|null $freeze Locked amount
+     * @param string|null $freeze Locked amount.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
     /**
      * Sets borrowed
      *
-     * @param string|null $borrowed Borrowed amount
+     * @param string|null $borrowed Borrowed amount.
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class CrossMarginBalance implements ModelInterface, ArrayAccess
     /**
      * Sets interest
      *
-     * @param string|null $interest Unpaid interests
+     * @param string|null $interest Unpaid interests.
      *
      * @return $this
      */

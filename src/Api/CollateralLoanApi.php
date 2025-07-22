@@ -116,14 +116,14 @@ class CollateralLoanApi
     /**
      * Operation listCollateralLoanOrders
      *
-     * List Orders
+     * List Orders.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -138,14 +138,14 @@ class CollateralLoanApi
     /**
      * Operation listCollateralLoanOrdersWithHttpInfo
      *
-     * List Orders
+     * List Orders.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -197,14 +197,14 @@ class CollateralLoanApi
     /**
      * Operation listCollateralLoanOrdersAsync
      *
-     * List Orders
+     * List Orders.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -222,14 +222,14 @@ class CollateralLoanApi
     /**
      * Operation listCollateralLoanOrdersAsyncWithHttpInfo
      *
-     * List Orders
+     * List Orders.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -278,10 +278,10 @@ class CollateralLoanApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -431,7 +431,7 @@ class CollateralLoanApi
     /**
      * Operation createCollateralLoan
      *
-     * Place order
+     * Place order.
      *
      * @param  \GateApi\Model\CreateCollateralOrder $create_collateral_order create_collateral_order (required)
      *
@@ -448,7 +448,7 @@ class CollateralLoanApi
     /**
      * Operation createCollateralLoanWithHttpInfo
      *
-     * Place order
+     * Place order.
      *
      * @param  \GateApi\Model\CreateCollateralOrder $create_collateral_order (required)
      *
@@ -502,7 +502,7 @@ class CollateralLoanApi
     /**
      * Operation createCollateralLoanAsync
      *
-     * Place order
+     * Place order.
      *
      * @param  \GateApi\Model\CreateCollateralOrder $create_collateral_order (required)
      *
@@ -522,7 +522,7 @@ class CollateralLoanApi
     /**
      * Operation createCollateralLoanAsyncWithHttpInfo
      *
-     * Place order
+     * Place order.
      *
      * @param  \GateApi\Model\CreateCollateralOrder $create_collateral_order (required)
      *
@@ -665,9 +665,9 @@ class CollateralLoanApi
     /**
      * Operation getCollateralLoanOrderDetail
      *
-     * Get a single order
+     * Get a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -682,9 +682,9 @@ class CollateralLoanApi
     /**
      * Operation getCollateralLoanOrderDetailWithHttpInfo
      *
-     * Get a single order
+     * Get a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -736,9 +736,9 @@ class CollateralLoanApi
     /**
      * Operation getCollateralLoanOrderDetailAsync
      *
-     * Get a single order
+     * Get a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -756,9 +756,9 @@ class CollateralLoanApi
     /**
      * Operation getCollateralLoanOrderDetailAsyncWithHttpInfo
      *
-     * Get a single order
+     * Get a single order.
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -805,7 +805,7 @@ class CollateralLoanApi
     /**
      * Create request for operation 'getCollateralLoanOrderDetail'
      *
-     * @param  int $order_id Order ID returned on successful order creation (required)
+     * @param  int $order_id Order ID returned on successful order creation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -905,7 +905,7 @@ class CollateralLoanApi
     /**
      * Operation repayCollateralLoan
      *
-     * Repayment
+     * Repayment.
      *
      * @param  \GateApi\Model\RepayLoan $repay_loan repay_loan (required)
      *
@@ -922,7 +922,7 @@ class CollateralLoanApi
     /**
      * Operation repayCollateralLoanWithHttpInfo
      *
-     * Repayment
+     * Repayment.
      *
      * @param  \GateApi\Model\RepayLoan $repay_loan (required)
      *
@@ -976,7 +976,7 @@ class CollateralLoanApi
     /**
      * Operation repayCollateralLoanAsync
      *
-     * Repayment
+     * Repayment.
      *
      * @param  \GateApi\Model\RepayLoan $repay_loan (required)
      *
@@ -996,7 +996,7 @@ class CollateralLoanApi
     /**
      * Operation repayCollateralLoanAsyncWithHttpInfo
      *
-     * Repayment
+     * Repayment.
      *
      * @param  \GateApi\Model\RepayLoan $repay_loan (required)
      *
@@ -1139,17 +1139,17 @@ class CollateralLoanApi
     /**
      * Operation listRepayRecords
      *
-     * Repayment history
+     * Repayment history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation (required)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation. (required)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1164,17 +1164,17 @@ class CollateralLoanApi
     /**
      * Operation listRepayRecordsWithHttpInfo
      *
-     * Repayment history
+     * Repayment history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation (required)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation. (required)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1226,17 +1226,17 @@ class CollateralLoanApi
     /**
      * Operation listRepayRecordsAsync
      *
-     * Repayment history
+     * Repayment history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation (required)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation. (required)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1254,17 +1254,17 @@ class CollateralLoanApi
     /**
      * Operation listRepayRecordsAsyncWithHttpInfo
      *
-     * Repayment history
+     * Repayment history.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation (required)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation. (required)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1313,13 +1313,13 @@ class CollateralLoanApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation (required)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
+     * @param  string $source Operation type: repay - Regular repayment, liquidate - Liquidation. (required)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1514,16 +1514,16 @@ class CollateralLoanApi
     /**
      * Operation listCollateralRecords
      *
-     * Query collateral adjustment records
+     * Query collateral adjustment records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1538,16 +1538,16 @@ class CollateralLoanApi
     /**
      * Operation listCollateralRecordsWithHttpInfo
      *
-     * Query collateral adjustment records
+     * Query collateral adjustment records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1599,16 +1599,16 @@ class CollateralLoanApi
     /**
      * Operation listCollateralRecordsAsync
      *
-     * Query collateral adjustment records
+     * Query collateral adjustment records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1626,16 +1626,16 @@ class CollateralLoanApi
     /**
      * Operation listCollateralRecordsAsyncWithHttpInfo
      *
-     * Query collateral adjustment records
+     * Query collateral adjustment records.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1684,12 +1684,12 @@ class CollateralLoanApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  int $page Page number (optional, default to 1)
-     * @param  int $limit Maximum number of records to be returned in a single list (optional, default to 100)
-     * @param  int $from Start timestamp of the query (optional)
-     * @param  int $to Time range ending, default to current time (optional)
-     * @param  string $borrow_currency Borrowed currency (optional)
-     * @param  string $collateral_currency Collateral (optional)
+     * @param  int $page Page number. (optional, default to 1)
+     * @param  int $limit Maximum number of records to be returned in a single list. (optional, default to 100)
+     * @param  int $from Start timestamp of the query. (optional)
+     * @param  int $to Time range ending, default to current time. (optional)
+     * @param  string $borrow_currency Borrowed currency. (optional)
+     * @param  string $collateral_currency Collateral. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1865,7 +1865,7 @@ class CollateralLoanApi
     /**
      * Operation operateCollateral
      *
-     * Increase or redeem collateral
+     * Increase or redeem collateral.
      *
      * @param  \GateApi\Model\CollateralAlign $collateral_align collateral_align (required)
      *
@@ -1881,7 +1881,7 @@ class CollateralLoanApi
     /**
      * Operation operateCollateralWithHttpInfo
      *
-     * Increase or redeem collateral
+     * Increase or redeem collateral.
      *
      * @param  \GateApi\Model\CollateralAlign $collateral_align (required)
      *
@@ -1923,7 +1923,7 @@ class CollateralLoanApi
     /**
      * Operation operateCollateralAsync
      *
-     * Increase or redeem collateral
+     * Increase or redeem collateral.
      *
      * @param  \GateApi\Model\CollateralAlign $collateral_align (required)
      *
@@ -1943,7 +1943,7 @@ class CollateralLoanApi
     /**
      * Operation operateCollateralAsyncWithHttpInfo
      *
-     * Increase or redeem collateral
+     * Increase or redeem collateral.
      *
      * @param  \GateApi\Model\CollateralAlign $collateral_align (required)
      *
@@ -2075,7 +2075,7 @@ class CollateralLoanApi
     /**
      * Operation getUserTotalAmount
      *
-     * Query the total borrowing and collateral amount for the user
+     * Query the total borrowing and collateral amount for the user.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2091,7 +2091,7 @@ class CollateralLoanApi
     /**
      * Operation getUserTotalAmountWithHttpInfo
      *
-     * Query the total borrowing and collateral amount for the user
+     * Query the total borrowing and collateral amount for the user.
      *
      *
      * @throws \GateApi\ApiException on non-2xx response
@@ -2144,7 +2144,7 @@ class CollateralLoanApi
     /**
      * Operation getUserTotalAmountAsync
      *
-     * Query the total borrowing and collateral amount for the user
+     * Query the total borrowing and collateral amount for the user.
      *
      *
      * @throws \InvalidArgumentException
@@ -2163,7 +2163,7 @@ class CollateralLoanApi
     /**
      * Operation getUserTotalAmountAsyncWithHttpInfo
      *
-     * Query the total borrowing and collateral amount for the user
+     * Query the total borrowing and collateral amount for the user.
      *
      *
      * @throws \InvalidArgumentException
@@ -2295,10 +2295,10 @@ class CollateralLoanApi
     /**
      * Operation getUserLtvInfo
      *
-     * Query user's collateralization ratio
+     * Query user's collateralization ratio.
      *
-     * @param  string $collateral_currency Collateral (required)
-     * @param  string $borrow_currency Borrowed currency (required)
+     * @param  string $collateral_currency Collateral. (required)
+     * @param  string $borrow_currency Borrowed currency. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2313,10 +2313,10 @@ class CollateralLoanApi
     /**
      * Operation getUserLtvInfoWithHttpInfo
      *
-     * Query user's collateralization ratio
+     * Query user's collateralization ratio.
      *
-     * @param  string $collateral_currency Collateral (required)
-     * @param  string $borrow_currency Borrowed currency (required)
+     * @param  string $collateral_currency Collateral. (required)
+     * @param  string $borrow_currency Borrowed currency. (required)
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2368,10 +2368,10 @@ class CollateralLoanApi
     /**
      * Operation getUserLtvInfoAsync
      *
-     * Query user's collateralization ratio
+     * Query user's collateralization ratio.
      *
-     * @param  string $collateral_currency Collateral (required)
-     * @param  string $borrow_currency Borrowed currency (required)
+     * @param  string $collateral_currency Collateral. (required)
+     * @param  string $borrow_currency Borrowed currency. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2389,10 +2389,10 @@ class CollateralLoanApi
     /**
      * Operation getUserLtvInfoAsyncWithHttpInfo
      *
-     * Query user's collateralization ratio
+     * Query user's collateralization ratio.
      *
-     * @param  string $collateral_currency Collateral (required)
-     * @param  string $borrow_currency Borrowed currency (required)
+     * @param  string $collateral_currency Collateral. (required)
+     * @param  string $borrow_currency Borrowed currency. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2439,8 +2439,8 @@ class CollateralLoanApi
     /**
      * Create request for operation 'getUserLtvInfo'
      *
-     * @param  string $collateral_currency Collateral (required)
-     * @param  string $borrow_currency Borrowed currency (required)
+     * @param  string $collateral_currency Collateral. (required)
+     * @param  string $borrow_currency Borrowed currency. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2561,7 +2561,7 @@ class CollateralLoanApi
     /**
      * Operation listCollateralCurrencies
      *
-     * Query supported borrowing and collateral currencies
+     * Query supported borrowing and collateral currencies.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2580,7 +2580,7 @@ class CollateralLoanApi
     /**
      * Operation listCollateralCurrenciesWithHttpInfo
      *
-     * Query supported borrowing and collateral currencies
+     * Query supported borrowing and collateral currencies.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2636,7 +2636,7 @@ class CollateralLoanApi
     /**
      * Operation listCollateralCurrenciesAsync
      *
-     * Query supported borrowing and collateral currencies
+     * Query supported borrowing and collateral currencies.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
@@ -2658,7 +2658,7 @@ class CollateralLoanApi
     /**
      * Operation listCollateralCurrenciesAsyncWithHttpInfo
      *
-     * Query supported borrowing and collateral currencies
+     * Query supported borrowing and collateral currencies.
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *

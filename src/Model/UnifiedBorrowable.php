@@ -220,7 +220,7 @@ class UnifiedBorrowable implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency detail
+     * @param string|null $currency Currency detail.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class UnifiedBorrowable implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Max borrowable amount
+     * @param string|null $amount Max borrowable amount.
      *
      * @return $this
      */

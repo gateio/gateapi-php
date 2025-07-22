@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * CollateralFixRate Class Doc Comment
  *
  * @category Class
- * @description Multi-collateral fixed interest rate
+ * @description Multi-collateral fixed interest rate.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -233,7 +233,7 @@ class CollateralFixRate implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -257,7 +257,7 @@ class CollateralFixRate implements ModelInterface, ArrayAccess
     /**
      * Sets rate_7d
      *
-     * @param string|null $rate_7d Fixed interest rate for a lending period of 7 days
+     * @param string|null $rate_7d Fixed interest rate for a lending period of 7 days.
      *
      * @return $this
      */
@@ -281,7 +281,7 @@ class CollateralFixRate implements ModelInterface, ArrayAccess
     /**
      * Sets rate_30d
      *
-     * @param string|null $rate_30d Fixed interest rate for a lending period of 30 days
+     * @param string|null $rate_30d Fixed interest rate for a lending period of 30 days.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class CollateralFixRate implements ModelInterface, ArrayAccess
     /**
      * Sets update_time
      *
-     * @param int|null $update_time Update time, timestamp, unit in seconds
+     * @param int|null $update_time Update time, timestamp, unit in seconds.
      *
      * @return $this
      */

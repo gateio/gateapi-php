@@ -220,7 +220,7 @@ class BrokerTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param int|null $total Total
+     * @param int|null $total Total.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class BrokerTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets list
      *
-     * @param \GateApi\Model\BrokerTransaction1[]|null $list List of transaction history
+     * @param \GateApi\Model\BrokerTransaction1[]|null $list List of transaction history.
      *
      * @return $this
      */

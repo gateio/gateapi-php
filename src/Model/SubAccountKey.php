@@ -268,7 +268,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets mode
      *
-     * @param int|null $mode Mode: 1 - classic 2 - portfolio account
+     * @param int|null $mode Mode: 1 - classic 2 - portfolio account.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name API key name
+     * @param string|null $name API key name.
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets ip_whitelist
      *
-     * @param string[]|null $ip_whitelist ip white list (list will be removed if no value is passed)
+     * @param string[]|null $ip_whitelist ip white list (list will be removed if no value is passed).
      *
      * @return $this
      */
@@ -388,7 +388,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets key
      *
-     * @param string|null $key API Key
+     * @param string|null $key API Key.
      *
      * @return $this
      */
@@ -412,7 +412,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param int|null $state State 1 - normal 2 - locked 3 - frozen
+     * @param int|null $state State 1 - normal 2 - locked 3 - frozen.
      *
      * @return $this
      */
@@ -436,7 +436,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets created_at
      *
-     * @param int|null $created_at Creation time
+     * @param int|null $created_at Creation time.
      *
      * @return $this
      */
@@ -460,7 +460,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param int|null $updated_at Last update time
+     * @param int|null $updated_at Last update time.
      *
      * @return $this
      */
@@ -484,7 +484,7 @@ class SubAccountKey implements ModelInterface, ArrayAccess
     /**
      * Sets last_access
      *
-     * @param int|null $last_access Last access time
+     * @param int|null $last_access Last access time.
      *
      * @return $this
      */

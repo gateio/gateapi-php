@@ -226,7 +226,7 @@ class FuturesPositionCrossMode implements ModelInterface, ArrayAccess
     /**
      * Sets mode
      *
-     * @param string $mode Full position-by-position model, ISOLATED-by-position, CROSS-full position
+     * @param string $mode Full position-by-position model, ISOLATED-by-position, CROSS-full position.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class FuturesPositionCrossMode implements ModelInterface, ArrayAccess
     /**
      * Sets contract
      *
-     * @param string $contract Contract Market
+     * @param string $contract Contract Market.
      *
      * @return $this
      */

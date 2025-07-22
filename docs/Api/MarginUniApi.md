@@ -4,21 +4,21 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listUniCurrencyPairs**](MarginUniApi.md#listUniCurrencyPairs) | **GET** /margin/uni/currency_pairs | List lending markets
-[**getUniCurrencyPair**](MarginUniApi.md#getUniCurrencyPair) | **GET** /margin/uni/currency_pairs/{currency_pair} | Get detail of lending market
-[**getMarginUniEstimateRate**](MarginUniApi.md#getMarginUniEstimateRate) | **GET** /margin/uni/estimate_rate | Estimate interest Rate
-[**listUniLoans**](MarginUniApi.md#listUniLoans) | **GET** /margin/uni/loans | List loans
-[**createUniLoan**](MarginUniApi.md#createUniLoan) | **POST** /margin/uni/loans | Borrow or repay
-[**listUniLoanRecords**](MarginUniApi.md#listUniLoanRecords) | **GET** /margin/uni/loan_records | Get load records
-[**listUniLoanInterestRecords**](MarginUniApi.md#listUniLoanInterestRecords) | **GET** /margin/uni/interest_records | List interest records
-[**getUniBorrowable**](MarginUniApi.md#getUniBorrowable) | **GET** /margin/uni/borrowable | Get maximum borrowable
+[**listUniCurrencyPairs**](MarginUniApi.md#listUniCurrencyPairs) | **GET** /margin/uni/currency_pairs | List lending markets.
+[**getUniCurrencyPair**](MarginUniApi.md#getUniCurrencyPair) | **GET** /margin/uni/currency_pairs/{currency_pair} | Get detail of lending market.
+[**getMarginUniEstimateRate**](MarginUniApi.md#getMarginUniEstimateRate) | **GET** /margin/uni/estimate_rate | Estimate interest Rate.
+[**listUniLoans**](MarginUniApi.md#listUniLoans) | **GET** /margin/uni/loans | List loans.
+[**createUniLoan**](MarginUniApi.md#createUniLoan) | **POST** /margin/uni/loans | Borrow or repay.
+[**listUniLoanRecords**](MarginUniApi.md#listUniLoanRecords) | **GET** /margin/uni/loan_records | Get load records.
+[**listUniLoanInterestRecords**](MarginUniApi.md#listUniLoanInterestRecords) | **GET** /margin/uni/interest_records | List interest records.
+[**getUniBorrowable**](MarginUniApi.md#getUniBorrowable) | **GET** /margin/uni/borrowable | Get maximum borrowable.
 
 
 ## listUniCurrencyPairs
 
 > \GateApi\Model\UniCurrencyPair[] listUniCurrencyPairs()
 
-List lending markets
+List lending markets.
 
 ### Example
 
@@ -70,7 +70,7 @@ No authorization required
 
 > \GateApi\Model\UniCurrencyPair getUniCurrencyPair($currency_pair)
 
-Get detail of lending market
+Get detail of lending market.
 
 ### Example
 
@@ -84,7 +84,7 @@ $apiInstance = new GateApi\Api\MarginUniApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$currency_pair = 'AE_USDT'; // string | Currency pair
+$currency_pair = 'AE_USDT'; // string | Currency pair.
 
 try {
     $result = $apiInstance->getUniCurrencyPair($currency_pair);
@@ -102,7 +102,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair |
+ **currency_pair** | **string**| Currency pair. |
 
 ### Return type
 
@@ -126,7 +126,7 @@ No authorization required
 
 > map[string,string] getMarginUniEstimateRate($currencies)
 
-Estimate interest Rate
+Estimate interest Rate.
 
 Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
 
@@ -146,7 +146,7 @@ $apiInstance = new GateApi\Api\MarginUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currencies = array('[\"BTC\",\"GT\"]'); // string[] | An array of up to 10 specifying the currency name
+$currencies = array('[\"BTC\",\"GT\"]'); // string[] | An array of up to 10 specifying the currency name.
 
 try {
     $result = $apiInstance->getMarginUniEstimateRate($currencies);
@@ -164,7 +164,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**string[]**](../Model/string.md)| An array of up to 10 specifying the currency name |
+ **currencies** | [**string[]**](../Model/string.md)| An array of up to 10 specifying the currency name. |
 
 ### Return type
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UniLoan[] listUniLoans($currency_pair, $currency, $page, $limit)
 
-List loans
+List loans.
 
 ### Example
 
@@ -206,10 +206,10 @@ $apiInstance = new GateApi\Api\MarginUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
-$associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
+$associate_array['page'] = 1; // int | Page number.
+$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
 
 try {
     $result = $apiInstance->listUniLoans($associate_array);
@@ -229,10 +229,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair | [optional]
- **currency** | **string**| Retrieve data of the specified currency | [optional]
- **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **currency_pair** | **string**| Currency pair. | [optional]
+ **currency** | **string**| Retrieve data of the specified currency. | [optional]
+ **page** | **int**| Page number. | [optional] [default to 1]
+ **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
 
 ### Return type
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 > createUniLoan($create_uni_loan)
 
-Borrow or repay
+Borrow or repay.
 
 ### Example
 
@@ -315,7 +315,7 @@ void (empty response body)
 
 > \GateApi\Model\UniLoanRecord[] listUniLoanRecords($type, $currency, $currency_pair, $page, $limit)
 
-Get load records
+Get load records.
 
 ### Example
 
@@ -333,11 +333,11 @@ $apiInstance = new GateApi\Api\MarginUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['type'] = 'type_example'; // string | type: borrow - borrow, repay - repay
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
-$associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+$associate_array['type'] = 'type_example'; // string | type: borrow - borrow, repay - repay.
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
+$associate_array['page'] = 1; // int | Page number.
+$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
 
 try {
     $result = $apiInstance->listUniLoanRecords($associate_array);
@@ -357,11 +357,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| type: borrow - borrow, repay - repay | [optional]
- **currency** | **string**| Retrieve data of the specified currency | [optional]
- **currency_pair** | **string**| Currency pair | [optional]
- **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **type** | **string**| type: borrow - borrow, repay - repay. | [optional]
+ **currency** | **string**| Retrieve data of the specified currency. | [optional]
+ **currency_pair** | **string**| Currency pair. | [optional]
+ **page** | **int**| Page number. | [optional] [default to 1]
+ **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
 
 ### Return type
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UniLoanInterestRecord[] listUniLoanInterestRecords($currency_pair, $currency, $page, $limit, $from, $to)
 
-List interest records
+List interest records.
 
 ### Example
 
@@ -403,10 +403,10 @@ $apiInstance = new GateApi\Api\MarginUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency
-$associate_array['page'] = 1; // int | Page number
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
+$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
+$associate_array['page'] = 1; // int | Page number.
+$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
@@ -428,10 +428,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair | [optional]
- **currency** | **string**| Retrieve data of the specified currency | [optional]
- **page** | **int**| Page number | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **currency_pair** | **string**| Currency pair. | [optional]
+ **currency** | **string**| Retrieve data of the specified currency. | [optional]
+ **page** | **int**| Page number. | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MaxUniBorrowable getUniBorrowable($currency, $currency_pair)
 
-Get maximum borrowable
+Get maximum borrowable.
 
 ### Example
 
@@ -475,8 +475,8 @@ $apiInstance = new GateApi\Api\MarginUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'BTC'; // string | Retrieve data of the specified currency
-$currency_pair = 'BTC_USDT'; // string | Currency pair
+$currency = 'BTC'; // string | Retrieve data of the specified currency.
+$currency_pair = 'BTC_USDT'; // string | Currency pair.
 
 try {
     $result = $apiInstance->getUniBorrowable($currency, $currency_pair);
@@ -494,8 +494,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency |
- **currency_pair** | **string**| Currency pair |
+ **currency** | **string**| Retrieve data of the specified currency. |
+ **currency_pair** | **string**| Currency pair. |
 
 ### Return type
 

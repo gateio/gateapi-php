@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * MockMarginResult Class Doc Comment
  *
  * @category Class
- * @description Margin result
+ * @description Margin result.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com
@@ -251,7 +251,7 @@ class MockMarginResult implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Position combination type `original_position` - Original position `long_delta_original_position` - Positive delta + Original position `short_delta_original_position` - Negative delta + Original position
+     * @param string|null $type Position combination type `original_position` - Original position `long_delta_original_position` - Positive delta + Original position `short_delta_original_position` position
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class MockMarginResult implements ModelInterface, ArrayAccess
     /**
      * Sets profit_loss_ranges
      *
-     * @param \GateApi\Model\ProfitLossRange[]|null $profit_loss_ranges The results of 33 pressure scenarios for MR1
+     * @param \GateApi\Model\ProfitLossRange[]|null $profit_loss_ranges The results of 3 pressure scenarios for MR1.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class MockMarginResult implements ModelInterface, ArrayAccess
     /**
      * Sets mr1
      *
-     * @param string|null $mr1 Stress testing
+     * @param string|null $mr1 Stress testing.
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class MockMarginResult implements ModelInterface, ArrayAccess
     /**
      * Sets mr2
      *
-     * @param string|null $mr2 Basis spread risk
+     * @param string|null $mr2 Basis spread risk.
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class MockMarginResult implements ModelInterface, ArrayAccess
     /**
      * Sets mr3
      *
-     * @param string|null $mr3 Volatility spread risk
+     * @param string|null $mr3 Volatility spread risk.
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class MockMarginResult implements ModelInterface, ArrayAccess
     /**
      * Sets mr4
      *
-     * @param string|null $mr4 Option short risk
+     * @param string|null $mr4 Option short risk.
      *
      * @return $this
      */

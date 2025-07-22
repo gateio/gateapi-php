@@ -232,7 +232,7 @@ class UnifiedHistoryLoanRate implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency name
+     * @param string|null $currency Currency name.
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class UnifiedHistoryLoanRate implements ModelInterface, ArrayAccess
     /**
      * Sets tier
      *
-     * @param string|null $tier The VIP level of the floating rate required
+     * @param string|null $tier The VIP level of the floating rate required.
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class UnifiedHistoryLoanRate implements ModelInterface, ArrayAccess
     /**
      * Sets tier_up_rate
      *
-     * @param string|null $tier_up_rate VIP level corresponding floating rate
+     * @param string|null $tier_up_rate VIP level corresponding floating rate.
      *
      * @return $this
      */

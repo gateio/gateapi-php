@@ -33,7 +33,7 @@ use \GateApi\ObjectSerializer;
  * TotalBalance Class Doc Comment
  *
  * @category Class
- * @description User&#39;s balance in all accounts
+ * @description User&#39;s balance in all accounts.
  * @package  GateApi
  * @author   Gate
  * @link     https://www.gate.com

@@ -220,7 +220,7 @@ class FundingRateRecord implements ModelInterface, ArrayAccess
     /**
      * Sets t
      *
-     * @param int|null $t Unix timestamp in seconds
+     * @param int|null $t Unix timestamp in seconds.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class FundingRateRecord implements ModelInterface, ArrayAccess
     /**
      * Sets r
      *
-     * @param string|null $r Funding rate
+     * @param string|null $r Funding rate.
      *
      * @return $this
      */

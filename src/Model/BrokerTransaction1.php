@@ -62,7 +62,8 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
         'amount' => 'string',
         'fee_asset' => 'string',
         'source' => 'string',
-        'sub_broker_info' => '\GateApi\Model\BrokerCommissionSubBrokerInfo'
+        'sub_broker_info' => '\GateApi\Model\BrokerCommissionSubBrokerInfo',
+        'alpha_contract_addr' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
         'amount' => null,
         'fee_asset' => null,
         'source' => null,
-        'sub_broker_info' => null
+        'sub_broker_info' => null,
+        'alpha_contract_addr' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
         'amount' => 'amount',
         'fee_asset' => 'fee_asset',
         'source' => 'source',
-        'sub_broker_info' => 'sub_broker_info'
+        'sub_broker_info' => 'sub_broker_info',
+        'alpha_contract_addr' => 'alpha_contract_addr'
     ];
 
     /**
@@ -134,7 +137,8 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
         'amount' => 'setAmount',
         'fee_asset' => 'setFeeAsset',
         'source' => 'setSource',
-        'sub_broker_info' => 'setSubBrokerInfo'
+        'sub_broker_info' => 'setSubBrokerInfo',
+        'alpha_contract_addr' => 'setAlphaContractAddr'
     ];
 
     /**
@@ -151,7 +155,8 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
         'amount' => 'getAmount',
         'fee_asset' => 'getFeeAsset',
         'source' => 'getSource',
-        'sub_broker_info' => 'getSubBrokerInfo'
+        'sub_broker_info' => 'getSubBrokerInfo',
+        'alpha_contract_addr' => 'getAlphaContractAddr'
     ];
 
     /**
@@ -223,6 +228,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
         $this->container['fee_asset'] = isset($data['fee_asset']) ? $data['fee_asset'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['sub_broker_info'] = isset($data['sub_broker_info']) ? $data['sub_broker_info'] : null;
+        $this->container['alpha_contract_addr'] = isset($data['alpha_contract_addr']) ? $data['alpha_contract_addr'] : null;
     }
 
     /**
@@ -262,7 +268,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_time
      *
-     * @param int|null $transaction_time Transaction Time. (unix timestamp)
+     * @param int|null $transaction_time Transaction Time. (unix timestamp).
      *
      * @return $this
      */
@@ -286,7 +292,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     /**
      * Sets user_id
      *
-     * @param int|null $user_id User ID
+     * @param int|null $user_id User ID.
      *
      * @return $this
      */
@@ -310,7 +316,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     /**
      * Sets group_name
      *
-     * @param string|null $group_name Group name
+     * @param string|null $group_name Group name.
      *
      * @return $this
      */
@@ -334,7 +340,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee fee (usdt)
+     * @param string|null $fee fee (usdt).
      *
      * @return $this
      */
@@ -358,7 +364,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -382,7 +388,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Commission Amount
+     * @param string|null $amount Commission Amount.
      *
      * @return $this
      */
@@ -406,7 +412,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     /**
      * Sets fee_asset
      *
-     * @param string|null $fee_asset Fee currency
+     * @param string|null $fee_asset Fee currency.
      *
      * @return $this
      */
@@ -430,7 +436,7 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     /**
      * Sets source
      *
-     * @param string|null $source Rebate Type: Spot、Futures、Options
+     * @param string|null $source Rebate Type: Spot、Futures、Options.、Alpha
      *
      * @return $this
      */
@@ -461,6 +467,30 @@ class BrokerTransaction1 implements ModelInterface, ArrayAccess
     public function setSubBrokerInfo($sub_broker_info)
     {
         $this->container['sub_broker_info'] = $sub_broker_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets alpha_contract_addr
+     *
+     * @return string|null
+     */
+    public function getAlphaContractAddr()
+    {
+        return $this->container['alpha_contract_addr'];
+    }
+
+    /**
+     * Sets alpha_contract_addr
+     *
+     * @param string|null $alpha_contract_addr Alpha token address
+     *
+     * @return $this
+     */
+    public function setAlphaContractAddr($alpha_contract_addr)
+    {
+        $this->container['alpha_contract_addr'] = $alpha_contract_addr;
 
         return $this;
     }

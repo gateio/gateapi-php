@@ -244,7 +244,7 @@ class MultiCollateralRecordCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class MultiCollateralRecordCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets index_price
      *
-     * @param string|null $index_price Currency Index Price
+     * @param string|null $index_price Currency Index Price.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class MultiCollateralRecordCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets before_amount
      *
-     * @param string|null $before_amount Amount before the operation
+     * @param string|null $before_amount Amount before the operation.
      *
      * @return $this
      */

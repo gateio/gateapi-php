@@ -220,7 +220,7 @@ class UniCurrencyInterest implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class UniCurrencyInterest implements ModelInterface, ArrayAccess
     /**
      * Sets interest_status
      *
-     * @param string|null $interest_status Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+     * @param string|null $interest_status Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
      *
      * @return $this
      */

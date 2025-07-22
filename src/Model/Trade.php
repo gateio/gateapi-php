@@ -350,7 +350,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Trade ID
+     * @param string|null $id Trade ID.
      *
      * @return $this
      */
@@ -374,7 +374,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets create_time
      *
-     * @param string|null $create_time Trading time
+     * @param string|null $create_time Trading time.
      *
      * @return $this
      */
@@ -398,7 +398,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets create_time_ms
      *
-     * @param string|null $create_time_ms Trading time, with millisecond precision
+     * @param string|null $create_time_ms Trading time, with millisecond precision.
      *
      * @return $this
      */
@@ -422,7 +422,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets currency_pair
      *
-     * @param string|null $currency_pair Currency pair
+     * @param string|null $currency_pair Currency pair.
      *
      * @return $this
      */
@@ -446,7 +446,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets side
      *
-     * @param string|null $side Buy or sell order
+     * @param string|null $side Buy or sell order.
      *
      * @return $this
      */
@@ -479,7 +479,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets role
      *
-     * @param string|null $role Trade role. No value in public endpoints
+     * @param string|null $role Trade role. No value in public endpoints.
      *
      * @return $this
      */
@@ -512,7 +512,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param string|null $amount Trade amount
+     * @param string|null $amount Trade amount.
      *
      * @return $this
      */
@@ -536,7 +536,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param string|null $price Order price
+     * @param string|null $price Order price.
      *
      * @return $this
      */
@@ -560,7 +560,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param string|null $order_id Related order ID. No value in public endpoints
+     * @param string|null $order_id Related order ID. No value in public endpoints.
      *
      * @return $this
      */
@@ -584,7 +584,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets fee
      *
-     * @param string|null $fee Fee deducted. No value in public endpoints
+     * @param string|null $fee Fee deducted. No value in public endpoints.
      *
      * @return $this
      */
@@ -608,7 +608,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets fee_currency
      *
-     * @param string|null $fee_currency Fee currency unit. No value in public endpoints
+     * @param string|null $fee_currency Fee currency unit. No value in public endpoints.
      *
      * @return $this
      */
@@ -632,7 +632,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets point_fee
      *
-     * @param string|null $point_fee Points used to deduct fee. No value in public endpoints
+     * @param string|null $point_fee Points used to deduct fee. No value in public endpoints.
      *
      * @return $this
      */
@@ -656,7 +656,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets gt_fee
      *
-     * @param string|null $gt_fee GT used to deduct fee. No value in public endpoints
+     * @param string|null $gt_fee GT used to deduct fee. No value in public endpoints.
      *
      * @return $this
      */
@@ -680,7 +680,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets amend_text
      *
-     * @param string|null $amend_text The custom data that the user remarked when amending the order
+     * @param string|null $amend_text The custom data that the user remarked when amending the order.
      *
      * @return $this
      */
@@ -728,7 +728,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param string|null $text User defined information. No value in public endpoints
+     * @param string|null $text User defined information. No value in public endpoints.
      *
      * @return $this
      */

@@ -4,16 +4,16 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**withdraw**](WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
-[**withdrawPushOrder**](WithdrawalApi.md#withdrawPushOrder) | **POST** /withdrawals/push | UID transfer
-[**cancelWithdrawal**](WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID
+[**withdraw**](WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw.
+[**withdrawPushOrder**](WithdrawalApi.md#withdrawPushOrder) | **POST** /withdrawals/push | UID transfer.
+[**cancelWithdrawal**](WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID.
 
 
 ## withdraw
 
 > \GateApi\Model\LedgerRecord withdraw($ledger_record)
 
-Withdraw
+Withdraw.
 
 Withdrawals to Gate addresses do not incur transaction fees.
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UidPushWithdrawalResp withdrawPushOrder($uid_push_withdrawal)
 
-UID transfer
+UID transfer.
 
 Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\LedgerRecord cancelWithdrawal($withdrawal_id)
 
-Cancel withdrawal with specified ID
+Cancel withdrawal with specified ID.
 
 ### Example
 

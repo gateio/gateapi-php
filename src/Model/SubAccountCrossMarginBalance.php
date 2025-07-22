@@ -220,7 +220,7 @@ class SubAccountCrossMarginBalance implements ModelInterface, ArrayAccess
     /**
      * Sets uid
      *
-     * @param string|null $uid User ID
+     * @param string|null $uid User ID.
      *
      * @return $this
      */

@@ -214,7 +214,7 @@ class UidPushWithdrawalResp implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Order ID
+     * @param int|null $id Order ID.
      *
      * @return $this
      */

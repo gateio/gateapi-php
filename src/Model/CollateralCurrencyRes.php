@@ -238,7 +238,7 @@ class CollateralCurrencyRes implements ModelInterface, ArrayAccess
     /**
      * Sets succeeded
      *
-     * @param bool|null $succeeded Update success status
+     * @param bool|null $succeeded Update success status.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class CollateralCurrencyRes implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency
+     * @param string|null $currency Currency.
      *
      * @return $this
      */
