@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**updatePositionMargin**](FuturesApi.md#updatePositionMargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin.
 [**updatePositionLeverage**](FuturesApi.md#updatePositionLeverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage.
 [**updatePositionCrossMode**](FuturesApi.md#updatePositionCrossMode) | **POST** /futures/{settle}/positions/cross_mode | Switch to the full position-by-store mode.
+[**updateDualCompPositionCrossMode**](FuturesApi.md#updateDualCompPositionCrossMode) | **POST** /futures/{settle}/dual_comp/positions/cross_mode | 双仓模式下切换全逐仓模式
 [**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit.
 [**setDualMode**](FuturesApi.md#setDualMode) | **POST** /futures/{settle}/dual_mode | Enable or disable dual mode.
 [**getDualModePosition**](FuturesApi.md#getDualModePosition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Retrieve position detail in dual mode.
@@ -1357,6 +1358,68 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## updateDualCompPositionCrossMode
+
+> \GateApi\Model\Position[] updateDualCompPositionCrossMode($settle, $inline_object)
+
+双仓模式下切换全逐仓模式
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure Gate APIv4 authorization: apiv4
+$config = GateApi\Configuration::getDefaultConfiguration()->setKey('YOUR_API_KEY')->setSecret('YOUR_API_SECRET');
+
+
+$apiInstance = new GateApi\Api\FuturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$settle = 'usdt'; // string | Settle currency.
+$inline_object = new \GateApi\Model\InlineObject(); // \GateApi\Model\InlineObject | 
+
+try {
+    $result = $apiInstance->updateDualCompPositionCrossMode($settle, $inline_object);
+    print_r($result);
+} catch (GateApi\GateApiException $e) {
+    echo "Gate API Exception: label: {$e->getLabel()}, message: {$e->getMessage()}" . PHP_EOL;
+} catch (Exception $e) {
+    echo 'Exception when calling FuturesApi->updateDualCompPositionCrossMode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency. |
+ **inline_object** | [**\GateApi\Model\InlineObject**](../Model/InlineObject.md)|  |
+
+### Return type
+
+[**\GateApi\Model\Position[]**](../Model/Position.md)
+
+### Authorization
+
+[apiv4](../../README.md#apiv4)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## updatePositionRiskLimit
 
 > \GateApi\Model\Position updatePositionRiskLimit($settle, $contract, $risk_limit)
@@ -2511,7 +2574,7 @@ Name | Type | Description  | Notes
 
 ## listLiquidates
 
-> \GateApi\Model\FuturesLiquidate[] listLiquidates($settle, $contract, $limit, $at)
+> \GateApi\Model\FuturesLiquidate[] listLiquidates($settle, $contract, $limit, $offset, $from, $to, $at)
 
 List liquidation history.
 
@@ -2534,6 +2597,9 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $associate_array['settle'] = 'usdt'; // string | Settle currency.
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified.
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 $associate_array['at'] = 0; // int | Specify a liquidation timestamp.
 
 try {
@@ -2557,6 +2623,9 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency. |
  **contract** | **string**| Futures contract, return related data only if specified. | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **at** | **int**| Specify a liquidation timestamp. | [optional] [default to 0]
 
 ### Return type
@@ -2579,7 +2648,7 @@ Name | Type | Description  | Notes
 
 ## listAutoDeleverages
 
-> \GateApi\Model\FuturesAutoDeleverage[] listAutoDeleverages($settle, $contract, $limit, $at)
+> \GateApi\Model\FuturesAutoDeleverage[] listAutoDeleverages($settle, $contract, $limit, $offset, $from, $to, $at)
 
 List Auto-Deleveraging History.
 
@@ -2602,6 +2671,9 @@ $apiInstance = new GateApi\Api\FuturesApi(
 $associate_array['settle'] = 'usdt'; // string | Settle currency.
 $associate_array['contract'] = 'BTC_USDT'; // string | Futures contract, return related data only if specified.
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+$associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 $associate_array['at'] = 0; // int | Specify an auto-deleveraging timestamp.
 
 try {
@@ -2625,6 +2697,9 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency. |
  **contract** | **string**| Futures contract, return related data only if specified. | [optional]
  **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **at** | **int**| Specify an auto-deleveraging timestamp. | [optional] [default to 0]
 
 ### Return type
