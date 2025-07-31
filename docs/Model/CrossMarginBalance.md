@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**available** | **string** | Available amount. | [optional] 
-**freeze** | **string** | Locked amount. | [optional] 
-**borrowed** | **string** | Borrowed amount. | [optional] 
-**interest** | **string** | Unpaid interests. | [optional] 
+**available** | **string** | Available balance | [optional] 
+**freeze** | **string** | Locked balance | [optional] 
+**borrowed** | **string** | Borrowed balance | [optional] 
+**interest** | **string** | Unpaid interest | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

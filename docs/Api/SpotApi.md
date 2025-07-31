@@ -4,47 +4,47 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listCurrencies**](SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; details.
-[**getCurrency**](SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency.
-[**listCurrencyPairs**](SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported.
-[**getCurrencyPair**](SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get details of a specifc currency pair.
-[**listTickers**](SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information.
-[**listOrderBook**](SpotApi.md#listOrderBook) | **GET** /spot/order_book | Retrieve order book.
-[**listTrades**](SpotApi.md#listTrades) | **GET** /spot/trades | Retrieve market trades.
-[**listCandlesticks**](SpotApi.md#listCandlesticks) | **GET** /spot/candlesticks | Market candlesticks.
-[**getFee**](SpotApi.md#getFee) | **GET** /spot/fee | Query user trading fee rates.
-[**getBatchSpotFee**](SpotApi.md#getBatchSpotFee) | **GET** /spot/batch_fee | Query a batch of user trading fee rates.
-[**listSpotAccounts**](SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot accounts.
-[**listSpotAccountBook**](SpotApi.md#listSpotAccountBook) | **GET** /spot/account_book | Query account book.
-[**createBatchOrders**](SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders.
-[**listAllOpenOrders**](SpotApi.md#listAllOpenOrders) | **GET** /spot/open_orders | List all open orders.
-[**createCrossLiquidateOrder**](SpotApi.md#createCrossLiquidateOrder) | **POST** /spot/cross_liquidate_orders | close position when cross-currency is disabled.
-[**listOrders**](SpotApi.md#listOrders) | **GET** /spot/orders | List orders.
-[**createOrder**](SpotApi.md#createOrder) | **POST** /spot/orders | Create an order.
-[**cancelOrders**](SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair.
-[**cancelBatchOrders**](SpotApi.md#cancelBatchOrders) | **POST** /spot/cancel_batch_orders | Cancel a batch of orders with an ID list.
-[**getOrder**](SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order.
-[**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order.
-[**amendOrder**](SpotApi.md#amendOrder) | **PATCH** /spot/orders/{order_id} | Amend an order.
-[**listMyTrades**](SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history.
-[**getSystemTime**](SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time.
-[**countdownCancelAllSpot**](SpotApi.md#countdownCancelAllSpot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders.
-[**amendBatchOrders**](SpotApi.md#amendBatchOrders) | **POST** /spot/amend_batch_orders | Batch modification of orders.
-[**getSpotInsuranceHistory**](SpotApi.md#getSpotInsuranceHistory) | **GET** /spot/insurance_history | Query spot insurance fund historical data.
-[**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list.
-[**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order.
-[**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel All Price-triggered Orders.
-[**getSpotPriceTriggeredOrder**](SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a price-triggered order.
-[**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | cancel a price-triggered order.
+[**listCurrencies**](SpotApi.md#listCurrencies) | **GET** /spot/currencies | Query all currency information
+[**getCurrency**](SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Query single currency information
+[**listCurrencyPairs**](SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | Query all supported currency pairs
+[**getCurrencyPair**](SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Query single currency pair details
+[**listTickers**](SpotApi.md#listTickers) | **GET** /spot/tickers | Get currency pair ticker information
+[**listOrderBook**](SpotApi.md#listOrderBook) | **GET** /spot/order_book | Get market depth information
+[**listTrades**](SpotApi.md#listTrades) | **GET** /spot/trades | Query market transaction records
+[**listCandlesticks**](SpotApi.md#listCandlesticks) | **GET** /spot/candlesticks | Market K-line chart
+[**getFee**](SpotApi.md#getFee) | **GET** /spot/fee | Query account fee rates
+[**getBatchSpotFee**](SpotApi.md#getBatchSpotFee) | **GET** /spot/batch_fee | Batch query account fee rates
+[**listSpotAccounts**](SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot trading accounts
+[**listSpotAccountBook**](SpotApi.md#listSpotAccountBook) | **GET** /spot/account_book | Query spot account transaction history
+[**createBatchOrders**](SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Batch place orders
+[**listAllOpenOrders**](SpotApi.md#listAllOpenOrders) | **GET** /spot/open_orders | List all open orders
+[**createCrossLiquidateOrder**](SpotApi.md#createCrossLiquidateOrder) | **POST** /spot/cross_liquidate_orders | Close position when cross-currency is disabled
+[**listOrders**](SpotApi.md#listOrders) | **GET** /spot/orders | List orders
+[**createOrder**](SpotApi.md#createOrder) | **POST** /spot/orders | Create an order
+[**cancelOrders**](SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
+[**cancelBatchOrders**](SpotApi.md#cancelBatchOrders) | **POST** /spot/cancel_batch_orders | Cancel batch orders by specified ID list
+[**getOrder**](SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Query single order details
+[**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel single order
+[**amendOrder**](SpotApi.md#amendOrder) | **PATCH** /spot/orders/{order_id} | Amend single order
+[**listMyTrades**](SpotApi.md#listMyTrades) | **GET** /spot/my_trades | Query personal trading records
+[**getSystemTime**](SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time
+[**countdownCancelAllSpot**](SpotApi.md#countdownCancelAllSpot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders
+[**amendBatchOrders**](SpotApi.md#amendBatchOrders) | **POST** /spot/amend_batch_orders | Batch modification of orders
+[**getSpotInsuranceHistory**](SpotApi.md#getSpotInsuranceHistory) | **GET** /spot/insurance_history | Query spot insurance fund historical data
+[**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Query running auto order list
+[**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create price-triggered order
+[**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all auto orders
+[**getSpotPriceTriggeredOrder**](SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Query single auto order details
+[**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel single auto order
 
 
 ## listCurrencies
 
 > \GateApi\Model\Currency[] listCurrencies()
 
-List all currencies' details.
+Query all currency information
 
-When a currency corresponds to multiple chains, you can query the information of multiple chains through the `chains` field, such as the charging and recharge status, identification, etc. of the chain.
+When a currency corresponds to multiple chains, you can query the information of multiple chains through the `chains` field, such as the charging and recharge status, identification, etc. of the chain
 
 ### Example
 
@@ -96,7 +96,7 @@ No authorization required
 
 > \GateApi\Model\Currency getCurrency($currency)
 
-Get details of a specific currency.
+Query single currency information
 
 ### Example
 
@@ -110,7 +110,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$currency = 'GT'; // string | Currency name.
+$currency = 'GT'; // string | Currency name
 
 try {
     $result = $apiInstance->getCurrency($currency);
@@ -128,7 +128,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency name. |
+ **currency** | **string**| Currency name |
 
 ### Return type
 
@@ -152,7 +152,7 @@ No authorization required
 
 > \GateApi\Model\CurrencyPair[] listCurrencyPairs()
 
-List all currency pairs supported.
+Query all supported currency pairs
 
 ### Example
 
@@ -204,7 +204,7 @@ No authorization required
 
 > \GateApi\Model\CurrencyPair getCurrencyPair($currency_pair)
 
-Get details of a specifc currency pair.
+Query single currency pair details
 
 ### Example
 
@@ -218,7 +218,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$currency_pair = 'ETH_BTC'; // string | Currency pair.
+$currency_pair = 'ETH_BTC'; // string | Currency pair
 
 try {
     $result = $apiInstance->getCurrencyPair($currency_pair);
@@ -236,7 +236,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. |
+ **currency_pair** | **string**| Currency pair |
 
 ### Return type
 
@@ -260,9 +260,9 @@ No authorization required
 
 > \GateApi\Model\Ticker[] listTickers($currency_pair, $timezone)
 
-Retrieve ticker information.
+Get currency pair ticker information
 
-Return only related data if `currency_pair` is specified; otherwise return all of them
+If `currency_pair` is specified, only query that currency pair; otherwise return all information
 
 ### Example
 
@@ -276,8 +276,8 @@ $apiInstance = new GateApi\Api\SpotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
-$associate_array['timezone'] = 'utc0'; // string | Timezone.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
+$associate_array['timezone'] = 'utc0'; // string | Timezone
 
 try {
     $result = $apiInstance->listTickers($associate_array);
@@ -297,8 +297,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. | [optional]
- **timezone** | **string**| Timezone. | [optional]
+ **currency_pair** | **string**| Currency pair | [optional]
+ **timezone** | **string**| Timezone | [optional]
 
 ### Return type
 
@@ -322,9 +322,9 @@ No authorization required
 
 > \GateApi\Model\OrderBook listOrderBook($currency_pair, $interval, $limit, $with_id)
 
-Retrieve order book.
+Get market depth information
 
-Market depth buy orders are sorted by price from high to low, sell orders are reversed
+Market depth buy orders are sorted by price from high to low, sell orders are sorted from low to high
 
 ### Example
 
@@ -338,10 +338,10 @@ $apiInstance = new GateApi\Api\SpotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
-$associate_array['interval'] = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0.
-$associate_array['limit'] = 10; // int | Maximum number of order depth data in asks or bids.
-$associate_array['with_id'] = false; // bool | Return order book ID.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
+$associate_array['interval'] = '0'; // string | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+$associate_array['limit'] = 10; // int | Number of depth levels
+$associate_array['with_id'] = false; // bool | Return order book update ID
 
 try {
     $result = $apiInstance->listOrderBook($associate_array);
@@ -361,10 +361,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. |
- **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0. | [optional] [default to &#39;0&#39;]
- **limit** | **int**| Maximum number of order depth data in asks or bids. | [optional] [default to 10]
- **with_id** | **bool**| Return order book ID. | [optional] [default to false]
+ **currency_pair** | **string**| Currency pair |
+ **interval** | **string**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to &#39;0&#39;]
+ **limit** | **int**| Number of depth levels | [optional] [default to 10]
+ **with_id** | **bool**| Return order book update ID | [optional] [default to false]
 
 ### Return type
 
@@ -388,9 +388,9 @@ No authorization required
 
 > \GateApi\Model\Trade[] listTrades($currency_pair, $limit, $last_id, $reverse, $from, $to, $page)
 
-Retrieve market trades.
+Query market transaction records
 
-Supports `from` and `to` by time range query or page-turn query based on `last_id`. By default, is the last 30 days.  The query method based on `last_id` page turn is no longer recommended. If `last_id` is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&page paging function is 100,0, that is, limit * (page - 1) <= 100,0.
+Supports querying by time range using `from` and `to` parameters or pagination based on `last_id`. By default, queries the last 30 days.  Pagination based on `last_id` is no longer recommended. If `last_id` is specified, the time range query parameters will be ignored.  When using limit&page pagination to retrieve data, the maximum number of pages is 100,000, that is, limit * (page - 1) <= 100,000.
 
 ### Example
 
@@ -404,13 +404,13 @@ $apiInstance = new GateApi\Api\SpotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000
-$associate_array['last_id'] = '12345'; // string | Specify the currency name to query in batches, and support up to 100 pass parameters at a time.
-$associate_array['reverse'] = false; // bool | Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified.
-$associate_array['from'] = 1627706330; // int | Start timestamp of the query.
-$associate_array['to'] = 1635329650; // int | Time range ending, default to current time.
-$associate_array['page'] = 1; // int | Page number.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
+$associate_array['limit'] = 100; // int | Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000
+$associate_array['last_id'] = '12345'; // string | Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+$associate_array['reverse'] = false; // bool | Whether to retrieve data less than `last_id`. Default returns records greater than `last_id`.  Set to `true` to trace back market trade records, `false` to get latest trades.  No effect when `last_id` is not set.
+$associate_array['from'] = 1627706330; // int | Start timestamp for the query
+$associate_array['to'] = 1635329650; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['page'] = 1; // int | Page number
 
 try {
     $result = $apiInstance->listTrades($associate_array);
@@ -430,13 +430,13 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. |
- **limit** | **int**| Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 | [optional] [default to 100]
- **last_id** | **string**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time. | [optional]
- **reverse** | **bool**| Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
- **from** | **int**| Start timestamp of the query. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
+ **currency_pair** | **string**| Currency pair |
+ **limit** | **int**| Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000 | [optional] [default to 100]
+ **last_id** | **string**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time | [optional]
+ **reverse** | **bool**| Whether to retrieve data less than &#x60;last_id&#x60;. Default returns records greater than &#x60;last_id&#x60;.  Set to &#x60;true&#x60; to trace back market trade records, &#x60;false&#x60; to get latest trades.  No effect when &#x60;last_id&#x60; is not set. | [optional] [default to false]
+ **from** | **int**| Start timestamp for the query | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -460,7 +460,7 @@ No authorization required
 
 > string[][] listCandlesticks($currency_pair, $limit, $from, $to, $interval)
 
-Market candlesticks.
+Market K-line chart
 
 Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
 
@@ -476,11 +476,11 @@ $apiInstance = new GateApi\Api\SpotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
-$associate_array['limit'] = 100; // int | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
+$associate_array['limit'] = 100; // int | Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
 $associate_array['from'] = 1546905600; // int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
-$associate_array['to'] = 1546935600; // int | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified
-$associate_array['interval'] = '30m'; // string | Interval time between data points. Note that `30d` means 1 natual month, not 30 days
+$associate_array['to'] = 1546935600; // int | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
+$associate_array['interval'] = '30m'; // string | Time interval between data points. Note that `30d` represents a calendar month, not aligned to 30 days
 
 try {
     $result = $apiInstance->listCandlesticks($associate_array);
@@ -500,11 +500,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. |
- **limit** | **int**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
+ **currency_pair** | **string**| Currency pair |
+ **limit** | **int**| Maximum number of recent data points to return. &#x60;limit&#x60; conflicts with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
- **to** | **int**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified | [optional]
- **interval** | **string**| Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days | [optional] [default to &#39;30m&#39;]
+ **to** | **int**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision | [optional]
+ **interval** | **string**| Time interval between data points. Note that &#x60;30d&#x60; represents a calendar month, not aligned to 30 days | [optional] [default to &#39;30m&#39;]
 
 ### Return type
 
@@ -528,9 +528,9 @@ No authorization required
 
 > \GateApi\Model\SpotFee getFee($currency_pair)
 
-Query user trading fee rates.
+Query account fee rates
 
-This API is deprecated in favour of new fee retrieving API `/wallet/fee`.
+This API is deprecated. The new fee query API is `/wallet/fee`
 
 ### Example
 
@@ -548,7 +548,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify currency pair to get more accurate fee settings.  This field is optional. Usually fee settings are the same for all currency pairs.
 
 try {
     $result = $apiInstance->getFee($associate_array);
@@ -568,7 +568,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs | [optional]
+ **currency_pair** | **string**| Specify currency pair to get more accurate fee settings.  This field is optional. Usually fee settings are the same for all currency pairs. | [optional]
 
 ### Return type
 
@@ -592,7 +592,7 @@ Name | Type | Description  | Notes
 
 > map[string,\GateApi\Model\SpotFee] getBatchSpotFee($currency_pairs)
 
-Query a batch of user trading fee rates.
+Batch query account fee rates
 
 ### Example
 
@@ -610,7 +610,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency_pairs = 'BTC_USDT,ETH_USDT'; // string | A request can only query up to 50 currency pairs.
+$currency_pairs = 'BTC_USDT,ETH_USDT'; // string | Maximum 50 currency pairs per request
 
 try {
     $result = $apiInstance->getBatchSpotFee($currency_pairs);
@@ -628,7 +628,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pairs** | **string**| A request can only query up to 50 currency pairs. |
+ **currency_pairs** | **string**| Maximum 50 currency pairs per request |
 
 ### Return type
 
@@ -652,7 +652,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SpotAccount[] listSpotAccounts($currency)
 
-List spot accounts.
+List spot trading accounts
 
 ### Example
 
@@ -670,7 +670,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
 
 try {
     $result = $apiInstance->listSpotAccounts($associate_array);
@@ -690,7 +690,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
+ **currency** | **string**| Query by specified currency name | [optional]
 
 ### Return type
 
@@ -714,9 +714,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SpotAccountBook[] listSpotAccountBook($currency, $from, $to, $page, $limit, $type, $code)
 
-Query account book.
+Query spot account transaction history
 
-Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&page paging function is 100,0, that is, limit * (page - 1) <= 100,0.
+Record query time range cannot exceed 30 days.  When using limit&page pagination to retrieve data, the maximum number of pages is 100,000, that is, limit * (page - 1) <= 100,000.
 
 ### Example
 
@@ -734,13 +734,13 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['from'] = 1627706330; // int | Start timestamp of the query.
-$associate_array['to'] = 1635329650; // int | Time range ending, default to current time.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['type'] = 'lend'; // string | Only retrieve changes of the specified type. All types will be returned if not specified.
-$associate_array['code'] = 'code_example'; // string | Specify account change code query, if not specified, all change types are included, and the priority is higher than `type`
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['from'] = 1627706330; // int | Start timestamp for the query
+$associate_array['to'] = 1635329650; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['type'] = 'lend'; // string | Query by specified account change type. If not specified, all change types will be included.
+$associate_array['code'] = 'code_example'; // string | Specify account change code for query. If not specified, all change types are included. This parameter has higher priority than `type`
 
 try {
     $result = $apiInstance->listSpotAccountBook($associate_array);
@@ -760,13 +760,13 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **from** | **int**| Start timestamp of the query. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
- **code** | **string**| Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; | [optional]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **from** | **int**| Start timestamp for the query | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **type** | **string**| Query by specified account change type. If not specified, all change types will be included. | [optional]
+ **code** | **string**| Specify account change code for query. If not specified, all change types are included. This parameter has higher priority than &#x60;type&#x60; | [optional]
 
 ### Return type
 
@@ -790,9 +790,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\BatchOrder[] createBatchOrders($order, $x_gate_exptime)
 
-Create a batch of orders.
+Batch place orders
 
-Batch orders requirements:  1. custom order field `text` is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. `account` must be identical for all orders
+Batch order requirements:  1. Custom order field `text` must be specified 2. Up to 4 currency pairs per request, with up to 10 orders per currency pair 3. Spot orders and margin orders cannot be mixed; all `account` fields in the same request must be identical
 
 ### Example
 
@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OpenOrders[] listAllOpenOrders($page, $limit, $account)
 
-List all open orders.
+List all open orders
 
 Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
 
@@ -874,9 +874,9 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum number of records returned in one page in each currency pair.
-$associate_array['account'] = 'spot'; // string | Specify query account.
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records returned in one page in each currency pair
+$associate_array['account'] = 'spot'; // string | Specify query account
 
 try {
     $result = $apiInstance->listAllOpenOrders($associate_array);
@@ -896,9 +896,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records returned in one page in each currency pair. | [optional] [default to 100]
- **account** | **string**| Specify query account. | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in one page in each currency pair | [optional] [default to 100]
+ **account** | **string**| Specify query account | [optional]
 
 ### Return type
 
@@ -922,9 +922,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\Order createCrossLiquidateOrder($liquidate_order)
 
-close position when cross-currency is disabled.
+Close position when cross-currency is disabled
 
-Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity = (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+Currently, only cross-margin accounts are supported to place buy orders for disabled currencies. Maximum buy quantity = (unpaid principal and interest - currency balance - the amount of the currency in pending orders) / 0.998
 
 ### Example
 
@@ -984,9 +984,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\Order[] listOrders($currency_pair, $status, $page, $limit, $account, $from, $to, $side)
 
-List orders.
+List orders
 
-Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  `status` is set to `open`, that is, when querying the pending order list, only pagination control of `page` and `limit` is supported. `limit` Maximum setting is only allowed to 100 . The `side` and `from`, `to` parameters for time range query are not supported.  `status` when querying historical delegations, in addition to pagination queries, `from` and `to` are also supported by time range queries. In addition, it supports setting the `side` parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+Note that query results default to spot order lists for spot, unified account, and isolated margin accounts.  When `status` is set to `open` (i.e., when querying pending order lists), only `page` and `limit` pagination controls are supported. `limit` can only be set to a maximum of 100. The `side` parameter and time range query parameters `from` and `to` are not supported.  When `status` is set to `finished` (i.e., when querying historical orders), in addition to pagination queries, `from` and `to` time range queries are also supported. Additionally, the `side` parameter can be set to filter one-sided history.  Time range filter parameters are processed according to the order end time.
 
 ### Example
 
@@ -1004,14 +1004,14 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Query by specified currency pair. Required for open orders, optional for filled orders
 $associate_array['status'] = 'open'; // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled
-$associate_array['page'] = 1; // int | Page number.
+$associate_array['page'] = 1; // int | Page number
 $associate_array['limit'] = 100; // int | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100
-$associate_array['account'] = 'spot'; // string | Specify query account.
-$associate_array['from'] = 1627706330; // int | Start timestamp of the query.
-$associate_array['to'] = 1635329650; // int | Time range ending, default to current time.
-$associate_array['side'] = 'sell'; // string | All bids or asks. Both included if not specified.
+$associate_array['account'] = 'spot'; // string | Specify query account
+$associate_array['from'] = 1627706330; // int | Start timestamp for the query
+$associate_array['to'] = 1635329650; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['side'] = 'sell'; // string | Specify all bids or all asks, both included if not specified
 
 try {
     $result = $apiInstance->listOrders($associate_array);
@@ -1031,14 +1031,14 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
+ **currency_pair** | **string**| Query by specified currency pair. Required for open orders, optional for filled orders |
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled |
- **page** | **int**| Page number. | [optional] [default to 1]
+ **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
- **account** | **string**| Specify query account. | [optional]
- **from** | **int**| Start timestamp of the query. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **side** | **string**| All bids or asks. Both included if not specified. | [optional]
+ **account** | **string**| Specify query account | [optional]
+ **from** | **int**| Start timestamp for the query | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **side** | **string**| Specify all bids or all asks, both included if not specified | [optional]
 
 ### Return type
 
@@ -1062,9 +1062,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\Order createOrder($order, $x_gate_exptime)
 
-Create an order.
+Create an order
 
-Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the `account` field, default is `spot`, that is, use the spot account to place an order if the user is `unified` account, default is to place an order with a unified account  When using leveraged account trading, that is, when `account` is set to `margin`, you can set `auto_borrow` to `true`, In the case of insufficient account balance, the system will automatically execute the `POST /margin/uni/loans` to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user's position-by-store leverage account**, The account automatic repayment settings can be queried and set through `/margin/auto_repay`.  Use unified is set to `unified`, `auto_borrow` \" can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order`auto_repay` setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports `auto_borrow` and `auto_repay` at the same time.  Auto repayment will be triggered at the end of the order, i.e. `status` is `cancelled` or `closed` .  **Delegation Status**  The entrustment status in the pending order is `open`, which remains at `open` until all the quantity is traded. If it is eaten, the order ends and the status becomes `closed`. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become `cancelled`  **Iceberg Entrustment**  `iceberg` is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker's handling rate.  **Restrict user transactions**  Set `stp_act` to decide to use strategies that limit user transactions
+Supports spot, margin, leverage, and cross-margin leverage orders. Use different accounts through the `account` field. Default is `spot`, which means using the spot account to place orders. If the user has a `unified` account, the default is to place orders with the unified account.  When using leveraged account trading (i.e., when `account` is set to `margin`), you can set `auto_borrow` to `true`. In case of insufficient account balance, the system will automatically execute `POST /margin/uni/loans` to borrow the insufficient amount. Whether assets obtained after leveraged order execution are automatically used to repay borrowing orders of the isolated margin account depends on the automatic repayment settings of the user's isolated margin account. Account automatic repayment settings can be queried and set through `/margin/auto_repay`.  When using unified account trading (i.e., when `account` is set to `unified`), `auto_borrow` can also be enabled to realize automatic borrowing of insufficient amounts. However, unlike the isolated margin account, whether unified account orders are automatically repaid depends on the `auto_repay` setting when placing the order. This setting only applies to the current order, meaning only assets obtained after order execution will be used to repay borrowing orders of the cross-margin account. Unified account ordering currently supports enabling both `auto_borrow` and `auto_repay` simultaneously.  Auto repayment will be triggered when the order ends, i.e., when `status` is `cancelled` or `closed`.  **Order Status**  The order status in pending orders is `open`, which remains `open` until all quantity is filled. If fully filled, the order ends and status becomes `closed`. If the order is cancelled before all transactions are completed, regardless of partial fills, the status will become `cancelled`.  **Iceberg Orders**  `iceberg` is used to set the displayed quantity of iceberg orders and does not support complete hiding. Note that hidden portions are charged according to the taker's fee rate.  **Self-Trade Prevention**  Set `stp_act` to determine the self-trade prevention strategy to use
 
 ### Example
 
@@ -1126,9 +1126,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OrderCancel[] cancelOrders($currency_pair, $side, $account, $action_mode, $x_gate_exptime)
 
-Cancel all `open` orders in specified currency pair.
+Cancel all `open` orders in specified currency pair
 
-When the `account` parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+When the `account` parameter is not specified, all pending orders including spot, unified account, and isolated margin will be cancelled. When `currency_pair` is not specified, all trading pair pending orders will be cancelled. You can specify a particular account to cancel all pending orders under that account
 
 ### Example
 
@@ -1146,10 +1146,10 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency_pair = 'BTC_USDT'; // string | Currency pair.
-$side = 'sell'; // string | All bids or asks. Both included if not specified.
-$account = 'spot'; // string | Specify account type  Classic account: All are included if not specified Unified account: Specify unified
-$action_mode = 'ACK'; // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
+$currency_pair = 'BTC_USDT'; // string | Currency pair
+$side = 'sell'; // string | Specify all bids or all asks, both included if not specified
+$account = 'spot'; // string | Specify account type  Classic account: All are included if not specified Unified account: Specify `unified`
+$action_mode = 'ACK'; // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
 $x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
@@ -1168,10 +1168,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. | [optional]
- **side** | **string**| All bids or asks. Both included if not specified. | [optional]
- **account** | **string**| Specify account type  Classic account: All are included if not specified Unified account: Specify unified | [optional]
- **action_mode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
+ **currency_pair** | **string**| Currency pair | [optional]
+ **side** | **string**| Specify all bids or all asks, both included if not specified | [optional]
+ **account** | **string**| Specify account type  Classic account: All are included if not specified Unified account: Specify &#x60;unified&#x60; | [optional]
+ **action_mode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional]
  **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
@@ -1196,7 +1196,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CancelOrderResult[] cancelBatchOrders($cancel_batch_order, $x_gate_exptime)
 
-Cancel a batch of orders with an ID list.
+Cancel batch orders by specified ID list
 
 Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
 
@@ -1260,9 +1260,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\Order getOrder($order_id, $currency_pair, $account)
 
-Get a single order.
+Query single order details
 
-By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
+By default, queries orders for spot, unified account, and isolated margin accounts.
 
 ### Example
 
@@ -1281,8 +1281,8 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $order_id = '12345'; // string | The order ID returned when the order was successfully created or the custom ID specified by the user's creation (i.e. the `text` field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)
-$currency_pair = 'BTC_USDT'; // string | Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.
-$account = 'spot'; // string | Specify query account.
+$currency_pair = 'BTC_USDT'; // string | Specify the trading pair to query. This field is required when querying pending order records. This field can be omitted when querying filled order records.
+$account = 'spot'; // string | Specify query account
 
 try {
     $result = $apiInstance->getOrder($order_id, $currency_pair, $account);
@@ -1301,8 +1301,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) |
- **currency_pair** | **string**| Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank. |
- **account** | **string**| Specify query account. | [optional]
+ **currency_pair** | **string**| Specify the trading pair to query. This field is required when querying pending order records. This field can be omitted when querying filled order records. |
+ **account** | **string**| Specify query account | [optional]
 
 ### Return type
 
@@ -1326,7 +1326,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\Order cancelOrder($order_id, $currency_pair, $account, $action_mode, $x_gate_exptime)
 
-Cancel a single order.
+Cancel single order
 
 By default, orders for spot, unified accounts and leveraged accounts are revoked.
 
@@ -1347,9 +1347,9 @@ $apiInstance = new GateApi\Api\SpotApi(
     $config
 );
 $order_id = '12345'; // string | The order ID returned when the order was successfully created or the custom ID specified by the user's creation (i.e. the `text` field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)
-$currency_pair = 'BTC_USDT'; // string | Currency pair.
-$account = 'spot'; // string | Specify query account.
-$action_mode = 'ACK'; // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
+$currency_pair = 'BTC_USDT'; // string | Currency pair
+$account = 'spot'; // string | Specify query account
+$action_mode = 'ACK'; // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
 $x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
@@ -1369,9 +1369,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) |
- **currency_pair** | **string**| Currency pair. |
- **account** | **string**| Specify query account. | [optional]
- **action_mode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
+ **currency_pair** | **string**| Currency pair |
+ **account** | **string**| Specify query account | [optional]
+ **action_mode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional]
  **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
@@ -1396,7 +1396,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\Order amendOrder($order_id, $order_patch, $currency_pair, $account, $x_gate_exptime)
 
-Amend an order.
+Amend single order
 
 Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
 
@@ -1418,8 +1418,8 @@ $apiInstance = new GateApi\Api\SpotApi(
 );
 $order_id = '12345'; // string | The order ID returned when the order was successfully created or the custom ID specified by the user's creation (i.e. the `text` field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)
 $order_patch = new \GateApi\Model\OrderPatch(); // \GateApi\Model\OrderPatch | 
-$currency_pair = 'BTC_USDT'; // string | Currency pair.
-$account = 'spot'; // string | Specify query account.
+$currency_pair = 'BTC_USDT'; // string | Currency pair
+$account = 'spot'; // string | Specify query account
 $x_gate_exptime = '1689560679123'; // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
 
 try {
@@ -1440,8 +1440,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) |
  **order_patch** | [**\GateApi\Model\OrderPatch**](../Model/OrderPatch.md)|  |
- **currency_pair** | **string**| Currency pair. | [optional]
- **account** | **string**| Specify query account. | [optional]
+ **currency_pair** | **string**| Currency pair | [optional]
+ **account** | **string**| Specify query account | [optional]
  **x_gate_exptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
@@ -1466,7 +1466,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\Trade[] listMyTrades($currency_pair, $limit, $page, $order_id, $account, $from, $to)
 
-List personal trading history.
+Query personal trading records
 
 By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying `from` or (and) `to`.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of `from` or `to` is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&page paging function is 100,0, that is, limit * (page - 1) <= 100,0.
 
@@ -1486,13 +1486,13 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results with specified currency pair.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000
-$associate_array['page'] = 1; // int | Page number.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Retrieve results with specified currency pair
+$associate_array['limit'] = 100; // int | Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000
+$associate_array['page'] = 1; // int | Page number
 $associate_array['order_id'] = '12345'; // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present
-$associate_array['account'] = 'spot'; // string | Specify query account.
-$associate_array['from'] = 1627706330; // int | Start timestamp of the query.
-$associate_array['to'] = 1635329650; // int | Time range ending, default to current time.
+$associate_array['account'] = 'spot'; // string | Specify query account
+$associate_array['from'] = 1627706330; // int | Start timestamp for the query
+$associate_array['to'] = 1635329650; // int | End timestamp for the query, defaults to current time if not specified
 
 try {
     $result = $apiInstance->listMyTrades($associate_array);
@@ -1512,13 +1512,13 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Retrieve results with specified currency pair. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 | [optional] [default to 100]
- **page** | **int**| Page number. | [optional] [default to 1]
+ **currency_pair** | **string**| Retrieve results with specified currency pair | [optional]
+ **limit** | **int**| Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000 | [optional] [default to 100]
+ **page** | **int**| Page number | [optional] [default to 1]
  **order_id** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
- **account** | **string**| Specify query account. | [optional]
- **from** | **int**| Start timestamp of the query. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
+ **account** | **string**| Specify query account | [optional]
+ **from** | **int**| Start timestamp for the query | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
 
 ### Return type
 
@@ -1542,7 +1542,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SystemTime getSystemTime()
 
-Get server current time.
+Get server current time
 
 ### Example
 
@@ -1594,7 +1594,7 @@ No authorization required
 
 > \GateApi\Model\TriggerTime countdownCancelAllSpot($countdown_cancel_all_spot_task)
 
-Countdown cancel orders.
+Countdown cancel orders
 
 Spot order heartbeat detection. If there is no \"cancel existing countdown\" or \"set new countdown\" when the user-set `timeout` time is reached, the related `spot pending orders` will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown `timeout` to `30 (seconds)` each time. If this interface is not called again within 30 seconds, all pending orders on the `market` you specified will be automatically cancelled. If no `market` is specified, all market cancelled. If the `timeout` is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
 
@@ -1656,9 +1656,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\BatchOrder[] amendBatchOrders($batch_amend_item, $x_gate_exptime)
 
-Batch modification of orders.
+Batch modification of orders
 
-Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
+Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
 
 ### Example
 
@@ -1720,7 +1720,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SpotInsuranceHistory[] getSpotInsuranceHistory($business, $currency, $from, $to, $page, $limit)
 
-Query spot insurance fund historical data.
+Query spot insurance fund historical data
 
 ### Example
 
@@ -1735,11 +1735,11 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client()
 );
 $associate_array['business'] = 'margin'; // string | Leverage business, margin - position by position; unified - unified account
-$associate_array['currency'] = 'BTC'; // string | Currency.
-$associate_array['from'] = 1547706332; // int | Start timestamp, seconds.
-$associate_array['to'] = 1547706332; // int | End timestamp, in seconds.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 30; // int | The maximum number of items returned in the list, the default value is 30.
+$associate_array['currency'] = 'BTC'; // string | Currency
+$associate_array['from'] = 1547706332; // int | Start timestamp in seconds
+$associate_array['to'] = 1547706332; // int | End timestamp in seconds
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 30; // int | The maximum number of items returned in the list, the default value is 30
 
 try {
     $result = $apiInstance->getSpotInsuranceHistory($associate_array);
@@ -1760,11 +1760,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **business** | **string**| Leverage business, margin - position by position; unified - unified account |
- **currency** | **string**| Currency. |
- **from** | **int**| Start timestamp, seconds. |
- **to** | **int**| End timestamp, in seconds. |
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| The maximum number of items returned in the list, the default value is 30. | [optional] [default to 30]
+ **currency** | **string**| Currency |
+ **from** | **int**| Start timestamp in seconds |
+ **to** | **int**| End timestamp in seconds |
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| The maximum number of items returned in the list, the default value is 30 | [optional] [default to 30]
 
 ### Return type
 
@@ -1788,7 +1788,7 @@ No authorization required
 
 > \GateApi\Model\SpotPriceTriggeredOrder[] listSpotPriceTriggeredOrders($status, $market, $account, $limit, $offset)
 
-Retrieve running auto order list.
+Query running auto order list
 
 ### Example
 
@@ -1806,11 +1806,11 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['status'] = 'status_example'; // string | Only list the orders with this status.
-$associate_array['market'] = 'BTC_USDT'; // string | Currency pair.
-$associate_array['account'] = 'account_example'; // string | Trading account type. Portfolio margin account must set to `unified`.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['status'] = 'status_example'; // string | Query order list based on status
+$associate_array['market'] = 'BTC_USDT'; // string | Trading market
+$associate_array['account'] = 'account_example'; // string | Trading account type. Unified account must be set to `unified`
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->listSpotPriceTriggeredOrders($associate_array);
@@ -1830,11 +1830,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **string**| Only list the orders with this status. |
- **market** | **string**| Currency pair. | [optional]
- **account** | **string**| Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **status** | **string**| Query order list based on status |
+ **market** | **string**| Trading market | [optional]
+ **account** | **string**| Trading account type. Unified account must be set to &#x60;unified&#x60; | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -1858,7 +1858,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TriggerOrderResponse createSpotPriceTriggeredOrder($spot_price_triggered_order)
 
-Create a price-triggered order.
+Create price-triggered order
 
 ### Example
 
@@ -1918,7 +1918,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SpotPriceTriggeredOrder[] cancelSpotPriceTriggeredOrderList($market, $account)
 
-Cancel All Price-triggered Orders.
+Cancel all auto orders
 
 ### Example
 
@@ -1936,8 +1936,8 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$market = 'BTC_USDT'; // string | Currency pair.
-$account = 'account_example'; // string | Trading account type. Portfolio margin account must set to `unified`.
+$market = 'BTC_USDT'; // string | Trading market
+$account = 'account_example'; // string | Trading account type. Unified account must be set to `unified`
 
 try {
     $result = $apiInstance->cancelSpotPriceTriggeredOrderList($market, $account);
@@ -1955,8 +1955,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **market** | **string**| Currency pair. | [optional]
- **account** | **string**| Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. | [optional]
+ **market** | **string**| Trading market | [optional]
+ **account** | **string**| Trading account type. Unified account must be set to &#x60;unified&#x60; | [optional]
 
 ### Return type
 
@@ -1980,7 +1980,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SpotPriceTriggeredOrder getSpotPriceTriggeredOrder($order_id)
 
-Get a price-triggered order.
+Query single auto order details
 
 ### Example
 
@@ -1998,7 +1998,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 'order_id_example'; // string | Retrieve the data of the order with the specified ID.
+$order_id = 'order_id_example'; // string | ID returned when order is successfully created
 
 try {
     $result = $apiInstance->getSpotPriceTriggeredOrder($order_id);
@@ -2016,7 +2016,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Retrieve the data of the order with the specified ID. |
+ **order_id** | **string**| ID returned when order is successfully created |
 
 ### Return type
 
@@ -2040,7 +2040,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SpotPriceTriggeredOrder cancelSpotPriceTriggeredOrder($order_id)
 
-cancel a price-triggered order.
+Cancel single auto order
 
 ### Example
 
@@ -2058,7 +2058,7 @@ $apiInstance = new GateApi\Api\SpotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 'order_id_example'; // string | Retrieve the data of the order with the specified ID.
+$order_id = 'order_id_example'; // string | ID returned when order is successfully created
 
 try {
     $result = $apiInstance->cancelSpotPriceTriggeredOrder($order_id);
@@ -2076,7 +2076,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Retrieve the data of the order with the specified ID. |
+ **order_id** | **string**| ID returned when order is successfully created |
 
 ### Return type
 

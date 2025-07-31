@@ -4,25 +4,25 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listMultiCollateralOrders**](MultiCollateralLoanApi.md#listMultiCollateralOrders) | **GET** /loan/multi_collateral/orders | List Multi-Collateral Orders.
-[**createMultiCollateral**](MultiCollateralLoanApi.md#createMultiCollateral) | **POST** /loan/multi_collateral/orders | Create Multi-Collateral Order.
-[**getMultiCollateralOrderDetail**](MultiCollateralLoanApi.md#getMultiCollateralOrderDetail) | **GET** /loan/multi_collateral/orders/{order_id} | Get Multi-Collateral Order Detail.
-[**listMultiRepayRecords**](MultiCollateralLoanApi.md#listMultiRepayRecords) | **GET** /loan/multi_collateral/repay | List Multi-Collateral Repay Records.
-[**repayMultiCollateralLoan**](MultiCollateralLoanApi.md#repayMultiCollateralLoan) | **POST** /loan/multi_collateral/repay | Repay Multi-Collateral Loan.
-[**listMultiCollateralRecords**](MultiCollateralLoanApi.md#listMultiCollateralRecords) | **GET** /loan/multi_collateral/mortgage | Query collateral adjustment records.
-[**operateMultiCollateral**](MultiCollateralLoanApi.md#operateMultiCollateral) | **POST** /loan/multi_collateral/mortgage | Operate Multi-Collateral.
-[**listUserCurrencyQuota**](MultiCollateralLoanApi.md#listUserCurrencyQuota) | **GET** /loan/multi_collateral/currency_quota | List User Currency Quota.
-[**listMultiCollateralCurrencies**](MultiCollateralLoanApi.md#listMultiCollateralCurrencies) | **GET** /loan/multi_collateral/currencies | Query supported borrowing and collateral currencies in Multi-Collateral.
-[**getMultiCollateralLtv**](MultiCollateralLoanApi.md#getMultiCollateralLtv) | **GET** /loan/multi_collateral/ltv | Get Multi-Collateral ratio.
-[**getMultiCollateralFixRate**](MultiCollateralLoanApi.md#getMultiCollateralFixRate) | **GET** /loan/multi_collateral/fixed_rate | Query fixed interest rates for the currency for 7 days and 30 days.
-[**getMultiCollateralCurrentRate**](MultiCollateralLoanApi.md#getMultiCollateralCurrentRate) | **GET** /loan/multi_collateral/current_rate | Query the current interest rate of the currency.
+[**listMultiCollateralOrders**](MultiCollateralLoanApi.md#listMultiCollateralOrders) | **GET** /loan/multi_collateral/orders | Query multi-currency collateral order list
+[**createMultiCollateral**](MultiCollateralLoanApi.md#createMultiCollateral) | **POST** /loan/multi_collateral/orders | Place multi-currency collateral order
+[**getMultiCollateralOrderDetail**](MultiCollateralLoanApi.md#getMultiCollateralOrderDetail) | **GET** /loan/multi_collateral/orders/{order_id} | Query order details
+[**listMultiRepayRecords**](MultiCollateralLoanApi.md#listMultiRepayRecords) | **GET** /loan/multi_collateral/repay | Query multi-currency collateral repayment records
+[**repayMultiCollateralLoan**](MultiCollateralLoanApi.md#repayMultiCollateralLoan) | **POST** /loan/multi_collateral/repay | Multi-currency collateral repayment
+[**listMultiCollateralRecords**](MultiCollateralLoanApi.md#listMultiCollateralRecords) | **GET** /loan/multi_collateral/mortgage | Query collateral adjustment records
+[**operateMultiCollateral**](MultiCollateralLoanApi.md#operateMultiCollateral) | **POST** /loan/multi_collateral/mortgage | Add or withdraw collateral
+[**listUserCurrencyQuota**](MultiCollateralLoanApi.md#listUserCurrencyQuota) | **GET** /loan/multi_collateral/currency_quota | Query user&#39;s collateral and borrowing currency quota information
+[**listMultiCollateralCurrencies**](MultiCollateralLoanApi.md#listMultiCollateralCurrencies) | **GET** /loan/multi_collateral/currencies | Query supported borrowing and collateral currencies for multi-currency collateral
+[**getMultiCollateralLtv**](MultiCollateralLoanApi.md#getMultiCollateralLtv) | **GET** /loan/multi_collateral/ltv | Query collateralization ratio information
+[**getMultiCollateralFixRate**](MultiCollateralLoanApi.md#getMultiCollateralFixRate) | **GET** /loan/multi_collateral/fixed_rate | Query currency&#39;s 7-day and 30-day fixed interest rates
+[**getMultiCollateralCurrentRate**](MultiCollateralLoanApi.md#getMultiCollateralCurrentRate) | **GET** /loan/multi_collateral/current_rate | Query currency&#39;s current interest rate
 
 
 ## listMultiCollateralOrders
 
 > \GateApi\Model\MultiCollateralOrder[] listMultiCollateralOrders($page, $limit, $sort, $order_type)
 
-List Multi-Collateral Orders.
+Query multi-currency collateral order list
 
 ### Example
 
@@ -40,10 +40,10 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 10; // int | Maximum number of records to be returned in a single list.
-$associate_array['sort'] = 'ltv_asc'; // string | Query the current interest rate of the currency in the previous hour.
-$associate_array['order_type'] = 'current'; // string | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 10; // int | Maximum number of records returned in a single list
+$associate_array['sort'] = 'ltv_asc'; // string | Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending.
+$associate_array['order_type'] = 'current'; // string | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
 
 try {
     $result = $apiInstance->listMultiCollateralOrders($associate_array);
@@ -63,10 +63,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 10]
- **sort** | **string**| Query the current interest rate of the currency in the previous hour. | [optional]
- **order_type** | **string**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 10]
+ **sort** | **string**| Sort type: &#x60;time_desc&#x60; - Created time descending (default), &#x60;ltv_asc&#x60; - Collateral ratio ascending, &#x60;ltv_desc&#x60; - Collateral ratio descending. | [optional]
+ **order_type** | **string**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
 
 ### Return type
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OrderResp createMultiCollateral($create_multi_collateral_order)
 
-Create Multi-Collateral Order.
+Place multi-currency collateral order
 
 ### Example
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MultiCollateralOrder getMultiCollateralOrderDetail($order_id)
 
-Get Multi-Collateral Order Detail.
+Query order details
 
 ### Example
 
@@ -168,7 +168,7 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = '12345'; // string | Order ID returned on successful order creation.
+$order_id = '12345'; // string | Order ID returned when order is successfully created
 
 try {
     $result = $apiInstance->getMultiCollateralOrderDetail($order_id);
@@ -186,7 +186,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **string**| Order ID returned on successful order creation. |
+ **order_id** | **string**| Order ID returned when order is successfully created |
 
 ### Return type
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MultiRepayRecord[] listMultiRepayRecords($type, $borrow_currency, $page, $limit, $from, $to)
 
-List Multi-Collateral Repay Records.
+Query multi-currency collateral repayment records
 
 ### Example
 
@@ -228,12 +228,12 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['type'] = 'repay'; // string | Operation type: repay - Regular repayment, liquidate - Liquidation.
-$associate_array['borrow_currency'] = 'USDT'; // string | Borrowed currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 10; // int | Maximum number of records to be returned in a single list.
-$associate_array['from'] = 1609459200; // int | Start timestamp of the query.
-$associate_array['to'] = 1609459200; // int | Time range ending, default to current time.
+$associate_array['type'] = 'repay'; // string | Operation type: repay - Regular repayment, liquidate - Liquidation
+$associate_array['borrow_currency'] = 'USDT'; // string | Borrowed currency
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 10; // int | Maximum number of records returned in a single list
+$associate_array['from'] = 1609459200; // int | Start timestamp for the query
+$associate_array['to'] = 1609459200; // int | End timestamp for the query, defaults to current time if not specified
 
 try {
     $result = $apiInstance->listMultiRepayRecords($associate_array);
@@ -253,12 +253,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| Operation type: repay - Regular repayment, liquidate - Liquidation. |
- **borrow_currency** | **string**| Borrowed currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 10]
- **from** | **int**| Start timestamp of the query. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
+ **type** | **string**| Operation type: repay - Regular repayment, liquidate - Liquidation |
+ **borrow_currency** | **string**| Borrowed currency | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 10]
+ **from** | **int**| Start timestamp for the query | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
 
 ### Return type
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MultiRepayResp repayMultiCollateralLoan($repay_multi_loan)
 
-Repay Multi-Collateral Loan.
+Multi-currency collateral repayment
 
 ### Example
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MultiCollateralRecord[] listMultiCollateralRecords($page, $limit, $from, $to, $collateral_currency)
 
-Query collateral adjustment records.
+Query collateral adjustment records
 
 ### Example
 
@@ -360,11 +360,11 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 10; // int | Maximum number of records to be returned in a single list.
-$associate_array['from'] = 1609459200; // int | Start timestamp of the query.
-$associate_array['to'] = 1609459200; // int | Time range ending, default to current time.
-$associate_array['collateral_currency'] = 'BTC'; // string | Collateral.
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 10; // int | Maximum number of records returned in a single list
+$associate_array['from'] = 1609459200; // int | Start timestamp for the query
+$associate_array['to'] = 1609459200; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['collateral_currency'] = 'BTC'; // string | Collateral currency
 
 try {
     $result = $apiInstance->listMultiCollateralRecords($associate_array);
@@ -384,11 +384,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 10]
- **from** | **int**| Start timestamp of the query. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **collateral_currency** | **string**| Collateral. | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 10]
+ **from** | **int**| Start timestamp for the query | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **collateral_currency** | **string**| Collateral currency | [optional]
 
 ### Return type
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CollateralAdjustRes operateMultiCollateral($collateral_adjust)
 
-Operate Multi-Collateral.
+Add or withdraw collateral
 
 ### Example
 
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CurrencyQuota[] listUserCurrencyQuota($type, $currency)
 
-List User Currency Quota.
+Query user's collateral and borrowing currency quota information
 
 ### Example
 
@@ -490,8 +490,8 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
     new GuzzleHttp\Client(),
     $config
 );
-$type = 'collateral'; // string | Currency type: collateral - Collateral currency, borrow - Borrowing.
-$currency = 'BTC'; // string | When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed
+$type = 'collateral'; // string | Currency type: collateral - Collateral currency, borrow - Borrowing currency
+$currency = 'BTC'; // string | When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided.
 
 try {
     $result = $apiInstance->listUserCurrencyQuota($type, $currency);
@@ -509,8 +509,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| Currency type: collateral - Collateral currency, borrow - Borrowing. |
- **currency** | **string**| When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed |
+ **type** | **string**| Currency type: collateral - Collateral currency, borrow - Borrowing currency |
+ **currency** | **string**| When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. |
 
 ### Return type
 
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MultiCollateralCurrency listMultiCollateralCurrencies()
 
-Query supported borrowing and collateral currencies in Multi-Collateral.
+Query supported borrowing and collateral currencies for multi-currency collateral
 
 ### Example
 
@@ -586,9 +586,9 @@ No authorization required
 
 > \GateApi\Model\CollateralLtv getMultiCollateralLtv()
 
-Get Multi-Collateral ratio.
+Query collateralization ratio information
 
-The Multi-Collateral ratio is fixed, irrespective of the currency.
+Multi-currency collateral ratio is fixed, independent of currency
 
 ### Example
 
@@ -640,7 +640,7 @@ No authorization required
 
 > \GateApi\Model\CollateralFixRate[] getMultiCollateralFixRate()
 
-Query fixed interest rates for the currency for 7 days and 30 days.
+Query currency's 7-day and 30-day fixed interest rates
 
 ### Example
 
@@ -692,9 +692,9 @@ No authorization required
 
 > \GateApi\Model\CollateralCurrentRate[] getMultiCollateralCurrentRate($currencies, $vip_level)
 
-Query the current interest rate of the currency.
+Query currency's current interest rate
 
-Query the current interest rate of the currency in the previous hour.
+Query currency's current interest rate for the previous hour, current interest rate updates hourly
 
 ### Example
 
@@ -708,8 +708,8 @@ $apiInstance = new GateApi\Api\MultiCollateralLoanApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currencies'] = array('[\"BTC\",\"GT\"]'); // string[] | Specify currency name query array, separated by commas, maximum 100items.
-$associate_array['vip_level'] = '0'; // string | VIP level, defaults to 0 if not transferred.
+$associate_array['currencies'] = array('[\"BTC\",\"GT\"]'); // string[] | Specify currency name query array, separated by commas, maximum 100 items
+$associate_array['vip_level'] = '0'; // string | VIP level, defaults to 0 if not specified
 
 try {
     $result = $apiInstance->getMultiCollateralCurrentRate($associate_array);
@@ -729,8 +729,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**string[]**](../Model/string.md)| Specify currency name query array, separated by commas, maximum 100items. |
- **vip_level** | **string**| VIP level, defaults to 0 if not transferred. | [optional] [default to &#39;0&#39;]
+ **currencies** | [**string[]**](../Model/string.md)| Specify currency name query array, separated by commas, maximum 100 items |
+ **vip_level** | **string**| VIP level, defaults to 0 if not specified | [optional] [default to &#39;0&#39;]
 
 ### Return type
 

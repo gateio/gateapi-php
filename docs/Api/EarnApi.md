@@ -4,23 +4,23 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**swapETH2**](EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap.
-[**rateListETH2**](EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query.
-[**listDualInvestmentPlans**](EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list.
-[**listDualOrders**](EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list.
-[**placeDualOrder**](EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order.
-[**listStructuredProducts**](EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List.
-[**listStructuredOrders**](EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List.
-[**placeStructuredOrder**](EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order.
-[**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking Coins.
-[**swapStakingCoin**](EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain Token Swap for Earned Coins.
+[**swapETH2**](EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap
+[**rateListETH2**](EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical return rate query
+[**listDualInvestmentPlans**](EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
+[**listDualOrders**](EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
+[**placeDualOrder**](EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
+[**listStructuredProducts**](EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List
+[**listStructuredOrders**](EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List
+[**placeStructuredOrder**](EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
+[**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking coins
+[**swapStakingCoin**](EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain token swap for earned coins
 
 
 ## swapETH2
 
 > swapETH2($eth2_swap)
 
-ETH2 swap.
+ETH2 swap
 
 ### Example
 
@@ -79,9 +79,9 @@ void (empty response body)
 
 > \GateApi\Model\Eth2RateList[] rateListETH2()
 
-ETH2 historical rate of return query.
+ETH2 historical return rate query
 
-Check the ETH earnings rate record for the last 31 days.
+Query ETH earnings rate records for the last 31 days
 
 ### Example
 
@@ -137,7 +137,7 @@ This endpoint does not need any parameter.
 
 > \GateApi\Model\DualGetPlans[] listDualInvestmentPlans($plan_id)
 
-Dual Investment product list.
+Dual Investment product list
 
 ### Example
 
@@ -151,7 +151,7 @@ $apiInstance = new GateApi\Api\EarnApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['plan_id'] = 1; // int | Financial project id.
+$associate_array['plan_id'] = 1; // int | Financial project ID
 
 try {
     $result = $apiInstance->listDualInvestmentPlans($associate_array);
@@ -171,7 +171,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **plan_id** | **int**| Financial project id. | [optional]
+ **plan_id** | **int**| Financial project ID | [optional]
 
 ### Return type
 
@@ -195,7 +195,7 @@ No authorization required
 
 > \GateApi\Model\DualGetOrders[] listDualOrders($from, $to, $page, $limit)
 
-Dual Investment order list.
+Dual Investment order list
 
 ### Example
 
@@ -213,10 +213,10 @@ $apiInstance = new GateApi\Api\EarnApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['from'] = 1740727000; // int | Start checkout time.
-$associate_array['to'] = 1740729000; // int | End settlement time.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['from'] = 1740727000; // int | Start settlement time
+$associate_array['to'] = 1740729000; // int | End settlement time
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
 
 try {
     $result = $apiInstance->listDualOrders($associate_array);
@@ -236,10 +236,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **int**| Start checkout time. | [optional]
- **to** | **int**| End settlement time. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **from** | **int**| Start settlement time | [optional]
+ **to** | **int**| End settlement time | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 > placeDualOrder($place_dual_investment_order)
 
-Place Dual Investment order.
+Place Dual Investment order
 
 ### Example
 
@@ -322,7 +322,7 @@ void (empty response body)
 
 > \GateApi\Model\StructuredGetProjectList[] listStructuredProducts($status, $type, $page, $limit)
 
-Structured Product List.
+Structured Product List
 
 ### Example
 
@@ -338,8 +338,8 @@ $apiInstance = new GateApi\Api\EarnApi(
 );
 $associate_array['status'] = 'in_process'; // string | Status (Default empty to query all)  `in_process`-In progress `will_begin`-Not started `wait_settlement`-Pending settlement `done`-Completed
 $associate_array['type'] = 'BullishSharkFin'; // string | Product Type (Default empty to query all)  `SharkFin2.0`-Shark Fin `BullishSharkFin`-Bullish Treasure `BearishSharkFin`-Bearish Treasure `DoubleNoTouch`-Volatility Treasure `RangeAccrual`-Range Smart Yield `SnowBall`-Snowball
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
 
 try {
     $result = $apiInstance->listStructuredProducts($associate_array);
@@ -361,8 +361,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed |
  **type** | **string**| Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -386,7 +386,7 @@ No authorization required
 
 > \GateApi\Model\StructuredOrderList[] listStructuredOrders($from, $to, $page, $limit)
 
-Structured Product Order List.
+Structured Product Order List
 
 ### Example
 
@@ -406,8 +406,8 @@ $apiInstance = new GateApi\Api\EarnApi(
 );
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
 
 try {
     $result = $apiInstance->listStructuredOrders($associate_array);
@@ -429,8 +429,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 > placeStructuredOrder($structured_buy)
 
-Place Structured Product Order.
+Place Structured Product Order
 
 ### Example
 
@@ -513,7 +513,7 @@ void (empty response body)
 
 > string[] findCoin($find_coin)
 
-Staking Coins.
+Staking coins
 
 ### Example
 
@@ -573,7 +573,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SwapCoinStruct swapStakingCoin($swap_coin)
 
-On-chain Token Swap for Earned Coins.
+On-chain token swap for earned coins
 
 ### Example
 

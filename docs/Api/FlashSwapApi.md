@@ -4,18 +4,18 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listFlashSwapCurrencyPair**](FlashSwapApi.md#listFlashSwapCurrencyPair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap.
-[**listFlashSwapOrders**](FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders.
-[**createFlashSwapOrder**](FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order.
-[**getFlashSwapOrder**](FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Get a single flash swap order&#39;s detail.
-[**previewFlashSwapOrder**](FlashSwapApi.md#previewFlashSwapOrder) | **POST** /flash_swap/orders/preview | Initiate a flash swap order preview.
+[**listFlashSwapCurrencyPair**](FlashSwapApi.md#listFlashSwapCurrencyPair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap
+[**listFlashSwapOrders**](FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | Query flash swap order list
+[**createFlashSwapOrder**](FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
+[**getFlashSwapOrder**](FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Query single flash swap order
+[**previewFlashSwapOrder**](FlashSwapApi.md#previewFlashSwapOrder) | **POST** /flash_swap/orders/preview | Flash swap order preview
 
 
 ## listFlashSwapCurrencyPair
 
 > \GateApi\Model\FlashSwapCurrencyPair[] listFlashSwapCurrencyPair($currency, $page, $limit)
 
-List All Supported Currency Pairs In Flash Swap.
+List All Supported Currency Pairs In Flash Swap
 
 `BTC_GT` represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
 
@@ -31,9 +31,9 @@ $apiInstance = new GateApi\Api\FlashSwapApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 1000; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 1000.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 1000; // int | Maximum number of items returned. Default: 1000, minimum: 1, maximum: 1000
 
 try {
     $result = $apiInstance->listFlashSwapCurrencyPair($associate_array);
@@ -53,9 +53,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 1000. | [optional] [default to 1000]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 1000, minimum: 1, maximum: 1000 | [optional] [default to 1000]
 
 ### Return type
 
@@ -79,7 +79,7 @@ No authorization required
 
 > \GateApi\Model\FlashSwapOrder[] listFlashSwapOrders($status, $sell_currency, $buy_currency, $reverse, $limit, $page)
 
-List all flash swap orders.
+Query flash swap order list
 
 ### Example
 
@@ -97,12 +97,12 @@ $apiInstance = new GateApi\Api\FlashSwapApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['status'] = 1; // int | Flash swap order status  `1` - success `2` - failure
-$associate_array['sell_currency'] = 'BTC'; // string | Currency to sell which can be retrieved from supported currency list API `GET /flash_swap/currencies`
-$associate_array['buy_currency'] = 'BTC'; // string | Currency to buy which can be retrieved from supported currency list API `GET /flash_swap/currencies`
-$associate_array['reverse'] = true; // bool | If results are sorted by id in reverse order. Default to `true`  - `true`: sort by id in descending order(recent first) - ascending order(oldest first)
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['page'] = 1; // int | Page number.
+$associate_array['status'] = 1; // int | Flash swap order status  `1` - success `2` - failed
+$associate_array['sell_currency'] = 'BTC'; // string | Asset name to sell - Retrieved from API `GET /flash_swap/currencies` for supported flash swap currencies
+$associate_array['buy_currency'] = 'BTC'; // string | Asset name to buy - Retrieved from API `GET /flash_swap/currencies` for supported flash swap currencies
+$associate_array['reverse'] = true; // bool | Sort by ID in ascending or descending order, default `true` - `true`: ID descending order (most recent data first) - `false`: ID ascending order (oldest data first)
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['page'] = 1; // int | Page number
 
 try {
     $result = $apiInstance->listFlashSwapOrders($associate_array);
@@ -122,12 +122,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **int**| Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure | [optional]
- **sell_currency** | **string**| Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; | [optional]
- **buy_currency** | **string**| Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; | [optional]
- **reverse** | **bool**| If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **page** | **int**| Page number. | [optional] [default to 1]
+ **status** | **int**| Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failed | [optional]
+ **sell_currency** | **string**| Asset name to sell - Retrieved from API &#x60;GET /flash_swap/currencies&#x60; for supported flash swap currencies | [optional]
+ **buy_currency** | **string**| Asset name to buy - Retrieved from API &#x60;GET /flash_swap/currencies&#x60; for supported flash swap currencies | [optional]
+ **reverse** | **bool**| Sort by ID in ascending or descending order, default &#x60;true&#x60; - &#x60;true&#x60;: ID descending order (most recent data first) - &#x60;false&#x60;: ID ascending order (oldest data first) | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **page** | **int**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\FlashSwapOrder createFlashSwapOrder($flash_swap_order_request)
 
-Create a flash swap order.
+Create a flash swap order
 
 Initiate a flash swap preview in advance because order creation requires a preview result
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\FlashSwapOrder getFlashSwapOrder($order_id)
 
-Get a single flash swap order's detail.
+Query single flash swap order
 
 ### Example
 
@@ -231,7 +231,7 @@ $apiInstance = new GateApi\Api\FlashSwapApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 1; // int | Flash swap order ID.
+$order_id = 1; // int | Flash swap order ID
 
 try {
     $result = $apiInstance->getFlashSwapOrder($order_id);
@@ -249,7 +249,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **int**| Flash swap order ID. |
+ **order_id** | **int**| Flash swap order ID |
 
 ### Return type
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\FlashSwapOrderPreview previewFlashSwapOrder($flash_swap_preview_request)
 
-Initiate a flash swap order preview.
+Flash swap order preview
 
 ### Example
 

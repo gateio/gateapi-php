@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency_pair** | **string** | Currency pair. | [optional] 
-**account_type** | **string** | Account type, risk - risk rate account, mmr - maintenance margin market not activated | [optional] 
-**leverage** | **string** | User current market leverage multiple. | [optional] 
-**locked** | **bool** | Whether account is locked. | [optional] 
-**risk** | **string** | Leveraged Account Current Risk Rate (Returned when the Account is a Risk Rate Account) | [optional] 
+**currency_pair** | **string** | Currency pair | [optional] 
+**account_type** | **string** | Account type: risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated | [optional] 
+**leverage** | **string** | User&#39;s current market leverage multiplier | [optional] 
+**locked** | **bool** | Whether the account is locked | [optional] 
+**risk** | **string** | Current risk rate of the margin account (returned when the account is a risk rate account) | [optional] 
 **mmr** | **string** | Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account) | [optional] 
 **base** | [**\GateApi\Model\MarginAccountCurrency**](MarginAccountCurrency.md) |  | [optional] 
 **quote** | [**\GateApi\Model\MarginAccountCurrency**](MarginAccountCurrency.md) |  | [optional] 

@@ -4,24 +4,24 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**agencyTransactionHistory**](RebateApi.md#agencyTransactionHistory) | **GET** /rebate/agency/transaction_history | The agency obtains the transaction history of the recommended user.
-[**agencyCommissionsHistory**](RebateApi.md#agencyCommissionsHistory) | **GET** /rebate/agency/commission_history | The agency obtains the commission history of the recommended user.
-[**partnerTransactionHistory**](RebateApi.md#partnerTransactionHistory) | **GET** /rebate/partner/transaction_history | Partner obtains transaction records of recommended users.
-[**partnerCommissionsHistory**](RebateApi.md#partnerCommissionsHistory) | **GET** /rebate/partner/commission_history | Partner obtains commission records of recommended users.
-[**partnerSubList**](RebateApi.md#partnerSubList) | **GET** /rebate/partner/sub_list | Partner subordinate list.
-[**rebateBrokerCommissionHistory**](RebateApi.md#rebateBrokerCommissionHistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records.
-[**rebateBrokerTransactionHistory**](RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history.
-[**rebateUserInfo**](RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User retrieves rebate information.
-[**userSubRelation**](RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User-subordinate relationship.
+[**agencyTransactionHistory**](RebateApi.md#agencyTransactionHistory) | **GET** /rebate/agency/transaction_history | Broker obtains transaction history of recommended users
+[**agencyCommissionsHistory**](RebateApi.md#agencyCommissionsHistory) | **GET** /rebate/agency/commission_history | Broker obtains rebate history of recommended users
+[**partnerTransactionHistory**](RebateApi.md#partnerTransactionHistory) | **GET** /rebate/partner/transaction_history | Partner obtains transaction history of recommended users
+[**partnerCommissionsHistory**](RebateApi.md#partnerCommissionsHistory) | **GET** /rebate/partner/commission_history | Partner obtains rebate records of recommended users
+[**partnerSubList**](RebateApi.md#partnerSubList) | **GET** /rebate/partner/sub_list | Partner subordinate list
+[**rebateBrokerCommissionHistory**](RebateApi.md#rebateBrokerCommissionHistory) | **GET** /rebate/broker/commission_history | Broker obtains user&#39;s rebate records
+[**rebateBrokerTransactionHistory**](RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | Broker obtains user&#39;s trading history
+[**rebateUserInfo**](RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User obtains rebate information
+[**userSubRelation**](RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User subordinate relationship
 
 
 ## agencyTransactionHistory
 
 > \GateApi\Model\AgencyTransactionHistory[] agencyTransactionHistory($currency_pair, $user_id, $from, $to, $limit, $offset)
 
-The agency obtains the transaction history of the recommended user.
+Broker obtains transaction history of recommended users
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -39,12 +39,12 @@ $apiInstance = new GateApi\Api\RebateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify the currency pair, if not specified, return all currency pairs.
-$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned.
-$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time.
-$associate_array['to'] = 1602123600; // int | Time range ending, default to current time.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify the trading pair. If not specified, returns all trading pairs
+$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned
+$associate_array['from'] = 1602120000; // int | Start time for querying records, defaults to 7 days before current time if not specified
+$associate_array['to'] = 1602123600; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->agencyTransactionHistory($associate_array);
@@ -64,12 +64,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Specify the currency pair, if not specified, return all currency pairs. | [optional]
- **user_id** | **int**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **currency_pair** | **string**| Specify the trading pair. If not specified, returns all trading pairs | [optional]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -93,9 +93,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\AgencyCommissionHistory[] agencyCommissionsHistory($currency, $user_id, $from, $to, $limit, $offset)
 
-The agency obtains the commission history of the recommended user.
+Broker obtains rebate history of recommended users
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -113,12 +113,12 @@ $apiInstance = new GateApi\Api\RebateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Filter by currency. Return all currency records if not specified.
-$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned.
-$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time.
-$associate_array['to'] = 1602123600; // int | Time range ending, default to current time.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['currency'] = 'BTC'; // string | Specify the currency. If not specified, returns all currencies
+$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned
+$associate_array['from'] = 1602120000; // int | Start time for querying records, defaults to 7 days before current time if not specified
+$associate_array['to'] = 1602123600; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->agencyCommissionsHistory($associate_array);
@@ -138,12 +138,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency. Return all currency records if not specified. | [optional]
- **user_id** | **int**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **currency** | **string**| Specify the currency. If not specified, returns all currencies | [optional]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -167,9 +167,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\PartnerTransactionHistory partnerTransactionHistory($currency_pair, $user_id, $from, $to, $limit, $offset)
 
-Partner obtains transaction records of recommended users.
+Partner obtains transaction history of recommended users
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -187,12 +187,12 @@ $apiInstance = new GateApi\Api\RebateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify the currency pair, if not specified, return all currency pairs.
-$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned.
-$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time.
-$associate_array['to'] = 1602123600; // int | Time range ending, default to current time.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify the trading pair. If not specified, returns all trading pairs
+$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned
+$associate_array['from'] = 1602120000; // int | Start time for querying records, defaults to 7 days before current time if not specified
+$associate_array['to'] = 1602123600; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->partnerTransactionHistory($associate_array);
@@ -212,12 +212,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Specify the currency pair, if not specified, return all currency pairs. | [optional]
- **user_id** | **int**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **currency_pair** | **string**| Specify the trading pair. If not specified, returns all trading pairs | [optional]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -241,9 +241,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\PartnerCommissionHistory partnerCommissionsHistory($currency, $user_id, $from, $to, $limit, $offset)
 
-Partner obtains commission records of recommended users.
+Partner obtains rebate records of recommended users
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -261,12 +261,12 @@ $apiInstance = new GateApi\Api\RebateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Filter by currency. Return all currency records if not specified.
-$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned.
-$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time.
-$associate_array['to'] = 1602123600; // int | Time range ending, default to current time.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['currency'] = 'BTC'; // string | Specify the currency. If not specified, returns all currencies
+$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned
+$associate_array['from'] = 1602120000; // int | Start time for querying records, defaults to 7 days before current time if not specified
+$associate_array['to'] = 1602123600; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->partnerCommissionsHistory($associate_array);
@@ -286,12 +286,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency. Return all currency records if not specified. | [optional]
- **user_id** | **int**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **currency** | **string**| Specify the currency. If not specified, returns all currencies | [optional]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -315,9 +315,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\PartnerSubList partnerSubList($user_id, $limit, $offset)
 
-Partner subordinate list.
+Partner subordinate list
 
-Including sub-agents, direct customers, indirect customers.
+Including sub-agents, direct customers, and indirect customers
 
 ### Example
 
@@ -335,9 +335,9 @@ $apiInstance = new GateApi\Api\RebateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->partnerSubList($associate_array);
@@ -357,9 +357,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| User ID. If not specified, all user records will be returned. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -383,9 +383,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\BrokerCommission[] rebateBrokerCommissionHistory($limit, $offset, $user_id, $from, $to)
 
-The broker obtains the user's commission rebate records.
+Broker obtains user's rebate records
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -403,11 +403,11 @@ $apiInstance = new GateApi\Api\RebateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
-$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned.
-$associate_array['from'] = 1711929600; // int | The start time of the query record. If not specified, the default is to push forward 30 days from the current time.
-$associate_array['to'] = 1714521600; // int | Time range ending, default to current time.
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned
+$associate_array['from'] = 1711929600; // int | Start time of the query record. If not specified, defaults to 30 days before the current time
+$associate_array['to'] = 1714521600; // int | End timestamp for the query, defaults to current time if not specified
 
 try {
     $result = $apiInstance->rebateBrokerCommissionHistory($associate_array);
@@ -427,11 +427,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
- **user_id** | **int**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **int**| The start time of the query record. If not specified, the default is to push forward 30 days from the current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **int**| Start time of the query record. If not specified, defaults to 30 days before the current time | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
 
 ### Return type
 
@@ -455,9 +455,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\BrokerTransaction[] rebateBrokerTransactionHistory($limit, $offset, $user_id, $from, $to)
 
-The broker obtains the user's trading history.
+Broker obtains user's trading history
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -475,11 +475,11 @@ $apiInstance = new GateApi\Api\RebateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
-$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned.
-$associate_array['from'] = 1711929600; // int | The start time of the query record. If not specified, the default is to push forward 30 days from the current time.
-$associate_array['to'] = 1714521600; // int | Time range ending, default to current time.
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+$associate_array['user_id'] = 10003; // int | User ID. If not specified, all user records will be returned
+$associate_array['from'] = 1711929600; // int | Start time of the query record. If not specified, defaults to 30 days before the current time
+$associate_array['to'] = 1714521600; // int | End timestamp for the query, defaults to current time if not specified
 
 try {
     $result = $apiInstance->rebateBrokerTransactionHistory($associate_array);
@@ -499,11 +499,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
- **user_id** | **int**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **int**| The start time of the query record. If not specified, the default is to push forward 30 days from the current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **int**| Start time of the query record. If not specified, defaults to 30 days before the current time | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
 
 ### Return type
 
@@ -527,7 +527,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\RebateUserInfo[] rebateUserInfo()
 
-User retrieves rebate information.
+User obtains rebate information
 
 ### Example
 
@@ -583,9 +583,9 @@ This endpoint does not need any parameter.
 
 > \GateApi\Model\UserSubRelation userSubRelation($user_id_list)
 
-User-subordinate relationship.
+User subordinate relationship
 
-Query whether the specified user is in the system.
+Query whether the specified user is within the system
 
 ### Example
 
@@ -603,7 +603,7 @@ $apiInstance = new GateApi\Api\RebateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_id_list = '1, 2, 3'; // string | Query the user's ID list, split by,, if there are more than 100, take 100.
+$user_id_list = '1, 2, 3'; // string | Query user ID list, separated by commas. If more than 100, only 100 will be returned
 
 try {
     $result = $apiInstance->userSubRelation($user_id_list);
@@ -621,7 +621,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id_list** | **string**| Query the user&#39;s ID list, split by,, if there are more than 100, take 100. |
+ **user_id_list** | **string**| Query user ID list, separated by commas. If more than 100, only 100 will be returned |
 
 ### Return type
 

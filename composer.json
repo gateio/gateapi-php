@@ -1,7 +1,7 @@
 {
     "name": "gateio/gateapi-php",
-    "version": "6.103.0",
-    "description": "Welcome to Gate API  APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.",
+    "version": "6.104.3",
+    "description": "Welcome to Gate API APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.",
     "keywords": [
         "gate",
         "openapitools",

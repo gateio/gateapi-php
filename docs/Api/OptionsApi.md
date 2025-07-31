@@ -4,31 +4,31 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listOptionsUnderlyings**](OptionsApi.md#listOptionsUnderlyings) | **GET** /options/underlyings | List all underlyings.
-[**listOptionsExpirations**](OptionsApi.md#listOptionsExpirations) | **GET** /options/expirations | List all expiration times.
-[**listOptionsContracts**](OptionsApi.md#listOptionsContracts) | **GET** /options/contracts | List all the contracts with specified underlying and expiration time.
-[**getOptionsContract**](OptionsApi.md#getOptionsContract) | **GET** /options/contracts/{contract} | Query specified contract detail.
-[**listOptionsSettlements**](OptionsApi.md#listOptionsSettlements) | **GET** /options/settlements | List settlement history.
-[**getOptionsSettlement**](OptionsApi.md#getOptionsSettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement.
-[**listMyOptionsSettlements**](OptionsApi.md#listMyOptionsSettlements) | **GET** /options/my_settlements | List my options settlements.
-[**listOptionsOrderBook**](OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Options order book.
-[**listOptionsTickers**](OptionsApi.md#listOptionsTickers) | **GET** /options/tickers | List tickers of options contracts.
-[**listOptionsUnderlyingTickers**](OptionsApi.md#listOptionsUnderlyingTickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker.
-[**listOptionsCandlesticks**](OptionsApi.md#listOptionsCandlesticks) | **GET** /options/candlesticks | Get options candlesticks.
-[**listOptionsUnderlyingCandlesticks**](OptionsApi.md#listOptionsUnderlyingCandlesticks) | **GET** /options/underlying/candlesticks | Mark price candlesticks of an underlying.
-[**listOptionsTrades**](OptionsApi.md#listOptionsTrades) | **GET** /options/trades | Options trade history.
-[**listOptionsAccount**](OptionsApi.md#listOptionsAccount) | **GET** /options/accounts | List options account.
-[**listOptionsAccountBook**](OptionsApi.md#listOptionsAccountBook) | **GET** /options/account_book | List account changing history.
-[**listOptionsPositions**](OptionsApi.md#listOptionsPositions) | **GET** /options/positions | List user&#39;s positions of specified underlying.
-[**getOptionsPosition**](OptionsApi.md#getOptionsPosition) | **GET** /options/positions/{contract} | Get specified contract position.
-[**listOptionsPositionClose**](OptionsApi.md#listOptionsPositionClose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying.
-[**listOptionsOrders**](OptionsApi.md#listOptionsOrders) | **GET** /options/orders | List options orders.
-[**createOptionsOrder**](OptionsApi.md#createOptionsOrder) | **POST** /options/orders | Create an options order.
-[**cancelOptionsOrders**](OptionsApi.md#cancelOptionsOrders) | **DELETE** /options/orders | Cancel all &#x60;open&#x60; orders matched.
-[**getOptionsOrder**](OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Get a single order.
-[**cancelOptionsOrder**](OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel a single order.
-[**countdownCancelAllOptions**](OptionsApi.md#countdownCancelAllOptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders.
-[**listMyOptionsTrades**](OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | List personal trading history.
+[**listOptionsUnderlyings**](OptionsApi.md#listOptionsUnderlyings) | **GET** /options/underlyings | List all underlying assets
+[**listOptionsExpirations**](OptionsApi.md#listOptionsExpirations) | **GET** /options/expirations | List all expiration dates
+[**listOptionsContracts**](OptionsApi.md#listOptionsContracts) | **GET** /options/contracts | List all contracts for specified underlying and expiration date
+[**getOptionsContract**](OptionsApi.md#getOptionsContract) | **GET** /options/contracts/{contract} | Query specified contract details
+[**listOptionsSettlements**](OptionsApi.md#listOptionsSettlements) | **GET** /options/settlements | List settlement history
+[**getOptionsSettlement**](OptionsApi.md#getOptionsSettlement) | **GET** /options/settlements/{contract} | Get specified contract settlement information
+[**listMyOptionsSettlements**](OptionsApi.md#listMyOptionsSettlements) | **GET** /options/my_settlements | Query personal settlement records
+[**listOptionsOrderBook**](OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Query options contract order book
+[**listOptionsTickers**](OptionsApi.md#listOptionsTickers) | **GET** /options/tickers | Query options market ticker information
+[**listOptionsUnderlyingTickers**](OptionsApi.md#listOptionsUnderlyingTickers) | **GET** /options/underlying/tickers/{underlying} | Query underlying ticker information
+[**listOptionsCandlesticks**](OptionsApi.md#listOptionsCandlesticks) | **GET** /options/candlesticks | Options contract market candlestick chart
+[**listOptionsUnderlyingCandlesticks**](OptionsApi.md#listOptionsUnderlyingCandlesticks) | **GET** /options/underlying/candlesticks | Underlying index price candlestick chart
+[**listOptionsTrades**](OptionsApi.md#listOptionsTrades) | **GET** /options/trades | Market trade records
+[**listOptionsAccount**](OptionsApi.md#listOptionsAccount) | **GET** /options/accounts | Query account information
+[**listOptionsAccountBook**](OptionsApi.md#listOptionsAccountBook) | **GET** /options/account_book | Query account change history
+[**listOptionsPositions**](OptionsApi.md#listOptionsPositions) | **GET** /options/positions | List user&#39;s positions of specified underlying
+[**getOptionsPosition**](OptionsApi.md#getOptionsPosition) | **GET** /options/positions/{contract} | Get specified contract position
+[**listOptionsPositionClose**](OptionsApi.md#listOptionsPositionClose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying
+[**listOptionsOrders**](OptionsApi.md#listOptionsOrders) | **GET** /options/orders | List options orders
+[**createOptionsOrder**](OptionsApi.md#createOptionsOrder) | **POST** /options/orders | Create an options order
+[**cancelOptionsOrders**](OptionsApi.md#cancelOptionsOrders) | **DELETE** /options/orders | Cancel all orders with &#39;open&#39; status
+[**getOptionsOrder**](OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Query single order details
+[**cancelOptionsOrder**](OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel single order
+[**countdownCancelAllOptions**](OptionsApi.md#countdownCancelAllOptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders
+[**listMyOptionsTrades**](OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | Query personal trading records
 [**getOptionsMMP**](OptionsApi.md#getOptionsMMP) | **GET** /options/mmp | MMP Query.
 [**setOptionsMMP**](OptionsApi.md#setOptionsMMP) | **POST** /options/mmp | MMP Settings
 [**resetOptionsMMP**](OptionsApi.md#resetOptionsMMP) | **POST** /options/mmp/reset | MMP Reset
@@ -38,7 +38,7 @@ Method | HTTP request | Description
 
 > \GateApi\Model\OptionsUnderlying[] listOptionsUnderlyings()
 
-List all underlyings.
+List all underlying assets
 
 ### Example
 
@@ -90,7 +90,7 @@ No authorization required
 
 > int[] listOptionsExpirations($underlying)
 
-List all expiration times.
+List all expiration dates
 
 ### Example
 
@@ -104,7 +104,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$underlying = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
+$underlying = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
 
 try {
     $result = $apiInstance->listOptionsExpirations($underlying);
@@ -122,7 +122,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
 
 ### Return type
 
@@ -146,7 +146,7 @@ No authorization required
 
 > \GateApi\Model\OptionsContract[] listOptionsContracts($underlying, $expiration)
 
-List all the contracts with specified underlying and expiration time.
+List all contracts for specified underlying and expiration date
 
 ### Example
 
@@ -160,8 +160,8 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
-$associate_array['expiration'] = 1636588800; // int | Unix timestamp of the expiration time.
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
+$associate_array['expiration'] = 1636588800; // int | Unix timestamp of expiration date
 
 try {
     $result = $apiInstance->listOptionsContracts($associate_array);
@@ -181,8 +181,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
- **expiration** | **int**| Unix timestamp of the expiration time. | [optional]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
+ **expiration** | **int**| Unix timestamp of expiration date | [optional]
 
 ### Return type
 
@@ -206,7 +206,7 @@ No authorization required
 
 > \GateApi\Model\OptionsContract getOptionsContract($contract)
 
-Query specified contract detail.
+Query specified contract details
 
 ### Example
 
@@ -262,7 +262,7 @@ No authorization required
 
 > \GateApi\Model\OptionsSettlement[] listOptionsSettlements($underlying, $limit, $offset, $from, $to)
 
-List settlement history.
+List settlement history
 
 ### Example
 
@@ -276,9 +276,9 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
@@ -300,9 +300,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -328,7 +328,7 @@ No authorization required
 
 > \GateApi\Model\OptionsSettlement getOptionsSettlement($contract, $underlying, $at)
 
-Get specified contract's settlement.
+Get specified contract settlement information
 
 ### Example
 
@@ -343,7 +343,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client()
 );
 $contract = 'BTC_USDT-20211130-65000-C'; // string | 
-$underlying = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
+$underlying = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
 $at = 56; // int | 
 
 try {
@@ -363,7 +363,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contract** | **string**|  |
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
  **at** | **int**|  |
 
 ### Return type
@@ -388,7 +388,7 @@ No authorization required
 
 > \GateApi\Model\OptionsMySettlements[] listMyOptionsSettlements($underlying, $contract, $limit, $offset, $from, $to)
 
-List my options settlements.
+Query personal settlement records
 
 ### Example
 
@@ -406,10 +406,10 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
-$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
+$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
@@ -431,10 +431,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
- **contract** | **string**| Options contract name. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
+ **contract** | **string**| Options contract name | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -460,9 +460,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\FuturesOrderBook listOptionsOrderBook($contract, $interval, $limit, $with_id)
 
-Options order book.
+Query options contract order book
 
-Bids will be sorted by price from high to low, while asks sorted reversely.
+Bids will be sorted by price from high to low, while asks sorted reversely
 
 ### Example
 
@@ -476,10 +476,10 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name.
-$associate_array['interval'] = '0'; // string | Order depth. 0 means no aggregation is applied. default to 0.
-$associate_array['limit'] = 10; // int | Maximum number of order depth data in asks or bids.
-$associate_array['with_id'] = false; // bool | Whether to return depth update ID. This ID increments by 1 each time.
+$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
+$associate_array['interval'] = '0'; // string | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+$associate_array['limit'] = 10; // int | Number of depth levels
+$associate_array['with_id'] = false; // bool | Whether to return depth update ID. This ID increments by 1 each time depth changes
 
 try {
     $result = $apiInstance->listOptionsOrderBook($associate_array);
@@ -499,10 +499,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Options contract name. |
- **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0. | [optional] [default to &#39;0&#39;]
- **limit** | **int**| Maximum number of order depth data in asks or bids. | [optional] [default to 10]
- **with_id** | **bool**| Whether to return depth update ID. This ID increments by 1 each time. | [optional] [default to false]
+ **contract** | **string**| Options contract name |
+ **interval** | **string**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to &#39;0&#39;]
+ **limit** | **int**| Number of depth levels | [optional] [default to 10]
+ **with_id** | **bool**| Whether to return depth update ID. This ID increments by 1 each time depth changes | [optional] [default to false]
 
 ### Return type
 
@@ -526,7 +526,7 @@ No authorization required
 
 > \GateApi\Model\OptionsTicker[] listOptionsTickers($underlying)
 
-List tickers of options contracts.
+Query options market ticker information
 
 ### Example
 
@@ -540,7 +540,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$underlying = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
+$underlying = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
 
 try {
     $result = $apiInstance->listOptionsTickers($underlying);
@@ -558,7 +558,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
 
 ### Return type
 
@@ -582,7 +582,7 @@ No authorization required
 
 > \GateApi\Model\OptionsUnderlyingTicker listOptionsUnderlyingTickers($underlying)
 
-Get underlying ticker.
+Query underlying ticker information
 
 ### Example
 
@@ -596,7 +596,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$underlying = 'BTC_USDT'; // string | Underlying.
+$underlying = 'BTC_USDT'; // string | Underlying
 
 try {
     $result = $apiInstance->listOptionsUnderlyingTickers($underlying);
@@ -614,7 +614,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying. |
+ **underlying** | **string**| Underlying |
 
 ### Return type
 
@@ -638,7 +638,7 @@ No authorization required
 
 > \GateApi\Model\OptionsCandlestick[] listOptionsCandlesticks($contract, $limit, $from, $to, $interval)
 
-Get options candlesticks.
+Options contract market candlestick chart
 
 ### Example
 
@@ -652,11 +652,11 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-$associate_array['interval'] = '5m'; // string | Interval time between data points.
+$associate_array['interval'] = '5m'; // string | Time interval between data points
 
 try {
     $result = $apiInstance->listOptionsCandlesticks($associate_array);
@@ -676,11 +676,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Options contract name. |
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **contract** | **string**| Options contract name |
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **interval** | **string**| Interval time between data points. | [optional] [default to &#39;5m&#39;]
+ **interval** | **string**| Time interval between data points | [optional] [default to &#39;5m&#39;]
 
 ### Return type
 
@@ -704,7 +704,7 @@ No authorization required
 
 > \GateApi\Model\FuturesCandlestick[] listOptionsUnderlyingCandlesticks($underlying, $limit, $from, $to, $interval)
 
-Mark price candlesticks of an underlying.
+Underlying index price candlestick chart
 
 ### Example
 
@@ -718,11 +718,11 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-$associate_array['interval'] = '5m'; // string | Interval time between data points.
+$associate_array['interval'] = '5m'; // string | Time interval between data points
 
 try {
     $result = $apiInstance->listOptionsUnderlyingCandlesticks($associate_array);
@@ -742,11 +742,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **interval** | **string**| Interval time between data points. | [optional] [default to &#39;5m&#39;]
+ **interval** | **string**| Time interval between data points | [optional] [default to &#39;5m&#39;]
 
 ### Return type
 
@@ -770,7 +770,7 @@ No authorization required
 
 > \GateApi\Model\FuturesTrade[] listOptionsTrades($contract, $type, $limit, $offset, $from, $to)
 
-Options trade history.
+Market trade records
 
 ### Example
 
@@ -784,10 +784,10 @@ $apiInstance = new GateApi\Api\OptionsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name.
-$associate_array['type'] = '1546935600'; // string | `C` is call, while `P` is put.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
+$associate_array['type'] = '1546935600'; // string | `C` for call, `P` for put
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
@@ -809,10 +809,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Options contract name. | [optional]
- **type** | **string**| &#x60;C&#x60; is call, while &#x60;P&#x60; is put. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **contract** | **string**| Options contract name | [optional]
+ **type** | **string**| &#x60;C&#x60; for call, &#x60;P&#x60; for put | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -838,7 +838,7 @@ No authorization required
 
 > \GateApi\Model\OptionsAccount listOptionsAccount()
 
-List options account.
+Query account information
 
 ### Example
 
@@ -894,7 +894,7 @@ This endpoint does not need any parameter.
 
 > \GateApi\Model\OptionsAccountBook[] listOptionsAccountBook($limit, $offset, $from, $to, $type)
 
-List account changing history.
+Query account change history
 
 ### Example
 
@@ -912,11 +912,11 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-$associate_array['type'] = 'dnw'; // string | Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL
+$associate_array['type'] = 'dnw'; // string | Change types: - dnw: Deposit & Withdrawal - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: Settlement P&L
 
 try {
     $result = $apiInstance->listOptionsAccountBook($associate_array);
@@ -936,11 +936,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL | [optional]
+ **type** | **string**| Change types: - dnw: Deposit &amp; Withdrawal - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: Settlement P&amp;L | [optional]
 
 ### Return type
 
@@ -964,7 +964,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsPosition[] listOptionsPositions($underlying)
 
-List user's positions of specified underlying.
+List user's positions of specified underlying
 
 ### Example
 
@@ -982,7 +982,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying.
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying
 
 try {
     $result = $apiInstance->listOptionsPositions($associate_array);
@@ -1002,7 +1002,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying. | [optional]
+ **underlying** | **string**| Underlying | [optional]
 
 ### Return type
 
@@ -1026,7 +1026,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsPosition getOptionsPosition($contract)
 
-Get specified contract position.
+Get specified contract position
 
 ### Example
 
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsPositionClose[] listOptionsPositionClose($underlying, $contract)
 
-List user's liquidation history of specified underlying.
+List user's liquidation history of specified underlying
 
 ### Example
 
@@ -1104,8 +1104,8 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
-$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name.
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
+$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
 
 try {
     $result = $apiInstance->listOptionsPositionClose($associate_array);
@@ -1125,8 +1125,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
- **contract** | **string**| Options contract name. | [optional]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
+ **contract** | **string**| Options contract name | [optional]
 
 ### Return type
 
@@ -1150,7 +1150,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsOrder[] listOptionsOrders($status, $contract, $underlying, $limit, $offset, $from, $to)
 
-List options orders.
+List options orders
 
 ### Example
 
@@ -1168,11 +1168,11 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['status'] = 'open'; // string | Only list the orders with this status.
-$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name.
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['status'] = 'open'; // string | Query order list based on status
+$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
@@ -1194,11 +1194,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **string**| Only list the orders with this status. |
- **contract** | **string**| Options contract name. | [optional]
- **underlying** | **string**| Underlying. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **status** | **string**| Query order list based on status |
+ **contract** | **string**| Options contract name | [optional]
+ **underlying** | **string**| Underlying | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -1224,7 +1224,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsOrder createOptionsOrder($options_order)
 
-Create an options order.
+Create an options order
 
 ### Example
 
@@ -1284,7 +1284,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsOrder[] cancelOptionsOrders($contract, $underlying, $side)
 
-Cancel all `open` orders matched.
+Cancel all orders with 'open' status
 
 ### Example
 
@@ -1302,9 +1302,9 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contract = 'BTC_USDT-20210916-5000-C'; // string | Options contract name.
-$underlying = 'BTC_USDT'; // string | Underlying.
-$side = 'ask'; // string | All bids or asks. Both included if not specified.
+$contract = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
+$underlying = 'BTC_USDT'; // string | Underlying
+$side = 'ask'; // string | Specify all bids or all asks, both included if not specified
 
 try {
     $result = $apiInstance->cancelOptionsOrders($contract, $underlying, $side);
@@ -1322,9 +1322,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Options contract name. | [optional]
- **underlying** | **string**| Underlying. | [optional]
- **side** | **string**| All bids or asks. Both included if not specified. | [optional]
+ **contract** | **string**| Options contract name | [optional]
+ **underlying** | **string**| Underlying | [optional]
+ **side** | **string**| Specify all bids or all asks, both included if not specified | [optional]
 
 ### Return type
 
@@ -1348,7 +1348,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsOrder getOptionsOrder($order_id)
 
-Get a single order.
+Query single order details
 
 ### Example
 
@@ -1366,7 +1366,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 12345; // int | Order ID returned on successful order creation.
+$order_id = 12345; // int | Order ID returned when order is successfully created
 
 try {
     $result = $apiInstance->getOptionsOrder($order_id);
@@ -1384,7 +1384,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **int**| Order ID returned on successful order creation. |
+ **order_id** | **int**| Order ID returned when order is successfully created |
 
 ### Return type
 
@@ -1408,7 +1408,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsOrder cancelOptionsOrder($order_id)
 
-Cancel a single order.
+Cancel single order
 
 ### Example
 
@@ -1426,7 +1426,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_id = 12345; // int | Order ID returned on successful order creation.
+$order_id = 12345; // int | Order ID returned when order is successfully created
 
 try {
     $result = $apiInstance->cancelOptionsOrder($order_id);
@@ -1444,7 +1444,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **int**| Order ID returned on successful order creation. |
+ **order_id** | **int**| Order ID returned when order is successfully created |
 
 ### Return type
 
@@ -1468,7 +1468,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TriggerTime countdownCancelAllOptions($countdown_cancel_all_options_task)
 
-Countdown cancel orders.
+Countdown cancel orders
 
 Option order heartbeat detection, when the `timeout` time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related `option pending order` will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown `timeout` set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the `underlying` `contract` you specified will be automatically cancelled. If `underlying` `contract` is not specified, user will be automatically cancelled  If `timeout` is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
 
@@ -1530,7 +1530,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\OptionsMyTrade[] listMyOptionsTrades($underlying, $contract, $limit, $offset, $from, $to)
 
-List personal trading history.
+Query personal trading records
 
 ### Example
 
@@ -1548,10 +1548,10 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint).
-$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying (Obtained by listing underlying endpoint)
+$associate_array['contract'] = 'BTC_USDT-20210916-5000-C'; // string | Options contract name
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
@@ -1573,10 +1573,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). |
- **contract** | **string**| Options contract name. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) |
+ **contract** | **string**| Options contract name | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -1620,7 +1620,7 @@ $apiInstance = new GateApi\Api\OptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying.
+$associate_array['underlying'] = 'BTC_USDT'; // string | Underlying
 
 try {
     $result = $apiInstance->getOptionsMMP($associate_array);
@@ -1640,7 +1640,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying. | [optional]
+ **underlying** | **string**| Underlying | [optional]
 
 ### Return type
 

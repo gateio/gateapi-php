@@ -4,37 +4,37 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listUnifiedAccounts**](UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information.
-[**getUnifiedBorrowable**](UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query about the maximum borrowing for the unified account.
-[**getUnifiedTransferable**](UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query about the maximum transferable for the unified account.
-[**getUnifiedTransferables**](UnifiedApi.md#getUnifiedTransferables) | **GET** /unified/transferables | Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
-[**getUnifiedBorrowableList**](UnifiedApi.md#getUnifiedBorrowableList) | **GET** /unified/batch_borrowable | Batch query unified account can be borrowed up to a maximum.
-[**listUnifiedLoans**](UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | List loans.
-[**createUnifiedLoan**](UnifiedApi.md#createUnifiedLoan) | **POST** /unified/loans | Borrow or repay.
-[**listUnifiedLoanRecords**](UnifiedApi.md#listUnifiedLoanRecords) | **GET** /unified/loan_records | Get load records.
-[**listUnifiedLoanInterestRecords**](UnifiedApi.md#listUnifiedLoanInterestRecords) | **GET** /unified/interest_records | List interest records.
-[**getUnifiedRiskUnits**](UnifiedApi.md#getUnifiedRiskUnits) | **GET** /unified/risk_units | Get user risk unit details.
-[**getUnifiedMode**](UnifiedApi.md#getUnifiedMode) | **GET** /unified/unified_mode | Query mode of the unified account.
-[**setUnifiedMode**](UnifiedApi.md#setUnifiedMode) | **PUT** /unified/unified_mode | Set mode of the unified account.
-[**getUnifiedEstimateRate**](UnifiedApi.md#getUnifiedEstimateRate) | **GET** /unified/estimate_rate | Get unified estimate rate.
-[**listCurrencyDiscountTiers**](UnifiedApi.md#listCurrencyDiscountTiers) | **GET** /unified/currency_discount_tiers | List currency discount tiers.
-[**listLoanMarginTiers**](UnifiedApi.md#listLoanMarginTiers) | **GET** /unified/loan_margin_tiers | List loan margin tiers.
-[**calculatePortfolioMargin**](UnifiedApi.md#calculatePortfolioMargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator.
-[**getUserLeverageCurrencyConfig**](UnifiedApi.md#getUserLeverageCurrencyConfig) | **GET** /unified/leverage/user_currency_config | Minimum currency leverage that can be set.
-[**getUserLeverageCurrencySetting**](UnifiedApi.md#getUserLeverageCurrencySetting) | **GET** /unified/leverage/user_currency_setting | Get the leverage multiple of the user currency.
-[**setUserLeverageCurrencySetting**](UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage.
-[**listUnifiedCurrencies**](UnifiedApi.md#listUnifiedCurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account.
-[**getHistoryLoanRate**](UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | get historical lending rates.
-[**setUnifiedCollateral**](UnifiedApi.md#setUnifiedCollateral) | **POST** /unified/collateral_currencies | Set Collateral Currency.
+[**listUnifiedAccounts**](UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information
+[**getUnifiedBorrowable**](UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query maximum borrowable amount for unified account
+[**getUnifiedTransferable**](UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query maximum transferable amount for unified account
+[**getUnifiedTransferables**](UnifiedApi.md#getUnifiedTransferables) | **GET** /unified/transferables | Batch query maximum transferable amount for unified accounts. Each currency shows the maximum value. After user withdrawal, the transferable amount for all currencies will change
+[**getUnifiedBorrowableList**](UnifiedApi.md#getUnifiedBorrowableList) | **GET** /unified/batch_borrowable | Batch query unified account maximum borrowable amount
+[**listUnifiedLoans**](UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | Query loans
+[**createUnifiedLoan**](UnifiedApi.md#createUnifiedLoan) | **POST** /unified/loans | Borrow or repay
+[**listUnifiedLoanRecords**](UnifiedApi.md#listUnifiedLoanRecords) | **GET** /unified/loan_records | Query loan records
+[**listUnifiedLoanInterestRecords**](UnifiedApi.md#listUnifiedLoanInterestRecords) | **GET** /unified/interest_records | Query interest deduction records
+[**getUnifiedRiskUnits**](UnifiedApi.md#getUnifiedRiskUnits) | **GET** /unified/risk_units | Get user risk unit details
+[**getUnifiedMode**](UnifiedApi.md#getUnifiedMode) | **GET** /unified/unified_mode | Query mode of the unified account
+[**setUnifiedMode**](UnifiedApi.md#setUnifiedMode) | **PUT** /unified/unified_mode | Set unified account mode
+[**getUnifiedEstimateRate**](UnifiedApi.md#getUnifiedEstimateRate) | **GET** /unified/estimate_rate | Query unified account estimated interest rate
+[**listCurrencyDiscountTiers**](UnifiedApi.md#listCurrencyDiscountTiers) | **GET** /unified/currency_discount_tiers | Query unified account tiered discount
+[**listLoanMarginTiers**](UnifiedApi.md#listLoanMarginTiers) | **GET** /unified/loan_margin_tiers | Query unified account tiered loan margin
+[**calculatePortfolioMargin**](UnifiedApi.md#calculatePortfolioMargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
+[**getUserLeverageCurrencyConfig**](UnifiedApi.md#getUserLeverageCurrencyConfig) | **GET** /unified/leverage/user_currency_config | Maximum and minimum currency leverage that can be set
+[**getUserLeverageCurrencySetting**](UnifiedApi.md#getUserLeverageCurrencySetting) | **GET** /unified/leverage/user_currency_setting | Get user currency leverage
+[**setUserLeverageCurrencySetting**](UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set loan currency leverage
+[**listUnifiedCurrencies**](UnifiedApi.md#listUnifiedCurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account
+[**getHistoryLoanRate**](UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | Get historical lending rates
+[**setUnifiedCollateral**](UnifiedApi.md#setUnifiedCollateral) | **POST** /unified/collateral_currencies | Set collateral currency
 
 
 ## listUnifiedAccounts
 
 > \GateApi\Model\UnifiedAccount listUnifiedAccounts($currency, $sub_uid)
 
-Get unified account information.
+Get unified account information
 
-The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
+The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  For specific formulas, please refer to [Margin Formula](#margin-formula)
 
 ### Example
 
@@ -52,8 +52,8 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['sub_uid'] = '10001'; // string | Sub account user ID.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['sub_uid'] = '10001'; // string | Sub account user ID
 
 try {
     $result = $apiInstance->listUnifiedAccounts($associate_array);
@@ -73,8 +73,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **sub_uid** | **string**| Sub account user ID. | [optional]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **sub_uid** | **string**| Sub account user ID | [optional]
 
 ### Return type
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UnifiedBorrowable getUnifiedBorrowable($currency)
 
-Query about the maximum borrowing for the unified account.
+Query maximum borrowable amount for unified account
 
 ### Example
 
@@ -116,7 +116,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'BTC'; // string | Retrieve data of the specified currency.
+$currency = 'BTC'; // string | Query by specified currency name
 
 try {
     $result = $apiInstance->getUnifiedBorrowable($currency);
@@ -134,7 +134,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. |
+ **currency** | **string**| Query by specified currency name |
 
 ### Return type
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UnifiedTransferable getUnifiedTransferable($currency)
 
-Query about the maximum transferable for the unified account.
+Query maximum transferable amount for unified account
 
 ### Example
 
@@ -176,7 +176,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'BTC'; // string | Retrieve data of the specified currency.
+$currency = 'BTC'; // string | Query by specified currency name
 
 try {
     $result = $apiInstance->getUnifiedTransferable($currency);
@@ -194,7 +194,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. |
+ **currency** | **string**| Query by specified currency name |
 
 ### Return type
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TransferablesResult[] getUnifiedTransferables($currencies)
 
-Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
+Batch query maximum transferable amount for unified accounts. Each currency shows the maximum value. After user withdrawal, the transferable amount for all currencies will change
 
 ### Example
 
@@ -236,7 +236,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currencies = 'BTC,ETH'; // string | Specify the currency name to query in batches, and support up to 100 pass parameters at a time.
+$currencies = 'BTC,ETH'; // string | Specify the currency name to query in batches, and support up to 100 pass parameters at a time
 
 try {
     $result = $apiInstance->getUnifiedTransferables($currencies);
@@ -254,7 +254,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | **string**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time. |
+ **currencies** | **string**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time |
 
 ### Return type
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UnifiedBorrowable1[] getUnifiedBorrowableList($currencies)
 
-Batch query unified account can be borrowed up to a maximum.
+Batch query unified account maximum borrowable amount
 
 ### Example
 
@@ -296,7 +296,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currencies = array('[\"BTC\",\"GT\"]'); // string[] | Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.
+$currencies = array('[\"BTC\",\"GT\"]'); // string[] | Specify currency names for querying in an array, separated by commas, maximum 10 currencies
 
 try {
     $result = $apiInstance->getUnifiedBorrowableList($currencies);
@@ -314,7 +314,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**string[]**](../Model/string.md)| Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. |
+ **currencies** | [**string[]**](../Model/string.md)| Specify currency names for querying in an array, separated by commas, maximum 10 currencies |
 
 ### Return type
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UniLoan[] listUnifiedLoans($currency, $page, $limit, $type)
 
-List loans.
+Query loans
 
 ### Example
 
@@ -356,10 +356,10 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
-$associate_array['type'] = 'platform'; // string | Loan type, platform - platform, margin - margin.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
+$associate_array['type'] = 'platform'; // string | Loan type: platform borrowing - platform, margin borrowing - margin
 
 try {
     $result = $apiInstance->listUnifiedLoans($associate_array);
@@ -379,10 +379,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
- **type** | **string**| Loan type, platform - platform, margin - margin. | [optional]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
+ **type** | **string**| Loan type: platform borrowing - platform, margin borrowing - margin | [optional]
 
 ### Return type
 
@@ -406,9 +406,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UnifiedLoanResult createUnifiedLoan($unified_loan)
 
-Borrow or repay.
+Borrow or repay
 
-When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user's responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter `repaid_all=true`
+When borrowing, ensure the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and user.  Loan interest will be automatically deducted from the account at regular intervals. Users are responsible for managing repayment of borrowed amounts.  For repayment, use `repaid_all=true` to repay all available amounts
 
 ### Example
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UnifiedLoanRecord[] listUnifiedLoanRecords($type, $currency, $page, $limit)
 
-Get load records.
+Query loan records
 
 ### Example
 
@@ -486,10 +486,10 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['type'] = 'type_example'; // string | The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+$associate_array['type'] = 'type_example'; // string | Loan record type: borrow - borrowing, repay - repayment
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
 
 try {
     $result = $apiInstance->listUnifiedLoanRecords($associate_array);
@@ -509,10 +509,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds | [optional]
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **type** | **string**| Loan record type: borrow - borrowing, repay - repayment | [optional]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 
 ### Return type
 
@@ -536,7 +536,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UniLoanInterestRecord[] listUnifiedLoanInterestRecords($currency, $page, $limit, $from, $to, $type)
 
-List interest records.
+Query interest deduction records
 
 ### Example
 
@@ -554,12 +554,12 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
-$associate_array['from'] = 1627706330; // int | Start timestamp of the query.
-$associate_array['to'] = 1635329650; // int | Time range ending, default to current time.
-$associate_array['type'] = 'platform'; // string | Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
+$associate_array['from'] = 1627706330; // int | Start timestamp for the query
+$associate_array['to'] = 1635329650; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['type'] = 'platform'; // string | Loan type: platform borrowing - platform, margin borrowing - margin. Defaults to margin if not specified
 
 try {
     $result = $apiInstance->listUnifiedLoanInterestRecords($associate_array);
@@ -579,12 +579,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
- **from** | **int**| Start timestamp of the query. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **type** | **string**| Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin | [optional]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
+ **from** | **int**| Start timestamp for the query | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **type** | **string**| Loan type: platform borrowing - platform, margin borrowing - margin. Defaults to margin if not specified | [optional]
 
 ### Return type
 
@@ -608,9 +608,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UnifiedRiskUnits getUnifiedRiskUnits()
 
-Get user risk unit details.
+Get user risk unit details
 
-Retrieve user risk unit details, only valid in portfolio margin mode.
+Get user risk unit details, only valid in portfolio margin mode
 
 ### Example
 
@@ -666,7 +666,7 @@ This endpoint does not need any parameter.
 
 > \GateApi\Model\UnifiedModeSet getUnifiedMode()
 
-Query mode of the unified account.
+Query mode of the unified account
 
 Unified account mode: - `classic`: Classic account mode - `multi_currency`: Cross-currency margin mode - `portfolio`: Portfolio margin mode - `single_currency`: Single-currency margin mode
 
@@ -724,7 +724,7 @@ This endpoint does not need any parameter.
 
 > setUnifiedMode($unified_mode_set)
 
-Set mode of the unified account.
+Set unified account mode
 
 Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode=classic ```  PUT /unified/unified_mode  {  \"mode\": \"classic\"  } ``` - When enabling the cross-currency margin \"multi_currency\",  \"settings\": {  \"usdt_futures\": true  }  } ``` - When enabling the portfolio margin mode, mode=portfolio ```  PUT /unified/unified_mode  {  \"mode\": \"portfolio\",  \"settings\": {  \"spot_hedge\": true  }  } ``` - When enabling the single-currency margin mode, mode=single_currency ```  PUT /unified/unified_mode  {  \"mode\": \"single_currency\"  } ```
 
@@ -785,9 +785,9 @@ void (empty response body)
 
 > map[string,string] getUnifiedEstimateRate($currencies)
 
-Get unified estimate rate.
+Query unified account estimated interest rate
 
-Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+Interest rates fluctuate hourly based on lending depth, so exact rates cannot be provided. When a currency is not supported, the interest rate returned will be an empty string
 
 ### Example
 
@@ -805,7 +805,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currencies = array('[\"BTC\",\"GT\"]'); // string[] | Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.
+$currencies = array('[\"BTC\",\"GT\"]'); // string[] | Specify currency names for querying in an array, separated by commas, maximum 10 currencies
 
 try {
     $result = $apiInstance->getUnifiedEstimateRate($currencies);
@@ -823,7 +823,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**string[]**](../Model/string.md)| Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. |
+ **currencies** | [**string[]**](../Model/string.md)| Specify currency names for querying in an array, separated by commas, maximum 10 currencies |
 
 ### Return type
 
@@ -847,7 +847,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UnifiedDiscount[] listCurrencyDiscountTiers()
 
-List currency discount tiers.
+Query unified account tiered discount
 
 ### Example
 
@@ -899,7 +899,7 @@ No authorization required
 
 > \GateApi\Model\UnifiedMarginTiers[] listLoanMarginTiers()
 
-List loan margin tiers.
+Query unified account tiered loan margin
 
 ### Example
 
@@ -951,9 +951,9 @@ No authorization required
 
 > \GateApi\Model\UnifiedPortfolioOutput calculatePortfolioMargin($unified_portfolio_input)
 
-Portfolio margin calculator.
+Portfolio margin calculator
 
-Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+Portfolio Margin Calculator  When inputting simulated position portfolios, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
 
 ### Example
 
@@ -1009,7 +1009,7 @@ No authorization required
 
 > \GateApi\Model\UnifiedLeverageConfig getUserLeverageCurrencyConfig($currency)
 
-Minimum currency leverage that can be set.
+Maximum and minimum currency leverage that can be set
 
 ### Example
 
@@ -1027,7 +1027,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'BTC'; // string | Currency.
+$currency = 'BTC'; // string | Currency
 
 try {
     $result = $apiInstance->getUserLeverageCurrencyConfig($currency);
@@ -1045,7 +1045,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. |
+ **currency** | **string**| Currency |
 
 ### Return type
 
@@ -1067,11 +1067,11 @@ Name | Type | Description  | Notes
 
 ## getUserLeverageCurrencySetting
 
-> \GateApi\Model\UnifiedLeverageSetting getUserLeverageCurrencySetting($currency)
+> \GateApi\Model\UnifiedLeverageSetting[] getUserLeverageCurrencySetting($currency)
 
-Get the leverage multiple of the user currency.
+Get user currency leverage
 
-Get the user's currency leverage. If currency is not passed, query all currencies.
+Get user currency leverage. If currency is not specified, query all currencies
 
 ### Example
 
@@ -1089,7 +1089,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Currency.
+$associate_array['currency'] = 'BTC'; // string | Currency
 
 try {
     $result = $apiInstance->getUserLeverageCurrencySetting($associate_array);
@@ -1109,11 +1109,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. | [optional]
+ **currency** | **string**| Currency | [optional]
 
 ### Return type
 
-[**\GateApi\Model\UnifiedLeverageSetting**](../Model/UnifiedLeverageSetting.md)
+[**\GateApi\Model\UnifiedLeverageSetting[]**](../Model/UnifiedLeverageSetting.md)
 
 ### Authorization
 
@@ -1133,7 +1133,7 @@ Name | Type | Description  | Notes
 
 > setUserLeverageCurrencySetting($unified_leverage_setting)
 
-Set the loan currency leverage.
+Set loan currency leverage
 
 ### Example
 
@@ -1192,7 +1192,7 @@ void (empty response body)
 
 > \GateApi\Model\UnifiedCurrency[] listUnifiedCurrencies($currency)
 
-List of loan currencies supported by unified account.
+List of loan currencies supported by unified account
 
 ### Example
 
@@ -1206,7 +1206,7 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currency'] = 'BTC'; // string | Currency.
+$associate_array['currency'] = 'BTC'; // string | Currency
 
 try {
     $result = $apiInstance->listUnifiedCurrencies($associate_array);
@@ -1226,7 +1226,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. | [optional]
+ **currency** | **string**| Currency | [optional]
 
 ### Return type
 
@@ -1250,7 +1250,7 @@ No authorization required
 
 > \GateApi\Model\UnifiedHistoryLoanRate getHistoryLoanRate($currency, $tier, $page, $limit)
 
-get historical lending rates.
+Get historical lending rates
 
 ### Example
 
@@ -1264,10 +1264,10 @@ $apiInstance = new GateApi\Api\UnifiedApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['currency'] = 'USDT'; // string | Currency.
-$associate_array['tier'] = '1'; // string | The VIP level of the floating rate that needs to be queried.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+$associate_array['currency'] = 'USDT'; // string | Currency
+$associate_array['tier'] = '1'; // string | VIP level for the floating rate to be queried
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
 
 try {
     $result = $apiInstance->getHistoryLoanRate($associate_array);
@@ -1287,10 +1287,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. |
- **tier** | **string**| The VIP level of the floating rate that needs to be queried. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **currency** | **string**| Currency |
+ **tier** | **string**| VIP level for the floating rate to be queried | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 
 ### Return type
 
@@ -1314,7 +1314,7 @@ No authorization required
 
 > \GateApi\Model\UnifiedCollateralRes setUnifiedCollateral($unified_collateral_req)
 
-Set Collateral Currency.
+Set collateral currency
 
 ### Example
 

@@ -4,34 +4,34 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listCurrencyChains**](WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | List chains supported for specified currency.
-[**getDepositAddress**](WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address.
-[**listWithdrawals**](WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records.
-[**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records.
-[**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts.
-[**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts.
-[**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts.
-[**subAccountToSubAccount**](WalletApi.md#subAccountToSubAccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account.
-[**getTransferOrderStatus**](WalletApi.md#getTransferOrderStatus) | **GET** /wallet/order_status | Transfer status query.
-[**listWithdrawStatus**](WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status.
-[**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances.
-[**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances.
-[**listSubAccountFuturesBalances**](WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances.
-[**listSubAccountCrossMarginBalances**](WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info.
-[**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address.
-[**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee.
-[**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances.
-[**listSmallBalance**](WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | List small balance.
-[**convertSmallBalance**](WalletApi.md#convertSmallBalance) | **POST** /wallet/small_balance | Convert small balance.
-[**listSmallBalanceHistory**](WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | List small balance history.
-[**listPushOrders**](WalletApi.md#listPushOrders) | **GET** /wallet/push | Retrieve the UID transfer history.
+[**listCurrencyChains**](WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | Query chains supported for specified currency
+[**getDepositAddress**](WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
+[**listWithdrawals**](WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Get withdrawal records
+[**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Get deposit records
+[**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
+[**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Get transfer records between main and sub accounts
+[**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
+[**subAccountToSubAccount**](WalletApi.md#subAccountToSubAccount) | **POST** /wallet/sub_account_to_sub_account | Transfer between sub-accounts
+[**getTransferOrderStatus**](WalletApi.md#getTransferOrderStatus) | **GET** /wallet/order_status | Transfer status query
+[**listWithdrawStatus**](WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Query withdrawal status
+[**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Query sub-account balance information
+[**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub-account isolated margin account balance information
+[**listSubAccountFuturesBalances**](WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub-account perpetual futures account balance information
+[**listSubAccountCrossMarginBalances**](WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query sub-account cross margin account balance information
+[**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query withdrawal address whitelist
+[**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Query personal trading fees
+[**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Query personal account totals
+[**listSmallBalance**](WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | Get list of convertible small balance currencies
+[**convertSmallBalance**](WalletApi.md#convertSmallBalance) | **POST** /wallet/small_balance | Convert small balance currency
+[**listSmallBalanceHistory**](WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | Get convertible small balance currency history
+[**listPushOrders**](WalletApi.md#listPushOrders) | **GET** /wallet/push | Get UID transfer history
 
 
 ## listCurrencyChains
 
 > \GateApi\Model\CurrencyChain[] listCurrencyChains($currency)
 
-List chains supported for specified currency.
+Query chains supported for specified currency
 
 ### Example
 
@@ -45,7 +45,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$currency = 'GT'; // string | Currency name.
+$currency = 'GT'; // string | Currency name
 
 try {
     $result = $apiInstance->listCurrencyChains($currency);
@@ -63,7 +63,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency name. |
+ **currency** | **string**| Currency name |
 
 ### Return type
 
@@ -87,7 +87,7 @@ No authorization required
 
 > \GateApi\Model\DepositAddress getDepositAddress($currency)
 
-Generate currency deposit address.
+Generate currency deposit address
 
 ### Example
 
@@ -105,7 +105,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'USDT'; // string | Currency name.
+$currency = 'USDT'; // string | Currency name
 
 try {
     $result = $apiInstance->getDepositAddress($currency);
@@ -123,7 +123,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency name. |
+ **currency** | **string**| Currency name |
 
 ### Return type
 
@@ -147,9 +147,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\WithdrawalRecord[] listWithdrawals($currency, $withdraw_id, $asset_class, $withdraw_order_id, $from, $to, $limit, $offset)
 
-Retrieve withdrawal records.
+Get withdrawal records
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -167,14 +167,14 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Filter by currency. Return all currency records if not specified.
-$associate_array['withdraw_id'] = 'withdraw_id_example'; // string | The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time
-$associate_array['asset_class'] = 'asset_class_example'; // string | The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone
-$associate_array['withdraw_order_id'] = 'withdraw_order_id_example'; // string | User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried
-$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time.
-$associate_array['to'] = 1602123600; // int | Time range ending, default to current time.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['currency'] = 'BTC'; // string | Specify the currency. If not specified, returns all currencies
+$associate_array['withdraw_id'] = 'withdraw_id_example'; // string | Withdrawal record ID starts with 'w', such as: w1879219868. When withdraw_id is not empty, only this specific withdrawal record will be queried, and time-based querying will be disabled
+$associate_array['asset_class'] = 'asset_class_example'; // string | Currency type of withdrawal record, empty by default. Supports querying withdrawal records in main zone and innovation zone on demand. Value range: SPOT, PILOT  SPOT: Main Zone PILOT: Innovation Zone
+$associate_array['withdraw_order_id'] = 'withdraw_order_id_example'; // string | User-defined order number for withdrawal. Default is empty. When not empty, the specified user-defined order number record will be queried
+$associate_array['from'] = 1602120000; // int | Start time for querying records, defaults to 7 days before current time if not specified
+$associate_array['to'] = 1602123600; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->listWithdrawals($associate_array);
@@ -194,14 +194,14 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency. Return all currency records if not specified. | [optional]
- **withdraw_id** | **string**| The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time | [optional]
- **asset_class** | **string**| The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone | [optional]
- **withdraw_order_id** | **string**| User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **currency** | **string**| Specify the currency. If not specified, returns all currencies | [optional]
+ **withdraw_id** | **string**| Withdrawal record ID starts with &#39;w&#39;, such as: w1879219868. When withdraw_id is not empty, only this specific withdrawal record will be queried, and time-based querying will be disabled | [optional]
+ **asset_class** | **string**| Currency type of withdrawal record, empty by default. Supports querying withdrawal records in main zone and innovation zone on demand. Value range: SPOT, PILOT  SPOT: Main Zone PILOT: Innovation Zone | [optional]
+ **withdraw_order_id** | **string**| User-defined order number for withdrawal. Default is empty. When not empty, the specified user-defined order number record will be queried | [optional]
+ **from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -225,9 +225,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\DepositRecord[] listDeposits($currency, $from, $to, $limit, $offset)
 
-Retrieve deposit records.
+Get deposit records
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -245,11 +245,11 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Filter by currency. Return all currency records if not specified.
-$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time.
-$associate_array['to'] = 1602123600; // int | Time range ending, default to current time.
-$associate_array['limit'] = 100; // int | The maximum number of entries returned in the list is limited to 500 transactions.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['currency'] = 'BTC'; // string | Specify the currency. If not specified, returns all currencies
+$associate_array['from'] = 1602120000; // int | Start time for querying records, defaults to 7 days before current time if not specified
+$associate_array['to'] = 1602123600; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['limit'] = 100; // int | Maximum number of entries returned in the list, limited to 500 transactions
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->listDeposits($associate_array);
@@ -269,11 +269,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency. Return all currency records if not specified. | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **limit** | **int**| The maximum number of entries returned in the list is limited to 500 transactions. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **currency** | **string**| Specify the currency. If not specified, returns all currencies | [optional]
+ **from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **int**| Maximum number of entries returned in the list, limited to 500 transactions | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -297,9 +297,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TransactionID transfer($transfer)
 
-Transfer between trading accounts.
+Transfer between trading accounts
 
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. options
+Balance transfers between personal trading accounts. Currently supports the following transfer operations:  1. Spot account - Margin account 2. Spot account - Perpetual futures account 3. Spot account - Delivery futures account 4. Spot account - Options account
 
 ### Example
 
@@ -359,9 +359,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccountTransferRecordItem[] listSubAccountTransfers($sub_uid, $from, $to, $limit, $offset)
 
-Retrieve transfer records between main and sub accounts.
+Get transfer records between main and sub accounts
 
-Record time range cannot exceed 30 days  > Note: only records after 20-04-10can be retrieved
+Record query time range cannot exceed 30 days  > Note: Only records after 2020-04-10 can be retrieved
 
 ### Example
 
@@ -379,11 +379,11 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
-$associate_array['from'] = 1602120000; // int | Time range beginning, default to 7 days before current time.
-$associate_array['to'] = 1602123600; // int | Time range ending, default to current time.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['sub_uid'] = '10003'; // string | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
+$associate_array['from'] = 1602120000; // int | Start time for querying records, defaults to 7 days before current time if not specified
+$associate_array['to'] = 1602123600; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 
 try {
     $result = $apiInstance->listSubAccountTransfers($associate_array);
@@ -403,11 +403,11 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
- **from** | **int**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **sub_uid** | **string**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional]
+ **from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -431,9 +431,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TransactionID transferWithSubAccount($sub_account_transfer)
 
-Transfer between main and sub accounts.
+Transfer between main and sub accounts
 
-Support transferring with sub user's spot or futures account. Note that only main user's spot account is used no matter which sub user's account is operated.
+Supports transfers to/from sub-account's spot or futures accounts. Note that regardless of which sub-account is operated, only the main account's spot account is used
 
 ### Example
 
@@ -493,9 +493,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TransactionID subAccountToSubAccount($sub_account_to_sub_account)
 
-Sub-account transfers to sub-account.
+Transfer between sub-accounts
 
-It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account sub-account to initiate the transfer.
+Supports balance transfers between two sub-accounts under the same main account. You can use either the main account's API Key or the source sub-account's API Key to perform the operation
 
 ### Example
 
@@ -555,9 +555,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TransferOrderStatus getTransferOrderStatus($client_order_id, $tx_id)
 
-Transfer status query.
+Transfer status query
 
-Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+Supports querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
 
 ### Example
 
@@ -575,8 +575,8 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['client_order_id'] = 'da3ce7a088c8b0372b741419c7829033'; // string | The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens '-', and underscores '_', with a length ranging from 1 to 64 characters.
-$associate_array['tx_id'] = '59636381286'; // string | The transfer operation number and client_order_id cannot be empty at the same time
+$associate_array['client_order_id'] = 'da3ce7a088c8b0372b741419c7829033'; // string | Customer-defined ID to prevent duplicate transfers. Can be a combination of letters (case-sensitive), numbers, hyphens '-', and underscores '_'. Can be pure letters or pure numbers with length between 1-64 characters
+$associate_array['tx_id'] = '59636381286'; // string | Transfer operation number, cannot be empty at the same time as client_order_id
 
 try {
     $result = $apiInstance->getTransferOrderStatus($associate_array);
@@ -596,8 +596,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_order_id** | **string**| The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. | [optional]
- **tx_id** | **string**| The transfer operation number and client_order_id cannot be empty at the same time | [optional]
+ **client_order_id** | **string**| Customer-defined ID to prevent duplicate transfers. Can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;. Can be pure letters or pure numbers with length between 1-64 characters | [optional]
+ **tx_id** | **string**| Transfer operation number, cannot be empty at the same time as client_order_id | [optional]
 
 ### Return type
 
@@ -621,7 +621,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\WithdrawStatus[] listWithdrawStatus($currency)
 
-Retrieve withdrawal status.
+Query withdrawal status
 
 ### Example
 
@@ -639,7 +639,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
 
 try {
     $result = $apiInstance->listWithdrawStatus($associate_array);
@@ -659,7 +659,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
+ **currency** | **string**| Query by specified currency name | [optional]
 
 ### Return type
 
@@ -683,7 +683,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccountBalance[] listSubAccountBalances($sub_uid)
 
-Retrieve sub account balances.
+Query sub-account balance information
 
 ### Example
 
@@ -701,7 +701,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
+$associate_array['sub_uid'] = '10003'; // string | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
 
 try {
     $result = $apiInstance->listSubAccountBalances($associate_array);
@@ -721,7 +721,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
+ **sub_uid** | **string**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional]
 
 ### Return type
 
@@ -745,7 +745,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccountMarginBalance[] listSubAccountMarginBalances($sub_uid)
 
-Query sub accounts' margin balances.
+Query sub-account isolated margin account balance information
 
 ### Example
 
@@ -763,7 +763,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
+$associate_array['sub_uid'] = '10003'; // string | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
 
 try {
     $result = $apiInstance->listSubAccountMarginBalances($associate_array);
@@ -783,7 +783,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
+ **sub_uid** | **string**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional]
 
 ### Return type
 
@@ -807,7 +807,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccountFuturesBalance[] listSubAccountFuturesBalances($sub_uid, $settle)
 
-Query sub accounts' futures account balances.
+Query sub-account perpetual futures account balance information
 
 ### Example
 
@@ -825,8 +825,8 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
-$associate_array['settle'] = 'usdt'; // string | Query only balances of specified settle currency.
+$associate_array['sub_uid'] = '10003'; // string | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
+$associate_array['settle'] = 'usdt'; // string | Query balance of specified settlement currency
 
 try {
     $result = $apiInstance->listSubAccountFuturesBalances($associate_array);
@@ -846,8 +846,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
- **settle** | **string**| Query only balances of specified settle currency. | [optional]
+ **sub_uid** | **string**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional]
+ **settle** | **string**| Query balance of specified settlement currency | [optional]
 
 ### Return type
 
@@ -871,7 +871,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SubAccountCrossMarginBalance[] listSubAccountCrossMarginBalances($sub_uid)
 
-Query subaccount's cross_margin account info.
+Query sub-account cross margin account balance information
 
 ### Example
 
@@ -889,7 +889,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['sub_uid'] = '10003'; // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
+$associate_array['sub_uid'] = '10003'; // string | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
 
 try {
     $result = $apiInstance->listSubAccountCrossMarginBalances($associate_array);
@@ -909,7 +909,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sub_uid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
+ **sub_uid** | **string**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional]
 
 ### Return type
 
@@ -933,7 +933,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SavedAddress[] listSavedAddress($currency, $chain, $limit, $page)
 
-Query saved address.
+Query withdrawal address whitelist
 
 ### Example
 
@@ -951,10 +951,10 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'USDT'; // string | Currency.
-$associate_array['chain'] = ''; // string | Chain name.
-$associate_array['limit'] = '50'; // string | Maximum number returned, 100 at most.
-$associate_array['page'] = 1; // int | Page number.
+$associate_array['currency'] = 'USDT'; // string | Currency
+$associate_array['chain'] = ''; // string | Chain name
+$associate_array['limit'] = '50'; // string | Maximum number returned, up to 100
+$associate_array['page'] = 1; // int | Page number
 
 try {
     $result = $apiInstance->listSavedAddress($associate_array);
@@ -974,10 +974,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. |
- **chain** | **string**| Chain name. | [optional] [default to &#39;&#39;]
- **limit** | **string**| Maximum number returned, 100 at most. | [optional] [default to &#39;50&#39;]
- **page** | **int**| Page number. | [optional] [default to 1]
+ **currency** | **string**| Currency |
+ **chain** | **string**| Chain name | [optional] [default to &#39;&#39;]
+ **limit** | **string**| Maximum number returned, up to 100 | [optional] [default to &#39;50&#39;]
+ **page** | **int**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -1001,7 +1001,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TradeFee getTradeFee($currency_pair, $settle)
 
-Retrieve personal trading fee.
+Query personal trading fees
 
 ### Example
 
@@ -1019,8 +1019,8 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs
-$associate_array['settle'] = 'BTC'; // string | Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Specify currency pair to get more accurate fee settings.  This field is optional. Usually fee settings are the same for all currency pairs.
+$associate_array['settle'] = 'BTC'; // string | Specify the settlement currency of the contract to get more accurate fee settings.  This field is optional. Generally, the fee settings for all settlement currencies are the same.
 
 try {
     $result = $apiInstance->getTradeFee($associate_array);
@@ -1040,8 +1040,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs | [optional]
- **settle** | **string**| Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. | [optional]
+ **currency_pair** | **string**| Specify currency pair to get more accurate fee settings.  This field is optional. Usually fee settings are the same for all currency pairs. | [optional]
+ **settle** | **string**| Specify the settlement currency of the contract to get more accurate fee settings.  This field is optional. Generally, the fee settings for all settlement currencies are the same. | [optional]
 
 ### Return type
 
@@ -1065,9 +1065,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\TotalBalance getTotalBalance($currency)
 
-Retrieve user's total balances.
+Query personal account totals
 
-This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - `GET /spot/accounts` to query spot account balance - `GET /margin/accounts` /futures/{settle}/accounts` to query futures account balance
+This query endpoint returns the total *estimated value* of all currencies in each account converted to the input currency. Exchange rates and related account balance information may be cached for up to 1 minute. It is not recommended to use this interface data for real-time calculations.  For real-time calculations, query the corresponding balance interface based on account type, such as:  - `GET /spot/accounts` to query spot account - `GET /margin/accounts` to query margin account - `GET /futures/{settle}/accounts` to query futures account
 
 ### Example
 
@@ -1085,7 +1085,7 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'USDT'; // string | Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default.
+$associate_array['currency'] = 'USDT'; // string | Target currency type for statistical conversion. Accepts BTC, CNY, USD, and USDT. USDT is the default value
 
 try {
     $result = $apiInstance->getTotalBalance($associate_array);
@@ -1105,7 +1105,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. | [optional] [default to &#39;USDT&#39;]
+ **currency** | **string**| Target currency type for statistical conversion. Accepts BTC, CNY, USD, and USDT. USDT is the default value | [optional] [default to &#39;USDT&#39;]
 
 ### Return type
 
@@ -1129,7 +1129,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\SmallBalance[] listSmallBalance()
 
-List small balance.
+Get list of convertible small balance currencies
 
 ### Example
 
@@ -1185,7 +1185,7 @@ This endpoint does not need any parameter.
 
 > convertSmallBalance($convert_small_balance)
 
-Convert small balance.
+Convert small balance currency
 
 ### Example
 
@@ -1244,7 +1244,7 @@ void (empty response body)
 
 > \GateApi\Model\SmallBalanceHistory[] listSmallBalanceHistory($currency, $page, $limit)
 
-List small balance history.
+Get convertible small balance currency history
 
 ### Example
 
@@ -1262,9 +1262,9 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'currency_example'; // string | Currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+$associate_array['currency'] = 'currency_example'; // string | Currency to convert
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
 
 try {
     $result = $apiInstance->listSmallBalanceHistory($associate_array);
@@ -1284,9 +1284,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **currency** | **string**| Currency to convert | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 
 ### Return type
 
@@ -1310,7 +1310,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UidPushOrder[] listPushOrders($id, $from, $to, $limit, $offset, $transaction_type)
 
-Retrieve the UID transfer history.
+Get UID transfer history
 
 ### Example
 
@@ -1328,12 +1328,12 @@ $apiInstance = new GateApi\Api\WalletApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['id'] = 56; // int | Order ID.
-$associate_array['from'] = 56; // int | The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp
-$associate_array['to'] = 56; // int | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds.
-$associate_array['limit'] = 100; // int | The maximum number of items returned in the list, the default value is 100.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
-$associate_array['transaction_type'] = 'withdraw'; // string | The list returns the order type `withdraw`, `deposit`, the default is `withdraw`.
+$associate_array['id'] = 56; // int | Order ID
+$associate_array['from'] = 56; // int | Start time for querying records. If not specified, defaults to 7 days before the current time. Unix timestamp in seconds
+$associate_array['to'] = 56; // int | End time for querying records. If not specified, defaults to the current time. Unix timestamp in seconds
+$associate_array['limit'] = 100; // int | Maximum number of items returned in the list, default value is 100
+$associate_array['offset'] = 0; // int | List offset, starting from 0
+$associate_array['transaction_type'] = 'withdraw'; // string | Order type returned in the list: `withdraw`, `deposit`. Default is `withdraw`.
 
 try {
     $result = $apiInstance->listPushOrders($associate_array);
@@ -1353,12 +1353,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Order ID. | [optional]
- **from** | **int**| The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp | [optional]
- **to** | **int**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional]
- **limit** | **int**| The maximum number of items returned in the list, the default value is 100. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
- **transaction_type** | **string**| The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. | [optional] [default to &#39;withdraw&#39;]
+ **id** | **int**| Order ID | [optional]
+ **from** | **int**| Start time for querying records. If not specified, defaults to 7 days before the current time. Unix timestamp in seconds | [optional]
+ **to** | **int**| End time for querying records. If not specified, defaults to the current time. Unix timestamp in seconds | [optional]
+ **limit** | **int**| Maximum number of items returned in the list, default value is 100 | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **transaction_type** | **string**| Order type returned in the list: &#x60;withdraw&#x60;, &#x60;deposit&#x60;. Default is &#x60;withdraw&#x60;. | [optional] [default to &#39;withdraw&#39;]
 
 ### Return type
 

@@ -4,25 +4,25 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listMarginAccounts**](MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list.
-[**listMarginAccountBook**](MarginApi.md#listMarginAccountBook) | **GET** /margin/account_book | List margin account balance change history.
-[**listFundingAccounts**](MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list.
-[**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting.
-[**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting.
-[**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency.
-[**getUserMarginTier**](MarginApi.md#getUserMarginTier) | **GET** /margin/user/loan_margin_tiers | Check the user&#39;s own leverage lending gradient in the current market.
-[**getMarketMarginTier**](MarginApi.md#getMarketMarginTier) | **GET** /margin/loan_margin_tiers | Query the current market leverage lending gradient.
-[**setUserMarketLeverage**](MarginApi.md#setUserMarketLeverage) | **POST** /margin/leverage/user_market_setting | Set the user market leverage multiple.
-[**listMarginUserAccount**](MarginApi.md#listMarginUserAccount) | **GET** /margin/user/account | Query the user&#39;s leverage account list.
-[**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history. (deprecated).
-[**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments. (deprecated).
+[**listMarginAccounts**](MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list
+[**listMarginAccountBook**](MarginApi.md#listMarginAccountBook) | **GET** /margin/account_book | Query margin account balance change history
+[**listFundingAccounts**](MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list
+[**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Query user auto repayment settings
+[**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user auto repayment settings
+[**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get maximum transferable amount for isolated margin
+[**getUserMarginTier**](MarginApi.md#getUserMarginTier) | **GET** /margin/user/loan_margin_tiers | Query user&#39;s own leverage lending tiers in current market
+[**getMarketMarginTier**](MarginApi.md#getMarketMarginTier) | **GET** /margin/loan_margin_tiers | Query current market leverage lending tiers
+[**setUserMarketLeverage**](MarginApi.md#setUserMarketLeverage) | **POST** /margin/leverage/user_market_setting | Set user market leverage multiplier
+[**listMarginUserAccount**](MarginApi.md#listMarginUserAccount) | **GET** /margin/user/account | Query user&#39;s isolated margin account list
+[**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | Query cross margin borrow history (deprecated)
+[**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments. (deprecated)
 
 
 ## listMarginAccounts
 
 > \GateApi\Model\MarginAccount[] listMarginAccounts($currency_pair)
 
-Margin account list.
+Margin account list
 
 ### Example
 
@@ -40,7 +40,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 
 try {
     $result = $apiInstance->listMarginAccounts($associate_array);
@@ -60,7 +60,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. | [optional]
+ **currency_pair** | **string**| Currency pair | [optional]
 
 ### Return type
 
@@ -84,9 +84,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MarginAccountBook[] listMarginAccountBook($currency, $currency_pair, $type, $from, $to, $page, $limit)
 
-List margin account balance change history.
+Query margin account balance change history
 
-Only transferals from and to margin account are provided for now. Time range allows 30 days at most
+Currently only provides transfer history to and from margin accounts. Query time range cannot exceed 30 days
 
 ### Example
 
@@ -104,13 +104,13 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'currency_example'; // string | List records related to specified currency only. If specified, `currency_pair` is also required.
-$associate_array['currency_pair'] = 'currency_pair_example'; // string | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided
-$associate_array['type'] = 'lend'; // string | Only retrieve changes of the specified type. All types will be returned if not specified.
-$associate_array['from'] = 1627706330; // int | Start timestamp of the query.
-$associate_array['to'] = 1635329650; // int | Time range ending, default to current time.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
+$associate_array['currency'] = 'currency_example'; // string | Query history for specified currency. If `currency` is specified, `currency_pair` must also be specified.
+$associate_array['currency_pair'] = 'currency_pair_example'; // string | Specify margin account currency pair. Used in combination with `currency`. Ignored if `currency` is not specified
+$associate_array['type'] = 'lend'; // string | Query by specified account change type. If not specified, all change types will be included.
+$associate_array['from'] = 1627706330; // int | Start timestamp for the query
+$associate_array['to'] = 1635329650; // int | End timestamp for the query, defaults to current time if not specified
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
 
 try {
     $result = $apiInstance->listMarginAccountBook($associate_array);
@@ -130,13 +130,13 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. | [optional]
- **currency_pair** | **string**| List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided | [optional]
- **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
- **from** | **int**| Start timestamp of the query. | [optional]
- **to** | **int**| Time range ending, default to current time. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **currency** | **string**| Query history for specified currency. If &#x60;currency&#x60; is specified, &#x60;currency_pair&#x60; must also be specified. | [optional]
+ **currency_pair** | **string**| Specify margin account currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not specified | [optional]
+ **type** | **string**| Query by specified account change type. If not specified, all change types will be included. | [optional]
+ **from** | **int**| Start timestamp for the query | [optional]
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\FundingAccount[] listFundingAccounts($currency)
 
-Funding account list.
+Funding account list
 
 ### Example
 
@@ -178,7 +178,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
 
 try {
     $result = $apiInstance->listFundingAccounts($associate_array);
@@ -198,7 +198,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
+ **currency** | **string**| Query by specified currency name | [optional]
 
 ### Return type
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\AutoRepaySetting getAutoRepayStatus()
 
-Retrieve user auto repayment setting.
+Query user auto repayment settings
 
 ### Example
 
@@ -278,7 +278,7 @@ This endpoint does not need any parameter.
 
 > \GateApi\Model\AutoRepaySetting setAutoRepay($status)
 
-Update user's auto repayment setting.
+Update user auto repayment settings
 
 ### Example
 
@@ -296,7 +296,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$status = 'on'; // string | New auto repayment status. `on` - enabled, `off` - disabled.
+$status = 'on'; // string | Whether to enable auto repayment: `on` - enabled, `off` - disabled
 
 try {
     $result = $apiInstance->setAutoRepay($status);
@@ -314,7 +314,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **string**| New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled. |
+ **status** | **string**| Whether to enable auto repayment: &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled |
 
 ### Return type
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MarginTransferable getMarginTransferable($currency, $currency_pair)
 
-Get the max transferable amount for a specific margin currency.
+Get maximum transferable amount for isolated margin
 
 ### Example
 
@@ -356,8 +356,8 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 
 try {
     $result = $apiInstance->getMarginTransferable($associate_array);
@@ -377,8 +377,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. |
- **currency_pair** | **string**| Currency pair. | [optional]
+ **currency** | **string**| Query by specified currency name |
+ **currency_pair** | **string**| Currency pair | [optional]
 
 ### Return type
 
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MarginLeverageTier[] getUserMarginTier($currency_pair)
 
-Check the user's own leverage lending gradient in the current market.
+Query user's own leverage lending tiers in current market
 
 ### Example
 
@@ -420,7 +420,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency_pair = 'BTC_USDT'; // string | Currency pair.
+$currency_pair = 'BTC_USDT'; // string | Currency pair
 
 try {
     $result = $apiInstance->getUserMarginTier($currency_pair);
@@ -438,7 +438,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. |
+ **currency_pair** | **string**| Currency pair |
 
 ### Return type
 
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\MarginLeverageTier[] getMarketMarginTier($currency_pair)
 
-Query the current market leverage lending gradient.
+Query current market leverage lending tiers
 
 ### Example
 
@@ -476,7 +476,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$currency_pair = 'BTC_USDT'; // string | Currency pair.
+$currency_pair = 'BTC_USDT'; // string | Currency pair
 
 try {
     $result = $apiInstance->getMarketMarginTier($currency_pair);
@@ -494,7 +494,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. |
+ **currency_pair** | **string**| Currency pair |
 
 ### Return type
 
@@ -518,7 +518,7 @@ No authorization required
 
 > setUserMarketLeverage($margin_market_leverage)
 
-Set the user market leverage multiple.
+Set user market leverage multiplier
 
 ### Example
 
@@ -577,9 +577,9 @@ void (empty response body)
 
 > \GateApi\Model\MarginAccount[] listMarginUserAccount($currency_pair)
 
-Query the user's leverage account list.
+Query user's isolated margin account list
 
-Support querying risk rate per position account and margin rate per position account
+Supports querying risk ratio isolated accounts and margin ratio isolated accounts
 
 ### Example
 
@@ -597,7 +597,7 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair.
+$associate_array['currency_pair'] = 'BTC_USDT'; // string | Currency pair
 
 try {
     $result = $apiInstance->listMarginUserAccount($associate_array);
@@ -617,7 +617,7 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_pair** | **string**| Currency pair. | [optional]
+ **currency_pair** | **string**| Currency pair | [optional]
 
 ### Return type
 
@@ -641,9 +641,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CrossMarginLoan[] listCrossMarginLoans($status, $currency, $limit, $offset, $reverse)
 
-List cross margin borrow history. (deprecated).
+Query cross margin borrow history (deprecated)
 
-Sort by creation time in descending order by default. Set `reverse=false` to return ascending results.
+Sorted by creation time in descending order by default. Set `reverse=false` for ascending order
 
 ### Example
 
@@ -661,10 +661,10 @@ $apiInstance = new GateApi\Api\MarginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['status'] = 56; // int | Filter by status. Supported values are 2 and 3. (deprecated.).
-$associate_array['currency'] = 'currency_example'; // string | Filter by currency.
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['status'] = 56; // int | Filter by status. Supported values are 2 and 3. (deprecated.)
+$associate_array['currency'] = 'currency_example'; // string | Query by specified currency, includes all currencies if not specified
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['reverse'] = true; // bool | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
 
 try {
@@ -685,10 +685,10 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **int**| Filter by status. Supported values are 2 and 3. (deprecated.). |
- **currency** | **string**| Filter by currency. | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **status** | **int**| Filter by status. Supported values are 2 and 3. (deprecated.) |
+ **currency** | **string**| Query by specified currency, includes all currencies if not specified | [optional]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **bool**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
 ### Return type
@@ -713,9 +713,9 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\CrossMarginRepayment[] listCrossMarginRepayments($currency, $loan_id, $limit, $offset, $reverse)
 
-Retrieve cross margin repayments. (deprecated).
+Retrieve cross margin repayments. (deprecated)
 
-Sort by creation time in descending order by default. Set `reverse=false` to return ascending results.
+Sorted by creation time in descending order by default. Set `reverse=false` for ascending order
 
 ### Example
 
@@ -735,8 +735,8 @@ $apiInstance = new GateApi\Api\MarginApi(
 );
 $associate_array['currency'] = 'BTC'; // string | 
 $associate_array['loan_id'] = '12345'; // string | 
-$associate_array['limit'] = 100; // int | Maximum number of records to be returned in a single list.
-$associate_array['offset'] = 0; // int | List offset, starting from 0.
+$associate_array['limit'] = 100; // int | Maximum number of records returned in a single list
+$associate_array['offset'] = 0; // int | List offset, starting from 0
 $associate_array['reverse'] = true; // bool | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
 
 try {
@@ -759,8 +759,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**|  | [optional]
  **loan_id** | **string**|  | [optional]
- **limit** | **int**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **int**| List offset, starting from 0. | [optional] [default to 0]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **bool**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
 ### Return type

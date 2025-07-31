@@ -4,24 +4,24 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listUniCurrencies**](EarnUniApi.md#listUniCurrencies) | **GET** /earn/uni/currencies | List currencies for lending.
-[**getUniCurrency**](EarnUniApi.md#getUniCurrency) | **GET** /earn/uni/currencies/{currency} | Get currency detail for lending.
-[**listUserUniLends**](EarnUniApi.md#listUserUniLends) | **GET** /earn/uni/lends | List user&#39;s lending orders.
-[**createUniLend**](EarnUniApi.md#createUniLend) | **POST** /earn/uni/lends | Lend or redeem.
-[**changeUniLend**](EarnUniApi.md#changeUniLend) | **PATCH** /earn/uni/lends | Amend lending order.
-[**listUniLendRecords**](EarnUniApi.md#listUniLendRecords) | **GET** /earn/uni/lend_records | List records of lending.
-[**getUniInterest**](EarnUniApi.md#getUniInterest) | **GET** /earn/uni/interests/{currency} | Get the user&#39;s total interest income of specified currency.
-[**listUniInterestRecords**](EarnUniApi.md#listUniInterestRecords) | **GET** /earn/uni/interest_records | List interest records.
-[**getUniInterestStatus**](EarnUniApi.md#getUniInterestStatus) | **GET** /earn/uni/interest_status/{currency} | query currency interest compounding status.
-[**listUniChart**](EarnUniApi.md#listUniChart) | **GET** /earn/uni/chart | UniLoan currency annualized trend chart.
-[**listUniRate**](EarnUniApi.md#listUniRate) | **GET** /earn/uni/rate | Currency estimate annualized interest rate.
+[**listUniCurrencies**](EarnUniApi.md#listUniCurrencies) | **GET** /earn/uni/currencies | Query lending currency list
+[**getUniCurrency**](EarnUniApi.md#getUniCurrency) | **GET** /earn/uni/currencies/{currency} | Query single lending currency details
+[**listUserUniLends**](EarnUniApi.md#listUserUniLends) | **GET** /earn/uni/lends | Query user&#39;s lending order list
+[**createUniLend**](EarnUniApi.md#createUniLend) | **POST** /earn/uni/lends | Create lending or redemption
+[**changeUniLend**](EarnUniApi.md#changeUniLend) | **PATCH** /earn/uni/lends | Amend user lending information
+[**listUniLendRecords**](EarnUniApi.md#listUniLendRecords) | **GET** /earn/uni/lend_records | Query lending transaction records
+[**getUniInterest**](EarnUniApi.md#getUniInterest) | **GET** /earn/uni/interests/{currency} | Query user&#39;s total interest income for specified currency
+[**listUniInterestRecords**](EarnUniApi.md#listUniInterestRecords) | **GET** /earn/uni/interest_records | Query user dividend records
+[**getUniInterestStatus**](EarnUniApi.md#getUniInterestStatus) | **GET** /earn/uni/interest_status/{currency} | Query currency interest compounding status
+[**listUniChart**](EarnUniApi.md#listUniChart) | **GET** /earn/uni/chart | UniLoan currency annualized trend chart
+[**listUniRate**](EarnUniApi.md#listUniRate) | **GET** /earn/uni/rate | Currency estimated annualized interest rate
 
 
 ## listUniCurrencies
 
 > \GateApi\Model\UniCurrency[] listUniCurrencies()
 
-List currencies for lending.
+Query lending currency list
 
 ### Example
 
@@ -73,7 +73,7 @@ No authorization required
 
 > \GateApi\Model\UniCurrency getUniCurrency($currency)
 
-Get currency detail for lending.
+Query single lending currency details
 
 ### Example
 
@@ -87,7 +87,7 @@ $apiInstance = new GateApi\Api\EarnUniApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$currency = 'btc'; // string | Currency.
+$currency = 'btc'; // string | Currency
 
 try {
     $result = $apiInstance->getUniCurrency($currency);
@@ -105,7 +105,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. |
+ **currency** | **string**| Currency |
 
 ### Return type
 
@@ -129,7 +129,7 @@ No authorization required
 
 > \GateApi\Model\UniLend[] listUserUniLends($currency, $page, $limit)
 
-List user's lending orders.
+Query user's lending order list
 
 ### Example
 
@@ -147,9 +147,9 @@ $apiInstance = new GateApi\Api\EarnUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
 
 try {
     $result = $apiInstance->listUserUniLends($associate_array);
@@ -169,9 +169,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 
 ### Return type
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 > createUniLend($create_uni_lend)
 
-Lend or redeem.
+Create lending or redemption
 
 Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited.
 
@@ -256,9 +256,9 @@ void (empty response body)
 
 > changeUniLend($patch_uni_lend)
 
-Amend lending order.
+Amend user lending information
 
-Currently only supports amending the minimum interest rate (hour).
+Currently only supports amending minimum interest rate (hourly)
 
 ### Example
 
@@ -317,7 +317,7 @@ void (empty response body)
 
 > \GateApi\Model\UniLendRecord[] listUniLendRecords($currency, $page, $limit, $from, $to, $type)
 
-List records of lending.
+Query lending transaction records
 
 ### Example
 
@@ -335,12 +335,12 @@ $apiInstance = new GateApi\Api\EarnUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-$associate_array['type'] = 'lend'; // string | type: lend - lend, redeem - redeem.
+$associate_array['type'] = 'lend'; // string | Operation type: lend - Lend, redeem - Redeem
 
 try {
     $result = $apiInstance->listUniLendRecords($associate_array);
@@ -360,12 +360,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **type** | **string**| type: lend - lend, redeem - redeem. | [optional]
+ **type** | **string**| Operation type: lend - Lend, redeem - Redeem | [optional]
 
 ### Return type
 
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UniLendInterest getUniInterest($currency)
 
-Get the user's total interest income of specified currency.
+Query user's total interest income for specified currency
 
 ### Example
 
@@ -407,7 +407,7 @@ $apiInstance = new GateApi\Api\EarnUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'btc'; // string | Currency.
+$currency = 'btc'; // string | Currency
 
 try {
     $result = $apiInstance->getUniInterest($currency);
@@ -425,7 +425,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. |
+ **currency** | **string**| Currency |
 
 ### Return type
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UniInterestRecord[] listUniInterestRecords($currency, $page, $limit, $from, $to)
 
-List interest records.
+Query user dividend records
 
 ### Example
 
@@ -467,9 +467,9 @@ $apiInstance = new GateApi\Api\EarnUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$associate_array['currency'] = 'BTC'; // string | Retrieve data of the specified currency.
-$associate_array['page'] = 1; // int | Page number.
-$associate_array['limit'] = 100; // int | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+$associate_array['currency'] = 'BTC'; // string | Query by specified currency name
+$associate_array['page'] = 1; // int | Page number
+$associate_array['limit'] = 100; // int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
 $associate_array['from'] = 1547706332; // int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
 $associate_array['to'] = 1547706332; // int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
 
@@ -491,9 +491,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency. | [optional]
- **page** | **int**| Page number. | [optional] [default to 1]
- **limit** | **int**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **currency** | **string**| Query by specified currency name | [optional]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
  **from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\UniCurrencyInterest getUniInterestStatus($currency)
 
-query currency interest compounding status.
+Query currency interest compounding status
 
 ### Example
 
@@ -537,7 +537,7 @@ $apiInstance = new GateApi\Api\EarnUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency = 'btc'; // string | Currency.
+$currency = 'btc'; // string | Currency
 
 try {
     $result = $apiInstance->getUniInterestStatus($currency);
@@ -555,7 +555,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency. |
+ **currency** | **string**| Currency |
 
 ### Return type
 
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\InlineResponse200[] listUniChart($from, $to, $asset)
 
-UniLoan currency annualized trend chart.
+UniLoan currency annualized trend chart
 
 Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0
 
@@ -599,9 +599,9 @@ $apiInstance = new GateApi\Api\EarnUniApi(
     new GuzzleHttp\Client(),
     $config
 );
-$from = 1719763200; // int | Start timestamp, unit s, maximum span of 30 days.
-$to = 1722441600; // int | End timestamp, unit s, maximum span of 30 days.
-$asset = 'BTC'; // string | Currency name.
+$from = 1719763200; // int | Start timestamp in seconds, maximum span 30 days
+$to = 1722441600; // int | End timestamp in seconds, maximum span 30 days
+$asset = 'BTC'; // string | Currency name
 
 try {
     $result = $apiInstance->listUniChart($from, $to, $asset);
@@ -619,9 +619,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **int**| Start timestamp, unit s, maximum span of 30 days. |
- **to** | **int**| End timestamp, unit s, maximum span of 30 days. |
- **asset** | **string**| Currency name. |
+ **from** | **int**| Start timestamp in seconds, maximum span 30 days |
+ **to** | **int**| End timestamp in seconds, maximum span 30 days |
+ **asset** | **string**| Currency name |
 
 ### Return type
 
@@ -645,7 +645,7 @@ Name | Type | Description  | Notes
 
 > \GateApi\Model\InlineResponse2001[] listUniRate()
 
-Currency estimate annualized interest rate.
+Currency estimated annualized interest rate
 
 Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0
 
